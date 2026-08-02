@@ -135,15 +135,29 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "5.2.1",
+    "version": "5.3.0",
     "mode": "Advisory / paper-validation",
     "data_source": "KuCoin public spot candles",
-    "timeframe": "4hour"
+    "timeframe": "4hour",
+    "feature": "Strategy Health Monitor"
   },
   "threecommas": {
     "enabled": true,
     "publish_mode": "masked",
     "note": "Read-only BOTS_READ via RSA. Masked hides exact prices and dollar amounts because GitHub Pages is public.",
     "authentication": "RSA self-generated"
+  },
+  "health_monitor": {
+    "recent_window_days": 90,
+    "freshness_warning_hours": 12,
+    "freshness_critical_hours": 24,
+    "drawdown_warning_pct": 10,
+    "drawdown_critical_pct": 20,
+    "open_loss_warning_pct": 10,
+    "open_loss_critical_pct": 20,
+    "duration_warning_multiple": 1.5,
+    "duration_critical_multiple": 2.0,
+    "history_points": 180,
+    "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
   }
 }

@@ -113,9 +113,80 @@ def ladder(entry:float,setting:dict[str,Any],base:float)->tuple[list[float],list
         prices.append(entry*(1-cum)); sizes.append(base*float(setting['volume_scale'])**(k+1))
     return prices,sizes
 
+def health_monitor(candles:list[Candle],deals:list[dict[str,Any]],equity_curve:list[tuple[int,float]],open_data:dict[str,Any]|None,maxcap:float,overall_avg_hours:float,overall_longest_hours:float,cfg:dict[str,Any])->dict[str,Any]:
+    hcfg=cfg.get('health_monitor',{})
+    recent_days=int(hcfg.get('recent_window_days',90)); cutoff=candles[-1].ts-recent_days*86400
+    recent_deals=[]
+    for d in deals:
+        try: exit_ts=int(datetime.fromisoformat(d['exit_time'].replace('Z','+00:00')).timestamp())
+        except Exception: continue
+        if exit_ts>=cutoff: recent_deals.append(d)
+    recent_pnl=sum(float(d['pnl']) for d in recent_deals)
+    recent_avg=sum(float(d['hours']) for d in recent_deals)/len(recent_deals) if recent_deals else 0.0
+    recent_longest=max((float(d['hours']) for d in recent_deals),default=0.0)
+    recent_points=[(ts,eq) for ts,eq in equity_curve if ts>=cutoff]
+    if not recent_points: recent_points=equity_curve[-1:]
+    peak=recent_points[0][1] if recent_points else 0.0; recent_mdd=0.0
+    for _,eq in recent_points:
+        peak=max(peak,eq); recent_mdd=min(recent_mdd,eq-peak)
+    recent_mdd_pct=recent_mdd/maxcap*100 if maxcap else 0.0
+    open_loss_pct=(float(open_data['open_pnl'])/maxcap*100) if open_data and maxcap else 0.0
+    open_hours=float(open_data['hours_open']) if open_data else 0.0
+    age_hours=max(0.0,(datetime.now(timezone.utc).timestamp()-candles[-1].ts)/3600)
+    score=100; flags=[]; positives=[]
+    warn_f=float(hcfg.get('freshness_warning_hours',12)); crit_f=float(hcfg.get('freshness_critical_hours',24))
+    if age_hours>crit_f: score-=40; flags.append(f'Market data is {age_hours:.0f} hours old')
+    elif age_hours>warn_f: score-=20; flags.append(f'Market data is {age_hours:.0f} hours old')
+    else: positives.append('Market data is current')
+    if recent_pnl<0: score-=20; flags.append(f'Recent {recent_days}-day realised P&L is negative')
+    elif recent_deals: positives.append(f'Recent {recent_days}-day realised P&L is positive')
+    else: flags.append(f'No completed deals in the last {recent_days} days')
+    dd_warn=-abs(float(hcfg.get('drawdown_warning_pct',10))); dd_crit=-abs(float(hcfg.get('drawdown_critical_pct',20)))
+    if recent_mdd_pct<=dd_crit: score-=20; flags.append(f'Recent drawdown reached {recent_mdd_pct:.1f}% of capital')
+    elif recent_mdd_pct<=dd_warn: score-=10; flags.append(f'Recent drawdown reached {recent_mdd_pct:.1f}% of capital')
+    else: positives.append('Recent drawdown is within the monitoring limit')
+    if overall_avg_hours>0 and recent_avg>0:
+        ratio=recent_avg/overall_avg_hours
+        if ratio>=float(hcfg.get('duration_critical_multiple',2.0)): score-=18; flags.append('Recent average trade duration is over twice the historical average')
+        elif ratio>=float(hcfg.get('duration_warning_multiple',1.5)): score-=9; flags.append('Recent average trade duration is elevated')
+        else: positives.append('Recent trade duration is consistent with history')
+    if open_data:
+        loss_warn=-abs(float(hcfg.get('open_loss_warning_pct',10))); loss_crit=-abs(float(hcfg.get('open_loss_critical_pct',20)))
+        if open_loss_pct<=loss_crit: score-=20; flags.append(f'Open replay position is {open_loss_pct:.1f}% of capital underwater')
+        elif open_loss_pct<=loss_warn: score-=10; flags.append(f'Open replay position is {open_loss_pct:.1f}% of capital underwater')
+        duration_ref=max(overall_avg_hours*2,336.0)
+        if open_hours>duration_ref*2: score-=16; flags.append(f'Open replay position has lasted {open_hours/24:.1f} days')
+        elif open_hours>duration_ref: score-=8; flags.append(f'Open replay position duration is elevated ({open_hours/24:.1f} days)')
+    else: positives.append('No unresolved replay position')
+    score=max(0,min(100,int(round(score))))
+    if score>=85: status='Excellent'
+    elif score>=70: status='Healthy'
+    elif score>=50: status='Watch'
+    else: status='Review'
+    return {
+      'score':score,'status':status,'flags':flags,'positives':positives,
+      'recent_window_days':recent_days,'recent_closed_deals':len(recent_deals),
+      'recent_realised_pnl':recent_pnl,'recent_average_trade_hours':recent_avg,
+      'recent_longest_trade_hours':recent_longest,'recent_max_drawdown_dollars':recent_mdd,
+      'recent_max_drawdown_pct_of_capital':recent_mdd_pct,'open_loss_pct_of_capital':open_loss_pct,
+      'open_hours':open_hours,'data_age_hours':age_hours,
+      'historical_average_trade_hours':overall_avg_hours,'historical_longest_trade_hours':overall_longest_hours,
+      'note':hcfg.get('note','Health score is a monitoring indicator, not a forecast.')
+    }
+
+def update_health_history(path:Path,payload:dict[str,Any],limit:int=180)->None:
+    try: history=json.loads(path.read_text(encoding='utf-8')) if path.exists() else {'points':[]}
+    except Exception: history={'points':[]}
+    points=list(history.get('points',[])); stamp=payload.get('generated_at')
+    for asset in payload.get('assets',[]):
+        row={'generated_at':stamp,'id':asset.get('id'),'last_candle':(asset.get('latest') or {}).get('last_candle'),'score':(asset.get('health') or {}).get('score'),'status':(asset.get('health') or {}).get('status'),'recent_pnl':(asset.get('health') or {}).get('recent_realised_pnl'),'recent_drawdown_pct':(asset.get('health') or {}).get('recent_max_drawdown_pct_of_capital')}
+        if not any(x.get('id')==row['id'] and x.get('last_candle')==row['last_candle'] for x in points): points.append(row)
+    history={'version':payload.get('version'),'generated_at':stamp,'points':points[-limit:]}
+    path.parent.mkdir(parents=True,exist_ok=True); path.write_text(json.dumps(history,indent=2),encoding='utf-8')
+
 def simulate(candles:list[Candle],signals:list[dict[str,Any]|None],asset:dict[str,Any],execution:dict[str,Any])->dict[str,Any]:
     base=float(execution['base_order']); fee=float(execution['fee_rate']); bots=asset['bots']; fcfg=asset['entry_filter']
-    realised=0.; peak=0.; mdd=0.; maxcap=0.; pos=None; deals=[]; skipped=0
+    realised=0.; peak=0.; mdd=0.; maxcap=0.; pos=None; deals=[]; skipped=0; equity_curve=[]
     for i,c in enumerate(candles):
         decision=signals[i-1] if i>0 else None
         if pos is None and decision is not None:
@@ -138,7 +209,7 @@ def simulate(candles:list[Candle],signals:list[dict[str,Any]|None],asset:dict[st
         equity=realised
         if pos is not None:
             value=pos['qty']*c.close; equity+=value-pos['cost']-pos['fees']-value*fee
-        peak=max(peak,equity); mdd=min(mdd,equity-peak)
+        peak=max(peak,equity); mdd=min(mdd,equity-peak); equity_curve.append((c.ts,equity))
     open_data=None; open_pnl=0.
     if pos is not None:
         last=candles[-1]; value=pos['qty']*last.close; open_pnl=value-pos['cost']-pos['fees']-value*fee
@@ -146,8 +217,11 @@ def simulate(candles:list[Candle],signals:list[dict[str,Any]|None],asset:dict[st
         open_data={'entry_time':iso(pos['entry_ts']),'regime':pos['regime'],'hours_open':(len(candles)-pos['entry_i'])*4,'safety_orders':pos['so'],'capital':pos['cost'],'average_entry':avg,'target':target,'last_close':last.close,'open_pnl':open_pnl,'required_rise_pct':(target/last.close-1)*100}
     net=realised+open_pnl; latest=signals[-1]; allowed,reason=permission(latest,fcfg) if latest else (False,'Insufficient history')
     bot=bots.get(latest['regime'],{}) if latest else {}
+    avg_hours=sum(d['hours'] for d in deals)/len(deals) if deals else 0
+    longest_hours=max((d['hours'] for d in deals),default=0)
+    health=health_monitor(candles,deals,equity_curve,open_data,maxcap,avg_hours,longest_hours,APP_CONFIG)
     return {'id':asset['id'],'display_name':asset['display_name'],'symbol':asset['symbol'],'history_start':iso(candles[0].ts),'history_end':iso(candles[-1].ts),'candles':len(candles),
-            'net_pnl':net,'realised_pnl':realised,'open_pnl':open_pnl,'return_on_max_capital_pct':net/maxcap*100 if maxcap else 0,'maximum_drawdown_dollars':mdd,'maximum_drawdown_pct_of_capital':mdd/maxcap*100 if maxcap else 0,'max_theoretical_capital':maxcap,'closed_deals':len(deals),'average_trade_hours':sum(d['hours'] for d in deals)/len(deals) if deals else 0,'longest_trade_hours':max((d['hours'] for d in deals),default=0),'skipped_entry_candles':skipped,'open_position':open_data,
+            'net_pnl':net,'realised_pnl':realised,'open_pnl':open_pnl,'return_on_max_capital_pct':net/maxcap*100 if maxcap else 0,'maximum_drawdown_dollars':mdd,'maximum_drawdown_pct_of_capital':mdd/maxcap*100 if maxcap else 0,'max_theoretical_capital':maxcap,'closed_deals':len(deals),'average_trade_hours':avg_hours,'longest_trade_hours':longest_hours,'skipped_entry_candles':skipped,'open_position':open_data,'health':health,
             'latest':{**(latest or {}),'entry_allowed':allowed,'entry_reason':reason,'recommended_bot':bot.get('name'),'bot_settings':bot,'last_close':candles[-1].close,'last_candle':iso(candles[-1].ts)},'recent_deals':deals[-10:],'all_deals':deals}
 
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
@@ -156,8 +230,9 @@ def write_deals(path:Path,deals:list[dict[str,Any]])->None:
         w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(deals)
 
 def main()->int:
+    global APP_CONFIG
     parser=argparse.ArgumentParser(); parser.add_argument('--no-sync',action='store_true'); args=parser.parse_args()
-    cfg=load_json(CONFIG); outputs=[]
+    cfg=load_json(CONFIG); APP_CONFIG=cfg; outputs=[]
     for asset in cfg['assets']:
         path=ROOT/asset['history_file']; candles=load_history(path); added=0; error=None
         if not args.no_sync:
@@ -167,7 +242,8 @@ def main()->int:
             except Exception as exc:error=str(exc)
         result=simulate(candles,indicators(candles,asset),asset,cfg['execution']); result['sync']={'new_candles':added,'error':error,'source':'KuCoin public spot candles API'}; result['strategy_config']={'regime':asset['regime'],'entry_filter':asset['entry_filter'],'bots':asset['bots']}
         write_deals(ROOT/asset['deal_log'],result.pop('all_deals')); outputs.append(result)
-    payload={'version':cfg.get('app',{}).get('version','5.1.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','assets':outputs}
+    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','assets':outputs}
     out=ROOT/cfg['execution']['output_json']; out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(payload,indent=2),encoding='utf-8')
+    update_health_history(ROOT/'docs/health_history.json',payload,int(cfg.get('health_monitor',{}).get('history_points',180)))
     print(json.dumps(payload,indent=2)); return 0
 if __name__=='__main__': raise SystemExit(main())
