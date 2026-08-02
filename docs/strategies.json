@@ -7,7 +7,7 @@
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour"
   },
-  "generated_at": "2026-08-02T11:48:04.082744+00:00",
+  "generated_at": "2026-08-02T15:48:00.188564+00:00",
   "workflow_status": "ok",
   "assets": [
     {
@@ -15,12 +15,12 @@
       "display_name": "TEL",
       "symbol": "TEL-USDT",
       "history_start": "2025-03-30T12:00:00Z",
-      "history_end": "2026-08-02T04:00:00Z",
-      "candles": 2939,
-      "net_pnl": 5233.618718257514,
+      "history_end": "2026-08-02T08:00:00Z",
+      "candles": 2940,
+      "net_pnl": 5230.86827671015,
       "realised_pnl": 5406.775183271634,
-      "open_pnl": -173.15646501411985,
-      "return_on_max_capital_pct": 106.47690890022383,
+      "open_pnl": -175.90690656148394,
+      "return_on_max_capital_pct": 106.42095172606965,
       "maximum_drawdown_dollars": -912.2416582921162,
       "maximum_drawdown_pct_of_capital": -18.559371091766923,
       "max_theoretical_capital": 4915.261695999998,
@@ -31,24 +31,24 @@
       "open_position": {
         "entry_time": "2026-07-08T12:00:00Z",
         "regime": "Medium",
-        "hours_open": 596,
+        "hours_open": 600,
         "safety_orders": 4,
         "capital": 1094.5599999999997,
         "average_entry": 0.0019877998153568738,
         "target": 0.0020176168125872265,
-        "last_close": 0.001677,
-        "open_pnl": -173.15646501411985,
-        "required_rise_pct": 20.31108005886859
+        "last_close": 0.001672,
+        "open_pnl": -175.90690656148394,
+        "required_rise_pct": 20.67086199684369
       },
       "latest": {
         "regime": "Low",
-        "rv": 77.50278980555217,
-        "ema50": 0.001738922840608437,
-        "ema200": 0.0019725557498671154,
-        "rsi14": 37.78078306362243,
-        "distance_ema200": -14.983391464957375,
-        "distance_ema50": -3.560988398241438,
-        "return24": -2.7262180974477968,
+        "rv": 77.38054971700309,
+        "ema50": 0.0017362984154865374,
+        "ema200": 0.0019695651453908256,
+        "rsi14": 36.63976273833075,
+        "distance_ema200": -15.108164667068113,
+        "distance_ema50": -3.7031892048648762,
+        "return24": -3.0724637681159406,
         "entry_allowed": true,
         "entry_reason": "All entry rules pass",
         "recommended_bot": "TEL Low Volatility Bot",
@@ -60,8 +60,8 @@
           "volume_scale": 1.6,
           "step_scale": 1.0
         },
-        "last_close": 0.001677,
-        "last_candle": "2026-08-02T04:00:00Z"
+        "last_close": 0.001672,
+        "last_candle": "2026-08-02T08:00:00Z"
       },
       "recent_deals": [
         {
@@ -156,7 +156,7 @@
         }
       ],
       "sync": {
-        "new_candles": 0,
+        "new_candles": 1,
         "error": null,
         "source": "KuCoin public spot candles API"
       },
@@ -221,8 +221,8 @@
       "display_name": "TAO",
       "symbol": "TAO-USDT",
       "history_start": "2026-04-03T20:00:00Z",
-      "history_end": "2026-08-02T04:00:00Z",
-      "candles": 723,
+      "history_end": "2026-08-02T08:00:00Z",
+      "candles": 724,
       "net_pnl": 268.91213366399836,
       "realised_pnl": 268.91213366399836,
       "open_pnl": 0.0,
@@ -233,19 +233,19 @@
       "closed_deals": 14,
       "average_trade_hours": 64.57142857142857,
       "longest_trade_hours": 368,
-      "skipped_entry_candles": 376,
+      "skipped_entry_candles": 377,
       "open_position": null,
       "latest": {
         "regime": "Low",
-        "rv": 50.28151687812552,
-        "ema50": 193.78815215355178,
-        "ema200": 202.4755192970811,
-        "rsi14": 51.70770066449364,
-        "distance_ema200": -4.037781616989255,
-        "distance_ema50": 0.2641275231535678,
-        "return24": -0.9784935276730189,
+        "rv": 50.370452754785255,
+        "ema50": 193.738028539687,
+        "ema200": 202.37635990109027,
+        "rsi14": 47.86598568988706,
+        "distance_ema200": -4.875253169842752,
+        "distance_ema50": -0.6338603468525883,
+        "return24": -1.3123494130312219,
         "entry_allowed": false,
-        "entry_reason": "RSI is above the allowed maximum",
+        "entry_reason": "Price is too far above EMA50",
         "recommended_bot": "TAO Low Pullback Bot",
         "bot_settings": {
           "name": "TAO Low Pullback Bot",
@@ -255,8 +255,8 @@
           "volume_scale": 1.4,
           "step_scale": 1.2
         },
-        "last_close": 194.3,
-        "last_candle": "2026-08-02T04:00:00Z"
+        "last_close": 192.51,
+        "last_candle": "2026-08-02T08:00:00Z"
       },
       "recent_deals": [
         {
@@ -351,7 +351,7 @@
         }
       ],
       "sync": {
-        "new_candles": 0,
+        "new_candles": 1,
         "error": null,
         "source": "KuCoin public spot candles API"
       },
