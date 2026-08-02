@@ -259,6 +259,24 @@
             "human_rule": "entry requires close at or above EMA50"
           }
         ]
+      },
+      "strategy_evolution": {
+        "enabled": true,
+        "auto_suggest": true,
+        "test_compatible_combinations": true,
+        "max_combination_size": 2,
+        "maximum_combination_candidates": 6,
+        "minimum_single_rule_rank_score": 20.0,
+        "minimum_combination_net_improvement": 0.0,
+        "minimum_deal_retention_pct": 25.0,
+        "manual_approval_required": true,
+        "principles": [
+          "Production strategies are immutable",
+          "One-variable evidence comes before combinations",
+          "Post-hoc results are suggestions, not validation",
+          "Every promotion requires a new forward-test start date"
+        ],
+        "suggestion_note": "Suggestions are generated automatically, but no strategy or setting is changed without manual approval."
       }
     }
   ],
@@ -270,11 +288,11 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "7.2.0",
-    "mode": "TEL/TAO advisory + SUI automated research experiments",
+    "version": "8.0.0",
+    "mode": "TEL/TAO advisory + controlled strategy evolution",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
-    "feature": "Automatic Candidate Experiments"
+    "feature": "Strategy Evolution Engine"
   },
   "threecommas": {
     "enabled": true,

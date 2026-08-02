@@ -1,25 +1,24 @@
 {
-  "version": "7.2.0",
+  "version": "7.1.0",
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "7.2.0",
-    "mode": "TEL/TAO advisory + SUI automated research experiments",
+    "version": "7.1.0",
+    "mode": "TEL/TAO advisory + SUI forward research",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
-    "feature": "Automatic Candidate Experiments"
+    "feature": "SUI Research Mode"
   },
-  "generated_at": "2026-08-02T19:20:38.099983+00:00",
+  "generated_at": "2026-08-02T17:24:37.299277+00:00",
   "workflow_status": "ok",
   "portfolio": {
     "best_opportunity": {
       "id": "TEL",
       "symbol": "TEL-USDT",
-      "score": 61,
+      "score": 44,
       "recommended_bot": "TEL Low Volatility Bot"
     },
     "eligible_count": 1,
     "monitored_assets": 2,
-    "research_assets": 1,
     "active_replay_positions": 1,
     "combined_max_theoretical_capital": 8354.734335999996,
     "ranking": [
@@ -27,45 +26,38 @@
         "rank": 1,
         "id": "TEL",
         "symbol": "TEL-USDT",
-        "score": 61,
+        "score": 44,
         "action": "CAUTIOUS",
         "entry_allowed": true,
         "regime": "Low",
-        "health": "Watch"
+        "health": "Review"
       },
       {
         "rank": 2,
         "id": "TAO",
         "symbol": "TAO-USDT",
-        "score": 45,
+        "score": 23,
         "action": "WAIT",
         "entry_allowed": false,
         "regime": "Low",
-        "health": "Excellent"
+        "health": "Watch"
       }
     ],
-    "research": [
-      {
-        "id": "SUI",
-        "symbol": "SUI-USDT",
-        "promotion_status": "FAIL \u2014 review risk"
-      }
-    ],
-    "operating_rule": "Production rankings include TEL and TAO only. Research assets never become live recommendations automatically."
+    "operating_rule": "Treat scores as a ranking aid. Never start a new deal when entry_allowed is false, and do not alter an existing open deal.",
+    "research_assets": 1
   },
   "assets": [
     {
       "id": "TEL",
       "display_name": "TEL",
       "symbol": "TEL-USDT",
-      "production_status": "production",
       "history_start": "2025-03-30T12:00:00Z",
-      "history_end": "2026-08-02T12:00:00Z",
-      "candles": 2941,
-      "net_pnl": 5224.817305305949,
+      "history_end": "2026-07-17T08:00:00Z",
+      "candles": 2844,
+      "net_pnl": 5356.882828814481,
       "realised_pnl": 5406.775183271634,
-      "open_pnl": -181.9578779656847,
-      "return_on_max_capital_pct": 106.29784594293048,
+      "open_pnl": -49.892354457152685,
+      "return_on_max_capital_pct": 108.9846921716065,
       "maximum_drawdown_dollars": -912.2416582921162,
       "maximum_drawdown_pct_of_capital": -18.559371091766923,
       "max_theoretical_capital": 4915.261695999998,
@@ -76,41 +68,24 @@
       "open_position": {
         "entry_time": "2026-07-08T12:00:00Z",
         "regime": "Medium",
-        "hours_open": 604,
-        "safety_orders": 4,
-        "capital": 1094.5599999999997,
-        "average_entry": 0.0019877998153568738,
-        "target": 0.0020176168125872265,
-        "last_close": 0.001661,
-        "open_pnl": -181.9578779656847,
-        "required_rise_pct": 21.47000677827975,
-        "entry_signal": {
-          "regime": "Medium",
-          "rv": 98.2626413396156,
-          "ema50": 0.002336089254017795,
-          "ema200": 0.0024095345356453944,
-          "rsi14": 59.31498068731308,
-          "distance_ema200": 0.2268265622987542,
-          "distance_ema50": 3.377899446542454,
-          "ema200_slope_pct": 0.0022797159125786948,
-          "return24": 7.047872340425521,
-          "ema50_slope_pct": 0.1380638001176493,
-          "pullback20_pct": 12.213740458015266,
-          "atr14": 7.822016247937027e-05,
-          "atr_expansion_ratio": 1.4469644914339188,
-          "consecutive_bearish_candles": 1
-        }
+        "hours_open": 216,
+        "safety_orders": 3,
+        "capital": 710.3999999999999,
+        "average_entry": 0.0021337332432325084,
+        "target": 0.002165739241880996,
+        "last_close": 0.001988,
+        "open_pnl": -49.892354457152685,
+        "required_rise_pct": 8.940605728420303
       },
       "health": {
-        "score": 64,
-        "status": "Watch",
+        "score": 32,
+        "status": "Review",
         "flags": [
+          "Market data is 393 hours old",
           "Recent drawdown reached -15.5% of capital",
-          "Recent average trade duration is over twice the historical average",
-          "Open replay position duration is elevated (25.2 days)"
+          "Recent average trade duration is over twice the historical average"
         ],
         "positives": [
-          "Market data is current",
           "Recent 90-day realised P&L is positive"
         ],
         "recent_window_days": 90,
@@ -120,28 +95,22 @@
         "recent_longest_trade_hours": 556.0,
         "recent_max_drawdown_dollars": -761.5579703043404,
         "recent_max_drawdown_pct_of_capital": -15.493742091577554,
-        "open_loss_pct_of_capital": -3.7018960376771113,
-        "open_hours": 604.0,
-        "data_age_hours": 7.3437804636028075,
+        "open_loss_pct_of_capital": -1.0150498090011097,
+        "open_hours": 216.0,
+        "data_age_hours": 393.4103583772315,
         "historical_average_trade_hours": 20.49269311064718,
         "historical_longest_trade_hours": 556,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
       },
       "latest": {
         "regime": "Low",
-        "rv": 76.37555609935887,
-        "ema50": 0.0017333455364478495,
-        "ema200": 0.001966494845436688,
-        "rsi14": 34.19313071232007,
-        "distance_ema200": -15.534993450178547,
-        "distance_ema50": -4.173751564624995,
-        "ema200_slope_pct": -0.15588719983812283,
-        "return24": -2.0636792452830233,
-        "ema50_slope_pct": -0.1700674845032557,
-        "pullback20_pct": 24.568574023614897,
-        "atr14": 3.678780488753383e-05,
-        "atr_expansion_ratio": 1.0542424538493986,
-        "consecutive_bearish_candles": 3,
+        "rv": 65.404338490974,
+        "ema50": 0.0021400142546332654,
+        "ema200": 0.0023060892034563207,
+        "rsi14": 33.79862020219326,
+        "distance_ema200": -13.793447494553757,
+        "distance_ema50": -7.103422526468917,
+        "return24": -0.8973080757726737,
         "entry_allowed": true,
         "entry_reason": "All entry rules pass",
         "recommended_bot": "TEL Low Volatility Bot",
@@ -153,8 +122,8 @@
           "volume_scale": 1.6,
           "step_scale": 1.0
         },
-        "last_close": 0.001661,
-        "last_candle": "2026-08-02T12:00:00Z"
+        "last_close": 0.001988,
+        "last_candle": "2026-07-17T08:00:00Z"
       },
       "recent_deals": [
         {
@@ -164,23 +133,7 @@
           "pnl": 1.2984999999999716,
           "hours": 20,
           "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 96.74275589757971,
-            "ema50": 0.002350688569587962,
-            "ema200": 0.0024554350073210094,
-            "rsi14": 44.19404700957997,
-            "distance_ema200": -7.348392719947084,
-            "distance_ema50": -3.219846753295308,
-            "ema200_slope_pct": -0.07379869047586807,
-            "return24": -3.232666950233931,
-            "ema50_slope_pct": -0.13124982490078096,
-            "pullback20_pct": 17.302798982188293,
-            "atr14": 5.97085011318025e-05,
-            "atr_expansion_ratio": 0.9343108491280547,
-            "consecutive_bearish_candles": 0
-          }
+          "capital": 100.0
         },
         {
           "entry_time": "2026-07-01T16:00:00Z",
@@ -189,23 +142,7 @@
           "pnl": 1.2985,
           "hours": 20,
           "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 96.62839708937793,
-            "ema50": 0.0023357067538799167,
-            "ema200": 0.0024462647263939277,
-            "rsi14": 52.68290614863834,
-            "distance_ema200": -4.998016979714204,
-            "distance_ema50": -0.5012082043462929,
-            "ema200_slope_pct": -0.05020610723567298,
-            "return24": 3.5189309576837413,
-            "ema50_slope_pct": -0.020453293500444225,
-            "pullback20_pct": 15.521628498727736,
-            "atr14": 5.992391658001566e-05,
-            "atr_expansion_ratio": 1.0415712116369056,
-            "consecutive_bearish_candles": 0
-          }
+          "capital": 100.0
         },
         {
           "entry_time": "2026-07-02T12:00:00Z",
@@ -214,23 +151,7 @@
           "pnl": 1.2984999999999858,
           "hours": 4,
           "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 97.72752406008102,
-            "ema50": 0.0023291252166735216,
-            "ema200": 0.0024390946110691507,
-            "rsi14": 53.18932872086133,
-            "distance_ema200": -4.472750280946681,
-            "distance_ema50": 0.037558449851315956,
-            "ema200_slope_pct": -0.044932066149061534,
-            "return24": 4.017857142857162,
-            "ema50_slope_pct": 0.0015330214542919052,
-            "pullback20_pct": 15.303525990548895,
-            "atr14": 6.240111404240744e-05,
-            "atr_expansion_ratio": 1.112876551929552,
-            "consecutive_bearish_candles": 0
-          }
+          "capital": 100.0
         },
         {
           "entry_time": "2026-07-02T16:00:00Z",
@@ -239,23 +160,7 @@
           "pnl": 1.2985,
           "hours": 8,
           "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 98.48127781849708,
-            "ema50": 0.002331865404254952,
-            "ema200": 0.002438695659715229,
-            "rsi14": 59.50982903646579,
-            "distance_ema200": -1.6277414345283292,
-            "distance_ema50": 2.879008180427056,
-            "ema200_slope_pct": -0.016356534597361527,
-            "return24": 3.2271944922547258,
-            "ema50_slope_pct": 0.11764878769995324,
-            "pullback20_pct": 12.795347146492176,
-            "atr14": 6.451532018223548e-05,
-            "atr_expansion_ratio": 1.0766205525983765,
-            "consecutive_bearish_candles": 0
-          }
+          "capital": 100.0
         },
         {
           "entry_time": "2026-07-03T00:00:00Z",
@@ -264,23 +169,7 @@
           "pnl": 1.2985,
           "hours": 4,
           "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 98.85046647518885,
-            "ema50": 0.0023363678722092044,
-            "ema200": 0.0024377334922497658,
-            "rsi14": 59.5936968694799,
-            "distance_ema200": -1.0966536060959542,
-            "distance_ema50": 3.194365436990254,
-            "ema200_slope_pct": -0.01102042964982175,
-            "return24": 5.100261551874441,
-            "ema50_slope_pct": 0.13055248001179187,
-            "pullback20_pct": 12.359142130134494,
-            "atr14": 6.65514750550908e-05,
-            "atr_expansion_ratio": 1.1445052823710893,
-            "consecutive_bearish_candles": 0
-          }
+          "capital": 100.0
         },
         {
           "entry_time": "2026-07-03T04:00:00Z",
@@ -289,23 +178,7 @@
           "pnl": 1.2984999999999858,
           "hours": 4,
           "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 98.77514472823565,
-            "ema50": 0.0023391377595735493,
-            "ema200": 0.0024374276863567334,
-            "rsi14": 59.095028738151534,
-            "distance_ema200": -1.2483523727513934,
-            "distance_ema50": 2.9011647624731074,
-            "ema200_slope_pct": -0.012544681114834422,
-            "return24": 3.7499999999999867,
-            "ema50_slope_pct": 0.11855527536106525,
-            "pullback20_pct": 12.504543802253732,
-            "atr14": 6.679779826544144e-05,
-            "atr_expansion_ratio": 1.1632428496449168,
-            "consecutive_bearish_candles": 1
-          }
+          "capital": 100.0
         },
         {
           "entry_time": "2026-07-03T08:00:00Z",
@@ -314,23 +187,7 @@
           "pnl": 3.1163999999999943,
           "hours": 72,
           "safety_orders": 1,
-          "capital": 240.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 98.20358048324982,
-            "ema50": 0.002342348043511842,
-            "ema200": 0.002437264226790995,
-            "rsi14": 60.345731077312216,
-            "distance_ema200": -0.6673148775670157,
-            "distance_ema50": 3.357825354179078,
-            "ema200_slope_pct": -0.006706232420894409,
-            "return24": 7.409050576752452,
-            "ema50_slope_pct": 0.13724219213484545,
-            "pullback20_pct": 11.995637949836425,
-            "atr14": 6.65979555321956e-05,
-            "atr_expansion_ratio": 1.1308199908288838,
-            "consecutive_bearish_candles": 0
-          }
+          "capital": 240.0
         },
         {
           "entry_time": "2026-07-06T08:00:00Z",
@@ -339,23 +196,7 @@
           "pnl": 1.2984999999999858,
           "hours": 44,
           "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 95.49442107687298,
-            "ema50": 0.0023350442907911994,
-            "ema200": 0.0024201628405131096,
-            "rsi14": 55.147229429183966,
-            "distance_ema200": -2.6511786495947542,
-            "distance_ema50": 0.8974437569104987,
-            "ema200_slope_pct": -0.026637913878480024,
-            "return24": 2.6579520697167736,
-            "ema50_slope_pct": 0.03664378017258496,
-            "pullback20_pct": 14.358415121773904,
-            "atr14": 5.534488560370887e-05,
-            "atr_expansion_ratio": 1.0076473983660146,
-            "consecutive_bearish_candles": 0
-          }
+          "capital": 100.0
         },
         {
           "entry_time": "2026-07-08T04:00:00Z",
@@ -364,23 +205,7 @@
           "pnl": 1.2984999999999858,
           "hours": 4,
           "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 97.50705541508302,
-            "ema50": 0.0023267814034570113,
-            "ema200": 0.0024087507581780653,
-            "rsi14": 67.06753214955609,
-            "distance_ema200": 1.7124744717521123,
-            "distance_ema50": 5.295667068677656,
-            "ema200_slope_pct": 0.017213761336876132,
-            "return24": 8.12003530450134,
-            "ema50_slope_pct": 0.21661789515168284,
-            "pullback20_pct": 10.941475826972013,
-            "atr14": 6.787072098199157e-05,
-            "atr_expansion_ratio": 1.160665876796449,
-            "consecutive_bearish_candles": 0
-          }
+          "capital": 100.0
         },
         {
           "entry_time": "2026-07-08T08:00:00Z",
@@ -389,27 +214,11 @@
           "pnl": 1.2985,
           "hours": 4,
           "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 97.64127744807355,
-            "ema50": 0.002332868407243011,
-            "ema200": 0.002409479606355398,
-            "rsi14": 69.60008932448376,
-            "distance_ema200": 3.0097948724412182,
-            "distance_ema50": 6.392627732193112,
-            "ema200_slope_pct": 0.030258347604394942,
-            "return24": 9.339207048458142,
-            "ema50_slope_pct": 0.26160617310058143,
-            "pullback20_pct": 9.778262450018183,
-            "atr14": 6.923709805470645e-05,
-            "atr_expansion_ratio": 1.228255570059012,
-            "consecutive_bearish_candles": 0
-          }
+          "capital": 100.0
         }
       ],
       "intelligence": {
-        "opportunity_score": 61,
+        "opportunity_score": 44,
         "action": "CAUTIOUS",
         "confidence_label": "Low",
         "explanation": [
@@ -422,7 +231,7 @@
           "Replay already has an unresolved position"
         ],
         "score_components": {
-          "strategy_health_weight": 35.2,
+          "strategy_health_weight": 17.6,
           "entry_permission": 25,
           "regime_bonus": 6,
           "recent_pnl_positive": true,
@@ -430,7 +239,6 @@
         },
         "note": "Opportunity score is a transparent ranking aid, not a probability of profit or financial advice."
       },
-      "experiment": null,
       "sync": {
         "new_candles": 0,
         "error": null,
@@ -496,65 +304,58 @@
       "id": "TAO",
       "display_name": "TAO",
       "symbol": "TAO-USDT",
-      "production_status": "production",
       "history_start": "2026-04-03T20:00:00Z",
-      "history_end": "2026-08-02T12:00:00Z",
-      "candles": 725,
-      "net_pnl": 268.91213366399836,
-      "realised_pnl": 268.91213366399836,
+      "history_end": "2026-07-11T16:00:00Z",
+      "candles": 594,
+      "net_pnl": 253.3810336639985,
+      "realised_pnl": 253.3810336639985,
       "open_pnl": 0.0,
-      "return_on_max_capital_pct": 7.818411768613413,
+      "return_on_max_capital_pct": 7.366857079113111,
       "maximum_drawdown_dollars": -415.0888249024398,
       "maximum_drawdown_pct_of_capital": -12.068385719225839,
       "max_theoretical_capital": 3439.4726399999986,
-      "closed_deals": 14,
-      "average_trade_hours": 64.57142857142857,
+      "closed_deals": 12,
+      "average_trade_hours": 70.66666666666667,
       "longest_trade_hours": 368,
-      "skipped_entry_candles": 378,
+      "skipped_entry_candles": 261,
       "open_position": null,
       "health": {
-        "score": 90,
-        "status": "Excellent",
+        "score": 50,
+        "status": "Watch",
         "flags": [
+          "Market data is 529 hours old",
           "Recent drawdown reached -12.1% of capital"
         ],
         "positives": [
-          "Market data is current",
           "Recent 90-day realised P&L is positive",
           "Recent trade duration is consistent with history",
           "No unresolved replay position"
         ],
         "recent_window_days": 90,
-        "recent_closed_deals": 14,
-        "recent_realised_pnl": 268.9121336639984,
-        "recent_average_trade_hours": 64.57142857142857,
+        "recent_closed_deals": 12,
+        "recent_realised_pnl": 253.38103366399852,
+        "recent_average_trade_hours": 70.66666666666667,
         "recent_longest_trade_hours": 368.0,
         "recent_max_drawdown_dollars": -415.0888249024398,
         "recent_max_drawdown_pct_of_capital": -12.068385719225839,
         "open_loss_pct_of_capital": 0.0,
         "open_hours": 0.0,
-        "data_age_hours": 7.343843005829387,
-        "historical_average_trade_hours": 64.57142857142857,
+        "data_age_hours": 529.4103608383073,
+        "historical_average_trade_hours": 70.66666666666667,
         "historical_longest_trade_hours": 368,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
       },
       "latest": {
         "regime": "Low",
-        "rv": 50.366890300232846,
-        "ema50": 193.6941842832287,
-        "ema200": 202.27928169311923,
-        "rsi14": 48.121070885846486,
-        "distance_ema200": -4.775220483417309,
-        "distance_ema50": -0.5545774578641915,
-        "ema200_slope_pct": -0.04796914423131904,
-        "return24": -0.005191299382234504,
-        "ema50_slope_pct": -0.022630691965219718,
-        "pullback20_pct": 5.351088398604487,
-        "atr14": 3.0809050816107293,
-        "atr_expansion_ratio": 0.8660421574476697,
-        "consecutive_bearish_candles": 0,
+        "rv": 65.52852306919004,
+        "ema50": 211.37806813299778,
+        "ema200": 221.77949944323652,
+        "rsi14": 57.95255250134253,
+        "distance_ema200": -3.187625303954622,
+        "distance_ema50": 1.5762902445043636,
+        "return24": 1.302193913658889,
         "entry_allowed": false,
-        "entry_reason": "Price is too far above EMA50",
+        "entry_reason": "RSI is above the allowed maximum",
         "recommended_bot": "TAO Low Pullback Bot",
         "bot_settings": {
           "name": "TAO Low Pullback Bot",
@@ -564,10 +365,28 @@
           "volume_scale": 1.4,
           "step_scale": 1.2
         },
-        "last_close": 192.62,
-        "last_candle": "2026-08-02T12:00:00Z"
+        "last_close": 214.71,
+        "last_candle": "2026-07-11T16:00:00Z"
       },
       "recent_deals": [
+        {
+          "entry_time": "2026-05-28T04:00:00Z",
+          "exit_time": "2026-05-28T16:00:00Z",
+          "regime": "Low",
+          "pnl": 5.513999999999972,
+          "hours": 16,
+          "safety_orders": 1,
+          "capital": 240.0
+        },
+        {
+          "entry_time": "2026-05-29T04:00:00Z",
+          "exit_time": "2026-05-29T16:00:00Z",
+          "regime": "Low",
+          "pnl": 16.32143999999988,
+          "hours": 16,
+          "safety_orders": 3,
+          "capital": 710.3999999999999
+        },
         {
           "entry_time": "2026-05-29T20:00:00Z",
           "exit_time": "2026-05-30T08:00:00Z",
@@ -575,23 +394,7 @@
           "pnl": 5.513999999999999,
           "hours": 16,
           "safety_orders": 1,
-          "capital": 240.0,
-          "entry_signal": {
-            "regime": "Low",
-            "rv": 77.03576689845589,
-            "ema50": 270.0077441887552,
-            "ema200": 277.9120691405665,
-            "rsi14": 32.471383456985976,
-            "distance_ema200": -10.237795439598397,
-            "distance_ema50": -7.610057352425725,
-            "ema200_slope_pct": -0.10278665680337751,
-            "return24": -5.076103500761031,
-            "ema50_slope_pct": -0.309652759177903,
-            "pullback20_pct": 24.279860373349514,
-            "atr14": 8.526229519933137,
-            "atr_expansion_ratio": 1.0350349174936955,
-            "consecutive_bearish_candles": 1
-          }
+          "capital": 240.0
         },
         {
           "entry_time": "2026-05-30T12:00:00Z",
@@ -600,23 +403,7 @@
           "pnl": 2.2974999999999857,
           "hours": 16,
           "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Low",
-            "rv": 76.6897424813769,
-            "ema50": 267.1557158179159,
-            "ema200": 276.84504024989064,
-            "rsi14": 37.59091560831211,
-            "distance_ema200": -8.822639635459495,
-            "distance_ema50": -5.5157778574197796,
-            "ema200_slope_pct": -0.08859119149632333,
-            "return24": -1.3907336510664892,
-            "ema50_slope_pct": -0.22462807639674898,
-            "pullback20_pct": 23.38139323114281,
-            "atr14": 7.609917776936961,
-            "atr_expansion_ratio": 0.9781526771637339,
-            "consecutive_bearish_candles": 0
-          }
+          "capital": 100.0
         },
         {
           "entry_time": "2026-06-01T08:00:00Z",
@@ -625,23 +412,7 @@
           "pnl": 5.513999999999972,
           "hours": 12,
           "safety_orders": 1,
-          "capital": 240.0,
-          "entry_signal": {
-            "regime": "Low",
-            "rv": 75.9484283290152,
-            "ema50": 262.8269609744873,
-            "ema200": 274.57814045372095,
-            "rsi14": 38.884954693650634,
-            "distance_ema200": -9.268086822814702,
-            "distance_ema50": -5.211398755935415,
-            "ema200_slope_pct": -0.09305991908258315,
-            "return24": -2.956528513555634,
-            "ema50_slope_pct": -0.21225865758752738,
-            "pullback20_pct": 20.387946186048,
-            "atr14": 6.657225875810554,
-            "atr_expansion_ratio": 0.9985921926878419,
-            "consecutive_bearish_candles": 1
-          }
+          "capital": 240.0
         },
         {
           "entry_time": "2026-06-02T16:00:00Z",
@@ -650,23 +421,7 @@
           "pnl": 37.50402239999982,
           "hours": 16,
           "safety_orders": 5,
-          "capital": 1632.3839999999996,
-          "entry_signal": {
-            "regime": "Low",
-            "rv": 76.07025735888472,
-            "ema50": 259.2139359857902,
-            "ema200": 272.6760709600109,
-            "rsi14": 34.30452891547506,
-            "distance_ema200": -12.174178263291491,
-            "distance_ema50": -7.6129919137032935,
-            "ema200_slope_pct": -0.12220402941613973,
-            "return24": -3.361446269319246,
-            "ema50_slope_pct": -0.3097717964037572,
-            "pullback20_pct": 21.692498855535934,
-            "atr14": 7.417812951226275,
-            "atr_expansion_ratio": 1.1339292046513365,
-            "consecutive_bearish_candles": 3
-          }
+          "capital": 1632.3839999999996
         },
         {
           "entry_time": "2026-06-03T08:00:00Z",
@@ -675,23 +430,7 @@
           "pnl": 79.02188390399964,
           "hours": 240,
           "safety_orders": 7,
-          "capital": 3439.472639999999,
-          "entry_signal": {
-            "regime": "Low",
-            "rv": 83.34878799474264,
-            "ema50": 254.8756161309649,
-            "ema200": 270.99887959294244,
-            "rsi14": 40.099644649358105,
-            "distance_ema200": -13.084511510233533,
-            "distance_ema50": -7.586295003218158,
-            "ema200_slope_pct": -0.13132992593927195,
-            "return24": -5.52324415386467,
-            "ema50_slope_pct": -0.3086888553473166,
-            "pullback20_pct": 22.980838401674188,
-            "atr14": 9.119069546542422,
-            "atr_expansion_ratio": 1.2931579799042163,
-            "consecutive_bearish_candles": 0
-          }
+          "capital": 3439.472639999999
         },
         {
           "entry_time": "2026-06-16T04:00:00Z",
@@ -700,23 +439,7 @@
           "pnl": 2.2974999999999857,
           "hours": 4,
           "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 106.7499703157537,
-            "ema50": 241.2504460029437,
-            "ema200": 247.26235427134532,
-            "rsi14": 57.74488636144563,
-            "distance_ema200": 6.344534644137156,
-            "distance_ema50": 8.994617152662808,
-            "ema200_slope_pct": 0.06380485191026519,
-            "return24": -4.821370398523184,
-            "ema50_slope_pct": 0.368480021218609,
-            "pullback20_pct": 6.136217605482974,
-            "atr14": 12.74421881667944,
-            "atr_expansion_ratio": 1.0609231190152921,
-            "consecutive_bearish_candles": 5
-          }
+          "capital": 100.0
         },
         {
           "entry_time": "2026-06-16T12:00:00Z",
@@ -725,23 +448,7 @@
           "pnl": 5.9735000000000005,
           "hours": 16,
           "safety_orders": 1,
-          "capital": 260.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 107.57236270471,
-            "ema50": 243.20205338449358,
-            "ema200": 247.6466847726429,
-            "rsi14": 56.9224801553276,
-            "distance_ema200": 6.599448420786014,
-            "distance_ema50": 8.547603248497836,
-            "ema200_slope_pct": 0.0663701355140267,
-            "return24": -5.471407598381484,
-            "ema50_slope_pct": 0.35010321150930057,
-            "pullback20_pct": 5.764974655529375,
-            "atr14": 12.229709081728702,
-            "atr_expansion_ratio": 0.8939601229893211,
-            "consecutive_bearish_candles": 1
-          }
+          "capital": 260.0
         },
         {
           "entry_time": "2026-06-17T08:00:00Z",
@@ -750,77 +457,11 @@
           "pnl": 36.322555999999665,
           "hours": 368,
           "safety_orders": 4,
-          "capital": 1580.9600000000003,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 107.82397493295318,
-            "ema50": 245.4039278272306,
-            "ema200": 248.01995199834997,
-            "rsi14": 50.11828639754164,
-            "distance_ema200": 2.8586603394299637,
-            "distance_ema50": 3.955141329116252,
-            "ema200_slope_pct": 0.0287385113151295,
-            "return24": -5.29734946915138,
-            "ema50_slope_pct": 0.1616953718201808,
-            "pullback20_pct": 8.934818305133142,
-            "atr14": 11.122157200277963,
-            "atr_expansion_ratio": 0.8841903307242017,
-            "consecutive_bearish_candles": 2
-          }
-        },
-        {
-          "entry_time": "2026-07-14T08:00:00Z",
-          "exit_time": "2026-07-14T12:00:00Z",
-          "regime": "Low",
-          "pnl": 5.513999999999972,
-          "hours": 8,
-          "safety_orders": 1,
-          "capital": 240.0,
-          "entry_signal": {
-            "regime": "Low",
-            "rv": 63.21106550247393,
-            "ema50": 208.81266177409188,
-            "ema200": 219.61156103314627,
-            "rsi14": 29.579319581336065,
-            "distance_ema200": -9.877240037409663,
-            "distance_ema50": -5.216475706763579,
-            "ema200_slope_pct": -0.09917029898424135,
-            "return24": -4.69494871671402,
-            "ema50_slope_pct": -0.21246500088193399,
-            "pullback20_pct": 11.17493941297909,
-            "atr14": 4.0813211674608025,
-            "atr_expansion_ratio": 1.00316405066223,
-            "consecutive_bearish_candles": 6
-          }
-        },
-        {
-          "entry_time": "2026-07-16T20:00:00Z",
-          "exit_time": "2026-07-18T16:00:00Z",
-          "regime": "Low",
-          "pnl": 10.017099999999921,
-          "hours": 48,
-          "safety_orders": 2,
-          "capital": 436.0,
-          "entry_signal": {
-            "regime": "Low",
-            "rv": 58.52701932434066,
-            "ema50": 204.10640468863227,
-            "ema200": 216.68271033313727,
-            "rsi14": 35.973733360752576,
-            "distance_ema200": -10.62046450210843,
-            "distance_ema50": -5.1132176398644535,
-            "ema200_slope_pct": -0.1066245274574773,
-            "return24": -1.9888663967611353,
-            "ema50_slope_pct": -0.20826809953716774,
-            "pullback20_pct": 10.862061030054782,
-            "atr14": 4.307496361802868,
-            "atr_expansion_ratio": 0.9622466800785082,
-            "consecutive_bearish_candles": 1
-          }
+          "capital": 1580.9600000000003
         }
       ],
       "intelligence": {
-        "opportunity_score": 45,
+        "opportunity_score": 23,
         "action": "WAIT",
         "confidence_label": "Low",
         "explanation": [
@@ -830,11 +471,11 @@
           "RSI is within a balanced entry zone"
         ],
         "cautions": [
-          "Price is too far above EMA50",
+          "RSI is above the allowed maximum",
           "Recent drawdown is elevated"
         ],
         "score_components": {
-          "strategy_health_weight": 49.5,
+          "strategy_health_weight": 27.5,
           "entry_permission": -20,
           "regime_bonus": 6,
           "recent_pnl_positive": true,
@@ -842,7 +483,6 @@
         },
         "note": "Opportunity score is a transparent ranking aid, not a probability of profit or financial advice."
       },
-      "experiment": null,
       "sync": {
         "new_candles": 0,
         "error": null,
@@ -915,413 +555,41 @@
       "display_name": "SUI",
       "symbol": "SUI-USDT",
       "production_status": "research",
-      "history_start": "2026-02-17T00:00:00Z",
-      "history_end": "2026-08-02T12:00:00Z",
-      "candles": 1000,
-      "net_pnl": -1164.1783139910399,
-      "realised_pnl": 93.67662022399931,
-      "open_pnl": -1257.8549342150393,
-      "return_on_max_capital_pct": -27.028295544502367,
-      "maximum_drawdown_dollars": -1338.437101252311,
-      "maximum_drawdown_pct_of_capital": -31.073997089292053,
-      "max_theoretical_capital": 4307.257600000001,
-      "closed_deals": 15,
-      "average_trade_hours": 19.466666666666665,
-      "longest_trade_hours": 152,
-      "skipped_entry_candles": 260,
-      "open_position": {
-        "entry_time": "2026-05-26T12:00:00Z",
-        "regime": "Medium",
-        "hours_open": 1636,
-        "safety_orders": 6,
-        "capital": 4307.257600000001,
-        "average_entry": 0.9718489724340317,
-        "target": 0.981567462158372,
-        "last_close": 0.6897,
-        "open_pnl": -1257.8549342150393,
-        "required_rise_pct": 42.31803134092678,
-        "entry_signal": {
-          "regime": "Medium",
-          "rv": 106.66754043225343,
-          "ema50": 1.0633947636921732,
-          "ema200": 1.0443207630345759,
-          "rsi14": 47.79149210791385,
-          "distance_ema200": -0.04986619561815342,
-          "distance_ema50": -1.8426612920435015,
-          "ema200_slope_pct": -0.0005011652834729929,
-          "return24": -0.019157088122601085,
-          "ema50_slope_pct": -0.07515414105212503,
-          "pullback20_pct": 24.602715978041022,
-          "atr14": 0.02695476684059438,
-          "atr_expansion_ratio": 0.9265231223899225,
-          "consecutive_bearish_candles": 0
-        }
-      },
+      "candles": 0,
+      "net_pnl": 0,
+      "realised_pnl": 0,
+      "open_pnl": 0,
+      "max_theoretical_capital": 0,
+      "closed_deals": 0,
+      "open_position": null,
       "health": {
-        "score": 44,
+        "score": 0,
         "status": "Review",
         "flags": [
-          "Recent drawdown reached -31.1% of capital",
-          "Open replay position is -29.2% of capital underwater",
-          "Open replay position has lasted 68.2 days"
+          "Waiting for first KuCoin sync"
         ],
-        "positives": [
-          "Market data is current",
-          "Recent 90-day realised P&L is positive",
-          "Recent trade duration is consistent with history"
-        ],
-        "recent_window_days": 90,
-        "recent_closed_deals": 15,
-        "recent_realised_pnl": 93.6766202239993,
-        "recent_average_trade_hours": 19.466666666666665,
-        "recent_longest_trade_hours": 152.0,
-        "recent_max_drawdown_dollars": -1338.437101252311,
-        "recent_max_drawdown_pct_of_capital": -31.073997089292053,
-        "open_loss_pct_of_capital": -29.20315084510012,
-        "open_hours": 1636.0,
-        "data_age_hours": 7.343912454711067,
-        "historical_average_trade_hours": 19.466666666666665,
-        "historical_longest_trade_hours": 152,
-        "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
+        "positives": []
       },
       "latest": {
-        "regime": "Low",
-        "rv": 44.48040190028964,
-        "ema50": 0.6972204281104653,
-        "ema200": 0.7278976790786054,
-        "rsi14": 50.89290558571689,
-        "distance_ema200": -5.247671503357054,
-        "distance_ema50": -1.078629914910323,
-        "ema200_slope_pct": -0.05271261626547119,
-        "return24": 1.0253405595429976,
-        "ema50_slope_pct": -0.044006336710122884,
-        "pullback20_pct": 11.269780007719032,
-        "atr14": 0.009083607180309063,
-        "atr_expansion_ratio": 1.078072387559947,
-        "consecutive_bearish_candles": 0,
         "entry_allowed": false,
-        "entry_reason": "24-hour return is above the allowed maximum",
-        "recommended_bot": "SUI Low Research Bot",
-        "bot_settings": {
-          "name": "SUI Low Research Bot",
-          "take_profit_pct": 2.5,
-          "so_deviation_pct": 4.0,
-          "safety_orders": 6,
-          "volume_scale": 1.6,
-          "step_scale": 1.2
-        },
-        "last_close": 0.6897,
-        "last_candle": "2026-08-02T12:00:00Z"
+        "entry_reason": "Waiting for first KuCoin sync",
+        "recommended_bot": null
       },
-      "recent_deals": [
-        {
-          "entry_time": "2026-05-21T16:00:00Z",
-          "exit_time": "2026-05-21T16:00:00Z",
-          "regime": "Medium",
-          "pnl": 0.799,
-          "hours": 4,
-          "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 101.26828955299054,
-            "ema50": 1.0907222584393863,
-            "ema200": 1.0405593440253702,
-            "rsi14": 55.88324395640489,
-            "distance_ema200": 6.596515265443248,
-            "distance_ema50": 1.6940831103100296,
-            "ema200_slope_pct": 0.06634061743113762,
-            "return24": 3.4122692522841724,
-            "ema50_slope_pct": 0.0691940945215963,
-            "pullback20_pct": 19.878647789656178,
-            "atr14": 0.03401987371366647,
-            "atr_expansion_ratio": 1.1812063884624042,
-            "consecutive_bearish_candles": 0
-          }
-        },
-        {
-          "entry_time": "2026-05-21T20:00:00Z",
-          "exit_time": "2026-05-22T04:00:00Z",
-          "regime": "Medium",
-          "pnl": 7.395543999999973,
-          "hours": 12,
-          "safety_orders": 3,
-          "capital": 925.6000000000001,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 102.2763012916163,
-            "ema50": 1.0930037385005869,
-            "ema200": 1.0416373605027298,
-            "rsi14": 62.48382267575123,
-            "distance_ema200": 10.29750310083939,
-            "distance_ema50": 5.114004603140088,
-            "ema200_slope_pct": 0.1035997114003484,
-            "return24": 6.884361335938238,
-            "ema50_slope_pct": 0.20917149563490778,
-            "pullback20_pct": 17.010979485697774,
-            "atr14": 0.03588988273411887,
-            "atr_expansion_ratio": 1.2778292738739265,
-            "consecutive_bearish_candles": 0
-          }
-        },
-        {
-          "entry_time": "2026-05-22T08:00:00Z",
-          "exit_time": "2026-05-22T08:00:00Z",
-          "regime": "Medium",
-          "pnl": 0.799,
-          "hours": 4,
-          "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 102.96367587084356,
-            "ema50": 1.095101828337936,
-            "ema200": 1.0437099245906123,
-            "rsi14": 52.27885354348826,
-            "distance_ema200": 5.671123174631543,
-            "distance_ema50": 0.7120955750662628,
-            "ema200_slope_pct": 0.05702871701926959,
-            "return24": -0.8896477354421339,
-            "ema50_slope_pct": 0.029073575784188677,
-            "pullback20_pct": 20.333718578445538,
-            "atr14": 0.03586824794710613,
-            "atr_expansion_ratio": 1.1321677374833188,
-            "consecutive_bearish_candles": 3
-          }
-        },
-        {
-          "entry_time": "2026-05-22T12:00:00Z",
-          "exit_time": "2026-05-23T12:00:00Z",
-          "regime": "Medium",
-          "pnl": 34.41498822399957,
-          "hours": 28,
-          "safety_orders": 6,
-          "capital": 4307.257600000001,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 102.98064566492778,
-            "ema50": 1.0956899919325267,
-            "ema200": 1.04437052235588,
-            "rsi14": 53.692904857019464,
-            "distance_ema200": 6.293693304924797,
-            "distance_ema50": 1.3151537545814218,
-            "ema200_slope_pct": 0.06329323403979625,
-            "return24": 2.1627093686729326,
-            "ema50_slope_pct": 0.05370857571149745,
-            "pullback20_pct": 19.81363767697197,
-            "atr14": 0.03538480166516998,
-            "atr_expansion_ratio": 1.079619626417736,
-            "consecutive_bearish_candles": 0
-          }
-        },
-        {
-          "entry_time": "2026-05-23T20:00:00Z",
-          "exit_time": "2026-05-23T20:00:00Z",
-          "regime": "Medium",
-          "pnl": 0.7989999999999858,
-          "hours": 4,
-          "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 107.63293020760096,
-            "ema50": 1.0807854060696909,
-            "ema200": 1.0442083313848902,
-            "rsi14": 47.13652477112722,
-            "distance_ema200": 1.052631767506762,
-            "distance_ema50": -2.3672975158623877,
-            "ema200_slope_pct": 0.010580333059850844,
-            "return24": -0.15140045420136694,
-            "ema50_slope_pct": -0.09653111580228968,
-            "pullback20_pct": 23.779254550707897,
-            "atr14": 0.035641605693321476,
-            "atr_expansion_ratio": 0.9573551202563261,
-            "consecutive_bearish_candles": 0
-          }
-        },
-        {
-          "entry_time": "2026-05-24T00:00:00Z",
-          "exit_time": "2026-05-25T04:00:00Z",
-          "regime": "Medium",
-          "pnl": 7.395544000000086,
-          "hours": 32,
-          "safety_orders": 3,
-          "capital": 925.6000000000001,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 107.68135944323294,
-            "ema50": 1.0802526450473502,
-            "ema200": 1.0444371042069311,
-            "rsi14": 49.53570068855372,
-            "distance_ema200": 2.179441509822011,
-            "distance_ema50": -1.2082955878139123,
-            "ema200_slope_pct": 0.02190873364680268,
-            "return24": 1.861219814832471,
-            "ema50_slope_pct": -0.04929387641142702,
-            "pullback20_pct": 22.912453048251958,
-            "atr14": 0.03665291957236995,
-            "atr_expansion_ratio": 1.0069875656278744,
-            "consecutive_bearish_candles": 0
-          }
-        },
-        {
-          "entry_time": "2026-05-25T08:00:00Z",
-          "exit_time": "2026-05-25T12:00:00Z",
-          "regime": "Medium",
-          "pnl": 0.799,
-          "hours": 8,
-          "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 107.76761292020281,
-            "ema50": 1.0704566949966212,
-            "ema200": 1.0445020342715248,
-            "rsi14": 45.57247888909426,
-            "distance_ema200": -0.3735784271828857,
-            "distance_ema50": -2.789154865971999,
-            "ema200_slope_pct": -0.003754416095402835,
-            "return24": -1.5608740894901052,
-            "ema50_slope_pct": -0.11371360071608105,
-            "pullback20_pct": 24.833863045362612,
-            "atr14": 0.03033795244069376,
-            "atr_expansion_ratio": 0.897593774094634,
-            "consecutive_bearish_candles": 0
-          }
-        },
-        {
-          "entry_time": "2026-05-25T16:00:00Z",
-          "exit_time": "2026-05-25T16:00:00Z",
-          "regime": "Medium",
-          "pnl": 0.799,
-          "hours": 4,
-          "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 107.675278944547,
-            "ema50": 1.0686537196028019,
-            "ema200": 1.044550799712548,
-            "rsi14": 48.15965566134161,
-            "distance_ema200": 0.5121053268949627,
-            "distance_ema50": -1.7548920907487386,
-            "ema200_slope_pct": 0.0051470521128083035,
-            "return24": 0.5651340996168708,
-            "ema50_slope_pct": -0.07157697926533091,
-            "pullback20_pct": 24.16209188095926,
-            "atr14": 0.028328642665700236,
-            "atr_expansion_ratio": 0.8690223336529542,
-            "consecutive_bearish_candles": 0
-          }
-        },
-        {
-          "entry_time": "2026-05-25T20:00:00Z",
-          "exit_time": "2026-05-26T04:00:00Z",
-          "regime": "Medium",
-          "pnl": 4.122839999999968,
-          "hours": 12,
-          "safety_orders": 2,
-          "capital": 516.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 107.68759386500793,
-            "ema50": 1.0681222011870057,
-            "ema200": 1.0446557668795875,
-            "rsi14": 49.639759394610294,
-            "distance_ema200": 0.9997774818789829,
-            "distance_ema50": -1.219167729360393,
-            "ema200_slope_pct": 0.010049024620761848,
-            "return24": 1.5104868193188237,
-            "ema50_slope_pct": -0.049737197938515276,
-            "pullback20_pct": 23.7864778965617,
-            "atr14": 0.027419453903864494,
-            "atr_expansion_ratio": 0.8796789683794295,
-            "consecutive_bearish_candles": 0
-          }
-        },
-        {
-          "entry_time": "2026-05-26T08:00:00Z",
-          "exit_time": "2026-05-26T08:00:00Z",
-          "regime": "Medium",
-          "pnl": 0.799,
-          "hours": 4,
-          "safety_orders": 0,
-          "capital": 100.0,
-          "entry_signal": {
-            "regime": "Medium",
-            "rv": 107.6942574296342,
-            "ema50": 1.0641945499653231,
-            "ema200": 1.0443259968339182,
-            "rsi14": 44.31564143612109,
-            "distance_ema200": -1.1228291615327013,
-            "distance_ema50": -2.9688697396874186,
-            "ema200_slope_pct": -0.011283441887000034,
-            "return24": -0.7687872381318517,
-            "ema50_slope_pct": -0.12103169250583523,
-            "pullback20_pct": 25.41173071366658,
-            "atr14": 0.027158979674486255,
-            "atr_expansion_ratio": 0.895214656545397,
-            "consecutive_bearish_candles": 0
-          }
-        }
-      ],
-      "intelligence": {
-        "opportunity_score": null,
-        "action": "RESEARCH ONLY",
-        "confidence_label": "Not applicable",
-        "explanation": [
-          "Excluded from production ranking"
-        ],
-        "cautions": [
-          "Forward validation is still in progress"
-        ],
-        "note": "Research assets cannot generate live recommendations."
+      "sync": {
+        "new_candles": 0,
+        "error": null,
+        "source": "KuCoin public spot candles API"
       },
       "research": {
         "mode": "research",
         "label": "Research only \u2014 not approved for live trading",
         "forward_test_start": "2026-04-01T00:00:00Z",
-        "forward_days": 123.66666666666667,
-        "forward_candles": 742,
-        "promotion_status": "FAIL \u2014 review risk",
+        "forward_days": 0,
+        "forward_candles": 0,
+        "promotion_status": "WAITING FOR FIRST KUCOIN SYNC",
         "all_gates_pass": false,
-        "checks": {
-          "minimum_forward_days": true,
-          "minimum_forward_candles": true,
-          "positive_net_pnl": false,
-          "maximum_drawdown": true,
-          "maximum_effective_trade_days": false,
-          "profitable_windows": false
-        },
-        "profitable_windows": 1,
-        "evaluation_windows": [
-          {
-            "start": "2026-04-01T00:00:00Z",
-            "end": "2026-05-01T00:00:00Z",
-            "equity_change": 0.0
-          },
-          {
-            "start": "2026-05-01T00:00:00Z",
-            "end": "2026-05-31T00:00:00Z",
-            "equity_change": -195.8640320651432
-          },
-          {
-            "start": "2026-05-31T00:00:00Z",
-            "end": "2026-06-30T00:00:00Z",
-            "equity_change": -941.3059731936244
-          },
-          {
-            "start": "2026-06-30T00:00:00Z",
-            "end": "2026-07-30T00:00:00Z",
-            "equity_change": -39.84832435909016
-          },
-          {
-            "start": "2026-07-30T00:00:00Z",
-            "end": "2026-08-02T12:00:00Z",
-            "equity_change": 7.0841465527269065
-          }
-        ],
-        "effective_longest_trade_hours": 1636.0,
+        "checks": {},
+        "profitable_windows": 0,
         "gates": {
           "minimum_forward_days": 90,
           "minimum_forward_candles": 540,
@@ -1330,399 +598,11 @@
           "maximum_effective_trade_days": 30.0,
           "evaluation_window_days": 30,
           "minimum_profitable_windows": 3
-        },
-        "research_basis": {
-          "training_source": "Kraken SUI/USD 4-hour candles, 2024-01-01 to 2025-12-31",
-          "diagnostic_source": "Kraken Q1 2026 trade data aggregated to 4-hour candles",
-          "candidate_amendment": "Low-regime EMA50 one-candle slope must be at least -0.02%",
-          "note": "KuCoin forward results are kept separate from Kraken research and are not merged into one P&L series."
-        },
-        "note": "Passing gates does not enable live trading. Promotion must be reviewed and approved manually."
-      },
-      "experiment": {
-        "status": "STRONGEST CANDIDATE \u2014 MANUAL REVIEW",
-        "evaluation_mode": "post_hoc_ranked_diagnostic",
-        "baseline_id": "SUI-A",
-        "failed_gates": [
-          "positive_net_pnl",
-          "maximum_effective_trade_days",
-          "profitable_windows"
-        ],
-        "problem_regime": "Medium",
-        "generated_automatically": true,
-        "diagnosis": [
-          "Candidate A has an unresolved Medium trade lasting 68.2 days.",
-          "At entry: price vs EMA50 -1.84%, price vs EMA200 -0.05%, EMA200 slope -0.0005%, ATR ratio 0.927, bearish candles 0.",
-          "Five one-variable hypotheses were applied to the actual problem regime (Medium) and ranked using profit, duration, drawdown, trade retention, and whether the problem trade changed."
-        ],
-        "baseline_metrics": {
-          "net_pnl": -1164.1783139910399,
-          "realised_pnl": 93.67662022399931,
-          "open_pnl": -1257.8549342150393,
-          "return_on_max_capital_pct": -27.028295544502367,
-          "maximum_drawdown_pct_of_capital": -31.073997089292053,
-          "closed_deals": 15,
-          "average_trade_hours": 19.466666666666665,
-          "longest_completed_trade_hours": 152.0,
-          "effective_longest_trade_hours": 1636.0,
-          "profitable_windows": 1,
-          "open_position": {
-            "entry_time": "2026-05-26T12:00:00Z",
-            "regime": "Medium",
-            "hours_open": 1636,
-            "safety_orders": 6,
-            "capital": 4307.257600000001,
-            "average_entry": 0.9718489724340317,
-            "target": 0.981567462158372,
-            "last_close": 0.6897,
-            "open_pnl": -1257.8549342150393,
-            "required_rise_pct": 42.31803134092678,
-            "entry_signal": {
-              "regime": "Medium",
-              "rv": 106.66754043225343,
-              "ema50": 1.0633947636921732,
-              "ema200": 1.0443207630345759,
-              "rsi14": 47.79149210791385,
-              "distance_ema200": -0.04986619561815342,
-              "distance_ema50": -1.8426612920435015,
-              "ema200_slope_pct": -0.0005011652834729929,
-              "return24": -0.019157088122601085,
-              "ema50_slope_pct": -0.07515414105212503,
-              "pullback20_pct": 24.602715978041022,
-              "atr14": 0.02695476684059438,
-              "atr_expansion_ratio": 0.9265231223899225,
-              "consecutive_bearish_candles": 0
-            }
-          }
-        },
-        "candidates": [
-          {
-            "candidate_id": "SUI-B",
-            "candidate_name": "Structural Price Filter",
-            "hypothesis": "Require the problem-regime entry price to be at or above EMA200.",
-            "amendment": {
-              "regime": "Medium",
-              "field": "min_distance_from_ema200_pct",
-              "value": 0.0,
-              "human_rule": "Medium entry requires close at or above EMA200"
-            },
-            "metrics": {
-              "net_pnl": 98.97112022399926,
-              "realised_pnl": 98.97112022399926,
-              "open_pnl": 0.0,
-              "return_on_max_capital_pct": 2.2977757407404478,
-              "maximum_drawdown_pct_of_capital": -3.8500915383416516,
-              "closed_deals": 16,
-              "average_trade_hours": 21.0,
-              "longest_completed_trade_hours": 152.0,
-              "effective_longest_trade_hours": 152.0,
-              "profitable_windows": 3,
-              "open_position": null
-            },
-            "comparison": {
-              "net_pnl_improvement": 1263.149434215039,
-              "effective_longest_trade_reduction_hours": 1484.0,
-              "maximum_drawdown_change_pct_points": 27.223905550950402,
-              "blocked_or_replaced_current_problem_trade": true,
-              "closed_deal_retention_pct": 106.66666666666667,
-              "diagnostic_pass": true
-            },
-            "rank_score": 72.213,
-            "rank": 1
-          },
-          {
-            "candidate_id": "SUI-C",
-            "candidate_name": "Long-Trend Slope Filter",
-            "hypothesis": "Require EMA200 to be flat or rising before a problem-regime entry.",
-            "amendment": {
-              "regime": "Medium",
-              "field": "min_ema200_slope_pct",
-              "value": 0.0,
-              "human_rule": "Medium entry requires EMA200 slope at least 0% per candle"
-            },
-            "metrics": {
-              "net_pnl": 98.97112022399926,
-              "realised_pnl": 98.97112022399926,
-              "open_pnl": 0.0,
-              "return_on_max_capital_pct": 2.2977757407404478,
-              "maximum_drawdown_pct_of_capital": -3.8500915383416516,
-              "closed_deals": 16,
-              "average_trade_hours": 21.0,
-              "longest_completed_trade_hours": 152.0,
-              "effective_longest_trade_hours": 152.0,
-              "profitable_windows": 3,
-              "open_position": null
-            },
-            "comparison": {
-              "net_pnl_improvement": 1263.149434215039,
-              "effective_longest_trade_reduction_hours": 1484.0,
-              "maximum_drawdown_change_pct_points": 27.223905550950402,
-              "blocked_or_replaced_current_problem_trade": true,
-              "closed_deal_retention_pct": 106.66666666666667,
-              "diagnostic_pass": true
-            },
-            "rank_score": 72.213,
-            "rank": 2
-          },
-          {
-            "candidate_id": "SUI-F",
-            "candidate_name": "EMA50 Recovery Filter",
-            "hypothesis": "Require price to recover to EMA50 before entering the problem regime.",
-            "amendment": {
-              "regime": "Medium",
-              "field": "min_distance_from_ema50_pct",
-              "value": 0.0,
-              "human_rule": "Medium entry requires close at or above EMA50"
-            },
-            "metrics": {
-              "net_pnl": 85.85473622399921,
-              "realised_pnl": 85.85473622399921,
-              "open_pnl": 0.0,
-              "return_on_max_capital_pct": 1.9932575247879114,
-              "maximum_drawdown_pct_of_capital": -3.8500915383416516,
-              "closed_deals": 12,
-              "average_trade_hours": 23.666666666666668,
-              "longest_completed_trade_hours": 152.0,
-              "effective_longest_trade_hours": 152.0,
-              "profitable_windows": 3,
-              "open_position": null
-            },
-            "comparison": {
-              "net_pnl_improvement": 1250.033050215039,
-              "effective_longest_trade_reduction_hours": 1484.0,
-              "maximum_drawdown_change_pct_points": 27.223905550950402,
-              "blocked_or_replaced_current_problem_trade": true,
-              "closed_deal_retention_pct": 80.0,
-              "diagnostic_pass": true
-            },
-            "rank_score": 72.213,
-            "rank": 3
-          },
-          {
-            "candidate_id": "SUI-E",
-            "candidate_name": "Bearish Sequence Filter",
-            "hypothesis": "Avoid entries after three or more consecutive bearish candles.",
-            "amendment": {
-              "regime": "Medium",
-              "field": "max_consecutive_bearish_candles",
-              "value": 2,
-              "human_rule": "Medium entry allows at most two consecutive bearish candles"
-            },
-            "metrics": {
-              "net_pnl": -1164.9773139910399,
-              "realised_pnl": 92.87762022399932,
-              "open_pnl": -1257.8549342150393,
-              "return_on_max_capital_pct": -27.04684563075679,
-              "maximum_drawdown_pct_of_capital": -31.073997089292053,
-              "closed_deals": 14,
-              "average_trade_hours": 20.571428571428573,
-              "longest_completed_trade_hours": 152.0,
-              "effective_longest_trade_hours": 1636.0,
-              "profitable_windows": 1,
-              "open_position": {
-                "entry_time": "2026-05-26T12:00:00Z",
-                "regime": "Medium",
-                "hours_open": 1636,
-                "safety_orders": 6,
-                "capital": 4307.257600000001,
-                "average_entry": 0.9718489724340317,
-                "target": 0.981567462158372,
-                "last_close": 0.6897,
-                "open_pnl": -1257.8549342150393,
-                "required_rise_pct": 42.31803134092678,
-                "entry_signal": {
-                  "regime": "Medium",
-                  "rv": 106.66754043225343,
-                  "ema50": 1.0633947636921732,
-                  "ema200": 1.0443207630345759,
-                  "rsi14": 47.79149210791385,
-                  "distance_ema200": -0.04986619561815342,
-                  "distance_ema50": -1.8426612920435015,
-                  "ema200_slope_pct": -0.0005011652834729929,
-                  "return24": -0.019157088122601085,
-                  "ema50_slope_pct": -0.07515414105212503,
-                  "pullback20_pct": 24.602715978041022,
-                  "atr14": 0.02695476684059438,
-                  "atr_expansion_ratio": 0.9265231223899225,
-                  "consecutive_bearish_candles": 0
-                }
-              }
-            },
-            "comparison": {
-              "net_pnl_improvement": -0.7989999999999782,
-              "effective_longest_trade_reduction_hours": 0.0,
-              "maximum_drawdown_change_pct_points": 0.0,
-              "blocked_or_replaced_current_problem_trade": false,
-              "closed_deal_retention_pct": 93.33333333333333,
-              "diagnostic_pass": false
-            },
-            "rank_score": -5.027,
-            "rank": 4
-          },
-          {
-            "candidate_id": "SUI-D",
-            "candidate_name": "ATR Contraction Filter",
-            "hypothesis": "Avoid entries while short-term volatility is expanding.",
-            "amendment": {
-              "regime": "Medium",
-              "field": "max_atr_expansion_ratio",
-              "value": 1.0,
-              "human_rule": "Medium entry requires ATR(14) no higher than its level 24 hours earlier"
-            },
-            "metrics": {
-              "net_pnl": -1214.1833902150397,
-              "realised_pnl": 43.67154399999967,
-              "open_pnl": -1257.8549342150393,
-              "return_on_max_capital_pct": -28.189244827498577,
-              "maximum_drawdown_pct_of_capital": -31.073997089292053,
-              "closed_deals": 11,
-              "average_trade_hours": 20.363636363636363,
-              "longest_completed_trade_hours": 152.0,
-              "effective_longest_trade_hours": 1636.0,
-              "profitable_windows": 1,
-              "open_position": {
-                "entry_time": "2026-05-26T12:00:00Z",
-                "regime": "Medium",
-                "hours_open": 1636,
-                "safety_orders": 6,
-                "capital": 4307.257600000001,
-                "average_entry": 0.9718489724340317,
-                "target": 0.981567462158372,
-                "last_close": 0.6897,
-                "open_pnl": -1257.8549342150393,
-                "required_rise_pct": 42.31803134092678,
-                "entry_signal": {
-                  "regime": "Medium",
-                  "rv": 106.66754043225343,
-                  "ema50": 1.0633947636921732,
-                  "ema200": 1.0443207630345759,
-                  "rsi14": 47.79149210791385,
-                  "distance_ema200": -0.04986619561815342,
-                  "distance_ema50": -1.8426612920435015,
-                  "ema200_slope_pct": -0.0005011652834729929,
-                  "return24": -0.019157088122601085,
-                  "ema50_slope_pct": -0.07515414105212503,
-                  "pullback20_pct": 24.602715978041022,
-                  "atr14": 0.02695476684059438,
-                  "atr_expansion_ratio": 0.9265231223899225,
-                  "consecutive_bearish_candles": 0
-                }
-              }
-            },
-            "comparison": {
-              "net_pnl_improvement": -50.00507622399982,
-              "effective_longest_trade_reduction_hours": 0.0,
-              "maximum_drawdown_change_pct_points": 0.0,
-              "blocked_or_replaced_current_problem_trade": false,
-              "closed_deal_retention_pct": 73.33333333333333,
-              "diagnostic_pass": false
-            },
-            "rank_score": -6.718,
-            "rank": 5
-          }
-        ],
-        "winner": {
-          "candidate_id": "SUI-B",
-          "candidate_name": "Structural Price Filter",
-          "hypothesis": "Require the problem-regime entry price to be at or above EMA200.",
-          "amendment": {
-            "regime": "Medium",
-            "field": "min_distance_from_ema200_pct",
-            "value": 0.0,
-            "human_rule": "Medium entry requires close at or above EMA200"
-          },
-          "metrics": {
-            "net_pnl": 98.97112022399926,
-            "realised_pnl": 98.97112022399926,
-            "open_pnl": 0.0,
-            "return_on_max_capital_pct": 2.2977757407404478,
-            "maximum_drawdown_pct_of_capital": -3.8500915383416516,
-            "closed_deals": 16,
-            "average_trade_hours": 21.0,
-            "longest_completed_trade_hours": 152.0,
-            "effective_longest_trade_hours": 152.0,
-            "profitable_windows": 3,
-            "open_position": null
-          },
-          "comparison": {
-            "net_pnl_improvement": 1263.149434215039,
-            "effective_longest_trade_reduction_hours": 1484.0,
-            "maximum_drawdown_change_pct_points": 27.223905550950402,
-            "blocked_or_replaced_current_problem_trade": true,
-            "closed_deal_retention_pct": 106.66666666666667,
-            "diagnostic_pass": true
-          },
-          "rank_score": 72.213,
-          "rank": 1
-        },
-        "manual_approval_required": true,
-        "manual_approval_note": "The highest-ranked post-hoc candidate is a research hypothesis only. Manual approval and a new forward-test start date are required before independent validation.",
-        "caveat": "All ranked diagnostics reuse data already observed by Candidate A. Even the winner is hypothesis evidence only and must begin a new forward comparison after manual approval."
-      },
-      "sync": {
-        "new_candles": 0,
-        "error": null,
-        "source": "KuCoin public spot candles API"
-      },
-      "strategy_config": {
-        "regime": {
-          "realised_volatility_window_candles": 120,
-          "annualisation_periods": 2190,
-          "low_volatility_threshold_pct": 96.59770290685603,
-          "high_volatility_threshold_pct": 125.3948253529171,
-          "fast_ema": 50,
-          "slow_ema": 200
-        },
-        "entry_filter": {
-          "global": {},
-          "Low": {
-            "max_rsi14": 60.0,
-            "max_distance_from_ema50_pct": 5.0,
-            "max_24h_return_pct": 0.0,
-            "min_pullback_from_20d_high_pct": 10.0,
-            "min_ema50_slope_pct": -0.02
-          },
-          "Medium": {
-            "min_24h_return_pct": -4.0
-          },
-          "High-Bull": {
-            "min_24h_return_pct": 0.0,
-            "max_24h_return_pct": 8.0
-          },
-          "High-Bear": {
-            "blocked": true
-          }
-        },
-        "bots": {
-          "Low": {
-            "name": "SUI Low Research Bot",
-            "take_profit_pct": 2.5,
-            "so_deviation_pct": 4.0,
-            "safety_orders": 6,
-            "volume_scale": 1.6,
-            "step_scale": 1.2
-          },
-          "Medium": {
-            "name": "SUI Medium Research Bot",
-            "take_profit_pct": 1.0,
-            "so_deviation_pct": 1.5,
-            "safety_orders": 6,
-            "volume_scale": 1.6,
-            "step_scale": 1.0
-          },
-          "High-Bull": {
-            "name": "SUI High-Bull Research Bot",
-            "take_profit_pct": 0.8,
-            "so_deviation_pct": 1.5,
-            "safety_orders": 7,
-            "volume_scale": 1.3,
-            "step_scale": 1.2
-          },
-          "High-Bear": {
-            "name": "SUI High-Bear \u2014 Disabled",
-            "enabled": false
-          }
         }
+      },
+      "intelligence": {
+        "opportunity_score": null,
+        "action": "RESEARCH ONLY"
       }
     }
   ]
