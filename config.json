@@ -212,23 +212,53 @@
         "enabled": true,
         "auto_generate": true,
         "baseline_id": "SUI-A",
-        "candidate": {
-          "id": "SUI-B",
-          "name": "SUI Candidate B \u2014 Structural Trend Filter",
-          "generation_rule": "When Candidate A fails the positive P&L or maximum trade-duration gate, create a one-variable Low-regime experiment.",
-          "hypothesis": "Blocking Low-regime entries below EMA200 may avoid prolonged falling-knife positions.",
-          "single_variable_amendment": {
-            "regime": "Low",
+        "mode": "ranked_hypothesis_queue",
+        "minimum_diagnostic_net_improvement": 0.0,
+        "minimum_deal_retention_pct": 25.0,
+        "maximum_drawdown_worsening_pp": 5.0,
+        "manual_approval_note": "The highest-ranked post-hoc candidate is a research hypothesis only. Manual approval and a new forward-test start date are required before independent validation.",
+        "hypotheses": [
+          {
+            "id": "SUI-B",
+            "name": "Structural Price Filter",
+            "hypothesis": "Require the problem-regime entry price to be at or above EMA200.",
             "field": "min_distance_from_ema200_pct",
             "value": 0.0,
-            "human_rule": "Low entry requires close at or above EMA200"
+            "human_rule": "entry requires close at or above EMA200"
           },
-          "approved_for_forward_test": false,
-          "forward_test_start": null,
-          "minimum_diagnostic_net_improvement": 0.0,
-          "maximum_allowed_profit_sacrifice_pct": 25.0
-        },
-        "manual_approval_note": "The app may propose and diagnose Candidate B automatically, but it must not replace Candidate A or become a live strategy without manual approval."
+          {
+            "id": "SUI-C",
+            "name": "Long-Trend Slope Filter",
+            "hypothesis": "Require EMA200 to be flat or rising before a problem-regime entry.",
+            "field": "min_ema200_slope_pct",
+            "value": 0.0,
+            "human_rule": "entry requires EMA200 slope at least 0% per candle"
+          },
+          {
+            "id": "SUI-D",
+            "name": "ATR Contraction Filter",
+            "hypothesis": "Avoid entries while short-term volatility is expanding.",
+            "field": "max_atr_expansion_ratio",
+            "value": 1.0,
+            "human_rule": "entry requires ATR(14) no higher than its level 24 hours earlier"
+          },
+          {
+            "id": "SUI-E",
+            "name": "Bearish Sequence Filter",
+            "hypothesis": "Avoid entries after three or more consecutive bearish candles.",
+            "field": "max_consecutive_bearish_candles",
+            "value": 2,
+            "human_rule": "entry allows at most two consecutive bearish candles"
+          },
+          {
+            "id": "SUI-F",
+            "name": "EMA50 Recovery Filter",
+            "hypothesis": "Require price to recover to EMA50 before entering the problem regime.",
+            "field": "min_distance_from_ema50_pct",
+            "value": 0.0,
+            "human_rule": "entry requires close at or above EMA50"
+          }
+        ]
       }
     }
   ],
@@ -240,7 +270,7 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "7.1.0",
+    "version": "7.2.0",
     "mode": "TEL/TAO advisory + SUI automated research experiments",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",

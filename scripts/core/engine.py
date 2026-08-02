@@ -80,10 +80,23 @@ def realised_vol(values:list[float],window:int,annual:int)->list[float]:
         out[i]=math.sqrt(var)*math.sqrt(annual)*100
     return out
 
+def atr(candles:list[Candle],period:int=14)->list[float]:
+    out=[math.nan]*len(candles)
+    if not candles: return out
+    trs=[]
+    for i,c in enumerate(candles):
+        prev=candles[i-1].close if i else c.close
+        trs.append(max(c.high-c.low,abs(c.high-prev),abs(c.low-prev)))
+    if len(trs)<period: return out
+    value=sum(trs[:period])/period; out[period-1]=value
+    for i in range(period,len(trs)):
+        value=(value*(period-1)+trs[i])/period; out[i]=value
+    return out
+
 def indicators(candles:list[Candle],cfg:dict[str,Any])->list[dict[str,Any]|None]:
     rcfg=cfg['regime']; closes=[c.close for c in candles]
     e50=ema(closes,int(rcfg['fast_ema'])); e200=ema(closes,int(rcfg['slow_ema']))
-    rs=rsi(closes); rv=realised_vol(closes,int(rcfg['realised_volatility_window_candles']),int(rcfg['annualisation_periods']))
+    rs=rsi(closes); rv=realised_vol(closes,int(rcfg['realised_volatility_window_candles']),int(rcfg['annualisation_periods'])); at=atr(candles,14)
     low=float(rcfg['low_volatility_threshold_pct']); high=float(rcfg['high_volatility_threshold_pct']); out=[]
     for i,c in enumerate(candles):
         if i<120 or math.isnan(rv[i]) or math.isnan(rs[i]): out.append(None); continue
@@ -92,12 +105,18 @@ def indicators(candles:list[Candle],cfg:dict[str,Any])->list[dict[str,Any]|None]
         else:
             bullish=c.close>=e200[i] and e50[i]>=e200[i] and e50[i]>=e50[i-1]
             regime='High-Bull' if bullish else 'High-Bear'
+        bearish=0
+        j=i
+        while j>=0 and candles[j].close<candles[j].open:
+            bearish+=1; j-=1
+        atr_ratio=(at[i]/at[i-6]) if i>=6 and not math.isnan(at[i]) and not math.isnan(at[i-6]) and at[i-6]>0 else math.nan
         out.append({'regime':regime,'rv':rv[i],'ema50':e50[i],'ema200':e200[i],'rsi14':rs[i],
                     'distance_ema200':(c.close/e200[i]-1)*100,'distance_ema50':(c.close/e50[i]-1)*100,
                     'ema200_slope_pct':(e200[i]/e200[i-1]-1)*100 if i>0 else math.nan,
                     'return24':(c.close/closes[i-6]-1)*100 if i>=6 else math.nan,
                     'ema50_slope_pct':(e50[i]/e50[i-1]-1)*100 if i>0 else math.nan,
-                    'pullback20_pct':(1-c.close/max(closes[max(0,i-119):i+1]))*100})
+                    'pullback20_pct':(1-c.close/max(closes[max(0,i-119):i+1]))*100,
+                    'atr14':at[i],'atr_expansion_ratio':atr_ratio,'consecutive_bearish_candles':bearish})
     return out
 
 def permission(signal:dict[str,Any],fcfg:dict[str,Any])->tuple[bool,str]:
@@ -113,6 +132,9 @@ def permission(signal:dict[str,Any],fcfg:dict[str,Any])->tuple[bool,str]:
         ('min_pullback_from_20d_high_pct','pullback20_pct',lambda a,b:a<b,'Price has not pulled back far enough from its 20-day high'),
         ('min_ema50_slope_pct','ema50_slope_pct',lambda a,b:a<b,'EMA50 is falling faster than the allowed limit'),
         ('min_distance_from_ema200_pct','distance_ema200',lambda a,b:a<b,'Price is below the required EMA200 threshold'),
+        ('min_distance_from_ema50_pct','distance_ema50',lambda a,b:a<b,'Price is below the required EMA50 threshold'),
+        ('max_atr_expansion_ratio','atr_expansion_ratio',lambda a,b:a>b,'ATR is expanding above the allowed limit'),
+        ('max_consecutive_bearish_candles','consecutive_bearish_candles',lambda a,b:a>b,'Too many consecutive bearish candles'),
         ('min_ema200_slope_pct','ema200_slope_pct',lambda a,b:a<b,'EMA200 is falling faster than the allowed limit')]
     for key,metric,bad,msg in checks:
         if key in local and bad(signal[metric],float(local[key])): return False,msg
@@ -361,62 +383,62 @@ def compact_metrics(result:dict[str,Any])->dict[str,Any]:
 
 def build_research_experiment(asset:dict[str,Any],candles:list[Candle],signals:list[dict[str,Any]|None],baseline:dict[str,Any],execution:dict[str,Any])->dict[str,Any]|None:
     ecfg=asset.get('research_experiments') or {}
-    candidate_cfg=ecfg.get('candidate') or {}
-    if not ecfg.get('enabled') or not ecfg.get('auto_generate') or not candidate_cfg:
+    hypotheses=ecfg.get('hypotheses') or []
+    if not ecfg.get('enabled') or not ecfg.get('auto_generate') or not hypotheses:
         return None
-    baseline_research=baseline.get('research') or {}
-    checks=baseline_research.get('checks') or {}
+    baseline_research=baseline.get('research') or {}; checks=baseline_research.get('checks') or {}
     failed=[]
     if checks and not checks.get('positive_net_pnl',True): failed.append('positive_net_pnl')
     if checks and not checks.get('maximum_effective_trade_days',True): failed.append('maximum_effective_trade_days')
     if checks and not checks.get('profitable_windows',True): failed.append('profitable_windows')
     if not failed:
-        return {'status':'NO EXPERIMENT REQUIRED','baseline_id':ecfg.get('baseline_id','SUI-A'),'reason':'Candidate A currently passes the risk gates monitored by the experiment engine.','failed_gates':[]}
-    candidate=copy.deepcopy(asset)
-    candidate['id']=candidate_cfg.get('id','SUI-B')
-    candidate['display_name']=candidate_cfg.get('name','Candidate B')
-    amendment=candidate_cfg.get('single_variable_amendment') or {}
-    regime=amendment.get('regime','Low'); field=amendment.get('field'); value=amendment.get('value')
-    if field is None: return {'status':'CONFIGURATION ERROR','reason':'Candidate amendment field is missing'}
-    candidate.setdefault('entry_filter',{}).setdefault(regime,{})[field]=value
-    approved=bool(candidate_cfg.get('approved_for_forward_test',False))
-    candidate_start=candidate_cfg.get('forward_test_start')
-    evaluation_mode='independent_forward' if approved and candidate_start else 'post_hoc_diagnostic'
-    if evaluation_mode=='independent_forward': candidate['forward_test_start']=candidate_start
-    # Avoid recursive experiment creation.
-    candidate.pop('research_experiments',None)
-    candidate_result=simulate(candles,signals,candidate,execution)
-    a=compact_metrics(baseline); b=compact_metrics(candidate_result)
-    improvement=b['net_pnl']-a['net_pnl']
-    duration_reduction=a['effective_longest_trade_hours']-b['effective_longest_trade_hours']
-    dd_improvement=b['maximum_drawdown_pct_of_capital']-a['maximum_drawdown_pct_of_capital']
-    blocked_problem=False
-    baseline_open=a.get('open_position') or {}
-    candidate_open=b.get('open_position') or {}
-    if baseline_open and (not candidate_open or candidate_open.get('entry_time')!=baseline_open.get('entry_time')):
-        blocked_problem=True
-    proposal_pass=improvement>float(candidate_cfg.get('minimum_diagnostic_net_improvement',0)) and duration_reduction>0
+        return {'status':'NO EXPERIMENT REQUIRED','baseline_id':ecfg.get('baseline_id','SUI-A'),'reason':'Candidate A currently passes the monitored risk gates.','failed_gates':[],'candidates':[]}
+    a=compact_metrics(baseline); baseline_open=a.get('open_position') or {}
+    problem_regime=baseline_open.get('regime') or 'Low'
+    problem_entry=(baseline_open.get('entry_signal') or {}) if baseline_open else {}
+    results=[]
+    min_deal_retention=float(ecfg.get('minimum_deal_retention_pct',25.0)); max_dd_worse=float(ecfg.get('maximum_drawdown_worsening_pp',5.0))
+    for h in hypotheses:
+        candidate=copy.deepcopy(asset); candidate['id']=h.get('id'); candidate['display_name']=h.get('name')
+        candidate.setdefault('entry_filter',{}).setdefault(problem_regime,{})[h['field']]=h['value']
+        candidate.pop('research_experiments',None)
+        cr=simulate(candles,signals,candidate,execution); b=compact_metrics(cr)
+        improvement=b['net_pnl']-a['net_pnl']; duration_reduction=a['effective_longest_trade_hours']-b['effective_longest_trade_hours']
+        dd_change=b['maximum_drawdown_pct_of_capital']-a['maximum_drawdown_pct_of_capital']
+        baseline_deals=max(1,a['closed_deals']); retention=b['closed_deals']/baseline_deals*100
+        candidate_open=b.get('open_position') or {}
+        changed=bool(baseline_open and (not candidate_open or candidate_open.get('entry_time')!=baseline_open.get('entry_time')))
+        # Ranking rewards solving the observed problem, while penalising over-restriction and worse drawdown.
+        score=0.0
+        score += max(-40,min(40,improvement/max(1,abs(a['net_pnl']))*40))
+        score += max(-30,min(30,duration_reduction/max(24,a['effective_longest_trade_hours'])*30))
+        score += 15 if changed else -10
+        score += max(-15,min(15,dd_change*-2))
+        if retention<min_deal_retention: score-=20
+        elif retention>=60: score+=5
+        diagnostic_pass=(improvement>float(ecfg.get('minimum_diagnostic_net_improvement',0)) and duration_reduction>0 and changed and dd_change>=-max_dd_worse and retention>=min_deal_retention)
+        results.append({
+          'candidate_id':h.get('id'),'candidate_name':h.get('name'),'hypothesis':h.get('hypothesis'),
+          'amendment':{'regime':problem_regime,'field':h.get('field'),'value':h.get('value'),'human_rule':f"{problem_regime} {h.get('human_rule')}"},
+          'metrics':b,'comparison':{'net_pnl_improvement':improvement,'effective_longest_trade_reduction_hours':duration_reduction,
+          'maximum_drawdown_change_pct_points':dd_change,'blocked_or_replaced_current_problem_trade':changed,
+          'closed_deal_retention_pct':retention,'diagnostic_pass':diagnostic_pass},'rank_score':round(score,3)
+        })
+    results.sort(key=lambda x:(x['comparison']['diagnostic_pass'],x['rank_score']),reverse=True)
+    for i,r in enumerate(results,1): r['rank']=i
+    winner=results[0] if results else None
+    status='STRONGEST CANDIDATE — MANUAL REVIEW' if winner and winner['comparison']['diagnostic_pass'] else 'ALL DIAGNOSTICS REJECTED'
     diagnosis=[]
-    sig=(baseline_open.get('entry_signal') or {}) if baseline_open else {}
     if baseline_open:
-        diagnosis.append(f"Candidate A has an unresolved {baseline_open.get('regime','unknown')} trade lasting {float(baseline_open.get('hours_open',0))/24:.1f} days.")
-        if sig:
-            diagnosis.append(f"At entry, price was {float(sig.get('distance_ema200',0)):.1f}% from EMA200 and EMA200 slope was {float(sig.get('ema200_slope_pct',0)):.3f}% per candle.")
-    diagnosis.append('The automatic experiment changes one variable only, preserving attribution of any result difference.')
-    status='APPROVED FOR FORWARD COMPARISON' if evaluation_mode=='independent_forward' else ('PROPOSED — AWAITING MANUAL APPROVAL' if proposal_pass else 'DIAGNOSTIC REJECTED')
-    return {
-      'status':status,'evaluation_mode':evaluation_mode,'baseline_id':ecfg.get('baseline_id','SUI-A'),
-      'candidate_id':candidate_cfg.get('id','SUI-B'),'candidate_name':candidate_cfg.get('name'),
-      'generated_automatically':True,'failed_gates':failed,'hypothesis':candidate_cfg.get('hypothesis'),
-      'generation_rule':candidate_cfg.get('generation_rule'),'amendment':amendment,
-      'approved_for_forward_test':approved,'candidate_forward_test_start':candidate_start,
-      'manual_approval_required':True,'manual_approval_note':ecfg.get('manual_approval_note'),
-      'diagnosis':diagnosis,'baseline_metrics':a,'candidate_metrics':b,
-      'comparison':{'net_pnl_improvement':improvement,'effective_longest_trade_reduction_hours':duration_reduction,
-                    'maximum_drawdown_change_pct_points':dd_improvement,'blocked_or_replaced_current_problem_trade':blocked_problem,
-                    'diagnostic_pass':proposal_pass},
-      'caveat':'Post-hoc diagnostic results reuse data already observed by Candidate A. They are hypothesis evidence only, not independent validation.' if evaluation_mode=='post_hoc_diagnostic' else 'Forward comparison begins only from the manually approved candidate start date.'
-    }
+        diagnosis.append(f"Candidate A has an unresolved {problem_regime} trade lasting {float(baseline_open.get('hours_open',0))/24:.1f} days.")
+        if problem_entry:
+            diagnosis.append(f"At entry: price vs EMA50 {float(problem_entry.get('distance_ema50',0)):.2f}%, price vs EMA200 {float(problem_entry.get('distance_ema200',0)):.2f}%, EMA200 slope {float(problem_entry.get('ema200_slope_pct',0)):.4f}%, ATR ratio {float(problem_entry.get('atr_expansion_ratio',0) or 0):.3f}, bearish candles {int(problem_entry.get('consecutive_bearish_candles',0) or 0)}.")
+    diagnosis.append(f"Five one-variable hypotheses were applied to the actual problem regime ({problem_regime}) and ranked using profit, duration, drawdown, trade retention, and whether the problem trade changed.")
+    return {'status':status,'evaluation_mode':'post_hoc_ranked_diagnostic','baseline_id':ecfg.get('baseline_id','SUI-A'),
+      'failed_gates':failed,'problem_regime':problem_regime,'generated_automatically':True,'diagnosis':diagnosis,
+      'baseline_metrics':a,'candidates':results,'winner':winner,'manual_approval_required':True,
+      'manual_approval_note':ecfg.get('manual_approval_note'),
+      'caveat':'All ranked diagnostics reuse data already observed by Candidate A. Even the winner is hypothesis evidence only and must begin a new forward comparison after manual approval.'}
 
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
     path.parent.mkdir(parents=True,exist_ok=True)
