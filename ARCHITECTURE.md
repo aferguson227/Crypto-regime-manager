@@ -33,3 +33,7 @@ Do not overwrite or delete these during upgrades:
 
 ## V7 research assets
 Assets may set `production_status: research`. Research assets use the same market-data and replay engine but are excluded from portfolio rankings and are assessed against explicit promotion gates.
+
+
+## V9 Evidence layer
+Qualified SUI hypotheses are replayed against the frozen TEL, TAO, and SUI baselines. Results are published in `evidence_library` and shown on `docs/evidence.html`.

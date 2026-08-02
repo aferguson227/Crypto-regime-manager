@@ -1,3 +1,3 @@
-# Crypto Regime Manager V8
+# Crypto Regime Manager V9
 
-TEL and TAO advisory strategies, SUI research mode, Strategy Health, Trading Intelligence, read-only 3Commas monitoring, ranked hypotheses, and a controlled Strategy Evolution Engine.
+Multi-asset evidence engine with controlled cross-asset strategy research.

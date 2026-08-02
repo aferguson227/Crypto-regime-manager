@@ -535,6 +535,78 @@ def build_strategy_evolution(asset:dict[str,Any],candles:list[Candle],signals:li
       'audit':{'baseline_id':experiment.get('baseline_id'),'problem_regime':experiment.get('problem_regime'),'individual_hypotheses_tested':len(candidates),'individual_hypotheses_passed':len(passing),'qualified_suggestions':len(representatives),'raw_qualified_hypotheses':len(qualified),'correlated_clusters':len(correlated_clusters),'combinations_tested':len(combinations)},
       'safeguards':ecfg.get('principles',[]),'manual_approval_required':True,'note':ecfg.get('suggestion_note')}
 
+def build_cross_asset_evidence(cfg:dict[str,Any],outputs:list[dict[str,Any]],contexts:dict[str,dict[str,Any]])->dict[str,Any]|None:
+    ecfg=cfg.get('cross_asset_evidence') or {}
+    if not ecfg.get('enabled'):
+        return None
+    source_id=str(ecfg.get('source_asset','SUI'))
+    source=next((x for x in outputs if x.get('id')==source_id),None)
+    experiment=(source or {}).get('experiment') or {}
+    evolution=(source or {}).get('evolution') or {}
+    candidate_rows=experiment.get('candidates') or []
+    if ecfg.get('test_only_qualified_suggestions',True):
+        selected={str(x.get('candidate_id')) for x in (evolution.get('single_rule_suggestions') or [])}
+        candidate_rows=[x for x in candidate_rows if str(x.get('candidate_id')) in selected]
+    problem_regime=experiment.get('problem_regime') or 'Medium'
+    baselines={x.get('id'):compact_metrics(x) for x in outputs}
+    rules=[]
+    for row in candidate_rows:
+        amendment=row.get('amendment') or {}
+        field=amendment.get('field'); value=amendment.get('value')
+        if not field:
+            continue
+        asset_results=[]; improved=degraded=neutral=0
+        for asset_id,ctx in contexts.items():
+            baseline=baselines.get(asset_id)
+            if not baseline:
+                continue
+            candidate=copy.deepcopy(ctx['asset'])
+            candidate.pop('research_experiments',None); candidate.pop('strategy_evolution',None)
+            candidate.setdefault('entry_filter',{}).setdefault(problem_regime,{})[field]=value
+            replay=simulate(ctx['candles'],ctx['signals'],candidate,cfg['execution'])
+            metrics=compact_metrics(replay)
+            net_change=metrics['net_pnl']-baseline['net_pnl']
+            duration_change=baseline['effective_longest_trade_hours']-metrics['effective_longest_trade_hours']
+            dd_change=metrics['maximum_drawdown_pct_of_capital']-baseline['maximum_drawdown_pct_of_capital']
+            base_deals=max(1,int(baseline['closed_deals'])); cand_deals=int(metrics['closed_deals'])
+            retained=min(100.0,cand_deals/base_deals*100)
+            duration_worsening=max(0.0,-duration_change)/max(24.0,baseline['effective_longest_trade_hours'])*100
+            passes=(net_change>float(ecfg.get('minimum_net_improvement',0)) and
+                    dd_change<=float(ecfg.get('maximum_drawdown_worsening_pp',5)) and
+                    duration_worsening<=float(ecfg.get('maximum_duration_worsening_pct',10)) and
+                    retained>=float(ecfg.get('minimum_deal_retention_pct',25)))
+            materially_worse=(net_change < -max(1.0,abs(baseline['net_pnl'])*0.05) or
+                              dd_change>float(ecfg.get('maximum_drawdown_worsening_pp',5)) or
+                              duration_worsening>float(ecfg.get('maximum_duration_worsening_pct',10)))
+            outcome='IMPROVED' if passes else ('DEGRADED' if materially_worse else 'NEUTRAL')
+            if outcome=='IMPROVED': improved+=1
+            elif outcome=='DEGRADED': degraded+=1
+            else: neutral+=1
+            asset_results.append({'asset_id':asset_id,'production_status':ctx['asset'].get('production_status','production'),
+              'outcome':outcome,'baseline':baseline,'candidate':metrics,
+              'comparison':{'net_pnl_change':net_change,'duration_reduction_hours':duration_change,
+                'drawdown_change_pp':dd_change,'baseline_closed_deals':int(baseline['closed_deals']),
+                'candidate_closed_deals':cand_deals,'closed_deal_retained_share_pct':retained}})
+        tested=len(asset_results)
+        if improved>=2 and degraded==0: verdict='PROMISING CROSS-ASSET RULE'
+        elif improved==1 and degraded==0: verdict='ASSET-SPECIFIC PROMISE'
+        elif degraded>=improved and degraded>0: verdict='DO NOT GENERALISE'
+        else: verdict='MIXED EVIDENCE'
+        confidence=round((improved*35 + neutral*10 - degraded*30)/max(1,tested),1)
+        rules.append({'candidate_id':row.get('candidate_id'),'name':row.get('candidate_name'),'hypothesis':row.get('hypothesis'),
+          'amendment':amendment,'problem_regime':problem_regime,'assets_tested':tested,'improved_assets':improved,
+          'neutral_assets':neutral,'degraded_assets':degraded,'confidence_score':confidence,'verdict':verdict,
+          'asset_results':asset_results})
+    rules.sort(key=lambda x:(x['improved_assets'],-x['degraded_assets'],x['confidence_score']),reverse=True)
+    recommendation=rules[0] if rules else None
+    return {'version':'9.0','mode':'cross_asset_diagnostic_evidence','source_asset':source_id,
+      'problem_regime':problem_regime,'rules':rules,
+      'recommendation':({'candidate_id':recommendation['candidate_id'],'name':recommendation['name'],
+        'verdict':recommendation['verdict'],'confidence_score':recommendation['confidence_score'],
+        'next_action':'Review the asset-level evidence. Any live amendment still requires a new, asset-specific forward test.'} if recommendation else None),
+      'audit':{'rules_tested':len(rules),'assets_available':len(contexts),'asset_ids':list(contexts)},
+      'safeguards':ecfg.get('principles',[]),'note':ecfg.get('note')}
+
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
     path.parent.mkdir(parents=True,exist_ok=True)
     fields=['entry_time','exit_time','regime','pnl','hours','safety_orders','capital','entry_distance_ema200_pct','entry_ema200_slope_pct']
@@ -550,7 +622,7 @@ def write_deals(path:Path,deals:list[dict[str,Any]])->None:
 def main()->int:
     global APP_CONFIG
     parser=argparse.ArgumentParser(); parser.add_argument('--no-sync',action='store_true'); args=parser.parse_args()
-    cfg=load_json(CONFIG); APP_CONFIG=cfg; outputs=[]
+    cfg=load_json(CONFIG); APP_CONFIG=cfg; outputs=[]; contexts={}
     for asset in cfg['assets']:
         path=ROOT/asset['history_file']; candles=load_history(path); added=0; error=None
         if not args.no_sync:
@@ -572,13 +644,15 @@ def main()->int:
                                     'promotion_status':'WAITING FOR FIRST KUCOIN SYNC','all_gates_pass':False,'checks':{},'gates':asset.get('promotion_gates',{})}
         else:
             asset_signals=indicators(candles,asset)
+            contexts[asset['id']]={'asset':copy.deepcopy(asset),'candles':candles,'signals':asset_signals}
             result=simulate(candles,asset_signals,asset,cfg['execution'])
             if asset.get('production_status')!='production':
                 result['experiment']=build_research_experiment(asset,candles,asset_signals,result,cfg['execution'])
                 result['evolution']=build_strategy_evolution(asset,candles,asset_signals,result,cfg['execution'],result.get('experiment'))
         result['sync']={'new_candles':added,'error':error,'source':'KuCoin public spot candles API'}; result['strategy_config']={'regime':asset['regime'],'entry_filter':asset['entry_filter'],'bots':asset['bots']}
         write_deals(ROOT/asset['deal_log'],result.pop('all_deals')); outputs.append(result)
-    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'assets':outputs}
+    evidence_library=build_cross_asset_evidence(cfg,outputs,contexts)
+    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'assets':outputs}
     out=ROOT/cfg['execution']['output_json']; out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(payload,indent=2),encoding='utf-8')
     update_health_history(ROOT/'docs/health_history.json',payload,int(cfg.get('health_monitor',{}).get('history_points',180)))
     print(json.dumps(payload,indent=2)); return 0

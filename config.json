@@ -288,11 +288,11 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "8.1.0",
-    "mode": "TEL/TAO advisory + controlled strategy evolution",
+    "version": "9.0.0",
+    "mode": "TEL/TAO advisory + SUI research + cross-asset evidence",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
-    "feature": "Strategy Evolution Engine"
+    "feature": "Multi-Asset Evidence Engine"
   },
   "threecommas": {
     "enabled": true,
@@ -319,5 +319,22 @@
     "entry_pass_bonus": 25,
     "blocked_penalty": -20,
     "note": "Opportunity scores apply only to production assets. Research assets are excluded until promotion gates pass and promotion is approved manually."
+  },
+  "cross_asset_evidence": {
+    "enabled": true,
+    "source_asset": "SUI",
+    "test_only_qualified_suggestions": true,
+    "minimum_net_improvement": 0.0,
+    "maximum_drawdown_worsening_pp": 5.0,
+    "maximum_duration_worsening_pct": 10.0,
+    "minimum_deal_retention_pct": 25.0,
+    "principles": [
+      "Cross-asset tests are diagnostic evidence, not permission to change production strategies",
+      "Every asset keeps its own frozen baseline settings",
+      "The transferred rule is applied to the same named regime only",
+      "A rule must improve more than one asset before it can be described as generalisable",
+      "No production strategy is changed automatically"
+    ],
+    "note": "The evidence library compares suggested rules across TEL, TAO, and SUI. Results use each asset\u2019s available KuCoin history and are not independent forward validation."
   }
 }
