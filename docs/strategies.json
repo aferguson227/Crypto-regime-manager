@@ -8,7 +8,7 @@
     "timeframe": "4hour",
     "feature": "Strategy Health Monitor"
   },
-  "generated_at": "2026-08-02T15:00:21.146283+00:00",
+  "generated_at": "2026-08-02T17:17:30.219363+00:00",
   "workflow_status": "ok",
   "assets": [
     {
@@ -16,12 +16,12 @@
       "display_name": "TEL",
       "symbol": "TEL-USDT",
       "history_start": "2025-03-30T12:00:00Z",
-      "history_end": "2026-07-17T08:00:00Z",
-      "candles": 2844,
-      "net_pnl": 5356.882828814481,
+      "history_end": "2026-08-02T12:00:00Z",
+      "candles": 2941,
+      "net_pnl": 5224.817305305949,
       "realised_pnl": 5406.775183271634,
-      "open_pnl": -49.892354457152685,
-      "return_on_max_capital_pct": 108.9846921716065,
+      "open_pnl": -181.9578779656847,
+      "return_on_max_capital_pct": 106.29784594293048,
       "maximum_drawdown_dollars": -912.2416582921162,
       "maximum_drawdown_pct_of_capital": -18.559371091766923,
       "max_theoretical_capital": 4915.261695999998,
@@ -32,24 +32,25 @@
       "open_position": {
         "entry_time": "2026-07-08T12:00:00Z",
         "regime": "Medium",
-        "hours_open": 216,
-        "safety_orders": 3,
-        "capital": 710.3999999999999,
-        "average_entry": 0.0021337332432325084,
-        "target": 0.002165739241880996,
-        "last_close": 0.001988,
-        "open_pnl": -49.892354457152685,
-        "required_rise_pct": 8.940605728420303
+        "hours_open": 604,
+        "safety_orders": 4,
+        "capital": 1094.5599999999997,
+        "average_entry": 0.0019877998153568738,
+        "target": 0.0020176168125872265,
+        "last_close": 0.001661,
+        "open_pnl": -181.9578779656847,
+        "required_rise_pct": 21.47000677827975
       },
       "health": {
-        "score": 32,
-        "status": "Review",
+        "score": 64,
+        "status": "Watch",
         "flags": [
-          "Market data is 391 hours old",
           "Recent drawdown reached -15.5% of capital",
-          "Recent average trade duration is over twice the historical average"
+          "Recent average trade duration is over twice the historical average",
+          "Open replay position duration is elevated (25.2 days)"
         ],
         "positives": [
+          "Market data is current",
           "Recent 90-day realised P&L is positive"
         ],
         "recent_window_days": 90,
@@ -59,22 +60,22 @@
         "recent_longest_trade_hours": 556.0,
         "recent_max_drawdown_dollars": -761.5579703043404,
         "recent_max_drawdown_pct_of_capital": -15.493742091577554,
-        "open_loss_pct_of_capital": -1.0150498090011097,
-        "open_hours": 216.0,
-        "data_age_hours": 391.0058715041478,
+        "open_loss_pct_of_capital": -3.7018960376771113,
+        "open_hours": 604.0,
+        "data_age_hours": 5.291684972776307,
         "historical_average_trade_hours": 20.49269311064718,
         "historical_longest_trade_hours": 556,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
       },
       "latest": {
         "regime": "Low",
-        "rv": 65.404338490974,
-        "ema50": 0.0021400142546332654,
-        "ema200": 0.0023060892034563207,
-        "rsi14": 33.79862020219326,
-        "distance_ema200": -13.793447494553757,
-        "distance_ema50": -7.103422526468917,
-        "return24": -0.8973080757726737,
+        "rv": 76.37555609935887,
+        "ema50": 0.0017333455364478495,
+        "ema200": 0.001966494845436688,
+        "rsi14": 34.19313071232007,
+        "distance_ema200": -15.534993450178547,
+        "distance_ema50": -4.173751564624995,
+        "return24": -2.0636792452830233,
         "entry_allowed": true,
         "entry_reason": "All entry rules pass",
         "recommended_bot": "TEL Low Volatility Bot",
@@ -86,8 +87,8 @@
           "volume_scale": 1.6,
           "step_scale": 1.0
         },
-        "last_close": 0.001988,
-        "last_candle": "2026-07-17T08:00:00Z"
+        "last_close": 0.001661,
+        "last_candle": "2026-08-02T12:00:00Z"
       },
       "recent_deals": [
         {
@@ -247,57 +248,57 @@
       "display_name": "TAO",
       "symbol": "TAO-USDT",
       "history_start": "2026-04-03T20:00:00Z",
-      "history_end": "2026-07-11T16:00:00Z",
-      "candles": 594,
-      "net_pnl": 253.3810336639985,
-      "realised_pnl": 253.3810336639985,
+      "history_end": "2026-08-02T12:00:00Z",
+      "candles": 725,
+      "net_pnl": 268.91213366399836,
+      "realised_pnl": 268.91213366399836,
       "open_pnl": 0.0,
-      "return_on_max_capital_pct": 7.366857079113111,
+      "return_on_max_capital_pct": 7.818411768613413,
       "maximum_drawdown_dollars": -415.0888249024398,
       "maximum_drawdown_pct_of_capital": -12.068385719225839,
       "max_theoretical_capital": 3439.4726399999986,
-      "closed_deals": 12,
-      "average_trade_hours": 70.66666666666667,
+      "closed_deals": 14,
+      "average_trade_hours": 64.57142857142857,
       "longest_trade_hours": 368,
-      "skipped_entry_candles": 261,
+      "skipped_entry_candles": 378,
       "open_position": null,
       "health": {
-        "score": 50,
-        "status": "Watch",
+        "score": 90,
+        "status": "Excellent",
         "flags": [
-          "Market data is 527 hours old",
           "Recent drawdown reached -12.1% of capital"
         ],
         "positives": [
+          "Market data is current",
           "Recent 90-day realised P&L is positive",
           "Recent trade duration is consistent with history",
           "No unresolved replay position"
         ],
         "recent_window_days": 90,
-        "recent_closed_deals": 12,
-        "recent_realised_pnl": 253.38103366399852,
-        "recent_average_trade_hours": 70.66666666666667,
+        "recent_closed_deals": 14,
+        "recent_realised_pnl": 268.9121336639984,
+        "recent_average_trade_hours": 64.57142857142857,
         "recent_longest_trade_hours": 368.0,
         "recent_max_drawdown_dollars": -415.0888249024398,
         "recent_max_drawdown_pct_of_capital": -12.068385719225839,
         "open_loss_pct_of_capital": 0.0,
         "open_hours": 0.0,
-        "data_age_hours": 527.0058738978041,
-        "historical_average_trade_hours": 70.66666666666667,
+        "data_age_hours": 5.291727495855755,
+        "historical_average_trade_hours": 64.57142857142857,
         "historical_longest_trade_hours": 368,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
       },
       "latest": {
         "regime": "Low",
-        "rv": 65.52852306919004,
-        "ema50": 211.37806813299778,
-        "ema200": 221.77949944323652,
-        "rsi14": 57.95255250134253,
-        "distance_ema200": -3.187625303954622,
-        "distance_ema50": 1.5762902445043636,
-        "return24": 1.302193913658889,
+        "rv": 50.366890300232846,
+        "ema50": 193.6941842832287,
+        "ema200": 202.27928169311923,
+        "rsi14": 48.121070885846486,
+        "distance_ema200": -4.775220483417309,
+        "distance_ema50": -0.5545774578641915,
+        "return24": -0.005191299382234504,
         "entry_allowed": false,
-        "entry_reason": "RSI is above the allowed maximum",
+        "entry_reason": "Price is too far above EMA50",
         "recommended_bot": "TAO Low Pullback Bot",
         "bot_settings": {
           "name": "TAO Low Pullback Bot",
@@ -307,28 +308,10 @@
           "volume_scale": 1.4,
           "step_scale": 1.2
         },
-        "last_close": 214.71,
-        "last_candle": "2026-07-11T16:00:00Z"
+        "last_close": 192.62,
+        "last_candle": "2026-08-02T12:00:00Z"
       },
       "recent_deals": [
-        {
-          "entry_time": "2026-05-28T04:00:00Z",
-          "exit_time": "2026-05-28T16:00:00Z",
-          "regime": "Low",
-          "pnl": 5.513999999999972,
-          "hours": 16,
-          "safety_orders": 1,
-          "capital": 240.0
-        },
-        {
-          "entry_time": "2026-05-29T04:00:00Z",
-          "exit_time": "2026-05-29T16:00:00Z",
-          "regime": "Low",
-          "pnl": 16.32143999999988,
-          "hours": 16,
-          "safety_orders": 3,
-          "capital": 710.3999999999999
-        },
         {
           "entry_time": "2026-05-29T20:00:00Z",
           "exit_time": "2026-05-30T08:00:00Z",
@@ -400,6 +383,24 @@
           "hours": 368,
           "safety_orders": 4,
           "capital": 1580.9600000000003
+        },
+        {
+          "entry_time": "2026-07-14T08:00:00Z",
+          "exit_time": "2026-07-14T12:00:00Z",
+          "regime": "Low",
+          "pnl": 5.513999999999972,
+          "hours": 8,
+          "safety_orders": 1,
+          "capital": 240.0
+        },
+        {
+          "entry_time": "2026-07-16T20:00:00Z",
+          "exit_time": "2026-07-18T16:00:00Z",
+          "regime": "Low",
+          "pnl": 10.017099999999921,
+          "hours": 48,
+          "safety_orders": 2,
+          "capital": 436.0
         }
       ],
       "sync": {
