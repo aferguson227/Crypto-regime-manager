@@ -8,13 +8,13 @@
     "timeframe": "4hour",
     "feature": "Strategy Evolution Engine"
   },
-  "generated_at": "2026-08-02T19:44:42.591725+00:00",
+  "generated_at": "2026-08-02T20:16:27.204825+00:00",
   "workflow_status": "ok",
   "portfolio": {
     "best_opportunity": {
       "id": "TEL",
       "symbol": "TEL-USDT",
-      "score": 61,
+      "score": 64,
       "recommended_bot": "TEL Low Volatility Bot"
     },
     "eligible_count": 1,
@@ -27,7 +27,7 @@
         "rank": 1,
         "id": "TEL",
         "symbol": "TEL-USDT",
-        "score": 61,
+        "score": 64,
         "action": "CAUTIOUS",
         "entry_allowed": true,
         "regime": "Low",
@@ -60,12 +60,12 @@
       "symbol": "TEL-USDT",
       "production_status": "production",
       "history_start": "2025-03-30T12:00:00Z",
-      "history_end": "2026-08-02T12:00:00Z",
-      "candles": 2941,
-      "net_pnl": 5224.817305305949,
+      "history_end": "2026-08-02T16:00:00Z",
+      "candles": 2942,
+      "net_pnl": 5228.117835162786,
       "realised_pnl": 5406.775183271634,
-      "open_pnl": -181.9578779656847,
-      "return_on_max_capital_pct": 106.29784594293048,
+      "open_pnl": -178.6573481088479,
+      "return_on_max_capital_pct": 106.36499455191549,
       "maximum_drawdown_dollars": -912.2416582921162,
       "maximum_drawdown_pct_of_capital": -18.559371091766923,
       "max_theoretical_capital": 4915.261695999998,
@@ -76,14 +76,14 @@
       "open_position": {
         "entry_time": "2026-07-08T12:00:00Z",
         "regime": "Medium",
-        "hours_open": 604,
+        "hours_open": 608,
         "safety_orders": 4,
         "capital": 1094.5599999999997,
         "average_entry": 0.0019877998153568738,
         "target": 0.0020176168125872265,
-        "last_close": 0.001661,
-        "open_pnl": -181.9578779656847,
-        "required_rise_pct": 21.47000677827975,
+        "last_close": 0.001667,
+        "open_pnl": -178.6573481088479,
+        "required_rise_pct": 21.03280219479462,
         "entry_signal": {
           "regime": "Medium",
           "rv": 98.2626413396156,
@@ -107,7 +107,7 @@
         "flags": [
           "Recent drawdown reached -15.5% of capital",
           "Recent average trade duration is over twice the historical average",
-          "Open replay position duration is elevated (25.2 days)"
+          "Open replay position duration is elevated (25.3 days)"
         ],
         "positives": [
           "Market data is current",
@@ -120,28 +120,28 @@
         "recent_longest_trade_hours": 556.0,
         "recent_max_drawdown_dollars": -761.5579703043404,
         "recent_max_drawdown_pct_of_capital": -15.493742091577554,
-        "open_loss_pct_of_capital": -3.7018960376771113,
-        "open_hours": 604.0,
-        "data_age_hours": 7.744990890026092,
+        "open_loss_pct_of_capital": -3.634747428692106,
+        "open_hours": 608.0,
+        "data_age_hours": 4.274110338025623,
         "historical_average_trade_hours": 20.49269311064718,
         "historical_longest_trade_hours": 556,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
       },
       "latest": {
         "regime": "Low",
-        "rv": 76.37555609935887,
-        "ema50": 0.0017333455364478495,
-        "ema200": 0.001966494845436688,
-        "rsi14": 34.19313071232007,
-        "distance_ema200": -15.534993450178547,
-        "distance_ema50": -4.173751564624995,
-        "ema200_slope_pct": -0.15588719983812283,
-        "return24": -2.0636792452830233,
-        "ema50_slope_pct": -0.1700674845032557,
-        "pullback20_pct": 24.568574023614897,
-        "atr14": 3.678780488753383e-05,
-        "atr_expansion_ratio": 1.0542424538493986,
-        "consecutive_bearish_candles": 3,
+        "rv": 76.36604618266975,
+        "ema50": 0.0017307437507047968,
+        "ema200": 0.001963514797223388,
+        "rsi14": 36.67695595325805,
+        "distance_ema200": -15.101225498411841,
+        "distance_ema50": -3.6830264837783733,
+        "ema200_slope_pct": -0.15154111490378597,
+        "return24": -0.6555423122765136,
+        "ema50_slope_pct": -0.15010196688103328,
+        "pullback20_pct": 24.296094459582196,
+        "atr14": 3.6374390252709984e-05,
+        "atr_expansion_ratio": 1.0051443037035523,
+        "consecutive_bearish_candles": 0,
         "entry_allowed": true,
         "entry_reason": "All entry rules pass",
         "recommended_bot": "TEL Low Volatility Bot",
@@ -153,8 +153,8 @@
           "volume_scale": 1.6,
           "step_scale": 1.0
         },
-        "last_close": 0.001661,
-        "last_candle": "2026-08-02T12:00:00Z"
+        "last_close": 0.001667,
+        "last_candle": "2026-08-02T16:00:00Z"
       },
       "recent_deals": [
         {
@@ -409,13 +409,14 @@
         }
       ],
       "intelligence": {
-        "opportunity_score": 61,
+        "opportunity_score": 64,
         "action": "CAUTIOUS",
         "confidence_label": "Low",
         "explanation": [
           "All configured entry filters pass",
           "Low regime has an active strategy configuration",
-          "Recent 90-day realised P&L is positive"
+          "Recent 90-day realised P&L is positive",
+          "RSI is within a balanced entry zone"
         ],
         "cautions": [
           "Recent drawdown is elevated",
@@ -433,7 +434,7 @@
       "experiment": null,
       "evolution": null,
       "sync": {
-        "new_candles": 0,
+        "new_candles": 1,
         "error": null,
         "source": "KuCoin public spot candles API"
       },
@@ -499,8 +500,8 @@
       "symbol": "TAO-USDT",
       "production_status": "production",
       "history_start": "2026-04-03T20:00:00Z",
-      "history_end": "2026-08-02T12:00:00Z",
-      "candles": 725,
+      "history_end": "2026-08-02T16:00:00Z",
+      "candles": 726,
       "net_pnl": 268.91213366399836,
       "realised_pnl": 268.91213366399836,
       "open_pnl": 0.0,
@@ -511,7 +512,7 @@
       "closed_deals": 14,
       "average_trade_hours": 64.57142857142857,
       "longest_trade_hours": 368,
-      "skipped_entry_candles": 378,
+      "skipped_entry_candles": 379,
       "open_position": null,
       "health": {
         "score": 90,
@@ -534,25 +535,25 @@
         "recent_max_drawdown_pct_of_capital": -12.068385719225839,
         "open_loss_pct_of_capital": 0.0,
         "open_hours": 0.0,
-        "data_age_hours": 7.745081013308631,
+        "data_age_hours": 4.274163424173991,
         "historical_average_trade_hours": 64.57142857142857,
         "historical_longest_trade_hours": 368,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
       },
       "latest": {
         "regime": "Low",
-        "rv": 50.366890300232846,
-        "ema50": 193.6941842832287,
-        "ema200": 202.27928169311923,
-        "rsi14": 48.121070885846486,
-        "distance_ema200": -4.775220483417309,
-        "distance_ema50": -0.5545774578641915,
-        "ema200_slope_pct": -0.04796914423131904,
-        "return24": -0.005191299382234504,
-        "ema50_slope_pct": -0.022630691965219718,
-        "pullback20_pct": 5.351088398604487,
-        "atr14": 3.0809050816107293,
-        "atr_expansion_ratio": 0.8660421574476697,
+        "rv": 48.914096110229046,
+        "ema50": 193.6650005858472,
+        "ema200": 202.18645301955587,
+        "rsi14": 48.928397942167045,
+        "distance_ema200": -4.568284809201595,
+        "distance_ema50": -0.36919452853344525,
+        "ema200_slope_pct": -0.045891340322334884,
+        "return24": 1.1904761904761862,
+        "ema50_slope_pct": -0.015066893974902129,
+        "pullback20_pct": 5.188934204707385,
+        "atr14": 3.0072690043528207,
+        "atr_expansion_ratio": 0.8516263169428769,
         "consecutive_bearish_candles": 0,
         "entry_allowed": false,
         "entry_reason": "Price is too far above EMA50",
@@ -565,8 +566,8 @@
           "volume_scale": 1.4,
           "step_scale": 1.2
         },
-        "last_close": 192.62,
-        "last_candle": "2026-08-02T12:00:00Z"
+        "last_close": 192.95,
+        "last_candle": "2026-08-02T16:00:00Z"
       },
       "recent_deals": [
         {
@@ -846,7 +847,7 @@
       "experiment": null,
       "evolution": null,
       "sync": {
-        "new_candles": 0,
+        "new_candles": 1,
         "error": null,
         "source": "KuCoin public spot candles API"
       },
@@ -918,12 +919,12 @@
       "symbol": "SUI-USDT",
       "production_status": "research",
       "history_start": "2026-02-17T00:00:00Z",
-      "history_end": "2026-08-02T12:00:00Z",
-      "candles": 1000,
-      "net_pnl": -1164.1783139910399,
+      "history_end": "2026-08-02T16:00:00Z",
+      "candles": 1001,
+      "net_pnl": -1150.4527800451312,
       "realised_pnl": 93.67662022399931,
-      "open_pnl": -1257.8549342150393,
-      "return_on_max_capital_pct": -27.028295544502367,
+      "open_pnl": -1244.1294002691307,
+      "return_on_max_capital_pct": -26.70963492049166,
       "maximum_drawdown_dollars": -1338.437101252311,
       "maximum_drawdown_pct_of_capital": -31.073997089292053,
       "max_theoretical_capital": 4307.257600000001,
@@ -934,14 +935,14 @@
       "open_position": {
         "entry_time": "2026-05-26T12:00:00Z",
         "regime": "Medium",
-        "hours_open": 1636,
+        "hours_open": 1640,
         "safety_orders": 6,
         "capital": 4307.257600000001,
         "average_entry": 0.9718489724340317,
         "target": 0.981567462158372,
-        "last_close": 0.6897,
-        "open_pnl": -1257.8549342150393,
-        "required_rise_pct": 42.31803134092678,
+        "last_close": 0.6928,
+        "open_pnl": -1244.1294002691307,
+        "required_rise_pct": 41.681215669510976,
         "entry_signal": {
           "regime": "Medium",
           "rv": 106.66754043225343,
@@ -964,8 +965,8 @@
         "status": "Review",
         "flags": [
           "Recent drawdown reached -31.1% of capital",
-          "Open replay position is -29.2% of capital underwater",
-          "Open replay position has lasted 68.2 days"
+          "Open replay position is -28.9% of capital underwater",
+          "Open replay position has lasted 68.3 days"
         ],
         "positives": [
           "Market data is current",
@@ -979,27 +980,27 @@
         "recent_longest_trade_hours": 152.0,
         "recent_max_drawdown_dollars": -1338.437101252311,
         "recent_max_drawdown_pct_of_capital": -31.073997089292053,
-        "open_loss_pct_of_capital": -29.20315084510012,
-        "open_hours": 1636.0,
-        "data_age_hours": 7.745160778363545,
+        "open_loss_pct_of_capital": -28.884490221089408,
+        "open_hours": 1640.0,
+        "data_age_hours": 4.274218819472525,
         "historical_average_trade_hours": 19.466666666666665,
         "historical_longest_trade_hours": 152,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
       },
       "latest": {
         "regime": "Low",
-        "rv": 44.48040190028964,
-        "ema50": 0.6972204281104653,
-        "ema200": 0.7278976790786054,
-        "rsi14": 50.89290558571689,
-        "distance_ema200": -5.247671503357054,
-        "distance_ema50": -1.078629914910323,
-        "ema200_slope_pct": -0.05271261626547119,
-        "return24": 1.0253405595429976,
-        "ema50_slope_pct": -0.044006336710122884,
-        "pullback20_pct": 11.269780007719032,
-        "atr14": 0.009083607180309063,
-        "atr_expansion_ratio": 1.078072387559947,
+        "rv": 44.367464212990335,
+        "ema50": 0.6970470779884862,
+        "ema200": 0.7275484484410073,
+        "rsi14": 53.301433186638775,
+        "distance_ema200": -4.776100961450247,
+        "distance_ema50": -0.6092957165450441,
+        "ema200_slope_pct": -0.04797798476842141,
+        "return24": 3.1720029784065407,
+        "ema50_slope_pct": -0.024863029680421977,
+        "pullback20_pct": 10.870963591920757,
+        "atr14": 0.008877635238858416,
+        "atr_expansion_ratio": 0.9492243249162716,
         "consecutive_bearish_candles": 0,
         "entry_allowed": false,
         "entry_reason": "24-hour return is above the allowed maximum",
@@ -1012,8 +1013,8 @@
           "volume_scale": 1.6,
           "step_scale": 1.2
         },
-        "last_close": 0.6897,
-        "last_candle": "2026-08-02T12:00:00Z"
+        "last_close": 0.6928,
+        "last_candle": "2026-08-02T16:00:00Z"
       },
       "recent_deals": [
         {
@@ -1283,8 +1284,8 @@
         "mode": "research",
         "label": "Research only \u2014 not approved for live trading",
         "forward_test_start": "2026-04-01T00:00:00Z",
-        "forward_days": 123.66666666666667,
-        "forward_candles": 742,
+        "forward_days": 123.83333333333334,
+        "forward_candles": 743,
         "promotion_status": "FAIL \u2014 review risk",
         "all_gates_pass": false,
         "checks": {
@@ -1319,11 +1320,11 @@
           },
           {
             "start": "2026-07-30T00:00:00Z",
-            "end": "2026-08-02T12:00:00Z",
-            "equity_change": 7.0841465527269065
+            "end": "2026-08-02T16:00:00Z",
+            "equity_change": 20.809680498635544
           }
         ],
-        "effective_longest_trade_hours": 1636.0,
+        "effective_longest_trade_hours": 1640.0,
         "gates": {
           "minimum_forward_days": 90,
           "minimum_forward_candles": 540,
@@ -1353,32 +1354,32 @@
         "problem_regime": "Medium",
         "generated_automatically": true,
         "diagnosis": [
-          "Candidate A has an unresolved Medium trade lasting 68.2 days.",
+          "Candidate A has an unresolved Medium trade lasting 68.3 days.",
           "At entry: price vs EMA50 -1.84%, price vs EMA200 -0.05%, EMA200 slope -0.0005%, ATR ratio 0.927, bearish candles 0.",
           "Five one-variable hypotheses were applied to the actual problem regime (Medium) and ranked using profit, duration, drawdown, trade retention, and whether the problem trade changed."
         ],
         "baseline_metrics": {
-          "net_pnl": -1164.1783139910399,
+          "net_pnl": -1150.4527800451312,
           "realised_pnl": 93.67662022399931,
-          "open_pnl": -1257.8549342150393,
-          "return_on_max_capital_pct": -27.028295544502367,
+          "open_pnl": -1244.1294002691307,
+          "return_on_max_capital_pct": -26.70963492049166,
           "maximum_drawdown_pct_of_capital": -31.073997089292053,
           "closed_deals": 15,
           "average_trade_hours": 19.466666666666665,
           "longest_completed_trade_hours": 152.0,
-          "effective_longest_trade_hours": 1636.0,
+          "effective_longest_trade_hours": 1640.0,
           "profitable_windows": 1,
           "open_position": {
             "entry_time": "2026-05-26T12:00:00Z",
             "regime": "Medium",
-            "hours_open": 1636,
+            "hours_open": 1640,
             "safety_orders": 6,
             "capital": 4307.257600000001,
             "average_entry": 0.9718489724340317,
             "target": 0.981567462158372,
-            "last_close": 0.6897,
-            "open_pnl": -1257.8549342150393,
-            "required_rise_pct": 42.31803134092678,
+            "last_close": 0.6928,
+            "open_pnl": -1244.1294002691307,
+            "required_rise_pct": 41.681215669510976,
             "entry_signal": {
               "regime": "Medium",
               "rv": 106.66754043225343,
@@ -1422,8 +1423,8 @@
               "open_position": null
             },
             "comparison": {
-              "net_pnl_improvement": 1263.149434215039,
-              "effective_longest_trade_reduction_hours": 1484.0,
+              "net_pnl_improvement": 1249.4239002691306,
+              "effective_longest_trade_reduction_hours": 1488.0,
               "maximum_drawdown_change_pct_points": 27.223905550950402,
               "blocked_or_replaced_current_problem_trade": true,
               "baseline_closed_deals": 15,
@@ -1433,7 +1434,7 @@
               "closed_deal_retained_share_pct": 100.0,
               "diagnostic_pass": true
             },
-            "rank_score": 72.213,
+            "rank_score": 72.22,
             "rank": 1
           },
           {
@@ -1460,8 +1461,8 @@
               "open_position": null
             },
             "comparison": {
-              "net_pnl_improvement": 1263.149434215039,
-              "effective_longest_trade_reduction_hours": 1484.0,
+              "net_pnl_improvement": 1249.4239002691306,
+              "effective_longest_trade_reduction_hours": 1488.0,
               "maximum_drawdown_change_pct_points": 27.223905550950402,
               "blocked_or_replaced_current_problem_trade": true,
               "baseline_closed_deals": 15,
@@ -1471,7 +1472,7 @@
               "closed_deal_retained_share_pct": 100.0,
               "diagnostic_pass": true
             },
-            "rank_score": 72.213,
+            "rank_score": 72.22,
             "rank": 2
           },
           {
@@ -1498,8 +1499,8 @@
               "open_position": null
             },
             "comparison": {
-              "net_pnl_improvement": 1250.033050215039,
-              "effective_longest_trade_reduction_hours": 1484.0,
+              "net_pnl_improvement": 1236.3075162691305,
+              "effective_longest_trade_reduction_hours": 1488.0,
               "maximum_drawdown_change_pct_points": 27.223905550950402,
               "blocked_or_replaced_current_problem_trade": true,
               "baseline_closed_deals": 15,
@@ -1509,7 +1510,7 @@
               "closed_deal_retained_share_pct": 80.0,
               "diagnostic_pass": true
             },
-            "rank_score": 72.213,
+            "rank_score": 72.22,
             "rank": 3
           },
           {
@@ -1523,27 +1524,27 @@
               "human_rule": "Medium entry allows at most two consecutive bearish candles"
             },
             "metrics": {
-              "net_pnl": -1164.9773139910399,
+              "net_pnl": -1151.2517800451315,
               "realised_pnl": 92.87762022399932,
-              "open_pnl": -1257.8549342150393,
-              "return_on_max_capital_pct": -27.04684563075679,
+              "open_pnl": -1244.1294002691307,
+              "return_on_max_capital_pct": -26.728185006746084,
               "maximum_drawdown_pct_of_capital": -31.073997089292053,
               "closed_deals": 14,
               "average_trade_hours": 20.571428571428573,
               "longest_completed_trade_hours": 152.0,
-              "effective_longest_trade_hours": 1636.0,
+              "effective_longest_trade_hours": 1640.0,
               "profitable_windows": 1,
               "open_position": {
                 "entry_time": "2026-05-26T12:00:00Z",
                 "regime": "Medium",
-                "hours_open": 1636,
+                "hours_open": 1640,
                 "safety_orders": 6,
                 "capital": 4307.257600000001,
                 "average_entry": 0.9718489724340317,
                 "target": 0.981567462158372,
-                "last_close": 0.6897,
-                "open_pnl": -1257.8549342150393,
-                "required_rise_pct": 42.31803134092678,
+                "last_close": 0.6928,
+                "open_pnl": -1244.1294002691307,
+                "required_rise_pct": 41.681215669510976,
                 "entry_signal": {
                   "regime": "Medium",
                   "rv": 106.66754043225343,
@@ -1563,7 +1564,7 @@
               }
             },
             "comparison": {
-              "net_pnl_improvement": -0.7989999999999782,
+              "net_pnl_improvement": -0.7990000000002055,
               "effective_longest_trade_reduction_hours": 0.0,
               "maximum_drawdown_change_pct_points": 0.0,
               "blocked_or_replaced_current_problem_trade": false,
@@ -1574,7 +1575,7 @@
               "closed_deal_retained_share_pct": 93.33333333333333,
               "diagnostic_pass": false
             },
-            "rank_score": -5.027,
+            "rank_score": -5.028,
             "rank": 4
           },
           {
@@ -1588,27 +1589,27 @@
               "human_rule": "Medium entry requires ATR(14) no higher than its level 24 hours earlier"
             },
             "metrics": {
-              "net_pnl": -1214.1833902150397,
+              "net_pnl": -1200.457856269131,
               "realised_pnl": 43.67154399999967,
-              "open_pnl": -1257.8549342150393,
-              "return_on_max_capital_pct": -28.189244827498577,
+              "open_pnl": -1244.1294002691307,
+              "return_on_max_capital_pct": -27.870584203487876,
               "maximum_drawdown_pct_of_capital": -31.073997089292053,
               "closed_deals": 11,
               "average_trade_hours": 20.363636363636363,
               "longest_completed_trade_hours": 152.0,
-              "effective_longest_trade_hours": 1636.0,
+              "effective_longest_trade_hours": 1640.0,
               "profitable_windows": 1,
               "open_position": {
                 "entry_time": "2026-05-26T12:00:00Z",
                 "regime": "Medium",
-                "hours_open": 1636,
+                "hours_open": 1640,
                 "safety_orders": 6,
                 "capital": 4307.257600000001,
                 "average_entry": 0.9718489724340317,
                 "target": 0.981567462158372,
-                "last_close": 0.6897,
-                "open_pnl": -1257.8549342150393,
-                "required_rise_pct": 42.31803134092678,
+                "last_close": 0.6928,
+                "open_pnl": -1244.1294002691307,
+                "required_rise_pct": 41.681215669510976,
                 "entry_signal": {
                   "regime": "Medium",
                   "rv": 106.66754043225343,
@@ -1639,7 +1640,7 @@
               "closed_deal_retained_share_pct": 73.33333333333333,
               "diagnostic_pass": false
             },
-            "rank_score": -6.718,
+            "rank_score": -6.739,
             "rank": 5
           }
         ],
@@ -1667,8 +1668,8 @@
             "open_position": null
           },
           "comparison": {
-            "net_pnl_improvement": 1263.149434215039,
-            "effective_longest_trade_reduction_hours": 1484.0,
+            "net_pnl_improvement": 1249.4239002691306,
+            "effective_longest_trade_reduction_hours": 1488.0,
             "maximum_drawdown_change_pct_points": 27.223905550950402,
             "blocked_or_replaced_current_problem_trade": true,
             "baseline_closed_deals": 15,
@@ -1678,7 +1679,7 @@
             "closed_deal_retained_share_pct": 100.0,
             "diagnostic_pass": true
           },
-          "rank_score": 72.213,
+          "rank_score": 72.22,
           "rank": 1
         },
         "manual_approval_required": true,
@@ -1704,8 +1705,8 @@
             "title": "Structural Price Filter",
             "reason": "Require the problem-regime entry price to be at or above EMA200.",
             "expected_evidence": {
-              "net_improvement": 1263.149434215039,
-              "duration_reduction_hours": 1484.0,
+              "net_improvement": 1249.4239002691306,
+              "duration_reduction_hours": 1488.0,
               "drawdown_change_pp": 27.223905550950402
             },
             "recommended_action": "Review for a new forward comparison; do not replace Candidate A."
@@ -1717,8 +1718,8 @@
             "title": "EMA50 Recovery Filter",
             "reason": "Require price to recover to EMA50 before entering the problem regime.",
             "expected_evidence": {
-              "net_improvement": 1250.033050215039,
-              "duration_reduction_hours": 1484.0,
+              "net_improvement": 1236.3075162691305,
+              "duration_reduction_hours": 1488.0,
               "drawdown_change_pp": 27.223905550950402
             },
             "recommended_action": "Review for a new forward comparison; do not replace Candidate A."
@@ -1746,8 +1747,8 @@
               "open_position": null
             },
             "comparison": {
-              "net_pnl_improvement": 1250.033050215039,
-              "duration_reduction_hours": 1484.0,
+              "net_pnl_improvement": 1236.3075162691305,
+              "duration_reduction_hours": 1488.0,
               "drawdown_change_pp": 27.223905550950402,
               "baseline_closed_deals": 15,
               "candidate_closed_deals": 12,
@@ -1757,7 +1758,7 @@
               "problem_trade_changed": true,
               "diagnostic_pass": true
             },
-            "rank_score": 36.084,
+            "rank_score": 36.13,
             "rank": 1
           }
         ],
@@ -1791,7 +1792,7 @@
         "note": "Suggestions are generated automatically, but no strategy or setting is changed without manual approval."
       },
       "sync": {
-        "new_candles": 0,
+        "new_candles": 1,
         "error": null,
         "source": "KuCoin public spot candles API"
       },
