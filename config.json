@@ -135,9 +135,15 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "5.1.0",
+    "version": "5.2.1",
     "mode": "Advisory / paper-validation",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour"
+  },
+  "threecommas": {
+    "enabled": true,
+    "publish_mode": "masked",
+    "note": "Read-only BOTS_READ via RSA. Masked hides exact prices and dollar amounts because GitHub Pages is public.",
+    "authentication": "RSA self-generated"
   }
 }

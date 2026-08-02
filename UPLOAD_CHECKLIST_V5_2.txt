@@ -1,0 +1,18 @@
+V5.2.1 FILES TO COPY
+==================
+Replace:
+- config.json
+- docs/index.html
+- VERSION
+
+Add:
+- scripts/threecommas_sync.py
+- .github/workflows/threecommas-update.yml
+- docs/threecommas.json
+- README_3COMMAS.md
+
+Then add GitHub Actions secrets:
+- THREECOMMAS_API_KEY
+- THREECOMMAS_RSA_PRIVATE_KEY_B64
+
+Run workflow: Update 3Commas Deal Dashboard
