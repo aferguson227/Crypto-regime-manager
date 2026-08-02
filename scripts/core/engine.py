@@ -6,7 +6,7 @@ candidate with automatic one-variable experiments, excluded from live
 portfolio rankings until manually promoted.
 """
 from __future__ import annotations
-import argparse, copy, csv, json, math, time, urllib.parse, urllib.request
+import argparse, copy, csv, itertools, json, math, time, urllib.parse, urllib.request
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -405,7 +405,11 @@ def build_research_experiment(asset:dict[str,Any],candles:list[Candle],signals:l
         cr=simulate(candles,signals,candidate,execution); b=compact_metrics(cr)
         improvement=b['net_pnl']-a['net_pnl']; duration_reduction=a['effective_longest_trade_hours']-b['effective_longest_trade_hours']
         dd_change=b['maximum_drawdown_pct_of_capital']-a['maximum_drawdown_pct_of_capital']
-        baseline_deals=max(1,a['closed_deals']); retention=b['closed_deals']/baseline_deals*100
+        baseline_deals=max(1,a['closed_deals'])
+        candidate_deals=int(b['closed_deals'])
+        deal_count_ratio=candidate_deals/baseline_deals*100
+        deal_count_change=candidate_deals-int(a['closed_deals'])
+        retained_share=min(100.0,deal_count_ratio)
         candidate_open=b.get('open_position') or {}
         changed=bool(baseline_open and (not candidate_open or candidate_open.get('entry_time')!=baseline_open.get('entry_time')))
         # Ranking rewards solving the observed problem, while penalising over-restriction and worse drawdown.
@@ -414,15 +418,17 @@ def build_research_experiment(asset:dict[str,Any],candles:list[Candle],signals:l
         score += max(-30,min(30,duration_reduction/max(24,a['effective_longest_trade_hours'])*30))
         score += 15 if changed else -10
         score += max(-15,min(15,dd_change*-2))
-        if retention<min_deal_retention: score-=20
-        elif retention>=60: score+=5
-        diagnostic_pass=(improvement>float(ecfg.get('minimum_diagnostic_net_improvement',0)) and duration_reduction>0 and changed and dd_change>=-max_dd_worse and retention>=min_deal_retention)
+        if retained_share<min_deal_retention: score-=20
+        elif retained_share>=60: score+=5
+        diagnostic_pass=(improvement>float(ecfg.get('minimum_diagnostic_net_improvement',0)) and duration_reduction>0 and changed and dd_change>=-max_dd_worse and retained_share>=min_deal_retention)
         results.append({
           'candidate_id':h.get('id'),'candidate_name':h.get('name'),'hypothesis':h.get('hypothesis'),
           'amendment':{'regime':problem_regime,'field':h.get('field'),'value':h.get('value'),'human_rule':f"{problem_regime} {h.get('human_rule')}"},
           'metrics':b,'comparison':{'net_pnl_improvement':improvement,'effective_longest_trade_reduction_hours':duration_reduction,
           'maximum_drawdown_change_pct_points':dd_change,'blocked_or_replaced_current_problem_trade':changed,
-          'closed_deal_retention_pct':retention,'diagnostic_pass':diagnostic_pass},'rank_score':round(score,3)
+          'baseline_closed_deals':int(a['closed_deals']),'candidate_closed_deals':candidate_deals,
+          'closed_deal_count_change':deal_count_change,'closed_deal_count_ratio_pct':deal_count_ratio,
+          'closed_deal_retained_share_pct':retained_share,'diagnostic_pass':diagnostic_pass},'rank_score':round(score,3)
         })
     results.sort(key=lambda x:(x['comparison']['diagnostic_pass'],x['rank_score']),reverse=True)
     for i,r in enumerate(results,1): r['rank']=i
@@ -450,20 +456,47 @@ def build_strategy_evolution(asset:dict[str,Any],candles:list[Candle],signals:li
     passing.sort(key=lambda c:float(c.get('rank_score',0)),reverse=True)
     min_score=float(ecfg.get('minimum_single_rule_rank_score',20.0))
     qualified=[c for c in passing if float(c.get('rank_score',0))>=min_score]
+
+    # Cluster rules that produce effectively identical outcomes. This stops
+    # correlated filters from taking multiple top-ranking positions and from
+    # being combined with one another as though they were independent evidence.
+    def outcome_fingerprint(c:dict[str,Any])->tuple[Any,...]:
+        m=c.get('metrics') or {}; x=c.get('comparison') or {}
+        return (
+          round(float(m.get('net_pnl',0) or 0),2),
+          round(float(m.get('maximum_drawdown_pct_of_capital',0) or 0),2),
+          round(float(m.get('effective_longest_trade_hours',0) or 0),1),
+          int(m.get('closed_deals',0) or 0),
+          bool(x.get('blocked_or_replaced_current_problem_trade')),
+        )
+    clusters:dict[tuple[Any,...],list[dict[str,Any]]]={}
+    for c in qualified:
+        clusters.setdefault(outcome_fingerprint(c),[]).append(c)
+    representatives=[]; correlated_clusters=[]
+    for members in clusters.values():
+        members.sort(key=lambda c:float(c.get('rank_score',0)),reverse=True)
+        representatives.append(members[0])
+        if len(members)>1:
+            correlated_clusters.append({
+              'representative_id':members[0].get('candidate_id'),
+              'candidate_ids':[m.get('candidate_id') for m in members],
+              'reason':'These rules produced the same rounded P&L, drawdown, duration, deal count, and problem-trade outcome on the diagnostic sample.'
+            })
+    representatives.sort(key=lambda c:float(c.get('rank_score',0)),reverse=True)
     baseline_metrics=experiment.get('baseline_metrics') or compact_metrics(baseline)
     baseline_open=baseline_metrics.get('open_position') or {}
     suggestions=[]
-    for c in qualified:
+    for c in representatives:
         suggestions.append({'type':'single_rule','priority':'High' if c.get('rank')==1 else 'Medium','candidate_id':c.get('candidate_id'),
           'title':c.get('candidate_name'),'reason':c.get('hypothesis'),'expected_evidence':{'net_improvement':(c.get('comparison') or {}).get('net_pnl_improvement'),
           'duration_reduction_hours':(c.get('comparison') or {}).get('effective_longest_trade_reduction_hours'),
           'drawdown_change_pp':(c.get('comparison') or {}).get('maximum_drawdown_change_pct_points')},
           'recommended_action':'Review for a new forward comparison; do not replace Candidate A.'})
     combinations=[]
-    if ecfg.get('test_compatible_combinations') and len(qualified)>=2:
+    if ecfg.get('test_compatible_combinations') and len(representatives)>=2:
         problem_regime=experiment.get('problem_regime') or 'Low'
         maxn=int(ecfg.get('maximum_combination_candidates',6)); maxsize=int(ecfg.get('max_combination_size',2))
-        combos=list(itertools.combinations(qualified[:4],min(2,maxsize)))[:maxn]
+        combos=list(itertools.combinations(representatives[:4],min(2,maxsize)))[:maxn]
         a=baseline_metrics
         for idx,combo in enumerate(combos,1):
             candidate=copy.deepcopy(asset); candidate.pop('research_experiments',None); candidate.pop('strategy_evolution',None)
@@ -473,15 +506,22 @@ def build_strategy_evolution(asset:dict[str,Any],candles:list[Candle],signals:li
                 rules.append(amend.get('human_rule'))
             cr=simulate(candles,signals,candidate,execution); b=compact_metrics(cr)
             improvement=b['net_pnl']-a['net_pnl']; duration=a['effective_longest_trade_hours']-b['effective_longest_trade_hours']; dd=b['maximum_drawdown_pct_of_capital']-a['maximum_drawdown_pct_of_capital']
-            retention=b['closed_deals']/max(1,a['closed_deals'])*100
+            baseline_deals=max(1,int(a['closed_deals']))
+            candidate_deals=int(b['closed_deals'])
+            deal_count_ratio=candidate_deals/baseline_deals*100
+            deal_count_change=candidate_deals-int(a['closed_deals'])
+            retained_share=min(100.0,deal_count_ratio)
             op=b.get('open_position') or {}; changed=bool(baseline_open and (not op or op.get('entry_time')!=baseline_open.get('entry_time')))
-            passed=improvement>float(ecfg.get('minimum_combination_net_improvement',0)) and duration>0 and changed and retention>=float(ecfg.get('minimum_deal_retention_pct',25))
-            score=(improvement/max(1,abs(a['net_pnl']))*45)+(duration/max(24,a['effective_longest_trade_hours'])*30)+(-dd*2)+(10 if changed else -10)+(5 if retention>=60 else 0)
+            passed=improvement>float(ecfg.get('minimum_combination_net_improvement',0)) and duration>0 and changed and retained_share>=float(ecfg.get('minimum_deal_retention_pct',25))
+            score=(improvement/max(1,abs(a['net_pnl']))*45)+(duration/max(24,a['effective_longest_trade_hours'])*30)+(-dd*2)+(10 if changed else -10)+(5 if retained_share>=60 else 0)
             combinations.append({'combination_id':f"SUI-G{idx}",'name':' + '.join(str(x.get('candidate_id')) for x in combo),'rules':rules,'metrics':b,
-              'comparison':{'net_pnl_improvement':improvement,'duration_reduction_hours':duration,'drawdown_change_pp':dd,'trade_retention_pct':retention,'problem_trade_changed':changed,'diagnostic_pass':passed},'rank_score':round(score,3)})
+              'comparison':{'net_pnl_improvement':improvement,'duration_reduction_hours':duration,'drawdown_change_pp':dd,
+              'baseline_closed_deals':int(a['closed_deals']),'candidate_closed_deals':candidate_deals,
+              'closed_deal_count_change':deal_count_change,'closed_deal_count_ratio_pct':deal_count_ratio,
+              'closed_deal_retained_share_pct':retained_share,'problem_trade_changed':changed,'diagnostic_pass':passed},'rank_score':round(score,3)})
         combinations.sort(key=lambda x:(x['comparison']['diagnostic_pass'],x['rank_score']),reverse=True)
         for i,c in enumerate(combinations,1): c['rank']=i
-    best_single=qualified[0] if qualified else None; best_combo=combinations[0] if combinations and combinations[0]['comparison']['diagnostic_pass'] else None
+    best_single=representatives[0] if representatives else None; best_combo=combinations[0] if combinations and combinations[0]['comparison']['diagnostic_pass'] else None
     recommendation=None
     if best_combo and (not best_single or best_combo['rank_score']>float(best_single.get('rank_score',0))+5):
         recommendation={'kind':'combination','id':best_combo['combination_id'],'title':best_combo['name'],'status':'MANUAL REVIEW','reason':'A compatible two-rule combination produced the strongest post-hoc diagnostic score.'}
@@ -489,9 +529,10 @@ def build_strategy_evolution(asset:dict[str,Any],candles:list[Candle],signals:li
         recommendation={'kind':'single_rule','id':best_single.get('candidate_id'),'title':best_single.get('candidate_name'),'status':'MANUAL REVIEW','reason':'This one-variable hypothesis is the strongest interpretable improvement and should be tested before adding complexity.'}
     else:
         recommendation={'kind':'none','id':None,'title':'No strategy amendment recommended','status':'REJECT','reason':'No tested suggestion met the diagnostic safeguards.'}
-    return {'version':'8.0','mode':'controlled_post_hoc_evolution','status':'SUGGESTIONS READY' if qualified else 'NO QUALIFIED SUGGESTIONS',
+    return {'version':'8.1','mode':'controlled_post_hoc_evolution','status':'SUGGESTIONS READY' if representatives else 'NO QUALIFIED SUGGESTIONS',
       'recommendation':recommendation,'single_rule_suggestions':suggestions,'combination_candidates':combinations,
-      'audit':{'baseline_id':experiment.get('baseline_id'),'problem_regime':experiment.get('problem_regime'),'individual_hypotheses_tested':len(candidates),'individual_hypotheses_passed':len(passing),'qualified_suggestions':len(qualified),'combinations_tested':len(combinations)},
+      'correlated_hypothesis_clusters':correlated_clusters,
+      'audit':{'baseline_id':experiment.get('baseline_id'),'problem_regime':experiment.get('problem_regime'),'individual_hypotheses_tested':len(candidates),'individual_hypotheses_passed':len(passing),'qualified_suggestions':len(representatives),'raw_qualified_hypotheses':len(qualified),'correlated_clusters':len(correlated_clusters),'combinations_tested':len(combinations)},
       'safeguards':ecfg.get('principles',[]),'manual_approval_required':True,'note':ecfg.get('suggestion_note')}
 
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
