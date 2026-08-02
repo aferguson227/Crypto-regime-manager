@@ -29,3 +29,7 @@ Do not overwrite or delete these during upgrades:
 - `data/` — continuously growing KuCoin candle history.
 - `threecommas_private_setup/` — local RSA private material; never committed.
 - `.git/` — Git repository metadata.
+
+
+## V7 research assets
+Assets may set `production_status: research`. Research assets use the same market-data and replay engine but are excluded from portfolio rankings and are assessed against explicit promotion gates.

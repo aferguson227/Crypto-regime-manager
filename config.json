@@ -125,6 +125,89 @@
           "enabled": false
         }
       }
+    },
+    {
+      "id": "SUI",
+      "display_name": "SUI",
+      "symbol": "SUI-USDT",
+      "history_file": "data/SUIUSDT_4H.csv",
+      "deal_log": "docs/sui_deals.csv",
+      "production_status": "research",
+      "research_label": "Research only \u2014 not approved for live trading",
+      "forward_test_start": "2026-04-01T00:00:00Z",
+      "research_basis": {
+        "training_source": "Kraken SUI/USD 4-hour candles, 2024-01-01 to 2025-12-31",
+        "diagnostic_source": "Kraken Q1 2026 trade data aggregated to 4-hour candles",
+        "candidate_amendment": "Low-regime EMA50 one-candle slope must be at least -0.02%",
+        "note": "KuCoin forward results are kept separate from Kraken research and are not merged into one P&L series."
+      },
+      "promotion_gates": {
+        "minimum_forward_days": 90,
+        "minimum_forward_candles": 540,
+        "require_positive_net_pnl": true,
+        "maximum_drawdown_pct": 40.0,
+        "maximum_effective_trade_days": 30.0,
+        "evaluation_window_days": 30,
+        "minimum_profitable_windows": 3
+      },
+      "regime": {
+        "realised_volatility_window_candles": 120,
+        "annualisation_periods": 2190,
+        "low_volatility_threshold_pct": 96.59770290685603,
+        "high_volatility_threshold_pct": 125.3948253529171,
+        "fast_ema": 50,
+        "slow_ema": 200
+      },
+      "entry_filter": {
+        "global": {},
+        "Low": {
+          "max_rsi14": 60.0,
+          "max_distance_from_ema50_pct": 5.0,
+          "max_24h_return_pct": 0.0,
+          "min_pullback_from_20d_high_pct": 10.0,
+          "min_ema50_slope_pct": -0.02
+        },
+        "Medium": {
+          "min_24h_return_pct": -4.0
+        },
+        "High-Bull": {
+          "min_24h_return_pct": 0.0,
+          "max_24h_return_pct": 8.0
+        },
+        "High-Bear": {
+          "blocked": true
+        }
+      },
+      "bots": {
+        "Low": {
+          "name": "SUI Low Research Bot",
+          "take_profit_pct": 2.5,
+          "so_deviation_pct": 4.0,
+          "safety_orders": 6,
+          "volume_scale": 1.6,
+          "step_scale": 1.2
+        },
+        "Medium": {
+          "name": "SUI Medium Research Bot",
+          "take_profit_pct": 1.0,
+          "so_deviation_pct": 1.5,
+          "safety_orders": 6,
+          "volume_scale": 1.6,
+          "step_scale": 1.0
+        },
+        "High-Bull": {
+          "name": "SUI High-Bull Research Bot",
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 1.5,
+          "safety_orders": 7,
+          "volume_scale": 1.3,
+          "step_scale": 1.2
+        },
+        "High-Bear": {
+          "name": "SUI High-Bear \u2014 Disabled",
+          "enabled": false
+        }
+      }
     }
   ],
   "execution": {
@@ -135,11 +218,11 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "6.1.0",
-    "mode": "Advisory / paper-validation / opportunity ranking",
+    "version": "7.0.0",
+    "mode": "TEL/TAO advisory + SUI forward research",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
-    "feature": "Trading Intelligence"
+    "feature": "SUI Research Mode"
   },
   "threecommas": {
     "enabled": true,
@@ -165,6 +248,6 @@
     "health_weight_pct": 55,
     "entry_pass_bonus": 25,
     "blocked_penalty": -20,
-    "note": "Opportunity scores are deterministic ranking aids, not probabilities of profit."
+    "note": "Opportunity scores apply only to production assets. Research assets are excluded until promotion gates pass and promotion is approved manually."
   }
 }

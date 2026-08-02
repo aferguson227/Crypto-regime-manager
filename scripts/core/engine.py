@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Synchronise KuCoin TEL/USDT and TAO/USDT candles and replay both frozen strategies."""
+"""Synchronise KuCoin candles and replay production and research strategies.
+
+TEL and TAO remain production/advisory assets. SUI is a frozen research-only
+candidate whose forward test begins after Q1 2026 and is excluded from live
+portfolio rankings until manually promoted.
+"""
 from __future__ import annotations
 import argparse, csv, json, math, time, urllib.parse, urllib.request
 from dataclasses import dataclass
@@ -36,10 +41,10 @@ def save_history(path:Path,candles:list[Candle])->None:
 
 def fetch_kucoin(symbol:str,candle_type:str,since:int|None)->list[Candle]:
     if candle_type!='4hour': raise ValueError('Only 4hour is supported')
-    seconds=14400; now=int(time.time()); start=max(0,(since or now-seconds*500)-seconds)
+    seconds=14400; now=int(time.time()); start=max(0,(since or now-seconds*1000)-seconds)
     params=urllib.parse.urlencode({'symbol':symbol,'type':candle_type,'startAt':start,'endAt':now})
     url='https://api.kucoin.com/api/v1/market/candles?'+params
-    req=urllib.request.Request(url,headers={'User-Agent':'Crypto-Regime-Manager/6.1','Accept':'application/json'})
+    req=urllib.request.Request(url,headers={'User-Agent':'Crypto-Regime-Manager/7.0','Accept':'application/json'})
     with urllib.request.urlopen(req,timeout=30) as response: payload=json.loads(response.read().decode('utf-8'))
     if payload.get('code')!='200000' or not isinstance(payload.get('data'),list): raise RuntimeError(f'Unexpected KuCoin response: {payload}')
     rows=[]
@@ -89,7 +94,9 @@ def indicators(candles:list[Candle],cfg:dict[str,Any])->list[dict[str,Any]|None]
             regime='High-Bull' if bullish else 'High-Bear'
         out.append({'regime':regime,'rv':rv[i],'ema50':e50[i],'ema200':e200[i],'rsi14':rs[i],
                     'distance_ema200':(c.close/e200[i]-1)*100,'distance_ema50':(c.close/e50[i]-1)*100,
-                    'return24':(c.close/closes[i-6]-1)*100 if i>=6 else math.nan})
+                    'return24':(c.close/closes[i-6]-1)*100 if i>=6 else math.nan,
+                    'ema50_slope_pct':(e50[i]/e50[i-1]-1)*100 if i>0 else math.nan,
+                    'pullback20_pct':(1-c.close/max(closes[max(0,i-119):i+1]))*100})
     return out
 
 def permission(signal:dict[str,Any],fcfg:dict[str,Any])->tuple[bool,str]:
@@ -101,7 +108,9 @@ def permission(signal:dict[str,Any],fcfg:dict[str,Any])->tuple[bool,str]:
         ('max_rsi14','rsi14',lambda a,b:a>b,'RSI is above the allowed maximum'),
         ('max_distance_from_ema50_pct','distance_ema50',lambda a,b:a>b,'Price is too far above EMA50'),
         ('max_24h_return_pct','return24',lambda a,b:a>b,'24-hour return is above the allowed maximum'),
-        ('min_24h_return_pct','return24',lambda a,b:a<b,'24-hour return is below the required minimum')]
+        ('min_24h_return_pct','return24',lambda a,b:a<b,'24-hour return is below the required minimum'),
+        ('min_pullback_from_20d_high_pct','pullback20_pct',lambda a,b:a<b,'Price has not pulled back far enough from its 20-day high'),
+        ('min_ema50_slope_pct','ema50_slope_pct',lambda a,b:a<b,'EMA50 is falling faster than the allowed limit')]
     for key,metric,bad,msg in checks:
         if key in local and bad(signal[metric],float(local[key])): return False,msg
     return True,'All entry rules pass'
@@ -220,21 +229,59 @@ def trading_intelligence(asset_result:dict[str,Any])->dict[str,Any]:
     }
 
 def portfolio_intelligence(outputs:list[dict[str,Any]])->dict[str,Any]:
-    ranked=sorted(outputs,key=lambda a:(a.get('intelligence') or {}).get('opportunity_score',0),reverse=True)
+    production=[a for a in outputs if a.get('production_status','production')=='production']
+    research=[a for a in outputs if a.get('production_status')!='production']
+    ranked=sorted(production,key=lambda a:(a.get('intelligence') or {}).get('opportunity_score',0),reverse=True)
     eligible=[a for a in ranked if (a.get('latest') or {}).get('entry_allowed')]
-    active_replay=sum(1 for a in outputs if a.get('open_position'))
-    total_cap=sum(float(a.get('max_theoretical_capital',0) or 0) for a in outputs)
+    active_replay=sum(1 for a in production if a.get('open_position'))
+    total_cap=sum(float(a.get('max_theoretical_capital',0) or 0) for a in production)
     best=eligible[0] if eligible else None
     return {
       'best_opportunity':({'id':best.get('id'),'symbol':best.get('symbol'),'score':best['intelligence']['opportunity_score'],
                            'recommended_bot':(best.get('latest') or {}).get('recommended_bot')} if best else None),
-      'eligible_count':len(eligible),'monitored_assets':len(outputs),'active_replay_positions':active_replay,
-      'combined_max_theoretical_capital':total_cap,
+      'eligible_count':len(eligible),'monitored_assets':len(production),'research_assets':len(research),
+      'active_replay_positions':active_replay,'combined_max_theoretical_capital':total_cap,
       'ranking':[{'rank':i+1,'id':a.get('id'),'symbol':a.get('symbol'),'score':(a.get('intelligence') or {}).get('opportunity_score'),
                   'action':(a.get('intelligence') or {}).get('action'),'entry_allowed':(a.get('latest') or {}).get('entry_allowed'),
                   'regime':(a.get('latest') or {}).get('regime'),'health':(a.get('health') or {}).get('status')} for i,a in enumerate(ranked)],
-      'operating_rule':'Treat scores as a ranking aid. Never start a new deal when entry_allowed is false, and do not alter an existing open deal.'
+      'research':[{'id':a.get('id'),'symbol':a.get('symbol'),'promotion_status':(a.get('research') or {}).get('promotion_status')} for a in research],
+      'operating_rule':'Production rankings include TEL and TAO only. Research assets never become live recommendations automatically.'
     }
+
+def evaluate_research(asset:dict[str,Any],result:dict[str,Any],candles:list[Candle],equity_curve:list[tuple[int,float]])->dict[str,Any]:
+    gates=asset.get('promotion_gates',{}); start_text=asset.get('forward_test_start')
+    start_ts=int(datetime.fromisoformat(start_text.replace('Z','+00:00')).timestamp()) if start_text else candles[0].ts
+    forward=[c for c in candles if c.ts>=start_ts]
+    days=((forward[-1].ts-forward[0].ts)/86400+4/24) if forward else 0.0
+    effective_longest=max(float(result.get('longest_trade_hours',0) or 0),float((result.get('open_position') or {}).get('hours_open',0) or 0))
+    window_days=int(gates.get('evaluation_window_days',30)); window_sec=window_days*86400
+    windows=[]
+    if forward:
+        cursor=forward[0].ts
+        final=forward[-1].ts
+        while cursor<=final:
+            end=cursor+window_sec
+            pts=[eq for ts,eq in equity_curve if cursor<=ts<end]
+            if pts:
+                windows.append({'start':iso(cursor),'end':iso(min(end,final)),'equity_change':pts[-1]-pts[0]})
+            cursor=end
+    profitable=sum(1 for w in windows if w['equity_change']>0)
+    checks={
+      'minimum_forward_days':days>=float(gates.get('minimum_forward_days',90)),
+      'minimum_forward_candles':len(forward)>=int(gates.get('minimum_forward_candles',540)),
+      'positive_net_pnl':float(result.get('net_pnl',0))>0 if gates.get('require_positive_net_pnl',True) else True,
+      'maximum_drawdown':abs(min(0,float(result.get('maximum_drawdown_pct_of_capital',0))))<=float(gates.get('maximum_drawdown_pct',40)),
+      'maximum_effective_trade_days':effective_longest/24<=float(gates.get('maximum_effective_trade_days',30)),
+      'profitable_windows':profitable>=int(gates.get('minimum_profitable_windows',3))
+    }
+    enough=checks['minimum_forward_days'] and checks['minimum_forward_candles']
+    passed=enough and all(checks.values())
+    status='PASS — manual promotion review required' if passed else ('FAIL — review risk' if enough else 'COLLECTING FORWARD DATA')
+    return {'mode':'research','label':asset.get('research_label','Research only'),'forward_test_start':start_text,
+            'forward_days':days,'forward_candles':len(forward),'promotion_status':status,'all_gates_pass':passed,
+            'checks':checks,'profitable_windows':profitable,'evaluation_windows':windows,
+            'effective_longest_trade_hours':effective_longest,'gates':gates,'research_basis':asset.get('research_basis',{}),
+            'note':'Passing gates does not enable live trading. Promotion must be reviewed and approved manually.'}
 
 def update_health_history(path:Path,payload:dict[str,Any],limit:int=180)->None:
     try: history=json.loads(path.read_text(encoding='utf-8')) if path.exists() else {'points':[]}
@@ -248,10 +295,11 @@ def update_health_history(path:Path,payload:dict[str,Any],limit:int=180)->None:
 
 def simulate(candles:list[Candle],signals:list[dict[str,Any]|None],asset:dict[str,Any],execution:dict[str,Any])->dict[str,Any]:
     base=float(execution['base_order']); fee=float(execution['fee_rate']); bots=asset['bots']; fcfg=asset['entry_filter']
+    sim_start_text=asset.get('forward_test_start'); sim_start_ts=int(datetime.fromisoformat(sim_start_text.replace('Z','+00:00')).timestamp()) if sim_start_text else candles[0].ts
     realised=0.; peak=0.; mdd=0.; maxcap=0.; pos=None; deals=[]; skipped=0; equity_curve=[]
     for i,c in enumerate(candles):
         decision=signals[i-1] if i>0 else None
-        if pos is None and decision is not None:
+        if c.ts>=sim_start_ts and pos is None and decision is not None:
             allowed,_=permission(decision,fcfg); setting=bots.get(decision['regime'],{})
             if allowed and setting.get('enabled',True):
                 prices,sizes=ladder(c.open,setting,base)
@@ -282,10 +330,13 @@ def simulate(candles:list[Candle],signals:list[dict[str,Any]|None],asset:dict[st
     avg_hours=sum(d['hours'] for d in deals)/len(deals) if deals else 0
     longest_hours=max((d['hours'] for d in deals),default=0)
     health=health_monitor(candles,deals,equity_curve,open_data,maxcap,avg_hours,longest_hours,APP_CONFIG)
-    result={'id':asset['id'],'display_name':asset['display_name'],'symbol':asset['symbol'],'history_start':iso(candles[0].ts),'history_end':iso(candles[-1].ts),'candles':len(candles),
+    result={'id':asset['id'],'display_name':asset['display_name'],'symbol':asset['symbol'],'production_status':asset.get('production_status','production'),'history_start':iso(candles[0].ts),'history_end':iso(candles[-1].ts),'candles':len(candles),
             'net_pnl':net,'realised_pnl':realised,'open_pnl':open_pnl,'return_on_max_capital_pct':net/maxcap*100 if maxcap else 0,'maximum_drawdown_dollars':mdd,'maximum_drawdown_pct_of_capital':mdd/maxcap*100 if maxcap else 0,'max_theoretical_capital':maxcap,'closed_deals':len(deals),'average_trade_hours':avg_hours,'longest_trade_hours':longest_hours,'skipped_entry_candles':skipped,'open_position':open_data,'health':health,
             'latest':{**(latest or {}),'entry_allowed':allowed,'entry_reason':reason,'recommended_bot':bot.get('name'),'bot_settings':bot,'last_close':candles[-1].close,'last_candle':iso(candles[-1].ts)},'recent_deals':deals[-10:],'all_deals':deals}
     result['intelligence']=trading_intelligence(result)
+    if result['production_status']!='production':
+        result['intelligence']={'opportunity_score':None,'action':'RESEARCH ONLY','confidence_label':'Not applicable','explanation':['Excluded from production ranking'],'cautions':['Forward validation is still in progress'],'note':'Research assets cannot generate live recommendations.'}
+        result['research']=evaluate_research(asset,result,candles,equity_curve)
     return result
 
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
@@ -304,7 +355,21 @@ def main()->int:
                 fresh=fetch_kucoin(asset['symbol'],cfg['execution']['candle_type'],candles[-1].ts if candles else None)
                 old=len(candles); candles=sorted({c.ts:c for c in candles+fresh}.values(),key=lambda c:c.ts); added=len(candles)-old; save_history(path,candles)
             except Exception as exc:error=str(exc)
-        result=simulate(candles,indicators(candles,asset),asset,cfg['execution']); result['sync']={'new_candles':added,'error':error,'source':'KuCoin public spot candles API'}; result['strategy_config']={'regime':asset['regime'],'entry_filter':asset['entry_filter'],'bots':asset['bots']}
+        if not candles:
+            result={'id':asset['id'],'display_name':asset['display_name'],'symbol':asset['symbol'],'production_status':asset.get('production_status','production'),
+                    'history_start':None,'history_end':None,'candles':0,'net_pnl':0,'realised_pnl':0,'open_pnl':0,'return_on_max_capital_pct':0,
+                    'maximum_drawdown_dollars':0,'maximum_drawdown_pct_of_capital':0,'max_theoretical_capital':0,'closed_deals':0,
+                    'average_trade_hours':0,'longest_trade_hours':0,'skipped_entry_candles':0,'open_position':None,
+                    'health':{'score':0,'status':'Review','flags':['No candle data available'],'positives':[]},
+                    'latest':{'entry_allowed':False,'entry_reason':'No candle data available','recommended_bot':None},
+                    'intelligence':{'opportunity_score':None,'action':'RESEARCH ONLY' if asset.get('production_status')!='production' else 'WAIT'},
+                    'recent_deals':[],'all_deals':[]}
+            if asset.get('production_status')!='production':
+                result['research']={'mode':'research','label':asset.get('research_label'),'forward_test_start':asset.get('forward_test_start'),
+                                    'promotion_status':'WAITING FOR FIRST KUCOIN SYNC','all_gates_pass':False,'checks':{},'gates':asset.get('promotion_gates',{})}
+        else:
+            result=simulate(candles,indicators(candles,asset),asset,cfg['execution'])
+        result['sync']={'new_candles':added,'error':error,'source':'KuCoin public spot candles API'}; result['strategy_config']={'regime':asset['regime'],'entry_filter':asset['entry_filter'],'bots':asset['bots']}
         write_deals(ROOT/asset['deal_log'],result.pop('all_deals')); outputs.append(result)
     payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'assets':outputs}
     out=ROOT/cfg['execution']['output_json']; out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(payload,indent=2),encoding='utf-8')
