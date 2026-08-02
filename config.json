@@ -1,0 +1,143 @@
+{
+  "assets": [
+    {
+      "id": "TEL",
+      "display_name": "TEL",
+      "symbol": "TEL-USDT",
+      "history_file": "data/TELUSDT_4H.csv",
+      "deal_log": "docs/tel_deals.csv",
+      "regime": {
+        "realised_volatility_window_candles": 120,
+        "annualisation_periods": 2190,
+        "low_volatility_threshold_pct": 93.85,
+        "high_volatility_threshold_pct": 115.3,
+        "fast_ema": 50,
+        "slow_ema": 200
+      },
+      "entry_filter": {
+        "global": {
+          "max_distance_above_ema200_pct": 25.0
+        },
+        "Low": {},
+        "Medium": {},
+        "High-Bull": {
+          "min_24h_return_pct": 5.0
+        },
+        "High-Bear": {}
+      },
+      "bots": {
+        "Low": {
+          "name": "TEL Low Volatility Bot",
+          "take_profit_pct": 1.5,
+          "so_deviation_pct": 1.2,
+          "safety_orders": 6,
+          "volume_scale": 1.6,
+          "step_scale": 1.0
+        },
+        "Medium": {
+          "name": "TEL Medium Recovery Bot",
+          "take_profit_pct": 1.5,
+          "so_deviation_pct": 5.0,
+          "safety_orders": 5,
+          "volume_scale": 1.4,
+          "step_scale": 1.2
+        },
+        "High-Bull": {
+          "name": "TEL High-Bull Bot",
+          "take_profit_pct": 2.0,
+          "so_deviation_pct": 1.2,
+          "safety_orders": 8,
+          "volume_scale": 1.4,
+          "step_scale": 1.0
+        },
+        "High-Bear": {
+          "name": "TEL High-Bear Bot",
+          "take_profit_pct": 1.5,
+          "so_deviation_pct": 1.2,
+          "safety_orders": 5,
+          "volume_scale": 1.8,
+          "step_scale": 1.0
+        }
+      }
+    },
+    {
+      "id": "TAO",
+      "display_name": "TAO",
+      "symbol": "TAO-USDT",
+      "history_file": "data/TAOUSDT_4H.csv",
+      "deal_log": "docs/tao_deals.csv",
+      "regime": {
+        "realised_volatility_window_candles": 120,
+        "annualisation_periods": 2190,
+        "low_volatility_threshold_pct": 104.57529807019853,
+        "high_volatility_threshold_pct": 130.7968955967639,
+        "fast_ema": 50,
+        "slow_ema": 200
+      },
+      "entry_filter": {
+        "global": {
+          "max_distance_above_ema200_pct": 40.0
+        },
+        "Low": {
+          "max_rsi14": 50.0,
+          "max_distance_from_ema50_pct": -5.0,
+          "max_24h_return_pct": 4.0
+        },
+        "Medium": {
+          "max_rsi14": 60.0,
+          "max_distance_from_ema50_pct": 10.0,
+          "max_24h_return_pct": -4.0
+        },
+        "High-Bull": {
+          "min_24h_return_pct": 0.0
+        },
+        "High-Bear": {
+          "blocked": true
+        }
+      },
+      "bots": {
+        "Low": {
+          "name": "TAO Low Pullback Bot",
+          "take_profit_pct": 2.5,
+          "so_deviation_pct": 1.0,
+          "safety_orders": 7,
+          "volume_scale": 1.4,
+          "step_scale": 1.2
+        },
+        "Medium": {
+          "name": "TAO Medium Pullback Bot",
+          "take_profit_pct": 2.5,
+          "so_deviation_pct": 5.0,
+          "safety_orders": 5,
+          "volume_scale": 1.6,
+          "step_scale": 1.1
+        },
+        "High-Bull": {
+          "name": "TAO High-Bull Bot",
+          "take_profit_pct": 2.5,
+          "so_deviation_pct": 1.0,
+          "safety_orders": 7,
+          "volume_scale": 1.4,
+          "step_scale": 1.2
+        },
+        "High-Bear": {
+          "name": "TAO High-Bear \u2014 Disabled",
+          "enabled": false
+        }
+      }
+    }
+  ],
+  "execution": {
+    "candle_type": "4hour",
+    "base_order": 100.0,
+    "fee_rate": 0.001,
+    "output_json": "docs/strategies.json"
+  },
+  "app": {
+    "name": "Crypto Regime Manager",
+    "version": "5.1.0",
+    "mode": "Advisory / paper-validation",
+    "data_source": "KuCoin public spot candles",
+    "timeframe": "4hour"
+  }
+}
