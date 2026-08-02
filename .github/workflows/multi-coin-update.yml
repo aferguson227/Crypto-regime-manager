@@ -1,55 +1,38 @@
 name: Update Crypto Regime Manager
-
 on:
   workflow_dispatch:
   schedule:
     - cron: "18 0,4,8,12,16,20 * * *"
-
 permissions:
   contents: write
-
 concurrency:
   group: multi-coin-regime-update
   cancel-in-progress: false
-
 jobs:
   update:
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Validate Python
         run: python -m py_compile scripts/multi_coin_sync_backtest.py
-
       - name: Sync candles and replay strategies
         run: python scripts/multi_coin_sync_backtest.py
-
       - name: Commit updated results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add \
-            data/TELUSDT_4H.csv \
-            data/TAOUSDT_4H.csv \
-            docs/strategies.json \
-            docs/health_history.json \
-            docs/tel_deals.csv \
-            docs/tao_deals.csv
-
+          git add data/TELUSDT_4H.csv data/TAOUSDT_4H.csv docs/strategies.json docs/health_history.json docs/tel_deals.csv docs/tao_deals.csv
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Update Crypto Regime Manager data"
+            git commit -m "Update Crypto Regime Manager V6 data"
             git pull --rebase origin main
             git push origin main
           fi

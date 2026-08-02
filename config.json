@@ -135,11 +135,11 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "5.3.0",
-    "mode": "Advisory / paper-validation",
+    "version": "6.1.0",
+    "mode": "Advisory / paper-validation / opportunity ranking",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
-    "feature": "Strategy Health Monitor"
+    "feature": "Trading Intelligence"
   },
   "threecommas": {
     "enabled": true,
@@ -159,5 +159,12 @@
     "duration_critical_multiple": 2.0,
     "history_points": 180,
     "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
+  },
+  "trading_intelligence": {
+    "enabled": true,
+    "health_weight_pct": 55,
+    "entry_pass_bonus": 25,
+    "blocked_penalty": -20,
+    "note": "Opportunity scores are deterministic ranking aids, not probabilities of profit."
   }
 }

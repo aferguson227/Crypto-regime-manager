@@ -1,23 +1,12 @@
-# Crypto Regime Manager V5.1
+# Crypto Regime Manager V6.1
 
-Clean production package for the combined TEL and TAO KuCoin four-hour regime dashboard.
+V6.1 reorganises the project into a modular core without changing the live TEL or TAO strategy rules.
 
-## Included
+- Shared strategy and replay engine: `scripts/core/engine.py`
+- Read-only 3Commas integration: `scripts/integrations/threecommas.py`
+- Local security tools: `scripts/tools/`
+- Dashboard pages: `docs/`
 
-- One configuration file: `config.json`
-- One update/replay script: `scripts/multi_coin_sync_backtest.py`
-- One scheduled workflow: `.github/workflows/multi-coin-update.yml`
-- Two candle-history files in `data/`
-- Mobile dashboard: `docs/index.html`
-- Read-only settings page: `docs/settings.html`
-- Generated strategy/deal files in `docs/`
+The package intentionally excludes `data/`. Keep your existing candle-history folder unchanged during the upgrade.
 
-## Strategy version
-
-`5.1.0`
-
-This is an advisory and paper-validation application. It uses public KuCoin market data only and has no exchange keys or trading permissions.
-
-## GitHub Pages
-
-Publish from `main` branch and `/docs` folder.
+See `UPDATE_V6_1.md` for installation steps and `ARCHITECTURE.md` for the project layout.

@@ -6,3 +6,11 @@ Thumbs.db
 # Local 3Commas RSA credentials — never commit
 threecommas_private_setup/
 *.pem
+
+# Local private RSA material
+threecommas_private_setup/
+*.pem
+
+# Python caches
+__pycache__/
+*.py[cod]
