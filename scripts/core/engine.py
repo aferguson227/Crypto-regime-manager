@@ -2,11 +2,11 @@
 """Synchronise KuCoin candles and replay production and research strategies.
 
 TEL and TAO remain production/advisory assets. SUI is a frozen research-only
-candidate whose forward test begins after Q1 2026 and is excluded from live
+candidate with automatic one-variable experiments, excluded from live
 portfolio rankings until manually promoted.
 """
 from __future__ import annotations
-import argparse, csv, json, math, time, urllib.parse, urllib.request
+import argparse, copy, csv, json, math, time, urllib.parse, urllib.request
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -44,7 +44,7 @@ def fetch_kucoin(symbol:str,candle_type:str,since:int|None)->list[Candle]:
     seconds=14400; now=int(time.time()); start=max(0,(since or now-seconds*1000)-seconds)
     params=urllib.parse.urlencode({'symbol':symbol,'type':candle_type,'startAt':start,'endAt':now})
     url='https://api.kucoin.com/api/v1/market/candles?'+params
-    req=urllib.request.Request(url,headers={'User-Agent':'Crypto-Regime-Manager/7.0','Accept':'application/json'})
+    req=urllib.request.Request(url,headers={'User-Agent':'Crypto-Regime-Manager/7.1','Accept':'application/json'})
     with urllib.request.urlopen(req,timeout=30) as response: payload=json.loads(response.read().decode('utf-8'))
     if payload.get('code')!='200000' or not isinstance(payload.get('data'),list): raise RuntimeError(f'Unexpected KuCoin response: {payload}')
     rows=[]
@@ -94,6 +94,7 @@ def indicators(candles:list[Candle],cfg:dict[str,Any])->list[dict[str,Any]|None]
             regime='High-Bull' if bullish else 'High-Bear'
         out.append({'regime':regime,'rv':rv[i],'ema50':e50[i],'ema200':e200[i],'rsi14':rs[i],
                     'distance_ema200':(c.close/e200[i]-1)*100,'distance_ema50':(c.close/e50[i]-1)*100,
+                    'ema200_slope_pct':(e200[i]/e200[i-1]-1)*100 if i>0 else math.nan,
                     'return24':(c.close/closes[i-6]-1)*100 if i>=6 else math.nan,
                     'ema50_slope_pct':(e50[i]/e50[i-1]-1)*100 if i>0 else math.nan,
                     'pullback20_pct':(1-c.close/max(closes[max(0,i-119):i+1]))*100})
@@ -110,7 +111,9 @@ def permission(signal:dict[str,Any],fcfg:dict[str,Any])->tuple[bool,str]:
         ('max_24h_return_pct','return24',lambda a,b:a>b,'24-hour return is above the allowed maximum'),
         ('min_24h_return_pct','return24',lambda a,b:a<b,'24-hour return is below the required minimum'),
         ('min_pullback_from_20d_high_pct','pullback20_pct',lambda a,b:a<b,'Price has not pulled back far enough from its 20-day high'),
-        ('min_ema50_slope_pct','ema50_slope_pct',lambda a,b:a<b,'EMA50 is falling faster than the allowed limit')]
+        ('min_ema50_slope_pct','ema50_slope_pct',lambda a,b:a<b,'EMA50 is falling faster than the allowed limit'),
+        ('min_distance_from_ema200_pct','distance_ema200',lambda a,b:a<b,'Price is below the required EMA200 threshold'),
+        ('min_ema200_slope_pct','ema200_slope_pct',lambda a,b:a<b,'EMA200 is falling faster than the allowed limit')]
     for key,metric,bad,msg in checks:
         if key in local and bad(signal[metric],float(local[key])): return False,msg
     return True,'All entry rules pass'
@@ -231,7 +234,7 @@ def trading_intelligence(asset_result:dict[str,Any])->dict[str,Any]:
 def portfolio_intelligence(outputs:list[dict[str,Any]])->dict[str,Any]:
     production=[a for a in outputs if a.get('production_status','production')=='production']
     research=[a for a in outputs if a.get('production_status')!='production']
-    ranked=sorted(production,key=lambda a:(a.get('intelligence') or {}).get('opportunity_score',0),reverse=True)
+    ranked=sorted(production,key=lambda a:((a.get('intelligence') or {}).get('opportunity_score') or 0),reverse=True)
     eligible=[a for a in ranked if (a.get('latest') or {}).get('entry_allowed')]
     active_replay=sum(1 for a in production if a.get('open_position'))
     total_cap=sum(float(a.get('max_theoretical_capital',0) or 0) for a in production)
@@ -303,7 +306,7 @@ def simulate(candles:list[Candle],signals:list[dict[str,Any]|None],asset:dict[st
             allowed,_=permission(decision,fcfg); setting=bots.get(decision['regime'],{})
             if allowed and setting.get('enabled',True):
                 prices,sizes=ladder(c.open,setting,base)
-                pos={'entry_i':i,'entry_ts':c.ts,'regime':decision['regime'],'setting':setting,'qty':base/c.open,'cost':base,'fees':base*fee,'so':0,'prices':prices,'sizes':sizes}
+                pos={'entry_i':i,'entry_ts':c.ts,'regime':decision['regime'],'setting':setting,'entry_signal':dict(decision),'qty':base/c.open,'cost':base,'fees':base*fee,'so':0,'prices':prices,'sizes':sizes}
                 maxcap=max(maxcap,base+sum(sizes))
             else: skipped+=1
         filled=False
@@ -314,7 +317,7 @@ def simulate(candles:list[Candle],signals:list[dict[str,Any]|None],asset:dict[st
             avg=pos['cost']/pos['qty']; target=avg*(1+float(pos['setting']['take_profit_pct'])/100)
             if not filled and c.high>=target:
                 proceeds=pos['qty']*target; pnl=proceeds-pos['cost']-pos['fees']-proceeds*fee; realised+=pnl
-                deals.append({'entry_time':iso(pos['entry_ts']),'exit_time':iso(c.ts),'regime':pos['regime'],'pnl':pnl,'hours':(i-pos['entry_i']+1)*4,'safety_orders':pos['so'],'capital':pos['cost']})
+                deals.append({'entry_time':iso(pos['entry_ts']),'exit_time':iso(c.ts),'regime':pos['regime'],'pnl':pnl,'hours':(i-pos['entry_i']+1)*4,'safety_orders':pos['so'],'capital':pos['cost'],'entry_signal':pos.get('entry_signal',{})})
                 pos=None
         equity=realised
         if pos is not None:
@@ -324,7 +327,7 @@ def simulate(candles:list[Candle],signals:list[dict[str,Any]|None],asset:dict[st
     if pos is not None:
         last=candles[-1]; value=pos['qty']*last.close; open_pnl=value-pos['cost']-pos['fees']-value*fee
         avg=pos['cost']/pos['qty']; target=avg*(1+float(pos['setting']['take_profit_pct'])/100)
-        open_data={'entry_time':iso(pos['entry_ts']),'regime':pos['regime'],'hours_open':(len(candles)-pos['entry_i'])*4,'safety_orders':pos['so'],'capital':pos['cost'],'average_entry':avg,'target':target,'last_close':last.close,'open_pnl':open_pnl,'required_rise_pct':(target/last.close-1)*100}
+        open_data={'entry_time':iso(pos['entry_ts']),'regime':pos['regime'],'hours_open':(len(candles)-pos['entry_i'])*4,'safety_orders':pos['so'],'capital':pos['cost'],'average_entry':avg,'target':target,'last_close':last.close,'open_pnl':open_pnl,'required_rise_pct':(target/last.close-1)*100,'entry_signal':pos.get('entry_signal',{})}
     net=realised+open_pnl; latest=signals[-1]; allowed,reason=permission(latest,fcfg) if latest else (False,'Insufficient history')
     bot=bots.get(latest['regime'],{}) if latest else {}
     avg_hours=sum(d['hours'] for d in deals)/len(deals) if deals else 0
@@ -339,10 +342,93 @@ def simulate(candles:list[Candle],signals:list[dict[str,Any]|None],asset:dict[st
         result['research']=evaluate_research(asset,result,candles,equity_curve)
     return result
 
+
+def compact_metrics(result:dict[str,Any])->dict[str,Any]:
+    research=result.get('research') or {}
+    return {
+      'net_pnl':float(result.get('net_pnl',0) or 0),
+      'realised_pnl':float(result.get('realised_pnl',0) or 0),
+      'open_pnl':float(result.get('open_pnl',0) or 0),
+      'return_on_max_capital_pct':float(result.get('return_on_max_capital_pct',0) or 0),
+      'maximum_drawdown_pct_of_capital':float(result.get('maximum_drawdown_pct_of_capital',0) or 0),
+      'closed_deals':int(result.get('closed_deals',0) or 0),
+      'average_trade_hours':float(result.get('average_trade_hours',0) or 0),
+      'longest_completed_trade_hours':float(result.get('longest_trade_hours',0) or 0),
+      'effective_longest_trade_hours':float(research.get('effective_longest_trade_hours',max(float(result.get('longest_trade_hours',0) or 0),float((result.get('open_position') or {}).get('hours_open',0) or 0)))),
+      'profitable_windows':int(research.get('profitable_windows',0) or 0),
+      'open_position':result.get('open_position')
+    }
+
+def build_research_experiment(asset:dict[str,Any],candles:list[Candle],signals:list[dict[str,Any]|None],baseline:dict[str,Any],execution:dict[str,Any])->dict[str,Any]|None:
+    ecfg=asset.get('research_experiments') or {}
+    candidate_cfg=ecfg.get('candidate') or {}
+    if not ecfg.get('enabled') or not ecfg.get('auto_generate') or not candidate_cfg:
+        return None
+    baseline_research=baseline.get('research') or {}
+    checks=baseline_research.get('checks') or {}
+    failed=[]
+    if checks and not checks.get('positive_net_pnl',True): failed.append('positive_net_pnl')
+    if checks and not checks.get('maximum_effective_trade_days',True): failed.append('maximum_effective_trade_days')
+    if checks and not checks.get('profitable_windows',True): failed.append('profitable_windows')
+    if not failed:
+        return {'status':'NO EXPERIMENT REQUIRED','baseline_id':ecfg.get('baseline_id','SUI-A'),'reason':'Candidate A currently passes the risk gates monitored by the experiment engine.','failed_gates':[]}
+    candidate=copy.deepcopy(asset)
+    candidate['id']=candidate_cfg.get('id','SUI-B')
+    candidate['display_name']=candidate_cfg.get('name','Candidate B')
+    amendment=candidate_cfg.get('single_variable_amendment') or {}
+    regime=amendment.get('regime','Low'); field=amendment.get('field'); value=amendment.get('value')
+    if field is None: return {'status':'CONFIGURATION ERROR','reason':'Candidate amendment field is missing'}
+    candidate.setdefault('entry_filter',{}).setdefault(regime,{})[field]=value
+    approved=bool(candidate_cfg.get('approved_for_forward_test',False))
+    candidate_start=candidate_cfg.get('forward_test_start')
+    evaluation_mode='independent_forward' if approved and candidate_start else 'post_hoc_diagnostic'
+    if evaluation_mode=='independent_forward': candidate['forward_test_start']=candidate_start
+    # Avoid recursive experiment creation.
+    candidate.pop('research_experiments',None)
+    candidate_result=simulate(candles,signals,candidate,execution)
+    a=compact_metrics(baseline); b=compact_metrics(candidate_result)
+    improvement=b['net_pnl']-a['net_pnl']
+    duration_reduction=a['effective_longest_trade_hours']-b['effective_longest_trade_hours']
+    dd_improvement=b['maximum_drawdown_pct_of_capital']-a['maximum_drawdown_pct_of_capital']
+    blocked_problem=False
+    baseline_open=a.get('open_position') or {}
+    candidate_open=b.get('open_position') or {}
+    if baseline_open and (not candidate_open or candidate_open.get('entry_time')!=baseline_open.get('entry_time')):
+        blocked_problem=True
+    proposal_pass=improvement>float(candidate_cfg.get('minimum_diagnostic_net_improvement',0)) and duration_reduction>0
+    diagnosis=[]
+    sig=(baseline_open.get('entry_signal') or {}) if baseline_open else {}
+    if baseline_open:
+        diagnosis.append(f"Candidate A has an unresolved {baseline_open.get('regime','unknown')} trade lasting {float(baseline_open.get('hours_open',0))/24:.1f} days.")
+        if sig:
+            diagnosis.append(f"At entry, price was {float(sig.get('distance_ema200',0)):.1f}% from EMA200 and EMA200 slope was {float(sig.get('ema200_slope_pct',0)):.3f}% per candle.")
+    diagnosis.append('The automatic experiment changes one variable only, preserving attribution of any result difference.')
+    status='APPROVED FOR FORWARD COMPARISON' if evaluation_mode=='independent_forward' else ('PROPOSED — AWAITING MANUAL APPROVAL' if proposal_pass else 'DIAGNOSTIC REJECTED')
+    return {
+      'status':status,'evaluation_mode':evaluation_mode,'baseline_id':ecfg.get('baseline_id','SUI-A'),
+      'candidate_id':candidate_cfg.get('id','SUI-B'),'candidate_name':candidate_cfg.get('name'),
+      'generated_automatically':True,'failed_gates':failed,'hypothesis':candidate_cfg.get('hypothesis'),
+      'generation_rule':candidate_cfg.get('generation_rule'),'amendment':amendment,
+      'approved_for_forward_test':approved,'candidate_forward_test_start':candidate_start,
+      'manual_approval_required':True,'manual_approval_note':ecfg.get('manual_approval_note'),
+      'diagnosis':diagnosis,'baseline_metrics':a,'candidate_metrics':b,
+      'comparison':{'net_pnl_improvement':improvement,'effective_longest_trade_reduction_hours':duration_reduction,
+                    'maximum_drawdown_change_pct_points':dd_improvement,'blocked_or_replaced_current_problem_trade':blocked_problem,
+                    'diagnostic_pass':proposal_pass},
+      'caveat':'Post-hoc diagnostic results reuse data already observed by Candidate A. They are hypothesis evidence only, not independent validation.' if evaluation_mode=='post_hoc_diagnostic' else 'Forward comparison begins only from the manually approved candidate start date.'
+    }
+
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
-    path.parent.mkdir(parents=True,exist_ok=True); fields=['entry_time','exit_time','regime','pnl','hours','safety_orders','capital']
+    path.parent.mkdir(parents=True,exist_ok=True)
+    fields=['entry_time','exit_time','regime','pnl','hours','safety_orders','capital','entry_distance_ema200_pct','entry_ema200_slope_pct']
+    rows=[]
+    for deal in deals:
+        sig=deal.get('entry_signal') or {}
+        rows.append({**{k:deal.get(k) for k in fields[:7]},
+                     'entry_distance_ema200_pct':sig.get('distance_ema200'),
+                     'entry_ema200_slope_pct':sig.get('ema200_slope_pct')})
     with path.open('w',newline='',encoding='utf-8') as f:
-        w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(deals)
+        w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(rows)
 
 def main()->int:
     global APP_CONFIG
@@ -368,7 +454,10 @@ def main()->int:
                 result['research']={'mode':'research','label':asset.get('research_label'),'forward_test_start':asset.get('forward_test_start'),
                                     'promotion_status':'WAITING FOR FIRST KUCOIN SYNC','all_gates_pass':False,'checks':{},'gates':asset.get('promotion_gates',{})}
         else:
-            result=simulate(candles,indicators(candles,asset),asset,cfg['execution'])
+            asset_signals=indicators(candles,asset)
+            result=simulate(candles,asset_signals,asset,cfg['execution'])
+            if asset.get('production_status')!='production':
+                result['experiment']=build_research_experiment(asset,candles,asset_signals,result,cfg['execution'])
         result['sync']={'new_candles':added,'error':error,'source':'KuCoin public spot candles API'}; result['strategy_config']={'regime':asset['regime'],'entry_filter':asset['entry_filter'],'bots':asset['bots']}
         write_deals(ROOT/asset['deal_log'],result.pop('all_deals')); outputs.append(result)
     payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'assets':outputs}

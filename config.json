@@ -207,6 +207,28 @@
           "name": "SUI High-Bear \u2014 Disabled",
           "enabled": false
         }
+      },
+      "research_experiments": {
+        "enabled": true,
+        "auto_generate": true,
+        "baseline_id": "SUI-A",
+        "candidate": {
+          "id": "SUI-B",
+          "name": "SUI Candidate B \u2014 Structural Trend Filter",
+          "generation_rule": "When Candidate A fails the positive P&L or maximum trade-duration gate, create a one-variable Low-regime experiment.",
+          "hypothesis": "Blocking Low-regime entries below EMA200 may avoid prolonged falling-knife positions.",
+          "single_variable_amendment": {
+            "regime": "Low",
+            "field": "min_distance_from_ema200_pct",
+            "value": 0.0,
+            "human_rule": "Low entry requires close at or above EMA200"
+          },
+          "approved_for_forward_test": false,
+          "forward_test_start": null,
+          "minimum_diagnostic_net_improvement": 0.0,
+          "maximum_allowed_profit_sacrifice_pct": 25.0
+        },
+        "manual_approval_note": "The app may propose and diagnose Candidate B automatically, but it must not replace Candidate A or become a live strategy without manual approval."
       }
     }
   ],
@@ -218,11 +240,11 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "7.0.0",
-    "mode": "TEL/TAO advisory + SUI forward research",
+    "version": "7.1.0",
+    "mode": "TEL/TAO advisory + SUI automated research experiments",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
-    "feature": "SUI Research Mode"
+    "feature": "Automatic Candidate Experiments"
   },
   "threecommas": {
     "enabled": true,
