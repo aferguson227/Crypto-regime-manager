@@ -18,7 +18,7 @@
     "legacy_navigation_preserved": true,
     "note": "V21 adds an advisory-only automatic research queue across configured assets while preserving all V20 production and validation safeguards."
   },
-  "generated_at": "2026-08-03T20:20:38.992831+00:00",
+  "generated_at": "2026-08-03T20:28:32.096257+00:00",
   "workflow_status": "ok",
   "portfolio": {
     "best_opportunity": {
@@ -1999,12 +1999,12 @@
         "Any changed rule must be registered as a new candidate."
       ],
       "forward_validation": {
-        "updated_at": "2026-08-03T16:31:45.966642+00:00",
+        "updated_at": "2026-08-03T20:20:38.870101+00:00",
         "status": "COLLECTING FORWARD EVIDENCE",
-        "forward_days": 0.5,
-        "forward_candles": 3,
+        "forward_days": 0.6666666666666666,
+        "forward_candles": 4,
         "first_forward_candle": "2026-08-03T04:00:00Z",
-        "last_forward_candle": "2026-08-03T12:00:00Z",
+        "last_forward_candle": "2026-08-03T16:00:00Z",
         "completed_30_day_windows": 0,
         "profitable_30_day_windows": 0,
         "data_integrity_ok": true,
@@ -2074,12 +2074,12 @@
           "Any changed rule must be registered as a new candidate."
         ],
         "forward_validation": {
-          "updated_at": "2026-08-03T16:31:45.966642+00:00",
+          "updated_at": "2026-08-03T20:20:38.870101+00:00",
           "status": "COLLECTING FORWARD EVIDENCE",
-          "forward_days": 0.5,
-          "forward_candles": 3,
+          "forward_days": 0.6666666666666666,
+          "forward_candles": 4,
           "first_forward_candle": "2026-08-03T04:00:00Z",
-          "last_forward_candle": "2026-08-03T12:00:00Z",
+          "last_forward_candle": "2026-08-03T16:00:00Z",
           "completed_30_day_windows": 0,
           "profitable_30_day_windows": 0,
           "data_integrity_ok": true,
@@ -2383,7 +2383,7 @@
   "operational_intelligence": {
     "version": "17.0",
     "mode": "read_only_operational_intelligence",
-    "generated_at": "2026-08-03T20:20:38.872623+00:00",
+    "generated_at": "2026-08-03T20:28:31.971013+00:00",
     "summary": {
       "production_assets": 2,
       "research_assets": 1,
@@ -2413,7 +2413,7 @@
         ],
         "data_ok": true,
         "history_end": "2026-08-03T16:00:00Z",
-        "new_candles": 1,
+        "new_candles": 0,
         "validation_state": "PRODUCTION BASELINE",
         "candidate_decision": null,
         "forward_validation": null
@@ -2439,7 +2439,7 @@
         ],
         "data_ok": true,
         "history_end": "2026-08-03T16:00:00Z",
-        "new_candles": 1,
+        "new_candles": 0,
         "validation_state": "COLLECTING FORWARD EVIDENCE",
         "candidate_decision": {
           "candidate_id": "SUI-T1",
@@ -2614,7 +2614,7 @@
         ],
         "data_ok": true,
         "history_end": "2026-08-03T16:00:00Z",
-        "new_candles": 1,
+        "new_candles": 0,
         "validation_state": "PRODUCTION BASELINE",
         "candidate_decision": null,
         "forward_validation": null
@@ -2651,7 +2651,7 @@
   "research_queue": {
     "version": "21.0",
     "mode": "automatic_multi_asset_research_queue",
-    "generated_at": "2026-08-03T20:20:38.992813+00:00",
+    "generated_at": "2026-08-03T20:28:32.096238+00:00",
     "status": "READY",
     "queue": [
       {
@@ -4205,7 +4205,7 @@
         "recent_max_drawdown_pct_of_capital": -15.493742091577554,
         "open_loss_pct_of_capital": -3.3549615579212517,
         "open_hours": 632.0,
-        "data_age_hours": 4.343964298301273,
+        "data_age_hours": 4.475430039432314,
         "historical_average_trade_hours": 20.356687898089174,
         "historical_longest_trade_hours": 556,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -4627,7 +4627,7 @@
       "experiment": null,
       "evolution": null,
       "sync": {
-        "new_candles": 1,
+        "new_candles": 0,
         "error": null,
         "source": "KuCoin public spot candles API"
       },
@@ -4728,7 +4728,7 @@
         "recent_max_drawdown_pct_of_capital": -12.068385719225839,
         "open_loss_pct_of_capital": 0.0,
         "open_hours": 0.0,
-        "data_age_hours": 4.344031623601913,
+        "data_age_hours": 4.47547389778826,
         "historical_average_trade_hours": 64.57142857142857,
         "historical_longest_trade_hours": 368,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -5150,7 +5150,7 @@
       "experiment": null,
       "evolution": null,
       "sync": {
-        "new_candles": 1,
+        "new_candles": 0,
         "error": null,
         "source": "KuCoin public spot candles API"
       },
@@ -5295,7 +5295,7 @@
         "recent_max_drawdown_pct_of_capital": -31.073997089292053,
         "open_loss_pct_of_capital": -28.80225522134471,
         "open_hours": 1664.0,
-        "data_age_hours": 4.344105213615629,
+        "data_age_hours": 4.475520256095463,
         "historical_average_trade_hours": 19.466666666666665,
         "historical_longest_trade_hours": 152,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -6245,7 +6245,7 @@
         "note": "Suggestions are generated automatically, but no strategy or setting is changed without manual approval."
       },
       "sync": {
-        "new_candles": 1,
+        "new_candles": 0,
         "error": null,
         "source": "KuCoin public spot candles API"
       },
