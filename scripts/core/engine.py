@@ -105,7 +105,7 @@ def sma(values:list[float],period:int)->list[float]:
 
 def indicators(candles:list[Candle],cfg:dict[str,Any])->list[dict[str,Any]|None]:
     rcfg=cfg['regime']; closes=[c.close for c in candles]
-    e50=ema(closes,int(rcfg['fast_ema'])); e100=ema(closes,100); e200=ema(closes,int(rcfg['slow_ema']))
+    e50=ema(closes,int(rcfg['fast_ema'])); e100=ema(closes,100); e150=ema(closes,150); e200=ema(closes,int(rcfg['slow_ema']))
     e12=ema(closes,12); e26=ema(closes,26)
     macd=[(e12[i]-e26[i]) if not math.isnan(e12[i]) and not math.isnan(e26[i]) else math.nan for i in range(len(closes))]
     macd_sig=ema([0.0 if math.isnan(x) else x for x in macd],9)
@@ -126,15 +126,15 @@ def indicators(candles:list[Candle],cfg:dict[str,Any])->list[dict[str,Any]|None]
         atr_window=[x for x in at[max(0,i-179):i+1] if not math.isnan(x)]
         atr_pct=(100*sum(1 for x in atr_window if x<=at[i])/len(atr_window)) if atr_window and not math.isnan(at[i]) else math.nan
         out.append({'regime':regime,'rv':rv[i],'ema50':e50[i],'ema100':e100[i],'ema200':e200[i],'rsi14':rs[i],
-                    'distance_ema200':(c.close/e200[i]-1)*100,'distance_ema100':(c.close/e100[i]-1)*100,'distance_ema50':(c.close/e50[i]-1)*100,
+                    'distance_ema200':(c.close/e200[i]-1)*100,'distance_ema150':(c.close/e150[i]-1)*100,'distance_ema100':(c.close/e100[i]-1)*100,'distance_ema50':(c.close/e50[i]-1)*100,
                     'ema200_slope_pct':(e200[i]/e200[i-1]-1)*100 if i>0 else math.nan,
-                    'ema200_24h_slope_pct':(e200[i]/e200[i-6]-1)*100 if i>=6 else math.nan,
+                    'ema200_24h_slope_pct':(e200[i]/e200[i-6]-1)*100 if i>=6 else math.nan,'ema100_24h_slope_pct':(e100[i]/e100[i-6]-1)*100 if i>=6 else math.nan,
                     'return24':(c.close/closes[i-6]-1)*100 if i>=6 else math.nan,
                     'ema50_slope_pct':(e50[i]/e50[i-1]-1)*100 if i>0 else math.nan,
                     'pullback20_pct':(1-c.close/max(closes[max(0,i-119):i+1]))*100,
                     'atr14':at[i],'atr_percentile':atr_pct,'atr_expansion_ratio':atr_ratio,'consecutive_bearish_candles':bearish,
                     'bullish_candle':1.0 if c.close>c.open else 0.0,
-                    'rsi_recovery':1.0 if i>0 and not math.isnan(rs[i-1]) and rs[i]>rs[i-1] else 0.0,
+                    'rsi_recovery':1.0 if i>0 and not math.isnan(rs[i-1]) and rs[i]>rs[i-1] else 0.0,'rsi_two_candle_recovery':1.0 if i>1 and not math.isnan(rs[i-2]) and rs[i]>rs[i-1]>rs[i-2] else 0.0,
                     'macd_hist_improving':1.0 if i>0 and not math.isnan(macd_hist[i]) and not math.isnan(macd_hist[i-1]) and macd_hist[i]>macd_hist[i-1] else 0.0})
     return out
 
@@ -155,11 +155,11 @@ def permission(signal:dict[str,Any],fcfg:dict[str,Any])->tuple[bool,str]:
         ('max_atr_expansion_ratio','atr_expansion_ratio',lambda a,b:a>b,'ATR is expanding above the allowed limit'),
         ('max_consecutive_bearish_candles','consecutive_bearish_candles',lambda a,b:a>b,'Too many consecutive bearish candles'),
         ('min_ema200_slope_pct','ema200_slope_pct',lambda a,b:a<b,'EMA200 is falling faster than the allowed limit'),
-        ('min_distance_from_ema100_pct','distance_ema100',lambda a,b:a<b,'Price is below the required EMA100 threshold'),
-        ('min_ema200_24h_slope_pct','ema200_24h_slope_pct',lambda a,b:a<b,'EMA200 is not rising enough over 24 hours'),
+        ('min_distance_from_ema100_pct','distance_ema100',lambda a,b:a<b,'Price is below the required EMA100 threshold'),('min_distance_from_ema150_pct','distance_ema150',lambda a,b:a<b,'Price is below the required EMA150 threshold'),
+        ('min_ema200_24h_slope_pct','ema200_24h_slope_pct',lambda a,b:a<b,'EMA200 is not rising enough over 24 hours'),('min_ema100_24h_slope_pct','ema100_24h_slope_pct',lambda a,b:a<b,'EMA100 is not rising enough over 24 hours'),
         ('max_atr_percentile','atr_percentile',lambda a,b:a>b,'ATR percentile is above the allowed cap'),
         ('require_bullish_candle','bullish_candle',lambda a,b:a<b,'A bullish recovery candle is required'),
-        ('require_rsi_recovery','rsi_recovery',lambda a,b:a<b,'RSI must be recovering'),
+        ('require_rsi_recovery','rsi_recovery',lambda a,b:a<b,'RSI must be recovering'),('require_rsi_two_candle_recovery','rsi_two_candle_recovery',lambda a,b:a<b,'RSI must rise for two candles'),
         ('require_macd_hist_improving','macd_hist_improving',lambda a,b:a<b,'MACD histogram must be improving')]
     for key,metric,bad,msg in checks:
         if key in local and bad(signal[metric],float(local[key])): return False,msg
@@ -809,6 +809,45 @@ def build_automatic_research_pipeline(cfg:dict[str,Any],outputs:list[dict[str,An
       'note':pcfg.get('note')}
 
 
+
+def build_autonomous_research_evolution(cfg:dict[str,Any],outputs:list[dict[str,Any]],contexts:dict[str,Any],pipeline:dict[str,Any]|None)->dict[str,Any]|None:
+    acfg=cfg.get('autonomous_research_evolution') or {}
+    if not acfg.get('enabled') or not pipeline: return None
+    source_id=str(acfg.get('source_asset','SUI')); source=next((x for x in outputs if str(x.get('id'))==source_id),None); ctx=contexts.get(source_id)
+    if not source or not ctx: return None
+    baseline=compact_metrics(source); open_pos=baseline.get('open_position') or {}; target_regime=str(open_pos.get('regime') or pipeline.get('target_regime') or 'Medium')
+    family_rows=pipeline.get('family_summary') or []; dominant=max(family_rows,key=lambda x:(x.get('passed',0),x.get('best_score',-999)),default=None)
+    dominant_family=(dominant or {}).get('family')
+    passed=int((dominant or {}).get('passed',0) or 0)
+    queue=[]
+    if dominant_family and passed>=int(acfg.get('minimum_family_passes',2)):
+        queue=list((acfg.get('families') or {}).get(dominant_family,[]))
+    if not queue:
+        for fam,rows in (acfg.get('families') or {}).items():
+            if rows: queue.append(rows[0])
+    queue=queue[:int(acfg.get('max_experiments_per_cycle',8))]
+    results=[]
+    for item in queue:
+        asset=copy.deepcopy(ctx['asset']); asset.pop('research_experiments',None); asset.pop('strategy_evolution',None)
+        asset['id']=item['id']; asset['display_name']=item['title']; asset.setdefault('entry_filter',{}).setdefault(target_regime,{})[item['field']]=item['value']
+        replay=simulate(ctx['candles'],ctx['signals'],asset,cfg['execution']); m=compact_metrics(replay)
+        pnl=m['net_pnl']-baseline['net_pnl']; dur=baseline['effective_longest_trade_hours']-m['effective_longest_trade_hours']; dd=m['maximum_drawdown_pct_of_capital']-baseline['maximum_drawdown_pct_of_capital']; deals=m['closed_deals']-baseline['closed_deals']
+        changed=bool(open_pos and (not m.get('open_position') or (m.get('open_position') or {}).get('entry_time')!=open_pos.get('entry_time')))
+        score=40*pnl/max(100.0,abs(baseline['net_pnl']))+25*dur/max(24.0,baseline['effective_longest_trade_hours'])-2*dd+(10 if changed else 0)-max(0,-deals)*0.15
+        status='PASS' if pnl>0 and dur>=0 and dd>=-5 else 'REJECT'
+        results.append({'id':item['id'],'title':item['title'],'family':dominant_family or 'Exploration','status':status,'score':round(score,2),'metrics':m,'amendment':{'regime':target_regime,'field':item['field'],'value':item['value'],'human_rule':item['human_rule']},'comparison':{'net_pnl_change':pnl,'duration_reduction_hours':dur,'drawdown_change_pp':dd,'deal_count_change':deals,'problem_trade_changed':changed}})
+    results.sort(key=lambda r:(r['status']=='PASS',r['score']),reverse=True)
+    for i,r in enumerate(results,1): r['rank']=i
+    winner=results[0] if results else None
+    passed_results=[r for r in results if r['status']=='PASS' and r['score']>=float(acfg.get('minimum_score',10))]
+    bridge=acfg.get('decision_bridge') or {}; research=(source.get('research') or {}); checks=research.get('checks') or {}
+    forward_ready=bool(checks and all(checks.values()))
+    confidence=min(95,round(25+10*len(passed_results)+5*passed,1)) if passed_results else 10
+    advisory_status='FORWARD TEST CANDIDATE' if winner and winner['status']=='PASS' else 'NO DECISION CANDIDATE'
+    if forward_ready and confidence>=float(bridge.get('minimum_confidence_pct',70)): advisory_status='MANUAL BOT REVIEW ELIGIBLE'
+    decision={'status':advisory_status,'confidence_pct':confidence,'entry_rule_candidate':winner.get('amendment') if winner else None,'recommended_action':'Freeze the winning research rule and begin a new forward test; do not alter live bots yet.' if winner and winner['status']=='PASS' else 'Keep current bot decisions unchanged.','dca_settings':'UNCHANGED — DCA optimisation remains a separate validated research stage.','exit_policy':'UNCHANGED — no automatic close signal is authorised.','live_execution_authorised':False,'manual_approval_required':True}
+    return {'version':'13.0','mode':'self_directed_research_evolution','source_asset':source_id,'target_regime':target_regime,'dominant_family':dominant_family,'family_evidence':dominant,'queue_generated_automatically':True,'experiments':results,'winner':winner,'decision_bridge':decision,'audit':{'experiments_run':len(results),'passed':sum(1 for r in results if r['status']=='PASS'),'rejected':sum(1 for r in results if r['status']=='REJECT')},'note':acfg.get('note')}
+
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
     path.parent.mkdir(parents=True,exist_ok=True)
     fields=['entry_time','exit_time','regime','pnl','hours','safety_orders','capital','entry_distance_ema200_pct','entry_ema200_slope_pct']
@@ -857,7 +896,8 @@ def main()->int:
     asset_dna=build_asset_dna(cfg,outputs,evidence_library)
     context_traits=build_context_traits(cfg,outputs,evidence_library,asset_dna)
     automatic_research=build_automatic_research_pipeline(cfg,outputs,contexts)
-    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'context_traits':context_traits,'automatic_research':automatic_research,'assets':outputs}
+    autonomous_evolution=build_autonomous_research_evolution(cfg,outputs,contexts,automatic_research)
+    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'context_traits':context_traits,'automatic_research':automatic_research,'autonomous_evolution':autonomous_evolution,'assets':outputs}
     out=ROOT/cfg['execution']['output_json']; out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(payload,indent=2),encoding='utf-8')
     update_health_history(ROOT/'docs/health_history.json',payload,int(cfg.get('health_monitor',{}).get('history_points',180)))
     print(json.dumps(payload,indent=2)); return 0

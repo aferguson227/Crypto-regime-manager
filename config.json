@@ -288,7 +288,7 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "12.0.0",
+    "version": "13.0",
     "mode": "TEL/TAO advisory + SUI research + contextual asset traits",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
@@ -505,5 +505,79 @@
       }
     ],
     "note": "V12 executes the full diagnostic queue automatically and publishes ranked results. Automatic execution does not authorise production changes."
+  },
+  "autonomous_research_evolution": {
+    "enabled": true,
+    "source_asset": "SUI",
+    "minimum_family_passes": 2,
+    "minimum_score": 10.0,
+    "max_experiments_per_cycle": 8,
+    "stop_after_non_improving_steps": 3,
+    "decision_bridge": {
+      "enabled": true,
+      "advisory_only": true,
+      "minimum_confidence_pct": 70,
+      "minimum_forward_days": 90,
+      "minimum_forward_candles": 540,
+      "require_manual_approval": true
+    },
+    "families": {
+      "Trend Confirmation": [
+        {
+          "id": "AUTO-EMA200-BUF-05",
+          "title": "EMA200 0.5% Buffer",
+          "field": "min_distance_from_ema200_pct",
+          "value": 0.5,
+          "human_rule": "entry requires close at least 0.5% above EMA200"
+        },
+        {
+          "id": "AUTO-EMA150",
+          "title": "EMA150 Recovery",
+          "field": "min_distance_from_ema150_pct",
+          "value": 0.0,
+          "human_rule": "entry requires close at or above EMA150"
+        },
+        {
+          "id": "AUTO-EMA200-BUF-15",
+          "title": "EMA200 1.5% Buffer",
+          "field": "min_distance_from_ema200_pct",
+          "value": 1.5,
+          "human_rule": "entry requires close at least 1.5% above EMA200"
+        },
+        {
+          "id": "AUTO-EMA100-SLOPE",
+          "title": "EMA100 Rising 24h",
+          "field": "min_ema100_24h_slope_pct",
+          "value": 0.0,
+          "human_rule": "entry requires EMA100 flat or rising over 24 hours"
+        },
+        {
+          "id": "AUTO-EMA200-BUF-20",
+          "title": "EMA200 2% Buffer",
+          "field": "min_distance_from_ema200_pct",
+          "value": 2.0,
+          "human_rule": "entry requires close at least 2% above EMA200"
+        }
+      ],
+      "Momentum Confirmation": [
+        {
+          "id": "AUTO-RSI-2",
+          "title": "RSI Two-Candle Recovery",
+          "field": "require_rsi_two_candle_recovery",
+          "value": 1.0,
+          "human_rule": "entry requires RSI to rise for two completed candles"
+        }
+      ],
+      "Volatility State": [
+        {
+          "id": "AUTO-ATR-50",
+          "title": "ATR Percentile 50 Cap",
+          "field": "max_atr_percentile",
+          "value": 50.0,
+          "human_rule": "entry requires ATR percentile at or below 50"
+        }
+      ]
+    },
+    "note": "The engine chooses and runs diagnostic experiments automatically, but all bot, entry, exit and DCA recommendations remain advisory until a frozen forward test passes and the user approves the change."
   }
 }
