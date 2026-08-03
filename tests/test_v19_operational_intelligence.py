@@ -5,4 +5,4 @@ def test_v19_pages_exist():
  for f in ["explainability.html","timeline.html","integrity.html","v19.css"]: assert (p/f).exists()
 
 def test_version():
- assert (Path(__file__).parents[1]/"VERSION").read_text().strip()=="19.0.0"
+ assert (Path(__file__).parents[1]/"VERSION").read_text().strip()=="20.0.0"

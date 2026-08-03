@@ -40,8 +40,12 @@ try {
   $configPath=Join-Path $target 'config.json'
   if(Test-Path $configPath){
     $config=Get-Content $configPath -Raw | ConvertFrom-Json
-    $config.version='20.0.0'
-    if($config.PSObject.Properties.Name -contains 'note'){
+if ($config.PSObject.Properties.Name -contains 'version') {
+    $config.version = '20.0.0'
+}
+else {
+    $config | Add-Member -MemberType NoteProperty -Name 'version' -Value '20.0.0'
+}    if($config.PSObject.Properties.Name -contains 'note'){
       $config.note='V20 simplified operator experience; trading and forward-validation logic preserved.'
     }
     $config | ConvertTo-Json -Depth 100 | Set-Content $configPath -Encoding UTF8

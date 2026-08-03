@@ -1,12 +1,11 @@
-# V20.0.0 — Professional Trading Intelligence
+# Crypto Regime Manager V20.0.0 — Simplified Operator Experience
 
-V20 consolidates the application into five primary workspaces: Home, Assets, Research, Data and More. It is a presentation and navigation refactor only. Existing trading, replay, DCA, candidate and forward-validation logic is preserved.
+V20 preserves all V19 trading, replay, DCA, 3Commas read-only integration and forward-validation behaviour. It simplifies navigation to five primary sections: Dashboard, Cockpit, Research, Data and More.
 
-## Primary pages
-- `docs/index.html` — Home
-- `docs/assets.html` — per-asset workspace
-- `docs/research.html` — unified research lifecycle
-- `docs/data.html` — data and integrity workspace
-- `docs/more.html` — advanced tools
-
-Legacy detailed pages remain available for audit.
+## Key changes
+- Mobile-friendly five-section navigation
+- Advanced pages grouped under More
+- Active Settings table scrolls horizontally instead of collapsing into vertical text
+- Consistent V20 labels across all public pages
+- Existing data, Git history, 3Commas files, candidate registry and forward evidence are preserved by the easy installer
+- No live execution or automatic strategy changes

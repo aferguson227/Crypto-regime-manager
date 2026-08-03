@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Safe KuCoin historical-data manager for V18.
+"""Safe KuCoin historical-data manager for V20.
 
 This utility never changes strategies. It refreshes completed 4-hour candles,
 keeps existing history, and optionally reruns the normal engine so every
@@ -20,7 +20,7 @@ def status():
     for a in assets():
         path=ROOT/a['history_file']; candles=load_history(path)
         rows.append({'id':a['id'],'symbol':a['symbol'],'file':str(path.relative_to(ROOT)),'candles':len(candles),'first':datetime.fromtimestamp(candles[0].ts,tz=timezone.utc).isoformat() if candles else None,'last':datetime.fromtimestamp(candles[-1].ts,tz=timezone.utc).isoformat() if candles else None})
-    print(json.dumps({'version':'18.0.0','source':'KuCoin','timeframe':'4hour','assets':rows},indent=2))
+    print(json.dumps({'version':'20.0.0','source':'KuCoin','timeframe':'4hour','assets':rows},indent=2))
 def refresh(ids,rerun=True):
     selected=[a for a in assets() if a['id'] in ids]
     if not selected: raise SystemExit('No matching assets.')
