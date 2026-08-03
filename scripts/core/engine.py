@@ -1006,12 +1006,24 @@ def build_advisory_decisions(cfg:dict[str,Any], contexts:dict[str,Any], forward_
         candidate=next((c for c in _load_registry(ROOT/str((cfg.get('candidate_intelligence') or {}).get('registry_file','docs/candidate_registry.json'))).get('candidates',[]) if c.get('candidate_id')==cid),None)
         if not latest or not candidate: continue
         asset=_candidate_asset(ctx['asset'],candidate,candidate.get('forward_test_start'))
-        allowed,reason=permission(latest,asset.get('entry_filter',{}))
+        current_regime=latest.get('regime')
+        target_regime=candidate.get('regime')
+        rule_applicable=current_regime==target_regime
+        if rule_applicable:
+            allowed,reason=permission(latest,asset.get('entry_filter',{}))
+            rule_state='PASS' if allowed else 'BLOCK'
+        else:
+            allowed=None
+            rule_state='NOT APPLICABLE'
+            reason=f"Candidate applies only to {target_regime}; current regime is {current_regime}."
         eligible=bool(row.get('all_gates_pass'))
         action='RESEARCH WAIT'
-        if eligible: action='ADVISORY ENTRY ALLOWED' if allowed else 'ADVISORY ENTRY BLOCKED'
-        decisions.append({'candidate_id':cid,'asset_id':source_id,'regime':latest.get('regime'),'candidate_rule_passes_now':allowed,'reason':reason,'forward_validation_status':row.get('status'),'paper_trading_review_eligible':eligible,'action':action,'recommended_bot':(ctx['asset'].get('bots') or {}).get(latest.get('regime'),{}).get('name'),'dca_settings_status':'UNCHANGED','exit_policy':'UNCHANGED','live_execution_authorised':False})
-    return {'version':'15.0','mode':'advisory_preview_only','decisions':decisions,'live_execution_authorised':False,'note':dcfg.get('note')}
+        if eligible and rule_applicable:
+            action='ADVISORY ENTRY ALLOWED' if allowed else 'ADVISORY ENTRY BLOCKED'
+        elif eligible:
+            action='WAIT FOR TARGET REGIME'
+        decisions.append({'candidate_id':cid,'asset_id':source_id,'regime':current_regime,'target_regime':target_regime,'candidate_rule_applicable_now':rule_applicable,'candidate_rule_passes_now':allowed,'candidate_rule_state':rule_state,'reason':reason,'forward_validation_status':row.get('status'),'paper_trading_review_eligible':eligible,'action':action,'recommended_bot':(ctx['asset'].get('bots') or {}).get(current_regime,{}).get('name'),'dca_settings_status':'UNCHANGED','exit_policy':'UNCHANGED','live_execution_authorised':False})
+    return {'version':'15.1','mode':'advisory_preview_only','decisions':decisions,'live_execution_authorised':False,'note':dcfg.get('note')}
 
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
     path.parent.mkdir(parents=True,exist_ok=True)
