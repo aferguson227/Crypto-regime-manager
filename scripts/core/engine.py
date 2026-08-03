@@ -1034,6 +1034,68 @@ def build_advisory_decisions(cfg:dict[str,Any], contexts:dict[str,Any], forward_
         decisions.append({'candidate_id':cid,'asset_id':source_id,'regime':current_regime,'target_regime':target_regime,'candidate_rule_applicable_now':rule_applicable,'candidate_rule_passes_now':allowed,'candidate_rule_state':rule_state,'reason':reason,'forward_validation_status':row.get('status'),'paper_trading_review_eligible':eligible,'action':action,'recommended_bot':(ctx['asset'].get('bots') or {}).get(current_regime,{}).get('name'),'dca_settings_status':'UNCHANGED','exit_policy':'UNCHANGED','live_execution_authorised':False})
     return {'version':'15.1','mode':'advisory_preview_only','decisions':decisions,'live_execution_authorised':False,'note':dcfg.get('note')}
 
+
+def build_operational_intelligence(cfg:dict[str,Any], outputs:list[dict[str,Any]], forward_validation:dict[str,Any]|None, advisory_decisions:dict[str,Any]|None)->dict[str,Any]:
+    """Build a read-only, explainable decision cockpit without changing strategy logic."""
+    ocfg=cfg.get('operational_intelligence') or {}
+    decisions={d.get('asset_id'):d for d in ((advisory_decisions or {}).get('decisions') or [])}
+    fv_by_asset={r.get('asset_id'):r for r in ((forward_validation or {}).get('candidates') or [])}
+    rows=[]; alerts=[]
+    production_ready=0; entry_allowed=0; research_count=0
+    for asset in outputs:
+        latest=asset.get('latest') or {}; health=asset.get('health') or {}; sync=asset.get('sync') or {}
+        research=asset.get('production_status','production')!='production'
+        decision=decisions.get(asset.get('id')); fv=fv_by_asset.get(asset.get('id'))
+        allowed=bool(latest.get('entry_allowed')) and not research
+        if research: research_count+=1
+        if allowed: entry_allowed+=1
+        health_score=float(health.get('score',0) or 0)
+        data_error=bool(sync.get('error'))
+        has_history=bool(asset.get('history_end'))
+        data_ok=(not data_error) and has_history
+        validation_state=(fv or {}).get('status') if research else 'PRODUCTION BASELINE'
+        if research:
+            readiness='FORWARD EVIDENCE' if fv and (fv.get('forward_candles') or 0)>0 else 'WAITING FOR DATA'
+            next_action='Continue independent forward collection; do not alter live bots.'
+            severity='warning'
+        elif data_error:
+            readiness='DATA BLOCKED'; next_action='Restore the candle-data workflow before using this setup.'; severity='critical'
+        elif not has_history:
+            readiness='WAITING FOR FIRST SYNC'; next_action='Run the candle sync workflow to initialise this asset.'; severity='warning'
+        elif allowed and health_score>=75:
+            readiness='REVIEW SETUP'; next_action=f"Review {latest.get('recommended_bot') or 'the recommended bot'}; execution remains manual."; severity='positive'; production_ready+=1
+        elif allowed:
+            readiness='CAUTIOUS REVIEW'; next_action='Entry filters pass, but review health and open-position risk before acting.'; severity='warning'
+        else:
+            readiness='WAIT'; next_action=latest.get('entry_reason') or 'Wait for configured entry filters to pass.'; severity='neutral'
+        blockers=[]
+        if data_error: blockers.append(sync.get('error') or 'Candle-data workflow error')
+        elif not has_history: blockers.append('No completed candle history is packaged; run the sync workflow')
+        if not latest.get('entry_allowed'): blockers.append(latest.get('entry_reason') or 'Entry filter blocked')
+        if asset.get('open_position'): blockers.append('Replay has an unresolved position')
+        if health_score<50: blockers.append('Strategy health requires review')
+        if research and fv and not fv.get('all_gates_pass'): blockers.append('Independent forward gates are incomplete')
+        row={'asset_id':asset.get('id'),'symbol':asset.get('symbol'),'production_status':'RESEARCH' if research else 'PRODUCTION',
+             'regime':latest.get('regime'),'entry_allowed':allowed,'readiness':readiness,'severity':severity,
+             'health_score':health_score,'health_status':health.get('status'),'opportunity_score':(asset.get('intelligence') or {}).get('opportunity_score'),
+             'recommended_bot':latest.get('recommended_bot'),'next_action':next_action,'blockers':blockers[:5],
+             'data_ok':data_ok,'history_end':asset.get('history_end'),'new_candles':sync.get('new_candles',0),
+             'validation_state':validation_state,'candidate_decision':decision,'forward_validation':fv}
+        rows.append(row)
+        if data_error: alerts.append({'level':'CRITICAL','asset_id':asset.get('id'),'message':'Market-data update failed.'})
+        elif not has_history: alerts.append({'level':'INFO','asset_id':asset.get('id'),'message':'Waiting for the first candle-data sync.'})
+        if health_score<50: alerts.append({'level':'REVIEW','asset_id':asset.get('id'),'message':f"Strategy health is {health.get('status','Review')} ({health_score:.0f}/100)."})
+        if asset.get('open_position') and float((asset.get('open_position') or {}).get('hours_open',0) or 0)>30*24:
+            alerts.append({'level':'REVIEW','asset_id':asset.get('id'),'message':'Replay position exceeds 30 days.'})
+    rows.sort(key=lambda r:({'critical':0,'positive':1,'warning':2,'neutral':3}.get(r['severity'],4),-(r.get('opportunity_score') or 0)))
+    return {'version':'16.0','mode':'read_only_operational_intelligence','generated_at':datetime.now(timezone.utc).isoformat(),
+            'summary':{'production_assets':sum(1 for a in outputs if a.get('production_status','production')=='production'),
+                       'research_assets':research_count,'entry_allowed':entry_allowed,'review_ready':production_ready,
+                       'critical_alerts':sum(1 for a in alerts if a['level']=='CRITICAL')},
+            'assets':rows,'alerts':alerts,'guardrails':{'live_execution_authorised':False,'automatic_bot_changes':False,
+            'automatic_dca_changes':False,'automatic_exit_changes':False,'manual_review_required':True},
+            'principles':ocfg.get('principles',[]),'note':ocfg.get('note','V16 consolidates evidence into an explainable read-only decision cockpit.')}
+
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
     path.parent.mkdir(parents=True,exist_ok=True)
     fields=['entry_time','exit_time','regime','pnl','hours','safety_orders','capital','entry_distance_ema200_pct','entry_ema200_slope_pct']
@@ -1086,7 +1148,8 @@ def main()->int:
     candidate_intelligence=build_candidate_intelligence(cfg,outputs,contexts,autonomous_evolution)
     forward_validation=build_forward_validation(cfg,outputs,contexts,candidate_intelligence)
     advisory_decisions=build_advisory_decisions(cfg,contexts,forward_validation)
-    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'context_traits':context_traits,'automatic_research':automatic_research,'autonomous_evolution':autonomous_evolution,'candidate_intelligence':candidate_intelligence,'forward_validation':forward_validation,'advisory_decisions':advisory_decisions,'assets':outputs}
+    operational_intelligence=build_operational_intelligence(cfg,outputs,forward_validation,advisory_decisions)
+    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'context_traits':context_traits,'automatic_research':automatic_research,'autonomous_evolution':autonomous_evolution,'candidate_intelligence':candidate_intelligence,'forward_validation':forward_validation,'advisory_decisions':advisory_decisions,'operational_intelligence':operational_intelligence,'assets':outputs}
     out=ROOT/cfg['execution']['output_json']; out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(payload,indent=2),encoding='utf-8')
     update_health_history(ROOT/'docs/health_history.json',payload,int(cfg.get('health_monitor',{}).get('history_points',180)))
     print(json.dumps(payload,indent=2)); return 0

@@ -288,7 +288,7 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "15.3.0",
+    "version": "16.0.0",
     "mode": "TEL/TAO advisory + SUI research + immutable candidate registry",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
@@ -638,5 +638,16 @@
   "advisory_decision_preview": {
     "enabled": true,
     "note": "Decision previews are shown only after forward gates pass. DCA and exit settings remain unchanged and live execution is disabled."
+  },
+  "operational_intelligence": {
+    "enabled": true,
+    "principles": [
+      "Production and research assets remain clearly separated",
+      "Every recommendation includes its blockers and next manual action",
+      "Data freshness and strategy health can veto a review-ready label",
+      "Forward-validation evidence is never mixed with historical diagnostic evidence",
+      "No page can authorise live execution or change DCA or exit settings"
+    ],
+    "note": "V16 combines portfolio, health, entry, research and validation evidence into one read-only operating view. It does not change trading, simulation or promotion logic."
   }
 }
