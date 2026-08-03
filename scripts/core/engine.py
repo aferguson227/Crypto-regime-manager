@@ -6,9 +6,9 @@ candidate with automatic one-variable experiments, excluded from live
 portfolio rankings until manually promoted.
 """
 from __future__ import annotations
-import argparse, copy, csv, itertools, json, math, time, urllib.parse, urllib.request
+import argparse, copy, csv, hashlib, itertools, json, math, time, urllib.parse, urllib.request
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -848,6 +848,90 @@ def build_autonomous_research_evolution(cfg:dict[str,Any],outputs:list[dict[str,
     decision={'status':advisory_status,'confidence_pct':confidence,'entry_rule_candidate':winner.get('amendment') if winner else None,'recommended_action':'Freeze the winning research rule and begin a new forward test; do not alter live bots yet.' if winner and winner['status']=='PASS' else 'Keep current bot decisions unchanged.','dca_settings':'UNCHANGED — DCA optimisation remains a separate validated research stage.','exit_policy':'UNCHANGED — no automatic close signal is authorised.','live_execution_authorised':False,'manual_approval_required':True}
     return {'version':'13.0','mode':'self_directed_research_evolution','source_asset':source_id,'target_regime':target_regime,'dominant_family':dominant_family,'family_evidence':dominant,'queue_generated_automatically':True,'experiments':results,'winner':winner,'decision_bridge':decision,'audit':{'experiments_run':len(results),'passed':sum(1 for r in results if r['status']=='PASS'),'rejected':sum(1 for r in results if r['status']=='REJECT')},'note':acfg.get('note')}
 
+
+def _canonical_hash(value:Any)->str:
+    raw=json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode('utf-8')
+    return hashlib.sha256(raw).hexdigest()[:16]
+
+def _load_registry(path:Path)->dict[str,Any]:
+    if not path.exists():
+        return {'schema_version':'1.0','candidates':[],'events':[]}
+    try:
+        value=load_json(path)
+        if not isinstance(value,dict): raise ValueError('registry must be an object')
+        value.setdefault('schema_version','1.0'); value.setdefault('candidates',[]); value.setdefault('events',[])
+        return value
+    except Exception as exc:
+        return {'schema_version':'1.0','candidates':[],'events':[], 'load_warning':str(exc)}
+
+def _next_candidate_id(registry:dict[str,Any],prefix:str)->str:
+    used=[]
+    for row in registry.get('candidates',[]):
+        cid=str(row.get('candidate_id',''))
+        if cid.startswith(prefix):
+            try: used.append(int(cid[len(prefix):]))
+            except ValueError: pass
+    return f"{prefix}{max(used,default=0)+1}"
+
+def build_candidate_intelligence(cfg:dict[str,Any],outputs:list[dict[str,Any]],contexts:dict[str,Any],autonomy:dict[str,Any]|None)->dict[str,Any]|None:
+    ccfg=cfg.get('candidate_intelligence') or {}
+    if not ccfg.get('enabled'): return None
+    registry_path=ROOT/str(ccfg.get('registry_file','docs/candidate_registry.json'))
+    registry=_load_registry(registry_path)
+    now=datetime.now(timezone.utc)
+    source_id=str(ccfg.get('source_asset','SUI'))
+    winner=(autonomy or {}).get('winner') or {}
+    bridge=(autonomy or {}).get('decision_bridge') or {}
+    nomination=copy.deepcopy(ccfg.get('nominated_candidate') or {})
+    use_autonomy=bool(bridge.get('status')=='FORWARD TEST CANDIDATE' and winner.get('status')=='PASS')
+    if not use_autonomy and nomination:
+        source_id=str(nomination.get('asset_id') or source_id)
+        winner={'id':nomination.get('source_experiment_id'),'title':nomination.get('name'),'status':'PASS','amendment':nomination.get('amendment'),'score':nomination.get('diagnostic_score'),'metrics':{},'comparison':{}}
+        bridge={'status':'FORWARD TEST CANDIDATE','confidence_pct':nomination.get('diagnostic_confidence_pct',0)}
+    registered=None
+    if ccfg.get('auto_register_forward_test_candidate') and bridge.get('status')=='FORWARD TEST CANDIDATE' and winner.get('status')=='PASS':
+        amendment=copy.deepcopy(winner.get('amendment') or {})
+        target_regime=(autonomy or {}).get('target_regime') if use_autonomy else nomination.get('regime')
+        family=(autonomy or {}).get('dominant_family') if use_autonomy else nomination.get('family')
+        signature={'asset_id':source_id,'regime':target_regime,'amendment':amendment,'source_version':(autonomy or {}).get('version') if use_autonomy else '13.0','source_experiment_id':winner.get('id')}
+        fingerprint=_canonical_hash(signature)
+        existing=next((x for x in registry['candidates'] if x.get('fingerprint')==fingerprint),None)
+        if existing:
+            registered=existing
+        else:
+            cid=_next_candidate_id(registry,str(ccfg.get('candidate_prefix','SUI-T')))
+            ctx=contexts.get(source_id) or {}
+            candles=ctx.get('candles') or []
+            last_completed=candles[-1].ts if candles else int(now.timestamp()//14400*14400)
+            forward_start=last_completed+14400
+            metrics=copy.deepcopy(winner.get('metrics') or {})
+            comparison=copy.deepcopy(winner.get('comparison') or {})
+            registered={
+              'candidate_id':cid,'fingerprint':fingerprint,'asset_id':source_id,'regime':target_regime,
+              'name':nomination.get('name') if nomination and not use_autonomy else f"{source_id} {cid.split('-')[-1]} Trend Candidate",'family':family,
+              'rule':amendment,'human_rule':amendment.get('human_rule'),'status':'FROZEN',
+              'lifecycle_stage_index':2,'created_at':now.isoformat(),'frozen_at':now.isoformat(),
+              'forward_test_start':iso(forward_start),'source_engine_version':'13.0','registered_by_engine_version':'14.0',
+              'source_experiment_id':winner.get('id'),'diagnostic_score':winner.get('score'),
+              'diagnostic_metrics':metrics,'diagnostic_comparison':comparison,'diagnostic_confidence_pct':bridge.get('confidence_pct'),
+              'immutable':True,'production_effect':'NONE','live_execution_authorised':False,'dca_settings_status':'UNCHANGED',
+              'notes':['Forward-test measurements begin only on candles at or after forward_test_start.','Any changed rule must be registered as a new candidate.']
+            }
+            registry['candidates'].append(registered)
+            registry['events'].append({'time':now.isoformat(),'candidate_id':cid,'event':'REGISTERED_AND_FROZEN','from_stage':'DIAGNOSTIC WINNER','to_stage':'FROZEN','fingerprint':fingerprint})
+    registry['updated_at']=now.isoformat(); registry['engine_version']='14.0'
+    registry_path.parent.mkdir(parents=True,exist_ok=True); registry_path.write_text(json.dumps(registry,indent=2),encoding='utf-8')
+    lifecycle=ccfg.get('lifecycle') or []
+    rows=[]
+    for c in registry.get('candidates',[]):
+        idx=int(c.get('lifecycle_stage_index',0) or 0)
+        rows.append({**c,'lifecycle':[{'stage':stage,'complete':i<=idx,'current':i==idx} for i,stage in enumerate(lifecycle)]})
+    rows.sort(key=lambda x:x.get('created_at',''),reverse=True)
+    graph={'family':(autonomy or {}).get('dominant_family'),'nodes':[]}
+    for exp in (autonomy or {}).get('experiments') or []:
+        graph['nodes'].append({'experiment_id':exp.get('id'),'title':exp.get('title'),'status':exp.get('status'),'score':exp.get('score'),'selected':bool(registered and exp.get('id')==registered.get('source_experiment_id'))})
+    return {'version':'14.0','mode':'immutable_candidate_registry','registry_file':str(ccfg.get('registry_file')),'active_candidate':registered,'candidates':rows,'candidate_count':len(rows),'evidence_graph':graph,'lifecycle':lifecycle,'manual_approval_required':True,'live_execution_authorised':False,'principles':ccfg.get('principles',[]),'note':ccfg.get('note')}
+
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
     path.parent.mkdir(parents=True,exist_ok=True)
     fields=['entry_time','exit_time','regime','pnl','hours','safety_orders','capital','entry_distance_ema200_pct','entry_ema200_slope_pct']
@@ -897,7 +981,8 @@ def main()->int:
     context_traits=build_context_traits(cfg,outputs,evidence_library,asset_dna)
     automatic_research=build_automatic_research_pipeline(cfg,outputs,contexts)
     autonomous_evolution=build_autonomous_research_evolution(cfg,outputs,contexts,automatic_research)
-    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'context_traits':context_traits,'automatic_research':automatic_research,'autonomous_evolution':autonomous_evolution,'assets':outputs}
+    candidate_intelligence=build_candidate_intelligence(cfg,outputs,contexts,autonomous_evolution)
+    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'context_traits':context_traits,'automatic_research':automatic_research,'autonomous_evolution':autonomous_evolution,'candidate_intelligence':candidate_intelligence,'assets':outputs}
     out=ROOT/cfg['execution']['output_json']; out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(payload,indent=2),encoding='utf-8')
     update_health_history(ROOT/'docs/health_history.json',payload,int(cfg.get('health_monitor',{}).get('history_points',180)))
     print(json.dumps(payload,indent=2)); return 0

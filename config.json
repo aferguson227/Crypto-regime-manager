@@ -288,11 +288,11 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "13.0",
-    "mode": "TEL/TAO advisory + SUI research + contextual asset traits",
+    "version": "14.0",
+    "mode": "TEL/TAO advisory + SUI research + immutable candidate registry",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
-    "feature": "Context & Trait Engine"
+    "feature": "Candidate Intelligence Engine"
   },
   "threecommas": {
     "enabled": true,
@@ -579,5 +579,48 @@
       ]
     },
     "note": "The engine chooses and runs diagnostic experiments automatically, but all bot, entry, exit and DCA recommendations remain advisory until a frozen forward test passes and the user approves the change."
+  },
+  "candidate_intelligence": {
+    "enabled": true,
+    "registry_file": "docs/candidate_registry.json",
+    "source_asset": "SUI",
+    "candidate_prefix": "SUI-T",
+    "lifecycle": [
+      "RESEARCH",
+      "DIAGNOSTIC WINNER",
+      "FROZEN",
+      "FORWARD TEST",
+      "PAPER TRADING",
+      "APPROVED",
+      "PRODUCTION",
+      "RETIRED"
+    ],
+    "auto_register_forward_test_candidate": true,
+    "forward_start_policy": "next_completed_4h_candle_after_freeze",
+    "manual_approval_required_for_stage_change": true,
+    "principles": [
+      "Candidates are immutable after freezing",
+      "A new rule creates a new candidate version instead of overwriting an earlier candidate",
+      "Forward evidence begins only after the candidate was frozen",
+      "Candidate registration never changes a production strategy",
+      "Promotion, bot control, DCA changes and live execution require later validated stages and explicit approval"
+    ],
+    "note": "V14 turns autonomous research winners into permanent, versioned candidate records. It registers and freezes evidence but does not yet evaluate the candidate on post-freeze candles.",
+    "nominated_candidate": {
+      "source_experiment_id": "AUTO-EMA200-BUF-05",
+      "name": "SUI T1 Trend Candidate",
+      "asset_id": "SUI",
+      "regime": "Medium",
+      "family": "Trend Confirmation",
+      "amendment": {
+        "regime": "Medium",
+        "field": "min_distance_from_ema200_pct",
+        "value": 0.5,
+        "human_rule": "Medium entry requires close at least 0.5% above EMA200"
+      },
+      "diagnostic_confidence_pct": 90.0,
+      "diagnostic_score": 21.6,
+      "reason": "Manually accepted V13 winner for immutable registration and future forward testing."
+    }
   }
 }
