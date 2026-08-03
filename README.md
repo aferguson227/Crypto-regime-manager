@@ -1,3 +1,3 @@
-# Crypto Regime Manager V9
+# Crypto Regime Manager V10
 
-Multi-asset evidence engine with controlled cross-asset strategy research.
+TEL and TAO production monitoring, SUI research, Strategy Evolution, Multi-Asset Evidence, and Asset DNA.

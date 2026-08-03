@@ -607,6 +607,73 @@ def build_cross_asset_evidence(cfg:dict[str,Any],outputs:list[dict[str,Any]],con
       'audit':{'rules_tested':len(rules),'assets_available':len(contexts),'asset_ids':list(contexts)},
       'safeguards':ecfg.get('principles',[]),'note':ecfg.get('note')}
 
+
+def build_asset_dna(cfg:dict[str,Any], outputs:list[dict[str,Any]], evidence:dict[str,Any]|None)->dict[str,Any]|None:
+    dcfg=cfg.get('asset_dna') or {}
+    if not dcfg.get('enabled') or not evidence:
+        return None
+    rules=evidence.get('rules') or []
+    asset_ids=[str(x.get('id')) for x in outputs]
+    profiles=[]
+    vectors={}
+    for asset_id in asset_ids:
+        rule_effects=[]
+        vector=[]
+        for rule in rules:
+            ar=next((x for x in (rule.get('asset_results') or []) if str(x.get('asset_id'))==asset_id),None)
+            if not ar:
+                continue
+            b=ar.get('baseline') or {}; c=ar.get('candidate') or {}; x=ar.get('comparison') or {}
+            base_net=float(b.get('net_pnl',0) or 0); net_change=float(x.get('net_pnl_change',0) or 0)
+            base_duration=max(24.0,float(b.get('effective_longest_trade_hours',0) or 0)); duration_reduction=float(x.get('duration_reduction_hours',0) or 0)
+            dd_change=float(x.get('drawdown_change_pp',0) or 0)
+            base_deals=max(1,int(x.get('baseline_closed_deals',b.get('closed_deals',0)) or 1)); cand_deals=int(x.get('candidate_closed_deals',c.get('closed_deals',0)) or 0)
+            deal_ratio=cand_deals/base_deals
+            # Bounded, interpretable score from -10 to +10. Positive drawdown change means less-negative drawdown.
+            profit_component=max(-5.0,min(5.0,net_change/max(100.0,abs(base_net))*5.0))
+            duration_component=max(-2.0,min(2.0,duration_reduction/base_duration*2.0))
+            drawdown_component=max(-2.0,min(2.0,dd_change/10.0*2.0))
+            activity_component=max(-1.0,min(1.0,(deal_ratio-1.0)*2.0))
+            score=round(profit_component+duration_component+drawdown_component+activity_component,2)
+            vector.append(score)
+            if score>=float(dcfg.get('strong_positive_score',4)): effect='STRONG POSITIVE'
+            elif score>=float(dcfg.get('positive_score',1)): effect='POSITIVE'
+            elif score<=float(dcfg.get('strong_negative_score',-4)): effect='HARMFUL'
+            elif score<=float(dcfg.get('negative_score',-1)): effect='NEGATIVE'
+            else: effect='NEUTRAL'
+            rule_effects.append({
+              'candidate_id':rule.get('candidate_id'),'name':rule.get('name'),'hypothesis':rule.get('hypothesis'),
+              'effect':effect,'dna_score':score,'outcome':ar.get('outcome'),
+              'comparison':{'net_pnl_change':net_change,'duration_reduction_hours':duration_reduction,
+                'drawdown_change_pp':dd_change,'baseline_closed_deals':base_deals,
+                'candidate_closed_deals':cand_deals,'deal_count_change':cand_deals-base_deals}
+            })
+        rule_effects.sort(key=lambda z:z['dna_score'],reverse=True)
+        vectors[asset_id]=vector
+        tested=len(rule_effects); pos=sum(1 for r in rule_effects if r['dna_score']>=1); neg=sum(1 for r in rule_effects if r['dna_score']<=-1)
+        avg=round(sum(r['dna_score'] for r in rule_effects)/tested,2) if tested else 0.0
+        confidence='HIGH' if tested>=6 else ('MEDIUM' if tested>=int(dcfg.get('minimum_rules_for_confidence',3)) else 'LOW')
+        best=rule_effects[0] if rule_effects else None; worst=rule_effects[-1] if rule_effects else None
+        profile_label='TREND-CONFIRMATION RESPONSIVE' if best and best['dna_score']>=4 else ('SELECTIVE BENEFIT' if pos else ('FILTER-SENSITIVE' if neg else 'INSUFFICIENT EVIDENCE'))
+        profiles.append({'asset_id':asset_id,'production_status':next((x.get('production_status','production') for x in outputs if str(x.get('id'))==asset_id),'production'),
+          'profile_label':profile_label,'confidence':confidence,'rules_tested':tested,'positive_rules':pos,'negative_rules':neg,
+          'average_dna_score':avg,'best_rule':best,'worst_rule':worst,'rule_effects':rule_effects})
+    # Simple similarity based on average absolute distance across common rule scores.
+    similarities=[]
+    for i,a in enumerate(asset_ids):
+        for b in asset_ids[i+1:]:
+            va,vb=vectors.get(a,[]),vectors.get(b,[])
+            n=min(len(va),len(vb))
+            if not n: continue
+            mean_distance=sum(abs(va[j]-vb[j]) for j in range(n))/n
+            similarity=max(0.0,100.0-mean_distance*10.0)
+            similarities.append({'asset_a':a,'asset_b':b,'rules_compared':n,'similarity_score':round(similarity,1),
+              'label':'SIMILAR RESPONSE' if similarity>=75 else ('PARTIAL SIMILARITY' if similarity>=45 else 'DISTINCT RESPONSE')})
+    similarities.sort(key=lambda z:z['similarity_score'],reverse=True)
+    return {'version':'10.0','mode':'asset_specific_research_dna','profiles':profiles,'similarities':similarities,
+      'audit':{'assets_profiled':len(profiles),'distinct_rules':len(rules),'source':'Multi-Asset Evidence Library'},
+      'safeguards':dcfg.get('principles',[]),'note':dcfg.get('note')}
+
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
     path.parent.mkdir(parents=True,exist_ok=True)
     fields=['entry_time','exit_time','regime','pnl','hours','safety_orders','capital','entry_distance_ema200_pct','entry_ema200_slope_pct']
@@ -652,7 +719,8 @@ def main()->int:
         result['sync']={'new_candles':added,'error':error,'source':'KuCoin public spot candles API'}; result['strategy_config']={'regime':asset['regime'],'entry_filter':asset['entry_filter'],'bots':asset['bots']}
         write_deals(ROOT/asset['deal_log'],result.pop('all_deals')); outputs.append(result)
     evidence_library=build_cross_asset_evidence(cfg,outputs,contexts)
-    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'assets':outputs}
+    asset_dna=build_asset_dna(cfg,outputs,evidence_library)
+    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'assets':outputs}
     out=ROOT/cfg['execution']['output_json']; out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(payload,indent=2),encoding='utf-8')
     update_health_history(ROOT/'docs/health_history.json',payload,int(cfg.get('health_monitor',{}).get('history_points',180)))
     print(json.dumps(payload,indent=2)); return 0

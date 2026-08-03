@@ -121,7 +121,7 @@
           "step_scale": 1.2
         },
         "High-Bear": {
-          "name": "TAO High-Bear \u2014 Disabled",
+          "name": "TAO High-Bear — Disabled",
           "enabled": false
         }
       }
@@ -133,7 +133,7 @@
       "history_file": "data/SUIUSDT_4H.csv",
       "deal_log": "docs/sui_deals.csv",
       "production_status": "research",
-      "research_label": "Research only \u2014 not approved for live trading",
+      "research_label": "Research only — not approved for live trading",
       "forward_test_start": "2026-04-01T00:00:00Z",
       "research_basis": {
         "training_source": "Kraken SUI/USD 4-hour candles, 2024-01-01 to 2025-12-31",
@@ -204,7 +204,7 @@
           "step_scale": 1.2
         },
         "High-Bear": {
-          "name": "SUI High-Bear \u2014 Disabled",
+          "name": "SUI High-Bear — Disabled",
           "enabled": false
         }
       },
@@ -288,11 +288,11 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "9.0.0",
-    "mode": "TEL/TAO advisory + SUI research + cross-asset evidence",
+    "version": "10.0.0",
+    "mode": "TEL/TAO advisory + SUI research + asset DNA evidence",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
-    "feature": "Multi-Asset Evidence Engine"
+    "feature": "Asset DNA Engine"
   },
   "threecommas": {
     "enabled": true,
@@ -335,6 +335,22 @@
       "A rule must improve more than one asset before it can be described as generalisable",
       "No production strategy is changed automatically"
     ],
-    "note": "The evidence library compares suggested rules across TEL, TAO, and SUI. Results use each asset\u2019s available KuCoin history and are not independent forward validation."
+    "note": "The evidence library compares suggested rules across TEL, TAO, and SUI. Results use each asset’s available KuCoin history and are not independent forward validation."
+  },
+  "asset_dna": {
+    "enabled": true,
+    "minimum_rules_for_confidence": 3,
+    "strong_positive_score": 4.0,
+    "positive_score": 1.0,
+    "negative_score": -1.0,
+    "strong_negative_score": -4.0,
+    "principles": [
+      "Asset DNA records how each tested rule affects each asset; it does not alter production settings",
+      "Scores combine profit, drawdown, duration, and deal-count effects relative to the frozen baseline",
+      "A small evidence set is labelled low confidence",
+      "Similar assets are suggestions for future research, not proof that settings transfer",
+      "Every live amendment still requires an asset-specific forward test and manual approval"
+    ],
+    "note": "Asset DNA is a compact research profile built from the evidence library. It grows as more distinct hypotheses and assets are tested."
   }
 }
