@@ -1,14 +1,24 @@
 {
-  "version": "17.0.1",
+  "version": "18.0.0",
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "17.0.1",
+    "version": "18.0.0",
     "mode": "TEL/TAO advisory + SUI research + immutable candidate registry",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
-    "feature": "Candidate Intelligence Engine"
+    "feature": "Candidate Intelligence Engine",
+    "release_name": "Intelligent Research Platform",
+    "primary_navigation": [
+      "Dashboard",
+      "Workspace",
+      "Research",
+      "Data",
+      "Cockpit"
+    ],
+    "legacy_navigation_preserved": true,
+    "note": "V18 consolidates the operator experience, adds a unified workspace and a safe KuCoin historical-data manager while preserving V17 trading and validation logic."
   },
-  "generated_at": "2026-08-03T10:26:07.269163+00:00",
+  "generated_at": "2026-08-03T10:45:01.669824+00:00",
   "workflow_status": "ok",
   "portfolio": {
     "best_opportunity": {
@@ -1989,7 +1999,7 @@
         "Any changed rule must be registered as a new candidate."
       ],
       "forward_validation": {
-        "updated_at": "2026-08-03T09:57:43.925848+00:00",
+        "updated_at": "2026-08-03T10:26:07.266242+00:00",
         "status": "COLLECTING FORWARD EVIDENCE",
         "forward_days": 0.16666666666666666,
         "forward_candles": 1,
@@ -2064,7 +2074,7 @@
           "Any changed rule must be registered as a new candidate."
         ],
         "forward_validation": {
-          "updated_at": "2026-08-03T09:57:43.925848+00:00",
+          "updated_at": "2026-08-03T10:26:07.266242+00:00",
           "status": "COLLECTING FORWARD EVIDENCE",
           "forward_days": 0.16666666666666666,
           "forward_candles": 1,
@@ -2373,7 +2383,7 @@
   "operational_intelligence": {
     "version": "17.0",
     "mode": "read_only_operational_intelligence",
-    "generated_at": "2026-08-03T10:26:07.269151+00:00",
+    "generated_at": "2026-08-03T10:45:01.669812+00:00",
     "summary": {
       "production_assets": 2,
       "research_assets": 1,
@@ -2717,7 +2727,7 @@
         "recent_max_drawdown_pct_of_capital": -15.493742091577554,
         "open_loss_pct_of_capital": -3.6683217331846096,
         "open_hours": 620.0,
-        "data_age_hours": 6.43517252114084,
+        "data_age_hours": 6.750323605537415,
         "historical_average_trade_hours": 20.356687898089174,
         "historical_longest_trade_hours": 556,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -3240,7 +3250,7 @@
         "recent_max_drawdown_pct_of_capital": -12.068385719225839,
         "open_loss_pct_of_capital": 0.0,
         "open_hours": 0.0,
-        "data_age_hours": 6.435249353912141,
+        "data_age_hours": 6.750379098918703,
         "historical_average_trade_hours": 64.57142857142857,
         "historical_longest_trade_hours": 368,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -3807,7 +3817,7 @@
         "recent_max_drawdown_pct_of_capital": -31.073997089292053,
         "open_loss_pct_of_capital": -29.676002093632132,
         "open_hours": 1652.0,
-        "data_age_hours": 6.435321389701631,
+        "data_age_hours": 6.750437347226673,
         "historical_average_trade_hours": 19.466666666666665,
         "historical_longest_trade_hours": 152,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
