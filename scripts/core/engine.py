@@ -971,7 +971,11 @@ def build_forward_validation(cfg:dict[str,Any], outputs:list[dict[str,Any]], con
         start_text=str(candidate.get('forward_test_start') or '')
         if not start_text: continue
         start_ts=int(datetime.fromisoformat(start_text.replace('Z','+00:00')).timestamp())
+        # Independent validation uses only candles whose timestamp is at or after
+        # the immutable candidate forward-test start. Historical diagnostic candles
+        # are never counted toward candidate age, sample-size gates or windows.
         forward_candles=[c for c in ctx['candles'] if c.ts>=start_ts]
+        pre_start_candles_ignored=sum(1 for c in ctx['candles'] if c.ts<start_ts)
         base_asset=copy.deepcopy(ctx['asset']); base_asset.pop('research_experiments',None); base_asset.pop('strategy_evolution',None)
         base_asset['id']=source_id+'-FORWARD-BASELINE'; base_asset['display_name']=source_id+' Forward Baseline'; base_asset['production_status']='research'; base_asset['forward_test_start']=start_text
         baseline=simulate(ctx['candles'],ctx['signals'],base_asset,cfg['execution'])
@@ -980,7 +984,12 @@ def build_forward_validation(cfg:dict[str,Any], outputs:list[dict[str,Any]], con
         bm=compact_metrics(baseline); cm=compact_metrics(cand)
         days=((forward_candles[-1].ts-start_ts)/86400+4/24) if forward_candles else 0.0
         comparison={'net_pnl_change':cm['net_pnl']-bm['net_pnl'],'drawdown_change_pp':cm['maximum_drawdown_pct_of_capital']-bm['maximum_drawdown_pct_of_capital'],'duration_reduction_hours':bm['effective_longest_trade_hours']-cm['effective_longest_trade_hours'],'deal_count_change':cm['closed_deals']-bm['closed_deals']}
-        row={'candidate_id':candidate.get('candidate_id'),'asset_id':source_id,'regime':candidate.get('regime'),'human_rule':candidate.get('human_rule'),'forward_test_start':start_text,'forward_days':days,'forward_candles':len(forward_candles),'baseline_metrics':bm,'candidate_metrics':cm,'comparison':comparison,'latest_candidate':cand.get('latest'),'latest_baseline':baseline.get('latest')}
+        candidate_windows=int(cm.get('profitable_windows',0) or 0)
+        completed_windows=max(0,int(days//30))
+        first_forward=iso(forward_candles[0].ts) if forward_candles else None
+        last_forward=iso(forward_candles[-1].ts) if forward_candles else None
+        integrity_ok=(not forward_candles) or forward_candles[0].ts>=start_ts
+        row={'candidate_id':candidate.get('candidate_id'),'asset_id':source_id,'regime':candidate.get('regime'),'human_rule':candidate.get('human_rule'),'forward_test_start':start_text,'forward_days':days,'forward_candles':len(forward_candles),'first_forward_candle':first_forward,'last_forward_candle':last_forward,'pre_start_candles_ignored':pre_start_candles_ignored,'completed_30_day_windows':completed_windows,'profitable_30_day_windows':candidate_windows,'data_integrity_ok':integrity_ok,'data_integrity_warning':None if integrity_ok else 'First forward candle predates the immutable candidate forward-test start.','baseline_metrics':bm,'candidate_metrics':cm,'comparison':comparison,'latest_candidate':cand.get('latest'),'latest_baseline':baseline.get('latest')}
         checks=_forward_gate_checks(row,fcfg.get('promotion_gates') or {}); row['checks']=checks; row['all_gates_pass']=bool(checks and all(checks.values()))
         if not forward_candles: status='WAITING FOR FIRST POST-FREEZE CANDLE'
         elif row['all_gates_pass']: status='PASS — PAPER-TRADING REVIEW ELIGIBLE'
@@ -990,10 +999,10 @@ def build_forward_validation(cfg:dict[str,Any], outputs:list[dict[str,Any]], con
         if forward_candles and candidate.get('status')=='FROZEN':
             candidate['status']='FORWARD TEST'; candidate['lifecycle_stage_index']=3
             registry['events'].append({'time':now.isoformat(),'candidate_id':candidate.get('candidate_id'),'event':'FORWARD_TEST_STARTED','from_stage':'FROZEN','to_stage':'FORWARD TEST','first_forward_candle':iso(forward_candles[0].ts)})
-        candidate['forward_validation']={'updated_at':now.isoformat(),'status':status,'forward_days':days,'forward_candles':len(forward_candles),'all_gates_pass':row['all_gates_pass'],'checks':checks}
+        candidate['forward_validation']={'updated_at':now.isoformat(),'status':status,'forward_days':days,'forward_candles':len(forward_candles),'first_forward_candle':first_forward,'last_forward_candle':last_forward,'completed_30_day_windows':completed_windows,'profitable_30_day_windows':candidate_windows,'data_integrity_ok':integrity_ok,'all_gates_pass':row['all_gates_pass'],'checks':checks}
         rows.append(row)
-    registry['updated_at']=now.isoformat(); registry['engine_version']='15.0'; registry_path.write_text(json.dumps(registry,indent=2),encoding='utf-8')
-    return {'version':'15.0','mode':'frozen_candidate_forward_validation','candidates':rows,'candidate_count':len(rows),'promotion_gates':fcfg.get('promotion_gates',{}),'live_execution_authorised':False,'manual_approval_required_for_paper_trading':True,'note':fcfg.get('note')}
+    registry['updated_at']=now.isoformat(); registry['engine_version']='15.3'; registry_path.write_text(json.dumps(registry,indent=2),encoding='utf-8')
+    return {'version':'15.3','mode':'frozen_candidate_forward_validation','candidates':rows,'candidate_count':len(rows),'promotion_gates':fcfg.get('promotion_gates',{}),'live_execution_authorised':False,'manual_approval_required_for_paper_trading':True,'note':fcfg.get('note')}
 
 def build_advisory_decisions(cfg:dict[str,Any], contexts:dict[str,Any], forward_validation:dict[str,Any]|None)->dict[str,Any]|None:
     dcfg=cfg.get('advisory_decision_preview') or {}
