@@ -121,7 +121,7 @@
           "step_scale": 1.2
         },
         "High-Bear": {
-          "name": "TAO High-Bear — Disabled",
+          "name": "TAO High-Bear \u2014 Disabled",
           "enabled": false
         }
       }
@@ -133,7 +133,7 @@
       "history_file": "data/SUIUSDT_4H.csv",
       "deal_log": "docs/sui_deals.csv",
       "production_status": "research",
-      "research_label": "Research only — not approved for live trading",
+      "research_label": "Research only \u2014 not approved for live trading",
       "forward_test_start": "2026-04-01T00:00:00Z",
       "research_basis": {
         "training_source": "Kraken SUI/USD 4-hour candles, 2024-01-01 to 2025-12-31",
@@ -204,7 +204,7 @@
           "step_scale": 1.2
         },
         "High-Bear": {
-          "name": "SUI High-Bear — Disabled",
+          "name": "SUI High-Bear \u2014 Disabled",
           "enabled": false
         }
       },
@@ -288,11 +288,11 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "10.0.0",
-    "mode": "TEL/TAO advisory + SUI research + asset DNA evidence",
+    "version": "11.0.0",
+    "mode": "TEL/TAO advisory + SUI research + contextual asset traits",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
-    "feature": "Asset DNA Engine"
+    "feature": "Context & Trait Engine"
   },
   "threecommas": {
     "enabled": true,
@@ -335,7 +335,7 @@
       "A rule must improve more than one asset before it can be described as generalisable",
       "No production strategy is changed automatically"
     ],
-    "note": "The evidence library compares suggested rules across TEL, TAO, and SUI. Results use each asset’s available KuCoin history and are not independent forward validation."
+    "note": "The evidence library compares suggested rules across TEL, TAO, and SUI. Results use each asset\u2019s available KuCoin history and are not independent forward validation."
   },
   "asset_dna": {
     "enabled": true,
@@ -352,5 +352,86 @@
       "Every live amendment still requires an asset-specific forward test and manual approval"
     ],
     "note": "Asset DNA is a compact research profile built from the evidence library. It grows as more distinct hypotheses and assets are tested."
+  },
+  "context_traits": {
+    "enabled": true,
+    "minimum_rules_for_context_confidence": 4,
+    "trait_thresholds": {
+      "strong": 4.0,
+      "positive": 1.0,
+      "negative": -1.0
+    },
+    "research_tree": {
+      "Trend Confirmation": [
+        {
+          "id": "close_above_ema200",
+          "label": "Close at or above EMA200",
+          "status": "tested"
+        },
+        {
+          "id": "close_above_ema50",
+          "label": "Close at or above EMA50",
+          "status": "tested"
+        },
+        {
+          "id": "close_above_ema100",
+          "label": "Close at or above EMA100",
+          "status": "pending"
+        },
+        {
+          "id": "ema200_buffer",
+          "label": "Close at least 1% above EMA200",
+          "status": "pending"
+        },
+        {
+          "id": "ema200_24h_slope",
+          "label": "EMA200 rising over 24 hours",
+          "status": "pending"
+        }
+      ],
+      "Volatility State": [
+        {
+          "id": "atr_contraction",
+          "label": "ATR no higher than 24 hours earlier",
+          "status": "diagnostic"
+        },
+        {
+          "id": "atr_percentile_cap",
+          "label": "ATR percentile below regime-specific cap",
+          "status": "pending"
+        }
+      ],
+      "Candle Structure": [
+        {
+          "id": "bearish_sequence",
+          "label": "No more than two bearish candles",
+          "status": "diagnostic"
+        },
+        {
+          "id": "reversal_close",
+          "label": "Bullish recovery candle required",
+          "status": "pending"
+        }
+      ],
+      "Momentum Confirmation": [
+        {
+          "id": "rsi_recovery",
+          "label": "RSI recovery above prior candle",
+          "status": "pending"
+        },
+        {
+          "id": "macd_slope",
+          "label": "MACD histogram improving",
+          "status": "pending"
+        }
+      ]
+    },
+    "principles": [
+      "Traits summarise observed rule responses; they are not permanent facts about an asset",
+      "Context labels require multiple distinct tests before confidence can rise",
+      "Pending branches are research suggestions, not active strategy rules",
+      "Production strategies remain immutable without manual approval and a new forward test"
+    ],
+    "note": "The Context & Trait Engine organises evidence by asset, market regime, and hypothesis family. It proposes the next research branch but never changes a live strategy."
   }
 }

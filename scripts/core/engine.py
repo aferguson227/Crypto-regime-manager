@@ -674,6 +674,72 @@ def build_asset_dna(cfg:dict[str,Any], outputs:list[dict[str,Any]], evidence:dic
       'audit':{'assets_profiled':len(profiles),'distinct_rules':len(rules),'source':'Multi-Asset Evidence Library'},
       'safeguards':dcfg.get('principles',[]),'note':dcfg.get('note')}
 
+
+
+def build_context_traits(cfg:dict[str,Any], outputs:list[dict[str,Any]], evidence:dict[str,Any]|None, dna:dict[str,Any]|None)->dict[str,Any]|None:
+    tcfg=cfg.get('context_traits') or {}
+    if not tcfg.get('enabled') or not dna:
+        return None
+    evidence_rules=(evidence or {}).get('rules') or []
+    dna_profiles={str(p.get('asset_id')):p for p in (dna.get('profiles') or [])}
+    profiles=[]
+    for asset in outputs:
+        aid=str(asset.get('id'))
+        dp=dna_profiles.get(aid) or {}
+        effects=dp.get('rule_effects') or []
+        trend=[r for r in effects if any(k in str(r.get('name','')).upper() for k in ('EMA','TREND','STRUCTURAL'))]
+        avg_trend=round(sum(float(r.get('dna_score',0) or 0) for r in trend)/len(trend),2) if trend else 0.0
+        duration_days=round(sum(float((r.get('comparison') or {}).get('duration_reduction_hours',0) or 0) for r in effects)/max(1,len(effects))/24,1)
+        dd_protection=round(sum(float((r.get('comparison') or {}).get('drawdown_change_pp',0) or 0) for r in effects)/max(1,len(effects)),1)
+        activity_change=round(sum(float((r.get('comparison') or {}).get('deal_count_change',0) or 0) for r in effects)/max(1,len(effects)),1)
+        tested=len(effects)
+        confidence='HIGH' if tested>=8 else ('MEDIUM' if tested>=int(tcfg.get('minimum_rules_for_context_confidence',4)) else 'LOW')
+        if avg_trend>=4: trend_label='STRONGLY TREND-CONFIRMATION RESPONSIVE'
+        elif avg_trend>=1: trend_label='TREND-CONFIRMATION RESPONSIVE'
+        elif avg_trend<=-1: trend_label='TREND FILTERS MAY BE COSTLY'
+        else: trend_label='NO CLEAR TREND RESPONSE YET'
+        traits=[
+          {'name':'Trend-confirmation response','score':avg_trend,'label':trend_label,'basis':f'{len(trend)} trend-family rules'},
+          {'name':'Duration rescue','score':duration_days,'unit':'days','label':'MATERIAL' if duration_days>=5 else ('MODEST' if duration_days>0 else 'NONE OBSERVED'),'basis':'Average longest-trade reduction'},
+          {'name':'Drawdown protection','score':dd_protection,'unit':'pp','label':'MATERIAL' if dd_protection>=5 else ('MODEST' if dd_protection>0 else 'NONE OBSERVED'),'basis':'Average drawdown change'},
+          {'name':'Activity sensitivity','score':activity_change,'unit':'deals','label':'HIGH' if abs(activity_change)>=20 else ('MODERATE' if abs(activity_change)>=5 else 'LOW'),'basis':'Average closed-deal change'}
+        ]
+        contexts=[]
+        for rule in evidence_rules:
+            ar=next((x for x in (rule.get('asset_results') or []) if str(x.get('asset_id'))==aid),None)
+            if ar:
+                contexts.append({'regime':rule.get('problem_regime'),'candidate_id':rule.get('candidate_id'),'rule':rule.get('name'),
+                  'outcome':ar.get('outcome'),'net_pnl_change':(ar.get('comparison') or {}).get('net_pnl_change',0),
+                  'duration_reduction_hours':(ar.get('comparison') or {}).get('duration_reduction_hours',0)})
+        profiles.append({'asset_id':aid,'production_status':asset.get('production_status','production'),'confidence':confidence,
+          'summary':trend_label,'rules_tested':tested,'traits':traits,'contexts':contexts})
+    # Build a transparent research tree. Tested status is updated from actual evidence IDs.
+    tested_ids={str(r.get('candidate_id')) for r in evidence_rules}
+    id_map={'close_above_ema200':'SUI-B','close_above_ema50':'SUI-F'}
+    tree=[]
+    for family,children in (tcfg.get('research_tree') or {}).items():
+        rows=[]
+        for child in children:
+            row=dict(child)
+            cid=id_map.get(row.get('id'))
+            if cid and cid in tested_ids: row['status']='tested'
+            rows.append(row)
+        tested_count=sum(1 for r in rows if r.get('status') in ('tested','diagnostic'))
+        tree.append({'family':family,'tested_count':tested_count,'total_count':len(rows),'children':rows})
+    # Suggestions prioritise untested siblings of the strongest observed family.
+    suggestions=[]
+    order=1
+    for branch in tree:
+        for child in branch['children']:
+            if child.get('status')=='pending':
+                suggestions.append({'priority':order,'family':branch['family'],'experiment_id':child.get('id'),'title':child.get('label'),
+                  'reason':f"Extend the {branch['family'].lower()} branch with one new variable while preserving the frozen baseline.",
+                  'approval':'MANUAL REVIEW REQUIRED'})
+                order+=1
+    return {'version':'11.0','mode':'contextual_asset_traits','profiles':profiles,'research_tree':tree,
+      'next_experiments':suggestions[:6],'audit':{'assets_profiled':len(profiles),'evidence_rules':len(evidence_rules),'families':len(tree)},
+      'safeguards':tcfg.get('principles',[]),'note':tcfg.get('note')}
+
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
     path.parent.mkdir(parents=True,exist_ok=True)
     fields=['entry_time','exit_time','regime','pnl','hours','safety_orders','capital','entry_distance_ema200_pct','entry_ema200_slope_pct']
@@ -720,7 +786,8 @@ def main()->int:
         write_deals(ROOT/asset['deal_log'],result.pop('all_deals')); outputs.append(result)
     evidence_library=build_cross_asset_evidence(cfg,outputs,contexts)
     asset_dna=build_asset_dna(cfg,outputs,evidence_library)
-    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'assets':outputs}
+    context_traits=build_context_traits(cfg,outputs,evidence_library,asset_dna)
+    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'context_traits':context_traits,'assets':outputs}
     out=ROOT/cfg['execution']['output_json']; out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(payload,indent=2),encoding='utf-8')
     update_health_history(ROOT/'docs/health_history.json',payload,int(cfg.get('health_monitor',{}).get('history_points',180)))
     print(json.dumps(payload,indent=2)); return 0

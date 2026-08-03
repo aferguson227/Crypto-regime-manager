@@ -37,3 +37,9 @@ Assets may set `production_status: research`. Research assets use the same marke
 
 ## V9 Evidence layer
 Qualified SUI hypotheses are replayed against the frozen TEL, TAO, and SUI baselines. Results are published in `evidence_library` and shown on `docs/evidence.html`.
+
+
+## V11 Context & Trait Engine
+- `context_traits` in `strategies.json` summarises asset traits by rule family and observed regime.
+- `docs/traits.html` displays traits, context evidence, a research tree, and next experiments.
+- Traits remain research-only and cannot alter production settings.

@@ -1,3 +1,3 @@
-# Crypto Regime Manager V10
+# Crypto Regime Manager V11
 
-TEL and TAO production monitoring, SUI research, Strategy Evolution, Multi-Asset Evidence, and Asset DNA.
+Context-aware Asset DNA, trait profiles, and a structured research tree.
