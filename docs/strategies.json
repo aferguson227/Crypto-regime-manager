@@ -1,24 +1,25 @@
 {
-  "version": "7.1.0",
+  "version": "12.0.0",
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "7.1.0",
-    "mode": "TEL/TAO advisory + SUI forward research",
+    "version": "12.0.0",
+    "mode": "TEL/TAO advisory + SUI research + contextual asset traits",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
-    "feature": "SUI Research Mode"
+    "feature": "Context & Trait Engine"
   },
-  "generated_at": "2026-08-02T17:24:37.299277+00:00",
+  "generated_at": "2026-08-03T06:52:22.472586+00:00",
   "workflow_status": "ok",
   "portfolio": {
     "best_opportunity": {
       "id": "TEL",
       "symbol": "TEL-USDT",
-      "score": 44,
+      "score": 61,
       "recommended_bot": "TEL Low Volatility Bot"
     },
     "eligible_count": 1,
     "monitored_assets": 2,
+    "research_assets": 1,
     "active_replay_positions": 1,
     "combined_max_theoretical_capital": 8354.734335999996,
     "ranking": [
@@ -26,66 +27,1701 @@
         "rank": 1,
         "id": "TEL",
         "symbol": "TEL-USDT",
-        "score": 44,
+        "score": 61,
         "action": "CAUTIOUS",
         "entry_allowed": true,
         "regime": "Low",
-        "health": "Review"
+        "health": "Watch"
       },
       {
         "rank": 2,
         "id": "TAO",
         "symbol": "TAO-USDT",
-        "score": 23,
+        "score": 45,
         "action": "WAIT",
         "entry_allowed": false,
         "regime": "Low",
-        "health": "Watch"
+        "health": "Excellent"
       }
     ],
-    "operating_rule": "Treat scores as a ranking aid. Never start a new deal when entry_allowed is false, and do not alter an existing open deal.",
-    "research_assets": 1
+    "research": [
+      {
+        "id": "SUI",
+        "symbol": "SUI-USDT",
+        "promotion_status": "FAIL \u2014 review risk"
+      }
+    ],
+    "operating_rule": "Production rankings include TEL and TAO only. Research assets never become live recommendations automatically."
+  },
+  "evidence_library": {
+    "version": "9.0",
+    "mode": "cross_asset_diagnostic_evidence",
+    "source_asset": "SUI",
+    "problem_regime": "Medium",
+    "rules": [
+      {
+        "candidate_id": "SUI-B",
+        "name": "Structural Price Filter",
+        "hypothesis": "Require the problem-regime entry price to be at or above EMA200.",
+        "amendment": {
+          "regime": "Medium",
+          "field": "min_distance_from_ema200_pct",
+          "value": 0.0,
+          "human_rule": "Medium entry requires close at or above EMA200"
+        },
+        "problem_regime": "Medium",
+        "assets_tested": 3,
+        "improved_assets": 1,
+        "neutral_assets": 1,
+        "degraded_assets": 1,
+        "confidence_score": 5.0,
+        "verdict": "DO NOT GENERALISE",
+        "asset_results": [
+          {
+            "asset_id": "TEL",
+            "production_status": "production",
+            "outcome": "IMPROVED",
+            "baseline": {
+              "net_pnl": 5079.514009483453,
+              "realised_pnl": 5263.122152377557,
+              "open_pnl": -183.60814289410314,
+              "return_on_max_capital_pct": 103.34167992758397,
+              "maximum_drawdown_pct_of_capital": -18.55937109176693,
+              "closed_deals": 471,
+              "average_trade_hours": 20.356687898089174,
+              "longest_completed_trade_hours": 556.0,
+              "effective_longest_trade_hours": 616.0,
+              "profitable_windows": 0,
+              "open_position": {
+                "entry_time": "2026-07-08T12:00:00Z",
+                "regime": "Medium",
+                "hours_open": 616,
+                "safety_orders": 4,
+                "capital": 1094.5599999999997,
+                "average_entry": 0.0019877998153568738,
+                "target": 0.0020176168125872265,
+                "last_close": 0.001658,
+                "open_pnl": -183.60814289410314,
+                "required_rise_pct": 21.689795692836334,
+                "entry_signal": {
+                  "regime": "Medium",
+                  "rv": 98.2626413396156,
+                  "ema50": 0.002336089254017795,
+                  "ema100": 0.00235823799520189,
+                  "ema200": 0.0024095345356453944,
+                  "rsi14": 59.31498068731308,
+                  "distance_ema200": 0.2268265622987542,
+                  "distance_ema100": 2.4069667655935767,
+                  "distance_ema50": 3.377899446542454,
+                  "ema200_slope_pct": 0.0022797159125786948,
+                  "ema200_24h_slope_pct": -0.09744363872622452,
+                  "return24": 7.047872340425521,
+                  "ema50_slope_pct": 0.1380638001176493,
+                  "pullback20_pct": 12.213740458015266,
+                  "atr14": 7.822016247937027e-05,
+                  "atr_percentile": 73.88888888888889,
+                  "atr_expansion_ratio": 1.4469644914339188,
+                  "consecutive_bearish_candles": 1,
+                  "bullish_candle": 0.0,
+                  "rsi_recovery": 0.0,
+                  "macd_hist_improving": 0.0
+                }
+              }
+            },
+            "candidate": {
+              "net_pnl": 5130.106395019457,
+              "realised_pnl": 5313.71453791356,
+              "open_pnl": -183.60814289410314,
+              "return_on_max_capital_pct": 104.37097172657761,
+              "maximum_drawdown_pct_of_capital": -18.559371091766923,
+              "closed_deals": 381,
+              "average_trade_hours": 19.874015748031496,
+              "longest_completed_trade_hours": 556.0,
+              "effective_longest_trade_hours": 616.0,
+              "profitable_windows": 0,
+              "open_position": {
+                "entry_time": "2026-07-08T12:00:00Z",
+                "regime": "Medium",
+                "hours_open": 616,
+                "safety_orders": 4,
+                "capital": 1094.5599999999997,
+                "average_entry": 0.0019877998153568738,
+                "target": 0.0020176168125872265,
+                "last_close": 0.001658,
+                "open_pnl": -183.60814289410314,
+                "required_rise_pct": 21.689795692836334,
+                "entry_signal": {
+                  "regime": "Medium",
+                  "rv": 98.2626413396156,
+                  "ema50": 0.002336089254017795,
+                  "ema100": 0.00235823799520189,
+                  "ema200": 0.0024095345356453944,
+                  "rsi14": 59.31498068731308,
+                  "distance_ema200": 0.2268265622987542,
+                  "distance_ema100": 2.4069667655935767,
+                  "distance_ema50": 3.377899446542454,
+                  "ema200_slope_pct": 0.0022797159125786948,
+                  "ema200_24h_slope_pct": -0.09744363872622452,
+                  "return24": 7.047872340425521,
+                  "ema50_slope_pct": 0.1380638001176493,
+                  "pullback20_pct": 12.213740458015266,
+                  "atr14": 7.822016247937027e-05,
+                  "atr_percentile": 73.88888888888889,
+                  "atr_expansion_ratio": 1.4469644914339188,
+                  "consecutive_bearish_candles": 1,
+                  "bullish_candle": 0.0,
+                  "rsi_recovery": 0.0,
+                  "macd_hist_improving": 0.0
+                }
+              }
+            },
+            "comparison": {
+              "net_pnl_change": 50.59238553600335,
+              "duration_reduction_hours": 0.0,
+              "drawdown_change_pp": 7.105427357601002e-15,
+              "baseline_closed_deals": 471,
+              "candidate_closed_deals": 381,
+              "closed_deal_retained_share_pct": 80.89171974522293
+            }
+          },
+          {
+            "asset_id": "TAO",
+            "production_status": "production",
+            "outcome": "NEUTRAL",
+            "baseline": {
+              "net_pnl": 268.91213366399836,
+              "realised_pnl": 268.91213366399836,
+              "open_pnl": 0.0,
+              "return_on_max_capital_pct": 7.818411768613413,
+              "maximum_drawdown_pct_of_capital": -12.068385719225839,
+              "closed_deals": 14,
+              "average_trade_hours": 64.57142857142857,
+              "longest_completed_trade_hours": 368.0,
+              "effective_longest_trade_hours": 368.0,
+              "profitable_windows": 0,
+              "open_position": null
+            },
+            "candidate": {
+              "net_pnl": 268.91213366399836,
+              "realised_pnl": 268.91213366399836,
+              "open_pnl": 0.0,
+              "return_on_max_capital_pct": 7.818411768613413,
+              "maximum_drawdown_pct_of_capital": -12.068385719225839,
+              "closed_deals": 14,
+              "average_trade_hours": 64.57142857142857,
+              "longest_completed_trade_hours": 368.0,
+              "effective_longest_trade_hours": 368.0,
+              "profitable_windows": 0,
+              "open_position": null
+            },
+            "comparison": {
+              "net_pnl_change": 0.0,
+              "duration_reduction_hours": 0.0,
+              "drawdown_change_pp": 0.0,
+              "baseline_closed_deals": 14,
+              "candidate_closed_deals": 14,
+              "closed_deal_retained_share_pct": 100.0
+            }
+          },
+          {
+            "asset_id": "SUI",
+            "production_status": "research",
+            "outcome": "DEGRADED",
+            "baseline": {
+              "net_pnl": -1178.7893662560398,
+              "realised_pnl": 93.67662022399931,
+              "open_pnl": -1272.4659864800392,
+              "return_on_max_capital_pct": -27.36751491844926,
+              "maximum_drawdown_pct_of_capital": -31.073997089292053,
+              "closed_deals": 15,
+              "average_trade_hours": 19.466666666666665,
+              "longest_completed_trade_hours": 152.0,
+              "effective_longest_trade_hours": 1648.0,
+              "profitable_windows": 0,
+              "open_position": {
+                "entry_time": "2026-05-26T12:00:00Z",
+                "regime": "Medium",
+                "hours_open": 1648,
+                "safety_orders": 6,
+                "capital": 4307.257600000001,
+                "average_entry": 0.9718489724340317,
+                "target": 0.981567462158372,
+                "last_close": 0.6864,
+                "open_pnl": -1272.4659864800392,
+                "required_rise_pct": 43.002252645450454,
+                "entry_signal": {
+                  "regime": "Medium",
+                  "rv": 106.66754043225343,
+                  "ema50": 1.0633947636921732,
+                  "ema100": 1.0680579103643382,
+                  "ema200": 1.0443207630345759,
+                  "rsi14": 47.79149210791385,
+                  "distance_ema200": -0.04986619561815342,
+                  "distance_ema100": -2.271216769141593,
+                  "distance_ema50": -1.8426612920435015,
+                  "ema200_slope_pct": -0.0005011652834729929,
+                  "ema200_24h_slope_pct": -0.016876627170503422,
+                  "return24": -0.019157088122601085,
+                  "ema50_slope_pct": -0.07515414105212503,
+                  "pullback20_pct": 24.602715978041022,
+                  "atr14": 0.02695476684059438,
+                  "atr_percentile": 43.888888888888886,
+                  "atr_expansion_ratio": 0.9265231223899225,
+                  "consecutive_bearish_candles": 0,
+                  "bullish_candle": 1.0,
+                  "rsi_recovery": 1.0,
+                  "macd_hist_improving": 1.0
+                }
+              }
+            },
+            "candidate": {
+              "net_pnl": 98.97112022399926,
+              "realised_pnl": 98.97112022399926,
+              "open_pnl": 0.0,
+              "return_on_max_capital_pct": 2.2977757407404478,
+              "maximum_drawdown_pct_of_capital": -3.8500915383416516,
+              "closed_deals": 16,
+              "average_trade_hours": 21.0,
+              "longest_completed_trade_hours": 152.0,
+              "effective_longest_trade_hours": 152.0,
+              "profitable_windows": 3,
+              "open_position": null
+            },
+            "comparison": {
+              "net_pnl_change": 1277.7604864800392,
+              "duration_reduction_hours": 1496.0,
+              "drawdown_change_pp": 27.223905550950402,
+              "baseline_closed_deals": 15,
+              "candidate_closed_deals": 16,
+              "closed_deal_retained_share_pct": 100.0
+            }
+          }
+        ]
+      },
+      {
+        "candidate_id": "SUI-F",
+        "name": "EMA50 Recovery Filter",
+        "hypothesis": "Require price to recover to EMA50 before entering the problem regime.",
+        "amendment": {
+          "regime": "Medium",
+          "field": "min_distance_from_ema50_pct",
+          "value": 0.0,
+          "human_rule": "Medium entry requires close at or above EMA50"
+        },
+        "problem_regime": "Medium",
+        "assets_tested": 3,
+        "improved_assets": 1,
+        "neutral_assets": 1,
+        "degraded_assets": 1,
+        "confidence_score": 5.0,
+        "verdict": "DO NOT GENERALISE",
+        "asset_results": [
+          {
+            "asset_id": "TEL",
+            "production_status": "production",
+            "outcome": "IMPROVED",
+            "baseline": {
+              "net_pnl": 5079.514009483453,
+              "realised_pnl": 5263.122152377557,
+              "open_pnl": -183.60814289410314,
+              "return_on_max_capital_pct": 103.34167992758397,
+              "maximum_drawdown_pct_of_capital": -18.55937109176693,
+              "closed_deals": 471,
+              "average_trade_hours": 20.356687898089174,
+              "longest_completed_trade_hours": 556.0,
+              "effective_longest_trade_hours": 616.0,
+              "profitable_windows": 0,
+              "open_position": {
+                "entry_time": "2026-07-08T12:00:00Z",
+                "regime": "Medium",
+                "hours_open": 616,
+                "safety_orders": 4,
+                "capital": 1094.5599999999997,
+                "average_entry": 0.0019877998153568738,
+                "target": 0.0020176168125872265,
+                "last_close": 0.001658,
+                "open_pnl": -183.60814289410314,
+                "required_rise_pct": 21.689795692836334,
+                "entry_signal": {
+                  "regime": "Medium",
+                  "rv": 98.2626413396156,
+                  "ema50": 0.002336089254017795,
+                  "ema100": 0.00235823799520189,
+                  "ema200": 0.0024095345356453944,
+                  "rsi14": 59.31498068731308,
+                  "distance_ema200": 0.2268265622987542,
+                  "distance_ema100": 2.4069667655935767,
+                  "distance_ema50": 3.377899446542454,
+                  "ema200_slope_pct": 0.0022797159125786948,
+                  "ema200_24h_slope_pct": -0.09744363872622452,
+                  "return24": 7.047872340425521,
+                  "ema50_slope_pct": 0.1380638001176493,
+                  "pullback20_pct": 12.213740458015266,
+                  "atr14": 7.822016247937027e-05,
+                  "atr_percentile": 73.88888888888889,
+                  "atr_expansion_ratio": 1.4469644914339188,
+                  "consecutive_bearish_candles": 1,
+                  "bullish_candle": 0.0,
+                  "rsi_recovery": 0.0,
+                  "macd_hist_improving": 0.0
+                }
+              }
+            },
+            "candidate": {
+              "net_pnl": 5166.414615723452,
+              "realised_pnl": 5350.022758617555,
+              "open_pnl": -183.60814289410314,
+              "return_on_max_capital_pct": 105.10965509583833,
+              "maximum_drawdown_pct_of_capital": -18.559371091766923,
+              "closed_deals": 425,
+              "average_trade_hours": 20.941176470588236,
+              "longest_completed_trade_hours": 556.0,
+              "effective_longest_trade_hours": 616.0,
+              "profitable_windows": 0,
+              "open_position": {
+                "entry_time": "2026-07-08T12:00:00Z",
+                "regime": "Medium",
+                "hours_open": 616,
+                "safety_orders": 4,
+                "capital": 1094.5599999999997,
+                "average_entry": 0.0019877998153568738,
+                "target": 0.0020176168125872265,
+                "last_close": 0.001658,
+                "open_pnl": -183.60814289410314,
+                "required_rise_pct": 21.689795692836334,
+                "entry_signal": {
+                  "regime": "Medium",
+                  "rv": 98.2626413396156,
+                  "ema50": 0.002336089254017795,
+                  "ema100": 0.00235823799520189,
+                  "ema200": 0.0024095345356453944,
+                  "rsi14": 59.31498068731308,
+                  "distance_ema200": 0.2268265622987542,
+                  "distance_ema100": 2.4069667655935767,
+                  "distance_ema50": 3.377899446542454,
+                  "ema200_slope_pct": 0.0022797159125786948,
+                  "ema200_24h_slope_pct": -0.09744363872622452,
+                  "return24": 7.047872340425521,
+                  "ema50_slope_pct": 0.1380638001176493,
+                  "pullback20_pct": 12.213740458015266,
+                  "atr14": 7.822016247937027e-05,
+                  "atr_percentile": 73.88888888888889,
+                  "atr_expansion_ratio": 1.4469644914339188,
+                  "consecutive_bearish_candles": 1,
+                  "bullish_candle": 0.0,
+                  "rsi_recovery": 0.0,
+                  "macd_hist_improving": 0.0
+                }
+              }
+            },
+            "comparison": {
+              "net_pnl_change": 86.90060623999852,
+              "duration_reduction_hours": 0.0,
+              "drawdown_change_pp": 7.105427357601002e-15,
+              "baseline_closed_deals": 471,
+              "candidate_closed_deals": 425,
+              "closed_deal_retained_share_pct": 90.23354564755839
+            }
+          },
+          {
+            "asset_id": "TAO",
+            "production_status": "production",
+            "outcome": "NEUTRAL",
+            "baseline": {
+              "net_pnl": 268.91213366399836,
+              "realised_pnl": 268.91213366399836,
+              "open_pnl": 0.0,
+              "return_on_max_capital_pct": 7.818411768613413,
+              "maximum_drawdown_pct_of_capital": -12.068385719225839,
+              "closed_deals": 14,
+              "average_trade_hours": 64.57142857142857,
+              "longest_completed_trade_hours": 368.0,
+              "effective_longest_trade_hours": 368.0,
+              "profitable_windows": 0,
+              "open_position": null
+            },
+            "candidate": {
+              "net_pnl": 268.91213366399836,
+              "realised_pnl": 268.91213366399836,
+              "open_pnl": 0.0,
+              "return_on_max_capital_pct": 7.818411768613413,
+              "maximum_drawdown_pct_of_capital": -12.068385719225839,
+              "closed_deals": 14,
+              "average_trade_hours": 64.57142857142857,
+              "longest_completed_trade_hours": 368.0,
+              "effective_longest_trade_hours": 368.0,
+              "profitable_windows": 0,
+              "open_position": null
+            },
+            "comparison": {
+              "net_pnl_change": 0.0,
+              "duration_reduction_hours": 0.0,
+              "drawdown_change_pp": 0.0,
+              "baseline_closed_deals": 14,
+              "candidate_closed_deals": 14,
+              "closed_deal_retained_share_pct": 100.0
+            }
+          },
+          {
+            "asset_id": "SUI",
+            "production_status": "research",
+            "outcome": "DEGRADED",
+            "baseline": {
+              "net_pnl": -1178.7893662560398,
+              "realised_pnl": 93.67662022399931,
+              "open_pnl": -1272.4659864800392,
+              "return_on_max_capital_pct": -27.36751491844926,
+              "maximum_drawdown_pct_of_capital": -31.073997089292053,
+              "closed_deals": 15,
+              "average_trade_hours": 19.466666666666665,
+              "longest_completed_trade_hours": 152.0,
+              "effective_longest_trade_hours": 1648.0,
+              "profitable_windows": 0,
+              "open_position": {
+                "entry_time": "2026-05-26T12:00:00Z",
+                "regime": "Medium",
+                "hours_open": 1648,
+                "safety_orders": 6,
+                "capital": 4307.257600000001,
+                "average_entry": 0.9718489724340317,
+                "target": 0.981567462158372,
+                "last_close": 0.6864,
+                "open_pnl": -1272.4659864800392,
+                "required_rise_pct": 43.002252645450454,
+                "entry_signal": {
+                  "regime": "Medium",
+                  "rv": 106.66754043225343,
+                  "ema50": 1.0633947636921732,
+                  "ema100": 1.0680579103643382,
+                  "ema200": 1.0443207630345759,
+                  "rsi14": 47.79149210791385,
+                  "distance_ema200": -0.04986619561815342,
+                  "distance_ema100": -2.271216769141593,
+                  "distance_ema50": -1.8426612920435015,
+                  "ema200_slope_pct": -0.0005011652834729929,
+                  "ema200_24h_slope_pct": -0.016876627170503422,
+                  "return24": -0.019157088122601085,
+                  "ema50_slope_pct": -0.07515414105212503,
+                  "pullback20_pct": 24.602715978041022,
+                  "atr14": 0.02695476684059438,
+                  "atr_percentile": 43.888888888888886,
+                  "atr_expansion_ratio": 0.9265231223899225,
+                  "consecutive_bearish_candles": 0,
+                  "bullish_candle": 1.0,
+                  "rsi_recovery": 1.0,
+                  "macd_hist_improving": 1.0
+                }
+              }
+            },
+            "candidate": {
+              "net_pnl": 85.85473622399921,
+              "realised_pnl": 85.85473622399921,
+              "open_pnl": 0.0,
+              "return_on_max_capital_pct": 1.9932575247879114,
+              "maximum_drawdown_pct_of_capital": -3.8500915383416516,
+              "closed_deals": 12,
+              "average_trade_hours": 23.666666666666668,
+              "longest_completed_trade_hours": 152.0,
+              "effective_longest_trade_hours": 152.0,
+              "profitable_windows": 3,
+              "open_position": null
+            },
+            "comparison": {
+              "net_pnl_change": 1264.644102480039,
+              "duration_reduction_hours": 1496.0,
+              "drawdown_change_pp": 27.223905550950402,
+              "baseline_closed_deals": 15,
+              "candidate_closed_deals": 12,
+              "closed_deal_retained_share_pct": 80.0
+            }
+          }
+        ]
+      }
+    ],
+    "recommendation": {
+      "candidate_id": "SUI-B",
+      "name": "Structural Price Filter",
+      "verdict": "DO NOT GENERALISE",
+      "confidence_score": 5.0,
+      "next_action": "Review the asset-level evidence. Any live amendment still requires a new, asset-specific forward test."
+    },
+    "audit": {
+      "rules_tested": 2,
+      "assets_available": 3,
+      "asset_ids": [
+        "TEL",
+        "TAO",
+        "SUI"
+      ]
+    },
+    "safeguards": [
+      "Cross-asset tests are diagnostic evidence, not permission to change production strategies",
+      "Every asset keeps its own frozen baseline settings",
+      "The transferred rule is applied to the same named regime only",
+      "A rule must improve more than one asset before it can be described as generalisable",
+      "No production strategy is changed automatically"
+    ],
+    "note": "The evidence library compares suggested rules across TEL, TAO, and SUI. Results use each asset\u2019s available KuCoin history and are not independent forward validation."
+  },
+  "asset_dna": {
+    "version": "10.0",
+    "mode": "asset_specific_research_dna",
+    "profiles": [
+      {
+        "asset_id": "TEL",
+        "production_status": "production",
+        "profile_label": "INSUFFICIENT EVIDENCE",
+        "confidence": "LOW",
+        "rules_tested": 2,
+        "positive_rules": 0,
+        "negative_rules": 0,
+        "average_dna_score": -0.22,
+        "best_rule": {
+          "candidate_id": "SUI-F",
+          "name": "EMA50 Recovery Filter",
+          "hypothesis": "Require price to recover to EMA50 before entering the problem regime.",
+          "effect": "NEUTRAL",
+          "dna_score": -0.11,
+          "outcome": "IMPROVED",
+          "comparison": {
+            "net_pnl_change": 86.90060623999852,
+            "duration_reduction_hours": 0.0,
+            "drawdown_change_pp": 7.105427357601002e-15,
+            "baseline_closed_deals": 471,
+            "candidate_closed_deals": 425,
+            "deal_count_change": -46
+          }
+        },
+        "worst_rule": {
+          "candidate_id": "SUI-B",
+          "name": "Structural Price Filter",
+          "hypothesis": "Require the problem-regime entry price to be at or above EMA200.",
+          "effect": "NEUTRAL",
+          "dna_score": -0.33,
+          "outcome": "IMPROVED",
+          "comparison": {
+            "net_pnl_change": 50.59238553600335,
+            "duration_reduction_hours": 0.0,
+            "drawdown_change_pp": 7.105427357601002e-15,
+            "baseline_closed_deals": 471,
+            "candidate_closed_deals": 381,
+            "deal_count_change": -90
+          }
+        },
+        "rule_effects": [
+          {
+            "candidate_id": "SUI-F",
+            "name": "EMA50 Recovery Filter",
+            "hypothesis": "Require price to recover to EMA50 before entering the problem regime.",
+            "effect": "NEUTRAL",
+            "dna_score": -0.11,
+            "outcome": "IMPROVED",
+            "comparison": {
+              "net_pnl_change": 86.90060623999852,
+              "duration_reduction_hours": 0.0,
+              "drawdown_change_pp": 7.105427357601002e-15,
+              "baseline_closed_deals": 471,
+              "candidate_closed_deals": 425,
+              "deal_count_change": -46
+            }
+          },
+          {
+            "candidate_id": "SUI-B",
+            "name": "Structural Price Filter",
+            "hypothesis": "Require the problem-regime entry price to be at or above EMA200.",
+            "effect": "NEUTRAL",
+            "dna_score": -0.33,
+            "outcome": "IMPROVED",
+            "comparison": {
+              "net_pnl_change": 50.59238553600335,
+              "duration_reduction_hours": 0.0,
+              "drawdown_change_pp": 7.105427357601002e-15,
+              "baseline_closed_deals": 471,
+              "candidate_closed_deals": 381,
+              "deal_count_change": -90
+            }
+          }
+        ]
+      },
+      {
+        "asset_id": "TAO",
+        "production_status": "production",
+        "profile_label": "INSUFFICIENT EVIDENCE",
+        "confidence": "LOW",
+        "rules_tested": 2,
+        "positive_rules": 0,
+        "negative_rules": 0,
+        "average_dna_score": 0.0,
+        "best_rule": {
+          "candidate_id": "SUI-B",
+          "name": "Structural Price Filter",
+          "hypothesis": "Require the problem-regime entry price to be at or above EMA200.",
+          "effect": "NEUTRAL",
+          "dna_score": 0.0,
+          "outcome": "NEUTRAL",
+          "comparison": {
+            "net_pnl_change": 0.0,
+            "duration_reduction_hours": 0.0,
+            "drawdown_change_pp": 0.0,
+            "baseline_closed_deals": 14,
+            "candidate_closed_deals": 14,
+            "deal_count_change": 0
+          }
+        },
+        "worst_rule": {
+          "candidate_id": "SUI-F",
+          "name": "EMA50 Recovery Filter",
+          "hypothesis": "Require price to recover to EMA50 before entering the problem regime.",
+          "effect": "NEUTRAL",
+          "dna_score": 0.0,
+          "outcome": "NEUTRAL",
+          "comparison": {
+            "net_pnl_change": 0.0,
+            "duration_reduction_hours": 0.0,
+            "drawdown_change_pp": 0.0,
+            "baseline_closed_deals": 14,
+            "candidate_closed_deals": 14,
+            "deal_count_change": 0
+          }
+        },
+        "rule_effects": [
+          {
+            "candidate_id": "SUI-B",
+            "name": "Structural Price Filter",
+            "hypothesis": "Require the problem-regime entry price to be at or above EMA200.",
+            "effect": "NEUTRAL",
+            "dna_score": 0.0,
+            "outcome": "NEUTRAL",
+            "comparison": {
+              "net_pnl_change": 0.0,
+              "duration_reduction_hours": 0.0,
+              "drawdown_change_pp": 0.0,
+              "baseline_closed_deals": 14,
+              "candidate_closed_deals": 14,
+              "deal_count_change": 0
+            }
+          },
+          {
+            "candidate_id": "SUI-F",
+            "name": "EMA50 Recovery Filter",
+            "hypothesis": "Require price to recover to EMA50 before entering the problem regime.",
+            "effect": "NEUTRAL",
+            "dna_score": 0.0,
+            "outcome": "NEUTRAL",
+            "comparison": {
+              "net_pnl_change": 0.0,
+              "duration_reduction_hours": 0.0,
+              "drawdown_change_pp": 0.0,
+              "baseline_closed_deals": 14,
+              "candidate_closed_deals": 14,
+              "deal_count_change": 0
+            }
+          }
+        ]
+      },
+      {
+        "asset_id": "SUI",
+        "production_status": "research",
+        "profile_label": "TREND-CONFIRMATION RESPONSIVE",
+        "confidence": "LOW",
+        "rules_tested": 2,
+        "positive_rules": 2,
+        "negative_rules": 0,
+        "average_dna_score": 8.68,
+        "best_rule": {
+          "candidate_id": "SUI-B",
+          "name": "Structural Price Filter",
+          "hypothesis": "Require the problem-regime entry price to be at or above EMA200.",
+          "effect": "STRONG POSITIVE",
+          "dna_score": 8.95,
+          "outcome": "DEGRADED",
+          "comparison": {
+            "net_pnl_change": 1277.7604864800392,
+            "duration_reduction_hours": 1496.0,
+            "drawdown_change_pp": 27.223905550950402,
+            "baseline_closed_deals": 15,
+            "candidate_closed_deals": 16,
+            "deal_count_change": 1
+          }
+        },
+        "worst_rule": {
+          "candidate_id": "SUI-F",
+          "name": "EMA50 Recovery Filter",
+          "hypothesis": "Require price to recover to EMA50 before entering the problem regime.",
+          "effect": "STRONG POSITIVE",
+          "dna_score": 8.42,
+          "outcome": "DEGRADED",
+          "comparison": {
+            "net_pnl_change": 1264.644102480039,
+            "duration_reduction_hours": 1496.0,
+            "drawdown_change_pp": 27.223905550950402,
+            "baseline_closed_deals": 15,
+            "candidate_closed_deals": 12,
+            "deal_count_change": -3
+          }
+        },
+        "rule_effects": [
+          {
+            "candidate_id": "SUI-B",
+            "name": "Structural Price Filter",
+            "hypothesis": "Require the problem-regime entry price to be at or above EMA200.",
+            "effect": "STRONG POSITIVE",
+            "dna_score": 8.95,
+            "outcome": "DEGRADED",
+            "comparison": {
+              "net_pnl_change": 1277.7604864800392,
+              "duration_reduction_hours": 1496.0,
+              "drawdown_change_pp": 27.223905550950402,
+              "baseline_closed_deals": 15,
+              "candidate_closed_deals": 16,
+              "deal_count_change": 1
+            }
+          },
+          {
+            "candidate_id": "SUI-F",
+            "name": "EMA50 Recovery Filter",
+            "hypothesis": "Require price to recover to EMA50 before entering the problem regime.",
+            "effect": "STRONG POSITIVE",
+            "dna_score": 8.42,
+            "outcome": "DEGRADED",
+            "comparison": {
+              "net_pnl_change": 1264.644102480039,
+              "duration_reduction_hours": 1496.0,
+              "drawdown_change_pp": 27.223905550950402,
+              "baseline_closed_deals": 15,
+              "candidate_closed_deals": 12,
+              "deal_count_change": -3
+            }
+          }
+        ]
+      }
+    ],
+    "similarities": [
+      {
+        "asset_a": "TEL",
+        "asset_b": "TAO",
+        "rules_compared": 2,
+        "similarity_score": 97.8,
+        "label": "SIMILAR RESPONSE"
+      },
+      {
+        "asset_a": "TAO",
+        "asset_b": "SUI",
+        "rules_compared": 2,
+        "similarity_score": 13.2,
+        "label": "DISTINCT RESPONSE"
+      },
+      {
+        "asset_a": "TEL",
+        "asset_b": "SUI",
+        "rules_compared": 2,
+        "similarity_score": 11.0,
+        "label": "DISTINCT RESPONSE"
+      }
+    ],
+    "audit": {
+      "assets_profiled": 3,
+      "distinct_rules": 2,
+      "source": "Multi-Asset Evidence Library"
+    },
+    "safeguards": [
+      "Asset DNA records how each tested rule affects each asset; it does not alter production settings",
+      "Scores combine profit, drawdown, duration, and deal-count effects relative to the frozen baseline",
+      "A small evidence set is labelled low confidence",
+      "Similar assets are suggestions for future research, not proof that settings transfer",
+      "Every live amendment still requires an asset-specific forward test and manual approval"
+    ],
+    "note": "Asset DNA is a compact research profile built from the evidence library. It grows as more distinct hypotheses and assets are tested."
+  },
+  "context_traits": {
+    "version": "11.0",
+    "mode": "contextual_asset_traits",
+    "profiles": [
+      {
+        "asset_id": "TEL",
+        "production_status": "production",
+        "confidence": "LOW",
+        "summary": "NO CLEAR TREND RESPONSE YET",
+        "rules_tested": 2,
+        "traits": [
+          {
+            "name": "Trend-confirmation response",
+            "score": -0.22,
+            "label": "NO CLEAR TREND RESPONSE YET",
+            "basis": "2 trend-family rules"
+          },
+          {
+            "name": "Duration rescue",
+            "score": 0.0,
+            "unit": "days",
+            "label": "NONE OBSERVED",
+            "basis": "Average longest-trade reduction"
+          },
+          {
+            "name": "Drawdown protection",
+            "score": 0.0,
+            "unit": "pp",
+            "label": "NONE OBSERVED",
+            "basis": "Average drawdown change"
+          },
+          {
+            "name": "Activity sensitivity",
+            "score": -68.0,
+            "unit": "deals",
+            "label": "HIGH",
+            "basis": "Average closed-deal change"
+          }
+        ],
+        "contexts": [
+          {
+            "regime": "Medium",
+            "candidate_id": "SUI-B",
+            "rule": "Structural Price Filter",
+            "outcome": "IMPROVED",
+            "net_pnl_change": 50.59238553600335,
+            "duration_reduction_hours": 0.0
+          },
+          {
+            "regime": "Medium",
+            "candidate_id": "SUI-F",
+            "rule": "EMA50 Recovery Filter",
+            "outcome": "IMPROVED",
+            "net_pnl_change": 86.90060623999852,
+            "duration_reduction_hours": 0.0
+          }
+        ]
+      },
+      {
+        "asset_id": "TAO",
+        "production_status": "production",
+        "confidence": "LOW",
+        "summary": "NO CLEAR TREND RESPONSE YET",
+        "rules_tested": 2,
+        "traits": [
+          {
+            "name": "Trend-confirmation response",
+            "score": 0.0,
+            "label": "NO CLEAR TREND RESPONSE YET",
+            "basis": "2 trend-family rules"
+          },
+          {
+            "name": "Duration rescue",
+            "score": 0.0,
+            "unit": "days",
+            "label": "NONE OBSERVED",
+            "basis": "Average longest-trade reduction"
+          },
+          {
+            "name": "Drawdown protection",
+            "score": 0.0,
+            "unit": "pp",
+            "label": "NONE OBSERVED",
+            "basis": "Average drawdown change"
+          },
+          {
+            "name": "Activity sensitivity",
+            "score": 0.0,
+            "unit": "deals",
+            "label": "LOW",
+            "basis": "Average closed-deal change"
+          }
+        ],
+        "contexts": [
+          {
+            "regime": "Medium",
+            "candidate_id": "SUI-B",
+            "rule": "Structural Price Filter",
+            "outcome": "NEUTRAL",
+            "net_pnl_change": 0.0,
+            "duration_reduction_hours": 0.0
+          },
+          {
+            "regime": "Medium",
+            "candidate_id": "SUI-F",
+            "rule": "EMA50 Recovery Filter",
+            "outcome": "NEUTRAL",
+            "net_pnl_change": 0.0,
+            "duration_reduction_hours": 0.0
+          }
+        ]
+      },
+      {
+        "asset_id": "SUI",
+        "production_status": "research",
+        "confidence": "LOW",
+        "summary": "STRONGLY TREND-CONFIRMATION RESPONSIVE",
+        "rules_tested": 2,
+        "traits": [
+          {
+            "name": "Trend-confirmation response",
+            "score": 8.68,
+            "label": "STRONGLY TREND-CONFIRMATION RESPONSIVE",
+            "basis": "2 trend-family rules"
+          },
+          {
+            "name": "Duration rescue",
+            "score": 62.3,
+            "unit": "days",
+            "label": "MATERIAL",
+            "basis": "Average longest-trade reduction"
+          },
+          {
+            "name": "Drawdown protection",
+            "score": 27.2,
+            "unit": "pp",
+            "label": "MATERIAL",
+            "basis": "Average drawdown change"
+          },
+          {
+            "name": "Activity sensitivity",
+            "score": -1.0,
+            "unit": "deals",
+            "label": "LOW",
+            "basis": "Average closed-deal change"
+          }
+        ],
+        "contexts": [
+          {
+            "regime": "Medium",
+            "candidate_id": "SUI-B",
+            "rule": "Structural Price Filter",
+            "outcome": "DEGRADED",
+            "net_pnl_change": 1277.7604864800392,
+            "duration_reduction_hours": 1496.0
+          },
+          {
+            "regime": "Medium",
+            "candidate_id": "SUI-F",
+            "rule": "EMA50 Recovery Filter",
+            "outcome": "DEGRADED",
+            "net_pnl_change": 1264.644102480039,
+            "duration_reduction_hours": 1496.0
+          }
+        ]
+      }
+    ],
+    "research_tree": [
+      {
+        "family": "Trend Confirmation",
+        "tested_count": 2,
+        "total_count": 5,
+        "children": [
+          {
+            "id": "close_above_ema200",
+            "label": "Close at or above EMA200",
+            "status": "tested"
+          },
+          {
+            "id": "close_above_ema50",
+            "label": "Close at or above EMA50",
+            "status": "tested"
+          },
+          {
+            "id": "close_above_ema100",
+            "label": "Close at or above EMA100",
+            "status": "pending"
+          },
+          {
+            "id": "ema200_buffer",
+            "label": "Close at least 1% above EMA200",
+            "status": "pending"
+          },
+          {
+            "id": "ema200_24h_slope",
+            "label": "EMA200 rising over 24 hours",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "family": "Volatility State",
+        "tested_count": 1,
+        "total_count": 2,
+        "children": [
+          {
+            "id": "atr_contraction",
+            "label": "ATR no higher than 24 hours earlier",
+            "status": "diagnostic"
+          },
+          {
+            "id": "atr_percentile_cap",
+            "label": "ATR percentile below regime-specific cap",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "family": "Candle Structure",
+        "tested_count": 1,
+        "total_count": 2,
+        "children": [
+          {
+            "id": "bearish_sequence",
+            "label": "No more than two bearish candles",
+            "status": "diagnostic"
+          },
+          {
+            "id": "reversal_close",
+            "label": "Bullish recovery candle required",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "family": "Momentum Confirmation",
+        "tested_count": 0,
+        "total_count": 2,
+        "children": [
+          {
+            "id": "rsi_recovery",
+            "label": "RSI recovery above prior candle",
+            "status": "pending"
+          },
+          {
+            "id": "macd_slope",
+            "label": "MACD histogram improving",
+            "status": "pending"
+          }
+        ]
+      }
+    ],
+    "next_experiments": [
+      {
+        "priority": 1,
+        "family": "Trend Confirmation",
+        "experiment_id": "close_above_ema100",
+        "title": "Close at or above EMA100",
+        "reason": "Extend the trend confirmation branch with one new variable while preserving the frozen baseline.",
+        "approval": "MANUAL REVIEW REQUIRED"
+      },
+      {
+        "priority": 2,
+        "family": "Trend Confirmation",
+        "experiment_id": "ema200_buffer",
+        "title": "Close at least 1% above EMA200",
+        "reason": "Extend the trend confirmation branch with one new variable while preserving the frozen baseline.",
+        "approval": "MANUAL REVIEW REQUIRED"
+      },
+      {
+        "priority": 3,
+        "family": "Trend Confirmation",
+        "experiment_id": "ema200_24h_slope",
+        "title": "EMA200 rising over 24 hours",
+        "reason": "Extend the trend confirmation branch with one new variable while preserving the frozen baseline.",
+        "approval": "MANUAL REVIEW REQUIRED"
+      },
+      {
+        "priority": 4,
+        "family": "Volatility State",
+        "experiment_id": "atr_percentile_cap",
+        "title": "ATR percentile below regime-specific cap",
+        "reason": "Extend the volatility state branch with one new variable while preserving the frozen baseline.",
+        "approval": "MANUAL REVIEW REQUIRED"
+      },
+      {
+        "priority": 5,
+        "family": "Candle Structure",
+        "experiment_id": "reversal_close",
+        "title": "Bullish recovery candle required",
+        "reason": "Extend the candle structure branch with one new variable while preserving the frozen baseline.",
+        "approval": "MANUAL REVIEW REQUIRED"
+      },
+      {
+        "priority": 6,
+        "family": "Momentum Confirmation",
+        "experiment_id": "rsi_recovery",
+        "title": "RSI recovery above prior candle",
+        "reason": "Extend the momentum confirmation branch with one new variable while preserving the frozen baseline.",
+        "approval": "MANUAL REVIEW REQUIRED"
+      }
+    ],
+    "audit": {
+      "assets_profiled": 3,
+      "evidence_rules": 2,
+      "families": 4
+    },
+    "safeguards": [
+      "Traits summarise observed rule responses; they are not permanent facts about an asset",
+      "Context labels require multiple distinct tests before confidence can rise",
+      "Pending branches are research suggestions, not active strategy rules",
+      "Production strategies remain immutable without manual approval and a new forward test"
+    ],
+    "note": "The Context & Trait Engine organises evidence by asset, market regime, and hypothesis family. It proposes the next research branch but never changes a live strategy."
+  },
+  "automatic_research": {
+    "version": "12.0",
+    "mode": "automatic_diagnostic_research",
+    "source_asset": "SUI",
+    "target_regime": "Medium",
+    "baseline_metrics": {
+      "net_pnl": -1178.7893662560398,
+      "realised_pnl": 93.67662022399931,
+      "open_pnl": -1272.4659864800392,
+      "return_on_max_capital_pct": -27.36751491844926,
+      "maximum_drawdown_pct_of_capital": -31.073997089292053,
+      "closed_deals": 15,
+      "average_trade_hours": 19.466666666666665,
+      "longest_completed_trade_hours": 152.0,
+      "effective_longest_trade_hours": 1648.0,
+      "profitable_windows": 0,
+      "open_position": {
+        "entry_time": "2026-05-26T12:00:00Z",
+        "regime": "Medium",
+        "hours_open": 1648,
+        "safety_orders": 6,
+        "capital": 4307.257600000001,
+        "average_entry": 0.9718489724340317,
+        "target": 0.981567462158372,
+        "last_close": 0.6864,
+        "open_pnl": -1272.4659864800392,
+        "required_rise_pct": 43.002252645450454,
+        "entry_signal": {
+          "regime": "Medium",
+          "rv": 106.66754043225343,
+          "ema50": 1.0633947636921732,
+          "ema100": 1.0680579103643382,
+          "ema200": 1.0443207630345759,
+          "rsi14": 47.79149210791385,
+          "distance_ema200": -0.04986619561815342,
+          "distance_ema100": -2.271216769141593,
+          "distance_ema50": -1.8426612920435015,
+          "ema200_slope_pct": -0.0005011652834729929,
+          "ema200_24h_slope_pct": -0.016876627170503422,
+          "return24": -0.019157088122601085,
+          "ema50_slope_pct": -0.07515414105212503,
+          "pullback20_pct": 24.602715978041022,
+          "atr14": 0.02695476684059438,
+          "atr_percentile": 43.888888888888886,
+          "atr_expansion_ratio": 0.9265231223899225,
+          "consecutive_bearish_candles": 0,
+          "bullish_candle": 1.0,
+          "rsi_recovery": 1.0,
+          "macd_hist_improving": 1.0
+        }
+      }
+    },
+    "experiments": [
+      {
+        "id": "SUI-H2",
+        "title": "EMA200 1% Buffer",
+        "family": "Trend Confirmation",
+        "description": "Tests whether a safety buffer above the long-term trend improves robustness.",
+        "amendment": {
+          "regime": "Medium",
+          "field": "min_distance_from_ema200_pct",
+          "value": 1.0,
+          "human_rule": "entry requires close at least 1% above EMA200"
+        },
+        "status": "PASS",
+        "score": 21.29,
+        "metrics": {
+          "net_pnl": 94.04928022399929,
+          "realised_pnl": 94.04928022399929,
+          "open_pnl": 0.0,
+          "return_on_max_capital_pct": 2.1835072094132304,
+          "maximum_drawdown_pct_of_capital": -3.8500915383416516,
+          "closed_deals": 14,
+          "average_trade_hours": 22.857142857142858,
+          "longest_completed_trade_hours": 152.0,
+          "effective_longest_trade_hours": 152.0,
+          "profitable_windows": 3,
+          "open_position": null
+        },
+        "comparison": {
+          "net_pnl_change": 1272.8386464800392,
+          "duration_reduction_hours": 1496.0,
+          "drawdown_change_pp": 27.223905550950402,
+          "deal_count_change": -1,
+          "problem_trade_changed": true
+        },
+        "rank": 1
+      },
+      {
+        "id": "SUI-H3",
+        "title": "EMA200 Rising 24h",
+        "family": "Trend Confirmation",
+        "description": "Tests long-term trend direction rather than only price location.",
+        "amendment": {
+          "regime": "Medium",
+          "field": "min_ema200_24h_slope_pct",
+          "value": 0.0,
+          "human_rule": "entry requires EMA200 to be flat or rising over 24 hours"
+        },
+        "status": "PASS",
+        "score": 21.29,
+        "metrics": {
+          "net_pnl": 94.0492802239992,
+          "realised_pnl": 94.0492802239992,
+          "open_pnl": 0.0,
+          "return_on_max_capital_pct": 2.183507209413228,
+          "maximum_drawdown_pct_of_capital": -3.8500915383416516,
+          "closed_deals": 14,
+          "average_trade_hours": 22.0,
+          "longest_completed_trade_hours": 152.0,
+          "effective_longest_trade_hours": 152.0,
+          "profitable_windows": 3,
+          "open_position": null
+        },
+        "comparison": {
+          "net_pnl_change": 1272.838646480039,
+          "duration_reduction_hours": 1496.0,
+          "drawdown_change_pp": 27.223905550950402,
+          "deal_count_change": -1,
+          "problem_trade_changed": true
+        },
+        "rank": 2
+      },
+      {
+        "id": "SUI-H1",
+        "title": "EMA100 Recovery",
+        "family": "Trend Confirmation",
+        "description": "Tests an intermediate structural trend threshold between EMA50 and EMA200.",
+        "amendment": {
+          "regime": "Medium",
+          "field": "min_distance_from_ema100_pct",
+          "value": 0.0,
+          "human_rule": "entry requires close at or above EMA100"
+        },
+        "status": "PASS",
+        "score": 20.71,
+        "metrics": {
+          "net_pnl": 85.85473622399921,
+          "realised_pnl": 85.85473622399921,
+          "open_pnl": 0.0,
+          "return_on_max_capital_pct": 1.9932575247879114,
+          "maximum_drawdown_pct_of_capital": -3.8500915383416516,
+          "closed_deals": 12,
+          "average_trade_hours": 23.666666666666668,
+          "longest_completed_trade_hours": 152.0,
+          "effective_longest_trade_hours": 152.0,
+          "profitable_windows": 3,
+          "open_position": null
+        },
+        "comparison": {
+          "net_pnl_change": 1264.644102480039,
+          "duration_reduction_hours": 1496.0,
+          "drawdown_change_pp": 27.223905550950402,
+          "deal_count_change": -3,
+          "problem_trade_changed": true
+        },
+        "rank": 3
+      },
+      {
+        "id": "SUI-H5",
+        "title": "Bullish Recovery Candle",
+        "family": "Candle Structure",
+        "description": "Requires immediate price-action confirmation before entry.",
+        "amendment": {
+          "regime": "Medium",
+          "field": "require_bullish_candle",
+          "value": 1.0,
+          "human_rule": "entry requires a bullish completed candle"
+        },
+        "status": "REJECT",
+        "score": -0.18,
+        "metrics": {
+          "net_pnl": -1179.58836625604,
+          "realised_pnl": 92.87762022399932,
+          "open_pnl": -1272.4659864800392,
+          "return_on_max_capital_pct": -27.386065004703685,
+          "maximum_drawdown_pct_of_capital": -31.073997089292053,
+          "closed_deals": 14,
+          "average_trade_hours": 20.571428571428573,
+          "longest_completed_trade_hours": 152.0,
+          "effective_longest_trade_hours": 1648.0,
+          "profitable_windows": 0,
+          "open_position": {
+            "entry_time": "2026-05-26T12:00:00Z",
+            "regime": "Medium",
+            "hours_open": 1648,
+            "safety_orders": 6,
+            "capital": 4307.257600000001,
+            "average_entry": 0.9718489724340317,
+            "target": 0.981567462158372,
+            "last_close": 0.6864,
+            "open_pnl": -1272.4659864800392,
+            "required_rise_pct": 43.002252645450454,
+            "entry_signal": {
+              "regime": "Medium",
+              "rv": 106.66754043225343,
+              "ema50": 1.0633947636921732,
+              "ema100": 1.0680579103643382,
+              "ema200": 1.0443207630345759,
+              "rsi14": 47.79149210791385,
+              "distance_ema200": -0.04986619561815342,
+              "distance_ema100": -2.271216769141593,
+              "distance_ema50": -1.8426612920435015,
+              "ema200_slope_pct": -0.0005011652834729929,
+              "ema200_24h_slope_pct": -0.016876627170503422,
+              "return24": -0.019157088122601085,
+              "ema50_slope_pct": -0.07515414105212503,
+              "pullback20_pct": 24.602715978041022,
+              "atr14": 0.02695476684059438,
+              "atr_percentile": 43.888888888888886,
+              "atr_expansion_ratio": 0.9265231223899225,
+              "consecutive_bearish_candles": 0,
+              "bullish_candle": 1.0,
+              "rsi_recovery": 1.0,
+              "macd_hist_improving": 1.0
+            }
+          }
+        },
+        "comparison": {
+          "net_pnl_change": -0.7990000000002055,
+          "duration_reduction_hours": 0.0,
+          "drawdown_change_pp": 0.0,
+          "deal_count_change": -1,
+          "problem_trade_changed": false
+        },
+        "rank": 4
+      },
+      {
+        "id": "SUI-H6",
+        "title": "RSI Recovery",
+        "family": "Momentum Confirmation",
+        "description": "Requires momentum to begin recovering before entry.",
+        "amendment": {
+          "regime": "Medium",
+          "field": "require_rsi_recovery",
+          "value": 1.0,
+          "human_rule": "entry requires RSI to rise versus the prior candle"
+        },
+        "status": "REJECT",
+        "score": -0.18,
+        "metrics": {
+          "net_pnl": -1179.58836625604,
+          "realised_pnl": 92.87762022399932,
+          "open_pnl": -1272.4659864800392,
+          "return_on_max_capital_pct": -27.386065004703685,
+          "maximum_drawdown_pct_of_capital": -31.073997089292053,
+          "closed_deals": 14,
+          "average_trade_hours": 20.571428571428573,
+          "longest_completed_trade_hours": 152.0,
+          "effective_longest_trade_hours": 1648.0,
+          "profitable_windows": 0,
+          "open_position": {
+            "entry_time": "2026-05-26T12:00:00Z",
+            "regime": "Medium",
+            "hours_open": 1648,
+            "safety_orders": 6,
+            "capital": 4307.257600000001,
+            "average_entry": 0.9718489724340317,
+            "target": 0.981567462158372,
+            "last_close": 0.6864,
+            "open_pnl": -1272.4659864800392,
+            "required_rise_pct": 43.002252645450454,
+            "entry_signal": {
+              "regime": "Medium",
+              "rv": 106.66754043225343,
+              "ema50": 1.0633947636921732,
+              "ema100": 1.0680579103643382,
+              "ema200": 1.0443207630345759,
+              "rsi14": 47.79149210791385,
+              "distance_ema200": -0.04986619561815342,
+              "distance_ema100": -2.271216769141593,
+              "distance_ema50": -1.8426612920435015,
+              "ema200_slope_pct": -0.0005011652834729929,
+              "ema200_24h_slope_pct": -0.016876627170503422,
+              "return24": -0.019157088122601085,
+              "ema50_slope_pct": -0.07515414105212503,
+              "pullback20_pct": 24.602715978041022,
+              "atr14": 0.02695476684059438,
+              "atr_percentile": 43.888888888888886,
+              "atr_expansion_ratio": 0.9265231223899225,
+              "consecutive_bearish_candles": 0,
+              "bullish_candle": 1.0,
+              "rsi_recovery": 1.0,
+              "macd_hist_improving": 1.0
+            }
+          }
+        },
+        "comparison": {
+          "net_pnl_change": -0.7990000000002055,
+          "duration_reduction_hours": 0.0,
+          "drawdown_change_pp": 0.0,
+          "deal_count_change": -1,
+          "problem_trade_changed": false
+        },
+        "rank": 5
+      },
+      {
+        "id": "SUI-H7",
+        "title": "MACD Histogram Improvement",
+        "family": "Momentum Confirmation",
+        "description": "Tests whether improving momentum reduces premature entries.",
+        "amendment": {
+          "regime": "Medium",
+          "field": "require_macd_hist_improving",
+          "value": 1.0,
+          "human_rule": "entry requires an improving MACD histogram"
+        },
+        "status": "REJECT",
+        "score": -1.85,
+        "metrics": {
+          "net_pnl": -1215.6013544800394,
+          "realised_pnl": 56.864631999999716,
+          "open_pnl": -1272.4659864800392,
+          "return_on_max_capital_pct": -28.222165177212506,
+          "maximum_drawdown_pct_of_capital": -31.073997089292053,
+          "closed_deals": 11,
+          "average_trade_hours": 22.90909090909091,
+          "longest_completed_trade_hours": 152.0,
+          "effective_longest_trade_hours": 1648.0,
+          "profitable_windows": 0,
+          "open_position": {
+            "entry_time": "2026-05-26T12:00:00Z",
+            "regime": "Medium",
+            "hours_open": 1648,
+            "safety_orders": 6,
+            "capital": 4307.257600000001,
+            "average_entry": 0.9718489724340317,
+            "target": 0.981567462158372,
+            "last_close": 0.6864,
+            "open_pnl": -1272.4659864800392,
+            "required_rise_pct": 43.002252645450454,
+            "entry_signal": {
+              "regime": "Medium",
+              "rv": 106.66754043225343,
+              "ema50": 1.0633947636921732,
+              "ema100": 1.0680579103643382,
+              "ema200": 1.0443207630345759,
+              "rsi14": 47.79149210791385,
+              "distance_ema200": -0.04986619561815342,
+              "distance_ema100": -2.271216769141593,
+              "distance_ema50": -1.8426612920435015,
+              "ema200_slope_pct": -0.0005011652834729929,
+              "ema200_24h_slope_pct": -0.016876627170503422,
+              "return24": -0.019157088122601085,
+              "ema50_slope_pct": -0.07515414105212503,
+              "pullback20_pct": 24.602715978041022,
+              "atr14": 0.02695476684059438,
+              "atr_percentile": 43.888888888888886,
+              "atr_expansion_ratio": 0.9265231223899225,
+              "consecutive_bearish_candles": 0,
+              "bullish_candle": 1.0,
+              "rsi_recovery": 1.0,
+              "macd_hist_improving": 1.0
+            }
+          }
+        },
+        "comparison": {
+          "net_pnl_change": -36.811988223999606,
+          "duration_reduction_hours": 0.0,
+          "drawdown_change_pp": 0.0,
+          "deal_count_change": -4,
+          "problem_trade_changed": false
+        },
+        "rank": 6
+      },
+      {
+        "id": "SUI-H4",
+        "title": "ATR Percentile Cap",
+        "family": "Volatility State",
+        "description": "Avoids entries during unusually elevated volatility.",
+        "amendment": {
+          "regime": "Medium",
+          "field": "max_atr_percentile",
+          "value": 60.0,
+          "human_rule": "entry requires ATR percentile at or below 60"
+        },
+        "status": "REJECT",
+        "score": -3.05,
+        "metrics": {
+          "net_pnl": -1237.7879864800395,
+          "realised_pnl": 34.6779999999997,
+          "open_pnl": -1272.4659864800392,
+          "return_on_max_capital_pct": -28.737263972325206,
+          "maximum_drawdown_pct_of_capital": -31.073997089292053,
+          "closed_deals": 8,
+          "average_trade_hours": 24.0,
+          "longest_completed_trade_hours": 152.0,
+          "effective_longest_trade_hours": 1648.0,
+          "profitable_windows": 0,
+          "open_position": {
+            "entry_time": "2026-05-26T12:00:00Z",
+            "regime": "Medium",
+            "hours_open": 1648,
+            "safety_orders": 6,
+            "capital": 4307.257600000001,
+            "average_entry": 0.9718489724340317,
+            "target": 0.981567462158372,
+            "last_close": 0.6864,
+            "open_pnl": -1272.4659864800392,
+            "required_rise_pct": 43.002252645450454,
+            "entry_signal": {
+              "regime": "Medium",
+              "rv": 106.66754043225343,
+              "ema50": 1.0633947636921732,
+              "ema100": 1.0680579103643382,
+              "ema200": 1.0443207630345759,
+              "rsi14": 47.79149210791385,
+              "distance_ema200": -0.04986619561815342,
+              "distance_ema100": -2.271216769141593,
+              "distance_ema50": -1.8426612920435015,
+              "ema200_slope_pct": -0.0005011652834729929,
+              "ema200_24h_slope_pct": -0.016876627170503422,
+              "return24": -0.019157088122601085,
+              "ema50_slope_pct": -0.07515414105212503,
+              "pullback20_pct": 24.602715978041022,
+              "atr14": 0.02695476684059438,
+              "atr_percentile": 43.888888888888886,
+              "atr_expansion_ratio": 0.9265231223899225,
+              "consecutive_bearish_candles": 0,
+              "bullish_candle": 1.0,
+              "rsi_recovery": 1.0,
+              "macd_hist_improving": 1.0
+            }
+          }
+        },
+        "comparison": {
+          "net_pnl_change": -58.99862022399975,
+          "duration_reduction_hours": 0.0,
+          "drawdown_change_pp": 0.0,
+          "deal_count_change": -7,
+          "problem_trade_changed": false
+        },
+        "rank": 7
+      }
+    ],
+    "winner": {
+      "id": "SUI-H2",
+      "title": "EMA200 1% Buffer",
+      "family": "Trend Confirmation",
+      "description": "Tests whether a safety buffer above the long-term trend improves robustness.",
+      "amendment": {
+        "regime": "Medium",
+        "field": "min_distance_from_ema200_pct",
+        "value": 1.0,
+        "human_rule": "entry requires close at least 1% above EMA200"
+      },
+      "status": "PASS",
+      "score": 21.29,
+      "metrics": {
+        "net_pnl": 94.04928022399929,
+        "realised_pnl": 94.04928022399929,
+        "open_pnl": 0.0,
+        "return_on_max_capital_pct": 2.1835072094132304,
+        "maximum_drawdown_pct_of_capital": -3.8500915383416516,
+        "closed_deals": 14,
+        "average_trade_hours": 22.857142857142858,
+        "longest_completed_trade_hours": 152.0,
+        "effective_longest_trade_hours": 152.0,
+        "profitable_windows": 3,
+        "open_position": null
+      },
+      "comparison": {
+        "net_pnl_change": 1272.8386464800392,
+        "duration_reduction_hours": 1496.0,
+        "drawdown_change_pp": 27.223905550950402,
+        "deal_count_change": -1,
+        "problem_trade_changed": true
+      },
+      "rank": 1
+    },
+    "family_summary": [
+      {
+        "family": "Candle Structure",
+        "tested": 1,
+        "passed": 0,
+        "best_score": -0.18,
+        "best_experiment": "Bullish Recovery Candle"
+      },
+      {
+        "family": "Momentum Confirmation",
+        "tested": 2,
+        "passed": 0,
+        "best_score": -0.18,
+        "best_experiment": "RSI Recovery"
+      },
+      {
+        "family": "Trend Confirmation",
+        "tested": 3,
+        "passed": 3,
+        "best_score": 21.29,
+        "best_experiment": "EMA200 1% Buffer"
+      },
+      {
+        "family": "Volatility State",
+        "tested": 1,
+        "passed": 0,
+        "best_score": -3.05,
+        "best_experiment": "ATR Percentile Cap"
+      }
+    ],
+    "audit": {
+      "experiments_run": 7,
+      "passed": 3,
+      "rejected": 4
+    },
+    "execution_policy": "Experiments run automatically on every workflow using the frozen diagnostic history.",
+    "promotion_policy": "No experiment can alter a production strategy or begin a live forward test without explicit manual approval.",
+    "note": "V12 executes the full diagnostic queue automatically and publishes ranked results. Automatic execution does not authorise production changes."
   },
   "assets": [
     {
       "id": "TEL",
       "display_name": "TEL",
       "symbol": "TEL-USDT",
+      "production_status": "production",
       "history_start": "2025-03-30T12:00:00Z",
-      "history_end": "2026-07-17T08:00:00Z",
-      "candles": 2844,
-      "net_pnl": 5356.882828814481,
-      "realised_pnl": 5406.775183271634,
-      "open_pnl": -49.892354457152685,
-      "return_on_max_capital_pct": 108.9846921716065,
-      "maximum_drawdown_dollars": -912.2416582921162,
-      "maximum_drawdown_pct_of_capital": -18.559371091766923,
+      "history_end": "2026-08-03T00:00:00Z",
+      "candles": 2944,
+      "net_pnl": 5079.514009483453,
+      "realised_pnl": 5263.122152377557,
+      "open_pnl": -183.60814289410314,
+      "return_on_max_capital_pct": 103.34167992758397,
+      "maximum_drawdown_dollars": -912.2416582921164,
+      "maximum_drawdown_pct_of_capital": -18.55937109176693,
       "max_theoretical_capital": 4915.261695999998,
-      "closed_deals": 479,
-      "average_trade_hours": 20.49269311064718,
+      "closed_deals": 471,
+      "average_trade_hours": 20.356687898089174,
       "longest_trade_hours": 556,
-      "skipped_entry_candles": 215,
+      "skipped_entry_candles": 192,
       "open_position": {
         "entry_time": "2026-07-08T12:00:00Z",
         "regime": "Medium",
-        "hours_open": 216,
-        "safety_orders": 3,
-        "capital": 710.3999999999999,
-        "average_entry": 0.0021337332432325084,
-        "target": 0.002165739241880996,
-        "last_close": 0.001988,
-        "open_pnl": -49.892354457152685,
-        "required_rise_pct": 8.940605728420303
+        "hours_open": 616,
+        "safety_orders": 4,
+        "capital": 1094.5599999999997,
+        "average_entry": 0.0019877998153568738,
+        "target": 0.0020176168125872265,
+        "last_close": 0.001658,
+        "open_pnl": -183.60814289410314,
+        "required_rise_pct": 21.689795692836334,
+        "entry_signal": {
+          "regime": "Medium",
+          "rv": 98.2626413396156,
+          "ema50": 0.002336089254017795,
+          "ema100": 0.00235823799520189,
+          "ema200": 0.0024095345356453944,
+          "rsi14": 59.31498068731308,
+          "distance_ema200": 0.2268265622987542,
+          "distance_ema100": 2.4069667655935767,
+          "distance_ema50": 3.377899446542454,
+          "ema200_slope_pct": 0.0022797159125786948,
+          "ema200_24h_slope_pct": -0.09744363872622452,
+          "return24": 7.047872340425521,
+          "ema50_slope_pct": 0.1380638001176493,
+          "pullback20_pct": 12.213740458015266,
+          "atr14": 7.822016247937027e-05,
+          "atr_percentile": 73.88888888888889,
+          "atr_expansion_ratio": 1.4469644914339188,
+          "consecutive_bearish_candles": 1,
+          "bullish_candle": 0.0,
+          "rsi_recovery": 0.0,
+          "macd_hist_improving": 0.0
+        }
       },
       "health": {
-        "score": 32,
-        "status": "Review",
+        "score": 64,
+        "status": "Watch",
         "flags": [
-          "Market data is 393 hours old",
           "Recent drawdown reached -15.5% of capital",
-          "Recent average trade duration is over twice the historical average"
+          "Recent average trade duration is over twice the historical average",
+          "Open replay position duration is elevated (25.7 days)"
         ],
         "positives": [
+          "Market data is current",
           "Recent 90-day realised P&L is positive"
         ],
         "recent_window_days": 90,
@@ -95,22 +1731,35 @@
         "recent_longest_trade_hours": 556.0,
         "recent_max_drawdown_dollars": -761.5579703043404,
         "recent_max_drawdown_pct_of_capital": -15.493742091577554,
-        "open_loss_pct_of_capital": -1.0150498090011097,
-        "open_hours": 216.0,
-        "data_age_hours": 393.4103583772315,
-        "historical_average_trade_hours": 20.49269311064718,
+        "open_loss_pct_of_capital": -3.735470342169615,
+        "open_hours": 616.0,
+        "data_age_hours": 6.87275246169832,
+        "historical_average_trade_hours": 20.356687898089174,
         "historical_longest_trade_hours": 556,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
       },
       "latest": {
         "regime": "Low",
-        "rv": 65.404338490974,
-        "ema50": 0.0021400142546332654,
-        "ema200": 0.0023060892034563207,
-        "rsi14": 33.79862020219326,
-        "distance_ema200": -13.793447494553757,
-        "distance_ema50": -7.103422526468917,
-        "return24": -0.8973080757726737,
+        "rv": 76.33003027508039,
+        "ema50": 0.0017251502289281882,
+        "ema100": 0.0018037579958654964,
+        "ema200": 0.0019574651490023363,
+        "rsi14": 34.56922400120327,
+        "distance_ema200": -15.298619704926297,
+        "distance_ema100": -8.080795550156793,
+        "distance_ema50": -3.8924279058240474,
+        "ema200_slope_pct": -0.15351892892275787,
+        "ema200_24h_slope_pct": -0.9142379778227738,
+        "return24": -1.2507444907683074,
+        "ema50_slope_pct": -0.15862259737057238,
+        "pullback20_pct": 24.704813805631243,
+        "atr14": 3.767995894238769e-05,
+        "atr_percentile": 7.222222222222222,
+        "atr_expansion_ratio": 1.048923571006109,
+        "consecutive_bearish_candles": 2,
+        "bullish_candle": 0.0,
+        "rsi_recovery": 0.0,
+        "macd_hist_improving": 1.0,
         "entry_allowed": true,
         "entry_reason": "All entry rules pass",
         "recommended_bot": "TEL Low Volatility Bot",
@@ -122,8 +1771,8 @@
           "volume_scale": 1.6,
           "step_scale": 1.0
         },
-        "last_close": 0.001988,
-        "last_candle": "2026-07-17T08:00:00Z"
+        "last_close": 0.001658,
+        "last_candle": "2026-08-03T00:00:00Z"
       },
       "recent_deals": [
         {
@@ -133,7 +1782,30 @@
           "pnl": 1.2984999999999716,
           "hours": 20,
           "safety_orders": 0,
-          "capital": 100.0
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 96.74275589757971,
+            "ema50": 0.002350688569587962,
+            "ema100": 0.0023982592222099816,
+            "ema200": 0.0024554350073210094,
+            "rsi14": 44.19404700957997,
+            "distance_ema200": -7.348392719947084,
+            "distance_ema100": -5.139528749373423,
+            "distance_ema50": -3.219846753295308,
+            "ema200_slope_pct": -0.07379869047586807,
+            "ema200_24h_slope_pct": -0.44038051542160117,
+            "return24": -3.232666950233931,
+            "ema50_slope_pct": -0.13124982490078096,
+            "pullback20_pct": 17.302798982188293,
+            "atr14": 5.97085011318025e-05,
+            "atr_percentile": 15.555555555555555,
+            "atr_expansion_ratio": 0.9343108491280547,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
         },
         {
           "entry_time": "2026-07-01T16:00:00Z",
@@ -142,7 +1814,30 @@
           "pnl": 1.2985,
           "hours": 20,
           "safety_orders": 0,
-          "capital": 100.0
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 96.62839708937793,
+            "ema50": 0.0023357067538799167,
+            "ema100": 0.0023858266975700397,
+            "ema200": 0.0024462647263939277,
+            "rsi14": 52.68290614863834,
+            "distance_ema200": -4.998016979714204,
+            "distance_ema100": -2.591416117231393,
+            "distance_ema50": -0.5012082043462929,
+            "ema200_slope_pct": -0.05020610723567298,
+            "ema200_24h_slope_pct": -0.44699176431096665,
+            "return24": 3.5189309576837413,
+            "ema50_slope_pct": -0.020453293500444225,
+            "pullback20_pct": 15.521628498727736,
+            "atr14": 5.992391658001566e-05,
+            "atr_percentile": 18.333333333333332,
+            "atr_expansion_ratio": 1.0415712116369056,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
         },
         {
           "entry_time": "2026-07-02T12:00:00Z",
@@ -151,7 +1846,30 @@
           "pnl": 1.2984999999999858,
           "hours": 4,
           "safety_orders": 0,
-          "capital": 100.0
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 97.72752406008102,
+            "ema50": 0.0023291252166735216,
+            "ema100": 0.002377592212916636,
+            "ema200": 0.0024390946110691507,
+            "rsi14": 53.18932872086133,
+            "distance_ema200": -4.472750280946681,
+            "distance_ema100": -2.0016978798165663,
+            "distance_ema50": 0.037558449851315956,
+            "ema200_slope_pct": -0.044932066149061534,
+            "ema200_24h_slope_pct": -0.3431635869256322,
+            "return24": 4.017857142857162,
+            "ema50_slope_pct": 0.0015330214542919052,
+            "pullback20_pct": 15.303525990548895,
+            "atr14": 6.240111404240744e-05,
+            "atr_percentile": 26.666666666666668,
+            "atr_expansion_ratio": 1.112876551929552,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
         },
         {
           "entry_time": "2026-07-02T16:00:00Z",
@@ -160,7 +1878,30 @@
           "pnl": 1.2985,
           "hours": 8,
           "safety_orders": 0,
-          "capital": 100.0
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 98.48127781849708,
+            "ema50": 0.002331865404254952,
+            "ema100": 0.0023780161294925444,
+            "ema200": 0.002438695659715229,
+            "rsi14": 59.50982903646579,
+            "distance_ema200": -1.6277414345283292,
+            "distance_ema100": 0.8824107728795605,
+            "distance_ema50": 2.879008180427056,
+            "ema200_slope_pct": -0.016356534597361527,
+            "ema200_24h_slope_pct": -0.30941322895402523,
+            "return24": 3.2271944922547258,
+            "ema50_slope_pct": 0.11764878769995324,
+            "pullback20_pct": 12.795347146492176,
+            "atr14": 6.451532018223548e-05,
+            "atr_percentile": 31.11111111111111,
+            "atr_expansion_ratio": 1.0766205525983765,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
         },
         {
           "entry_time": "2026-07-03T00:00:00Z",
@@ -169,7 +1910,30 @@
           "pnl": 1.2985,
           "hours": 4,
           "safety_orders": 0,
-          "capital": 100.0
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 98.85046647518885,
+            "ema50": 0.0023363678722092044,
+            "ema100": 0.002378494273615962,
+            "ema200": 0.0024377334922497658,
+            "rsi14": 59.5936968694799,
+            "distance_ema200": -1.0966536060959542,
+            "distance_ema100": 1.3666514460268342,
+            "distance_ema50": 3.194365436990254,
+            "ema200_slope_pct": -0.01102042964982175,
+            "ema200_24h_slope_pct": -0.2273808174095726,
+            "return24": 5.100261551874441,
+            "ema50_slope_pct": 0.13055248001179187,
+            "pullback20_pct": 12.359142130134494,
+            "atr14": 6.65514750550908e-05,
+            "atr_percentile": 34.44444444444444,
+            "atr_expansion_ratio": 1.1445052823710893,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
         },
         {
           "entry_time": "2026-07-03T04:00:00Z",
@@ -178,7 +1942,30 @@
           "pnl": 1.2984999999999858,
           "hours": 4,
           "safety_orders": 0,
-          "capital": 100.0
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 98.77514472823565,
+            "ema50": 0.0023391377595735493,
+            "ema100": 0.002379058743445349,
+            "ema200": 0.0024374276863567334,
+            "rsi14": 59.095028738151534,
+            "distance_ema200": -1.2483523727513934,
+            "distance_ema100": 1.174466861385115,
+            "distance_ema50": 2.9011647624731074,
+            "ema200_slope_pct": -0.012544681114834422,
+            "ema200_24h_slope_pct": -0.1897830239521614,
+            "return24": 3.7499999999999867,
+            "ema50_slope_pct": 0.11855527536106525,
+            "pullback20_pct": 12.504543802253732,
+            "atr14": 6.679779826544144e-05,
+            "atr_percentile": 35.0,
+            "atr_expansion_ratio": 1.1632428496449168,
+            "consecutive_bearish_candles": 1,
+            "bullish_candle": 0.0,
+            "rsi_recovery": 0.0,
+            "macd_hist_improving": 1.0
+          }
         },
         {
           "entry_time": "2026-07-03T08:00:00Z",
@@ -187,7 +1974,30 @@
           "pnl": 3.1163999999999943,
           "hours": 72,
           "safety_orders": 1,
-          "capital": 240.0
+          "capital": 240.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 98.20358048324982,
+            "ema50": 0.002342348043511842,
+            "ema100": 0.0023798892633771244,
+            "ema200": 0.002437264226790995,
+            "rsi14": 60.345731077312216,
+            "distance_ema200": -0.6673148775670157,
+            "distance_ema100": 1.7274222484006785,
+            "distance_ema50": 3.357825354179078,
+            "ema200_slope_pct": -0.006706232420894409,
+            "ema200_24h_slope_pct": -0.11994194237026079,
+            "return24": 7.409050576752452,
+            "ema50_slope_pct": 0.13724219213484545,
+            "pullback20_pct": 11.995637949836425,
+            "atr14": 6.65979555321956e-05,
+            "atr_percentile": 35.0,
+            "atr_expansion_ratio": 1.1308199908288838,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
         },
         {
           "entry_time": "2026-07-06T08:00:00Z",
@@ -196,7 +2006,30 @@
           "pnl": 1.2984999999999858,
           "hours": 44,
           "safety_orders": 0,
-          "capital": 100.0
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 95.49442107687298,
+            "ema50": 0.0023350442907911994,
+            "ema100": 0.002365294617861817,
+            "ema200": 0.0024201628405131096,
+            "rsi14": 55.147229429183966,
+            "distance_ema200": -2.6511786495947542,
+            "distance_ema100": -0.39295814532478435,
+            "distance_ema50": 0.8974437569104987,
+            "ema200_slope_pct": -0.026637913878480024,
+            "ema200_24h_slope_pct": -0.32234208424892774,
+            "return24": 2.6579520697167736,
+            "ema50_slope_pct": 0.03664378017258496,
+            "pullback20_pct": 14.358415121773904,
+            "atr14": 5.534488560370887e-05,
+            "atr_percentile": 10.0,
+            "atr_expansion_ratio": 1.0076473983660146,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
         },
         {
           "entry_time": "2026-07-08T04:00:00Z",
@@ -205,7 +2038,30 @@
           "pnl": 1.2984999999999858,
           "hours": 4,
           "safety_orders": 0,
-          "capital": 100.0
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 97.50705541508302,
+            "ema50": 0.0023267814034570113,
+            "ema100": 0.002354567879711711,
+            "ema200": 0.0024087507581780653,
+            "rsi14": 67.06753214955609,
+            "distance_ema200": 1.7124744717521123,
+            "distance_ema100": 4.053063031674986,
+            "distance_ema50": 5.295667068677656,
+            "ema200_slope_pct": 0.017213761336876132,
+            "ema200_24h_slope_pct": -0.25435534515187985,
+            "return24": 8.12003530450134,
+            "ema50_slope_pct": 0.21661789515168284,
+            "pullback20_pct": 10.941475826972013,
+            "atr14": 6.787072098199157e-05,
+            "atr_percentile": 53.333333333333336,
+            "atr_expansion_ratio": 1.160665876796449,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
         },
         {
           "entry_time": "2026-07-08T08:00:00Z",
@@ -214,11 +2070,34 @@
           "pnl": 1.2985,
           "hours": 4,
           "safety_orders": 0,
-          "capital": 100.0
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 97.64127744807355,
+            "ema50": 0.002332868407243011,
+            "ema100": 0.0023570912880342514,
+            "ema200": 0.002409479606355398,
+            "rsi14": 69.60008932448376,
+            "distance_ema200": 3.0097948724412182,
+            "distance_ema100": 5.2992734137980335,
+            "distance_ema50": 6.392627732193112,
+            "ema200_slope_pct": 0.030258347604394942,
+            "ema200_24h_slope_pct": -0.16457089362887922,
+            "return24": 9.339207048458142,
+            "ema50_slope_pct": 0.26160617310058143,
+            "pullback20_pct": 9.778262450018183,
+            "atr14": 6.923709805470645e-05,
+            "atr_percentile": 56.666666666666664,
+            "atr_expansion_ratio": 1.228255570059012,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
         }
       ],
       "intelligence": {
-        "opportunity_score": 44,
+        "opportunity_score": 61,
         "action": "CAUTIOUS",
         "confidence_label": "Low",
         "explanation": [
@@ -231,7 +2110,7 @@
           "Replay already has an unresolved position"
         ],
         "score_components": {
-          "strategy_health_weight": 17.6,
+          "strategy_health_weight": 35.2,
           "entry_permission": 25,
           "regime_bonus": 6,
           "recent_pnl_positive": true,
@@ -239,6 +2118,8 @@
         },
         "note": "Opportunity score is a transparent ranking aid, not a probability of profit or financial advice."
       },
+      "experiment": null,
+      "evolution": null,
       "sync": {
         "new_candles": 0,
         "error": null,
@@ -304,58 +2185,72 @@
       "id": "TAO",
       "display_name": "TAO",
       "symbol": "TAO-USDT",
+      "production_status": "production",
       "history_start": "2026-04-03T20:00:00Z",
-      "history_end": "2026-07-11T16:00:00Z",
-      "candles": 594,
-      "net_pnl": 253.3810336639985,
-      "realised_pnl": 253.3810336639985,
+      "history_end": "2026-08-03T00:00:00Z",
+      "candles": 728,
+      "net_pnl": 268.91213366399836,
+      "realised_pnl": 268.91213366399836,
       "open_pnl": 0.0,
-      "return_on_max_capital_pct": 7.366857079113111,
+      "return_on_max_capital_pct": 7.818411768613413,
       "maximum_drawdown_dollars": -415.0888249024398,
       "maximum_drawdown_pct_of_capital": -12.068385719225839,
       "max_theoretical_capital": 3439.4726399999986,
-      "closed_deals": 12,
-      "average_trade_hours": 70.66666666666667,
+      "closed_deals": 14,
+      "average_trade_hours": 64.57142857142857,
       "longest_trade_hours": 368,
-      "skipped_entry_candles": 261,
+      "skipped_entry_candles": 301,
       "open_position": null,
       "health": {
-        "score": 50,
-        "status": "Watch",
+        "score": 90,
+        "status": "Excellent",
         "flags": [
-          "Market data is 529 hours old",
           "Recent drawdown reached -12.1% of capital"
         ],
         "positives": [
+          "Market data is current",
           "Recent 90-day realised P&L is positive",
           "Recent trade duration is consistent with history",
           "No unresolved replay position"
         ],
         "recent_window_days": 90,
-        "recent_closed_deals": 12,
-        "recent_realised_pnl": 253.38103366399852,
-        "recent_average_trade_hours": 70.66666666666667,
+        "recent_closed_deals": 14,
+        "recent_realised_pnl": 268.9121336639984,
+        "recent_average_trade_hours": 64.57142857142857,
         "recent_longest_trade_hours": 368.0,
         "recent_max_drawdown_dollars": -415.0888249024398,
         "recent_max_drawdown_pct_of_capital": -12.068385719225839,
         "open_loss_pct_of_capital": 0.0,
         "open_hours": 0.0,
-        "data_age_hours": 529.4103608383073,
-        "historical_average_trade_hours": 70.66666666666667,
+        "data_age_hours": 6.872820567223761,
+        "historical_average_trade_hours": 64.57142857142857,
         "historical_longest_trade_hours": 368,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
       },
       "latest": {
         "regime": "Low",
-        "rv": 65.52852306919004,
-        "ema50": 211.37806813299778,
-        "ema200": 221.77949944323652,
-        "rsi14": 57.95255250134253,
-        "distance_ema200": -3.187625303954622,
-        "distance_ema50": 1.5762902445043636,
-        "return24": 1.302193913658889,
+        "rv": 49.25126529571115,
+        "ema50": 193.46493902599735,
+        "ema100": 195.49103156354948,
+        "ema200": 201.96659404538087,
+        "rsi14": 41.7129342040993,
+        "distance_ema200": -6.0488191639434525,
+        "distance_ema100": -2.9367237553724834,
+        "distance_ema50": -1.9202130601546075,
+        "ema200_slope_pct": -0.0607552179967219,
+        "ema200_24h_slope_pct": -0.2918137980556734,
+        "return24": -2.1907216494845394,
+        "ema50_slope_pct": -0.07831466333719783,
+        "pullback20_pct": 6.761338509164161,
+        "atr14": 2.987492151712381,
+        "atr_percentile": 8.88888888888889,
+        "atr_expansion_ratio": 0.8720474116765878,
+        "consecutive_bearish_candles": 2,
+        "bullish_candle": 0.0,
+        "rsi_recovery": 0.0,
+        "macd_hist_improving": 0.0,
         "entry_allowed": false,
-        "entry_reason": "RSI is above the allowed maximum",
+        "entry_reason": "Price is too far above EMA50",
         "recommended_bot": "TAO Low Pullback Bot",
         "bot_settings": {
           "name": "TAO Low Pullback Bot",
@@ -365,28 +2260,10 @@
           "volume_scale": 1.4,
           "step_scale": 1.2
         },
-        "last_close": 214.71,
-        "last_candle": "2026-07-11T16:00:00Z"
+        "last_close": 189.75,
+        "last_candle": "2026-08-03T00:00:00Z"
       },
       "recent_deals": [
-        {
-          "entry_time": "2026-05-28T04:00:00Z",
-          "exit_time": "2026-05-28T16:00:00Z",
-          "regime": "Low",
-          "pnl": 5.513999999999972,
-          "hours": 16,
-          "safety_orders": 1,
-          "capital": 240.0
-        },
-        {
-          "entry_time": "2026-05-29T04:00:00Z",
-          "exit_time": "2026-05-29T16:00:00Z",
-          "regime": "Low",
-          "pnl": 16.32143999999988,
-          "hours": 16,
-          "safety_orders": 3,
-          "capital": 710.3999999999999
-        },
         {
           "entry_time": "2026-05-29T20:00:00Z",
           "exit_time": "2026-05-30T08:00:00Z",
@@ -394,7 +2271,30 @@
           "pnl": 5.513999999999999,
           "hours": 16,
           "safety_orders": 1,
-          "capital": 240.0
+          "capital": 240.0,
+          "entry_signal": {
+            "regime": "Low",
+            "rv": 77.03576689845589,
+            "ema50": 270.0077441887552,
+            "ema100": 274.7908326953214,
+            "ema200": 277.9120691405665,
+            "rsi14": 32.471383456985976,
+            "distance_ema200": -10.237795439598397,
+            "distance_ema100": -9.21822334714031,
+            "distance_ema50": -7.610057352425725,
+            "ema200_slope_pct": -0.10278665680337751,
+            "ema200_24h_slope_pct": -0.4704049245148001,
+            "return24": -5.076103500761031,
+            "ema50_slope_pct": -0.309652759177903,
+            "pullback20_pct": 24.279860373349514,
+            "atr14": 8.526229519933137,
+            "atr_percentile": 78.88888888888889,
+            "atr_expansion_ratio": 1.0350349174936955,
+            "consecutive_bearish_candles": 1,
+            "bullish_candle": 0.0,
+            "rsi_recovery": 0.0,
+            "macd_hist_improving": 0.0
+          }
         },
         {
           "entry_time": "2026-05-30T12:00:00Z",
@@ -403,7 +2303,30 @@
           "pnl": 2.2974999999999857,
           "hours": 16,
           "safety_orders": 0,
-          "capital": 100.0
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Low",
+            "rv": 76.6897424813769,
+            "ema50": 267.1557158179159,
+            "ema100": 272.9390870430177,
+            "ema200": 276.84504024989064,
+            "rsi14": 37.59091560831211,
+            "distance_ema200": -8.822639635459495,
+            "distance_ema100": -7.517826510419789,
+            "distance_ema50": -5.5157778574197796,
+            "ema200_slope_pct": -0.08859119149632333,
+            "ema200_24h_slope_pct": -0.5576762994954576,
+            "return24": -1.3907336510664892,
+            "ema50_slope_pct": -0.22462807639674898,
+            "pullback20_pct": 23.38139323114281,
+            "atr14": 7.609917776936961,
+            "atr_percentile": 49.44444444444444,
+            "atr_expansion_ratio": 0.9781526771637339,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
         },
         {
           "entry_time": "2026-06-01T08:00:00Z",
@@ -412,7 +2335,30 @@
           "pnl": 5.513999999999972,
           "hours": 12,
           "safety_orders": 1,
-          "capital": 240.0
+          "capital": 240.0,
+          "entry_signal": {
+            "regime": "Low",
+            "rv": 75.9484283290152,
+            "ema50": 262.8269609744873,
+            "ema100": 269.4072558877581,
+            "ema200": 274.57814045372095,
+            "rsi14": 38.884954693650634,
+            "distance_ema200": -9.268086822814702,
+            "distance_ema100": -7.526618323971979,
+            "distance_ema50": -5.211398755935415,
+            "ema200_slope_pct": -0.09305991908258315,
+            "ema200_24h_slope_pct": -0.4513166057505291,
+            "return24": -2.956528513555634,
+            "ema50_slope_pct": -0.21225865758752738,
+            "pullback20_pct": 20.387946186048,
+            "atr14": 6.657225875810554,
+            "atr_percentile": 24.444444444444443,
+            "atr_expansion_ratio": 0.9985921926878419,
+            "consecutive_bearish_candles": 1,
+            "bullish_candle": 0.0,
+            "rsi_recovery": 0.0,
+            "macd_hist_improving": 0.0
+          }
         },
         {
           "entry_time": "2026-06-02T16:00:00Z",
@@ -421,7 +2367,30 @@
           "pnl": 37.50402239999982,
           "hours": 16,
           "safety_orders": 5,
-          "capital": 1632.3839999999996
+          "capital": 1632.3839999999996,
+          "entry_signal": {
+            "regime": "Low",
+            "rv": 76.07025735888472,
+            "ema50": 259.2139359857902,
+            "ema100": 266.5040141309067,
+            "ema200": 272.6760709600109,
+            "rsi14": 34.30452891547506,
+            "distance_ema200": -12.174178263291491,
+            "distance_ema100": -10.14019027782167,
+            "distance_ema50": -7.6129919137032935,
+            "ema200_slope_pct": -0.12220402941613973,
+            "ema200_24h_slope_pct": -0.5127373403272406,
+            "return24": -3.361446269319246,
+            "ema50_slope_pct": -0.3097717964037572,
+            "pullback20_pct": 21.692498855535934,
+            "atr14": 7.417812951226275,
+            "atr_percentile": 42.77777777777778,
+            "atr_expansion_ratio": 1.1339292046513365,
+            "consecutive_bearish_candles": 3,
+            "bullish_candle": 0.0,
+            "rsi_recovery": 0.0,
+            "macd_hist_improving": 0.0
+          }
         },
         {
           "entry_time": "2026-06-03T08:00:00Z",
@@ -430,7 +2399,30 @@
           "pnl": 79.02188390399964,
           "hours": 240,
           "safety_orders": 7,
-          "capital": 3439.472639999999
+          "capital": 3439.472639999999,
+          "entry_signal": {
+            "regime": "Low",
+            "rv": 83.34878799474264,
+            "ema50": 254.8756161309649,
+            "ema100": 263.68913749480225,
+            "ema200": 270.99887959294244,
+            "rsi14": 40.099644649358105,
+            "distance_ema200": -13.084511510233533,
+            "distance_ema100": -10.675122138983495,
+            "distance_ema50": -7.586295003218158,
+            "ema200_slope_pct": -0.13132992593927195,
+            "ema200_24h_slope_pct": -0.8278070686339678,
+            "return24": -5.52324415386467,
+            "ema50_slope_pct": -0.3086888553473166,
+            "pullback20_pct": 22.980838401674188,
+            "atr14": 9.119069546542422,
+            "atr_percentile": 87.22222222222223,
+            "atr_expansion_ratio": 1.2931579799042163,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
         },
         {
           "entry_time": "2026-06-16T04:00:00Z",
@@ -439,7 +2431,30 @@
           "pnl": 2.2974999999999857,
           "hours": 4,
           "safety_orders": 0,
-          "capital": 100.0
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 106.7499703157537,
+            "ema50": 241.2504460029437,
+            "ema100": 238.31895015682161,
+            "ema200": 247.26235427134532,
+            "rsi14": 57.74488636144563,
+            "distance_ema200": 6.344534644137156,
+            "distance_ema100": 10.335329954655448,
+            "distance_ema50": 8.994617152662808,
+            "ema200_slope_pct": 0.06380485191026519,
+            "ema200_24h_slope_pct": 0.6209275130873326,
+            "return24": -4.821370398523184,
+            "ema50_slope_pct": 0.368480021218609,
+            "pullback20_pct": 6.136217605482974,
+            "atr14": 12.74421881667944,
+            "atr_percentile": 97.77777777777777,
+            "atr_expansion_ratio": 1.0609231190152921,
+            "consecutive_bearish_candles": 5,
+            "bullish_candle": 0.0,
+            "rsi_recovery": 0.0,
+            "macd_hist_improving": 0.0
+          }
         },
         {
           "entry_time": "2026-06-16T12:00:00Z",
@@ -448,7 +2463,30 @@
           "pnl": 5.9735000000000005,
           "hours": 16,
           "safety_orders": 1,
-          "capital": 260.0
+          "capital": 260.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 107.57236270471,
+            "ema50": 243.20205338449358,
+            "ema100": 239.43017846162226,
+            "ema200": 247.6466847726429,
+            "rsi14": 56.9224801553276,
+            "distance_ema200": 6.599448420786014,
+            "distance_ema100": 10.257613178162671,
+            "distance_ema50": 8.547603248497836,
+            "ema200_slope_pct": 0.0663701355140267,
+            "ema200_24h_slope_pct": 0.5022511168278676,
+            "return24": -5.471407598381484,
+            "ema50_slope_pct": 0.35010321150930057,
+            "pullback20_pct": 5.764974655529375,
+            "atr14": 12.229709081728702,
+            "atr_percentile": 96.11111111111111,
+            "atr_expansion_ratio": 0.8939601229893211,
+            "consecutive_bearish_candles": 1,
+            "bullish_candle": 0.0,
+            "rsi_recovery": 0.0,
+            "macd_hist_improving": 0.0
+          }
         },
         {
           "entry_time": "2026-06-17T08:00:00Z",
@@ -457,11 +2495,98 @@
           "pnl": 36.322555999999665,
           "hours": 368,
           "safety_orders": 4,
-          "capital": 1580.9600000000003
+          "capital": 1580.9600000000003,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 107.82397493295318,
+            "ema50": 245.4039278272306,
+            "ema100": 240.94197551115505,
+            "ema200": 248.01995199834997,
+            "rsi14": 50.11828639754164,
+            "distance_ema200": 2.8586603394299637,
+            "distance_ema100": 5.880264100428212,
+            "distance_ema50": 3.955141329116252,
+            "ema200_slope_pct": 0.0287385113151295,
+            "ema200_24h_slope_pct": 0.2171958830961218,
+            "return24": -5.29734946915138,
+            "ema50_slope_pct": 0.1616953718201808,
+            "pullback20_pct": 8.934818305133142,
+            "atr14": 11.122157200277963,
+            "atr_percentile": 90.0,
+            "atr_expansion_ratio": 0.8841903307242017,
+            "consecutive_bearish_candles": 2,
+            "bullish_candle": 0.0,
+            "rsi_recovery": 0.0,
+            "macd_hist_improving": 1.0
+          }
+        },
+        {
+          "entry_time": "2026-07-14T08:00:00Z",
+          "exit_time": "2026-07-14T12:00:00Z",
+          "regime": "Low",
+          "pnl": 5.513999999999972,
+          "hours": 8,
+          "safety_orders": 1,
+          "capital": 240.0,
+          "entry_signal": {
+            "regime": "Low",
+            "rv": 63.21106550247393,
+            "ema50": 208.81266177409188,
+            "ema100": 211.78168317535594,
+            "ema200": 219.61156103314627,
+            "rsi14": 29.579319581336065,
+            "distance_ema200": -9.877240037409663,
+            "distance_ema100": -6.545270094901657,
+            "distance_ema50": -5.216475706763579,
+            "ema200_slope_pct": -0.09917029898424135,
+            "ema200_24h_slope_pct": -0.5051868039514962,
+            "return24": -4.69494871671402,
+            "ema50_slope_pct": -0.21246500088193399,
+            "pullback20_pct": 11.17493941297909,
+            "atr14": 4.0813211674608025,
+            "atr_percentile": 6.666666666666667,
+            "atr_expansion_ratio": 1.00316405066223,
+            "consecutive_bearish_candles": 6,
+            "bullish_candle": 0.0,
+            "rsi_recovery": 0.0,
+            "macd_hist_improving": 0.0
+          }
+        },
+        {
+          "entry_time": "2026-07-16T20:00:00Z",
+          "exit_time": "2026-07-18T16:00:00Z",
+          "regime": "Low",
+          "pnl": 10.017099999999921,
+          "hours": 48,
+          "safety_orders": 2,
+          "capital": 436.0,
+          "entry_signal": {
+            "regime": "Low",
+            "rv": 58.52701932434066,
+            "ema50": 204.10640468863227,
+            "ema100": 208.3438227918468,
+            "ema200": 216.68271033313727,
+            "rsi14": 35.973733360752576,
+            "distance_ema200": -10.62046450210843,
+            "distance_ema100": -7.043080325211859,
+            "distance_ema50": -5.1132176398644535,
+            "ema200_slope_pct": -0.1066245274574773,
+            "ema200_24h_slope_pct": -0.5410796548543262,
+            "return24": -1.9888663967611353,
+            "ema50_slope_pct": -0.20826809953716774,
+            "pullback20_pct": 10.862061030054782,
+            "atr14": 4.307496361802868,
+            "atr_percentile": 16.11111111111111,
+            "atr_expansion_ratio": 0.9622466800785082,
+            "consecutive_bearish_candles": 1,
+            "bullish_candle": 0.0,
+            "rsi_recovery": 0.0,
+            "macd_hist_improving": 0.0
+          }
         }
       ],
       "intelligence": {
-        "opportunity_score": 23,
+        "opportunity_score": 45,
         "action": "WAIT",
         "confidence_label": "Low",
         "explanation": [
@@ -471,11 +2596,11 @@
           "RSI is within a balanced entry zone"
         ],
         "cautions": [
-          "RSI is above the allowed maximum",
+          "Price is too far above EMA50",
           "Recent drawdown is elevated"
         ],
         "score_components": {
-          "strategy_health_weight": 27.5,
+          "strategy_health_weight": 49.5,
           "entry_permission": -20,
           "regime_bonus": 6,
           "recent_pnl_positive": true,
@@ -483,6 +2608,8 @@
         },
         "note": "Opportunity score is a transparent ranking aid, not a probability of profit or financial advice."
       },
+      "experiment": null,
+      "evolution": null,
       "sync": {
         "new_candles": 0,
         "error": null,
@@ -555,41 +2682,497 @@
       "display_name": "SUI",
       "symbol": "SUI-USDT",
       "production_status": "research",
-      "candles": 0,
-      "net_pnl": 0,
-      "realised_pnl": 0,
-      "open_pnl": 0,
-      "max_theoretical_capital": 0,
-      "closed_deals": 0,
-      "open_position": null,
+      "history_start": "2026-02-17T00:00:00Z",
+      "history_end": "2026-08-03T00:00:00Z",
+      "candles": 1003,
+      "net_pnl": -1178.7893662560398,
+      "realised_pnl": 93.67662022399931,
+      "open_pnl": -1272.4659864800392,
+      "return_on_max_capital_pct": -27.36751491844926,
+      "maximum_drawdown_dollars": -1338.437101252311,
+      "maximum_drawdown_pct_of_capital": -31.073997089292053,
+      "max_theoretical_capital": 4307.257600000001,
+      "closed_deals": 15,
+      "average_trade_hours": 19.466666666666665,
+      "longest_trade_hours": 152,
+      "skipped_entry_candles": 260,
+      "open_position": {
+        "entry_time": "2026-05-26T12:00:00Z",
+        "regime": "Medium",
+        "hours_open": 1648,
+        "safety_orders": 6,
+        "capital": 4307.257600000001,
+        "average_entry": 0.9718489724340317,
+        "target": 0.981567462158372,
+        "last_close": 0.6864,
+        "open_pnl": -1272.4659864800392,
+        "required_rise_pct": 43.002252645450454,
+        "entry_signal": {
+          "regime": "Medium",
+          "rv": 106.66754043225343,
+          "ema50": 1.0633947636921732,
+          "ema100": 1.0680579103643382,
+          "ema200": 1.0443207630345759,
+          "rsi14": 47.79149210791385,
+          "distance_ema200": -0.04986619561815342,
+          "distance_ema100": -2.271216769141593,
+          "distance_ema50": -1.8426612920435015,
+          "ema200_slope_pct": -0.0005011652834729929,
+          "ema200_24h_slope_pct": -0.016876627170503422,
+          "return24": -0.019157088122601085,
+          "ema50_slope_pct": -0.07515414105212503,
+          "pullback20_pct": 24.602715978041022,
+          "atr14": 0.02695476684059438,
+          "atr_percentile": 43.888888888888886,
+          "atr_expansion_ratio": 0.9265231223899225,
+          "consecutive_bearish_candles": 0,
+          "bullish_candle": 1.0,
+          "rsi_recovery": 1.0,
+          "macd_hist_improving": 1.0
+        }
+      },
       "health": {
-        "score": 0,
+        "score": 44,
         "status": "Review",
         "flags": [
-          "Waiting for first KuCoin sync"
+          "Recent drawdown reached -31.1% of capital",
+          "Open replay position is -29.5% of capital underwater",
+          "Open replay position has lasted 68.7 days"
         ],
-        "positives": []
+        "positives": [
+          "Market data is current",
+          "Recent 90-day realised P&L is positive",
+          "Recent trade duration is consistent with history"
+        ],
+        "recent_window_days": 90,
+        "recent_closed_deals": 15,
+        "recent_realised_pnl": 93.6766202239993,
+        "recent_average_trade_hours": 19.466666666666665,
+        "recent_longest_trade_hours": 152.0,
+        "recent_max_drawdown_dollars": -1338.437101252311,
+        "recent_max_drawdown_pct_of_capital": -31.073997089292053,
+        "open_loss_pct_of_capital": -29.542370219047008,
+        "open_hours": 1648.0,
+        "data_age_hours": 6.872888382805718,
+        "historical_average_trade_hours": 19.466666666666665,
+        "historical_longest_trade_hours": 152,
+        "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
       },
       "latest": {
+        "regime": "Low",
+        "rv": 44.41482417158885,
+        "ema50": 0.6963602592273569,
+        "ema100": 0.7097097701331565,
+        "ema200": 0.7267681271927016,
+        "rsi14": 47.86263742801055,
+        "distance_ema200": -5.554471320671716,
+        "distance_ema100": -3.2844087983716297,
+        "distance_ema50": -1.4303313687671126,
+        "ema200_slope_pct": -0.05579268675263149,
+        "ema200_24h_slope_pct": -0.31854128439806617,
+        "return24": -0.44960116026105945,
+        "ema50_slope_pct": -0.05834680881868781,
+        "pullback20_pct": 11.694326514859121,
+        "atr14": 0.008586328343709556,
+        "atr_percentile": 1.1111111111111112,
+        "atr_expansion_ratio": 0.8914834895753883,
+        "consecutive_bearish_candles": 2,
+        "bullish_candle": 0.0,
+        "rsi_recovery": 0.0,
+        "macd_hist_improving": 0.0,
         "entry_allowed": false,
-        "entry_reason": "Waiting for first KuCoin sync",
-        "recommended_bot": null
+        "entry_reason": "EMA50 is falling faster than the allowed limit",
+        "recommended_bot": "SUI Low Research Bot",
+        "bot_settings": {
+          "name": "SUI Low Research Bot",
+          "take_profit_pct": 2.5,
+          "so_deviation_pct": 4.0,
+          "safety_orders": 6,
+          "volume_scale": 1.6,
+          "step_scale": 1.2
+        },
+        "last_close": 0.6864,
+        "last_candle": "2026-08-03T00:00:00Z"
       },
-      "sync": {
-        "new_candles": 0,
-        "error": null,
-        "source": "KuCoin public spot candles API"
+      "recent_deals": [
+        {
+          "entry_time": "2026-05-21T16:00:00Z",
+          "exit_time": "2026-05-21T16:00:00Z",
+          "regime": "Medium",
+          "pnl": 0.799,
+          "hours": 4,
+          "safety_orders": 0,
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 101.26828955299054,
+            "ema50": 1.0907222584393863,
+            "ema100": 1.0792210303472587,
+            "ema200": 1.0405593440253702,
+            "rsi14": 55.88324395640489,
+            "distance_ema200": 6.596515265443248,
+            "distance_ema100": 2.777834086785269,
+            "distance_ema50": 1.6940831103100296,
+            "ema200_slope_pct": 0.06634061743113762,
+            "ema200_24h_slope_pct": 0.36077691510882914,
+            "return24": 3.4122692522841724,
+            "ema50_slope_pct": 0.0691940945215963,
+            "pullback20_pct": 19.878647789656178,
+            "atr14": 0.03401987371366647,
+            "atr_percentile": 79.44444444444444,
+            "atr_expansion_ratio": 1.1812063884624042,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 0.0
+          }
+        },
+        {
+          "entry_time": "2026-05-21T20:00:00Z",
+          "exit_time": "2026-05-22T04:00:00Z",
+          "regime": "Medium",
+          "pnl": 7.395543999999973,
+          "hours": 12,
+          "safety_orders": 3,
+          "capital": 925.6000000000001,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 102.2763012916163,
+            "ema50": 1.0930037385005869,
+            "ema100": 1.0806008119245407,
+            "ema200": 1.0416373605027298,
+            "rsi14": 62.48382267575123,
+            "distance_ema200": 10.29750310083939,
+            "distance_ema100": 6.320482764936952,
+            "distance_ema50": 5.114004603140088,
+            "ema200_slope_pct": 0.1035997114003484,
+            "ema200_24h_slope_pct": 0.42804774106404153,
+            "return24": 6.884361335938238,
+            "ema50_slope_pct": 0.20917149563490778,
+            "pullback20_pct": 17.010979485697774,
+            "atr14": 0.03588988273411887,
+            "atr_percentile": 82.77777777777777,
+            "atr_expansion_ratio": 1.2778292738739265,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
+        },
+        {
+          "entry_time": "2026-05-22T08:00:00Z",
+          "exit_time": "2026-05-22T08:00:00Z",
+          "regime": "Medium",
+          "pnl": 0.799,
+          "hours": 4,
+          "safety_orders": 0,
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 102.96367587084356,
+            "ema50": 1.095101828337936,
+            "ema100": 1.082411608849812,
+            "ema200": 1.0437099245906123,
+            "rsi14": 52.27885354348826,
+            "distance_ema200": 5.671123174631543,
+            "distance_ema100": 1.8928465828225383,
+            "distance_ema50": 0.7120955750662628,
+            "ema200_slope_pct": 0.05702871701926959,
+            "ema200_24h_slope_pct": 0.4146710096473827,
+            "return24": -0.8896477354421339,
+            "ema50_slope_pct": 0.029073575784188677,
+            "pullback20_pct": 20.333718578445538,
+            "atr14": 0.03586824794710613,
+            "atr_percentile": 81.11111111111111,
+            "atr_expansion_ratio": 1.1321677374833188,
+            "consecutive_bearish_candles": 3,
+            "bullish_candle": 0.0,
+            "rsi_recovery": 0.0,
+            "macd_hist_improving": 0.0
+          }
+        },
+        {
+          "entry_time": "2026-05-22T12:00:00Z",
+          "exit_time": "2026-05-23T12:00:00Z",
+          "regime": "Medium",
+          "pnl": 34.41498822399957,
+          "hours": 28,
+          "safety_orders": 6,
+          "capital": 4307.257600000001,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 102.98064566492778,
+            "ema50": 1.0956899919325267,
+            "ema100": 1.0829598938230829,
+            "ema200": 1.04437052235588,
+            "rsi14": 53.692904857019464,
+            "distance_ema200": 6.293693304924797,
+            "distance_ema100": 2.5061044579505865,
+            "distance_ema50": 1.3151537545814218,
+            "ema200_slope_pct": 0.06329323403979625,
+            "ema200_24h_slope_pct": 0.4328460658366451,
+            "return24": 2.1627093686729326,
+            "ema50_slope_pct": 0.05370857571149745,
+            "pullback20_pct": 19.81363767697197,
+            "atr14": 0.03538480166516998,
+            "atr_percentile": 80.55555555555556,
+            "atr_expansion_ratio": 1.079619626417736,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 0.0
+          }
+        },
+        {
+          "entry_time": "2026-05-23T20:00:00Z",
+          "exit_time": "2026-05-23T20:00:00Z",
+          "regime": "Medium",
+          "pnl": 0.7989999999999858,
+          "hours": 4,
+          "safety_orders": 0,
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 107.63293020760096,
+            "ema50": 1.0807854060696909,
+            "ema100": 1.0768916952749465,
+            "ema200": 1.0442083313848902,
+            "rsi14": 47.13652477112722,
+            "distance_ema200": 1.052631767506762,
+            "distance_ema100": -2.014287543503468,
+            "distance_ema50": -2.3672975158623877,
+            "ema200_slope_pct": 0.010580333059850844,
+            "ema200_24h_slope_pct": -0.07838166531564106,
+            "return24": -0.15140045420136694,
+            "ema50_slope_pct": -0.09653111580228968,
+            "pullback20_pct": 23.779254550707897,
+            "atr14": 0.035641605693321476,
+            "atr_percentile": 77.77777777777777,
+            "atr_expansion_ratio": 0.9573551202563261,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
+        },
+        {
+          "entry_time": "2026-05-24T00:00:00Z",
+          "exit_time": "2026-05-25T04:00:00Z",
+          "regime": "Medium",
+          "pnl": 7.395544000000086,
+          "hours": 32,
+          "safety_orders": 3,
+          "capital": 925.6000000000001,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 107.68135944323294,
+            "ema50": 1.0802526450473502,
+            "ema100": 1.0766997805170269,
+            "ema200": 1.0444371042069311,
+            "rsi14": 49.53570068855372,
+            "distance_ema200": 2.179441509822011,
+            "distance_ema100": -0.8823054196653746,
+            "distance_ema50": -1.2082955878139123,
+            "ema200_slope_pct": 0.02190873364680268,
+            "ema200_24h_slope_pct": -0.059033283767639944,
+            "return24": 1.861219814832471,
+            "ema50_slope_pct": -0.04929387641142702,
+            "pullback20_pct": 22.912453048251958,
+            "atr14": 0.03665291957236995,
+            "atr_percentile": 81.66666666666667,
+            "atr_expansion_ratio": 1.0069875656278744,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
+        },
+        {
+          "entry_time": "2026-05-25T08:00:00Z",
+          "exit_time": "2026-05-25T12:00:00Z",
+          "regime": "Medium",
+          "pnl": 0.799,
+          "hours": 8,
+          "safety_orders": 0,
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 107.76761292020281,
+            "ema50": 1.0704566949966212,
+            "ema100": 1.0720147891989864,
+            "ema200": 1.0445020342715248,
+            "rsi14": 45.57247888909426,
+            "distance_ema200": -0.3735784271828857,
+            "distance_ema100": -2.9304436389781197,
+            "distance_ema50": -2.789154865971999,
+            "ema200_slope_pct": -0.003754416095402835,
+            "ema200_24h_slope_pct": -0.02325460696444015,
+            "return24": -1.5608740894901052,
+            "ema50_slope_pct": -0.11371360071608105,
+            "pullback20_pct": 24.833863045362612,
+            "atr14": 0.03033795244069376,
+            "atr_percentile": 62.77777777777778,
+            "atr_expansion_ratio": 0.897593774094634,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
+        },
+        {
+          "entry_time": "2026-05-25T16:00:00Z",
+          "exit_time": "2026-05-25T16:00:00Z",
+          "regime": "Medium",
+          "pnl": 0.799,
+          "hours": 4,
+          "safety_orders": 0,
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 107.675278944547,
+            "ema50": 1.0686537196028019,
+            "ema100": 1.0710331093950853,
+            "ema200": 1.044550799712548,
+            "rsi14": 48.15965566134161,
+            "distance_ema200": 0.5121053268949627,
+            "distance_ema100": -1.9731518297339212,
+            "distance_ema50": -1.7548920907487386,
+            "ema200_slope_pct": 0.0051470521128083035,
+            "ema200_24h_slope_pct": -0.03706394353797382,
+            "return24": 0.5651340996168708,
+            "ema50_slope_pct": -0.07157697926533091,
+            "pullback20_pct": 24.16209188095926,
+            "atr14": 0.028328642665700236,
+            "atr_percentile": 51.666666666666664,
+            "atr_expansion_ratio": 0.8690223336529542,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
+        },
+        {
+          "entry_time": "2026-05-25T20:00:00Z",
+          "exit_time": "2026-05-26T04:00:00Z",
+          "regime": "Medium",
+          "pnl": 4.122839999999968,
+          "hours": 12,
+          "safety_orders": 2,
+          "capital": 516.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 107.68759386500793,
+            "ema50": 1.0681222011870057,
+            "ema100": 1.0707176022783509,
+            "ema200": 1.0446557668795875,
+            "rsi14": 49.639759394610294,
+            "distance_ema200": 0.9997774818789829,
+            "distance_ema100": -1.4586107714227081,
+            "distance_ema50": -1.219167729360393,
+            "ema200_slope_pct": 0.010049024620761848,
+            "ema200_24h_slope_pct": -0.021746231692343354,
+            "return24": 1.5104868193188237,
+            "ema50_slope_pct": -0.049737197938515276,
+            "pullback20_pct": 23.7864778965617,
+            "atr14": 0.027419453903864494,
+            "atr_percentile": 48.333333333333336,
+            "atr_expansion_ratio": 0.8796789683794295,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 1.0
+          }
+        },
+        {
+          "entry_time": "2026-05-26T08:00:00Z",
+          "exit_time": "2026-05-26T08:00:00Z",
+          "regime": "Medium",
+          "pnl": 0.799,
+          "hours": 4,
+          "safety_orders": 0,
+          "capital": 100.0,
+          "entry_signal": {
+            "regime": "Medium",
+            "rv": 107.6942574296342,
+            "ema50": 1.0641945499653231,
+            "ema100": 1.0685479691595774,
+            "ema200": 1.0443259968339182,
+            "rsi14": 44.31564143612109,
+            "distance_ema200": -1.1228291615327013,
+            "distance_ema100": -3.3641886183032876,
+            "distance_ema50": -2.9688697396874186,
+            "ema200_slope_pct": -0.011283441887000034,
+            "ema200_24h_slope_pct": -0.01685371898095811,
+            "return24": -0.7687872381318517,
+            "ema50_slope_pct": -0.12103169250583523,
+            "pullback20_pct": 25.41173071366658,
+            "atr14": 0.027158979674486255,
+            "atr_percentile": 45.55555555555556,
+            "atr_expansion_ratio": 0.895214656545397,
+            "consecutive_bearish_candles": 0,
+            "bullish_candle": 1.0,
+            "rsi_recovery": 1.0,
+            "macd_hist_improving": 0.0
+          }
+        }
+      ],
+      "intelligence": {
+        "opportunity_score": null,
+        "action": "RESEARCH ONLY",
+        "confidence_label": "Not applicable",
+        "explanation": [
+          "Excluded from production ranking"
+        ],
+        "cautions": [
+          "Forward validation is still in progress"
+        ],
+        "note": "Research assets cannot generate live recommendations."
       },
       "research": {
         "mode": "research",
         "label": "Research only \u2014 not approved for live trading",
         "forward_test_start": "2026-04-01T00:00:00Z",
-        "forward_days": 0,
-        "forward_candles": 0,
-        "promotion_status": "WAITING FOR FIRST KUCOIN SYNC",
+        "forward_days": 124.16666666666667,
+        "forward_candles": 745,
+        "promotion_status": "FAIL \u2014 review risk",
         "all_gates_pass": false,
-        "checks": {},
+        "checks": {
+          "minimum_forward_days": true,
+          "minimum_forward_candles": true,
+          "positive_net_pnl": false,
+          "maximum_drawdown": true,
+          "maximum_effective_trade_days": false,
+          "profitable_windows": false
+        },
         "profitable_windows": 0,
+        "evaluation_windows": [
+          {
+            "start": "2026-04-01T00:00:00Z",
+            "end": "2026-05-01T00:00:00Z",
+            "equity_change": 0.0
+          },
+          {
+            "start": "2026-05-01T00:00:00Z",
+            "end": "2026-05-31T00:00:00Z",
+            "equity_change": -195.8640320651432
+          },
+          {
+            "start": "2026-05-31T00:00:00Z",
+            "end": "2026-06-30T00:00:00Z",
+            "equity_change": -941.3059731936244
+          },
+          {
+            "start": "2026-06-30T00:00:00Z",
+            "end": "2026-07-30T00:00:00Z",
+            "equity_change": -39.84832435909016
+          },
+          {
+            "start": "2026-07-30T00:00:00Z",
+            "end": "2026-08-03T00:00:00Z",
+            "equity_change": -7.526905712272992
+          }
+        ],
+        "effective_longest_trade_hours": 1648.0,
         "gates": {
           "minimum_forward_days": 90,
           "minimum_forward_candles": 540,
@@ -598,11 +3181,549 @@
           "maximum_effective_trade_days": 30.0,
           "evaluation_window_days": 30,
           "minimum_profitable_windows": 3
-        }
+        },
+        "research_basis": {
+          "training_source": "Kraken SUI/USD 4-hour candles, 2024-01-01 to 2025-12-31",
+          "diagnostic_source": "Kraken Q1 2026 trade data aggregated to 4-hour candles",
+          "candidate_amendment": "Low-regime EMA50 one-candle slope must be at least -0.02%",
+          "note": "KuCoin forward results are kept separate from Kraken research and are not merged into one P&L series."
+        },
+        "note": "Passing gates does not enable live trading. Promotion must be reviewed and approved manually."
       },
-      "intelligence": {
-        "opportunity_score": null,
-        "action": "RESEARCH ONLY"
+      "experiment": {
+        "status": "STRONGEST CANDIDATE \u2014 MANUAL REVIEW",
+        "evaluation_mode": "post_hoc_ranked_diagnostic",
+        "baseline_id": "SUI-A",
+        "failed_gates": [
+          "positive_net_pnl",
+          "maximum_effective_trade_days",
+          "profitable_windows"
+        ],
+        "problem_regime": "Medium",
+        "generated_automatically": true,
+        "diagnosis": [
+          "Candidate A has an unresolved Medium trade lasting 68.7 days.",
+          "At entry: price vs EMA50 -1.84%, price vs EMA200 -0.05%, EMA200 slope -0.0005%, ATR ratio 0.927, bearish candles 0.",
+          "Five one-variable hypotheses were applied to the actual problem regime (Medium) and ranked using profit, duration, drawdown, trade retention, and whether the problem trade changed."
+        ],
+        "baseline_metrics": {
+          "net_pnl": -1178.7893662560398,
+          "realised_pnl": 93.67662022399931,
+          "open_pnl": -1272.4659864800392,
+          "return_on_max_capital_pct": -27.36751491844926,
+          "maximum_drawdown_pct_of_capital": -31.073997089292053,
+          "closed_deals": 15,
+          "average_trade_hours": 19.466666666666665,
+          "longest_completed_trade_hours": 152.0,
+          "effective_longest_trade_hours": 1648.0,
+          "profitable_windows": 0,
+          "open_position": {
+            "entry_time": "2026-05-26T12:00:00Z",
+            "regime": "Medium",
+            "hours_open": 1648,
+            "safety_orders": 6,
+            "capital": 4307.257600000001,
+            "average_entry": 0.9718489724340317,
+            "target": 0.981567462158372,
+            "last_close": 0.6864,
+            "open_pnl": -1272.4659864800392,
+            "required_rise_pct": 43.002252645450454,
+            "entry_signal": {
+              "regime": "Medium",
+              "rv": 106.66754043225343,
+              "ema50": 1.0633947636921732,
+              "ema100": 1.0680579103643382,
+              "ema200": 1.0443207630345759,
+              "rsi14": 47.79149210791385,
+              "distance_ema200": -0.04986619561815342,
+              "distance_ema100": -2.271216769141593,
+              "distance_ema50": -1.8426612920435015,
+              "ema200_slope_pct": -0.0005011652834729929,
+              "ema200_24h_slope_pct": -0.016876627170503422,
+              "return24": -0.019157088122601085,
+              "ema50_slope_pct": -0.07515414105212503,
+              "pullback20_pct": 24.602715978041022,
+              "atr14": 0.02695476684059438,
+              "atr_percentile": 43.888888888888886,
+              "atr_expansion_ratio": 0.9265231223899225,
+              "consecutive_bearish_candles": 0,
+              "bullish_candle": 1.0,
+              "rsi_recovery": 1.0,
+              "macd_hist_improving": 1.0
+            }
+          }
+        },
+        "candidates": [
+          {
+            "candidate_id": "SUI-B",
+            "candidate_name": "Structural Price Filter",
+            "hypothesis": "Require the problem-regime entry price to be at or above EMA200.",
+            "amendment": {
+              "regime": "Medium",
+              "field": "min_distance_from_ema200_pct",
+              "value": 0.0,
+              "human_rule": "Medium entry requires close at or above EMA200"
+            },
+            "metrics": {
+              "net_pnl": 98.97112022399926,
+              "realised_pnl": 98.97112022399926,
+              "open_pnl": 0.0,
+              "return_on_max_capital_pct": 2.2977757407404478,
+              "maximum_drawdown_pct_of_capital": -3.8500915383416516,
+              "closed_deals": 16,
+              "average_trade_hours": 21.0,
+              "longest_completed_trade_hours": 152.0,
+              "effective_longest_trade_hours": 152.0,
+              "profitable_windows": 3,
+              "open_position": null
+            },
+            "comparison": {
+              "net_pnl_improvement": 1277.7604864800392,
+              "effective_longest_trade_reduction_hours": 1496.0,
+              "maximum_drawdown_change_pct_points": 27.223905550950402,
+              "blocked_or_replaced_current_problem_trade": true,
+              "baseline_closed_deals": 15,
+              "candidate_closed_deals": 16,
+              "closed_deal_count_change": 1,
+              "closed_deal_count_ratio_pct": 106.66666666666667,
+              "closed_deal_retained_share_pct": 100.0,
+              "diagnostic_pass": true
+            },
+            "rank_score": 72.233,
+            "rank": 1
+          },
+          {
+            "candidate_id": "SUI-C",
+            "candidate_name": "Long-Trend Slope Filter",
+            "hypothesis": "Require EMA200 to be flat or rising before a problem-regime entry.",
+            "amendment": {
+              "regime": "Medium",
+              "field": "min_ema200_slope_pct",
+              "value": 0.0,
+              "human_rule": "Medium entry requires EMA200 slope at least 0% per candle"
+            },
+            "metrics": {
+              "net_pnl": 98.97112022399926,
+              "realised_pnl": 98.97112022399926,
+              "open_pnl": 0.0,
+              "return_on_max_capital_pct": 2.2977757407404478,
+              "maximum_drawdown_pct_of_capital": -3.8500915383416516,
+              "closed_deals": 16,
+              "average_trade_hours": 21.0,
+              "longest_completed_trade_hours": 152.0,
+              "effective_longest_trade_hours": 152.0,
+              "profitable_windows": 3,
+              "open_position": null
+            },
+            "comparison": {
+              "net_pnl_improvement": 1277.7604864800392,
+              "effective_longest_trade_reduction_hours": 1496.0,
+              "maximum_drawdown_change_pct_points": 27.223905550950402,
+              "blocked_or_replaced_current_problem_trade": true,
+              "baseline_closed_deals": 15,
+              "candidate_closed_deals": 16,
+              "closed_deal_count_change": 1,
+              "closed_deal_count_ratio_pct": 106.66666666666667,
+              "closed_deal_retained_share_pct": 100.0,
+              "diagnostic_pass": true
+            },
+            "rank_score": 72.233,
+            "rank": 2
+          },
+          {
+            "candidate_id": "SUI-F",
+            "candidate_name": "EMA50 Recovery Filter",
+            "hypothesis": "Require price to recover to EMA50 before entering the problem regime.",
+            "amendment": {
+              "regime": "Medium",
+              "field": "min_distance_from_ema50_pct",
+              "value": 0.0,
+              "human_rule": "Medium entry requires close at or above EMA50"
+            },
+            "metrics": {
+              "net_pnl": 85.85473622399921,
+              "realised_pnl": 85.85473622399921,
+              "open_pnl": 0.0,
+              "return_on_max_capital_pct": 1.9932575247879114,
+              "maximum_drawdown_pct_of_capital": -3.8500915383416516,
+              "closed_deals": 12,
+              "average_trade_hours": 23.666666666666668,
+              "longest_completed_trade_hours": 152.0,
+              "effective_longest_trade_hours": 152.0,
+              "profitable_windows": 3,
+              "open_position": null
+            },
+            "comparison": {
+              "net_pnl_improvement": 1264.644102480039,
+              "effective_longest_trade_reduction_hours": 1496.0,
+              "maximum_drawdown_change_pct_points": 27.223905550950402,
+              "blocked_or_replaced_current_problem_trade": true,
+              "baseline_closed_deals": 15,
+              "candidate_closed_deals": 12,
+              "closed_deal_count_change": -3,
+              "closed_deal_count_ratio_pct": 80.0,
+              "closed_deal_retained_share_pct": 80.0,
+              "diagnostic_pass": true
+            },
+            "rank_score": 72.233,
+            "rank": 3
+          },
+          {
+            "candidate_id": "SUI-E",
+            "candidate_name": "Bearish Sequence Filter",
+            "hypothesis": "Avoid entries after three or more consecutive bearish candles.",
+            "amendment": {
+              "regime": "Medium",
+              "field": "max_consecutive_bearish_candles",
+              "value": 2,
+              "human_rule": "Medium entry allows at most two consecutive bearish candles"
+            },
+            "metrics": {
+              "net_pnl": -1179.58836625604,
+              "realised_pnl": 92.87762022399932,
+              "open_pnl": -1272.4659864800392,
+              "return_on_max_capital_pct": -27.386065004703685,
+              "maximum_drawdown_pct_of_capital": -31.073997089292053,
+              "closed_deals": 14,
+              "average_trade_hours": 20.571428571428573,
+              "longest_completed_trade_hours": 152.0,
+              "effective_longest_trade_hours": 1648.0,
+              "profitable_windows": 0,
+              "open_position": {
+                "entry_time": "2026-05-26T12:00:00Z",
+                "regime": "Medium",
+                "hours_open": 1648,
+                "safety_orders": 6,
+                "capital": 4307.257600000001,
+                "average_entry": 0.9718489724340317,
+                "target": 0.981567462158372,
+                "last_close": 0.6864,
+                "open_pnl": -1272.4659864800392,
+                "required_rise_pct": 43.002252645450454,
+                "entry_signal": {
+                  "regime": "Medium",
+                  "rv": 106.66754043225343,
+                  "ema50": 1.0633947636921732,
+                  "ema100": 1.0680579103643382,
+                  "ema200": 1.0443207630345759,
+                  "rsi14": 47.79149210791385,
+                  "distance_ema200": -0.04986619561815342,
+                  "distance_ema100": -2.271216769141593,
+                  "distance_ema50": -1.8426612920435015,
+                  "ema200_slope_pct": -0.0005011652834729929,
+                  "ema200_24h_slope_pct": -0.016876627170503422,
+                  "return24": -0.019157088122601085,
+                  "ema50_slope_pct": -0.07515414105212503,
+                  "pullback20_pct": 24.602715978041022,
+                  "atr14": 0.02695476684059438,
+                  "atr_percentile": 43.888888888888886,
+                  "atr_expansion_ratio": 0.9265231223899225,
+                  "consecutive_bearish_candles": 0,
+                  "bullish_candle": 1.0,
+                  "rsi_recovery": 1.0,
+                  "macd_hist_improving": 1.0
+                }
+              }
+            },
+            "comparison": {
+              "net_pnl_improvement": -0.7990000000002055,
+              "effective_longest_trade_reduction_hours": 0.0,
+              "maximum_drawdown_change_pct_points": 0.0,
+              "blocked_or_replaced_current_problem_trade": false,
+              "baseline_closed_deals": 15,
+              "candidate_closed_deals": 14,
+              "closed_deal_count_change": -1,
+              "closed_deal_count_ratio_pct": 93.33333333333333,
+              "closed_deal_retained_share_pct": 93.33333333333333,
+              "diagnostic_pass": false
+            },
+            "rank_score": -5.027,
+            "rank": 4
+          },
+          {
+            "candidate_id": "SUI-D",
+            "candidate_name": "ATR Contraction Filter",
+            "hypothesis": "Avoid entries while short-term volatility is expanding.",
+            "amendment": {
+              "regime": "Medium",
+              "field": "max_atr_expansion_ratio",
+              "value": 1.0,
+              "human_rule": "Medium entry requires ATR(14) no higher than its level 24 hours earlier"
+            },
+            "metrics": {
+              "net_pnl": -1228.7944424800396,
+              "realised_pnl": 43.67154399999967,
+              "open_pnl": -1272.4659864800392,
+              "return_on_max_capital_pct": -28.52846420144547,
+              "maximum_drawdown_pct_of_capital": -31.073997089292053,
+              "closed_deals": 11,
+              "average_trade_hours": 20.363636363636363,
+              "longest_completed_trade_hours": 152.0,
+              "effective_longest_trade_hours": 1648.0,
+              "profitable_windows": 0,
+              "open_position": {
+                "entry_time": "2026-05-26T12:00:00Z",
+                "regime": "Medium",
+                "hours_open": 1648,
+                "safety_orders": 6,
+                "capital": 4307.257600000001,
+                "average_entry": 0.9718489724340317,
+                "target": 0.981567462158372,
+                "last_close": 0.6864,
+                "open_pnl": -1272.4659864800392,
+                "required_rise_pct": 43.002252645450454,
+                "entry_signal": {
+                  "regime": "Medium",
+                  "rv": 106.66754043225343,
+                  "ema50": 1.0633947636921732,
+                  "ema100": 1.0680579103643382,
+                  "ema200": 1.0443207630345759,
+                  "rsi14": 47.79149210791385,
+                  "distance_ema200": -0.04986619561815342,
+                  "distance_ema100": -2.271216769141593,
+                  "distance_ema50": -1.8426612920435015,
+                  "ema200_slope_pct": -0.0005011652834729929,
+                  "ema200_24h_slope_pct": -0.016876627170503422,
+                  "return24": -0.019157088122601085,
+                  "ema50_slope_pct": -0.07515414105212503,
+                  "pullback20_pct": 24.602715978041022,
+                  "atr14": 0.02695476684059438,
+                  "atr_percentile": 43.888888888888886,
+                  "atr_expansion_ratio": 0.9265231223899225,
+                  "consecutive_bearish_candles": 0,
+                  "bullish_candle": 1.0,
+                  "rsi_recovery": 1.0,
+                  "macd_hist_improving": 1.0
+                }
+              }
+            },
+            "comparison": {
+              "net_pnl_improvement": -50.00507622399982,
+              "effective_longest_trade_reduction_hours": 0.0,
+              "maximum_drawdown_change_pct_points": 0.0,
+              "blocked_or_replaced_current_problem_trade": false,
+              "baseline_closed_deals": 15,
+              "candidate_closed_deals": 11,
+              "closed_deal_count_change": -4,
+              "closed_deal_count_ratio_pct": 73.33333333333333,
+              "closed_deal_retained_share_pct": 73.33333333333333,
+              "diagnostic_pass": false
+            },
+            "rank_score": -6.697,
+            "rank": 5
+          }
+        ],
+        "winner": {
+          "candidate_id": "SUI-B",
+          "candidate_name": "Structural Price Filter",
+          "hypothesis": "Require the problem-regime entry price to be at or above EMA200.",
+          "amendment": {
+            "regime": "Medium",
+            "field": "min_distance_from_ema200_pct",
+            "value": 0.0,
+            "human_rule": "Medium entry requires close at or above EMA200"
+          },
+          "metrics": {
+            "net_pnl": 98.97112022399926,
+            "realised_pnl": 98.97112022399926,
+            "open_pnl": 0.0,
+            "return_on_max_capital_pct": 2.2977757407404478,
+            "maximum_drawdown_pct_of_capital": -3.8500915383416516,
+            "closed_deals": 16,
+            "average_trade_hours": 21.0,
+            "longest_completed_trade_hours": 152.0,
+            "effective_longest_trade_hours": 152.0,
+            "profitable_windows": 3,
+            "open_position": null
+          },
+          "comparison": {
+            "net_pnl_improvement": 1277.7604864800392,
+            "effective_longest_trade_reduction_hours": 1496.0,
+            "maximum_drawdown_change_pct_points": 27.223905550950402,
+            "blocked_or_replaced_current_problem_trade": true,
+            "baseline_closed_deals": 15,
+            "candidate_closed_deals": 16,
+            "closed_deal_count_change": 1,
+            "closed_deal_count_ratio_pct": 106.66666666666667,
+            "closed_deal_retained_share_pct": 100.0,
+            "diagnostic_pass": true
+          },
+          "rank_score": 72.233,
+          "rank": 1
+        },
+        "manual_approval_required": true,
+        "manual_approval_note": "The highest-ranked post-hoc candidate is a research hypothesis only. Manual approval and a new forward-test start date are required before independent validation.",
+        "caveat": "All ranked diagnostics reuse data already observed by Candidate A. Even the winner is hypothesis evidence only and must begin a new forward comparison after manual approval."
+      },
+      "evolution": {
+        "version": "8.1",
+        "mode": "controlled_post_hoc_evolution",
+        "status": "SUGGESTIONS READY",
+        "recommendation": {
+          "kind": "single_rule",
+          "id": "SUI-B",
+          "title": "Structural Price Filter",
+          "status": "MANUAL REVIEW",
+          "reason": "This one-variable hypothesis is the strongest interpretable improvement and should be tested before adding complexity."
+        },
+        "single_rule_suggestions": [
+          {
+            "type": "single_rule",
+            "priority": "High",
+            "candidate_id": "SUI-B",
+            "title": "Structural Price Filter",
+            "reason": "Require the problem-regime entry price to be at or above EMA200.",
+            "expected_evidence": {
+              "net_improvement": 1277.7604864800392,
+              "duration_reduction_hours": 1496.0,
+              "drawdown_change_pp": 27.223905550950402
+            },
+            "recommended_action": "Review for a new forward comparison; do not replace Candidate A."
+          },
+          {
+            "type": "single_rule",
+            "priority": "Medium",
+            "candidate_id": "SUI-F",
+            "title": "EMA50 Recovery Filter",
+            "reason": "Require price to recover to EMA50 before entering the problem regime.",
+            "expected_evidence": {
+              "net_improvement": 1264.644102480039,
+              "duration_reduction_hours": 1496.0,
+              "drawdown_change_pp": 27.223905550950402
+            },
+            "recommended_action": "Review for a new forward comparison; do not replace Candidate A."
+          }
+        ],
+        "combination_candidates": [
+          {
+            "combination_id": "SUI-G1",
+            "name": "SUI-B + SUI-F",
+            "rules": [
+              "Medium entry requires close at or above EMA200",
+              "Medium entry requires close at or above EMA50"
+            ],
+            "metrics": {
+              "net_pnl": 85.85473622399921,
+              "realised_pnl": 85.85473622399921,
+              "open_pnl": 0.0,
+              "return_on_max_capital_pct": 1.9932575247879114,
+              "maximum_drawdown_pct_of_capital": -3.8500915383416516,
+              "closed_deals": 12,
+              "average_trade_hours": 23.666666666666668,
+              "longest_completed_trade_hours": 152.0,
+              "effective_longest_trade_hours": 152.0,
+              "profitable_windows": 3,
+              "open_position": null
+            },
+            "comparison": {
+              "net_pnl_improvement": 1264.644102480039,
+              "duration_reduction_hours": 1496.0,
+              "drawdown_change_pp": 27.223905550950402,
+              "baseline_closed_deals": 15,
+              "candidate_closed_deals": 12,
+              "closed_deal_count_change": -3,
+              "closed_deal_count_ratio_pct": 80.0,
+              "closed_deal_retained_share_pct": 80.0,
+              "problem_trade_changed": true,
+              "diagnostic_pass": true
+            },
+            "rank_score": 36.063,
+            "rank": 1
+          }
+        ],
+        "correlated_hypothesis_clusters": [
+          {
+            "representative_id": "SUI-B",
+            "candidate_ids": [
+              "SUI-B",
+              "SUI-C"
+            ],
+            "reason": "These rules produced the same rounded P&L, drawdown, duration, deal count, and problem-trade outcome on the diagnostic sample."
+          }
+        ],
+        "audit": {
+          "baseline_id": "SUI-A",
+          "problem_regime": "Medium",
+          "individual_hypotheses_tested": 5,
+          "individual_hypotheses_passed": 3,
+          "qualified_suggestions": 2,
+          "raw_qualified_hypotheses": 3,
+          "correlated_clusters": 1,
+          "combinations_tested": 1
+        },
+        "safeguards": [
+          "Production strategies are immutable",
+          "One-variable evidence comes before combinations",
+          "Post-hoc results are suggestions, not validation",
+          "Every promotion requires a new forward-test start date"
+        ],
+        "manual_approval_required": true,
+        "note": "Suggestions are generated automatically, but no strategy or setting is changed without manual approval."
+      },
+      "sync": {
+        "new_candles": 0,
+        "error": null,
+        "source": "KuCoin public spot candles API"
+      },
+      "strategy_config": {
+        "regime": {
+          "realised_volatility_window_candles": 120,
+          "annualisation_periods": 2190,
+          "low_volatility_threshold_pct": 96.59770290685603,
+          "high_volatility_threshold_pct": 125.3948253529171,
+          "fast_ema": 50,
+          "slow_ema": 200
+        },
+        "entry_filter": {
+          "global": {},
+          "Low": {
+            "max_rsi14": 60.0,
+            "max_distance_from_ema50_pct": 5.0,
+            "max_24h_return_pct": 0.0,
+            "min_pullback_from_20d_high_pct": 10.0,
+            "min_ema50_slope_pct": -0.02
+          },
+          "Medium": {
+            "min_24h_return_pct": -4.0
+          },
+          "High-Bull": {
+            "min_24h_return_pct": 0.0,
+            "max_24h_return_pct": 8.0
+          },
+          "High-Bear": {
+            "blocked": true
+          }
+        },
+        "bots": {
+          "Low": {
+            "name": "SUI Low Research Bot",
+            "take_profit_pct": 2.5,
+            "so_deviation_pct": 4.0,
+            "safety_orders": 6,
+            "volume_scale": 1.6,
+            "step_scale": 1.2
+          },
+          "Medium": {
+            "name": "SUI Medium Research Bot",
+            "take_profit_pct": 1.0,
+            "so_deviation_pct": 1.5,
+            "safety_orders": 6,
+            "volume_scale": 1.6,
+            "step_scale": 1.0
+          },
+          "High-Bull": {
+            "name": "SUI High-Bull Research Bot",
+            "take_profit_pct": 0.8,
+            "so_deviation_pct": 1.5,
+            "safety_orders": 7,
+            "volume_scale": 1.3,
+            "step_scale": 1.2
+          },
+          "High-Bear": {
+            "name": "SUI High-Bear \u2014 Disabled",
+            "enabled": false
+          }
+        }
       }
     }
   ]
