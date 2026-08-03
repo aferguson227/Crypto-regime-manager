@@ -1087,11 +1087,20 @@ def build_operational_intelligence(cfg:dict[str,Any], outputs:list[dict[str,Any]
         if health_score<50: alerts.append({'level':'REVIEW','asset_id':asset.get('id'),'message':f"Strategy health is {health.get('status','Review')} ({health_score:.0f}/100)."})
         if asset.get('open_position') and float((asset.get('open_position') or {}).get('hours_open',0) or 0)>30*24:
             alerts.append({'level':'REVIEW','asset_id':asset.get('id'),'message':'Replay position exceeds 30 days.'})
+    severity_order={'CRITICAL':0,'REVIEW':1,'WARNING':2,'INFO':3}
+    alerts.sort(key=lambda a:(severity_order.get(a.get('level'),9),a.get('asset_id') or ''))
     rows.sort(key=lambda r:({'critical':0,'positive':1,'warning':2,'neutral':3}.get(r['severity'],4),-(r.get('opportunity_score') or 0)))
-    return {'version':'16.0','mode':'read_only_operational_intelligence','generated_at':datetime.now(timezone.utc).isoformat(),
+    replay_positions=sum(1 for a in outputs if a.get('open_position'))
+    review_alerts=sum(1 for a in alerts if a.get('level')=='REVIEW')
+    if any(a.get('level')=='CRITICAL' for a in alerts): portfolio_status='ACTION REQUIRED'
+    elif review_alerts or replay_positions: portfolio_status='REVIEW'
+    elif entry_allowed: portfolio_status='READY'
+    else: portfolio_status='STABLE'
+    return {'version':'17.0','mode':'read_only_operational_intelligence','generated_at':datetime.now(timezone.utc).isoformat(),
             'summary':{'production_assets':sum(1 for a in outputs if a.get('production_status','production')=='production'),
                        'research_assets':research_count,'entry_allowed':entry_allowed,'review_ready':production_ready,
-                       'critical_alerts':sum(1 for a in alerts if a['level']=='CRITICAL')},
+                       'critical_alerts':sum(1 for a in alerts if a['level']=='CRITICAL'),
+                       'review_alerts':review_alerts,'replay_positions':replay_positions,'portfolio_status':portfolio_status},
             'assets':rows,'alerts':alerts,'guardrails':{'live_execution_authorised':False,'automatic_bot_changes':False,
             'automatic_dca_changes':False,'automatic_exit_changes':False,'manual_review_required':True},
             'principles':ocfg.get('principles',[]),'note':ocfg.get('note','V16 consolidates evidence into an explainable read-only decision cockpit.')}

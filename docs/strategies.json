@@ -1,14 +1,14 @@
 {
-  "version": "16.0.0",
+  "version": "17.0.0",
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "16.0.0",
+    "version": "17.0.0",
     "mode": "TEL/TAO advisory + SUI research + immutable candidate registry",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
     "feature": "Candidate Intelligence Engine"
   },
-  "generated_at": "2026-08-03T07:37:59.434476+00:00",
+  "generated_at": "2026-08-03T09:32:18.080029+00:00",
   "workflow_status": "ok",
   "portfolio": {
     "best_opportunity": null,
@@ -539,7 +539,7 @@
     "note": "V14 turns autonomous research winners into permanent, versioned candidate records. It registers and freezes evidence but does not yet evaluate the candidate on post-freeze candles."
   },
   "forward_validation": {
-    "version": "15.0",
+    "version": "15.3",
     "mode": "frozen_candidate_forward_validation",
     "candidates": [],
     "candidate_count": 0,
@@ -556,11 +556,150 @@
     "note": "Frozen candidates are replayed against the unchanged baseline using only post-freeze entries. Passing gates permits manual paper-trading review, never live execution."
   },
   "advisory_decisions": {
-    "version": "15.0",
+    "version": "15.1",
     "mode": "advisory_preview_only",
     "decisions": [],
     "live_execution_authorised": false,
     "note": "Decision previews are shown only after forward gates pass. DCA and exit settings remain unchanged and live execution is disabled."
+  },
+  "operational_intelligence": {
+    "version": "17.0",
+    "mode": "read_only_operational_intelligence",
+    "generated_at": "2026-08-03T09:32:18.080020+00:00",
+    "summary": {
+      "production_assets": 2,
+      "research_assets": 1,
+      "entry_allowed": 0,
+      "review_ready": 0,
+      "critical_alerts": 0,
+      "review_alerts": 3,
+      "replay_positions": 0,
+      "portfolio_status": "REVIEW"
+    },
+    "assets": [
+      {
+        "asset_id": "TEL",
+        "symbol": "TEL-USDT",
+        "production_status": "PRODUCTION",
+        "regime": null,
+        "entry_allowed": false,
+        "readiness": "WAITING FOR FIRST SYNC",
+        "severity": "warning",
+        "health_score": 0.0,
+        "health_status": "Review",
+        "opportunity_score": null,
+        "recommended_bot": null,
+        "next_action": "Run the candle sync workflow to initialise this asset.",
+        "blockers": [
+          "No completed candle history is packaged; run the sync workflow",
+          "No candle data available",
+          "Strategy health requires review"
+        ],
+        "data_ok": false,
+        "history_end": null,
+        "new_candles": 0,
+        "validation_state": "PRODUCTION BASELINE",
+        "candidate_decision": null,
+        "forward_validation": null
+      },
+      {
+        "asset_id": "TAO",
+        "symbol": "TAO-USDT",
+        "production_status": "PRODUCTION",
+        "regime": null,
+        "entry_allowed": false,
+        "readiness": "WAITING FOR FIRST SYNC",
+        "severity": "warning",
+        "health_score": 0.0,
+        "health_status": "Review",
+        "opportunity_score": null,
+        "recommended_bot": null,
+        "next_action": "Run the candle sync workflow to initialise this asset.",
+        "blockers": [
+          "No completed candle history is packaged; run the sync workflow",
+          "No candle data available",
+          "Strategy health requires review"
+        ],
+        "data_ok": false,
+        "history_end": null,
+        "new_candles": 0,
+        "validation_state": "PRODUCTION BASELINE",
+        "candidate_decision": null,
+        "forward_validation": null
+      },
+      {
+        "asset_id": "SUI",
+        "symbol": "SUI-USDT",
+        "production_status": "RESEARCH",
+        "regime": null,
+        "entry_allowed": false,
+        "readiness": "WAITING FOR DATA",
+        "severity": "warning",
+        "health_score": 0.0,
+        "health_status": "Review",
+        "opportunity_score": null,
+        "recommended_bot": null,
+        "next_action": "Continue independent forward collection; do not alter live bots.",
+        "blockers": [
+          "No completed candle history is packaged; run the sync workflow",
+          "No candle data available",
+          "Strategy health requires review"
+        ],
+        "data_ok": false,
+        "history_end": null,
+        "new_candles": 0,
+        "validation_state": null,
+        "candidate_decision": null,
+        "forward_validation": null
+      }
+    ],
+    "alerts": [
+      {
+        "level": "REVIEW",
+        "asset_id": "SUI",
+        "message": "Strategy health is Review (0/100)."
+      },
+      {
+        "level": "REVIEW",
+        "asset_id": "TAO",
+        "message": "Strategy health is Review (0/100)."
+      },
+      {
+        "level": "REVIEW",
+        "asset_id": "TEL",
+        "message": "Strategy health is Review (0/100)."
+      },
+      {
+        "level": "INFO",
+        "asset_id": "SUI",
+        "message": "Waiting for the first candle-data sync."
+      },
+      {
+        "level": "INFO",
+        "asset_id": "TAO",
+        "message": "Waiting for the first candle-data sync."
+      },
+      {
+        "level": "INFO",
+        "asset_id": "TEL",
+        "message": "Waiting for the first candle-data sync."
+      }
+    ],
+    "guardrails": {
+      "live_execution_authorised": false,
+      "automatic_bot_changes": false,
+      "automatic_dca_changes": false,
+      "automatic_exit_changes": false,
+      "manual_review_required": true
+    },
+    "principles": [
+      "Production and research assets remain clearly separated",
+      "Every recommendation includes its blockers and next manual action",
+      "Data freshness and strategy health can veto a review-ready label",
+      "Forward-validation evidence is never mixed with historical diagnostic evidence",
+      "No page can authorise live execution or change DCA or exit settings"
+    ],
+    "note": "V17 consolidates portfolio posture, prioritised alerts and compact asset actions into a read-only operator cockpit."
   },
   "assets": [
     {
@@ -906,141 +1045,5 @@
         }
       }
     }
-  ],
-  "operational_intelligence": {
-    "version": "16.0",
-    "mode": "read_only_operational_intelligence",
-    "generated_at": "2026-08-03T08:57:41.978867+00:00",
-    "summary": {
-      "production_assets": 2,
-      "research_assets": 1,
-      "entry_allowed": 0,
-      "review_ready": 0,
-      "critical_alerts": 0
-    },
-    "assets": [
-      {
-        "asset_id": "TEL",
-        "symbol": "TEL-USDT",
-        "production_status": "PRODUCTION",
-        "regime": null,
-        "entry_allowed": false,
-        "readiness": "WAITING FOR FIRST SYNC",
-        "severity": "warning",
-        "health_score": 0.0,
-        "health_status": "Review",
-        "opportunity_score": null,
-        "recommended_bot": null,
-        "next_action": "Run the candle sync workflow to initialise this asset.",
-        "blockers": [
-          "No completed candle history is packaged; run the sync workflow",
-          "No candle data available",
-          "Strategy health requires review"
-        ],
-        "data_ok": false,
-        "history_end": null,
-        "new_candles": 0,
-        "validation_state": "PRODUCTION BASELINE",
-        "candidate_decision": null,
-        "forward_validation": null
-      },
-      {
-        "asset_id": "TAO",
-        "symbol": "TAO-USDT",
-        "production_status": "PRODUCTION",
-        "regime": null,
-        "entry_allowed": false,
-        "readiness": "WAITING FOR FIRST SYNC",
-        "severity": "warning",
-        "health_score": 0.0,
-        "health_status": "Review",
-        "opportunity_score": null,
-        "recommended_bot": null,
-        "next_action": "Run the candle sync workflow to initialise this asset.",
-        "blockers": [
-          "No completed candle history is packaged; run the sync workflow",
-          "No candle data available",
-          "Strategy health requires review"
-        ],
-        "data_ok": false,
-        "history_end": null,
-        "new_candles": 0,
-        "validation_state": "PRODUCTION BASELINE",
-        "candidate_decision": null,
-        "forward_validation": null
-      },
-      {
-        "asset_id": "SUI",
-        "symbol": "SUI-USDT",
-        "production_status": "RESEARCH",
-        "regime": null,
-        "entry_allowed": false,
-        "readiness": "WAITING FOR DATA",
-        "severity": "warning",
-        "health_score": 0.0,
-        "health_status": "Review",
-        "opportunity_score": null,
-        "recommended_bot": null,
-        "next_action": "Continue independent forward collection; do not alter live bots.",
-        "blockers": [
-          "No completed candle history is packaged; run the sync workflow",
-          "No candle data available",
-          "Strategy health requires review"
-        ],
-        "data_ok": false,
-        "history_end": null,
-        "new_candles": 0,
-        "validation_state": null,
-        "candidate_decision": null,
-        "forward_validation": null
-      }
-    ],
-    "alerts": [
-      {
-        "level": "INFO",
-        "asset_id": "TEL",
-        "message": "Waiting for the first candle-data sync."
-      },
-      {
-        "level": "REVIEW",
-        "asset_id": "TEL",
-        "message": "Strategy health is Review (0/100)."
-      },
-      {
-        "level": "INFO",
-        "asset_id": "TAO",
-        "message": "Waiting for the first candle-data sync."
-      },
-      {
-        "level": "REVIEW",
-        "asset_id": "TAO",
-        "message": "Strategy health is Review (0/100)."
-      },
-      {
-        "level": "INFO",
-        "asset_id": "SUI",
-        "message": "Waiting for the first candle-data sync."
-      },
-      {
-        "level": "REVIEW",
-        "asset_id": "SUI",
-        "message": "Strategy health is Review (0/100)."
-      }
-    ],
-    "guardrails": {
-      "live_execution_authorised": false,
-      "automatic_bot_changes": false,
-      "automatic_dca_changes": false,
-      "automatic_exit_changes": false,
-      "manual_review_required": true
-    },
-    "principles": [
-      "Production and research assets remain clearly separated",
-      "Every recommendation includes its blockers and next manual action",
-      "Data freshness and strategy health can veto a review-ready label",
-      "Forward-validation evidence is never mixed with historical diagnostic evidence",
-      "No page can authorise live execution or change DCA or exit settings"
-    ],
-    "note": "V16 combines portfolio, health, entry, research and validation evidence into one read-only operating view. It does not change trading, simulation or promotion logic."
-  }
+  ]
 }
