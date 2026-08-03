@@ -8,7 +8,7 @@
     "timeframe": "4hour",
     "feature": "Candidate Intelligence Engine"
   },
-  "generated_at": "2026-08-03T08:28:22.571702+00:00",
+  "generated_at": "2026-08-03T08:30:11.232127+00:00",
   "workflow_status": "ok",
   "portfolio": {
     "best_opportunity": {
@@ -1950,8 +1950,8 @@
         "human_rule": "entry requires close at least 0.5% above EMA200"
       },
       "human_rule": "entry requires close at least 0.5% above EMA200",
-      "status": "FROZEN",
-      "lifecycle_stage_index": 2,
+      "status": "FORWARD TEST",
+      "lifecycle_stage_index": 3,
       "created_at": "2026-08-03T07:46:55.040804+00:00",
       "frozen_at": "2026-08-03T07:46:55.040804+00:00",
       "forward_test_start": "2026-08-03T04:00:00Z",
@@ -1989,10 +1989,10 @@
         "Any changed rule must be registered as a new candidate."
       ],
       "forward_validation": {
-        "updated_at": "2026-08-03T07:59:34.269519+00:00",
-        "status": "WAITING FOR FIRST POST-FREEZE CANDLE",
-        "forward_days": 0.0,
-        "forward_candles": 0,
+        "updated_at": "2026-08-03T08:28:22.569289+00:00",
+        "status": "COLLECTING FORWARD EVIDENCE",
+        "forward_days": 0.16666666666666666,
+        "forward_candles": 1,
         "all_gates_pass": false,
         "checks": {
           "minimum_days": false,
@@ -2020,8 +2020,8 @@
           "human_rule": "entry requires close at least 0.5% above EMA200"
         },
         "human_rule": "entry requires close at least 0.5% above EMA200",
-        "status": "FROZEN",
-        "lifecycle_stage_index": 2,
+        "status": "FORWARD TEST",
+        "lifecycle_stage_index": 3,
         "created_at": "2026-08-03T07:46:55.040804+00:00",
         "frozen_at": "2026-08-03T07:46:55.040804+00:00",
         "forward_test_start": "2026-08-03T04:00:00Z",
@@ -2059,10 +2059,10 @@
           "Any changed rule must be registered as a new candidate."
         ],
         "forward_validation": {
-          "updated_at": "2026-08-03T07:59:34.269519+00:00",
-          "status": "WAITING FOR FIRST POST-FREEZE CANDLE",
-          "forward_days": 0.0,
-          "forward_candles": 0,
+          "updated_at": "2026-08-03T08:28:22.569289+00:00",
+          "status": "COLLECTING FORWARD EVIDENCE",
+          "forward_days": 0.16666666666666666,
+          "forward_candles": 1,
           "all_gates_pass": false,
           "checks": {
             "minimum_days": false,
@@ -2088,12 +2088,12 @@
           {
             "stage": "FROZEN",
             "complete": true,
-            "current": true
+            "current": false
           },
           {
             "stage": "FORWARD TEST",
-            "complete": false,
-            "current": false
+            "complete": true,
+            "current": true
           },
           {
             "stage": "PAPER TRADING",
@@ -2432,7 +2432,7 @@
         "recent_max_drawdown_pct_of_capital": -15.493742091577554,
         "open_loss_pct_of_capital": -3.6683217331846096,
         "open_hours": 620.0,
-        "data_age_hours": 4.472782215012445,
+        "data_age_hours": 4.502961069146792,
         "historical_average_trade_hours": 20.356687898089174,
         "historical_longest_trade_hours": 556,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -2854,7 +2854,7 @@
       "experiment": null,
       "evolution": null,
       "sync": {
-        "new_candles": 1,
+        "new_candles": 0,
         "error": null,
         "source": "KuCoin public spot candles API"
       },
@@ -2955,7 +2955,7 @@
         "recent_max_drawdown_pct_of_capital": -12.068385719225839,
         "open_loss_pct_of_capital": 0.0,
         "open_hours": 0.0,
-        "data_age_hours": 4.472845141953893,
+        "data_age_hours": 4.503024922476874,
         "historical_average_trade_hours": 64.57142857142857,
         "historical_longest_trade_hours": 368,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -3377,7 +3377,7 @@
       "experiment": null,
       "evolution": null,
       "sync": {
-        "new_candles": 1,
+        "new_candles": 0,
         "error": null,
         "source": "KuCoin public spot candles API"
       },
@@ -3522,7 +3522,7 @@
         "recent_max_drawdown_pct_of_capital": -31.073997089292053,
         "open_loss_pct_of_capital": -29.676002093632132,
         "open_hours": 1652.0,
-        "data_age_hours": 4.472909351653523,
+        "data_age_hours": 4.503093048069212,
         "historical_average_trade_hours": 19.466666666666665,
         "historical_longest_trade_hours": 152,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -4472,7 +4472,7 @@
         "note": "Suggestions are generated automatically, but no strategy or setting is changed without manual approval."
       },
       "sync": {
-        "new_candles": 1,
+        "new_candles": 0,
         "error": null,
         "source": "KuCoin public spot candles API"
       },
