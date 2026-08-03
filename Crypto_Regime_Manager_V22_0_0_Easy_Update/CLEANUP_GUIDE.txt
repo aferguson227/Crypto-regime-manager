@@ -1,0 +1,13 @@
+AFTER A SUCCESSFUL V22 INSTALL
+
+Keep the extracted V22 update folder until you have confirmed the app and GitHub workflow are working. You may then delete the extracted installer folder and keep the ZIP as a release archive.
+
+Do not delete:
+- .git
+- config.json
+- data
+- docs generated state JSON files
+- private 3Commas/API credential folders
+- backups until the update has been verified
+
+The installer creates a timestamped backup under backups\v22_YYYYMMDD_HHMMSS.
