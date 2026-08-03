@@ -288,7 +288,7 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "14.0",
+    "version": "15.0.0",
     "mode": "TEL/TAO advisory + SUI research + immutable candidate registry",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
@@ -622,5 +622,21 @@
       "diagnostic_score": 21.6,
       "reason": "Manually accepted V13 winner for immutable registration and future forward testing."
     }
+  },
+  "forward_validation_manager": {
+    "enabled": true,
+    "promotion_gates": {
+      "minimum_forward_days": 30,
+      "minimum_forward_candles": 180,
+      "minimum_candidate_deals": 3,
+      "minimum_pnl_advantage": 0,
+      "maximum_drawdown_pct": 25,
+      "maximum_effective_trade_days": 30
+    },
+    "note": "Frozen candidates are replayed against the unchanged baseline using only post-freeze entries. Passing gates permits manual paper-trading review, never live execution."
+  },
+  "advisory_decision_preview": {
+    "enabled": true,
+    "note": "Decision previews are shown only after forward gates pass. DCA and exit settings remain unchanged and live execution is disabled."
   }
 }

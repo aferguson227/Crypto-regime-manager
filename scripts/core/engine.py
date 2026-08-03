@@ -27,6 +27,7 @@ def load_json(path:Path)->dict[str,Any]:
 
 def load_history(path:Path)->list[Candle]:
     out=[]
+    if not path.exists(): return out
     with path.open(newline='',encoding='utf-8-sig') as f:
         for r in csv.DictReader(f):
             dt=datetime.fromisoformat(r['time'].replace('Z','+00:00'))
@@ -932,6 +933,86 @@ def build_candidate_intelligence(cfg:dict[str,Any],outputs:list[dict[str,Any]],c
         graph['nodes'].append({'experiment_id':exp.get('id'),'title':exp.get('title'),'status':exp.get('status'),'score':exp.get('score'),'selected':bool(registered and exp.get('id')==registered.get('source_experiment_id'))})
     return {'version':'14.0','mode':'immutable_candidate_registry','registry_file':str(ccfg.get('registry_file')),'active_candidate':registered,'candidates':rows,'candidate_count':len(rows),'evidence_graph':graph,'lifecycle':lifecycle,'manual_approval_required':True,'live_execution_authorised':False,'principles':ccfg.get('principles',[]),'note':ccfg.get('note')}
 
+
+def _candidate_asset(base_asset:dict[str,Any], candidate:dict[str,Any], forward_start:str)->dict[str,Any]:
+    asset=copy.deepcopy(base_asset)
+    asset.pop('research_experiments',None); asset.pop('strategy_evolution',None)
+    asset['id']=str(candidate.get('candidate_id'))
+    asset['display_name']=str(candidate.get('name') or candidate.get('candidate_id'))
+    asset['production_status']='research'
+    asset['research_label']='Frozen candidate forward validation'
+    asset['forward_test_start']=forward_start
+    amendment=candidate.get('rule') or {}
+    regime=str(amendment.get('regime') or candidate.get('regime') or 'Medium')
+    field=amendment.get('field')
+    if field:
+        asset.setdefault('entry_filter',{}).setdefault(regime,{})[field]=amendment.get('value')
+    return asset
+
+def _forward_gate_checks(row:dict[str,Any], gates:dict[str,Any])->dict[str,bool]:
+    return {
+      'minimum_days':float(row.get('forward_days',0))>=float(gates.get('minimum_forward_days',30)),
+      'minimum_candles':int(row.get('forward_candles',0))>=int(gates.get('minimum_forward_candles',180)),
+      'minimum_candidate_deals':int(row.get('candidate_metrics',{}).get('closed_deals',0))>=int(gates.get('minimum_candidate_deals',3)),
+      'candidate_positive_pnl':float(row.get('candidate_metrics',{}).get('net_pnl',0))>0,
+      'not_worse_than_baseline':float(row.get('comparison',{}).get('net_pnl_change',0))>=float(gates.get('minimum_pnl_advantage',0)),
+      'drawdown_limit':abs(min(0,float(row.get('candidate_metrics',{}).get('maximum_drawdown_pct_of_capital',0))))<=float(gates.get('maximum_drawdown_pct',25)),
+      'maximum_trade_days':float(row.get('candidate_metrics',{}).get('effective_longest_trade_hours',0))/24<=float(gates.get('maximum_effective_trade_days',30))
+    }
+
+def build_forward_validation(cfg:dict[str,Any], outputs:list[dict[str,Any]], contexts:dict[str,Any], candidate_intelligence:dict[str,Any]|None)->dict[str,Any]|None:
+    fcfg=cfg.get('forward_validation_manager') or {}
+    if not fcfg.get('enabled') or not candidate_intelligence: return None
+    registry_path=ROOT/str((cfg.get('candidate_intelligence') or {}).get('registry_file','docs/candidate_registry.json'))
+    registry=_load_registry(registry_path); now=datetime.now(timezone.utc); rows=[]
+    for candidate in registry.get('candidates',[]):
+        source_id=str(candidate.get('asset_id')); ctx=contexts.get(source_id)
+        if not ctx: continue
+        start_text=str(candidate.get('forward_test_start') or '')
+        if not start_text: continue
+        start_ts=int(datetime.fromisoformat(start_text.replace('Z','+00:00')).timestamp())
+        forward_candles=[c for c in ctx['candles'] if c.ts>=start_ts]
+        base_asset=copy.deepcopy(ctx['asset']); base_asset.pop('research_experiments',None); base_asset.pop('strategy_evolution',None)
+        base_asset['id']=source_id+'-FORWARD-BASELINE'; base_asset['display_name']=source_id+' Forward Baseline'; base_asset['production_status']='research'; base_asset['forward_test_start']=start_text
+        baseline=simulate(ctx['candles'],ctx['signals'],base_asset,cfg['execution'])
+        cand_asset=_candidate_asset(ctx['asset'],candidate,start_text)
+        cand=simulate(ctx['candles'],ctx['signals'],cand_asset,cfg['execution'])
+        bm=compact_metrics(baseline); cm=compact_metrics(cand)
+        days=((forward_candles[-1].ts-start_ts)/86400+4/24) if forward_candles else 0.0
+        comparison={'net_pnl_change':cm['net_pnl']-bm['net_pnl'],'drawdown_change_pp':cm['maximum_drawdown_pct_of_capital']-bm['maximum_drawdown_pct_of_capital'],'duration_reduction_hours':bm['effective_longest_trade_hours']-cm['effective_longest_trade_hours'],'deal_count_change':cm['closed_deals']-bm['closed_deals']}
+        row={'candidate_id':candidate.get('candidate_id'),'asset_id':source_id,'regime':candidate.get('regime'),'human_rule':candidate.get('human_rule'),'forward_test_start':start_text,'forward_days':days,'forward_candles':len(forward_candles),'baseline_metrics':bm,'candidate_metrics':cm,'comparison':comparison,'latest_candidate':cand.get('latest'),'latest_baseline':baseline.get('latest')}
+        checks=_forward_gate_checks(row,fcfg.get('promotion_gates') or {}); row['checks']=checks; row['all_gates_pass']=bool(checks and all(checks.values()))
+        if not forward_candles: status='WAITING FOR FIRST POST-FREEZE CANDLE'
+        elif row['all_gates_pass']: status='PASS — PAPER-TRADING REVIEW ELIGIBLE'
+        else: status='COLLECTING FORWARD EVIDENCE'
+        row['status']=status
+        # Safe automatic lifecycle transition: Frozen -> Forward Test only.
+        if forward_candles and candidate.get('status')=='FROZEN':
+            candidate['status']='FORWARD TEST'; candidate['lifecycle_stage_index']=3
+            registry['events'].append({'time':now.isoformat(),'candidate_id':candidate.get('candidate_id'),'event':'FORWARD_TEST_STARTED','from_stage':'FROZEN','to_stage':'FORWARD TEST','first_forward_candle':iso(forward_candles[0].ts)})
+        candidate['forward_validation']={'updated_at':now.isoformat(),'status':status,'forward_days':days,'forward_candles':len(forward_candles),'all_gates_pass':row['all_gates_pass'],'checks':checks}
+        rows.append(row)
+    registry['updated_at']=now.isoformat(); registry['engine_version']='15.0'; registry_path.write_text(json.dumps(registry,indent=2),encoding='utf-8')
+    return {'version':'15.0','mode':'frozen_candidate_forward_validation','candidates':rows,'candidate_count':len(rows),'promotion_gates':fcfg.get('promotion_gates',{}),'live_execution_authorised':False,'manual_approval_required_for_paper_trading':True,'note':fcfg.get('note')}
+
+def build_advisory_decisions(cfg:dict[str,Any], contexts:dict[str,Any], forward_validation:dict[str,Any]|None)->dict[str,Any]|None:
+    dcfg=cfg.get('advisory_decision_preview') or {}
+    if not dcfg.get('enabled') or not forward_validation: return None
+    decisions=[]
+    for row in forward_validation.get('candidates',[]):
+        cid=row.get('candidate_id'); source_id=row.get('asset_id'); ctx=contexts.get(source_id)
+        if not ctx or not ctx.get('signals'): continue
+        latest=ctx['signals'][-1]
+        candidate=next((c for c in _load_registry(ROOT/str((cfg.get('candidate_intelligence') or {}).get('registry_file','docs/candidate_registry.json'))).get('candidates',[]) if c.get('candidate_id')==cid),None)
+        if not latest or not candidate: continue
+        asset=_candidate_asset(ctx['asset'],candidate,candidate.get('forward_test_start'))
+        allowed,reason=permission(latest,asset.get('entry_filter',{}))
+        eligible=bool(row.get('all_gates_pass'))
+        action='RESEARCH WAIT'
+        if eligible: action='ADVISORY ENTRY ALLOWED' if allowed else 'ADVISORY ENTRY BLOCKED'
+        decisions.append({'candidate_id':cid,'asset_id':source_id,'regime':latest.get('regime'),'candidate_rule_passes_now':allowed,'reason':reason,'forward_validation_status':row.get('status'),'paper_trading_review_eligible':eligible,'action':action,'recommended_bot':(ctx['asset'].get('bots') or {}).get(latest.get('regime'),{}).get('name'),'dca_settings_status':'UNCHANGED','exit_policy':'UNCHANGED','live_execution_authorised':False})
+    return {'version':'15.0','mode':'advisory_preview_only','decisions':decisions,'live_execution_authorised':False,'note':dcfg.get('note')}
+
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
     path.parent.mkdir(parents=True,exist_ok=True)
     fields=['entry_time','exit_time','regime','pnl','hours','safety_orders','capital','entry_distance_ema200_pct','entry_ema200_slope_pct']
@@ -982,7 +1063,9 @@ def main()->int:
     automatic_research=build_automatic_research_pipeline(cfg,outputs,contexts)
     autonomous_evolution=build_autonomous_research_evolution(cfg,outputs,contexts,automatic_research)
     candidate_intelligence=build_candidate_intelligence(cfg,outputs,contexts,autonomous_evolution)
-    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'context_traits':context_traits,'automatic_research':automatic_research,'autonomous_evolution':autonomous_evolution,'candidate_intelligence':candidate_intelligence,'assets':outputs}
+    forward_validation=build_forward_validation(cfg,outputs,contexts,candidate_intelligence)
+    advisory_decisions=build_advisory_decisions(cfg,contexts,forward_validation)
+    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'context_traits':context_traits,'automatic_research':automatic_research,'autonomous_evolution':autonomous_evolution,'candidate_intelligence':candidate_intelligence,'forward_validation':forward_validation,'advisory_decisions':advisory_decisions,'assets':outputs}
     out=ROOT/cfg['execution']['output_json']; out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(payload,indent=2),encoding='utf-8')
     update_health_history(ROOT/'docs/health_history.json',payload,int(cfg.get('health_monitor',{}).get('history_points',180)))
     print(json.dumps(payload,indent=2)); return 0
