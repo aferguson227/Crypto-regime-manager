@@ -1,6 +1,70 @@
 {
   "schema_version": "1.0",
   "engine_version": "14.0",
-  "candidates": [],
-  "events": []
+  "candidates": [
+    {
+      "candidate_id": "SUI-T1",
+      "fingerprint": "bf8f7d569bcca51c",
+      "asset_id": "SUI",
+      "regime": "Medium",
+      "name": "SUI T1 Trend Candidate",
+      "family": "Trend Confirmation",
+      "rule": {
+        "regime": "Medium",
+        "field": "min_distance_from_ema200_pct",
+        "value": 0.5,
+        "human_rule": "entry requires close at least 0.5% above EMA200"
+      },
+      "human_rule": "entry requires close at least 0.5% above EMA200",
+      "status": "FROZEN",
+      "lifecycle_stage_index": 2,
+      "created_at": "2026-08-03T07:26:31.981687+00:00",
+      "frozen_at": "2026-08-03T07:26:31.981687+00:00",
+      "forward_test_start": "2026-08-03T04:00:00Z",
+      "source_engine_version": "13.0",
+      "registered_by_engine_version": "14.0",
+      "source_experiment_id": "AUTO-EMA200-BUF-05",
+      "diagnostic_score": 21.6,
+      "diagnostic_metrics": {
+        "net_pnl": 98.97112022399926,
+        "realised_pnl": 98.97112022399926,
+        "open_pnl": 0.0,
+        "return_on_max_capital_pct": 2.2977757407404478,
+        "maximum_drawdown_pct_of_capital": -3.8500915383416516,
+        "closed_deals": 16,
+        "average_trade_hours": 21.0,
+        "longest_completed_trade_hours": 152.0,
+        "effective_longest_trade_hours": 152.0,
+        "profitable_windows": 3,
+        "open_position": null
+      },
+      "diagnostic_comparison": {
+        "net_pnl_change": 1277.7604864800392,
+        "duration_reduction_hours": 1496.0,
+        "drawdown_change_pp": 27.223905550950402,
+        "deal_count_change": 1,
+        "problem_trade_changed": true
+      },
+      "diagnostic_confidence_pct": 90,
+      "immutable": true,
+      "production_effect": "NONE",
+      "live_execution_authorised": false,
+      "dca_settings_status": "UNCHANGED",
+      "notes": [
+        "Forward-test measurements begin only on candles at or after forward_test_start.",
+        "Any changed rule must be registered as a new candidate."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "time": "2026-08-03T07:26:31.981687+00:00",
+      "candidate_id": "SUI-T1",
+      "event": "REGISTERED_AND_FROZEN",
+      "from_stage": "DIAGNOSTIC WINNER",
+      "to_stage": "FROZEN",
+      "fingerprint": "bf8f7d569bcca51c"
+    }
+  ],
+  "updated_at": "2026-08-03T07:26:31.981687+00:00"
 }
