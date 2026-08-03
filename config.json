@@ -288,11 +288,21 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "17.0.1",
+    "version": "18.0.0",
     "mode": "TEL/TAO advisory + SUI research + immutable candidate registry",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
-    "feature": "Candidate Intelligence Engine"
+    "feature": "Candidate Intelligence Engine",
+    "release_name": "Intelligent Research Platform",
+    "primary_navigation": [
+      "Dashboard",
+      "Workspace",
+      "Research",
+      "Data",
+      "Cockpit"
+    ],
+    "legacy_navigation_preserved": true,
+    "note": "V18 consolidates the operator experience, adds a unified workspace and a safe KuCoin historical-data manager while preserving V17 trading and validation logic."
   },
   "threecommas": {
     "enabled": true,
@@ -649,5 +659,30 @@
       "No page can authorise live execution or change DCA or exit settings"
     ],
     "note": "V17 consolidates portfolio posture, prioritised alerts and compact asset actions into a read-only operator cockpit."
+  },
+  "historical_data_manager": {
+    "enabled": true,
+    "source": "KuCoin",
+    "timeframe": "4hour",
+    "rolling_history_months": 24,
+    "automatic_refresh": false,
+    "manual_refresh_command": "python scripts/data_manager.py refresh --all",
+    "preserve_raw_history": true,
+    "recalculate_after_refresh": [
+      "strategy replay",
+      "health scores",
+      "asset DNA",
+      "forward validation"
+    ]
+  },
+  "workspace": {
+    "enabled": true,
+    "read_only": true,
+    "sections": [
+      "Action Centre",
+      "Production Assets",
+      "Research Candidates",
+      "Forward Validation"
+    ]
   }
 }

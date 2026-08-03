@@ -45,7 +45,7 @@ def fetch_kucoin(symbol:str,candle_type:str,since:int|None)->list[Candle]:
     seconds=14400; now=int(time.time()); start=max(0,(since or now-seconds*1000)-seconds)
     params=urllib.parse.urlencode({'symbol':symbol,'type':candle_type,'startAt':start,'endAt':now})
     url='https://api.kucoin.com/api/v1/market/candles?'+params
-    req=urllib.request.Request(url,headers={'User-Agent':'Crypto-Regime-Manager/7.1','Accept':'application/json'})
+    req=urllib.request.Request(url,headers={'User-Agent':'Crypto-Regime-Manager/18.0','Accept':'application/json'})
     with urllib.request.urlopen(req,timeout=30) as response: payload=json.loads(response.read().decode('utf-8'))
     if payload.get('code')!='200000' or not isinstance(payload.get('data'),list): raise RuntimeError(f'Unexpected KuCoin response: {payload}')
     rows=[]
