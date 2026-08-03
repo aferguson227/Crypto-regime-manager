@@ -288,7 +288,7 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "11.0.0",
+    "version": "12.0.0",
     "mode": "TEL/TAO advisory + SUI research + contextual asset traits",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
@@ -433,5 +433,77 @@
       "Production strategies remain immutable without manual approval and a new forward test"
     ],
     "note": "The Context & Trait Engine organises evidence by asset, market regime, and hypothesis family. It proposes the next research branch but never changes a live strategy."
+  },
+  "automatic_research_pipeline": {
+    "enabled": true,
+    "source_asset": "SUI",
+    "default_regime": "Medium",
+    "max_drawdown_worsening_pp": 5.0,
+    "experiments": [
+      {
+        "id": "SUI-H1",
+        "title": "EMA100 Recovery",
+        "family": "Trend Confirmation",
+        "field": "min_distance_from_ema100_pct",
+        "value": 0.0,
+        "human_rule": "entry requires close at or above EMA100",
+        "description": "Tests an intermediate structural trend threshold between EMA50 and EMA200."
+      },
+      {
+        "id": "SUI-H2",
+        "title": "EMA200 1% Buffer",
+        "family": "Trend Confirmation",
+        "field": "min_distance_from_ema200_pct",
+        "value": 1.0,
+        "human_rule": "entry requires close at least 1% above EMA200",
+        "description": "Tests whether a safety buffer above the long-term trend improves robustness."
+      },
+      {
+        "id": "SUI-H3",
+        "title": "EMA200 Rising 24h",
+        "family": "Trend Confirmation",
+        "field": "min_ema200_24h_slope_pct",
+        "value": 0.0,
+        "human_rule": "entry requires EMA200 to be flat or rising over 24 hours",
+        "description": "Tests long-term trend direction rather than only price location."
+      },
+      {
+        "id": "SUI-H4",
+        "title": "ATR Percentile Cap",
+        "family": "Volatility State",
+        "field": "max_atr_percentile",
+        "value": 60.0,
+        "human_rule": "entry requires ATR percentile at or below 60",
+        "description": "Avoids entries during unusually elevated volatility."
+      },
+      {
+        "id": "SUI-H5",
+        "title": "Bullish Recovery Candle",
+        "family": "Candle Structure",
+        "field": "require_bullish_candle",
+        "value": 1.0,
+        "human_rule": "entry requires a bullish completed candle",
+        "description": "Requires immediate price-action confirmation before entry."
+      },
+      {
+        "id": "SUI-H6",
+        "title": "RSI Recovery",
+        "family": "Momentum Confirmation",
+        "field": "require_rsi_recovery",
+        "value": 1.0,
+        "human_rule": "entry requires RSI to rise versus the prior candle",
+        "description": "Requires momentum to begin recovering before entry."
+      },
+      {
+        "id": "SUI-H7",
+        "title": "MACD Histogram Improvement",
+        "family": "Momentum Confirmation",
+        "field": "require_macd_hist_improving",
+        "value": 1.0,
+        "human_rule": "entry requires an improving MACD histogram",
+        "description": "Tests whether improving momentum reduces premature entries."
+      }
+    ],
+    "note": "V12 executes the full diagnostic queue automatically and publishes ranked results. Automatic execution does not authorise production changes."
   }
 }

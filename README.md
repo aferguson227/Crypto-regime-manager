@@ -1,3 +1,3 @@
-# Crypto Regime Manager V11
+# Crypto Regime Manager V12
 
-Context-aware Asset DNA, trait profiles, and a structured research tree.
+Automatic diagnostic research pipeline with manual production safeguards.

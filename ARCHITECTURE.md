@@ -43,3 +43,7 @@ Qualified SUI hypotheses are replayed against the frozen TEL, TAO, and SUI basel
 - `context_traits` in `strategies.json` summarises asset traits by rule family and observed regime.
 - `docs/traits.html` displays traits, context evidence, a research tree, and next experiments.
 - Traits remain research-only and cannot alter production settings.
+
+
+## V12 Automatic Research Pipeline
+Pending one-variable experiments are executed automatically during the main workflow and published to `docs/pipeline.html`. Production changes remain manual.

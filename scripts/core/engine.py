@@ -93,30 +93,49 @@ def atr(candles:list[Candle],period:int=14)->list[float]:
         value=(value*(period-1)+trs[i])/period; out[i]=value
     return out
 
+def sma(values:list[float],period:int)->list[float]:
+    out=[math.nan]*len(values)
+    if period<=0:return out
+    run=0.0
+    for i,v in enumerate(values):
+        run+=v
+        if i>=period: run-=values[i-period]
+        if i>=period-1: out[i]=run/period
+    return out
+
 def indicators(candles:list[Candle],cfg:dict[str,Any])->list[dict[str,Any]|None]:
     rcfg=cfg['regime']; closes=[c.close for c in candles]
-    e50=ema(closes,int(rcfg['fast_ema'])); e200=ema(closes,int(rcfg['slow_ema']))
+    e50=ema(closes,int(rcfg['fast_ema'])); e100=ema(closes,100); e200=ema(closes,int(rcfg['slow_ema']))
+    e12=ema(closes,12); e26=ema(closes,26)
+    macd=[(e12[i]-e26[i]) if not math.isnan(e12[i]) and not math.isnan(e26[i]) else math.nan for i in range(len(closes))]
+    macd_sig=ema([0.0 if math.isnan(x) else x for x in macd],9)
+    macd_hist=[(macd[i]-macd_sig[i]) if not math.isnan(macd[i]) and not math.isnan(macd_sig[i]) else math.nan for i in range(len(closes))]
     rs=rsi(closes); rv=realised_vol(closes,int(rcfg['realised_volatility_window_candles']),int(rcfg['annualisation_periods'])); at=atr(candles,14)
     low=float(rcfg['low_volatility_threshold_pct']); high=float(rcfg['high_volatility_threshold_pct']); out=[]
     for i,c in enumerate(candles):
-        if i<120 or math.isnan(rv[i]) or math.isnan(rs[i]): out.append(None); continue
+        if i<200 or math.isnan(rv[i]) or math.isnan(rs[i]): out.append(None); continue
         if rv[i]<low: regime='Low'
         elif rv[i]<high: regime='Medium'
         else:
             bullish=c.close>=e200[i] and e50[i]>=e200[i] and e50[i]>=e50[i-1]
             regime='High-Bull' if bullish else 'High-Bear'
-        bearish=0
-        j=i
+        bearish=0; j=i
         while j>=0 and candles[j].close<candles[j].open:
             bearish+=1; j-=1
         atr_ratio=(at[i]/at[i-6]) if i>=6 and not math.isnan(at[i]) and not math.isnan(at[i-6]) and at[i-6]>0 else math.nan
-        out.append({'regime':regime,'rv':rv[i],'ema50':e50[i],'ema200':e200[i],'rsi14':rs[i],
-                    'distance_ema200':(c.close/e200[i]-1)*100,'distance_ema50':(c.close/e50[i]-1)*100,
+        atr_window=[x for x in at[max(0,i-179):i+1] if not math.isnan(x)]
+        atr_pct=(100*sum(1 for x in atr_window if x<=at[i])/len(atr_window)) if atr_window and not math.isnan(at[i]) else math.nan
+        out.append({'regime':regime,'rv':rv[i],'ema50':e50[i],'ema100':e100[i],'ema200':e200[i],'rsi14':rs[i],
+                    'distance_ema200':(c.close/e200[i]-1)*100,'distance_ema100':(c.close/e100[i]-1)*100,'distance_ema50':(c.close/e50[i]-1)*100,
                     'ema200_slope_pct':(e200[i]/e200[i-1]-1)*100 if i>0 else math.nan,
+                    'ema200_24h_slope_pct':(e200[i]/e200[i-6]-1)*100 if i>=6 else math.nan,
                     'return24':(c.close/closes[i-6]-1)*100 if i>=6 else math.nan,
                     'ema50_slope_pct':(e50[i]/e50[i-1]-1)*100 if i>0 else math.nan,
                     'pullback20_pct':(1-c.close/max(closes[max(0,i-119):i+1]))*100,
-                    'atr14':at[i],'atr_expansion_ratio':atr_ratio,'consecutive_bearish_candles':bearish})
+                    'atr14':at[i],'atr_percentile':atr_pct,'atr_expansion_ratio':atr_ratio,'consecutive_bearish_candles':bearish,
+                    'bullish_candle':1.0 if c.close>c.open else 0.0,
+                    'rsi_recovery':1.0 if i>0 and not math.isnan(rs[i-1]) and rs[i]>rs[i-1] else 0.0,
+                    'macd_hist_improving':1.0 if i>0 and not math.isnan(macd_hist[i]) and not math.isnan(macd_hist[i-1]) and macd_hist[i]>macd_hist[i-1] else 0.0})
     return out
 
 def permission(signal:dict[str,Any],fcfg:dict[str,Any])->tuple[bool,str]:
@@ -135,7 +154,13 @@ def permission(signal:dict[str,Any],fcfg:dict[str,Any])->tuple[bool,str]:
         ('min_distance_from_ema50_pct','distance_ema50',lambda a,b:a<b,'Price is below the required EMA50 threshold'),
         ('max_atr_expansion_ratio','atr_expansion_ratio',lambda a,b:a>b,'ATR is expanding above the allowed limit'),
         ('max_consecutive_bearish_candles','consecutive_bearish_candles',lambda a,b:a>b,'Too many consecutive bearish candles'),
-        ('min_ema200_slope_pct','ema200_slope_pct',lambda a,b:a<b,'EMA200 is falling faster than the allowed limit')]
+        ('min_ema200_slope_pct','ema200_slope_pct',lambda a,b:a<b,'EMA200 is falling faster than the allowed limit'),
+        ('min_distance_from_ema100_pct','distance_ema100',lambda a,b:a<b,'Price is below the required EMA100 threshold'),
+        ('min_ema200_24h_slope_pct','ema200_24h_slope_pct',lambda a,b:a<b,'EMA200 is not rising enough over 24 hours'),
+        ('max_atr_percentile','atr_percentile',lambda a,b:a>b,'ATR percentile is above the allowed cap'),
+        ('require_bullish_candle','bullish_candle',lambda a,b:a<b,'A bullish recovery candle is required'),
+        ('require_rsi_recovery','rsi_recovery',lambda a,b:a<b,'RSI must be recovering'),
+        ('require_macd_hist_improving','macd_hist_improving',lambda a,b:a<b,'MACD histogram must be improving')]
     for key,metric,bad,msg in checks:
         if key in local and bad(signal[metric],float(local[key])): return False,msg
     return True,'All entry rules pass'
@@ -740,6 +765,50 @@ def build_context_traits(cfg:dict[str,Any], outputs:list[dict[str,Any]], evidenc
       'next_experiments':suggestions[:6],'audit':{'assets_profiled':len(profiles),'evidence_rules':len(evidence_rules),'families':len(tree)},
       'safeguards':tcfg.get('principles',[]),'note':tcfg.get('note')}
 
+def build_automatic_research_pipeline(cfg:dict[str,Any],outputs:list[dict[str,Any]],contexts:dict[str,Any])->dict[str,Any]|None:
+    pcfg=cfg.get('automatic_research_pipeline') or {}
+    if not pcfg.get('enabled'): return None
+    source_id=str(pcfg.get('source_asset','SUI'))
+    source=next((x for x in outputs if str(x.get('id'))==source_id),None)
+    ctx=contexts.get(source_id)
+    if not source or not ctx: return None
+    baseline=compact_metrics(source); open_pos=baseline.get('open_position') or {}
+    target_regime=str(open_pos.get('regime') or pcfg.get('default_regime','Medium'))
+    experiments=pcfg.get('experiments') or []
+    results=[]
+    for item in experiments:
+        asset=copy.deepcopy(ctx['asset']); asset.pop('research_experiments',None); asset.pop('strategy_evolution',None)
+        asset['id']=item['id']; asset['display_name']=item['title']
+        asset.setdefault('entry_filter',{}).setdefault(target_regime,{})[item['field']]=item['value']
+        candidate=simulate(ctx['candles'],ctx['signals'],asset,cfg['execution']); m=compact_metrics(candidate)
+        pnl_change=m['net_pnl']-baseline['net_pnl']; duration_change=baseline['effective_longest_trade_hours']-m['effective_longest_trade_hours']
+        dd_change=m['maximum_drawdown_pct_of_capital']-baseline['maximum_drawdown_pct_of_capital']
+        deal_change=m['closed_deals']-baseline['closed_deals']
+        changed=bool(open_pos and (not m.get('open_position') or (m.get('open_position') or {}).get('entry_time')!=open_pos.get('entry_time')))
+        pnl_norm=pnl_change/max(100.0,abs(baseline['net_pnl']))
+        duration_norm=duration_change/max(24.0,baseline['effective_longest_trade_hours'])
+        score=40*pnl_norm+25*duration_norm-2*dd_change+(10 if changed else 0)-max(0,-deal_change)*0.15
+        status='PASS' if pnl_change>0 and duration_change>=0 and dd_change>=-float(pcfg.get('max_drawdown_worsening_pp',5)) else 'REJECT'
+        results.append({'id':item['id'],'title':item['title'],'family':item['family'],'description':item['description'],
+          'amendment':{'regime':target_regime,'field':item['field'],'value':item['value'],'human_rule':item['human_rule']},
+          'status':status,'score':round(score,2),'metrics':m,'comparison':{'net_pnl_change':pnl_change,'duration_reduction_hours':duration_change,
+          'drawdown_change_pp':dd_change,'deal_count_change':deal_change,'problem_trade_changed':changed}})
+    results.sort(key=lambda r:(r['status']=='PASS',r['score']),reverse=True)
+    for i,r in enumerate(results,1): r['rank']=i
+    family_summary=[]
+    for fam in sorted({r['family'] for r in results}):
+        rows=[r for r in results if r['family']==fam]
+        family_summary.append({'family':fam,'tested':len(rows),'passed':sum(1 for r in rows if r['status']=='PASS'),
+          'best_score':max((r['score'] for r in rows),default=0),'best_experiment':max(rows,key=lambda r:r['score'])['title'] if rows else None})
+    winner=results[0] if results else None
+    return {'version':'12.0','mode':'automatic_diagnostic_research','source_asset':source_id,'target_regime':target_regime,
+      'baseline_metrics':baseline,'experiments':results,'winner':winner,'family_summary':family_summary,
+      'audit':{'experiments_run':len(results),'passed':sum(1 for r in results if r['status']=='PASS'),'rejected':sum(1 for r in results if r['status']=='REJECT')},
+      'execution_policy':'Experiments run automatically on every workflow using the frozen diagnostic history.',
+      'promotion_policy':'No experiment can alter a production strategy or begin a live forward test without explicit manual approval.',
+      'note':pcfg.get('note')}
+
+
 def write_deals(path:Path,deals:list[dict[str,Any]])->None:
     path.parent.mkdir(parents=True,exist_ok=True)
     fields=['entry_time','exit_time','regime','pnl','hours','safety_orders','capital','entry_distance_ema200_pct','entry_ema200_slope_pct']
@@ -787,7 +856,8 @@ def main()->int:
     evidence_library=build_cross_asset_evidence(cfg,outputs,contexts)
     asset_dna=build_asset_dna(cfg,outputs,evidence_library)
     context_traits=build_context_traits(cfg,outputs,evidence_library,asset_dna)
-    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'context_traits':context_traits,'assets':outputs}
+    automatic_research=build_automatic_research_pipeline(cfg,outputs,contexts)
+    payload={'version':cfg.get('app',{}).get('version','5.3.0'),'app':cfg.get('app',{}),'generated_at':datetime.now(timezone.utc).isoformat(),'workflow_status':'ok' if not any((a.get('sync') or {}).get('error') for a in outputs) else 'warning','portfolio':portfolio_intelligence(outputs),'evidence_library':evidence_library,'asset_dna':asset_dna,'context_traits':context_traits,'automatic_research':automatic_research,'assets':outputs}
     out=ROOT/cfg['execution']['output_json']; out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(payload,indent=2),encoding='utf-8')
     update_health_history(ROOT/'docs/health_history.json',payload,int(cfg.get('health_monitor',{}).get('history_points',180)))
     print(json.dumps(payload,indent=2)); return 0
