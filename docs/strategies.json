@@ -1,8 +1,8 @@
 {
-  "version": "24.0.0",
+  "version": "24.1.0",
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "24.0.0",
+    "version": "24.1.0",
     "mode": "TEL/TAO advisory + SUI research + immutable candidate registry",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
@@ -18,7 +18,7 @@
     "legacy_navigation_preserved": true,
     "note": "V22 introduces Decision Intelligence, a redesigned mobile research queue, evidence confidence, candidate lifecycle stages and clearer manual promotion safeguards."
   },
-  "generated_at": "2026-08-04T06:41:41.399050+00:00",
+  "generated_at": "2026-08-04T07:17:08.697737+00:00",
   "workflow_status": "ok",
   "portfolio": {
     "best_opportunity": {
@@ -1999,7 +1999,7 @@
         "Any changed rule must be registered as a new candidate."
       ],
       "forward_validation": {
-        "updated_at": "2026-08-04T05:34:56.406357+00:00",
+        "updated_at": "2026-08-04T06:41:41.275448+00:00",
         "status": "COLLECTING FORWARD EVIDENCE",
         "forward_days": 1.0,
         "forward_candles": 6,
@@ -2074,7 +2074,7 @@
           "Any changed rule must be registered as a new candidate."
         ],
         "forward_validation": {
-          "updated_at": "2026-08-04T05:34:56.406357+00:00",
+          "updated_at": "2026-08-04T06:41:41.275448+00:00",
           "status": "COLLECTING FORWARD EVIDENCE",
           "forward_days": 1.0,
           "forward_candles": 6,
@@ -2383,7 +2383,7 @@
   "operational_intelligence": {
     "version": "17.0",
     "mode": "read_only_operational_intelligence",
-    "generated_at": "2026-08-04T06:41:41.277985+00:00",
+    "generated_at": "2026-08-04T07:17:08.573117+00:00",
     "summary": {
       "production_assets": 2,
       "research_assets": 1,
@@ -2651,7 +2651,7 @@
   "research_queue": {
     "version": "21.0",
     "mode": "automatic_multi_asset_research_queue",
-    "generated_at": "2026-08-04T06:41:41.399020+00:00",
+    "generated_at": "2026-08-04T07:17:08.697705+00:00",
     "status": "READY",
     "queue": [
       {
@@ -4205,7 +4205,7 @@
         "recent_max_drawdown_pct_of_capital": -15.493742091577554,
         "open_loss_pct_of_capital": -3.388535862413754,
         "open_hours": 640.0,
-        "data_age_hours": 6.694633576936192,
+        "data_age_hours": 7.28555194583204,
         "historical_average_trade_hours": 20.356687898089174,
         "historical_longest_trade_hours": 556,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -4728,7 +4728,7 @@
         "recent_max_drawdown_pct_of_capital": -12.068385719225839,
         "open_loss_pct_of_capital": 0.0,
         "open_hours": 0.0,
-        "data_age_hours": 6.694701806637976,
+        "data_age_hours": 7.285620900524987,
         "historical_average_trade_hours": 64.57142857142857,
         "historical_longest_trade_hours": 368,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -5295,7 +5295,7 @@
         "recent_max_drawdown_pct_of_capital": -31.073997089292053,
         "open_loss_pct_of_capital": -28.565829597078686,
         "open_hours": 1672.0,
-        "data_age_hours": 6.694773033857346,
+        "data_age_hours": 7.285688040852547,
         "historical_average_trade_hours": 19.466666666666665,
         "historical_longest_trade_hours": 152,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
