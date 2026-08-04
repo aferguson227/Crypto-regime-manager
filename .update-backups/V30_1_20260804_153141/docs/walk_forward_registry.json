@@ -1,0 +1,731 @@
+{
+  "version": "30.0.0",
+  "generated_at": "2026-08-04T11:38:44.176469+00:00",
+  "method": "Optimise only through Q4 2025; freeze settings; evaluate once on Q1 2026",
+  "coins": [
+    {
+      "symbol": "AAVE",
+      "status": "FAIL",
+      "training_file": "AAVEUSD_240.csv",
+      "validation_file": "AAVEUSD.csv",
+      "training_import": {
+        "exchange": "Generic OHLCV",
+        "symbol": "AAVE-USD",
+        "source_kind": "candles",
+        "source_timeframe_minutes": 240,
+        "target_timeframe_minutes": 240,
+        "rows_in": 4383,
+        "rows_out": 4383,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 3,
+        "start": "2024-01-01T00:00:00+00:00",
+        "end": "2025-12-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/training_4h/AAVEUSD_4H.csv",
+        "warnings": [
+          "3 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      },
+      "validation_import": {
+        "exchange": "Kraken",
+        "symbol": "AAVE-USD",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 231181,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/validation_4h/AAVEUSD_4H.csv",
+        "warnings": []
+      },
+      "frozen_settings": {
+        "take_profit_pct": 2.0,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 32426.3,
+        "closed_deals": 1303,
+        "average_hours": 7.4,
+        "longest_hours": 904,
+        "max_drawdown_dollars": -3139.43,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 30809.419499999996
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 834.64,
+        "realised_pnl": 834.64,
+        "open_pnl": -2090.54,
+        "mark_to_market_pnl": -1255.9,
+        "closed_deals": 39,
+        "average_hours": 12.9,
+        "longest_hours": 60,
+        "max_drawdown_dollars": -2330.4,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "next_stage": "RESEARCH / REJECT",
+      "production_eligible": false
+    },
+    {
+      "symbol": "AVAX",
+      "status": "FAIL",
+      "training_file": "AVAXUSDT_240.csv",
+      "validation_file": "AVAXUSDT.csv",
+      "training_import": {
+        "exchange": "Generic OHLCV",
+        "symbol": "AVAX-USD",
+        "source_kind": "candles",
+        "source_timeframe_minutes": 240,
+        "target_timeframe_minutes": 240,
+        "rows_in": 4380,
+        "rows_out": 4380,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 6,
+        "start": "2024-01-01T00:00:00+00:00",
+        "end": "2025-12-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/training_4h/AVAXUSD_4H.csv",
+        "warnings": [
+          "6 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      },
+      "validation_import": {
+        "exchange": "Kraken",
+        "symbol": "AVAX-USD",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 31873,
+        "rows_out": 539,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 1,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/validation_4h/AVAXUSD_4H.csv",
+        "warnings": [
+          "1 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      },
+      "frozen_settings": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 23077.48,
+        "closed_deals": 2296,
+        "average_hours": 3.6,
+        "longest_hours": 172,
+        "max_drawdown_dollars": -834.51,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 22281.9615
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 570.17,
+        "realised_pnl": 570.17,
+        "open_pnl": -1323.74,
+        "mark_to_market_pnl": -753.58,
+        "closed_deals": 57,
+        "average_hours": 7.6,
+        "longest_hours": 40,
+        "max_drawdown_dollars": -1812.2,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "next_stage": "RESEARCH / REJECT",
+      "production_eligible": false
+    },
+    {
+      "symbol": "DOT",
+      "status": "FAIL",
+      "training_file": "DOTUSDT_240.csv",
+      "validation_file": "DOTUSDT.csv",
+      "training_import": {
+        "exchange": "Generic OHLCV",
+        "symbol": "DOT-USD",
+        "source_kind": "candles",
+        "source_timeframe_minutes": 240,
+        "target_timeframe_minutes": 240,
+        "rows_in": 4383,
+        "rows_out": 4383,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 3,
+        "start": "2024-01-01T00:00:00+00:00",
+        "end": "2025-12-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/training_4h/DOTUSD_4H.csv",
+        "warnings": [
+          "3 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      },
+      "validation_import": {
+        "exchange": "Kraken",
+        "symbol": "DOT-USD",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 48203,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/validation_4h/DOTUSD_4H.csv",
+        "warnings": []
+      },
+      "frozen_settings": {
+        "take_profit_pct": 1.5,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 16320.9,
+        "closed_deals": 1059,
+        "average_hours": 10.2,
+        "longest_hours": 2828,
+        "max_drawdown_dollars": -3614.39,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 14499.3035
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 1579.18,
+        "realised_pnl": 1579.18,
+        "open_pnl": -1140.18,
+        "mark_to_market_pnl": 438.99,
+        "closed_deals": 116,
+        "average_hours": 11.7,
+        "longest_hours": 624,
+        "max_drawdown_dollars": -1450.93,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "next_stage": "RESEARCH / REJECT",
+      "production_eligible": false
+    },
+    {
+      "symbol": "ETH",
+      "status": "PASS",
+      "training_file": "ETHUSDT_240.csv",
+      "validation_file": "ETHUSDT.csv",
+      "training_import": {
+        "exchange": "Generic OHLCV",
+        "symbol": "ETH-USD",
+        "source_kind": "candles",
+        "source_timeframe_minutes": 240,
+        "target_timeframe_minutes": 240,
+        "rows_in": 4383,
+        "rows_out": 4383,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 3,
+        "start": "2024-01-01T00:00:00+00:00",
+        "end": "2025-12-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/training_4h/ETHUSD_4H.csv",
+        "warnings": [
+          "3 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      },
+      "validation_import": {
+        "exchange": "Kraken",
+        "symbol": "ETH-USD",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 465723,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/validation_4h/ETHUSD_4H.csv",
+        "warnings": []
+      },
+      "frozen_settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 8780.62,
+        "closed_deals": 2160,
+        "average_hours": 4.1,
+        "longest_hours": 448,
+        "max_drawdown_dollars": -634.23,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 8049.679500000002
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 1290.67,
+        "realised_pnl": 1290.67,
+        "open_pnl": 0.81,
+        "mark_to_market_pnl": 1291.47,
+        "closed_deals": 299,
+        "average_hours": 3.2,
+        "longest_hours": 44,
+        "max_drawdown_dollars": -271.79,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "next_stage": "FORWARD VALIDATION",
+      "production_eligible": false
+    },
+    {
+      "symbol": "NEAR",
+      "status": "PASS",
+      "training_file": "NEARUSD_240.csv",
+      "validation_file": "NEARUSD.csv",
+      "training_import": {
+        "exchange": "Generic OHLCV",
+        "symbol": "NEAR-USD",
+        "source_kind": "candles",
+        "source_timeframe_minutes": 240,
+        "target_timeframe_minutes": 240,
+        "rows_in": 4383,
+        "rows_out": 4383,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 3,
+        "start": "2024-01-01T00:00:00+00:00",
+        "end": "2025-12-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/training_4h/NEARUSD_4H.csv",
+        "warnings": [
+          "3 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      },
+      "validation_import": {
+        "exchange": "Kraken",
+        "symbol": "NEAR-USD",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 186050,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/validation_4h/NEARUSD_4H.csv",
+        "warnings": []
+      },
+      "frozen_settings": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 28879.93,
+        "closed_deals": 2933,
+        "average_hours": 2.0,
+        "longest_hours": 436,
+        "max_drawdown_dollars": -1379.74,
+        "max_capital": 5819.12,
+        "open_position": false,
+        "score": 28388.301
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 2456.01,
+        "realised_pnl": 2456.01,
+        "open_pnl": -284.73,
+        "mark_to_market_pnl": 2171.29,
+        "closed_deals": 284,
+        "average_hours": 3.0,
+        "longest_hours": 44,
+        "max_drawdown_dollars": -460.45,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "next_stage": "FORWARD VALIDATION",
+      "production_eligible": false
+    },
+    {
+      "symbol": "SOL",
+      "status": "FAIL",
+      "training_file": "SOLUSDT_240.csv",
+      "validation_file": "SOLUSDT.csv",
+      "training_import": {
+        "exchange": "Generic OHLCV",
+        "symbol": "SOL-USD",
+        "source_kind": "candles",
+        "source_timeframe_minutes": 240,
+        "target_timeframe_minutes": 240,
+        "rows_in": 4383,
+        "rows_out": 4383,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 3,
+        "start": "2024-01-01T00:00:00+00:00",
+        "end": "2025-12-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/training_4h/SOLUSD_4H.csv",
+        "warnings": [
+          "3 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      },
+      "validation_import": {
+        "exchange": "Kraken",
+        "symbol": "SOL-USD",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 403077,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/validation_4h/SOLUSD_4H.csv",
+        "warnings": []
+      },
+      "frozen_settings": {
+        "take_profit_pct": 1.5,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 20326.92,
+        "closed_deals": 1386,
+        "average_hours": 8.6,
+        "longest_hours": 5320,
+        "max_drawdown_dollars": -3382.87,
+        "max_capital": 5819.12,
+        "open_position": false,
+        "score": 19036.515499999998
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 405.53,
+        "realised_pnl": 405.53,
+        "open_pnl": -1834.17,
+        "mark_to_market_pnl": -1428.64,
+        "closed_deals": 34,
+        "average_hours": 14.9,
+        "longest_hours": 56,
+        "max_drawdown_dollars": -2150.45,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "next_stage": "RESEARCH / REJECT",
+      "production_eligible": false
+    },
+    {
+      "symbol": "UNI",
+      "status": "PASS",
+      "training_file": "UNIUSD_240.csv",
+      "validation_file": "UNIUSD.csv",
+      "training_import": {
+        "exchange": "Generic OHLCV",
+        "symbol": "UNI-USD",
+        "source_kind": "candles",
+        "source_timeframe_minutes": 240,
+        "target_timeframe_minutes": 240,
+        "rows_in": 4383,
+        "rows_out": 4383,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 3,
+        "start": "2024-01-01T00:00:00+00:00",
+        "end": "2025-12-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/training_4h/UNIUSD_4H.csv",
+        "warnings": [
+          "3 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      },
+      "validation_import": {
+        "exchange": "Kraken",
+        "symbol": "UNI-USD",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 219770,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/validation_4h/UNIUSD_4H.csv",
+        "warnings": []
+      },
+      "frozen_settings": {
+        "take_profit_pct": 1.5,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 24512.2,
+        "closed_deals": 1703,
+        "average_hours": 6.3,
+        "longest_hours": 3400,
+        "max_drawdown_dollars": -2986.73,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 22898.8445
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 2116.48,
+        "realised_pnl": 2116.48,
+        "open_pnl": -628.5,
+        "mark_to_market_pnl": 1487.98,
+        "closed_deals": 157,
+        "average_hours": 7.4,
+        "longest_hours": 280,
+        "max_drawdown_dollars": -1457.48,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "next_stage": "FORWARD VALIDATION",
+      "production_eligible": false
+    },
+    {
+      "symbol": "XMR",
+      "status": "PASS",
+      "training_file": "XMRUSDT_240.csv",
+      "validation_file": "XMRUSDT.csv",
+      "training_import": {
+        "exchange": "Generic OHLCV",
+        "symbol": "XMR-USD",
+        "source_kind": "candles",
+        "source_timeframe_minutes": 240,
+        "target_timeframe_minutes": 240,
+        "rows_in": 4383,
+        "rows_out": 4383,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 3,
+        "start": "2024-01-01T00:00:00+00:00",
+        "end": "2025-12-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/training_4h/XMRUSD_4H.csv",
+        "warnings": [
+          "3 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      },
+      "validation_import": {
+        "exchange": "Kraken",
+        "symbol": "XMR-USD",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 807366,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/validation_4h/XMRUSD_4H.csv",
+        "warnings": []
+      },
+      "frozen_settings": {
+        "take_profit_pct": 2.0,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 17970.19,
+        "closed_deals": 908,
+        "average_hours": 15.3,
+        "longest_hours": 3984,
+        "max_drawdown_dollars": -2274.7,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 16594.364999999998
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 4863.52,
+        "realised_pnl": 4863.52,
+        "open_pnl": 3.56,
+        "mark_to_market_pnl": 4867.08,
+        "closed_deals": 217,
+        "average_hours": 5.9,
+        "longest_hours": 160,
+        "max_drawdown_dollars": -737.5,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "next_stage": "FORWARD VALIDATION",
+      "production_eligible": false
+    },
+    {
+      "symbol": "XRP",
+      "status": "PASS",
+      "training_file": "XRPUSDT_240.csv",
+      "validation_file": "XRPUSDT.csv",
+      "training_import": {
+        "exchange": "Generic OHLCV",
+        "symbol": "XRP-USD",
+        "source_kind": "candles",
+        "source_timeframe_minutes": 240,
+        "target_timeframe_minutes": 240,
+        "rows_in": 4383,
+        "rows_out": 4383,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 3,
+        "start": "2024-01-01T00:00:00+00:00",
+        "end": "2025-12-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/training_4h/XRPUSD_4H.csv",
+        "warnings": [
+          "3 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      },
+      "validation_import": {
+        "exchange": "Kraken",
+        "symbol": "XRP-USD",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 320561,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/validation_4h/XRPUSD_4H.csv",
+        "warnings": []
+      },
+      "frozen_settings": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 17771.34,
+        "closed_deals": 1596,
+        "average_hours": 6.9,
+        "longest_hours": 1096,
+        "max_drawdown_dollars": -1909.44,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 16581.116
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 1855.42,
+        "realised_pnl": 1855.42,
+        "open_pnl": -72.74,
+        "mark_to_market_pnl": 1782.68,
+        "closed_deals": 212,
+        "average_hours": 5.4,
+        "longest_hours": 56,
+        "max_drawdown_dollars": -392.83,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "next_stage": "FORWARD VALIDATION",
+      "production_eligible": false
+    },
+    {
+      "symbol": "ZEC",
+      "status": "FAIL",
+      "training_file": "ZECUSD_240.csv",
+      "validation_file": "ZECUSD.csv",
+      "training_import": {
+        "exchange": "Generic OHLCV",
+        "symbol": "ZEC-USD",
+        "source_kind": "candles",
+        "source_timeframe_minutes": 240,
+        "target_timeframe_minutes": 240,
+        "rows_in": 4383,
+        "rows_out": 4383,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 3,
+        "start": "2024-01-01T00:00:00+00:00",
+        "end": "2025-12-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/training_4h/ZECUSD_4H.csv",
+        "warnings": [
+          "3 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      },
+      "validation_import": {
+        "exchange": "Kraken",
+        "symbol": "ZEC-USD",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 917726,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "/mnt/data/v30build/project/Crypto_Regime_Manager_V29_Current/data/research/validation_4h/ZECUSD_4H.csv",
+        "warnings": []
+      },
+      "frozen_settings": {
+        "take_profit_pct": 2.0,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 50345.38,
+        "closed_deals": 1684,
+        "average_hours": 6.4,
+        "longest_hours": 1108,
+        "max_drawdown_dollars": -1787.75,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 49197.50749999999
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 200.07,
+        "realised_pnl": 200.07,
+        "open_pnl": -2803.97,
+        "mark_to_market_pnl": -2603.9,
+        "closed_deals": 12,
+        "average_hours": 7.7,
+        "longest_hours": 44,
+        "max_drawdown_dollars": -3466.76,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "next_stage": "RESEARCH / REJECT",
+      "production_eligible": false
+    }
+  ],
+  "summary": {
+    "matched": 10,
+    "passed": 5,
+    "failed": 5,
+    "errors": 0
+  },
+  "safeguards": {
+    "automatic_bot_creation": false,
+    "automatic_3commas_changes": false,
+    "manual_approval_required": true,
+    "q1_used_for_optimisation": false
+  }
+}

@@ -1,0 +1,36 @@
+name: V30 Autonomous Crypto Regime Refresh
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "18 0,4,8,12,16,20 * * *"
+permissions:
+  contents: write
+concurrency:
+  group: crypto-regime-cloud-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate V30 Python
+        run: |
+          python -m py_compile scripts/cloud_update.py scripts/multi_coin_sync_backtest.py scripts/backtest_lab.py scripts/data_import.py scripts/decision_engine.py scripts/coin_discovery.py scripts/candidate_validation.py scripts/kraken_research_pipeline.py scripts/core/engine.py scripts/core/backtest_lab.py scripts/core/data_import.py scripts/core/walk_forward_lab.py scripts/core/decision_engine.py scripts/core/coin_discovery.py scripts/core/candidate_validation.py scripts/core/research_queue.py
+      - name: Run V30 autonomous read-only refresh
+        run: python scripts/cloud_update.py
+      - name: Publish latest data and heartbeat
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data/normalized docs/strategies.json docs/health_history.json docs/candidate_registry.json docs/coin_discovery.json docs/coin_universe.json docs/cloud_status.json docs/candidate_validation.json docs/backtest_lab.json docs/import_registry.json docs/walk_forward_registry.json
+          git add -A docs/*_deals.csv 2>/dev/null || true
+          if git diff --cached --quiet; then echo "No published data changes detected."; else git commit -m "V30 automated cloud refresh"; git push; fi
