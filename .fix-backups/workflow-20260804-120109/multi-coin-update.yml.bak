@@ -1,0 +1,47 @@
+name: V27 Autonomous Crypto Regime Refresh
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "18 0,4,8,12,16,20 * * *"
+permissions:
+  contents: write
+concurrency:
+  group: crypto-regime-cloud-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate V25 Python
+        run: python -m py_compile scripts/cloud_update.py scripts/multi_coin_sync_backtest.py scripts/core/engine.py scripts/coin_discovery.py scripts/core/coin_discovery.py scripts/candidate_validation.py scripts/core/candidate_validation.py
+      - name: Run autonomous read-only refresh
+        id: pipeline
+        continue-on-error: true
+        run: python scripts/cloud_update.py
+      - name: Publish latest data and heartbeat
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/*.csv docs/strategies.json docs/health_history.json docs/*_deals.csv docs/candidate_registry.json docs/coin_discovery.json docs/coin_universe.json docs/cloud_status.json docs/candidate_validation.json
+          if git diff --cached --quiet; then
+            echo "No published data changes."
+          else
+            git commit -m "V27 autonomous refresh"
+            for attempt in 1 2 3; do
+              git pull --rebase origin main && git push origin main && break
+              echo "Push attempt $attempt failed; retrying..."
+              sleep $((attempt * 10))
+            done
+          fi
+      - name: Fail workflow when pipeline failed
+        if: steps.pipeline.outcome == 'failure'
+        run: exit 1
