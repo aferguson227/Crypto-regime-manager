@@ -1,0 +1,23 @@
+{
+  "version": "29.0.0",
+  "release": "V29 Strategy Factory",
+  "release_name": "V29 Kraken Backtest & Multi-Bot Research",
+  "installer": "INSTALL_V29_EASY.bat",
+  "cloud_scheduler": "GitHub Actions",
+  "scheduled_refresh_hours": 4,
+  "laptop_required": false,
+  "automatic_production_changes": false,
+  "automatic_3commas_changes": false,
+  "automatic_dca_changes": false,
+  "manual_approval_required": true,
+  "cloud_page_rebuilt": true,
+  "non_overlapping_mobile_status": true,
+  "candidate_validation_queue": true,
+  "fee_aware_replay_gate": true,
+  "walk_forward_gate": true,
+  "universal_data_importer": true,
+  "automatic_4h_conversion": true,
+  "generalised_backtest_lab": true,
+  "strategy_lifecycle": true,
+  "portfolio_synchronisation": true
+}
