@@ -1,0 +1,18 @@
+{
+  "version": "28.0.0",
+  "release": "V28 unified decision engine",
+  "release_name": "V28 Candidate Validation Lab",
+  "installer": "INSTALL_V28_EASY.bat",
+  "cloud_scheduler": "GitHub Actions",
+  "scheduled_refresh_hours": 4,
+  "laptop_required": false,
+  "automatic_production_changes": false,
+  "automatic_3commas_changes": false,
+  "automatic_dca_changes": false,
+  "manual_approval_required": true,
+  "cloud_page_rebuilt": true,
+  "non_overlapping_mobile_status": true,
+  "candidate_validation_queue": true,
+  "fee_aware_replay_gate": true,
+  "walk_forward_gate": true
+}
