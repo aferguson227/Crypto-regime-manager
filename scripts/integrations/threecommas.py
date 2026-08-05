@@ -175,6 +175,9 @@ def sanitise_deal(deal: dict[str, Any], publish_mode: str) -> dict[str, Any]:
         "completed_safety_orders": to_int(first_value(deal, ("completed_safety_orders_count", "completed_manual_safety_orders_count"))) or 0,
         "max_safety_orders": to_int(deal.get("max_safety_orders")),
         "active_safety_orders": to_int(first_value(deal, ("current_active_safety_orders_count", "active_safety_orders_count"))),
+        "bot_id": to_int(deal.get("bot_id")),
+        "capital_used": to_float(first_value(deal, ("bought_amount", "bought_volume", "base_order_volume"))),
+        "placed_order_reserve": to_float(first_value(deal, ("reserved_quote_funds", "reserved_funds", "active_safety_order_capital"))),
     }
     if publish_mode == "full":
         result.update({
@@ -188,6 +191,20 @@ def sanitise_deal(deal: dict[str, Any], publish_mode: str) -> dict[str, Any]:
     return result
 
 
+
+def sanitise_account(account: dict[str, Any]) -> dict[str, Any]:
+    total = to_float(first_value(account, ("total_usd_value", "total_balance", "btc_amount")))
+    free = to_float(first_value(account, ("available_usdt", "free_usdt", "available_balance", "balance")))
+    return {
+        "account_id": to_int(account.get("id")),
+        "name": str(account.get("name") or account.get("exchange_name") or "3Commas account"),
+        "exchange_name": first_value(account, ("exchange_name", "market_code", "type")),
+        "currency": str(first_value(account, ("currency", "quote_currency")) or "USDT"),
+        "total_usd_value": total,
+        "free_usdt": free,
+        "balance_source": "3Commas read-only account payload",
+    }
+
 def empty_payload(status: str, message: str, publish_mode: str = "masked") -> dict[str, Any]:
     return {
         "version": VERSION,
@@ -197,6 +214,7 @@ def empty_payload(status: str, message: str, publish_mode: str = "masked") -> di
         "message": message,
         "publish_mode": publish_mode,
         "read_only": True,
+        "accounts": [],
         "assets": {},
     }
 
@@ -239,6 +257,10 @@ def main() -> int:
         if not isinstance(deals_raw, list):
             raise RuntimeError(f"Unexpected deals response type: {type(deals_raw).__name__}")
 
+        accounts_raw = signed_get("/public/api/ver1/accounts", {}, api_key, private_key)
+        if not isinstance(accounts_raw, list):
+            raise RuntimeError(f"Unexpected accounts response type: {type(accounts_raw).__name__}")
+
         assets: dict[str, dict[str, list[dict[str, Any]]]] = {}
         for bot in bots_raw:
             asset = asset_from_pair(bot.get("pairs") or bot.get("pair"))
@@ -257,6 +279,7 @@ def main() -> int:
             "message": "Read-only 3Commas data updated successfully.",
             "publish_mode": publish_mode,
             "read_only": True,
+            "accounts": [sanitise_account(a) for a in accounts_raw if isinstance(a, dict)],
             "assets": assets,
         }
     except Exception as exc:

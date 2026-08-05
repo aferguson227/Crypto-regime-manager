@@ -8,15 +8,19 @@ threecommas_private_setup/
 *.pem
 
 # Local private RSA material
-threecommas_private_setup/
-*.pem
 
 # Python caches
-__pycache__/
-*.py[cod]
 backups/
 
 # CRM Build System outputs
 release/
 diagnostics_logs/
 diagnostics_exports/
+
+# Local build and diagnostics artefacts
+hotfix_backups/
+*.bak
+*.log
+*.zip
+*.pyc
+.pytest_cache/

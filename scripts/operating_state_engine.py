@@ -165,7 +165,7 @@ def build() -> dict[str, Any]:
     generated = now_iso()
     strategies=load('strategies.json'); decisions=load('decision_intelligence_v28.json')
     three=load('threecommas.json'); recon=load('configuration_reconciliation.json')
-    walk=load('walk_forward_registry.json'); integrity=load('system_integrity.json')
+    walk=load('walk_forward_registry.json'); integrity=load('system_integrity.json'); capital_doc=load('capital_intelligence.json')
     assets={str(a.get('id')):a for a in strategies.get('assets',[]) if isinstance(a,dict)}
     ranked=decisions.get('production_ranking') if isinstance(decisions.get('production_ranking'),list) else []
     bot_rows=[]; deploy=[]
@@ -183,11 +183,11 @@ def build() -> dict[str, Any]:
     current='Mixed' if len(set(regimes))>1 else (regimes[0] if regimes else 'Unknown')
     best=next((b for b in bot_rows if b.entry_allowed and b.action in {'DEPLOY_CANDIDATE','KEEP_RUNNING'}),None)
     next_priority=best.recommendation if best else None
-    sources=(source_state('KuCoin strategy snapshot',strategies),source_state('Unified decision intelligence',decisions),source_state('3Commas live state',three),source_state('Configuration reconciliation',recon),source_state('Walk-forward registry',walk,False),source_state('System integrity',integrity))
+    sources=(source_state('KuCoin strategy snapshot',strategies),source_state('Unified decision intelligence',decisions),source_state('3Commas live state',three),source_state('Capital intelligence',capital_doc,False),source_state('Configuration reconciliation',recon),source_state('Walk-forward registry',walk,False),source_state('System integrity',integrity))
     failures=[s for s in sources if s.status in {'missing','error','fail'}]
     snapshot_seed='|'.join([generated]+[f'{s.name}:{s.observed_at}:{s.status}' for s in sources])
     snapshot_id=hashlib.sha256(snapshot_seed.encode()).hexdigest()[:20]
-    state=OperatingState('1.0',application_version(),snapshot_id,generated,'canonical_read_only_operating_state',True,'DEGRADED' if failures else 'READY',current,f"{len(regimes)} asset regimes observed: {', '.join(regimes) if regimes else 'none'}",tuple(bot_rows),tuple(deploy),next_priority,capital_state(three),evidence_state(strategies,walk),sources,{'manual_approval_required':True,'automatic_live_changes':False,'automatic_settings_changes':False,'categories':['PRODUCTION_CONFIGURATION','LIVE_3COMMAS_CONFIGURATION','RESEARCH_CANDIDATE','FORWARD_VALIDATED_CONFIGURATION','DEPLOYMENT_RECOMMENDATION']})
+    state=OperatingState('1.0',application_version(),snapshot_id,generated,'canonical_read_only_operating_state',True,'DEGRADED' if failures else 'READY',current,f"{len(regimes)} asset regimes observed: {', '.join(regimes) if regimes else 'none'}",tuple(bot_rows),tuple(deploy),next_priority,(CapitalState(currency=capital_doc.get('currency','USDT'),exchange_total=capital_doc.get('exchange_total'),free_available=capital_doc.get('free_available'),active_deal_capital=capital_doc.get('active_deal_capital'),placed_order_reserve=capital_doc.get('placed_order_reserve'),enabled_bot_theoretical_reserve=capital_doc.get('enabled_idle_capacity_reserve'),available_after_reserve=capital_doc.get('deployable_capital'),completeness=str(capital_doc.get('capital_status') or 'unknown').lower(),warnings=tuple(capital_doc.get('warnings') or ())) if capital_doc else capital_state(three)),evidence_state(strategies,walk),sources,{'manual_approval_required':True,'automatic_live_changes':False,'automatic_settings_changes':False,'categories':['PRODUCTION_CONFIGURATION','LIVE_3COMMAS_CONFIGURATION','RESEARCH_CANDIDATE','FORWARD_VALIDATED_CONFIGURATION','DEPLOYMENT_RECOMMENDATION']})
     return state.to_dict()
 
 

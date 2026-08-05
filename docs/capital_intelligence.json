@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "application_version": "32.3.0",
+  "generated_at": "2026-08-05T19:31:21.732060+00:00",
+  "snapshot_id": "330ff9110e819107b89c",
+  "currency": "USDT",
+  "accounts": [],
+  "bots": [
+    {
+      "asset": "TEL",
+      "bot_id": null,
+      "bot_name": "TEL DCA - High Bear",
+      "enabled": true,
+      "active_deals": 0,
+      "max_active_deals": 1,
+      "per_deal_max_capital": null,
+      "active_deal_capital": 0.0,
+      "placed_order_reserve": 0.0,
+      "remaining_dca_reserve": 0,
+      "idle_capacity_reserve": null,
+      "next_deal_required_capital": null,
+      "completeness": "partial",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    },
+    {
+      "asset": "TEL",
+      "bot_id": null,
+      "bot_name": "TEL DCA - High Bull",
+      "enabled": true,
+      "active_deals": 0,
+      "max_active_deals": 1,
+      "per_deal_max_capital": null,
+      "active_deal_capital": 0.0,
+      "placed_order_reserve": 0.0,
+      "remaining_dca_reserve": 0,
+      "idle_capacity_reserve": null,
+      "next_deal_required_capital": null,
+      "completeness": "partial",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    },
+    {
+      "asset": "TEL",
+      "bot_id": null,
+      "bot_name": "TEL DCA - Medium Volatility",
+      "enabled": true,
+      "active_deals": 0,
+      "max_active_deals": 1,
+      "per_deal_max_capital": null,
+      "active_deal_capital": 0.0,
+      "placed_order_reserve": 0.0,
+      "remaining_dca_reserve": 0,
+      "idle_capacity_reserve": null,
+      "next_deal_required_capital": null,
+      "completeness": "partial",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    },
+    {
+      "asset": "TEL",
+      "bot_id": null,
+      "bot_name": "TEL DCA - Low Volatility",
+      "enabled": true,
+      "active_deals": 1,
+      "max_active_deals": 1,
+      "per_deal_max_capital": null,
+      "active_deal_capital": null,
+      "placed_order_reserve": null,
+      "remaining_dca_reserve": null,
+      "idle_capacity_reserve": null,
+      "next_deal_required_capital": null,
+      "completeness": "partial",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable.",
+        "Active deal cost basis is incomplete.",
+        "Remaining safety-order reserve cannot be calculated."
+      ]
+    },
+    {
+      "asset": "TEL",
+      "bot_id": null,
+      "bot_name": "TEL DCA",
+      "enabled": false,
+      "active_deals": 0,
+      "max_active_deals": 1,
+      "per_deal_max_capital": null,
+      "active_deal_capital": 0.0,
+      "placed_order_reserve": 0.0,
+      "remaining_dca_reserve": 0,
+      "idle_capacity_reserve": 0.0,
+      "next_deal_required_capital": null,
+      "completeness": "partial",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    },
+    {
+      "asset": "TAO",
+      "bot_id": null,
+      "bot_name": "TAO DCA",
+      "enabled": false,
+      "active_deals": 0,
+      "max_active_deals": 1,
+      "per_deal_max_capital": null,
+      "active_deal_capital": 0.0,
+      "placed_order_reserve": 0.0,
+      "remaining_dca_reserve": 0,
+      "idle_capacity_reserve": 0.0,
+      "next_deal_required_capital": null,
+      "completeness": "partial",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    },
+    {
+      "asset": "TAO",
+      "bot_id": null,
+      "bot_name": "Core liquid bot",
+      "enabled": false,
+      "active_deals": 0,
+      "max_active_deals": 4,
+      "per_deal_max_capital": null,
+      "active_deal_capital": 0.0,
+      "placed_order_reserve": 0.0,
+      "remaining_dca_reserve": 0,
+      "idle_capacity_reserve": 0.0,
+      "next_deal_required_capital": null,
+      "completeness": "partial",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    }
+  ],
+  "exchange_total": null,
+  "free_available": null,
+  "active_deal_capital": null,
+  "placed_order_reserve": null,
+  "remaining_active_deal_dca_reserve": null,
+  "enabled_idle_capacity_reserve": null,
+  "deployable_capital": null,
+  "reserve_coverage_ratio": null,
+  "capital_status": "PARTIAL",
+  "next_capital_priority": "TEL Low Volatility Bot",
+  "next_capital_required": null,
+  "can_fund_next_priority": null,
+  "methodology": {
+    "free_available": "Read-only free USDT reported for linked accounts.",
+    "active_deal_capital": "Sum of known cost basis for active deals.",
+    "placed_order_reserve": "Shown separately; not subtracted from free USDT because exchange free balance normally already excludes open-order funds.",
+    "remaining_active_deal_dca_reserve": "Unplaced remaining safety-order ladder requirement for active deals.",
+    "enabled_idle_capacity_reserve": "Maximum full-ladder capital for unused enabled-bot deal slots.",
+    "deployable_capital": "free_available minus enabled_idle_capacity_reserve; never inferred when source data is incomplete."
+  },
+  "warnings": [
+    "No read-only 3Commas account balance records are available.",
+    "Free USDT is unknown; deployable capital cannot be asserted.",
+    "One or more bot capital records are partial."
+  ],
+  "read_only": true
+}

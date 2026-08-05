@@ -2,16 +2,14 @@
 param(
     [switch]$Screenshots,
     [switch]$AllowDirty,
-    [string]$ProjectPath
+    [string]$ProjectPath = ""
 )
-
-$ScriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
-if ([string]::IsNullOrWhiteSpace($ProjectPath)) { $ProjectPath = $ScriptRoot }
-$ProjectPath = [System.IO.Path]::GetFullPath($ProjectPath)
 $ErrorActionPreference='Stop'
-$failure = $null
 $ProgressPreference='SilentlyContinue'
-. (Join-Path $ScriptRoot 'build\Invoke-CRMCommand.ps1')
+if([string]::IsNullOrWhiteSpace($ProjectPath)){ $ProjectPath = Split-Path -Parent $MyInvocation.MyCommand.Path }
+$failure=$null
+$result='fail'
+. (Join-Path $ProjectPath 'build\Invoke-CRMCommand.ps1')
 $stamp=Get-Date -Format 'yyyyMMdd-HHmmss'
 $logDir=Join-Path $ProjectPath 'diagnostics_logs'
 New-Item -ItemType Directory -Path $logDir -Force | Out-Null
@@ -35,7 +33,7 @@ try {
         $dirty=(& git -C $ProjectPath status --porcelain | Out-String).Trim()
         if($dirty -and -not $AllowDirty){throw 'Repository has uncommitted changes. Commit them or rerun with -AllowDirty.'}
         $v=(Get-Content (Join-Path $ProjectPath 'VERSION') -Raw).Trim()
-        if($v -ne '32.2.0'){throw "Expected VERSION 32.2.0, found $v"}
+        if($v -ne '32.3.0'){throw "Expected VERSION 32.3.0, found $v"}
     }
     Run-Step 'Python tests' { Invoke-CRMCommand -Command 'python' -Arguments @('-m','pytest','-q') -WorkingDirectory $ProjectPath -LogPath $log }
     Run-Step 'Publication validation' { Invoke-CRMCommand -Command 'python' -Arguments @('scripts\validate_publish.py') -WorkingDirectory $ProjectPath -LogPath $log }
@@ -53,7 +51,7 @@ catch {
 }
 finally {
     $report=[ordered]@{
-        schema_version='1.0'; build_system='CRM Build System 1.0'; version='32.2.0'; result=$result
+        schema_version='1.0'; build_system='CRM Build System 1.0'; version='32.3.0'; result=$result
         started_at=$started.ToString('o'); completed_at=(Get-Date).ToString('o')
         duration_seconds=[math]::Round(((Get-Date)-$started).TotalSeconds,2)
         git_commit=((& git -C $ProjectPath rev-parse HEAD 2>$null | Out-String).Trim())
