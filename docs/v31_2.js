@@ -1,6 +1,6 @@
 (()=>{
 'use strict';
-const VERSION='31.2.0';
+const VERSION='31.2.1';
 const NAV=[
  ['index.html','Dashboard'],['cockpit.html','Cockpit'],['research.html','Research'],
  ['discovery.html','Discovery'],['research_hub.html','Research Hub'],
@@ -21,11 +21,25 @@ function rebuildNav(){
  document.querySelectorAll('.v20-tools,.v24-tools').forEach((n,i)=>{if(i>0)n.remove()});
 }
 function versions(){document.querySelectorAll('.version,.v22-version,[id="version"]').forEach(e=>e.textContent='V'+VERSION);document.title=document.title.replace(/V\d+(?:\.\d+)*/g,'V'+VERSION)}
-window.crmFetchJson=async function(url,options={}){
- const r=await fetch(url,options); const text=await r.text();
- if(!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
- if(!text.trim()) throw new Error(`${url}: published file is empty`);
- try{return JSON.parse(text)}catch(e){throw new Error(`${url}: invalid JSON (${e.message}); received ${text.length} bytes`)}
+window.crmFetchJson=async function(name,options={}){
+ const stamp=Date.now();
+ const cleanName=String(name).replace(/^\.\//,'').split('?')[0];
+ const urls=[
+  './'+cleanName+'?v=31.2.1&t='+stamp,
+  '/Crypto-regime-manager/'+cleanName+'?v=31.2.1&t='+(stamp+1),
+  'https://raw.githubusercontent.com/aferguson227/Crypto-regime-manager/main/docs/'+cleanName+'?t='+(stamp+2)
+ ];
+ const errors=[];
+ for(let i=0;i<urls.length;i++){
+  try{
+   const r=await fetch(urls[i],{...options,cache:'no-store',headers:{...(options.headers||{}),'Accept':'application/json'}});
+   const text=await r.text();
+   if(!r.ok)throw new Error(`HTTP ${r.status}`);
+   if(!text.trim())throw new Error('empty response');
+   return JSON.parse(text);
+  }catch(e){errors.push(`attempt ${i+1}: ${e.message}`);if(i<urls.length-1)await new Promise(ok=>setTimeout(ok,350*(i+1)))}
+ }
+ throw new Error(`${cleanName} could not be loaded. ${errors.join(' | ')}`);
 };
 function fixFloating(){document.querySelectorAll('a[href="index.html"],button').forEach(e=>{if(/dashboard/i.test(e.textContent||'')&&getComputedStyle(e).position==='fixed')e.classList.add('crm-floating-dashboard')})}
 function boot(){clean();rebuildNav();versions();fixFloating();setTimeout(()=>{clean();rebuildNav();versions();fixFloating()},600)}
