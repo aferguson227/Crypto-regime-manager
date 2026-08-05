@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""V30.1 cloud scheduler entry point.
+"""V31.1 cloud scheduler entry point.
 Runs the existing refresh/replay/discovery pipeline and always publishes a heartbeat.
 It never changes live bots or production settings.
 """
@@ -12,6 +12,7 @@ from core.candidate_validation import write_validation_queue
 from core.decision_engine import write_decision_intelligence
 from core.data_import import run_import_queue
 from core.backtest_lab import run_lab
+from core.research_analytics import write_research_analytics
 
 ROOT = Path(__file__).resolve().parents[1]
 STATUS = ROOT / 'docs' / 'cloud_status.json'
@@ -26,7 +27,7 @@ def write_status(state: str, started: str, error: str | None = None) -> None:
         try: target.update(json.loads(path.read_text(encoding='utf-8-sig')))
         except Exception: pass
     payload = {
-        'version': '30.1.0',
+        'version': '31.1.0',
         'mode': 'cloud_autonomous_read_only',
         'state': state,
         'started_at': started,
@@ -59,6 +60,7 @@ if __name__ == '__main__':
         run_lab(ROOT)
         write_validation_queue(ROOT)
         write_decision_intelligence(ROOT)
+        write_research_analytics(ROOT)
         write_status('healthy', started)
         raise SystemExit(0)
     except Exception as exc:
