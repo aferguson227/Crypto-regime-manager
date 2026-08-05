@@ -1,8 +1,8 @@
-# Crypto Regime Manager V32.1.1
+# Crypto Regime Manager V32.2.0
 
 ## Diagnostics and Acceptance Engine
 
-V32.1.1 adds an observational diagnostics engine without changing trading logic or enabling any 3Commas write capability.
+V32.2.0 adds an observational diagnostics engine without changing trading logic or enabling any 3Commas write capability.
 
 ### Included
 

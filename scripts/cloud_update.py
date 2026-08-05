@@ -13,6 +13,7 @@ from scripts.core.decision_engine import write_decision_intelligence
 from scripts.core.data_import import run_import_queue
 from scripts.core.backtest_lab import run_lab
 from scripts.core.research_analytics import write_research_analytics
+from app.release import application_version
 
 ROOT = Path(__file__).resolve().parents[1]
 STATUS = ROOT / 'docs' / 'cloud_status.json'
@@ -27,7 +28,7 @@ def write_status(state: str, started: str, error: str | None = None) -> None:
         try: target.update(json.loads(path.read_text(encoding='utf-8-sig')))
         except Exception: pass
     payload = {
-        'version': '32.1.1',
+        'version': application_version(),
         'mode': 'cloud_autonomous_read_only',
         'state': state,
         'started_at': started,
@@ -64,6 +65,8 @@ if __name__ == '__main__':
         from scripts.reconcile_configurations import main as reconcile
         from scripts.build_v32_integrity import main as integrity
         reconcile(); integrity()
+        from scripts.operating_state_engine import main as operating_state
+        operating_state()
         from scripts.diagnostics_engine import build_report, OUTPUT
         OUTPUT.write_text(json.dumps(build_report(full=False), indent=2), encoding='utf-8')
         write_status('healthy', started)

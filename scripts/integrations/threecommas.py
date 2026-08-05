@@ -27,7 +27,8 @@ ROOT = Path(__file__).resolve().parents[2]
 CONFIG_PATH = ROOT / "config.json"
 OUTPUT_PATH = ROOT / "docs" / "threecommas.json"
 BASE_URL = "https://api.3commas.io"
-VERSION = "32.0.0"
+from app.release import application_version
+VERSION = application_version()
 ALLOWED_PATHS = {"/public/api/ver1/validate", "/public/api/ver1/bots", "/public/api/ver1/deals", "/public/api/ver1/accounts"}
 
 

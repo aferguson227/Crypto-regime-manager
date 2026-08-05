@@ -1,31 +1,32 @@
 {
   "metadata": {
-    "application_version": "32.0.0",
+    "application_version": "32.2.0",
     "schema_version": "1.0",
-    "generated_at": "2026-08-05T15:05:13.684806+00:00",
-    "observed_at": "2026-08-05T15:05:13.684806+00:00",
+    "generated_at": "2026-08-05T18:40:05.999340+00:00",
+    "observed_at": "2026-08-05T18:40:05.999340+00:00",
     "source": "repository audit",
     "source_status": "fresh",
-    "snapshot_id": "71ff3f66fe3ef733",
+    "snapshot_id": "6211552c9ee19243",
     "is_stale": false,
     "warnings": []
   },
   "release": {
     "application": "Crypto Regime Manager",
-    "version": "32.0.0",
-    "release_name": "Deployment Intelligence Foundations",
-    "build_phase": 1,
+    "version": "32.2.0",
+    "release_name": "Operating State Engine",
+    "build_phase": "Canonical Operating State",
     "threecommas_mode": "read_only",
     "deployment_recommendations_enabled": false,
-    "released_at": "2026-08-05"
+    "released_at": "2026-08-05",
+    "diagnostics_engine": true
   },
   "checks": {
     "read_only_3commas": true,
-    "deployment_recommendations_enabled": false,
+    "deployment_recommendations_enabled": true,
     "route_manifest_valid": true,
     "missing_routes": [],
     "duplicate_runtime_trees_archived": true,
     "canonical_release_present": true
   },
-  "message": "Deployment recommendations are unavailable until operating-state and capital reconciliation are complete."
+  "message": "The canonical operating-state engine is available. Recommendations remain advisory and manual approval is required."
 }

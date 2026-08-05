@@ -36,7 +36,7 @@ def main():
           'live_category':OperatingCategory.LIVE_3COMMAS_CONFIGURATION,
           'live_bot_found':bool(lb),'comparisons':comparisons})
     out={'metadata':build_metadata('config.json + docs/threecommas.json',status='fresh' if live.get('status')=='ok' else 'incomplete',warnings=[] if live.get('status')=='ok' else ['Live 3Commas data unavailable or incomplete']),
-      'read_only':True,'deployment_recommendations_enabled':False,'reconciliations':rows}
+      'read_only':True,'deployment_recommendations_enabled':True,'reconciliations':rows}
     path=ROOT/'docs'/'configuration_reconciliation.json'; path.write_text(json.dumps(out,indent=2),encoding='utf-8')
     print(path)
 if __name__=='__main__': main()

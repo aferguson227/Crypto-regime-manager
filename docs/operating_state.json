@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "application_version": "32.2.0",
+  "snapshot_id": "ca8f2cdbd9de51c85cb3",
+  "generated_at": "2026-08-05T18:40:06.810135+00:00",
+  "mode": "canonical_read_only_operating_state",
+  "read_only": true,
+  "overall_status": "READY",
+  "current_market_regime": "Low",
+  "market_regime_summary": "3 asset regimes observed: Low, Low, Low",
+  "bot_decisions": [
+    {
+      "asset": "TEL",
+      "regime": "Low",
+      "production_status": "production",
+      "action": "KEEP_RUNNING",
+      "recommendation": "TEL Low Volatility Bot",
+      "entry_allowed": true,
+      "decision_score": 96.0,
+      "live_bot_state": "RUNNING",
+      "settings_state": "INCOMPLETE",
+      "reasons": [
+        "Current entry filters pass",
+        "Recent realised P&L is positive",
+        "Recent capital efficiency is positive"
+      ],
+      "cautions": [
+        "Recent drawdown is elevated",
+        "Open replay position has lasted 28.0 days"
+      ]
+    },
+    {
+      "asset": "TAO",
+      "regime": "Low",
+      "production_status": "production",
+      "action": "WAIT",
+      "recommendation": "TAO Low Pullback Bot",
+      "entry_allowed": false,
+      "decision_score": 47.7,
+      "live_bot_state": "NO_MATCHING_BOT",
+      "settings_state": "INCOMPLETE",
+      "reasons": [
+        "Strategy health is strong",
+        "Recent realised P&L is positive",
+        "Recent capital efficiency is positive"
+      ],
+      "cautions": [
+        "Current entry is blocked"
+      ]
+    }
+  ],
+  "deploy_today": [],
+  "next_capital_priority": "TEL Low Volatility Bot",
+  "capital": {
+    "currency": "USDT",
+    "exchange_total": null,
+    "free_available": null,
+    "active_deal_capital": null,
+    "placed_order_reserve": null,
+    "enabled_bot_theoretical_reserve": null,
+    "available_after_reserve": null,
+    "completeness": "partial",
+    "warnings": [
+      "KuCoin account equity/free USDT are not available in the current 3Commas payload.",
+      "Active-deal cost basis is unavailable; active capital cannot be fully reconciled.",
+      "Full enabled-bot DCA sizing is unavailable; theoretical reserve is incomplete."
+    ]
+  },
+  "evidence_agreement": {
+    "status": "PARTIAL",
+    "assets": [
+      {
+        "asset": "SUI",
+        "kraken_historical": "AVAILABLE",
+        "q1_2026_validation": "AVAILABLE",
+        "kucoin_current": "AVAILABLE",
+        "agreement": "DISAGREE"
+      }
+    ],
+    "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
+  },
+  "source_states": [
+    {
+      "name": "KuCoin strategy snapshot",
+      "status": "ok",
+      "observed_at": "2026-08-05T13:15:29.569557+00:00",
+      "version": "29.0.0",
+      "warnings": []
+    },
+    {
+      "name": "Unified decision intelligence",
+      "status": "available",
+      "observed_at": "2026-08-05T13:15:32.445365+00:00",
+      "version": "29.0.0",
+      "warnings": []
+    },
+    {
+      "name": "3Commas live state",
+      "status": "ok",
+      "observed_at": "2026-08-05T13:16:41.429938+00:00",
+      "version": "6.1.0",
+      "warnings": []
+    },
+    {
+      "name": "Configuration reconciliation",
+      "status": "fresh",
+      "observed_at": "2026-08-05T18:40:06.369201+00:00",
+      "version": null,
+      "warnings": []
+    },
+    {
+      "name": "Walk-forward registry",
+      "status": "available",
+      "observed_at": "2026-08-04T11:38:44.176469+00:00",
+      "version": "30.0.0",
+      "warnings": []
+    },
+    {
+      "name": "System integrity",
+      "status": "fresh",
+      "observed_at": "2026-08-05T18:40:05.999340+00:00",
+      "version": null,
+      "warnings": []
+    }
+  ],
+  "governance": {
+    "manual_approval_required": true,
+    "automatic_live_changes": false,
+    "automatic_settings_changes": false,
+    "categories": [
+      "PRODUCTION_CONFIGURATION",
+      "LIVE_3COMMAS_CONFIGURATION",
+      "RESEARCH_CANDIDATE",
+      "FORWARD_VALIDATED_CONFIGURATION",
+      "DEPLOYMENT_RECOMMENDATION"
+    ]
+  }
+}

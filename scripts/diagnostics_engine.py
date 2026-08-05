@@ -78,7 +78,7 @@ def check_release() -> Check:
         config=read_json(ROOT/'config.json')
         values=[version,release.get('version'),doc.get('version'),config.get('version')]
         evidence=[f"VERSION={values[0]}",f"release={values[1]}",f"docs={values[2]}",f"config={values[3]}"]
-        ok=len(set(values))==1 and values[0]=='32.1.1'
+        ok=len(set(values))==1 and values[0]==str(release.get('version'))
         return Check('release.identity','Release identity','release','pass' if ok else 'fail','All release sources agree.' if ok else 'Release version sources disagree.',evidence)
     except Exception as exc:
         return Check('release.identity','Release identity','release','fail',str(exc),evidence)
@@ -164,7 +164,7 @@ def secret_check() -> Check:
 
 
 def source_checks() -> list[Check]:
-    required=['strategies.json','threecommas.json','configuration_reconciliation.json','system_integrity.json','cloud_status.json']
+    required=['strategies.json','threecommas.json','configuration_reconciliation.json','operating_state.json','system_integrity.json','cloud_status.json']
     missing=[x for x in required if not (DOCS/x).exists()]
     src=[]
     for name in required:
@@ -242,7 +242,7 @@ def export_bundle(report:dict[str,Any],screenshots:bool) -> Path:
         OUTPUT.write_text(json.dumps(report,indent=2),encoding='utf-8')
         manifest={'created_at':utcnow(),'application_version':report['application_version'],'files':[],'redaction':'Secret-like files and values are excluded.'}
         with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as zf:
-            selected=['diagnostics.json','system_integrity.json','configuration_reconciliation.json','version.json','cloud_status.json','threecommas.json','strategies.json','coin_discovery.json','candidate_validation.json','walk_forward_registry.json','research_analytics.json']
+            selected=['diagnostics.json','system_integrity.json','configuration_reconciliation.json','operating_state.json','version.json','cloud_status.json','threecommas.json','strategies.json','coin_discovery.json','candidate_validation.json','walk_forward_registry.json','research_analytics.json']
             for name in selected:
                 path=DOCS/name
                 if path.exists(): safe_add(zf,path,f'data/{name}');manifest['files'].append(f'data/{name}')

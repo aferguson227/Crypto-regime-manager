@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "32.1.1",
+  "application_version": "32.2.0",
   "engine": "V32 Diagnostics and Acceptance Engine",
-  "generated_at": "2026-08-05T18:24:16.532960+00:00",
+  "generated_at": "2026-08-05T18:40:12.069251+00:00",
   "host": "Delimaferguson",
   "platform": "win32",
   "python": "3.14.6",
@@ -23,10 +23,10 @@
       "status": "pass",
       "message": "All release sources agree.",
       "evidence": [
-        "VERSION=32.1.1",
-        "release=32.1.1",
-        "docs=32.1.1",
-        "config=32.1.1"
+        "VERSION=32.2.0",
+        "release=32.2.0",
+        "docs=32.2.0",
+        "config=32.2.0"
       ],
       "required": true
     },
@@ -35,10 +35,11 @@
       "name": "Route manifest",
       "category": "interface",
       "status": "pass",
-      "message": "7 declared routes exist.",
+      "message": "8 declared routes exist.",
       "evidence": [
         "index.html",
         "cockpit.html",
+        "operating_state.html",
         "research_hub.html",
         "research_intelligence.html",
         "validation.html",
@@ -52,7 +53,7 @@
       "name": "HTML asset references",
       "category": "interface",
       "status": "pass",
-      "message": "All references across 29 HTML pages resolve.",
+      "message": "All references across 30 HTML pages resolve.",
       "evidence": [
         "assets.html",
         "autonomy.html",
@@ -72,6 +73,7 @@
         "integrity.html",
         "intelligence.html",
         "more.html",
+        "operating_state.html",
         "pipeline.html",
         "research.html",
         "research_hub.html",
@@ -109,7 +111,7 @@
       "name": "Published JSON validity",
       "category": "data",
       "status": "pass",
-      "message": "18 JSON files parse successfully.",
+      "message": "19 JSON files parse successfully.",
       "evidence": [
         "backtest_lab.json",
         "candidate_registry.json",
@@ -122,6 +124,7 @@
         "diagnostics.json",
         "health_history.json",
         "import_registry.json",
+        "operating_state.json",
         "research_analytics.json",
         "research_report.json",
         "strategies.json",
@@ -172,8 +175,9 @@
       "evidence": [
         "strategies.json (298315 bytes)",
         "threecommas.json (2837 bytes)",
-        "configuration_reconciliation.json (11450 bytes)",
-        "system_integrity.json (998 bytes)",
+        "configuration_reconciliation.json (11865 bytes)",
+        "operating_state.json (4159 bytes)",
+        "system_integrity.json (1083 bytes)",
         "cloud_status.json (756 bytes)"
       ],
       "required": true
@@ -185,8 +189,8 @@
       "status": "pass",
       "message": "Exited with code 0.",
       "evidence": [
-        "..............................................                           [100%]",
-        "46 passed in 0.56s"
+        "..................................................                       [100%]",
+        "50 passed in 0.62s"
       ],
       "required": true
     },
@@ -197,7 +201,7 @@
       "status": "pass",
       "message": "Exited with code 0.",
       "evidence": [
-        "Publish validation passed for V32.1.1: 18 JSON files and 29 HTML pages checked."
+        "Publish validation passed for V32.2.0: 19 JSON files and 30 HTML pages checked."
       ],
       "required": true
     }
@@ -211,6 +215,7 @@
     "screenshots": [
       "index.png",
       "cockpit.png",
+      "operating_state.png",
       "research_hub.png",
       "validation.png",
       "diagnostics.png"
