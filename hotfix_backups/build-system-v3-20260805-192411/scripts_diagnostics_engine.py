@@ -191,18 +191,11 @@ def find_edge() -> Path|None:
     return next((p for p in candidates if p.exists()),None)
 
 
-class QuietHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
-    def log_message(self, format: str, *args: object) -> None:
-        # Browser capture requests are expected and should not be emitted to
-        # stderr, where Windows PowerShell 5.1 may treat them as build errors.
-        return
-
-
 def capture_screenshots(routes:Iterable[str],dest:Path) -> tuple[list[str],list[str]]:
     edge=find_edge()
     if not edge: return [],['Microsoft Edge was not found; browser screenshots skipped.']
     dest.mkdir(parents=True,exist_ok=True)
-    handler=lambda *a,**kw:QuietHTTPRequestHandler(*a,directory=str(DOCS),**kw)
+    handler=lambda *a,**kw:http.server.SimpleHTTPRequestHandler(*a,directory=str(DOCS),**kw)
     server=http.server.ThreadingHTTPServer(('127.0.0.1',0),handler)
     thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
     made=[]; errors=[]
@@ -277,7 +270,7 @@ def build_report(full:bool=False) -> dict[str,Any]:
 def main() -> int:
     parser=argparse.ArgumentParser();parser.add_argument('--full',action='store_true');parser.add_argument('--export',action='store_true');parser.add_argument('--screenshots',action='store_true');args=parser.parse_args()
     report=build_report(args.full);OUTPUT.write_text(json.dumps(report,indent=2),encoding='utf-8')
-    print(f"Diagnostics: {report['overall']['state'].upper()} - {report['overall']['score']}%")
+    print(f"Diagnostics: {report['overall']['state'].upper()} — {report['overall']['score']}%")
     for c in report['checks']: print(f"[{c['status'].upper():4}] {c['name']}: {c['message']}")
     if args.export:
         out=export_bundle(report,args.screenshots);print(f"Export created: {out}")

@@ -1,4 +1,4 @@
-Set-StrictMode -Version Latest
+﻿Set-StrictMode -Version Latest
 
 function Invoke-CRMCommand {
     [CmdletBinding()]
@@ -14,16 +14,9 @@ function Invoke-CRMCommand {
     }
 
     Push-Location -LiteralPath $WorkingDirectory
-    $previousPreference = $ErrorActionPreference
     try {
         $display = "$Command $($Arguments -join ' ')".Trim()
         Write-Host "> $display" -ForegroundColor DarkGray
-
-        # Windows PowerShell 5.1 converts native stderr lines into ErrorRecord
-        # objects. With ErrorActionPreference=Stop, harmless messages such as
-        # Python HTTP access logs can terminate the build. Native command
-        # success is determined only from its process exit code.
-        $ErrorActionPreference = 'Continue'
         if ([string]::IsNullOrWhiteSpace($LogPath)) {
             & $Command @Arguments
         }
@@ -32,13 +25,9 @@ function Invoke-CRMCommand {
         }
         $exitCode = $LASTEXITCODE
         if ($null -eq $exitCode) { $exitCode = 0 }
+        if ($exitCode -ne 0) { throw "Command failed ($exitCode): $display" }
     }
     finally {
-        $ErrorActionPreference = $previousPreference
         Pop-Location
-    }
-
-    if ($exitCode -ne 0) {
-        throw "Command failed ($exitCode): $display"
     }
 }
