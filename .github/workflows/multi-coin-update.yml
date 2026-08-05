@@ -1,4 +1,4 @@
-name: V31.1 Autonomous Crypto Regime Refresh
+name: V31.2 Autonomous Crypto Regime Refresh
 on:
   workflow_dispatch:
   schedule:
@@ -11,7 +11,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 40
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -22,36 +22,34 @@ jobs:
         with:
           python-version: "3.12"
       - name: Synchronise with latest main
-        shell: bash
         run: |
           git fetch origin main
           git rebase origin/main
-      - name: Validate V31.1 Python
-        run: |
-          python -m py_compile scripts/cloud_update.py scripts/multi_coin_sync_backtest.py scripts/backtest_lab.py scripts/data_import.py scripts/decision_engine.py scripts/coin_discovery.py scripts/candidate_validation.py scripts/kraken_research_pipeline.py scripts/core/engine.py scripts/core/backtest_lab.py scripts/core/data_import.py scripts/core/walk_forward_lab.py scripts/core/decision_engine.py scripts/core/coin_discovery.py scripts/core/candidate_validation.py scripts/core/research_queue.py scripts/core/symbols.py scripts/core/recommendation_reasoning.py scripts/core/research_analytics.py
-      - name: Run V31.1 autonomous read-only refresh
+      - name: Validate Python
+        run: python -m py_compile scripts/cloud_update.py scripts/validate_publish.py scripts/core/*.py
+      - name: Run autonomous read-only refresh
         run: python scripts/cloud_update.py
-      - name: Publish latest data and heartbeat
+      - name: Validate generated publication
+        run: python scripts/validate_publish.py
+      - name: Publish validated data atomically
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A data/normalized docs/strategies.json docs/health_history.json docs/candidate_registry.json docs/coin_discovery.json docs/coin_universe.json docs/cloud_status.json docs/candidate_validation.json docs/backtest_lab.json docs/import_registry.json docs/walk_forward_registry.json docs/research_analytics.json docs/research_report.json
-          git add -A docs/*_deals.csv 2>/dev/null || true
+          git add -A data/normalized docs
+          python scripts/validate_publish.py
           if git diff --cached --quiet; then
-            echo "No published data changes detected."
+            echo "No validated publication changes detected."
             exit 0
           fi
-          git commit -m "V31.1 automated cloud refresh"
+          git commit -m "V31.2 validated cloud refresh"
           for attempt in 1 2 3; do
-            if git push origin HEAD:main; then
-              exit 0
-            fi
+            if git push origin HEAD:main; then exit 0; fi
             echo "Remote changed; rebasing before retry ${attempt}/3"
             git fetch origin main
             git rebase origin/main
+            python scripts/validate_publish.py
             sleep 5
           done
-          echo "Unable to publish after three attempts."
           exit 1
