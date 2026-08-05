@@ -1,0 +1,12 @@
+/* V31 unified presentation layer */
+:root{--crm-bg:#07111f;--crm-panel:#101d30;--crm-line:#263b54;--crm-text:#f4f7fb;--crm-muted:#a7b7ca;--crm-blue:#6db7ff;--crm-ok:#66dfb5;--crm-warn:#ffd76b;--crm-bad:#ff8093}
+html{background:var(--crm-bg);color-scheme:dark}body{background:linear-gradient(180deg,#07111f,#030912)!important;color:var(--crm-text)!important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;overflow-x:hidden}
+main,.shell,.v22-shell{max-width:960px!important;margin-inline:auto!important;padding-top:calc(18px + env(safe-area-inset-top))!important;padding-bottom:calc(110px + env(safe-area-inset-bottom))!important}
+.v24-primary-nav,.v24-context-nav,.v20-nav,.v20-tools{display:flex!important;gap:8px!important;flex-wrap:wrap!important;overflow:visible!important;margin-block:12px!important}
+.v24-primary-nav a,.v24-context-nav a,.v20-nav a,.v20-tools a{width:auto!important;min-width:0!important;min-height:0!important;padding:9px 12px!important;border-radius:999px!important;font-size:13px!important;line-height:1.15!important;white-space:nowrap!important}
+.panel,.card,.v22-card,.candidate,.metric,.dca,.guard,.v29-dataset{min-width:0!important;overflow-wrap:anywhere}
+.version,.v22-version,[class*="version"]{white-space:nowrap}.crm-version-note{font-size:11px;color:var(--crm-muted);margin-top:4px}
+.v24-dashboard-home{right:14px!important;bottom:calc(14px + env(safe-area-inset-bottom))!important;padding:10px 13px!important;font-size:12px!important;max-width:44vw!important;z-index:40!important}
+#v25-cloud-badge,.v25-cloud-badge{left:14px!important;bottom:calc(68px + env(safe-area-inset-bottom))!important;max-width:52vw!important;padding:9px 12px!important;font-size:12px!important;z-index:39!important}
+.crm-reasoning{margin-top:12px;padding:14px;border:1px solid var(--crm-line);border-radius:16px;background:#091626}.crm-reasoning ul{margin:8px 0 0;padding-left:20px}.crm-confidence{display:inline-flex;padding:5px 9px;border-radius:999px;background:#18385a;color:#bfe0ff;font-weight:800}
+@media(max-width:560px){main,.shell,.v22-shell{padding-left:14px!important;padding-right:14px!important}h1{font-size:clamp(30px,10vw,42px)!important}.grid,.v29-grid,.proposal,.summary-grid,.metrics-grid,.stat-grid{grid-template-columns:1fr!important}.v24-primary-nav a,.v24-context-nav a,.v20-nav a,.v20-tools a{font-size:12px!important;padding:8px 10px!important}}

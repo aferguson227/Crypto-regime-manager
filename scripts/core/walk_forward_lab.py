@@ -1,14 +1,13 @@
 from __future__ import annotations
-import json, re, tempfile
+import json, tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from .data_import import import_file, csv_sources, choose_best_source
 from .backtest_lab import optimise, replay, load
+from .symbols import symbol_key, canonical_asset
+from .recommendation_reasoning import build_dca_reasoning
 
-def symbol_key(name:str)->str:
- m=re.search(r'([A-Z0-9]{2,12})(USD|USDT|USDC)',Path(name).stem.upper())
- return m.group(1) if m else Path(name).stem.upper()
 
 def run_walk_forward(root:Path,training_dir:Path,validation_dir:Path)->dict[str,Any]:
  norm_train=root/'data'/'research'/'training_4h'; norm_val=root/'data'/'research'/'validation_4h'
@@ -29,7 +28,8 @@ def run_walk_forward(root:Path,training_dir:Path,validation_dir:Path)->dict[str,
     s=best['settings']; val_rows=load(Path(va.output_path))
     vr=replay(val_rows,s['take_profit_pct']/100,s['so_deviation_pct']/100,int(s['safety_orders']),float(s['volume_scale']),float(s['step_scale']))
     passed=(vr['closed_deals']>=5 and vr['mark_to_market_pnl']>0 and vr['open_pnl']>=-0.15*vr['max_capital'] and vr['max_drawdown_dollars']>=-0.35*vr['max_capital'])
-    results.append({'symbol':symbol,'status':'PASS' if passed else 'FAIL','training_file':train_files[symbol].name,'validation_file':val_files[symbol].name,'training_import':tr.as_dict(),'validation_import':va.as_dict(),'frozen_settings':s,'training_metrics':{k:best[k] for k in ('net_pnl','closed_deals','average_hours','longest_hours','max_drawdown_dollars','max_capital','open_position','score')},'q1_2026_metrics':vr,'next_stage':'FORWARD VALIDATION' if passed else 'RESEARCH / REJECT','production_eligible':False})
+    reasoning=build_dca_reasoning(s,{k:best[k] for k in ('net_pnl','closed_deals','average_hours','longest_hours','max_drawdown_dollars','max_capital','open_position','score')},vr)
+    results.append({'symbol':canonical_asset(symbol),'status':'PASS' if passed else 'FAIL','training_file':train_files[symbol].name,'validation_file':val_files[symbol].name,'training_import':tr.as_dict(),'validation_import':va.as_dict(),'frozen_settings':s,'training_metrics':{k:best[k] for k in ('net_pnl','closed_deals','average_hours','longest_hours','max_drawdown_dollars','max_capital','open_position','score')},'q1_2026_metrics':vr,'recommendation_reasoning':reasoning,'next_stage':'FORWARD VALIDATION' if passed else 'RESEARCH / REJECT','production_eligible':False})
    except Exception as e: results.append({'symbol':symbol,'status':'ERROR','error':f'{type(e).__name__}: {e}','production_eligible':False})
- payload={'version':'30.2.0','generated_at':datetime.now(timezone.utc).isoformat(),'method':'Optimise only through Q4 2025; freeze settings; evaluate once on Q1 2026','coins':results,'summary':{'matched':len(results),'passed':sum(x.get('status')=='PASS' for x in results),'failed':sum(x.get('status')=='FAIL' for x in results),'errors':sum(x.get('status')=='ERROR' for x in results)},'safeguards':{'automatic_bot_creation':False,'automatic_3commas_changes':False,'manual_approval_required':True,'q1_used_for_optimisation':False}}
+ payload={'version':'31.0.0','generated_at':datetime.now(timezone.utc).isoformat(),'method':'Optimise only through Q4 2025; freeze settings; evaluate once on Q1 2026','coins':results,'summary':{'matched':len(results),'passed':sum(x.get('status')=='PASS' for x in results),'failed':sum(x.get('status')=='FAIL' for x in results),'errors':sum(x.get('status')=='ERROR' for x in results)},'safeguards':{'automatic_bot_creation':False,'automatic_3commas_changes':False,'manual_approval_required':True,'q1_used_for_optimisation':False}}
  out=root/'docs'/'walk_forward_registry.json';out.write_text(json.dumps(payload,indent=2),encoding='utf-8');return payload

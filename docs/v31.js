@@ -1,0 +1,10 @@
+(()=>{
+const VER='31.0.0';
+const fixes=[['Â·','·'],['â†’','→'],['â†','←'],['â€”','—'],['â€“','–'],['Â','']];
+function cleanText(root=document.body){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){let v=n.nodeValue;for(const [a,b] of fixes)v=v.split(a).join(b);if(v!==n.nodeValue)n.nodeValue=v}}
+function versions(){document.querySelectorAll('.version,.v22-version,[id="version"]').forEach(el=>{if(/^V\d/i.test(el.textContent.trim()))el.textContent='V'+VER});document.title=document.title.replace(/V(?:15\.3|22|29|30(?:\.\d+)*)/gi,'V'+VER)}
+const order=['index.html','cockpit.html','research.html','discovery.html','research_hub.html','validation.html','research_queue.html','data.html','more.html'];
+function nav(){document.querySelectorAll('.v24-primary-nav,.v20-nav').forEach(nav=>{const links=[...nav.querySelectorAll(':scope > a')];const map=new Map(links.map(a=>[a.getAttribute('href')?.split('?')[0],a]));for(const h of order){const a=map.get(h);if(a)nav.appendChild(a)}})}
+function reasoning(){fetch('walk_forward_registry.json?t='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{if(!d)return;document.querySelectorAll('.v29-dataset').forEach(card=>{const sym=card.querySelector('strong')?.textContent.trim();const coin=(d.coins||[]).find(x=>x.symbol===sym);const rr=coin?.recommendation_reasoning;if(!rr||card.querySelector('.crm-reasoning'))return;const box=document.createElement('div');box.className='crm-reasoning';box.innerHTML=`<span class="crm-confidence">Confidence ${rr.confidence}/100</span><p>${rr.summary}</p><ul>${(rr.reasons||[]).map(x=>`<li>${x}</li>`).join('')}</ul>`;card.appendChild(box)})}).catch(()=>{})}
+document.addEventListener('DOMContentLoaded',()=>{cleanText();versions();nav();setTimeout(()=>{cleanText();versions();reasoning()},500)});
+})();
