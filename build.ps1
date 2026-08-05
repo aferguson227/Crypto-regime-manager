@@ -33,8 +33,7 @@ try {
         $dirty=(& git -C $ProjectPath status --porcelain | Out-String).Trim()
         if($dirty -and -not $AllowDirty){throw 'Repository has uncommitted changes. Commit them or rerun with -AllowDirty.'}
         $v=(Get-Content (Join-Path $ProjectPath 'VERSION') -Raw).Trim()
-if ([string]::IsNullOrWhiteSpace($v)) {
-    throw "VERSION file is empty."
+        if($v -ne '32.3.0'){throw "Expected VERSION 32.3.0, found $v"}
     }
     Run-Step 'Python tests' { Invoke-CRMCommand -Command 'python' -Arguments @('-m','pytest','-q') -WorkingDirectory $ProjectPath -LogPath $log }
     Run-Step 'Publication validation' { Invoke-CRMCommand -Command 'python' -Arguments @('scripts\validate_publish.py') -WorkingDirectory $ProjectPath -LogPath $log }
@@ -52,7 +51,8 @@ catch {
 }
 finally {
     $report=[ordered]@{
-schema_version='1.0'; build_system='CRM Build System 1.0'; version=$v; result=$result        started_at=$started.ToString('o'); completed_at=(Get-Date).ToString('o')
+        schema_version='1.0'; build_system='CRM Build System 1.0'; version='32.3.0'; result=$result
+        started_at=$started.ToString('o'); completed_at=(Get-Date).ToString('o')
         duration_seconds=[math]::Round(((Get-Date)-$started).TotalSeconds,2)
         git_commit=((& git -C $ProjectPath rev-parse HEAD 2>$null | Out-String).Trim())
         steps=$steps; log=$log
