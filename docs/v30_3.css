@@ -1,0 +1,37 @@
+/* V30.3 polish: mobile-safe layout, clean encoding and non-overlapping controls */
+:root{--v303-safe-bottom:env(safe-area-inset-bottom,0px)}
+html,body{overflow-x:hidden}
+main,.shell,.v22-shell{min-width:0}
+img,svg,canvas,table{max-width:100%}
+.v24-primary-nav,.v24-context-nav,.v20-nav,.v20-tools{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:10px!important;overflow:visible!important}
+.v24-primary-nav a,.v24-context-nav a,.v20-nav a,.v20-tools a{flex:0 0 auto!important;width:auto!important;min-width:0!important;white-space:nowrap!important}
+.panel,.card,.candidate,.metric,.dca,.guard{min-width:0;box-sizing:border-box}
+/* Discovery summary: the warning is always a separate full-width row. */
+#summary{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;margin-bottom:18px!important}
+#summary>.metric{min-height:92px!important;height:auto!important;position:relative!important;float:none!important}
+.v29-discovery-guard,.panel>.v29-discovery-guard{display:block!important;position:relative!important;inset:auto!important;clear:both!important;width:100%!important;max-width:100%!important;height:auto!important;min-height:0!important;margin:20px 0 0!important;overflow:visible!important;transform:none!important;z-index:1!important}
+/* Floating controls remain available but no longer cover primary content. */
+.v24-dashboard-home{right:14px!important;bottom:calc(14px + var(--v303-safe-bottom))!important;max-width:44vw!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+#v25-cloud-badge,.v25-cloud-badge{left:14px!important;bottom:calc(76px + var(--v303-safe-bottom))!important;max-width:52vw!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+body[data-v27-dense="true"] #v25-cloud-badge{position:static!important;display:inline-flex!important;max-width:100%!important;margin:18px 0 24px!important;white-space:normal!important;overflow:visible!important}
+/* Backtest Lab uses compact pill navigation rather than oversized circular buttons. */
+body[data-page="backtest-lab"] .v24-primary-nav, .backtest-lab .v24-primary-nav{gap:8px!important}
+body[data-page="backtest-lab"] .v24-primary-nav a, .backtest-lab .v24-primary-nav a{padding:10px 14px!important;border-radius:999px!important;min-height:0!important;font-size:13px!important}
+body[data-page="backtest-lab"] .v24-context-nav a, .backtest-lab .v24-context-nav a{padding:9px 12px!important;font-size:12px!important}
+body[data-page="backtest-lab"] .panel, .backtest-lab .panel{overflow:visible!important}
+/* Prevent generated grids/cards from colliding on narrow iPhones. */
+.grid,.proposal,.summary-grid,.metrics-grid,.stat-grid,.v26-cloud-grid,.v29-grid{min-width:0}
+.grid>* ,.proposal>* ,.summary-grid>* ,.metrics-grid>* ,.stat-grid>* ,.v26-cloud-grid>* ,.v29-grid>*{min-width:0;overflow-wrap:anywhere}
+@media(max-width:520px){
+  main,.shell,.v22-shell{padding-left:14px!important;padding-right:14px!important}
+  h1{overflow-wrap:anywhere}
+  #summary{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  #summary>.metric:nth-child(5){grid-column:1/2!important}
+  .v29-discovery-guard{grid-column:1/-1!important}
+  .v24-dashboard-home{font-size:12px!important;padding:10px 12px!important;max-width:46vw!important}
+  #v25-cloud-badge,.v25-cloud-badge{font-size:12px!important;padding:9px 12px!important;max-width:54vw!important}
+}
+@media(max-width:370px){
+  #summary{grid-template-columns:1fr!important}
+  #summary>.metric:nth-child(5){grid-column:auto!important}
+}
