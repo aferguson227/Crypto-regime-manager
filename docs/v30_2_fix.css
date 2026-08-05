@@ -1,0 +1,29 @@
+/* V30.2 mobile layout and visibility fixes */
+@media (max-width: 760px) {
+  .top-nav, .nav-grid, .primary-nav, nav[aria-label="Primary"], .page-nav {
+    display:flex !important; flex-wrap:wrap !important; gap:10px 12px !important;
+    align-items:center !important; overflow:visible !important;
+  }
+  .top-nav a, .nav-grid a, .primary-nav a, nav[aria-label="Primary"] a, .page-nav a {
+    flex:0 0 auto !important; width:auto !important; min-width:0 !important;
+    padding:12px 18px !important; white-space:nowrap !important;
+  }
+  .card, .panel, .hero-card, .import-card, .validation-card {
+    min-width:0 !important; max-width:100% !important; box-sizing:border-box !important;
+  }
+  .metrics-grid, .stat-grid, .summary-grid, .import-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:12px !important;
+  }
+  .warning, .warning-box, .notice.warning, .amber-box {
+    position:relative !important; clear:both !important; margin-top:18px !important;
+    margin-bottom:0 !important; height:auto !important; min-height:0 !important;
+    overflow:visible !important; z-index:1 !important;
+  }
+  .backtest-lab .hero, body[data-page="backtest-lab"] .hero { padding-bottom:18px !important; }
+  .backtest-lab .import-card, body[data-page="backtest-lab"] .import-card { margin-top:24px !important; }
+}
+@media (max-width: 430px) {
+  .metrics-grid, .stat-grid, .summary-grid, .import-grid { grid-template-columns:1fr 1fr !important; }
+  h1 { overflow-wrap:anywhere; }
+}

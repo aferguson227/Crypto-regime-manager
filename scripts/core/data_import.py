@@ -139,6 +139,31 @@ def timeframe_minutes(rows:list[dict[str,Any]])->int:
  diffs=[(b['time']-a['time']).total_seconds()/60 for a,b in zip(rows,rows[1:]) if b['time']>a['time']]
  return max(1,int(round(median(diffs)))) if diffs else 0
 
+def inspect_source(path:Path,target_minutes:int=240)->dict[str,Any]:
+ """Inspect a CSV without writing output so a multi-interval archive can select the safest source."""
+ schema=detect_schema(path)
+ if schema=='kraken_trades':
+  return {'path':path,'schema':schema,'source_minutes':0,'usable':True,'preference':0}
+ rows,_,_=_load_ohlcv(path,schema=='ohlcv_headerless')
+ src=timeframe_minutes(rows)
+ usable=bool(src and src<=target_minutes and target_minutes%src==0)
+ # Exact 4h is preferred, followed by the finest valid source. Trades come last because they are much larger.
+ preference=(0 if src==target_minutes else 1, -src if src else 0, path.name.lower())
+ return {'path':path,'schema':schema,'source_minutes':src,'usable':usable,'preference':preference}
+
+def choose_best_source(paths:Iterable[Path],target_minutes:int=240)->Path:
+ inspected=[]; errors=[]
+ for path in paths:
+  try: inspected.append(inspect_source(Path(path),target_minutes))
+  except Exception as exc: errors.append(f'{Path(path).name}: {exc}')
+ usable=[x for x in inspected if x['usable']]
+ if not usable:
+  intervals=sorted({x['source_minutes'] for x in inspected if x['source_minutes']})
+  detail=f' Detected candle intervals: {intervals} minutes.' if intervals else ''
+  raise ValueError(f'No source interval can be safely converted to {target_minutes}m.{detail} Use 240m directly or a finer interval such as 60m.')
+ usable.sort(key=lambda x:x['preference'])
+ return Path(usable[0]['path'])
+
 def resample(rows:list[dict[str,Any]],minutes:int=240)->list[dict[str,Any]]:
  buckets={}; seconds=minutes*60
  for r in rows:
@@ -206,5 +231,5 @@ def run_import_queue(root:Path)->dict[str,Any]:
    for p in sources:
     try: reports.append({'status':'READY',**import_file(p,output).as_dict(),'source_file':p.name})
     except Exception as e: reports.append({'status':'ERROR','source_file':p.name,'error':str(e)})
- payload={'version':'30.1.0','generated_at':datetime.now(timezone.utc).isoformat(),'target_timeframe':'4h','files':reports,'ready':sum(x['status']=='READY' for x in reports),'errors':sum(x['status']=='ERROR' for x in reports)}
+ payload={'version':'30.2.0','generated_at':datetime.now(timezone.utc).isoformat(),'target_timeframe':'4h','files':reports,'ready':sum(x['status']=='READY' for x in reports),'errors':sum(x['status']=='ERROR' for x in reports)}
  (root/'docs'/'import_registry.json').write_text(json.dumps(payload,indent=2),encoding='utf-8');return payload
