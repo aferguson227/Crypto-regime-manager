@@ -2,11 +2,16 @@
 param(
     [switch]$Screenshots,
     [switch]$AllowDirty,
-    [string]$ProjectPath = $PSScriptRoot
+    [string]$ProjectPath
 )
+
+$ScriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
+if ([string]::IsNullOrWhiteSpace($ProjectPath)) { $ProjectPath = $ScriptRoot }
+$ProjectPath = [System.IO.Path]::GetFullPath($ProjectPath)
 $ErrorActionPreference='Stop'
+$failure = $null
 $ProgressPreference='SilentlyContinue'
-. (Join-Path $PSScriptRoot 'build\Invoke-CRMCommand.ps1')
+. (Join-Path $ScriptRoot 'build\Invoke-CRMCommand.ps1')
 $stamp=Get-Date -Format 'yyyyMMdd-HHmmss'
 $logDir=Join-Path $ProjectPath 'diagnostics_logs'
 New-Item -ItemType Directory -Path $logDir -Force | Out-Null
