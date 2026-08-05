@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.0",
+  "application_version": "32.1.1",
+  "engine": "V32 Diagnostics and Acceptance Engine",
+  "generated_at": "2026-08-05T18:11:09.896565+00:00",
+  "host": "Delimaferguson",
+  "platform": "win32",
+  "python": "3.14.6",
+  "mode": "read_only_observability",
+  "overall": {
+    "state": "healthy",
+    "score": 100,
+    "required_passed": 10,
+    "required_total": 10,
+    "warnings": 0,
+    "failures": 0
+  },
+  "checks": [
+    {
+      "id": "release.identity",
+      "name": "Release identity",
+      "category": "release",
+      "status": "pass",
+      "message": "All release sources agree.",
+      "evidence": [
+        "VERSION=32.1.1",
+        "release=32.1.1",
+        "docs=32.1.1",
+        "config=32.1.1"
+      ],
+      "required": true
+    },
+    {
+      "id": "ui.routes",
+      "name": "Route manifest",
+      "category": "interface",
+      "status": "pass",
+      "message": "7 declared routes exist.",
+      "evidence": [
+        "index.html",
+        "cockpit.html",
+        "research_hub.html",
+        "research_intelligence.html",
+        "validation.html",
+        "data.html",
+        "diagnostics.html"
+      ],
+      "required": true
+    },
+    {
+      "id": "ui.assets",
+      "name": "HTML asset references",
+      "category": "interface",
+      "status": "pass",
+      "message": "All references across 29 HTML pages resolve.",
+      "evidence": [
+        "assets.html",
+        "autonomy.html",
+        "candidates.html",
+        "cloud.html",
+        "cockpit.html",
+        "data.html",
+        "decisions.html",
+        "diagnostics.html",
+        "discovery.html",
+        "dna.html",
+        "evidence.html",
+        "evolution.html",
+        "explainability.html",
+        "health.html",
+        "index.html",
+        "integrity.html",
+        "intelligence.html",
+        "more.html",
+        "pipeline.html",
+        "research.html",
+        "research_hub.html",
+        "research_intelligence.html",
+        "research_queue.html",
+        "settings.html",
+        "timeline.html",
+        "traits.html",
+        "validation.html",
+        "validation_queue.html",
+        "workspace.html"
+      ],
+      "required": true
+    },
+    {
+      "id": "ui.encoding",
+      "name": "UTF-8 presentation",
+      "category": "interface",
+      "status": "pass",
+      "message": "No known mojibake and every page declares UTF-8.",
+      "evidence": [],
+      "required": true
+    },
+    {
+      "id": "ui.ids",
+      "name": "Duplicate DOM identifiers",
+      "category": "interface",
+      "status": "pass",
+      "message": "No duplicate HTML IDs detected.",
+      "evidence": [],
+      "required": false
+    },
+    {
+      "id": "data.json",
+      "name": "Published JSON validity",
+      "category": "data",
+      "status": "pass",
+      "message": "18 JSON files parse successfully.",
+      "evidence": [
+        "backtest_lab.json",
+        "candidate_registry.json",
+        "candidate_validation.json",
+        "cloud_status.json",
+        "coin_discovery.json",
+        "coin_universe.json",
+        "configuration_reconciliation.json",
+        "decision_intelligence_v28.json",
+        "diagnostics.json",
+        "health_history.json",
+        "import_registry.json",
+        "research_analytics.json",
+        "research_report.json",
+        "strategies.json",
+        "system_integrity.json",
+        "threecommas.json",
+        "version.json",
+        "walk_forward_registry.json"
+      ],
+      "required": true
+    },
+    {
+      "id": "data.freshness",
+      "name": "Published data freshness",
+      "category": "data",
+      "status": "pass",
+      "message": "No timestamped output is older than seven days.",
+      "evidence": [],
+      "required": false
+    },
+    {
+      "id": "safety.read_only",
+      "name": "3Commas read-only boundary",
+      "category": "safety",
+      "status": "pass",
+      "message": "No write verbs or known mutation endpoints detected.",
+      "evidence": [
+        "scripts\\integrations\\threecommas.py",
+        "scripts\\integrations\\__init__.py",
+        "scripts\\threecommas_sync.py"
+      ],
+      "required": true
+    },
+    {
+      "id": "safety.secrets",
+      "name": "Published secret scan",
+      "category": "safety",
+      "status": "pass",
+      "message": "No private keys, API secrets or bot-control tokens detected in published files.",
+      "evidence": [],
+      "required": true
+    },
+    {
+      "id": "sources.required",
+      "name": "Required operating sources",
+      "category": "sources",
+      "status": "pass",
+      "message": "All required operating sources are present.",
+      "evidence": [
+        "strategies.json (298315 bytes)",
+        "threecommas.json (2837 bytes)",
+        "configuration_reconciliation.json (11450 bytes)",
+        "system_integrity.json (998 bytes)",
+        "cloud_status.json (756 bytes)"
+      ],
+      "required": true
+    },
+    {
+      "id": "acceptance.tests",
+      "name": "Python test suite",
+      "category": "acceptance",
+      "status": "pass",
+      "message": "Exited with code 0.",
+      "evidence": [
+        "..............................................                           [100%]",
+        "46 passed in 0.56s"
+      ],
+      "required": true
+    },
+    {
+      "id": "acceptance.publish",
+      "name": "Publication validator",
+      "category": "acceptance",
+      "status": "pass",
+      "message": "Exited with code 0.",
+      "evidence": [
+        "Publish validation passed for V32.1.1: 18 JSON files and 29 HTML pages checked."
+      ],
+      "required": true
+    }
+  ],
+  "privacy": {
+    "secrets_included": false,
+    "credentials_included": false,
+    "raw_private_keys_included": false
+  },
+  "browser_capture": {
+    "screenshots": [
+      "index.png",
+      "cockpit.png",
+      "research_hub.png",
+      "validation.png",
+      "diagnostics.png"
+    ],
+    "warnings": []
+  }
+}

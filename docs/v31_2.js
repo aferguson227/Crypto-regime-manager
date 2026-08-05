@@ -8,7 +8,7 @@ const NAV=[
  ['research_queue.html','Research Queue'],['data.html','Data'],['more.html','More']
 ];
 const TOOLS=[['explainability.html','Why this decision'],['timeline.html','Timeline'],['integrity.html','Data integrity']];
-const BAD=[['Â·','·'],['â†’','→'],['â†','←'],['â€”','—'],['â€“','–'],['â—','●'],['â˜°','☰'],['Ã‚',''],['Â',''],['`r`n','']];
+const BAD=[['·','·'],['→','→'],['←','←'],['—','—'],['–','–'],['●','●'],['â˜°','☰'],['Ã‚',''],['Â',''],['`r`n','']];
 function clean(root=document.body){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){let v=n.nodeValue;for(const [a,b] of BAD)v=v.split(a).join(b);if(v!==n.nodeValue)n.nodeValue=v}}
 function current(){return (location.pathname.split('/').pop()||'index.html').toLowerCase()}
 function link(h,l){const a=document.createElement('a');a.href=h;a.textContent=l;if(current()===h)a.className='active';return a}

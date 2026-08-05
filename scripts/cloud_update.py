@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""V32.0 cloud scheduler entry point.
+"""V32.1 cloud scheduler entry point.
 Runs the existing refresh/replay/discovery pipeline and always publishes a heartbeat.
 It never changes live bots or production settings.
 """
@@ -27,7 +27,7 @@ def write_status(state: str, started: str, error: str | None = None) -> None:
         try: target.update(json.loads(path.read_text(encoding='utf-8-sig')))
         except Exception: pass
     payload = {
-        'version': '32.0.0',
+        'version': '32.1.1',
         'mode': 'cloud_autonomous_read_only',
         'state': state,
         'started_at': started,
@@ -64,6 +64,8 @@ if __name__ == '__main__':
         from scripts.reconcile_configurations import main as reconcile
         from scripts.build_v32_integrity import main as integrity
         reconcile(); integrity()
+        from scripts.diagnostics_engine import build_report, OUTPUT
+        OUTPUT.write_text(json.dumps(build_report(full=False), indent=2), encoding='utf-8')
         write_status('healthy', started)
         raise SystemExit(0)
     except Exception as exc:

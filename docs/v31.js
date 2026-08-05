@@ -1,6 +1,6 @@
 (()=>{
 const VER='31.1.0';
-const fixes=[['Â·','·'],['â†’','→'],['â†','←'],['â€”','—'],['â€“','–'],['Â','']];
+const fixes=[['·','·'],['→','→'],['←','←'],['—','—'],['–','–'],['Â','']];
 function cleanText(root=document.body){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){let v=n.nodeValue;for(const [a,b] of fixes)v=v.split(a).join(b);if(v!==n.nodeValue)n.nodeValue=v}}
 function versions(){document.querySelectorAll('.version,.v22-version,[id="version"]').forEach(el=>{if(/^V\d/i.test(el.textContent.trim()))el.textContent='V'+VER});document.title=document.title.replace(/V(?:15\.3|22|29|30(?:\.\d+)*)/gi,'V'+VER)}
 const order=['index.html','cockpit.html','research.html','discovery.html','research_hub.html','validation.html','research_queue.html','data.html','more.html'];

@@ -6,8 +6,8 @@ if str(ROOT) not in sys.path: sys.path.insert(0, str(ROOT))
 from app.models.source_metadata import build_metadata
 
 def main():
- rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
- routes=json.loads((ROOT/'config/routes.json').read_text(encoding='utf-8'))['routes']
+ rel=json.loads((ROOT/'app/release.json').read_text())
+ routes=json.loads((ROOT/'config/routes.json').read_text())['routes']
  missing=[r['path'] for r in routes if not (ROOT/'docs'/r['path']).exists()]
  out={'metadata':build_metadata('repository audit'),'release':rel,'checks':{
   'read_only_3commas':True,'deployment_recommendations_enabled':False,

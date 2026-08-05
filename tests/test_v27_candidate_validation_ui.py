@@ -17,12 +17,12 @@ def test_v27_pages_use_shared_dark_shell_and_non_overlap_rules():
     discovery=(ROOT/'docs/discovery.html').read_text(encoding='utf-8')
     css=(ROOT/'docs/v27.css').read_text(encoding='utf-8')
     assert 'v27-page v27-cloud-page' in cloud
-    assert 'v27.css' in cloud and 'V32.0.0' in cloud
+    assert 'v27.css' in cloud and 'V32.1.1' in cloud
     assert 'data-v27-dense="true"' in discovery
     assert 'body[data-v27-dense="true"] .v25-cloud-badge' in css
     assert 'body.v27-cloud-page .v25-cloud-badge{display:none' in css
 
 def test_release_metadata():
     config=json.loads((ROOT/'config.json').read_text(encoding='utf-8'))
-    assert config['app']['version']=='32.0.0'
+    assert config['app']['version']=='32.1.1'
     assert (ROOT/'docs/validation_queue.html').exists()

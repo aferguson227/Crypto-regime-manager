@@ -1,7 +1,7 @@
 (() => {
   const VERSION = 'V30.3.0';
   const fixes = new Map([
-    ['Â·','·'],['Â',''],['â†','←'],['â†’','→'],['â€”','—'],['â€¦','…'],['`r`n','']
+    ['·','·'],['Â',''],['←','←'],['→','→'],['—','—'],['…','…'],['`r`n','']
   ]);
   function cleanText(root=document.body){
     const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT); let n;
