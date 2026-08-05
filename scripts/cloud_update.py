@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""V31.1 cloud scheduler entry point.
+"""V32.0 cloud scheduler entry point.
 Runs the existing refresh/replay/discovery pipeline and always publishes a heartbeat.
 It never changes live bots or production settings.
 """
@@ -7,12 +7,12 @@ from __future__ import annotations
 import json, os, socket, traceback
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from multi_coin_sync_backtest import main as pipeline_main
-from core.candidate_validation import write_validation_queue
-from core.decision_engine import write_decision_intelligence
-from core.data_import import run_import_queue
-from core.backtest_lab import run_lab
-from core.research_analytics import write_research_analytics
+from scripts.multi_coin_sync_backtest import main as pipeline_main
+from scripts.core.candidate_validation import write_validation_queue
+from scripts.core.decision_engine import write_decision_intelligence
+from scripts.core.data_import import run_import_queue
+from scripts.core.backtest_lab import run_lab
+from scripts.core.research_analytics import write_research_analytics
 
 ROOT = Path(__file__).resolve().parents[1]
 STATUS = ROOT / 'docs' / 'cloud_status.json'
@@ -27,7 +27,7 @@ def write_status(state: str, started: str, error: str | None = None) -> None:
         try: target.update(json.loads(path.read_text(encoding='utf-8-sig')))
         except Exception: pass
     payload = {
-        'version': '31.1.0',
+        'version': '32.0.0',
         'mode': 'cloud_autonomous_read_only',
         'state': state,
         'started_at': started,
@@ -61,6 +61,9 @@ if __name__ == '__main__':
         write_validation_queue(ROOT)
         write_decision_intelligence(ROOT)
         write_research_analytics(ROOT)
+        from scripts.reconcile_configurations import main as reconcile
+        from scripts.build_v32_integrity import main as integrity
+        reconcile(); integrity()
         write_status('healthy', started)
         raise SystemExit(0)
     except Exception as exc:

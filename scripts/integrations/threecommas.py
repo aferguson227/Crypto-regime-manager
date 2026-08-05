@@ -27,7 +27,8 @@ ROOT = Path(__file__).resolve().parents[2]
 CONFIG_PATH = ROOT / "config.json"
 OUTPUT_PATH = ROOT / "docs" / "threecommas.json"
 BASE_URL = "https://api.3commas.io"
-VERSION = "6.1.0"
+VERSION = "32.0.0"
+ALLOWED_PATHS = {"/public/api/ver1/validate", "/public/api/ver1/bots", "/public/api/ver1/deals", "/public/api/ver1/accounts"}
 
 
 def now_iso() -> str:
@@ -73,6 +74,8 @@ def rsa_signature(payload: str, private_key) -> str:
 
 
 def signed_get(path: str, params: dict[str, Any], api_key: str, private_key) -> Any:
+    if path not in ALLOWED_PATHS:
+        raise RuntimeError(f"Blocked non-approved 3Commas endpoint: {path}")
     query = urllib.parse.urlencode(params)
     full_path = path + ("?" + query if query else "")
     signature = rsa_signature(full_path, private_key)
@@ -106,12 +109,11 @@ def pair_text(value: Any) -> str:
 def asset_from_pair(pair: Any) -> str | None:
     text = pair_text(pair).upper().replace("-", "_").replace("/", "_")
     tokens = [token for token in text.replace(",", "_").split("_") if token]
-    if "TEL" in tokens or "TELUSDT" in text:
-        return "TEL"
-    if "TAO" in tokens or "TAOUSDT" in text:
-        return "TAO"
+    quote = {"USDT", "USD", "USDC", "BTC", "XBT", "ETH", "EUR"}
+    for token in reversed(tokens):
+        if token not in quote and token:
+            return "BTC" if token in {"XBT", "XXBT"} else token
     return None
-
 
 def deal_status(deal: dict[str, Any]) -> str:
     for key in ("status", "status_string", "type"):
@@ -129,17 +131,37 @@ def first_value(obj: dict[str, Any], keys: tuple[str, ...]) -> Any:
 
 
 def sanitise_bot(bot: dict[str, Any]) -> dict[str, Any]:
+    base = to_float(first_value(bot, ("base_order_volume", "base_order_volume_value")))
+    safety = to_float(first_value(bot, ("safety_order_volume", "safety_order_volume_value")))
+    max_so = to_int(bot.get("max_safety_orders"))
+    volume_scale = to_float(first_value(bot, ("martingale_volume_coefficient", "volume_scale")))
+    theoretical = None
+    if safety is not None and max_so is not None:
+        scale = volume_scale or 1.0
+        theoretical = sum(safety * (scale ** i) for i in range(max_so))
     return {
+        "bot_id": to_int(bot.get("id")), "account_id": to_int(bot.get("account_id")),
         "name": str(bot.get("name") or "Unnamed bot"),
         "pair": pair_text(bot.get("pairs") or bot.get("pair")),
         "enabled": bool(bot.get("is_enabled", bot.get("enabled", False))),
         "active_deals": to_int(first_value(bot, ("active_deals_count", "active_deals"))) or 0,
         "max_active_deals": to_int(bot.get("max_active_deals")),
+        "base_order_volume": base, "safety_order_volume": safety,
         "take_profit_pct": to_float(bot.get("take_profit")),
-        "max_safety_orders": to_int(bot.get("max_safety_orders")),
-        "active_safety_orders": to_int(bot.get("active_safety_orders_count")),
+        "max_safety_orders": max_so,
+        "max_active_safety_orders": to_int(first_value(bot, ("active_safety_orders_count", "max_active_safety_orders"))),
+        "safety_order_deviation_pct": to_float(first_value(bot, ("safety_order_step_percentage", "price_deviation_to_open_safety_orders"))),
+        "step_scale": to_float(first_value(bot, ("martingale_step_coefficient", "step_scale"))),
+        "volume_scale": volume_scale,
+        "start_condition": first_value(bot, ("strategy", "start_condition")),
+        "start_order_type": first_value(bot, ("base_order_type", "start_order_type")),
+        "safety_order_type": bot.get("safety_order_type"),
+        "trailing_enabled": bool(first_value(bot, ("trailing_enabled", "trailing_deviation"))),
+        "trailing_deviation": to_float(bot.get("trailing_deviation")),
+        "cooldown_seconds": to_int(first_value(bot, ("cooldown", "cooldown_seconds"))),
+        "reinvesting_percentage": to_float(first_value(bot, ("reinvesting_percentage", "reinvestment_percentage"))),
+        "theoretical_max_dca_capital": (base or 0) + (theoretical or 0) if base is not None or theoretical is not None else None,
     }
-
 
 def sanitise_deal(deal: dict[str, Any], publish_mode: str) -> dict[str, Any]:
     created = first_value(deal, ("created_at", "opened_at", "start_at"))
@@ -174,7 +196,7 @@ def empty_payload(status: str, message: str, publish_mode: str = "masked") -> di
         "message": message,
         "publish_mode": publish_mode,
         "read_only": True,
-        "assets": {"TEL": {"bots": [], "deals": []}, "TAO": {"bots": [], "deals": []}},
+        "assets": {},
     }
 
 
@@ -216,18 +238,15 @@ def main() -> int:
         if not isinstance(deals_raw, list):
             raise RuntimeError(f"Unexpected deals response type: {type(deals_raw).__name__}")
 
-        assets: dict[str, dict[str, list[dict[str, Any]]]] = {
-            "TEL": {"bots": [], "deals": []},
-            "TAO": {"bots": [], "deals": []},
-        }
+        assets: dict[str, dict[str, list[dict[str, Any]]]] = {}
         for bot in bots_raw:
             asset = asset_from_pair(bot.get("pairs") or bot.get("pair"))
             if asset:
-                assets[asset]["bots"].append(sanitise_bot(bot))
+                assets.setdefault(asset, {"bots": [], "deals": []})["bots"].append(sanitise_bot(bot))
         for deal in deals_raw:
             asset = asset_from_pair(deal.get("pair") or deal.get("pairs"))
             if asset:
-                assets[asset]["deals"].append(sanitise_deal(deal, publish_mode))
+                assets.setdefault(asset, {"bots": [], "deals": []})["deals"].append(sanitise_deal(deal, publish_mode))
 
         payload = {
             "version": VERSION,

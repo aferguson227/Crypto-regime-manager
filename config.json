@@ -288,12 +288,12 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "29.0.0",
-    "mode": "TEL/TAO advisory + SUI research + immutable candidate registry",
+    "version": "32.0.0",
+    "mode": "Read-only deployment intelligence foundation",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
     "feature": "Advisory candidate validation and DCA improvement lab",
-    "release_name": "Strategy Factory",
+    "release_name": "Deployment Intelligence Foundations",
     "primary_navigation": [
       "Dashboard",
       "Workspace",
@@ -308,7 +308,8 @@
     "enabled": true,
     "publish_mode": "masked",
     "note": "Read-only BOTS_READ via RSA. Masked hides exact prices and dollar amounts because GitHub Pages is public.",
-    "authentication": "RSA self-generated"
+    "authentication": "RSA self-generated",
+    "mode": "read_only"
   },
   "health_monitor": {
     "recent_window_days": 90,
@@ -688,7 +689,7 @@
       "Forward Validation"
     ]
   },
-  "version": "27.0.0",
+  "version": "32.0.0",
   "research_queue": {
     "enabled": true,
     "max_assets_per_cycle": 3,
@@ -868,5 +869,7 @@
       "deep_research",
       "rejected"
     ]
-  }
+  },
+  "application_version": "32.0.0",
+  "release_name": "Deployment Intelligence Foundations"
 }

@@ -12,7 +12,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Any
 
-from core.research_queue import build_research_queue
+from scripts.core.research_queue import build_research_queue
 
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG = ROOT / "config.json"

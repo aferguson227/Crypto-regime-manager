@@ -4,8 +4,8 @@ from __future__ import annotations
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from core.engine import main as engine_main
-from core.coin_discovery import run as discovery_run
+from scripts.core.engine import main as engine_main
+from scripts.core.coin_discovery import run as discovery_run
 
 ROOT = Path(__file__).resolve().parents[1]
 

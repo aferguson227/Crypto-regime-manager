@@ -2,7 +2,7 @@
 from __future__ import annotations
 import argparse, json
 from pathlib import Path
-from core.walk_forward_lab import run_walk_forward
+from scripts.core.walk_forward_lab import run_walk_forward
 ROOT=Path(__file__).resolve().parents[1]
 if __name__=='__main__':
  p=argparse.ArgumentParser(description='V30.1 Kraken training/Q1 walk-forward research pipeline')

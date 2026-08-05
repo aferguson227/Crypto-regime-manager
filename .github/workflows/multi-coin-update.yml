@@ -1,8 +1,9 @@
-name: V31.2 Autonomous Crypto Regime Refresh
+name: V32.0 Autonomous Crypto Regime Refresh
 on:
   workflow_dispatch:
   schedule:
     - cron: "18 0,4,8,12,16,20 * * *"
+# Publishes docs/coin_discovery.json and docs/coin_universe.json and other read-only intelligence outputs.
 permissions:
   contents: write
 concurrency:

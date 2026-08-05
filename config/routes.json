@@ -1,0 +1,10 @@
+{
+  "routes": [
+    {"path":"index.html","title":"Dashboard","category":"operations","primary":true,"scope":"production"},
+    {"path":"cockpit.html","title":"Cockpit","category":"operations","primary":true,"scope":"production"},
+    {"path":"research_hub.html","title":"Research Hub","category":"research","primary":true,"scope":"research"},
+    {"path":"research_intelligence.html","title":"Research Intelligence","category":"research","primary":false,"scope":"research"},
+    {"path":"validation.html","title":"Validation","category":"validation","primary":true,"scope":"forward_validation"},
+    {"path":"data.html","title":"Data","category":"system","primary":false,"scope":"all"}
+  ]
+}
