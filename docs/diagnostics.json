@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "32.3.0",
+  "application_version": "32.4.0",
   "engine": "V32 Diagnostics and Acceptance Engine",
-  "generated_at": "2026-08-05T20:02:54.244299+00:00",
+  "generated_at": "2026-08-05T20:11:18.663727+00:00",
   "host": "Delimaferguson",
   "platform": "win32",
   "python": "3.14.6",
@@ -23,10 +23,10 @@
       "status": "pass",
       "message": "All release sources agree.",
       "evidence": [
-        "VERSION=32.3.0",
-        "release=32.3.0",
-        "docs=32.3.0",
-        "config=32.3.0"
+        "VERSION=32.4.0",
+        "release=32.4.0",
+        "docs=32.4.0",
+        "config=32.4.0"
       ],
       "required": true
     },
@@ -35,12 +35,13 @@
       "name": "Route manifest",
       "category": "interface",
       "status": "pass",
-      "message": "9 declared routes exist.",
+      "message": "10 declared routes exist.",
       "evidence": [
         "index.html",
         "cockpit.html",
         "operating_state.html",
         "capital.html",
+        "command_centre.html",
         "research_hub.html",
         "research_intelligence.html",
         "validation.html",
@@ -54,7 +55,7 @@
       "name": "HTML asset references",
       "category": "interface",
       "status": "pass",
-      "message": "All references across 31 HTML pages resolve.",
+      "message": "All references across 32 HTML pages resolve.",
       "evidence": [
         "assets.html",
         "autonomy.html",
@@ -62,6 +63,7 @@
         "capital.html",
         "cloud.html",
         "cockpit.html",
+        "command_centre.html",
         "data.html",
         "decisions.html",
         "diagnostics.html",
@@ -113,7 +115,7 @@
       "name": "Published JSON validity",
       "category": "data",
       "status": "pass",
-      "message": "20 JSON files parse successfully.",
+      "message": "21 JSON files parse successfully.",
       "evidence": [
         "backtest_lab.json",
         "candidate_registry.json",
@@ -124,6 +126,7 @@
         "coin_universe.json",
         "configuration_reconciliation.json",
         "decision_intelligence_v28.json",
+        "deployment_intelligence.json",
         "diagnostics.json",
         "health_history.json",
         "import_registry.json",
@@ -180,7 +183,7 @@
         "threecommas.json (2837 bytes)",
         "configuration_reconciliation.json (11449 bytes)",
         "operating_state.json (4270 bytes)",
-        "system_integrity.json (1052 bytes)",
+        "system_integrity.json (1085 bytes)",
         "cloud_status.json (756 bytes)"
       ],
       "required": true
@@ -192,8 +195,8 @@
       "status": "pass",
       "message": "Exited with code 0.",
       "evidence": [
-        "......................................................                   [100%]",
-        "54 passed in 0.66s"
+        "..........................................................               [100%]",
+        "58 passed in 1.24s"
       ],
       "required": true
     },
@@ -204,7 +207,7 @@
       "status": "pass",
       "message": "Exited with code 0.",
       "evidence": [
-        "Publish validation passed for V32.3.0: 20 JSON files and 31 HTML pages checked."
+        "Publish validation passed for V32.4.0: 21 JSON files and 32 HTML pages checked."
       ],
       "required": true
     }
@@ -220,6 +223,7 @@
       "cockpit.png",
       "operating_state.png",
       "capital.png",
+      "command_centre.png",
       "research_hub.png",
       "validation.png",
       "diagnostics.png"

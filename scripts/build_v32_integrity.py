@@ -10,10 +10,10 @@ def main():
  routes=json.loads((ROOT/'config/routes.json').read_text())['routes']
  missing=[r['path'] for r in routes if not (ROOT/'docs'/r['path']).exists()]
  out={'metadata':build_metadata('repository audit'),'release':rel,'checks':{
-  'read_only_3commas':True,'deployment_recommendations_enabled':True,
+  'read_only_3commas':True,'deployment_recommendations_enabled':bool(rel.get('deployment_recommendations_enabled')),
   'route_manifest_valid':not missing,'missing_routes':missing,
   'duplicate_runtime_trees_archived':not (ROOT/'data/scripts').exists() and not (ROOT/'data/.github').exists(),
   'canonical_release_present':True},
-  'message':'The canonical operating-state engine is available. Recommendations remain advisory and manual approval is required.'}
+  'message':'The deployment-intelligence engine is available. Recommendations remain advisory and manual approval is required.'}
  (ROOT/'docs/system_integrity.json').write_text(json.dumps(out,indent=2),encoding='utf-8')
 if __name__=='__main__': main()

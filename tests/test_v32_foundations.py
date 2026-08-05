@@ -6,9 +6,9 @@ ROOT=Path(__file__).parents[1]
 
 def test_canonical_release_and_read_only_mode():
     rel=json.loads((ROOT/'app/release.json').read_text(encoding="utf-8"))
-    assert rel['version']=='32.3.0'
+    assert rel['version']=='32.4.0'
     assert rel['threecommas_mode']=='read_only'
-    assert rel['deployment_recommendations_enabled'] is False
+    assert rel['deployment_recommendations_enabled'] is True
 
 def test_threecommas_endpoint_allowlist_and_no_mutation_api():
     assert all('/public/api/ver1/' in p for p in threecommas.ALLOWED_PATHS)

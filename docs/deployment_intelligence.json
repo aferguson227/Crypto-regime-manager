@@ -1,0 +1,392 @@
+{
+  "schema_version": "1.0",
+  "application_version": "32.4.0",
+  "generated_at": "2026-08-05T20:11:09.675099+00:00",
+  "snapshot_id": "fd41172a2a9f98427a7e",
+  "mode": "read_only_advisory_deployment_intelligence",
+  "read_only": true,
+  "manual_approval_required": true,
+  "current_market_regime": "Low",
+  "current_regime_confidence": 35.0,
+  "overall_action": "MAINTAIN",
+  "deploy_today": [],
+  "keep_running": [
+    "TEL Low Volatility Bot"
+  ],
+  "review_or_pause": [
+    "TAO Low Pullback Bot"
+  ],
+  "next_capital_priority": "TEL Low Volatility Bot",
+  "capital_status": "PARTIAL",
+  "capital_summary": {
+    "exchange_total": null,
+    "free_available": null,
+    "active_deal_capital": null,
+    "reserved_capital": null,
+    "deployable_capital": null,
+    "next_capital_required": null,
+    "can_fund_next_priority": null
+  },
+  "actions": [
+    {
+      "asset": "TEL",
+      "bot_name": "TEL Low Volatility Bot",
+      "action": "KEEP_RUNNING",
+      "confidence": 70.0,
+      "eligible": true,
+      "blocking_reasons": [],
+      "supporting_reasons": [
+        "Current entry filters pass",
+        "Recent realised P&L is positive",
+        "Recent capital efficiency is positive"
+      ],
+      "cautions": [
+        "Recent drawdown is elevated",
+        "Open replay position has lasted 28.0 days"
+      ],
+      "current_regime": "Low",
+      "live_state": "RUNNING",
+      "settings_state": "INCOMPLETE",
+      "capital_required": null,
+      "capital_available": null,
+      "can_fund": null,
+      "production_settings": {
+        "source": "PRODUCTION_CONFIGURATION",
+        "values": {
+          "bot_name": "TEL Low Volatility Bot",
+          "base_order_volume": 100.0,
+          "safety_order_volume": null,
+          "take_profit_pct": 1.5,
+          "so_deviation_pct": 1.2,
+          "safety_orders": 6,
+          "volume_scale": 1.6,
+          "step_scale": 1.0,
+          "max_active_deals": 1,
+          "max_active_safety_orders": null,
+          "start_condition": null,
+          "order_type": null,
+          "trailing_enabled": null,
+          "cooldown_seconds": null
+        },
+        "complete": false,
+        "missing_fields": [
+          "safety_order_volume",
+          "max_active_safety_orders",
+          "start_condition",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ]
+      },
+      "recommended_settings": {
+        "source": "PRODUCTION_CONFIGURATION",
+        "values": {
+          "bot_name": "TEL Low Volatility Bot",
+          "base_order_volume": 100.0,
+          "safety_order_volume": null,
+          "take_profit_pct": 1.5,
+          "so_deviation_pct": 1.2,
+          "safety_orders": 6,
+          "volume_scale": 1.6,
+          "step_scale": 1.0,
+          "max_active_deals": 1,
+          "max_active_safety_orders": null,
+          "start_condition": null,
+          "order_type": null,
+          "trailing_enabled": null,
+          "cooldown_seconds": null
+        },
+        "complete": false,
+        "missing_fields": [
+          "safety_order_volume",
+          "max_active_safety_orders",
+          "start_condition",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ]
+      },
+      "settings_changed": false,
+      "settings_differences": [
+        {
+          "field": "base_order_volume",
+          "production_value": 100.0,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "safety_order_volume",
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "take_profit_pct",
+          "production_value": 1.5,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "so_deviation_pct",
+          "production_value": 1.2,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "safety_orders",
+          "production_value": 6,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "volume_scale",
+          "production_value": 1.6,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "step_scale",
+          "production_value": 1.0,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "max_active_deals",
+          "production_value": 1,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "max_active_safety_orders",
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "start_condition",
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "order_type",
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "trailing_enabled",
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "cooldown_seconds",
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        }
+      ],
+      "evidence": {
+        "asset": "TEL",
+        "kraken_historical": "UNKNOWN",
+        "q1_2026_validation": "UNKNOWN",
+        "kucoin_current": "AVAILABLE",
+        "agreement": "UNKNOWN"
+      }
+    },
+    {
+      "asset": "TAO",
+      "bot_name": "TAO Low Pullback Bot",
+      "action": "WAIT",
+      "confidence": 0,
+      "eligible": false,
+      "blocking_reasons": [
+        "Current entry permission is blocked.",
+        "Complete deployable-capital confirmation is unavailable.",
+        "Exact DCA settings are incomplete; deployment is blocked."
+      ],
+      "supporting_reasons": [
+        "Strategy health is strong",
+        "Recent realised P&L is positive",
+        "Recent capital efficiency is positive"
+      ],
+      "cautions": [
+        "Current entry is blocked"
+      ],
+      "current_regime": "Low",
+      "live_state": "NO_MATCHING_BOT",
+      "settings_state": "INCOMPLETE",
+      "capital_required": null,
+      "capital_available": null,
+      "can_fund": null,
+      "production_settings": {
+        "source": "PRODUCTION_CONFIGURATION",
+        "values": {
+          "bot_name": "TAO Low Pullback Bot",
+          "base_order_volume": 100.0,
+          "safety_order_volume": null,
+          "take_profit_pct": 2.5,
+          "so_deviation_pct": 1.0,
+          "safety_orders": 7,
+          "volume_scale": 1.4,
+          "step_scale": 1.2,
+          "max_active_deals": 1,
+          "max_active_safety_orders": null,
+          "start_condition": null,
+          "order_type": null,
+          "trailing_enabled": null,
+          "cooldown_seconds": null
+        },
+        "complete": false,
+        "missing_fields": [
+          "safety_order_volume",
+          "max_active_safety_orders",
+          "start_condition",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ]
+      },
+      "recommended_settings": {
+        "source": "PRODUCTION_CONFIGURATION",
+        "values": {
+          "bot_name": "TAO Low Pullback Bot",
+          "base_order_volume": 100.0,
+          "safety_order_volume": null,
+          "take_profit_pct": 2.5,
+          "so_deviation_pct": 1.0,
+          "safety_orders": 7,
+          "volume_scale": 1.4,
+          "step_scale": 1.2,
+          "max_active_deals": 1,
+          "max_active_safety_orders": null,
+          "start_condition": null,
+          "order_type": null,
+          "trailing_enabled": null,
+          "cooldown_seconds": null
+        },
+        "complete": false,
+        "missing_fields": [
+          "safety_order_volume",
+          "max_active_safety_orders",
+          "start_condition",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ]
+      },
+      "settings_changed": false,
+      "settings_differences": [
+        {
+          "field": "base_order_volume",
+          "production_value": 100.0,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "safety_order_volume",
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "take_profit_pct",
+          "production_value": 2.5,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "so_deviation_pct",
+          "production_value": 1.0,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "safety_orders",
+          "production_value": 7,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "volume_scale",
+          "production_value": 1.4,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "step_scale",
+          "production_value": 1.2,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "max_active_deals",
+          "production_value": 1,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "max_active_safety_orders",
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "start_condition",
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "order_type",
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "trailing_enabled",
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        },
+        {
+          "field": "cooldown_seconds",
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
+        }
+      ],
+      "evidence": {
+        "asset": "TAO",
+        "kraken_historical": "UNKNOWN",
+        "q1_2026_validation": "UNKNOWN",
+        "kucoin_current": "AVAILABLE",
+        "agreement": "UNKNOWN"
+      }
+    }
+  ],
+  "evidence_agreement": {
+    "status": "PARTIAL",
+    "assets": [
+      {
+        "asset": "SUI",
+        "kraken_historical": "AVAILABLE",
+        "q1_2026_validation": "AVAILABLE",
+        "kucoin_current": "AVAILABLE",
+        "agreement": "DISAGREE"
+      }
+    ],
+    "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
+  },
+  "source_snapshots": {
+    "operating_state_snapshot": "c7f4de55a6160269995a",
+    "capital_snapshot": "b228aadfa455a4e145eb",
+    "decision_generated_at": "2026-08-05T13:15:32.445365+00:00",
+    "threecommas_generated_at": "2026-08-05T13:16:41.429938+00:00"
+  },
+  "warnings": [
+    "Capital reconciliation is incomplete; no new deployment may be asserted.",
+    "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."
+  ]
+}

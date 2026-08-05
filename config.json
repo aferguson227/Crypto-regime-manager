@@ -288,12 +288,12 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "32.3.0",
-    "mode": "Read-only deployment intelligence foundation",
+    "version": "32.4.0",
+    "mode": "Read-only explainable deployment intelligence",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
     "feature": "Advisory candidate validation and DCA improvement lab",
-    "release_name": "Deployment Intelligence Foundations",
+    "release_name": "Deployment Intelligence Engine",
     "primary_navigation": [
       "Dashboard",
       "Workspace",
@@ -689,7 +689,7 @@
       "Forward Validation"
     ]
   },
-  "version": "32.3.0",
+  "version": "32.4.0",
   "research_queue": {
     "enabled": true,
     "max_assets_per_cycle": 3,
@@ -870,6 +870,17 @@
       "rejected"
     ]
   },
-  "application_version": "32.1.1",
-  "release_name": "Deployment Intelligence Foundations"
+  "application_version": "32.4.0",
+  "release_name": "Deployment Intelligence Engine",
+  "deployment_intelligence_v32_4": {
+    "enabled": true,
+    "advisory_only": true,
+    "manual_approval_required": true,
+    "automatic_live_changes": false,
+    "minimum_deployment_confidence": 70,
+    "require_entry_permission": true,
+    "require_production_or_forward_validated": true,
+    "require_known_capital_for_new_deployment": true,
+    "note": "Recommendations never change 3Commas. Missing capital or exact settings block a new deployment recommendation."
+  }
 }
