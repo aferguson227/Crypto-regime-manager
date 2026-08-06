@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "application_version": "38.0.0",
-  "generated_at": "2026-08-06T20:09:20.749801+00:00",
+  "application_version": "39.0.0",
+  "generated_at": "2026-08-06T20:38:42.483740+00:00",
   "state": "WARNING",
-  "workflow_count": 4,
+  "workflow_count": 5,
   "single_pages_publisher": true,
   "pages_publishers": [
     "pages-deploy.yml"
@@ -12,17 +12,27 @@
   "queue_safe": true,
   "successful_duration_median_seconds": null,
   "telemetry_runs": 0,
+  "success_rate_pct": null,
+  "average_queue_seconds": null,
+  "successful_runs": 0,
+  "failed_runs": 0,
   "issues": [
     {
       "fingerprint": "PAGES_TIMEOUT_TOO_SHORT",
       "severity": "warning",
       "title": "Pages timeout is below approved threshold",
       "detail": "Configured timeout: 15.",
-      "safe_action": "Restore the approved 30-minute timeout."
+      "safe_action": "Restore the approved 30-minute timeout.",
+      "occurrences": 1
     }
   ],
   "workflows": {
     "crm-self-heal.yml": {
+      "deploy_pages": false,
+      "upload_pages": false,
+      "module_execution": true
+    },
+    "engineering-audit.yml": {
       "deploy_pages": false,
       "upload_pages": false,
       "module_execution": true

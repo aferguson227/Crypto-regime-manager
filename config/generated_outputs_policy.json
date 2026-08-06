@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "application_version": "39.0.0",
+  "tracked_release_snapshots": [
+    "docs/diagnostics.json"
+  ],
+  "runtime_generated_patterns": [
+    "docs/diagnostics_runtime.json",
+    "docs/operational_health.json",
+    "docs/issues.json",
+    "docs/performance_history.json",
+    "docs/remediation_history.json",
+    "docs/self_healing_status.json",
+    "docs/ui_health.json",
+    "docs/visual_issues.json",
+    "docs/github_actions_health.json",
+    "docs/engineering_health.json",
+    "docs/release_readiness.json",
+    "docs/decision_quality.json",
+    "docs/issue_lifecycle.json",
+    "docs/repository_health.json",
+    "docs/engineering_schedule.json"
+  ],
+  "archive_exclusions": [
+    ".update-backups/**",
+    ".fix-backups/**",
+    "diagnostics_exports/**",
+    "engineering_exports/**",
+    "diagnostics_logs/**",
+    "__pycache__/**"
+  ],
+  "restore_after_export": true,
+  "never_restore_source_files": true
+}

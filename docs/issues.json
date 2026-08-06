@@ -1,6 +1,6 @@
 {
-  "application_version": "38.0.0",
-  "generated_at": "2026-08-06T20:09:11.804836+00:00",
+  "application_version": "39.0.0",
+  "generated_at": "2026-08-06T20:38:40.723510+00:00",
   "issues": [
     {
       "severity": "warning",
@@ -12,32 +12,32 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-06T20:09:11.828886+00:00",
-      "last_detected_at": "2026-08-06T20:09:11.828893+00:00"
+      "first_detected_at": "2026-08-06T20:38:40.726869+00:00",
+      "last_detected_at": "2026-08-06T20:38:40.726880+00:00"
     },
     {
       "severity": "critical",
       "system": "3Commas",
       "title": "3Commas data is stale",
-      "detail": "Last successful sync was 7.94 hours ago.",
+      "detail": "Last successful sync was 8.44 hours ago.",
       "recommended_action": "Run the 3Commas workflow and inspect endpoint diagnostics.",
       "metric": {
-        "age_hours": 7.94
+        "age_hours": 8.44
       },
-      "first_detected_at": "2026-08-06T20:09:11.828907+00:00",
-      "last_detected_at": "2026-08-06T20:09:11.828909+00:00"
+      "first_detected_at": "2026-08-06T20:38:40.726905+00:00",
+      "last_detected_at": "2026-08-06T20:38:40.726912+00:00"
     },
     {
       "severity": "warning",
       "system": "Application",
       "title": "Application refresh is stale",
-      "detail": "Last successful application refresh age: 6.79.",
+      "detail": "Last successful application refresh age: 7.28.",
       "recommended_action": "Run the autonomous refresh workflow and inspect its failed step.",
       "metric": {
-        "age_hours": 6.79
+        "age_hours": 7.28
       },
-      "first_detected_at": "2026-08-06T20:09:11.828915+00:00",
-      "last_detected_at": "2026-08-06T20:09:11.828917+00:00"
+      "first_detected_at": "2026-08-06T20:38:40.726924+00:00",
+      "last_detected_at": "2026-08-06T20:38:40.726930+00:00"
     }
   ]
 }

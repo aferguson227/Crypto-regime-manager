@@ -5,7 +5,7 @@ def test_operational_outputs_exist_and_are_read_only():
     for name in ['operational_health.json','issues.json','performance_history.json']:
         assert (ROOT/'docs'/name).exists()
     d=json.loads((ROOT/'docs'/'operational_health.json').read_text(encoding="utf-8"))
-    assert d['application_version']=='38.0.0'
+    assert d['application_version']=='39.0.0'
     assert set(d['scores'])=={'system','data','trading','deployment','decision_readiness'}
     assert d['safeguards']['read_only'] is True
     assert d['safeguards']['manual_approval_required'] is True

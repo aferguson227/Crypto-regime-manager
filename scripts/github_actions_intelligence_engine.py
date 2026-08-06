@@ -30,10 +30,22 @@ def main():
   elif status in {'cancelled','canceled'}: active.append({'fingerprint':'PAGES_DEPLOYMENT_CANCELLED','severity':'warning','run':r})
   elif status in {'timed_out','timeout'}: active.append({'fingerprint':'PAGES_DEPLOYMENT_TIMEOUT','severity':'critical','run':r})
   if isinstance(dur,(int,float)) and dur>900:active.append({'fingerprint':'WORKFLOW_SLOWDOWN','severity':'warning','run':r})
+ # Consolidate recurring findings so historical failures do not flood the action queue.
  issues.extend(active)
+ consolidated={}
+ for item in issues:
+  fp=item.get('fingerprint','UNKNOWN'); key=(fp,item.get('title') or item.get('detail') or '')
+  if key not in consolidated:
+   consolidated[key]={**item,'occurrences':0}
+  consolidated[key]['occurrences']+=1
+ issues=list(consolidated.values())
  durations=[float(r['duration_seconds']) for r in runs if isinstance(r.get('duration_seconds'),(int,float)) and str(r.get('status')).lower()=='success']
  median=sorted(durations)[len(durations)//2] if durations else None
+ success=sum(1 for r in runs if str(r.get('status')).lower()=='success'); failed=sum(1 for r in runs if str(r.get('status')).lower() in {'failure','failed','timed_out','timeout'}); completed=success+failed
+ success_rate=round((success/completed)*100,1) if completed else None
+ queue_values=[float(r['queue_seconds']) for r in runs if isinstance(r.get('queue_seconds'),(int,float))]
+ avg_queue=round(sum(queue_values)/len(queue_values),1) if queue_values else None
  state='CRITICAL' if any(x.get('severity')=='critical' for x in issues) else ('WARNING' if issues else 'HEALTHY')
- payload={'schema_version':'1.0','application_version':application_version(),'generated_at':now,'state':state,'workflow_count':len(workflows),'single_pages_publisher':len(pages)==1,'pages_publishers':pages,'pages_timeout_minutes':timeout,'queue_safe': 'cancel-in-progress: false' in text,'successful_duration_median_seconds':median,'telemetry_runs':len(runs),'issues':issues,'workflows':workflows,'repair_policy':{'max_automatic_retries':2,'backoff_minutes':[5,15],'never_force_push':True,'never_change_secrets':True,'never_change_trading':True}}
+ payload={'schema_version':'1.0','application_version':application_version(),'generated_at':now,'state':state,'workflow_count':len(workflows),'single_pages_publisher':len(pages)==1,'pages_publishers':pages,'pages_timeout_minutes':timeout,'queue_safe': 'cancel-in-progress: false' in text,'successful_duration_median_seconds':median,'telemetry_runs':len(runs),'success_rate_pct':success_rate,'average_queue_seconds':avg_queue,'successful_runs':success,'failed_runs':failed,'issues':issues,'workflows':workflows,'repair_policy':{'max_automatic_retries':2,'backoff_minutes':[5,15],'never_force_push':True,'never_change_secrets':True,'never_change_trading':True}}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8'); print(f'GitHub Actions health written: {OUT}'); return 0
 if __name__=='__main__':raise SystemExit(main())

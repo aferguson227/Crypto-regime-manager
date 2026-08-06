@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "application_version": "39.0.0",
+  "generated_at": "2026-08-06T20:38:42.327932+00:00",
+  "state": "HEALTHY",
+  "repository_bytes": 58968198,
+  "release_reclaimable_bytes": 51515768,
+  "historical_backup_files": 60,
+  "generated_export_files": 90,
+  "large_files": [],
+  "issues": [
+    {
+      "fingerprint": "HISTORICAL_BACKUPS_IN_WORKTREE",
+      "severity": "info",
+      "title": "Historical backups are present locally",
+      "count": 60,
+      "automatic": false,
+      "action": "Exclude them from normal source and release archives; preserve separately."
+    }
+  ],
+  "archive_policy": "lean_by_default",
+  "full_archive_available": true
+}

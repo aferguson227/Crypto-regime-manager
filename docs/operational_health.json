@@ -1,17 +1,17 @@
 {
   "schema_version": "1.0",
-  "application_version": "38.0.0",
-  "generated_at": "2026-08-06T20:09:11.804836+00:00",
+  "application_version": "39.0.0",
+  "generated_at": "2026-08-06T20:38:40.723510+00:00",
   "overall": {
     "state": "CRITICAL",
-    "score_pct": 58.2,
+    "score_pct": 57.7,
     "active_issue_count": 3,
     "critical_count": 1,
     "warning_count": 2
   },
   "scores": {
     "system": 100,
-    "data": 31.1,
+    "data": 28.6,
     "trading": 70.0,
     "deployment": 50.0,
     "decision_readiness": 40.0
@@ -20,7 +20,7 @@
     "status": "partial",
     "last_attempt_at": "2026-08-06T12:12:34.096894+00:00",
     "last_success_at": "2026-08-06T12:12:34.096894+00:00",
-    "last_success_age_hours": 7.94,
+    "last_success_age_hours": 8.44,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-06T12:12:34.657396+00:00",
-        "age_hours": 7.94,
+        "age_hours": 8.44,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-06T12:12:34.900251+00:00",
-        "age_hours": 7.94,
+        "age_hours": 8.43,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -51,7 +51,7 @@
         "http_status": null,
         "records": 4,
         "observed_at": "2026-08-06T12:12:35.130908+00:00",
-        "age_hours": 7.94,
+        "age_hours": 8.43,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -62,7 +62,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-06T12:12:35.328786+00:00",
-        "age_hours": 7.94,
+        "age_hours": 8.43,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -73,7 +73,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-06T12:12:35.575979+00:00",
-        "age_hours": 7.94,
+        "age_hours": 8.43,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -84,7 +84,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-06T12:12:35.747517+00:00",
-        "age_hours": 7.94,
+        "age_hours": 8.43,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-06 12:13:34 UTC'}"
       }
@@ -96,7 +96,7 @@
   "application": {
     "cloud_state": "warning",
     "last_success_at": "2026-08-06T13:21:32.250664+00:00",
-    "last_success_age_hours": 6.79,
+    "last_success_age_hours": 7.28,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -106,7 +106,7 @@
         "bot_name": "TEL DCA - Low Volatility",
         "status": "bought",
         "profit_pct": -1.05,
-        "duration_hours": 11.9,
+        "duration_hours": 12.4,
         "completed_safety_orders": 2,
         "max_safety_orders": 6,
         "capital_used": 392.19478893,
@@ -132,32 +132,32 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-06T20:09:11.828886+00:00",
-      "last_detected_at": "2026-08-06T20:09:11.828893+00:00"
+      "first_detected_at": "2026-08-06T20:38:40.726869+00:00",
+      "last_detected_at": "2026-08-06T20:38:40.726880+00:00"
     },
     {
       "severity": "critical",
       "system": "3Commas",
       "title": "3Commas data is stale",
-      "detail": "Last successful sync was 7.94 hours ago.",
+      "detail": "Last successful sync was 8.44 hours ago.",
       "recommended_action": "Run the 3Commas workflow and inspect endpoint diagnostics.",
       "metric": {
-        "age_hours": 7.94
+        "age_hours": 8.44
       },
-      "first_detected_at": "2026-08-06T20:09:11.828907+00:00",
-      "last_detected_at": "2026-08-06T20:09:11.828909+00:00"
+      "first_detected_at": "2026-08-06T20:38:40.726905+00:00",
+      "last_detected_at": "2026-08-06T20:38:40.726912+00:00"
     },
     {
       "severity": "warning",
       "system": "Application",
       "title": "Application refresh is stale",
-      "detail": "Last successful application refresh age: 6.79.",
+      "detail": "Last successful application refresh age: 7.28.",
       "recommended_action": "Run the autonomous refresh workflow and inspect its failed step.",
       "metric": {
-        "age_hours": 6.79
+        "age_hours": 7.28
       },
-      "first_detected_at": "2026-08-06T20:09:11.828915+00:00",
-      "last_detected_at": "2026-08-06T20:09:11.828917+00:00"
+      "first_detected_at": "2026-08-06T20:38:40.726924+00:00",
+      "last_detected_at": "2026-08-06T20:38:40.726930+00:00"
     }
   ],
   "safeguards": {
