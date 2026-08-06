@@ -74,6 +74,7 @@ try {
             throw 'Git is unavailable'
         }
 
+        foreach ($generated in @('docs/diagnostics.json')) { & git -C $ProjectPath restore --worktree -- $generated 2>$null }
         $dirty = (& git -C $ProjectPath status --porcelain | Out-String).Trim()
         if ($dirty -and -not $AllowDirty) {
             throw 'Repository has uncommitted changes. Commit them or rerun with -AllowDirty.'
@@ -131,7 +132,7 @@ finally {
 
     $report = [ordered]@{
         schema_version = '1.0'
-        build_system = 'CRM Build System 1.1'
+        build_system = 'CRM Build System 1.2'
         version = $v
         result = $result
         started_at = $started.ToString('o')

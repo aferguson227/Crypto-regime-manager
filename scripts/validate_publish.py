@@ -25,6 +25,17 @@ for r in ['index.html','research_hub.html','research_intelligence.html','v31_2.c
 routes=json.loads((ROOT/'config/routes.json').read_text())['routes']
 for route in routes:
     if not (DOCS/route['path']).exists(): errors.append(f"route manifest missing docs/{route['path']}")
+
+# Published metadata must not claim an older application version.
+for name in ('version.json','system_integrity.json','diagnostics.json','operating_state.json','capital_intelligence.json','deployment_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','portfolio_intelligence.json','adaptive_intelligence.json','market_intelligence.json'):
+    path=DOCS/name
+    if not path.exists(): continue
+    try:
+        obj=json.loads(path.read_text(encoding='utf-8-sig'))
+        reported=obj.get('application_version') or obj.get('version') or ((obj.get('metadata') or {}).get('application_version'))
+        if reported and str(reported)!=str(release['version']): errors.append(f'docs/{name} reports version {reported}, expected {release["version"]}')
+    except Exception: pass
+
 # Static safety scan: no mutation verbs/endpoints or secret material in published output.
 for p in list((ROOT/'scripts/integrations').glob('*.py'))+list(DOCS.glob('*')):
     if not p.is_file(): continue

@@ -80,6 +80,8 @@ if __name__ == '__main__':
         from scripts.adaptive_intelligence_engine import main as adaptive_intelligence
         adaptive_intelligence()
         write_status('healthy', started)
+        from scripts.market_intelligence_engine import main as market_intelligence
+        market_intelligence()
         from scripts.cloud_reliability_engine import main as cloud_reliability
         cloud_reliability()
         from scripts.diagnostics_engine import build_report, OUTPUT
