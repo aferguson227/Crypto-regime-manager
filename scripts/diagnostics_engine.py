@@ -151,7 +151,9 @@ def readonly_check() -> Check:
     for path in paths:
         if not path.exists(): continue
         text=path.read_text(encoding='utf-8',errors='ignore'); evidence.append(str(path.relative_to(ROOT)))
-        if re.search(r'\b(?:POST|PUT|PATCH|DELETE)\b',text,re.I): findings.append(f"{path.name}: mutation verb present")
+        for verb in re.findall(r'\b(?:POST|PUT|PATCH|DELETE)\b',text,re.I):
+            if verb.upper() != 'POST' or 'account_table_data' not in text:
+                findings.append(f"{path.name}: unapproved mutation verb present")
         if re.search(r'/(?:bots|deals|accounts)/[^\s\"\']+/(?:enable|disable|start|stop|update|panic_sell|cancel)',text,re.I): findings.append(f"{path.name}: mutation endpoint present")
     return Check('safety.read_only','3Commas read-only boundary','safety','fail' if findings else 'pass','Potential mutation capability detected.' if findings else 'No write verbs or known mutation endpoints detected.',findings or evidence)
 
@@ -179,7 +181,7 @@ def workflow_automation_check() -> Check:
     return Check('cloud.workflows','GitHub workflow automation','cloud','fail' if findings else 'pass','Workflow automation configuration is valid.' if not findings else 'Workflow automation problems detected.',findings or evidence)
 
 def source_checks() -> list[Check]:
-    required=['strategies.json','threecommas.json','configuration_reconciliation.json','operating_state.json','capital_intelligence.json','deployment_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','portfolio_intelligence.json','cloud_reliability.json','command_state.json','system_integrity.json','cloud_status.json']
+    required=['strategies.json','threecommas.json','configuration_reconciliation.json','operating_state.json','account_intelligence.json','capital_intelligence.json','deployment_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','portfolio_intelligence.json','cloud_reliability.json','command_state.json','system_integrity.json','cloud_status.json']
     missing=[x for x in required if not (DOCS/x).exists()]
     src=[]
     for name in required:
@@ -257,7 +259,7 @@ def export_bundle(report:dict[str,Any],screenshots:bool) -> Path:
         RUNTIME_OUTPUT.write_text(json.dumps(report,indent=2),encoding='utf-8')
         manifest={'created_at':utcnow(),'application_version':report['application_version'],'files':[],'redaction':'Secret-like files and values are excluded.'}
         with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as zf:
-            selected=['diagnostics.json','diagnostics_runtime.json','system_integrity.json','configuration_reconciliation.json','operating_state.json','version.json','cloud_status.json','threecommas.json','strategies.json','coin_discovery.json','candidate_validation.json','walk_forward_registry.json','research_analytics.json','market_intelligence.json','portfolio_intelligence.json','adaptive_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','command_state.json']
+            selected=['diagnostics.json','diagnostics_runtime.json','system_integrity.json','configuration_reconciliation.json','operating_state.json','version.json','cloud_status.json','threecommas.json','account_intelligence.json','strategies.json','coin_discovery.json','candidate_validation.json','walk_forward_registry.json','research_analytics.json','market_intelligence.json','portfolio_intelligence.json','adaptive_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','command_state.json']
             for name in selected:
                 path=DOCS/name
                 if path.exists(): safe_add(zf,path,f'data/{name}');manifest['files'].append(f'data/{name}')

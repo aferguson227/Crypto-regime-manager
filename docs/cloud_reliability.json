@@ -1,24 +1,61 @@
 {
   "schema_version": "2.0",
-  "application_version": "33.0.2",
-  "generated_at": "2026-08-06T10:11:05.157402+00:00",
-  "snapshot_id": "a3486ee9ec1c08fe7ae4",
-  "status": "WARNING",
+  "application_version": "33.0.3",
+  "generated_at": "2026-08-06T11:22:18.683466+00:00",
+  "snapshot_id": "cdc5809f192f427d4df7",
+  "status": "HEALTHY",
   "pipelines": {
     "threecommas": {
       "name": "3Commas read-only sync",
-      "state": "unknown",
-      "last_attempt_at": "2026-08-05T13:16:41.429938+00:00",
-      "last_attempt_age_hours": 20.91,
-      "last_success_at": null,
-      "last_success_age_hours": null,
+      "state": "healthy",
+      "last_attempt_at": "2026-08-06T10:48:55.387765+00:00",
+      "last_attempt_age_hours": 0.56,
+      "last_success_at": "2026-08-06T10:48:55.387765+00:00",
+      "last_success_age_hours": 0.56,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
       "source_status": "ok",
-      "message": "Read-only 3Commas data updated successfully.",
+      "message": "All read-only 3Commas endpoints updated successfully.",
       "endpoint_diagnostics": {
-        "results": {},
+        "results": {
+          "validate": {
+            "path": "/public/api/ver1/validate",
+            "status": "pass",
+            "category": "ok",
+            "message": "Endpoint completed successfully.",
+            "http_status": null,
+            "records": null,
+            "observed_at": "2026-08-06T10:48:56.269976+00:00"
+          },
+          "accounts": {
+            "path": "/public/api/ver1/accounts",
+            "status": "pass",
+            "category": "ok",
+            "message": "Endpoint completed successfully.",
+            "http_status": null,
+            "records": 1,
+            "observed_at": "2026-08-06T10:48:56.575129+00:00"
+          },
+          "bots": {
+            "path": "/public/api/ver1/bots",
+            "status": "pass",
+            "category": "ok",
+            "message": "Endpoint completed successfully.",
+            "http_status": null,
+            "records": 4,
+            "observed_at": "2026-08-06T10:48:57.126647+00:00"
+          },
+          "deals": {
+            "path": "/public/api/ver1/deals",
+            "status": "pass",
+            "category": "ok",
+            "message": "Endpoint completed successfully.",
+            "http_status": null,
+            "records": 1,
+            "observed_at": "2026-08-06T10:48:57.496769+00:00"
+          }
+        },
         "failure_count": 0,
         "failures": [],
         "primary_failure_category": null
@@ -28,9 +65,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-06T07:43:08.293659+00:00",
-      "last_attempt_age_hours": 2.47,
+      "last_attempt_age_hours": 3.65,
       "last_success_at": "2026-08-06T07:43:12.290564+00:00",
-      "last_success_age_hours": 2.46,
+      "last_success_age_hours": 3.65,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -41,18 +78,55 @@
   "sources": [
     {
       "name": "3Commas read-only sync",
-      "state": "unknown",
-      "last_attempt_at": "2026-08-05T13:16:41.429938+00:00",
-      "last_attempt_age_hours": 20.91,
-      "last_success_at": null,
-      "last_success_age_hours": null,
+      "state": "healthy",
+      "last_attempt_at": "2026-08-06T10:48:55.387765+00:00",
+      "last_attempt_age_hours": 0.56,
+      "last_success_at": "2026-08-06T10:48:55.387765+00:00",
+      "last_success_age_hours": 0.56,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
       "source_status": "ok",
-      "message": "Read-only 3Commas data updated successfully.",
+      "message": "All read-only 3Commas endpoints updated successfully.",
       "endpoint_diagnostics": {
-        "results": {},
+        "results": {
+          "validate": {
+            "path": "/public/api/ver1/validate",
+            "status": "pass",
+            "category": "ok",
+            "message": "Endpoint completed successfully.",
+            "http_status": null,
+            "records": null,
+            "observed_at": "2026-08-06T10:48:56.269976+00:00"
+          },
+          "accounts": {
+            "path": "/public/api/ver1/accounts",
+            "status": "pass",
+            "category": "ok",
+            "message": "Endpoint completed successfully.",
+            "http_status": null,
+            "records": 1,
+            "observed_at": "2026-08-06T10:48:56.575129+00:00"
+          },
+          "bots": {
+            "path": "/public/api/ver1/bots",
+            "status": "pass",
+            "category": "ok",
+            "message": "Endpoint completed successfully.",
+            "http_status": null,
+            "records": 4,
+            "observed_at": "2026-08-06T10:48:57.126647+00:00"
+          },
+          "deals": {
+            "path": "/public/api/ver1/deals",
+            "status": "pass",
+            "category": "ok",
+            "message": "Endpoint completed successfully.",
+            "http_status": null,
+            "records": 1,
+            "observed_at": "2026-08-06T10:48:57.496769+00:00"
+          }
+        },
         "failure_count": 0,
         "failures": [],
         "primary_failure_category": null
@@ -62,9 +136,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-06T07:43:08.293659+00:00",
-      "last_attempt_age_hours": 2.47,
+      "last_attempt_age_hours": 3.65,
       "last_success_at": "2026-08-06T07:43:12.290564+00:00",
-      "last_success_age_hours": 2.46,
+      "last_success_age_hours": 3.65,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -72,7 +146,44 @@
       "message": null
     }
   ],
-  "threecommas_endpoints": {},
+  "threecommas_endpoints": {
+    "validate": {
+      "path": "/public/api/ver1/validate",
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": null,
+      "observed_at": "2026-08-06T10:48:56.269976+00:00"
+    },
+    "accounts": {
+      "path": "/public/api/ver1/accounts",
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": 1,
+      "observed_at": "2026-08-06T10:48:56.575129+00:00"
+    },
+    "bots": {
+      "path": "/public/api/ver1/bots",
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": 4,
+      "observed_at": "2026-08-06T10:48:57.126647+00:00"
+    },
+    "deals": {
+      "path": "/public/api/ver1/deals",
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": 1,
+      "observed_at": "2026-08-06T10:48:57.496769+00:00"
+    }
+  },
   "workflows": [
     {
       "file": ".github\\workflows\\threecommas-update.yml",

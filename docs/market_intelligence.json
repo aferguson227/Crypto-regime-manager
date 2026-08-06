@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.2",
-  "generated_at": "2026-08-06T10:11:04.891281+00:00",
+  "application_version": "33.0.3",
+  "generated_at": "2026-08-06T11:22:18.587845+00:00",
   "snapshot_id": "fb64364d89b64f726f94",
   "mode": "read_only_market_context",
   "read_only": true,
@@ -68,25 +68,25 @@
     {
       "scenario": "BTC decline",
       "market_shock_pct": -10,
-      "estimated_capital_impact": null,
-      "stressed_reserve_requirement": null,
-      "status": "UNKNOWN",
+      "estimated_capital_impact": 25549.3,
+      "stressed_reserve_requirement": 11800.66,
+      "status": "ESTIMATED",
       "automatic_action": false
     },
     {
       "scenario": "Volatility expansion",
       "market_shock_pct": -6,
-      "estimated_capital_impact": null,
-      "stressed_reserve_requirement": null,
-      "status": "UNKNOWN",
+      "estimated_capital_impact": 15329.58,
+      "stressed_reserve_requirement": 14160.79,
+      "status": "ESTIMATED",
       "automatic_action": false
     },
     {
       "scenario": "Rapid recovery",
       "market_shock_pct": 8,
-      "estimated_capital_impact": null,
-      "stressed_reserve_requirement": null,
-      "status": "UNKNOWN",
+      "estimated_capital_impact": 20439.44,
+      "stressed_reserve_requirement": 8496.48,
+      "status": "ESTIMATED",
       "automatic_action": false
     }
   ],

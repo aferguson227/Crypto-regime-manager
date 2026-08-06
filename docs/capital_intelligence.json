@@ -1,146 +1,92 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.2",
-  "generated_at": "2026-08-06T10:11:03.871686+00:00",
-  "snapshot_id": "0ea7d74411b155719304",
+  "application_version": "33.0.3",
+  "generated_at": "2026-08-06T11:22:17.528532+00:00",
+  "snapshot_id": "7d3a05d473c3a16a9498",
   "currency": "USDT",
-  "accounts": [],
+  "accounts": [
+    {
+      "account_id": 32632134,
+      "name": "My Kucoin",
+      "exchange": "Kucoin Spot",
+      "currency": "USDT",
+      "total_equity": 0.055840124017601224,
+      "free_available": null,
+      "observed_at": "2026-08-06T10:48:55.387765+00:00"
+    }
+  ],
   "bots": [
     {
       "asset": "TEL",
-      "bot_id": null,
+      "bot_id": 16945275,
       "bot_name": "TEL DCA - High Bear",
       "enabled": true,
       "active_deals": 0,
       "max_active_deals": 1,
-      "per_deal_max_capital": null,
+      "per_deal_max_capital": 2336.96,
       "active_deal_capital": 0.0,
       "placed_order_reserve": 0.0,
       "remaining_dca_reserve": 0,
-      "idle_capacity_reserve": null,
-      "next_deal_required_capital": null,
-      "completeness": "partial",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable."
-      ]
+      "idle_capacity_reserve": 2336.96,
+      "next_deal_required_capital": 2336.96,
+      "completeness": "complete",
+      "warnings": []
     },
     {
       "asset": "TEL",
-      "bot_id": null,
+      "bot_id": 16945274,
       "bot_name": "TEL DCA - High Bull",
       "enabled": true,
       "active_deals": 0,
       "max_active_deals": 1,
-      "per_deal_max_capital": null,
+      "per_deal_max_capital": 3539.4726399999986,
       "active_deal_capital": 0.0,
       "placed_order_reserve": 0.0,
       "remaining_dca_reserve": 0,
-      "idle_capacity_reserve": null,
-      "next_deal_required_capital": null,
-      "completeness": "partial",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable."
-      ]
+      "idle_capacity_reserve": 3539.4726399999986,
+      "next_deal_required_capital": 3539.4726399999986,
+      "completeness": "complete",
+      "warnings": []
     },
     {
       "asset": "TEL",
-      "bot_id": null,
+      "bot_id": 16945273,
       "bot_name": "TEL DCA - Medium Volatility",
       "enabled": true,
       "active_deals": 0,
       "max_active_deals": 1,
-      "per_deal_max_capital": null,
+      "per_deal_max_capital": 1194.5599999999997,
       "active_deal_capital": 0.0,
       "placed_order_reserve": 0.0,
       "remaining_dca_reserve": 0,
-      "idle_capacity_reserve": null,
-      "next_deal_required_capital": null,
-      "completeness": "partial",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable."
-      ]
+      "idle_capacity_reserve": 1194.5599999999997,
+      "next_deal_required_capital": 1194.5599999999997,
+      "completeness": "complete",
+      "warnings": []
     },
     {
       "asset": "TEL",
-      "bot_id": null,
+      "bot_id": 16945272,
       "bot_name": "TEL DCA - Low Volatility",
       "enabled": true,
       "active_deals": 1,
       "max_active_deals": 1,
-      "per_deal_max_capital": null,
-      "active_deal_capital": null,
-      "placed_order_reserve": null,
-      "remaining_dca_reserve": null,
-      "idle_capacity_reserve": null,
-      "next_deal_required_capital": null,
-      "completeness": "partial",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable.",
-        "Active deal cost basis is incomplete.",
-        "Remaining safety-order reserve cannot be calculated."
-      ]
-    },
-    {
-      "asset": "TEL",
-      "bot_id": null,
-      "bot_name": "TEL DCA",
-      "enabled": false,
-      "active_deals": 0,
-      "max_active_deals": 1,
-      "per_deal_max_capital": null,
-      "active_deal_capital": 0.0,
+      "per_deal_max_capital": 2729.5360000000005,
+      "active_deal_capital": 255493.0,
       "placed_order_reserve": 0.0,
-      "remaining_dca_reserve": 0,
+      "remaining_dca_reserve": 2369.5360000000005,
       "idle_capacity_reserve": 0.0,
       "next_deal_required_capital": null,
-      "completeness": "partial",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable."
-      ]
-    },
-    {
-      "asset": "TAO",
-      "bot_id": null,
-      "bot_name": "TAO DCA",
-      "enabled": false,
-      "active_deals": 0,
-      "max_active_deals": 1,
-      "per_deal_max_capital": null,
-      "active_deal_capital": 0.0,
-      "placed_order_reserve": 0.0,
-      "remaining_dca_reserve": 0,
-      "idle_capacity_reserve": 0.0,
-      "next_deal_required_capital": null,
-      "completeness": "partial",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable."
-      ]
-    },
-    {
-      "asset": "TAO",
-      "bot_id": null,
-      "bot_name": "Core liquid bot",
-      "enabled": false,
-      "active_deals": 0,
-      "max_active_deals": 4,
-      "per_deal_max_capital": null,
-      "active_deal_capital": 0.0,
-      "placed_order_reserve": 0.0,
-      "remaining_dca_reserve": 0,
-      "idle_capacity_reserve": 0.0,
-      "next_deal_required_capital": null,
-      "completeness": "partial",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable."
-      ]
+      "completeness": "complete",
+      "warnings": []
     }
   ],
-  "exchange_total": null,
+  "exchange_total": 0.055840124017601224,
   "free_available": null,
-  "active_deal_capital": null,
-  "placed_order_reserve": null,
-  "remaining_active_deal_dca_reserve": null,
-  "enabled_idle_capacity_reserve": null,
+  "active_deal_capital": 255493.0,
+  "placed_order_reserve": 0.0,
+  "remaining_active_deal_dca_reserve": 2369.5360000000005,
+  "enabled_idle_capacity_reserve": 7070.992639999999,
   "deployable_capital": null,
   "reserve_coverage_ratio": null,
   "capital_status": "PARTIAL",
@@ -156,9 +102,8 @@
     "deployable_capital": "free_available minus enabled_idle_capacity_reserve; never inferred when source data is incomplete."
   },
   "warnings": [
-    "No read-only 3Commas account balance records are available.",
-    "Free USDT is unknown; deployable capital cannot be asserted.",
-    "One or more bot capital records are partial."
+    "One or more 3Commas accounts returned no balance records.",
+    "Free USDT is unknown; deployable capital cannot be asserted."
   ],
   "read_only": true
 }

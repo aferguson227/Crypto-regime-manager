@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.2",
-  "generated_at": "2026-08-06T10:11:04.711124+00:00",
+  "application_version": "33.0.3",
+  "generated_at": "2026-08-06T11:22:18.436208+00:00",
   "snapshot_id": "f9316b9dca4bec968d56",
   "mode": "advisory_capped_adaptive_intelligence",
   "read_only": true,
@@ -23,8 +23,8 @@
       "confidence_calibration_pct": null,
       "observed_accuracy_pct": null,
       "average_return_pct": null,
-      "capital_efficiency_score": 70.2,
-      "risk_adjusted_score": 67.2,
+      "capital_efficiency_score": 0.27,
+      "risk_adjusted_score": 60.2,
       "rank": 1,
       "weight_adjustments": {},
       "reasons": [
@@ -46,8 +46,8 @@
       "confidence_calibration_pct": null,
       "observed_accuracy_pct": null,
       "average_return_pct": null,
-      "capital_efficiency_score": 22.2,
-      "risk_adjusted_score": 14.4,
+      "capital_efficiency_score": null,
+      "risk_adjusted_score": 22.2,
       "rank": 2,
       "weight_adjustments": {},
       "reasons": [
@@ -61,7 +61,7 @@
   "confidence_calibration": [
     {
       "band": "0-50%",
-      "recommendations": 11,
+      "recommendations": 14,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 25.0,
       "observed_accuracy_pct": null,
@@ -77,7 +77,7 @@
     },
     {
       "band": "65-80%",
-      "recommendations": 11,
+      "recommendations": 14,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 72.5,
       "observed_accuracy_pct": null,

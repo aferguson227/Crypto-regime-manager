@@ -54,7 +54,8 @@ def build()->dict[str,Any]:
     totals=[a.total_equity for a in account_rows if a.total_equity is not None]
     frees=[a.free_available for a in account_rows if a.free_available is not None]
     exchange_total=sum(totals) if totals else None; free=sum(frees) if frees else None
-    if not account_rows: warnings.append('No read-only 3Commas account balance records are available.')
+    if not account_rows: warnings.append('No read-only 3Commas account records are available.')
+    elif any((a.get('balance_records') or 0)==0 for a in (three.get('accounts') or []) if isinstance(a,dict)): warnings.append('One or more 3Commas accounts returned no balance records.')
     bot_rows=[]; all_active=[]; all_placed=[]; all_remaining=[]; all_idle=[]
     assets=three.get('assets') if isinstance(three.get('assets'),dict) else {}
     for asset,entry in assets.items():

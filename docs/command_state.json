@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.2",
-  "generated_at": "2026-08-06T10:11:05.363048+00:00",
-  "snapshot_id": "3604b408d860c83aeefdc679",
+  "application_version": "33.0.3",
+  "generated_at": "2026-08-06T11:22:18.848145+00:00",
+  "snapshot_id": "071f4b3dfe0ae57d41ac5554",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -19,33 +19,33 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": null,
-        "stressed_reserve_requirement": null,
-        "status": "UNKNOWN",
+        "estimated_capital_impact": 25549.3,
+        "stressed_reserve_requirement": 11800.66,
+        "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": null,
-        "stressed_reserve_requirement": null,
-        "status": "UNKNOWN",
+        "estimated_capital_impact": 15329.58,
+        "stressed_reserve_requirement": 14160.79,
+        "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": null,
-        "stressed_reserve_requirement": null,
-        "status": "UNKNOWN",
+        "estimated_capital_impact": 20439.44,
+        "stressed_reserve_requirement": 8496.48,
+        "status": "ESTIMATED",
         "automatic_action": false
       }
     ]
   },
   "portfolio": {
-    "health_score": 54.7,
-    "diversification_score": 50,
-    "capital_efficiency_score": 54.2,
+    "health_score": 45.9,
+    "diversification_score": 25,
+    "capital_efficiency_score": 52.7,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -59,9 +59,7 @@
         "deployable_priority": 1,
         "efficiency_score": 70.2,
         "overlap_group": "BTC-linked altcoin",
-        "warnings": [
-          "Complete base/safety-order sizing is unavailable."
-        ]
+        "warnings": []
       },
       {
         "asset": "TEL",
@@ -74,9 +72,7 @@
         "deployable_priority": 2,
         "efficiency_score": 70.2,
         "overlap_group": "BTC-linked altcoin",
-        "warnings": [
-          "Complete base/safety-order sizing is unavailable."
-        ]
+        "warnings": []
       },
       {
         "asset": "TEL",
@@ -89,9 +85,7 @@
         "deployable_priority": 3,
         "efficiency_score": 70.2,
         "overlap_group": "BTC-linked altcoin",
-        "warnings": [
-          "Complete base/safety-order sizing is unavailable."
-        ]
+        "warnings": []
       },
       {
         "asset": "TEL",
@@ -99,70 +93,20 @@
         "action": "KEEP_RUNNING",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": null,
-        "reserve_capital": null,
+        "allocated_capital": 255493.0,
+        "reserve_capital": 2369.5360000000005,
         "deployable_priority": 4,
-        "efficiency_score": null,
+        "efficiency_score": 0.27,
         "overlap_group": "BTC-linked altcoin",
-        "warnings": [
-          "Complete base/safety-order sizing is unavailable.",
-          "Active deal cost basis is incomplete.",
-          "Remaining safety-order reserve cannot be calculated."
-        ]
-      },
-      {
-        "asset": "TEL",
-        "bot_name": "TEL DCA",
-        "action": "KEEP_RUNNING",
-        "enabled": false,
-        "active_deals": 0,
-        "allocated_capital": 0.0,
-        "reserve_capital": 0.0,
-        "deployable_priority": 5,
-        "efficiency_score": 70.2,
-        "overlap_group": "BTC-linked altcoin",
-        "warnings": [
-          "Complete base/safety-order sizing is unavailable."
-        ]
-      },
-      {
-        "asset": "TAO",
-        "bot_name": "TAO DCA",
-        "action": "WAIT",
-        "enabled": false,
-        "active_deals": 0,
-        "allocated_capital": 0.0,
-        "reserve_capital": 0.0,
-        "deployable_priority": 6,
-        "efficiency_score": 22.2,
-        "overlap_group": "BTC-linked altcoin",
-        "warnings": [
-          "Complete base/safety-order sizing is unavailable."
-        ]
-      },
-      {
-        "asset": "TAO",
-        "bot_name": "Core liquid bot",
-        "action": "WAIT",
-        "enabled": false,
-        "active_deals": 0,
-        "allocated_capital": 0.0,
-        "reserve_capital": 0.0,
-        "deployable_priority": 7,
-        "efficiency_score": 22.2,
-        "overlap_group": "BTC-linked altcoin",
-        "warnings": [
-          "Complete base/safety-order sizing is unavailable."
-        ]
+        "warnings": []
       }
     ],
     "overlap_analysis": {
       "BTC-linked altcoin": {
         "assets": [
-          "TAO",
           "TEL"
         ],
-        "count": 2,
+        "count": 1,
         "concentration_warning": false
       }
     }
@@ -170,16 +114,16 @@
   "capital": {
     "status": null,
     "currency": "USDT",
-    "total_equity": null,
-    "allocated": null,
-    "reserved": null,
+    "total_equity": 0.055840124017601224,
+    "allocated": 255493.0,
+    "reserved": 9440.528639999999,
     "deployable": null,
     "next_required": null,
     "can_fund_next": null
   },
   "recommendations": [
     {
-      "recommendation_id": "60dafb7e1cdd943f9ead9990",
+      "recommendation_id": "e381cf4191fe6ccb2704d44b",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
@@ -333,7 +277,7 @@
       }
     },
     {
-      "recommendation_id": "5e690c6afc0c2abf94136368",
+      "recommendation_id": "54463e9305f4b20ab869d76a",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -557,11 +501,11 @@
     }
   },
   "cloud": {
-    "overall_status": "WARNING",
+    "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-05T13:16:41.429938+00:00",
-      "message": "Read-only 3Commas data updated successfully."
+      "generated_at": "2026-08-06T10:48:55.387765+00:00",
+      "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
     "publication": {}
@@ -570,30 +514,27 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "WARNING"
+    "cloud_status": "HEALTHY"
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "f3750722ea344c049ace",
-    "capital": "0ea7d74411b155719304",
-    "deployment": "b1bb74366187f230d186",
-    "recommendations": "f7504e9cb5da75dcb04f",
+    "portfolio": "4b647d50d3b954901e7b",
+    "capital": "7d3a05d473c3a16a9498",
+    "deployment": "6b81b57984c5597b1e7f",
+    "recommendations": "7b7eaf032b5d75113bcb",
     "adaptive": "f9316b9dca4bec968d56",
-    "outcomes": "2026-08-06T10:11:04.562205+00:00",
-    "cloud": "a3486ee9ec1c08fe7ae4",
-    "operating": "db0dcfcf48d48a8f4366"
+    "outcomes": "2026-08-06T11:22:18.175186+00:00",
+    "cloud": "cdc5809f192f427d4df7",
+    "operating": "5eb8d0824764aa4311f5"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
-    "Total exchange equity remains unknown; portfolio percentages cannot be asserted.",
     "Deployable capital remains unknown; next allocation is advisory only.",
-    "No read-only 3Commas account balance records are available.",
+    "One or more 3Commas accounts returned no balance records.",
     "Free USDT is unknown; deployable capital cannot be asserted.",
-    "One or more bot capital records are partial.",
     "Capital reconciliation is incomplete; no new deployment may be asserted.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
-    "Deployable capital is unknown; no new deployment should be assumed fundable.",
-    "One or more cloud data sources require attention."
+    "Deployable capital is unknown; no new deployment should be assumed fundable."
   ]
 }

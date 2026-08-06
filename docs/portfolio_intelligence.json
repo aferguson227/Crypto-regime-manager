@@ -1,19 +1,19 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.2",
-  "generated_at": "2026-08-06T10:11:05.039699+00:00",
-  "snapshot_id": "f3750722ea344c049ace",
+  "application_version": "33.0.3",
+  "generated_at": "2026-08-06T11:22:18.298865+00:00",
+  "snapshot_id": "4b647d50d3b954901e7b",
   "status": "PARTIAL",
   "currency": "USDT",
-  "portfolio_health_score": 54.7,
-  "diversification_score": 50,
-  "capital_efficiency_score": 54.2,
-  "total_equity": null,
-  "allocated_capital": null,
-  "reserved_capital": null,
+  "portfolio_health_score": 45.9,
+  "diversification_score": 25,
+  "capital_efficiency_score": 52.7,
+  "total_equity": 0.055840124017601224,
+  "allocated_capital": 255493.0,
+  "reserved_capital": 9440.528639999999,
   "deployable_capital": null,
-  "allocation_pct": null,
-  "reserve_pct": null,
+  "allocation_pct": 457543754.6,
+  "reserve_pct": 16906353.3,
   "available_pct": null,
   "next_capital_priority": "TEL Low Volatility Bot",
   "positions": [
@@ -28,9 +28,7 @@
       "deployable_priority": 1,
       "efficiency_score": 70.2,
       "overlap_group": "BTC-linked altcoin",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable."
-      ]
+      "warnings": []
     },
     {
       "asset": "TEL",
@@ -43,9 +41,7 @@
       "deployable_priority": 2,
       "efficiency_score": 70.2,
       "overlap_group": "BTC-linked altcoin",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable."
-      ]
+      "warnings": []
     },
     {
       "asset": "TEL",
@@ -58,9 +54,7 @@
       "deployable_priority": 3,
       "efficiency_score": 70.2,
       "overlap_group": "BTC-linked altcoin",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable."
-      ]
+      "warnings": []
     },
     {
       "asset": "TEL",
@@ -68,75 +62,24 @@
       "action": "KEEP_RUNNING",
       "enabled": true,
       "active_deals": 1,
-      "allocated_capital": null,
-      "reserve_capital": null,
+      "allocated_capital": 255493.0,
+      "reserve_capital": 2369.5360000000005,
       "deployable_priority": 4,
-      "efficiency_score": null,
+      "efficiency_score": 0.27,
       "overlap_group": "BTC-linked altcoin",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable.",
-        "Active deal cost basis is incomplete.",
-        "Remaining safety-order reserve cannot be calculated."
-      ]
-    },
-    {
-      "asset": "TEL",
-      "bot_name": "TEL DCA",
-      "action": "KEEP_RUNNING",
-      "enabled": false,
-      "active_deals": 0,
-      "allocated_capital": 0.0,
-      "reserve_capital": 0.0,
-      "deployable_priority": 5,
-      "efficiency_score": 70.2,
-      "overlap_group": "BTC-linked altcoin",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable."
-      ]
-    },
-    {
-      "asset": "TAO",
-      "bot_name": "TAO DCA",
-      "action": "WAIT",
-      "enabled": false,
-      "active_deals": 0,
-      "allocated_capital": 0.0,
-      "reserve_capital": 0.0,
-      "deployable_priority": 6,
-      "efficiency_score": 22.2,
-      "overlap_group": "BTC-linked altcoin",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable."
-      ]
-    },
-    {
-      "asset": "TAO",
-      "bot_name": "Core liquid bot",
-      "action": "WAIT",
-      "enabled": false,
-      "active_deals": 0,
-      "allocated_capital": 0.0,
-      "reserve_capital": 0.0,
-      "deployable_priority": 7,
-      "efficiency_score": 22.2,
-      "overlap_group": "BTC-linked altcoin",
-      "warnings": [
-        "Complete base/safety-order sizing is unavailable."
-      ]
+      "warnings": []
     }
   ],
   "overlap_analysis": {
     "BTC-linked altcoin": {
       "assets": [
-        "TAO",
         "TEL"
       ],
-      "count": 2,
+      "count": 1,
       "concentration_warning": false
     }
   },
   "warnings": [
-    "Total exchange equity remains unknown; portfolio percentages cannot be asserted.",
     "Deployable capital remains unknown; next allocation is advisory only."
   ],
   "read_only": true,

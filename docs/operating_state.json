@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.2",
-  "snapshot_id": "db0dcfcf48d48a8f4366",
-  "generated_at": "2026-08-06T10:11:04.009714+00:00",
+  "application_version": "33.0.3",
+  "snapshot_id": "5eb8d0824764aa4311f5",
+  "generated_at": "2026-08-06T11:22:17.657364+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
@@ -38,7 +38,7 @@
       "recommendation": "TAO Low Pullback Bot",
       "entry_allowed": false,
       "decision_score": 47.7,
-      "live_bot_state": "NO_MATCHING_BOT",
+      "live_bot_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "reasons": [
         "Strategy health is strong",
@@ -54,17 +54,16 @@
   "next_capital_priority": "TEL Low Volatility Bot",
   "capital": {
     "currency": "USDT",
-    "exchange_total": null,
+    "exchange_total": 0.055840124017601224,
     "free_available": null,
-    "active_deal_capital": null,
-    "placed_order_reserve": null,
-    "enabled_bot_theoretical_reserve": null,
+    "active_deal_capital": 255493.0,
+    "placed_order_reserve": 0.0,
+    "enabled_bot_theoretical_reserve": 7070.992639999999,
     "available_after_reserve": null,
     "completeness": "partial",
     "warnings": [
-      "No read-only 3Commas account balance records are available.",
-      "Free USDT is unknown; deployable capital cannot be asserted.",
-      "One or more bot capital records are partial."
+      "One or more 3Commas accounts returned no balance records.",
+      "Free USDT is unknown; deployable capital cannot be asserted."
     ]
   },
   "evidence_agreement": {
@@ -98,21 +97,21 @@
     {
       "name": "3Commas live state",
       "status": "ok",
-      "observed_at": "2026-08-05T13:16:41.429938+00:00",
-      "version": "6.1.0",
+      "observed_at": "2026-08-06T10:48:55.387765+00:00",
+      "version": "33.0.3",
       "warnings": []
     },
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-06T10:11:03.871686+00:00",
+      "observed_at": "2026-08-06T11:22:17.528532+00:00",
       "version": null,
       "warnings": []
     },
     {
       "name": "Configuration reconciliation",
       "status": "fresh",
-      "observed_at": "2026-08-06T10:11:03.721285+00:00",
+      "observed_at": "2026-08-06T11:22:17.198214+00:00",
       "version": null,
       "warnings": []
     },
@@ -126,7 +125,7 @@
     {
       "name": "System integrity",
       "status": "fresh",
-      "observed_at": "2026-08-06T10:11:03.596059+00:00",
+      "observed_at": "2026-08-06T11:22:17.312262+00:00",
       "version": null,
       "warnings": []
     }

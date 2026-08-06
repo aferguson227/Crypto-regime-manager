@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "application_version": "33.0.3",
+  "generated_at": "2026-08-06T11:22:17.414067+00:00",
+  "snapshot_id": "120971ac7f72e0b5a00d",
+  "status": "PARTIAL",
+  "read_only": true,
+  "accounts": [
+    {
+      "account_id": 32632134,
+      "name": "My Kucoin",
+      "exchange": "Kucoin Spot",
+      "account_record": "PASS",
+      "balance_records": 0,
+      "balances_status": "EMPTY",
+      "total_usd_value": 0.055840124017601224,
+      "free_usdt": null,
+      "source": "3Commas read-only account payload"
+    }
+  ],
+  "account_count": 1,
+  "balance_record_count": 0,
+  "exchange_total": 0.055840124017601224,
+  "free_usdt": null,
+  "missing": [
+    "One or more accounts returned no balance rows.",
+    "Free USDT is incomplete."
+  ],
+  "endpoint_diagnostics": {
+    "validate": {
+      "path": "/public/api/ver1/validate",
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": null,
+      "observed_at": "2026-08-06T10:48:56.269976+00:00"
+    },
+    "accounts": {
+      "path": "/public/api/ver1/accounts",
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": 1,
+      "observed_at": "2026-08-06T10:48:56.575129+00:00"
+    },
+    "bots": {
+      "path": "/public/api/ver1/bots",
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": 4,
+      "observed_at": "2026-08-06T10:48:57.126647+00:00"
+    },
+    "deals": {
+      "path": "/public/api/ver1/deals",
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": 1,
+      "observed_at": "2026-08-06T10:48:57.496769+00:00"
+    }
+  }
+}

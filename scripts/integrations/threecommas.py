@@ -6,7 +6,7 @@ Required GitHub Actions secrets:
 - THREECOMMAS_RSA_PRIVATE_KEY_B64
 
 The private key is decoded in memory only. It is never written to the repository,
-workflow logs, or generated website data. Only BOTS_READ endpoints are called.
+workflow logs, or generated website data. Only approved BOTS_READ and ACCOUNTS_READ endpoints are called. No trading or account mutations are permitted.
 """
 from __future__ import annotations
 
@@ -16,6 +16,7 @@ import os
 import urllib.error
 import urllib.parse
 import urllib.request
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -34,7 +35,15 @@ OUTPUT_PATH = ROOT / "docs" / "threecommas.json"
 BASE_URL = "https://api.3commas.io"
 from app.release import application_version
 VERSION = application_version()
-ALLOWED_PATHS = {"/public/api/ver1/validate", "/public/api/ver1/bots", "/public/api/ver1/deals", "/public/api/ver1/accounts"}
+STATIC_ALLOWED_REQUESTS = {
+    ("GET", "/public/api/ver1/validate"),
+    ("GET", "/public/api/ver1/bots"),
+    ("GET", "/public/api/ver1/deals"),
+    ("GET", "/public/api/ver1/accounts"),
+}
+ALLOWED_PATHS = {path for method, path in STATIC_ALLOWED_REQUESTS if method == "GET"}
+ACCOUNT_READ_PATH = re.compile(r"^/public/api/ver1/accounts/(\d+)$")
+ACCOUNT_BALANCE_PATH = re.compile(r"^/public/api/ver1/accounts/(\d+)/account_table_data$")
 
 
 def now_iso() -> str:
@@ -79,36 +88,58 @@ def rsa_signature(payload: str, private_key) -> str:
     return base64.b64encode(binary_signature).decode("ascii")
 
 
-def signed_get(path: str, params: dict[str, Any], api_key: str, private_key) -> Any:
-    if path not in ALLOWED_PATHS:
-        raise RuntimeError(f"Blocked non-approved 3Commas endpoint: {path}")
-    query = urllib.parse.urlencode(params)
+def request_is_approved(method: str, path: str) -> bool:
+    method = method.upper()
+    if (method, path) in STATIC_ALLOWED_REQUESTS:
+        return True
+    if method == "GET" and ACCOUNT_READ_PATH.fullmatch(path):
+        return True
+    # account_table_data is a documented ACCOUNTS_READ operation. It uses HTTP
+    # POST for a read-only table query but cannot place orders or change accounts.
+    if method == "POST" and ACCOUNT_BALANCE_PATH.fullmatch(path):
+        return True
+    return False
+
+
+def signed_request(method: str, path: str, params: dict[str, Any], api_key: str, private_key) -> Any:
+    method = method.upper()
+    if not request_is_approved(method, path):
+        raise RuntimeError(f"Blocked non-approved 3Commas request: {method} {path}")
+    encoded = urllib.parse.urlencode(params)
+    query = encoded if method == "GET" else ""
+    body = encoded.encode("ascii") if method == "POST" and encoded else (b"" if method == "POST" else None)
     full_path = path + ("?" + query if query else "")
+    # 3Commas RSA signing covers the request path and query. Empty-body read POSTs
+    # therefore sign the path exactly as documented.
     signature = rsa_signature(full_path, private_key)
-    request = urllib.request.Request(
-        BASE_URL + full_path,
-        headers={
-            "Apikey": api_key,
-            "Signature": signature,
-            "Accept": "application/json",
-            "User-Agent": f"Crypto-Regime-Manager/{VERSION}",
-        },
-    )
+    headers={
+        "Apikey": api_key, "Signature": signature, "Accept": "application/json",
+        "User-Agent": f"Crypto-Regime-Manager/{VERSION}",
+    }
+    if method == "POST":
+        headers["Content-Type"]="application/x-www-form-urlencoded"
+    request = urllib.request.Request(BASE_URL + full_path, data=body, headers=headers, method=method)
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
             return json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
-        body = exc.read().decode("utf-8", errors="replace")
-        try:
-            detail = json.loads(body)
-        except json.JSONDecodeError:
-            detail = body[:500]
+        body_text = exc.read().decode("utf-8", errors="replace")
+        try: detail = json.loads(body_text)
+        except json.JSONDecodeError: detail = body_text[:500]
         category = "permission_denied" if exc.code == 403 else "authentication_failed" if exc.code == 401 else "rate_limited" if exc.code == 429 else "api_error"
         raise ThreeCommasEndpointError(path, category, f"3Commas HTTP {exc.code}: {detail}", exc.code) from exc
     except urllib.error.URLError as exc:
         raise ThreeCommasEndpointError(path, "network_or_outage", f"3Commas connection failed: {exc.reason}") from exc
     except TimeoutError as exc:
         raise ThreeCommasEndpointError(path, "timeout", "3Commas request timed out.") from exc
+
+
+def signed_get(path: str, params: dict[str, Any], api_key: str, private_key) -> Any:
+    return signed_request("GET", path, params, api_key, private_key)
+
+
+def signed_read_post(path: str, params: dict[str, Any], api_key: str, private_key) -> Any:
+    return signed_request("POST", path, params, api_key, private_key)
 
 
 def pair_text(value: Any) -> str:
@@ -202,17 +233,45 @@ def sanitise_deal(deal: dict[str, Any], publish_mode: str) -> dict[str, Any]:
 
 
 
-def sanitise_account(account: dict[str, Any]) -> dict[str, Any]:
-    total = to_float(first_value(account, ("total_usd_value", "total_balance", "btc_amount")))
-    free = to_float(first_value(account, ("available_usdt", "free_usdt", "available_balance", "balance")))
+def amount_value(value: Any) -> float | None:
+    if isinstance(value, dict):
+        return to_float(value.get("amount"))
+    return to_float(value)
+
+
+def sanitise_balance(row: dict[str, Any]) -> dict[str, Any]:
+    code=str(row.get("currency_code") or row.get("code") or "").upper()
     return {
-        "account_id": to_int(account.get("id")),
-        "name": str(account.get("name") or account.get("exchange_name") or "3Commas account"),
-        "exchange_name": first_value(account, ("exchange_name", "market_code", "type")),
-        "currency": str(first_value(account, ("currency", "quote_currency")) or "USDT"),
+        "currency": code,
+        "equity": to_float(first_value(row,("equity","position"))),
+        "available": to_float(first_value(row,("position_available","available","available_long"))),
+        "on_orders": to_float(first_value(row,("on_orders","on_orders_with_leverage"))) or 0.0,
+        "usd_value": to_float(row.get("usd_value")),
+        "current_price_usd": to_float(row.get("current_price_usd")),
+        "account_id": to_int(row.get("account_id")),
+    }
+
+
+def sanitise_account(account: dict[str, Any], detail: dict[str, Any] | None = None, balances: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+    merged=dict(account); merged.update(detail or {})
+    clean_balances=[sanitise_balance(x) for x in (balances or []) if isinstance(x,dict)]
+    total = amount_value(first_value(merged,("primary_display_currency_amount","usd_amount","total_usd_value","total_balance")))
+    if total is None and clean_balances:
+        vals=[x["usd_value"] for x in clean_balances if x.get("usd_value") is not None]
+        total=sum(vals) if vals else None
+    usdt=next((x for x in clean_balances if x.get("currency") in {"USDT","USDC","USD"}),None)
+    free = usdt.get("available") if usdt else to_float(first_value(merged,("available_usdt","free_usdt","available_balance","balance")))
+    return {
+        "account_id": to_int(merged.get("id")),
+        "name": str(merged.get("name") or merged.get("exchange_name") or "3Commas account"),
+        "exchange_name": first_value(merged,("exchange_name","market_code","type")),
+        "currency": "USDT",
         "total_usd_value": total,
         "free_usdt": free,
-        "balance_source": "3Commas read-only account payload",
+        "balance_records": len(clean_balances),
+        "balances": clean_balances,
+        "api_keys_state": merged.get("api_keys_state"),
+        "balance_source": "3Commas ACCOUNTS_READ account info and account_table_data",
     }
 
 def load_previous_payload() -> dict[str, Any]:
@@ -238,9 +297,9 @@ def empty_payload(status: str, message: str, publish_mode: str = "masked", endpo
         "endpoint_diagnostics": endpoints or {}, "accounts": [], "assets": {},
     }
 
-def attempt_endpoint(name: str, path: str, params: dict[str, Any], api_key: str, private_key, endpoints: dict[str, Any]) -> Any | None:
+def attempt_endpoint(name: str, path: str, params: dict[str, Any], api_key: str, private_key, endpoints: dict[str, Any], method: str = "GET") -> Any | None:
     try:
-        value=signed_get(path,params,api_key,private_key)
+        value=signed_request(method,path,params,api_key,private_key)
         records=len(value) if isinstance(value,list) else None
         endpoints[name]=endpoint_result(path,"pass","ok","Endpoint completed successfully.",records=records)
         return value
@@ -281,8 +340,23 @@ def main() -> int:
     deals_raw=attempt_endpoint("deals","/public/api/ver1/deals",{"scope":"active","limit":1000,"offset":0,"order_direction":"desc"},api_key,private_key,endpoints)
     for name,value in (("accounts",accounts_raw),("bots",bots_raw),("deals",deals_raw)):
         if value is not None and not isinstance(value,list):
-            endpoints[name]=endpoint_result(ALLOWED_PATHS and endpoints[name]["path"],"fail","response_shape",f"Expected list, received {type(value).__name__}.")
+            endpoints[name]=endpoint_result(endpoints[name]["path"],"fail","response_shape",f"Expected list, received {type(value).__name__}.")
     accounts_raw=accounts_raw if isinstance(accounts_raw,list) else [];bots_raw=bots_raw if isinstance(bots_raw,list) else [];deals_raw=deals_raw if isinstance(deals_raw,list) else []
+    account_outputs=[]
+    for account in accounts_raw:
+        if not isinstance(account,dict): continue
+        account_id=to_int(account.get("id"))
+        if account_id is None:
+            account_outputs.append(sanitise_account(account)); continue
+        detail=attempt_endpoint(f"account_{account_id}_details",f"/public/api/ver1/accounts/{account_id}",{},api_key,private_key,endpoints)
+        balances=attempt_endpoint(f"account_{account_id}_balances",f"/public/api/ver1/accounts/{account_id}/account_table_data",{},api_key,private_key,endpoints,method="POST")
+        if detail is not None and not isinstance(detail,dict):
+            endpoints[f"account_{account_id}_details"]=endpoint_result(f"/public/api/ver1/accounts/{account_id}","fail","response_shape",f"Expected object, received {type(detail).__name__}.")
+            detail={}
+        if balances is not None and not isinstance(balances,list):
+            endpoints[f"account_{account_id}_balances"]=endpoint_result(f"/public/api/ver1/accounts/{account_id}/account_table_data","fail","response_shape",f"Expected list, received {type(balances).__name__}.")
+            balances=[]
+        account_outputs.append(sanitise_account(account,detail if isinstance(detail,dict) else {},balances if isinstance(balances,list) else []))
     assets: dict[str, dict[str, list[dict[str, Any]]]]={}
     for bot in bots_raw:
         if not isinstance(bot,dict):continue
@@ -295,7 +369,7 @@ def main() -> int:
     failed=[name for name,row in endpoints.items() if row.get("status")!="pass"]
     status="ok" if not failed else "partial" if assets or accounts_raw or authenticated else "error"
     message="All read-only 3Commas endpoints updated successfully." if status=="ok" else f"Read-only sync completed with endpoint issues: {', '.join(failed)}."
-    payload={"version":VERSION,"authentication":"RSA self-generated","generated_at":attempted_at,"last_attempt_at":attempted_at,"last_success_at":success_timestamp(previous,status,attempted_at),"status":status,"message":message,"publish_mode":publish_mode,"read_only":True,"endpoint_diagnostics":endpoints,"accounts":[sanitise_account(a) for a in accounts_raw if isinstance(a,dict)],"assets":assets}
+    payload={"version":VERSION,"authentication":"RSA self-generated","generated_at":attempted_at,"last_attempt_at":attempted_at,"last_success_at":success_timestamp(previous,status,attempted_at),"status":status,"message":message,"publish_mode":publish_mode,"read_only":True,"endpoint_diagnostics":endpoints,"accounts":account_outputs,"assets":assets}
     OUTPUT_PATH.parent.mkdir(parents=True,exist_ok=True);OUTPUT_PATH.write_text(json.dumps(payload,indent=2),encoding="utf-8");print(json.dumps(payload,indent=2))
     # Partial data is publishable and actionable; only complete authentication failure fails the workflow.
     return 0 if status in {"ok","partial"} else 1

@@ -65,6 +65,8 @@ if __name__ == '__main__':
         from scripts.reconcile_configurations import main as reconcile
         from scripts.build_v32_integrity import main as integrity
         reconcile(); integrity()
+        from scripts.account_intelligence_engine import main as account_intelligence
+        account_intelligence()
         from scripts.capital_intelligence_engine import main as capital_intelligence
         capital_intelligence()
         from scripts.operating_state_engine import main as operating_state
