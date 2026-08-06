@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0",
-  "application_version": "32.7.0",
-  "generated_at": "2026-08-06T08:27:17.692852+00:00",
-  "snapshot_id": "f9a49d720ef2f894790d",
+  "application_version": "32.8.0",
+  "generated_at": "2026-08-06T08:44:58.937229+00:00",
+  "snapshot_id": "527e2c8aad1bd8324321",
   "status": "PARTIAL",
   "currency": "USDT",
-  "portfolio_health_score": 46.0,
-  "diversification_score": 25,
-  "capital_efficiency_score": 52.9,
+  "portfolio_health_score": 54.7,
+  "diversification_score": 50,
+  "capital_efficiency_score": 54.2,
   "total_equity": null,
-  "allocated_capital": 71157.0,
-  "reserved_capital": 9700.528639999999,
+  "allocated_capital": null,
+  "reserved_capital": null,
   "deployable_capital": null,
   "allocation_pct": null,
   "reserve_pct": null,
@@ -28,7 +28,9 @@
       "deployable_priority": 1,
       "efficiency_score": 70.2,
       "overlap_group": "BTC-linked altcoin",
-      "warnings": []
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
     },
     {
       "asset": "TEL",
@@ -41,7 +43,9 @@
       "deployable_priority": 2,
       "efficiency_score": 70.2,
       "overlap_group": "BTC-linked altcoin",
-      "warnings": []
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
     },
     {
       "asset": "TEL",
@@ -54,7 +58,9 @@
       "deployable_priority": 3,
       "efficiency_score": 70.2,
       "overlap_group": "BTC-linked altcoin",
-      "warnings": []
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
     },
     {
       "asset": "TEL",
@@ -62,20 +68,70 @@
       "action": "KEEP_RUNNING",
       "enabled": true,
       "active_deals": 1,
-      "allocated_capital": 71157.0,
-      "reserve_capital": 2629.5360000000005,
+      "allocated_capital": null,
+      "reserve_capital": null,
       "deployable_priority": 4,
-      "efficiency_score": 0.97,
+      "efficiency_score": null,
       "overlap_group": "BTC-linked altcoin",
-      "warnings": []
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable.",
+        "Active deal cost basis is incomplete.",
+        "Remaining safety-order reserve cannot be calculated."
+      ]
+    },
+    {
+      "asset": "TEL",
+      "bot_name": "TEL DCA",
+      "action": "KEEP_RUNNING",
+      "enabled": false,
+      "active_deals": 0,
+      "allocated_capital": 0.0,
+      "reserve_capital": 0.0,
+      "deployable_priority": 5,
+      "efficiency_score": 70.2,
+      "overlap_group": "BTC-linked altcoin",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    },
+    {
+      "asset": "TAO",
+      "bot_name": "TAO DCA",
+      "action": "WAIT",
+      "enabled": false,
+      "active_deals": 0,
+      "allocated_capital": 0.0,
+      "reserve_capital": 0.0,
+      "deployable_priority": 6,
+      "efficiency_score": 22.2,
+      "overlap_group": "BTC-linked altcoin",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    },
+    {
+      "asset": "TAO",
+      "bot_name": "Core liquid bot",
+      "action": "WAIT",
+      "enabled": false,
+      "active_deals": 0,
+      "allocated_capital": 0.0,
+      "reserve_capital": 0.0,
+      "deployable_priority": 7,
+      "efficiency_score": 22.2,
+      "overlap_group": "BTC-linked altcoin",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
     }
   ],
   "overlap_analysis": {
     "BTC-linked altcoin": {
       "assets": [
+        "TAO",
         "TEL"
       ],
-      "count": 1,
+      "count": 2,
       "concentration_warning": false
     }
   },

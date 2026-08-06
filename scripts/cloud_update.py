@@ -77,6 +77,8 @@ if __name__ == '__main__':
         outcome_intelligence()
         from scripts.portfolio_intelligence_engine import main as portfolio_intelligence
         portfolio_intelligence()
+        from scripts.adaptive_intelligence_engine import main as adaptive_intelligence
+        adaptive_intelligence()
         write_status('healthy', started)
         from scripts.cloud_reliability_engine import main as cloud_reliability
         cloud_reliability()

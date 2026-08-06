@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "32.7.0",
-  "generated_at": "2026-08-06T08:27:17.672904+00:00",
-  "snapshot_id": "8d6b6aa67d2a026e03f9",
+  "application_version": "32.6.0",
+  "generated_at": "2026-08-06T07:43:12.103882+00:00",
+  "snapshot_id": "daf273a74eec9b221a9e",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -21,8 +21,8 @@
   "capital_summary": {
     "exchange_total": null,
     "free_available": null,
-    "active_deal_capital": 71157.0,
-    "reserved_capital": 7070.992639999999,
+    "active_deal_capital": null,
+    "reserved_capital": null,
     "deployable_capital": null,
     "next_capital_required": null,
     "can_fund_next_priority": null
@@ -43,7 +43,7 @@
       "cautions": [
         "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 28.8 days"
+        "Open replay position has lasted 28.7 days"
       ],
       "current_regime": "Low",
       "live_state": "RUNNING",
@@ -216,7 +216,7 @@
         "Current entry is blocked"
       ],
       "current_regime": "Low",
-      "live_state": "NOT_FOUND",
+      "live_state": "NO_MATCHING_BOT",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
       "capital_available": null,
@@ -381,10 +381,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "57b0941674f63a723b43",
-    "capital_snapshot": "e501742bd75e66c55fe7",
-    "decision_generated_at": "2026-08-06T08:27:17.636344+00:00",
-    "threecommas_generated_at": "2026-08-06T08:26:40.347250+00:00"
+    "operating_state_snapshot": "a01cd6be201a21d70be3",
+    "capital_snapshot": "0d831398595d2c7364b9",
+    "decision_generated_at": "2026-08-06T07:43:12.060383+00:00",
+    "threecommas_generated_at": "2026-08-05T13:16:41.429938+00:00"
   },
   "warnings": [
     "Capital reconciliation is incomplete; no new deployment may be asserted.",

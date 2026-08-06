@@ -59,7 +59,7 @@ function Run-Step {
 }
 
 try {
-    Write-Host 'Crypto Regime Manager Build System 1.0' -ForegroundColor Green
+    Write-Host 'Crypto Regime Manager Build System 1.1' -ForegroundColor Green
     Write-Host "Project: $ProjectPath"
     Write-Host "Log:     $log"
 
@@ -108,6 +108,9 @@ try {
             $arguments += '--screenshots'
         }
         Invoke-CRMCommand -Command 'python' -Arguments $arguments -WorkingDirectory $ProjectPath -LogPath $log
+        # diagnostics.json is a generated acceptance artefact; leave the source tree clean.
+        & git -C $ProjectPath restore --worktree -- 'docs/diagnostics.json' 2>$null
+        if ($LASTEXITCODE -ne 0) { throw 'Could not restore generated docs/diagnostics.json.' }
     }
 
     $result = 'pass'
@@ -128,7 +131,7 @@ finally {
 
     $report = [ordered]@{
         schema_version = '1.0'
-        build_system = 'CRM Build System 1.0'
+        build_system = 'CRM Build System 1.1'
         version = $v
         result = $result
         started_at = $started.ToString('o')

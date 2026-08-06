@@ -1,24 +1,24 @@
 {
   "schema_version": "1.0",
-  "application_version": "32.7.0",
-  "generated_at": "2026-08-06T08:27:17.698872+00:00",
-  "snapshot_id": "a8f0f859fff644ea6649",
-  "status": "HEALTHY",
+  "application_version": "32.8.0",
+  "generated_at": "2026-08-06T08:44:59.026328+00:00",
+  "snapshot_id": "e462482d7379c4bcdec5",
+  "status": "FAILURE",
   "sources": [
     {
       "name": "3Commas read-only sync",
-      "observed_at": "2026-08-06T08:26:40.347250+00:00",
-      "age_hours": 0.01,
+      "observed_at": "2026-08-05T13:16:41.429938+00:00",
+      "age_hours": 19.47,
       "expected_cadence_hours": 1,
       "warning_after_hours": 1.5,
       "failure_after_hours": 3,
-      "state": "healthy",
-      "source_status": "partial"
+      "state": "failure",
+      "source_status": "ok"
     },
     {
       "name": "Main market/application refresh",
-      "observed_at": "2026-08-06T08:27:17.697602+00:00",
-      "age_hours": 0.0,
+      "observed_at": "2026-08-06T07:43:12.290564+00:00",
+      "age_hours": 1.03,
       "expected_cadence_hours": 4,
       "warning_after_hours": 5,
       "failure_after_hours": 9,
@@ -26,54 +26,17 @@
       "source_status": "healthy"
     }
   ],
-  "threecommas_endpoints": {
-    "validate": {
-      "path": "/public/api/ver1/validate",
-      "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
-      "http_status": null,
-      "records": null,
-      "observed_at": "2026-08-06T08:26:39.524429+00:00"
-    },
-    "accounts": {
-      "path": "/public/api/ver1/accounts",
-      "status": "fail",
-      "category": "permission_denied",
-      "message": "3Commas HTTP 403: {'error': 'Forbidden', 'error_description': 'Api key not authorized for this action'}",
-      "http_status": 403,
-      "records": null,
-      "observed_at": "2026-08-06T08:26:39.684631+00:00"
-    },
-    "bots": {
-      "path": "/public/api/ver1/bots",
-      "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
-      "http_status": null,
-      "records": 4,
-      "observed_at": "2026-08-06T08:26:40.114574+00:00"
-    },
-    "deals": {
-      "path": "/public/api/ver1/deals",
-      "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
-      "http_status": null,
-      "records": 1,
-      "observed_at": "2026-08-06T08:26:40.347046+00:00"
-    }
-  },
+  "threecommas_endpoints": {},
   "workflows": [
     {
-      "file": ".github/workflows/threecommas-update.yml",
+      "file": ".github\\workflows\\threecommas-update.yml",
       "status": "pass",
       "findings": [],
       "module_execution": "python -m scripts.threecommas_sync",
       "expected_cron": "37 * * * *"
     },
     {
-      "file": ".github/workflows/multi-coin-update.yml",
+      "file": ".github\\workflows\\multi-coin-update.yml",
       "status": "pass",
       "findings": [],
       "module_execution": "python -m scripts.cloud_update",
@@ -81,9 +44,9 @@
     }
   ],
   "github": {
-    "repository": "aferguson227/Crypto-regime-manager",
-    "workflow_run_id": "31084929688",
-    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31084929688"
+    "repository": null,
+    "workflow_run_id": null,
+    "run_url": null
   },
   "automation_policy": {
     "routine_manual_runs_required": false,

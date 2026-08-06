@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "32.7.0",
-  "snapshot_id": "57b0941674f63a723b43",
-  "generated_at": "2026-08-06T08:27:17.662476+00:00",
+  "application_version": "32.6.0",
+  "snapshot_id": "a01cd6be201a21d70be3",
+  "generated_at": "2026-08-06T07:43:12.091620+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
@@ -27,7 +27,7 @@
       "cautions": [
         "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 28.8 days"
+        "Open replay position has lasted 28.7 days"
       ]
     },
     {
@@ -38,7 +38,7 @@
       "recommendation": "TAO Low Pullback Bot",
       "entry_allowed": false,
       "decision_score": 47.7,
-      "live_bot_state": "NOT_FOUND",
+      "live_bot_state": "NO_MATCHING_BOT",
       "settings_state": "INCOMPLETE",
       "reasons": [
         "Strategy health is strong",
@@ -56,14 +56,15 @@
     "currency": "USDT",
     "exchange_total": null,
     "free_available": null,
-    "active_deal_capital": 71157.0,
-    "placed_order_reserve": 0.0,
-    "enabled_bot_theoretical_reserve": 7070.992639999999,
+    "active_deal_capital": null,
+    "placed_order_reserve": null,
+    "enabled_bot_theoretical_reserve": null,
     "available_after_reserve": null,
     "completeness": "partial",
     "warnings": [
       "No read-only 3Commas account balance records are available.",
-      "Free USDT is unknown; deployable capital cannot be asserted."
+      "Free USDT is unknown; deployable capital cannot be asserted.",
+      "One or more bot capital records are partial."
     ]
   },
   "evidence_agreement": {
@@ -83,35 +84,35 @@
     {
       "name": "KuCoin strategy snapshot",
       "status": "ok",
-      "observed_at": "2026-08-06T08:27:15.013581+00:00",
-      "version": "32.7.0",
+      "observed_at": "2026-08-06T07:43:09.424474+00:00",
+      "version": "32.6.0",
       "warnings": []
     },
     {
       "name": "Unified decision intelligence",
       "status": "available",
-      "observed_at": "2026-08-06T08:27:17.636344+00:00",
+      "observed_at": "2026-08-06T07:43:12.060383+00:00",
       "version": "29.0.0",
       "warnings": []
     },
     {
       "name": "3Commas live state",
-      "status": "partial",
-      "observed_at": "2026-08-06T08:26:40.347250+00:00",
-      "version": "32.7.0",
+      "status": "ok",
+      "observed_at": "2026-08-05T13:16:41.429938+00:00",
+      "version": "6.1.0",
       "warnings": []
     },
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-06T08:27:17.654833+00:00",
+      "observed_at": "2026-08-06T07:43:12.082309+00:00",
       "version": null,
       "warnings": []
     },
     {
       "name": "Configuration reconciliation",
-      "status": "incomplete",
-      "observed_at": "2026-08-06T08:27:17.647332+00:00",
+      "status": "fresh",
+      "observed_at": "2026-08-06T07:43:12.073663+00:00",
       "version": null,
       "warnings": []
     },
@@ -125,7 +126,7 @@
     {
       "name": "System integrity",
       "status": "fresh",
-      "observed_at": "2026-08-06T08:27:17.648043+00:00",
+      "observed_at": "2026-08-06T07:43:12.074580+00:00",
       "version": null,
       "warnings": []
     }

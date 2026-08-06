@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "application_version": "32.8.0",
+  "generated_at": "2026-08-06T08:44:58.824363+00:00",
+  "snapshot_id": "f9316b9dca4bec968d56",
+  "mode": "advisory_capped_adaptive_intelligence",
+  "read_only": true,
+  "manual_approval_required": true,
+  "minimum_evidence_required": 8,
+  "adaptive_influence_cap_pct": 25.0,
+  "adaptation_enabled": false,
+  "next_capital_priority": "TEL Low Volatility Bot",
+  "strategies": [
+    {
+      "asset": "TEL",
+      "bot_name": "TEL Low Volatility Bot",
+      "action": "KEEP_RUNNING",
+      "static_score": 70.2,
+      "adaptive_score": 70.2,
+      "effective_score": 70.2,
+      "evidence_count": 0,
+      "adaptation_status": "INSUFFICIENT_EVIDENCE",
+      "confidence_calibration_pct": null,
+      "observed_accuracy_pct": null,
+      "average_return_pct": null,
+      "capital_efficiency_score": 72.4,
+      "risk_adjusted_score": 67.4,
+      "rank": 1,
+      "weight_adjustments": {},
+      "reasons": [
+        "Static governed recommendation remains authoritative."
+      ],
+      "warnings": [
+        "Adaptive influence disabled until at least 8 judged outcomes exist for TEL."
+      ]
+    },
+    {
+      "asset": "TAO",
+      "bot_name": "TAO Low Pullback Bot",
+      "action": "WAIT",
+      "static_score": 22.2,
+      "adaptive_score": 22.2,
+      "effective_score": 22.2,
+      "evidence_count": 0,
+      "adaptation_status": "INSUFFICIENT_EVIDENCE",
+      "confidence_calibration_pct": null,
+      "observed_accuracy_pct": null,
+      "average_return_pct": null,
+      "capital_efficiency_score": 22.2,
+      "risk_adjusted_score": 14.4,
+      "rank": 2,
+      "weight_adjustments": {},
+      "reasons": [
+        "Static governed recommendation remains authoritative."
+      ],
+      "warnings": [
+        "Adaptive influence disabled until at least 8 judged outcomes exist for TAO."
+      ]
+    }
+  ],
+  "confidence_calibration": [
+    {
+      "band": "0-50%",
+      "recommendations": 6,
+      "completed_and_judged": 0,
+      "expected_confidence_midpoint_pct": 25.0,
+      "observed_accuracy_pct": null,
+      "calibration_error_pct": null
+    },
+    {
+      "band": "50-65%",
+      "recommendations": 0,
+      "completed_and_judged": 0,
+      "expected_confidence_midpoint_pct": 57.5,
+      "observed_accuracy_pct": null,
+      "calibration_error_pct": null
+    },
+    {
+      "band": "65-80%",
+      "recommendations": 6,
+      "completed_and_judged": 0,
+      "expected_confidence_midpoint_pct": 72.5,
+      "observed_accuracy_pct": null,
+      "calibration_error_pct": null
+    },
+    {
+      "band": "80-90%",
+      "recommendations": 0,
+      "completed_and_judged": 0,
+      "expected_confidence_midpoint_pct": 85.0,
+      "observed_accuracy_pct": null,
+      "calibration_error_pct": null
+    },
+    {
+      "band": "90-100%",
+      "recommendations": 0,
+      "completed_and_judged": 0,
+      "expected_confidence_midpoint_pct": 95.0,
+      "observed_accuracy_pct": null,
+      "calibration_error_pct": null
+    }
+  ],
+  "portfolio_optimisation": {
+    "recommended_next_allocation": "TEL Low Volatility Bot",
+    "deployable_capital": null,
+    "weakest_strategy": "TAO Low Pullback Bot",
+    "ranking_basis": "risk-adjusted adaptive score with capped historical influence",
+    "automatic_execution": false
+  },
+  "source_files": {
+    "recommendation_intelligence": "recommendation_intelligence.json",
+    "outcome_intelligence": "outcome_intelligence.json",
+    "portfolio_intelligence": "portfolio_intelligence.json"
+  },
+  "warnings": [
+    "Adaptive weighting is dormant because no strategy has 8 judged outcomes. Static scores remain authoritative.",
+    "Deployable capital is unknown; portfolio optimisation remains advisory."
+  ]
+}

@@ -288,7 +288,7 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "32.7.0",
+    "version": "32.8.0",
     "mode": "Read-only explainable deployment intelligence",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
@@ -689,7 +689,7 @@
       "Forward Validation"
     ]
   },
-  "version": "32.7.0",
+  "version": "32.8.0",
   "research_queue": {
     "enabled": true,
     "max_assets_per_cycle": 3,
@@ -882,5 +882,12 @@
     "require_production_or_forward_validated": true,
     "require_known_capital_for_new_deployment": true,
     "note": "Recommendations never change 3Commas. Missing capital or exact settings block a new deployment recommendation."
+  },
+  "adaptive_intelligence_v32_8": {
+    "enabled": true,
+    "minimum_judged_outcomes": 8,
+    "maximum_adaptive_influence_pct": 25,
+    "automatic_live_changes": false,
+    "manual_approval_required": true
   }
 }
