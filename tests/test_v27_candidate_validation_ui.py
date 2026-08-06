@@ -24,5 +24,5 @@ def test_v27_pages_use_shared_dark_shell_and_non_overlap_rules():
 
 def test_release_metadata():
     config=json.loads((ROOT/'config.json').read_text(encoding='utf-8'))
-    assert config['app']['version']=='32.9.0'
+    assert config['app']['version']=='33.0.0'
     assert (ROOT/'docs/validation_queue.html').exists()

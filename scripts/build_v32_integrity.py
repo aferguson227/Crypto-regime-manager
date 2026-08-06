@@ -14,6 +14,6 @@ def main():
   'route_manifest_valid':not missing,'missing_routes':missing,
   'duplicate_runtime_trees_archived':not (ROOT/'data/scripts').exists() and not (ROOT/'data/.github').exists(),
   'canonical_release_present':True},
-  'message':'Confidence-weighted recommendation intelligence is available. Recommendations remain advisory and manual approval is required.'}
+  'message':'The unified Trading Command Centre is available. Recommendations remain advisory, read-only and subject to manual approval.'}
  (ROOT/'docs/system_integrity.json').write_text(json.dumps(out,indent=2),encoding='utf-8')
 if __name__=='__main__': main()

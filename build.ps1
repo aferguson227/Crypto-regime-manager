@@ -59,7 +59,7 @@ function Run-Step {
 }
 
 try {
-    Write-Host 'Crypto Regime Manager Build System 1.1' -ForegroundColor Green
+    Write-Host 'Crypto Regime Manager Build System 2.0' -ForegroundColor Green
     Write-Host "Project: $ProjectPath"
     Write-Host "Log:     $log"
 
@@ -99,6 +99,10 @@ try {
         Invoke-CRMCommand -Command 'python' -Arguments @('scripts\validate_publish.py') -WorkingDirectory $ProjectPath -LogPath $log
     }
 
+    Run-Step -Name 'Release metadata validation' -Action {
+        Invoke-CRMCommand -Command 'python' -Arguments @('scripts\validate_release_metadata.py') -WorkingDirectory $ProjectPath -LogPath $log
+    }
+
     Run-Step -Name 'Python compilation' -Action {
         Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'compileall', '-q', 'app', 'scripts', 'tests') -WorkingDirectory $ProjectPath -LogPath $log
     }
@@ -132,7 +136,7 @@ finally {
 
     $report = [ordered]@{
         schema_version = '1.0'
-        build_system = 'CRM Build System 1.2'
+        build_system = 'CRM Build System 2.0'
         version = $v
         result = $result
         started_at = $started.ToString('o')

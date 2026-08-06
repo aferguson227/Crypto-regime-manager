@@ -47,3 +47,7 @@ Qualified SUI hypotheses are replayed against the frozen TEL, TAO, and SUI basel
 
 ## V12 Automatic Research Pipeline
 Pending one-variable experiments are executed automatically during the main workflow and published to `docs/pipeline.html`. Production changes remain manual.
+
+## V33 unified command state
+
+`docs/command_state.json` is the canonical presentation snapshot for the Trading Command Centre. It references rather than replaces the governed Market, Operating State, Capital, Portfolio, Recommendation, Adaptive, Outcome and Cloud Reliability outputs. All decisions remain read-only and require manual approval.

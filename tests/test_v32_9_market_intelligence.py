@@ -2,9 +2,9 @@ import json
 from pathlib import Path
 ROOT=Path(__file__).parents[1]
 def test_v329_release_and_market_output():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='32.9.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='33.0.0'
  rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
- assert rel['release_name']=='Market Intelligence'
+ assert rel['release_name']=='Trading Command Centre'
  assert (ROOT/'docs/market.html').exists()
  assert (ROOT/'docs/market_intelligence.json').exists()
 def test_v329_market_safeguards_and_explainability():
@@ -19,6 +19,6 @@ def test_v329_routes_and_pipeline():
  assert 'market_intelligence_engine' in (ROOT/'scripts/cloud_update.py').read_text(encoding='utf-8')
 def test_v329_build_system_12():
  text=(ROOT/'build.ps1').read_text(encoding='utf-8')
- assert 'Build System 1.2' in text
+ assert 'Build System 2.0' in text
  assert 'docs/diagnostics.json' in text
  assert '.update-backups/' in (ROOT/'.gitignore').read_text(encoding='utf-8')

@@ -86,6 +86,10 @@ if __name__ == '__main__':
         cloud_reliability()
         from scripts.diagnostics_engine import build_report, OUTPUT
         OUTPUT.write_text(json.dumps(build_report(full=False), indent=2), encoding='utf-8')
+        from scripts.command_state_engine import main as command_state
+        command_state()
+        # Refresh diagnostics after the canonical command state is present.
+        OUTPUT.write_text(json.dumps(build_report(full=False), indent=2), encoding='utf-8')
         raise SystemExit(0)
     except Exception as exc:
         write_status('error', started, f'{type(exc).__name__}: {exc}')

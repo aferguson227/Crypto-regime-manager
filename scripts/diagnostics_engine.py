@@ -177,7 +177,7 @@ def workflow_automation_check() -> Check:
     return Check('cloud.workflows','GitHub workflow automation','cloud','fail' if findings else 'pass','Workflow automation configuration is valid.' if not findings else 'Workflow automation problems detected.',findings or evidence)
 
 def source_checks() -> list[Check]:
-    required=['strategies.json','threecommas.json','configuration_reconciliation.json','operating_state.json','capital_intelligence.json','deployment_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','portfolio_intelligence.json','cloud_reliability.json','system_integrity.json','cloud_status.json']
+    required=['strategies.json','threecommas.json','configuration_reconciliation.json','operating_state.json','capital_intelligence.json','deployment_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','portfolio_intelligence.json','cloud_reliability.json','command_state.json','system_integrity.json','cloud_status.json']
     missing=[x for x in required if not (DOCS/x).exists()]
     src=[]
     for name in required:
@@ -255,13 +255,13 @@ def export_bundle(report:dict[str,Any],screenshots:bool) -> Path:
         OUTPUT.write_text(json.dumps(report,indent=2),encoding='utf-8')
         manifest={'created_at':utcnow(),'application_version':report['application_version'],'files':[],'redaction':'Secret-like files and values are excluded.'}
         with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as zf:
-            selected=['diagnostics.json','system_integrity.json','configuration_reconciliation.json','operating_state.json','version.json','cloud_status.json','threecommas.json','strategies.json','coin_discovery.json','candidate_validation.json','walk_forward_registry.json','research_analytics.json']
+            selected=['diagnostics.json','system_integrity.json','configuration_reconciliation.json','operating_state.json','version.json','cloud_status.json','threecommas.json','strategies.json','coin_discovery.json','candidate_validation.json','walk_forward_registry.json','research_analytics.json','market_intelligence.json','portfolio_intelligence.json','adaptive_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','command_state.json']
             for name in selected:
                 path=DOCS/name
                 if path.exists(): safe_add(zf,path,f'data/{name}');manifest['files'].append(f'data/{name}')
             for p in sorted(shotdir.glob('*.png')):
                 zf.write(p,f'screenshots/{p.name}');manifest['files'].append(f'screenshots/{p.name}')
-            for name in ['VERSION','app/release.json','config/routes.json','UPDATE_V32_1.md']:
+            for name in ['VERSION','app/release.json','config/routes.json','UPDATE_V33.md']:
                 path=ROOT/name; safe_add(zf,path,name); manifest['files'].append(name)
             zf.writestr('manifest.json',json.dumps(manifest,indent=2))
     return out
@@ -280,7 +280,7 @@ def build_report(full:bool=False) -> dict[str,Any]:
     else: state='healthy'
     release=read_json(ROOT/'app'/'release.json')
     return {
-        'schema_version':'1.0','application_version':release['version'],'engine':'V32 Diagnostics and Acceptance Engine','generated_at':utcnow(),'host':socket.gethostname(),'platform':sys.platform,'python':sys.version.split()[0],
+        'schema_version':'1.0','application_version':release['version'],'engine':'V33 Diagnostics and Acceptance Engine','generated_at':utcnow(),'host':socket.gethostname(),'platform':sys.platform,'python':sys.version.split()[0],
         'mode':'read_only_observability','overall':{'state':state,'score':score,'required_passed':passed,'required_total':len(required),'warnings':sum(c.status=='warn' for c in checks),'failures':sum(c.status=='fail' for c in checks)},
         'checks':[asdict(c) for c in checks],
         'privacy':{'secrets_included':False,'credentials_included':False,'raw_private_keys_included':False},

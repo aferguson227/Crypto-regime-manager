@@ -1,4 +1,4 @@
-# CRM Build System 1.0
+# CRM Build System 2.0
 
 The build system makes testing the source repository a mandatory gate before a release ZIP can be created.
 
@@ -20,3 +20,7 @@ The build system makes testing the source repository a mandatory gate before a r
 A failed check returns a non-zero exit code and prevents packaging. Logs and build reports are written to `diagnostics_logs/`; review bundles are written to `diagnostics_exports/`.
 
 The build and diagnostic tools are observational. They do not start or stop bots, modify 3Commas settings, close deals, submit orders or transfer funds.
+
+## V2.0
+
+Build System 2.0 validates canonical release metadata, restores generated acceptance artefacts, keeps application and build outcomes distinct, and preserves strict read-only safeguards.
