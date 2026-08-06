@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "application_version": "38.0.0",
+  "generated_at": "2026-08-06T20:09:20.749801+00:00",
+  "state": "WARNING",
+  "workflow_count": 4,
+  "single_pages_publisher": true,
+  "pages_publishers": [
+    "pages-deploy.yml"
+  ],
+  "pages_timeout_minutes": 15,
+  "queue_safe": true,
+  "successful_duration_median_seconds": null,
+  "telemetry_runs": 0,
+  "issues": [
+    {
+      "fingerprint": "PAGES_TIMEOUT_TOO_SHORT",
+      "severity": "warning",
+      "title": "Pages timeout is below approved threshold",
+      "detail": "Configured timeout: 15.",
+      "safe_action": "Restore the approved 30-minute timeout."
+    }
+  ],
+  "workflows": {
+    "crm-self-heal.yml": {
+      "deploy_pages": false,
+      "upload_pages": false,
+      "module_execution": true
+    },
+    "multi-coin-update.yml": {
+      "deploy_pages": false,
+      "upload_pages": false,
+      "module_execution": true
+    },
+    "pages-deploy.yml": {
+      "deploy_pages": true,
+      "upload_pages": true,
+      "module_execution": true
+    },
+    "threecommas-update.yml": {
+      "deploy_pages": false,
+      "upload_pages": false,
+      "module_execution": true
+    }
+  },
+  "repair_policy": {
+    "max_automatic_retries": 2,
+    "backoff_minutes": [
+      5,
+      15
+    ],
+    "never_force_push": true,
+    "never_change_secrets": true,
+    "never_change_trading": true
+  }
+}

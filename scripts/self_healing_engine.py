@@ -30,6 +30,10 @@ def scan():
    age=(datetime.now(timezone.utc)-datetime.fromisoformat(str(ts).replace('Z','+00:00')).astimezone(timezone.utc)).total_seconds()/3600
    if age>2:issues.append(issue('STALE_THREECOMMAS','3Commas data is stale','low',False,f'Last successful sync was {age:.1f} hours ago.','Trigger the read-only 3Commas workflow.',['endpoint_health','freshness']))
   except Exception:pass
+ gh=load(DOCS/'github_actions_health.json',{})
+ if gh and gh.get('state') in {'WARNING','CRITICAL'}:
+  for row in (gh.get('issues') or [])[:5]:
+   issues.append(issue(row.get('fingerprint','GITHUB_ACTIONS_ISSUE'),row.get('title') or 'GitHub Actions issue',row.get('severity','medium'),False,row.get('detail') or 'Workflow requires attention.',row.get('safe_action') or 'Review the latest workflow run.',['workflow_policy','latest_commit_published']))
  ui=load(DOCS/'ui_health.json',{})
  if ui and ui.get('overall',{}).get('state') not in {None,'HEALTHY'}:
   issues.append(issue('UI_POLICY_DRIFT','Interface formatting differs from design policy','medium',False,'One or more pages failed visual consistency checks.','Review and apply proposed shared-design repairs.',['ui_health','ui_consistency']))

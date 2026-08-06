@@ -3,9 +3,9 @@ from pathlib import Path
 ROOT=Path(__file__).parents[1]
 
 def test_v328_release_and_output():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='37.2.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='38.0.0'
  rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
- assert rel['release_name']=='Self-Healing Operations & Engineering Intelligence'
+ assert rel['release_name']=='Autonomous Engineering Platform'
  assert (ROOT/'docs/adaptive_intelligence.json').exists()
  assert (ROOT/'docs/adaptive.html').exists()
 

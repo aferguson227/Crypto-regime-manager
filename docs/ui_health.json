@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "application_version": "37.2.0",
-  "generated_at": "2026-08-06T19:45:48.492296+00:00",
+  "application_version": "38.0.0",
+  "generated_at": "2026-08-06T20:09:13.087130+00:00",
   "overall": {
     "state": "HEALTHY",
     "score_pct": 100.0,
-    "pages_checked": 38,
+    "pages_checked": 39,
     "issue_count": 0
   },
   "policy": {
@@ -129,6 +129,14 @@
     },
     {
       "page": "dna.html",
+      "design_css": true,
+      "design_js": true,
+      "viewport": true,
+      "home_path": true,
+      "mojibake": false
+    },
+    {
+      "page": "engineering.html",
       "design_css": true,
       "design_js": true,
       "viewport": true,

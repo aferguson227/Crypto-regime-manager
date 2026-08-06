@@ -45,6 +45,9 @@ jobs:
           python -m scripts.portfolio_intelligence_engine
           python -m scripts.cloud_reliability_engine
           python -m scripts.operational_intelligence_engine
+          python -m scripts.github_actions_intelligence_engine
+          python -m scripts.decision_quality_engine
+          python -m scripts.engineering_intelligence_engine
           python -m scripts.command_state_engine
       - name: Publish read-only dashboard data
         shell: bash

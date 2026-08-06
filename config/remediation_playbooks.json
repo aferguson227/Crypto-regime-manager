@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "application_version": "37.2.0",
+  "application_version": "38.0.0",
   "guardrails": {
     "auto_fix_requires": [
       "known_fingerprint",
@@ -91,6 +91,48 @@
       "validate": [
         "ui_health",
         "ui_consistency"
+      ]
+    },
+    {
+      "id": "PAGES_DEPLOYMENT_TIMEOUT",
+      "risk": "low",
+      "automatic": false,
+      "detect": "Latest Pages run exceeds normal duration or timeout",
+      "repair": "Verify latest commit, cancel obsolete run and retry current artifact with bounded backoff",
+      "validate": [
+        "latest_commit_published",
+        "pages_health"
+      ]
+    },
+    {
+      "id": "PAGES_DEPLOYMENT_CANCELLED",
+      "risk": "low",
+      "automatic": false,
+      "detect": "Pages deployment cancelled before completion",
+      "repair": "Ignore if superseded; otherwise retry newest artifact once",
+      "validate": [
+        "latest_commit_published"
+      ]
+    },
+    {
+      "id": "MASS_LINE_ENDING_DRIFT",
+      "risk": "low",
+      "automatic": true,
+      "detect": "Large set of files changed only by line endings or encoding",
+      "repair": "Restore tracked files and preserve an external patch",
+      "validate": [
+        "git_clean",
+        "tests"
+      ]
+    },
+    {
+      "id": "WORKFLOW_REMOTE_ADVANCED",
+      "risk": "low",
+      "automatic": false,
+      "detect": "Push rejected because origin/main advanced",
+      "repair": "Fetch and rebase; never force push",
+      "validate": [
+        "git_sync"
       ]
     }
   ]

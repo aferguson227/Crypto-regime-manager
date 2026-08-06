@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "37.2.0",
+  "application_version": "38.0.0",
   "engine": "V37.1 Operational Intelligence and Diagnostics Engine",
-  "generated_at": "2026-08-06T19:45:50.159931+00:00",
+  "generated_at": "2026-08-06T20:09:14.795477+00:00",
   "host": "Delimaferguson",
   "platform": "win32",
   "python": "3.14.6",
@@ -23,11 +23,11 @@
       "status": "pass",
       "message": "All release sources agree.",
       "evidence": [
-        "VERSION=37.2.0",
-        "release=37.2.0",
-        "docs=37.2.0",
-        "config=37.2.0",
-        "release_name=Self-Healing Operations & Engineering Intelligence"
+        "VERSION=38.0.0",
+        "release=38.0.0",
+        "docs=38.0.0",
+        "config=38.0.0",
+        "release_name=Autonomous Engineering Platform"
       ],
       "required": true
     },
@@ -36,7 +36,7 @@
       "name": "Route manifest",
       "category": "interface",
       "status": "pass",
-      "message": "16 declared routes exist.",
+      "message": "17 declared routes exist.",
       "evidence": [
         "index.html",
         "cockpit.html",
@@ -53,7 +53,8 @@
         "cloud_reliability.html",
         "adaptive.html",
         "market.html",
-        "bots.html"
+        "bots.html",
+        "engineering.html"
       ],
       "required": true
     },
@@ -62,7 +63,7 @@
       "name": "HTML asset references",
       "category": "interface",
       "status": "pass",
-      "message": "All references across 38 HTML pages resolve.",
+      "message": "All references across 39 HTML pages resolve.",
       "evidence": [
         "adaptive.html",
         "assets.html",
@@ -79,6 +80,7 @@
         "diagnostics.html",
         "discovery.html",
         "dna.html",
+        "engineering.html",
         "evidence.html",
         "evolution.html",
         "explainability.html",
@@ -128,7 +130,7 @@
       "name": "Published JSON validity",
       "category": "data",
       "status": "pass",
-      "message": "39 JSON files parse successfully.",
+      "message": "43 JSON files parse successfully.",
       "evidence": [
         "account_intelligence.json",
         "adaptive_intelligence.json",
@@ -143,9 +145,12 @@
         "command_state.json",
         "configuration_reconciliation.json",
         "decision_intelligence_v28.json",
+        "decision_quality.json",
         "deployment_intelligence.json",
         "diagnostics.json",
         "diagnostics_runtime.json",
+        "engineering_health.json",
+        "github_actions_health.json",
         "health_history.json",
         "import_registry.json",
         "issues.json",
@@ -158,6 +163,7 @@
         "professional_workspace.json",
         "recommendation_history.json",
         "recommendation_intelligence.json",
+        "release_readiness.json",
         "remediation_history.json",
         "research_analytics.json",
         "research_report.json",
@@ -224,24 +230,24 @@
       "status": "pass",
       "message": "All required operating sources are present.",
       "evidence": [
-        "strategies.json (290855 bytes)",
-        "threecommas.json (6833 bytes)",
+        "strategies.json (298122 bytes)",
+        "threecommas.json (7040 bytes)",
         "configuration_reconciliation.json (11929 bytes)",
         "operating_state.json (4294 bytes)",
         "account_intelligence.json (2717 bytes)",
         "capital_intelligence.json (4001 bytes)",
         "deployment_intelligence.json (11808 bytes)",
         "recommendation_intelligence.json (14002 bytes)",
-        "outcome_intelligence.json (58564 bytes)",
+        "outcome_intelligence.json (62662 bytes)",
         "portfolio_intelligence.json (2427 bytes)",
         "cloud_reliability.json (10411 bytes)",
         "command_state.json (17249 bytes)",
         "professional_workspace.json (9619 bytes)",
-        "operational_health.json (5229 bytes)",
-        "issues.json (1646 bytes)",
-        "performance_history.json (2542 bytes)",
-        "system_integrity.json (1180 bytes)",
-        "cloud_status.json (735 bytes)"
+        "operational_health.json (5232 bytes)",
+        "issues.json (1648 bytes)",
+        "performance_history.json (3558 bytes)",
+        "system_integrity.json (1162 bytes)",
+        "cloud_status.json (755 bytes)"
       ],
       "required": true
     }

@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "application_version": "37.2.0",
-  "generated_at": "2026-08-06T19:45:56.257963+00:00",
+  "application_version": "38.0.0",
+  "generated_at": "2026-08-06T20:09:20.880250+00:00",
   "state": "ATTENTION",
   "scan": {
-    "issues_found": 1,
-    "remaining": 1,
+    "issues_found": 2,
+    "remaining": 2,
     "repaired": 0
   },
   "issues": [
@@ -14,11 +14,23 @@
       "title": "3Commas data is stale",
       "risk": "low",
       "automatic": false,
-      "detail": "Last successful sync was 7.6 hours ago.",
+      "detail": "Last successful sync was 7.9 hours ago.",
       "repair": "Trigger the read-only 3Commas workflow.",
       "validation": [
         "endpoint_health",
         "freshness"
+      ]
+    },
+    {
+      "fingerprint": "PAGES_TIMEOUT_TOO_SHORT",
+      "title": "Pages timeout is below approved threshold",
+      "risk": "warning",
+      "automatic": false,
+      "detail": "Configured timeout: 15.",
+      "repair": "Restore the approved 30-minute timeout.",
+      "validation": [
+        "workflow_policy",
+        "latest_commit_published"
       ]
     }
   ],
@@ -29,11 +41,23 @@
       "title": "3Commas data is stale",
       "risk": "low",
       "automatic": false,
-      "detail": "Last successful sync was 7.6 hours ago.",
+      "detail": "Last successful sync was 7.9 hours ago.",
       "repair": "Trigger the read-only 3Commas workflow.",
       "validation": [
         "endpoint_health",
         "freshness"
+      ]
+    },
+    {
+      "fingerprint": "PAGES_TIMEOUT_TOO_SHORT",
+      "title": "Pages timeout is below approved threshold",
+      "risk": "warning",
+      "automatic": false,
+      "detail": "Configured timeout: 15.",
+      "repair": "Restore the approved 30-minute timeout.",
+      "validation": [
+        "workflow_policy",
+        "latest_commit_published"
       ]
     }
   ],

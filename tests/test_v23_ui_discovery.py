@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_v24_version_and_discovery_safeguards():
     cfg = json.loads((ROOT / 'config.json').read_text(encoding='utf-8'))
-    assert cfg['app']['version'] == '37.2.0'
+    assert cfg['app']['version'] == '38.0.0'
     discovery = cfg['coin_discovery']
     assert discovery['mode'] == 'research_only'
     assert discovery['automatic_add_to_production'] is False

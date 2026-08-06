@@ -7,3 +7,7 @@ Trading logic, DCA settings and forward-validation behaviour are preserved from 
 ## V33 Trading Command Centre
 
 Open `docs/command_centre.html` for the unified read-only command view backed by `docs/command_state.json`.
+
+
+## V38 Engineering Mode
+Open `engineering.html` for engineering health and run `GENERATE_ENGINEERING_PACKAGE.cmd` to produce one evidence ZIP for future development.

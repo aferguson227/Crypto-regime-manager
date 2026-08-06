@@ -4,9 +4,9 @@ from scripts.outcome_intelligence_engine import build, VALID_STATUSES
 ROOT=Path(__file__).parents[1]
 
 def test_v326_release_and_outcome_route():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='37.2.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='38.0.0'
     rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
-    assert rel['version']=='37.2.0' and rel['threecommas_mode']=='read_only'
+    assert rel['version']=='38.0.0' and rel['threecommas_mode']=='read_only'
     routes=json.loads((ROOT/'config/routes.json').read_text(encoding='utf-8'))['routes']
     assert any(r['path']=='outcome.html' for r in routes)
 

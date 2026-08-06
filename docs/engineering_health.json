@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0",
+  "application_version": "38.0.0",
+  "generated_at": "2026-08-06T20:09:20.981320+00:00",
+  "overall": {
+    "state": "DEGRADED",
+    "score_pct": 69.7
+  },
+  "scores": {
+    "application": 100,
+    "operations": 58.2,
+    "interface": 100,
+    "actions": 70,
+    "decision_quality": 20.0,
+    "self_healing": 70
+  },
+  "backlog": [
+    {
+      "source": "actions",
+      "fingerprint": "PAGES_TIMEOUT_TOO_SHORT",
+      "title": "Pages timeout is below approved threshold",
+      "severity": "warning",
+      "priority_score": 10.0,
+      "expected_user_benefit": 4,
+      "estimated_effort": 2,
+      "confidence": 5,
+      "automatic": false
+    },
+    {
+      "source": "self_healing",
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "severity": "low",
+      "priority_score": 10.0,
+      "expected_user_benefit": 4,
+      "estimated_effort": 2,
+      "confidence": 5,
+      "automatic": false
+    },
+    {
+      "source": "self_healing",
+      "fingerprint": "PAGES_TIMEOUT_TOO_SHORT",
+      "title": "Pages timeout is below approved threshold",
+      "severity": "warning",
+      "priority_score": 10.0,
+      "expected_user_benefit": 4,
+      "estimated_effort": 2,
+      "confidence": 5,
+      "automatic": false
+    },
+    {
+      "source": "operations",
+      "fingerprint": null,
+      "title": "3Commas data is stale",
+      "severity": "critical",
+      "priority_score": 7.5,
+      "expected_user_benefit": 5,
+      "estimated_effort": 2,
+      "confidence": 3,
+      "automatic": false
+    },
+    {
+      "source": "operations",
+      "fingerprint": null,
+      "title": "account_32632134_balances endpoint rate limited",
+      "severity": "warning",
+      "priority_score": 6.0,
+      "expected_user_benefit": 4,
+      "estimated_effort": 2,
+      "confidence": 3,
+      "automatic": false
+    },
+    {
+      "source": "operations",
+      "fingerprint": null,
+      "title": "Application refresh is stale",
+      "severity": "warning",
+      "priority_score": 6.0,
+      "expected_user_benefit": 4,
+      "estimated_effort": 2,
+      "confidence": 3,
+      "automatic": false
+    }
+  ],
+  "highest_value_improvements": [
+    {
+      "source": "actions",
+      "fingerprint": "PAGES_TIMEOUT_TOO_SHORT",
+      "title": "Pages timeout is below approved threshold",
+      "severity": "warning",
+      "priority_score": 10.0,
+      "expected_user_benefit": 4,
+      "estimated_effort": 2,
+      "confidence": 5,
+      "automatic": false
+    },
+    {
+      "source": "self_healing",
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "severity": "low",
+      "priority_score": 10.0,
+      "expected_user_benefit": 4,
+      "estimated_effort": 2,
+      "confidence": 5,
+      "automatic": false
+    },
+    {
+      "source": "self_healing",
+      "fingerprint": "PAGES_TIMEOUT_TOO_SHORT",
+      "title": "Pages timeout is below approved threshold",
+      "severity": "warning",
+      "priority_score": 10.0,
+      "expected_user_benefit": 4,
+      "estimated_effort": 2,
+      "confidence": 5,
+      "automatic": false
+    },
+    {
+      "source": "operations",
+      "fingerprint": null,
+      "title": "3Commas data is stale",
+      "severity": "critical",
+      "priority_score": 7.5,
+      "expected_user_benefit": 5,
+      "estimated_effort": 2,
+      "confidence": 3,
+      "automatic": false
+    },
+    {
+      "source": "operations",
+      "fingerprint": null,
+      "title": "account_32632134_balances endpoint rate limited",
+      "severity": "warning",
+      "priority_score": 6.0,
+      "expected_user_benefit": 4,
+      "estimated_effort": 2,
+      "confidence": 3,
+      "automatic": false
+    }
+  ],
+  "technical_debt": {
+    "state": "MODERATE",
+    "known_items": 6
+  },
+  "release_advisor": {
+    "readiness_pct": 54.7,
+    "ready": false,
+    "recommendation": "HOLD",
+    "blockers": [
+      "3Commas data is stale"
+    ]
+  },
+  "guardrails": {
+    "no_trading_changes": true,
+    "no_secret_changes": true,
+    "no_force_push": true
+  }
+}
