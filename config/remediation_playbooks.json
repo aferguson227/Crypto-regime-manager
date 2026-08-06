@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "application_version": "37.2.0",
+  "guardrails": {
+    "auto_fix_requires": [
+      "known_fingerprint",
+      "low_risk",
+      "deterministic",
+      "reversible",
+      "validation_available"
+    ],
+    "never_automatic": [
+      "trading_actions",
+      "bot_changes",
+      "deal_actions",
+      "fund_transfers",
+      "secret_changes",
+      "force_push"
+    ]
+  },
+  "playbooks": [
+    {
+      "id": "DIRECT_SCRIPT_EXECUTION",
+      "risk": "low",
+      "automatic": true,
+      "detect": "Diagnostics launcher invokes scripts/diagnostics_engine.py directly",
+      "repair": "Use python -m scripts.diagnostics_engine",
+      "validate": [
+        "module_import",
+        "diagnostics_full"
+      ]
+    },
+    {
+      "id": "STALE_RUNTIME_DIAGNOSTICS",
+      "risk": "low",
+      "automatic": true,
+      "detect": "diagnostics_runtime.json version differs from VERSION",
+      "repair": "Regenerate runtime diagnostics",
+      "validate": [
+        "release_metadata"
+      ]
+    },
+    {
+      "id": "RELEASE_METADATA_DRIFT",
+      "risk": "low",
+      "automatic": true,
+      "detect": "Canonical release sources disagree",
+      "repair": "Synchronise generated release metadata from app/release.json",
+      "validate": [
+        "release_metadata"
+      ]
+    },
+    {
+      "id": "PAGES_POLICY_DRIFT",
+      "risk": "medium",
+      "automatic": false,
+      "detect": "Pages publisher differs from config/workflow_policy.json",
+      "repair": "Restore approved Pages workflow policy",
+      "validate": [
+        "workflow_policy",
+        "tests"
+      ]
+    },
+    {
+      "id": "GENERATED_RELEASE_NOTE_DIRTY",
+      "risk": "low",
+      "automatic": true,
+      "detect": "UPDATE_V*.md changed outside release installation",
+      "repair": "Restore committed release note",
+      "validate": [
+        "git_clean"
+      ]
+    },
+    {
+      "id": "STALE_THREECOMMAS",
+      "risk": "low",
+      "automatic": false,
+      "detect": "3Commas last success exceeds freshness threshold",
+      "repair": "Trigger read-only refresh workflow",
+      "validate": [
+        "endpoint_health",
+        "freshness"
+      ]
+    },
+    {
+      "id": "UI_POLICY_DRIFT",
+      "risk": "medium",
+      "automatic": false,
+      "detect": "Published page violates design policy",
+      "repair": "Restore shared design-system assets or navigation",
+      "validate": [
+        "ui_health",
+        "ui_consistency"
+      ]
+    }
+  ]
+}

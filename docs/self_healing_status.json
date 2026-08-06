@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "application_version": "37.2.0",
+  "generated_at": "2026-08-06T19:45:56.257963+00:00",
+  "state": "ATTENTION",
+  "scan": {
+    "issues_found": 1,
+    "remaining": 1,
+    "repaired": 0
+  },
+  "issues": [
+    {
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "risk": "low",
+      "automatic": false,
+      "detail": "Last successful sync was 7.6 hours ago.",
+      "repair": "Trigger the read-only 3Commas workflow.",
+      "validation": [
+        "endpoint_health",
+        "freshness"
+      ]
+    }
+  ],
+  "repairs_applied": [],
+  "approval_required": [
+    {
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "risk": "low",
+      "automatic": false,
+      "detail": "Last successful sync was 7.6 hours ago.",
+      "repair": "Trigger the read-only 3Commas workflow.",
+      "validation": [
+        "endpoint_health",
+        "freshness"
+      ]
+    }
+  ],
+  "guardrails": {
+    "read_only_trading": true,
+    "no_secret_changes": true,
+    "no_force_push": true,
+    "manual_approval_required": true
+  }
+}

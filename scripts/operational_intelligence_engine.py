@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Operational Intelligence for CRM V37.1.0.
+"""Operational Intelligence for CRM V37.2.0.
 Read-only aggregation of system, data, deployment and trading health.
 """
 from __future__ import annotations

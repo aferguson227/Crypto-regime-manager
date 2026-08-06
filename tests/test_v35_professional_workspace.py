@@ -3,9 +3,9 @@ from pathlib import Path
 ROOT=Path(__file__).parents[1]
 
 def test_v35_release():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='37.1.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='37.2.0'
     release=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
-    assert release['release_name']=='Operational Intelligence & Diagnostics'
+    assert release['release_name']=='Self-Healing Operations & Engineering Intelligence'
 
 def test_dashboard_answers_five_daily_questions():
     html=(ROOT/'docs/index.html').read_text(encoding='utf-8')

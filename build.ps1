@@ -101,6 +101,13 @@ try {
         Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.operational_intelligence_engine') -WorkingDirectory $ProjectPath -LogPath $log
     }
 
+    Run-Step -Name 'Operational self-diagnosis' -Action {
+        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.self_healing_engine') -WorkingDirectory $ProjectPath -LogPath $log
+    }
+    Run-Step -Name 'Visual formatting audit' -Action {
+        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.ui_health_engine') -WorkingDirectory $ProjectPath -LogPath $log
+    }
+
     Run-Step -Name 'UI consistency validation' -Action {
         Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.ui_consistency') -WorkingDirectory $ProjectPath -LogPath $log
     }
