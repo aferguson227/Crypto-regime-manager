@@ -1,11 +1,11 @@
 {
   "version": "33.0.2",
   "authentication": "RSA self-generated",
-  "generated_at": "2026-08-06T10:18:41.484477+00:00",
-  "last_attempt_at": "2026-08-06T10:18:41.484477+00:00",
-  "last_success_at": "2026-08-06T10:18:41.484477+00:00",
-  "status": "partial",
-  "message": "Read-only sync completed with endpoint issues: accounts.",
+  "generated_at": "2026-08-06T10:48:55.387765+00:00",
+  "last_attempt_at": "2026-08-06T10:48:55.387765+00:00",
+  "last_success_at": "2026-08-06T10:48:55.387765+00:00",
+  "status": "ok",
+  "message": "All read-only 3Commas endpoints updated successfully.",
   "publish_mode": "masked",
   "read_only": true,
   "endpoint_diagnostics": {
@@ -16,16 +16,16 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-06T10:18:42.192490+00:00"
+      "observed_at": "2026-08-06T10:48:56.269976+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
-      "status": "fail",
-      "category": "permission_denied",
-      "message": "3Commas HTTP 403: {'error': 'Forbidden', 'error_description': 'Api key not authorized for this action'}",
-      "http_status": 403,
-      "records": null,
-      "observed_at": "2026-08-06T10:18:42.376324+00:00"
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": 1,
+      "observed_at": "2026-08-06T10:48:56.575129+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
@@ -34,7 +34,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 4,
-      "observed_at": "2026-08-06T10:18:42.626221+00:00"
+      "observed_at": "2026-08-06T10:48:57.126647+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
@@ -43,10 +43,20 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-06T10:18:42.884716+00:00"
+      "observed_at": "2026-08-06T10:48:57.496769+00:00"
     }
   },
-  "accounts": [],
+  "accounts": [
+    {
+      "account_id": 32632134,
+      "name": "My Kucoin",
+      "exchange_name": "Kucoin Spot",
+      "currency": "USDT",
+      "total_usd_value": 0.055840124017601224,
+      "free_usdt": null,
+      "balance_source": "3Commas read-only account payload"
+    }
+  ],
   "assets": {
     "TEL": {
       "bots": [
@@ -157,7 +167,7 @@
           "pair": "USDT_TEL",
           "status": "bought",
           "created_at": "2026-08-06T08:14:19.281Z",
-          "profit_pct": -0.79,
+          "profit_pct": -1.05,
           "completed_safety_orders": 2,
           "max_safety_orders": 6,
           "active_safety_orders": 3,
