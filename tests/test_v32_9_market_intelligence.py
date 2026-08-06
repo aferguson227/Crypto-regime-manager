@@ -2,9 +2,9 @@ import json
 from pathlib import Path
 ROOT=Path(__file__).parents[1]
 def test_v329_release_and_market_output():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='35.0.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='36.0.0'
  rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
- assert rel['release_name']=='Professional Trading Workspace'
+ assert rel['release_name']=='Adaptive Decision Workspace'
  assert (ROOT/'docs/market.html').exists()
  assert (ROOT/'docs/market_intelligence.json').exists()
 def test_v329_market_safeguards_and_explainability():

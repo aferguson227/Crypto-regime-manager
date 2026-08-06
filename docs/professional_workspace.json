@@ -1,9 +1,15 @@
 {
-  "schema_version": "1.0",
-  "application_version": "35.0.0",
-  "generated_at": "2026-08-06T16:29:07.148243+00:00",
+  "schema_version": "2.0",
+  "application_version": "36.0.0",
+  "generated_at": "2026-08-06T17:20:01.382788+00:00",
   "read_only": true,
   "manual_approval_required": true,
+  "briefing": [
+    "Primary action: Keep Running TEL Low Volatility Bot.",
+    "Suggested allocation: 1194.56 USDT.",
+    "DCA plan needs 6 more fields before it is complete.",
+    "Main risk: Strategy health requires review"
+  ],
   "daily_decision": {
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
@@ -16,6 +22,32 @@
       "Recent capital efficiency is positive"
     ],
     "blockers": []
+  },
+  "decision_readiness": {
+    "score_pct": 40.0,
+    "checks": [
+      {
+        "label": "Bot selected",
+        "state": "pass"
+      },
+      {
+        "label": "Allocation known",
+        "state": "pass"
+      },
+      {
+        "label": "Funding confirmed",
+        "state": "warn"
+      },
+      {
+        "label": "DCA settings complete",
+        "state": "warn"
+      },
+      {
+        "label": "Cloud data current",
+        "state": "warn"
+      }
+    ],
+    "ready_for_manual_action": false
   },
   "allocation": {
     "required_quote": 1194.5599999999997,
@@ -47,6 +79,29 @@
     "trailing_enabled": null,
     "cooldown_seconds": null
   },
+  "settings_order": [
+    "base_order_volume",
+    "safety_order_volume",
+    "take_profit_pct",
+    "so_deviation_pct",
+    "safety_orders",
+    "volume_scale",
+    "step_scale",
+    "max_active_safety_orders",
+    "max_active_deals",
+    "start_condition",
+    "order_type",
+    "trailing_enabled",
+    "cooldown_seconds"
+  ],
+  "missing_settings": [
+    "safety_order_volume",
+    "max_active_safety_orders",
+    "start_condition",
+    "order_type",
+    "trailing_enabled",
+    "cooldown_seconds"
+  ],
   "live_settings": {
     "base_order_volume": 100.0,
     "safety_order_volume": 100.0,
@@ -279,5 +334,11 @@
     "diagnostics": "healthy",
     "score": 100
   },
-  "snapshot_id": "d308a2bb65c7499080312bdd"
+  "next_steps": [
+    "Review the recommended DCA settings in the Bots workspace.",
+    "Confirm available quote-currency capital before deployment.",
+    "Resolve missing DCA fields before making changes.",
+    "Apply changes manually in 3Commas only after approval."
+  ],
+  "snapshot_id": "01d2e06e08f1c42021d93a46"
 }
