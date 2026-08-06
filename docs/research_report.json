@@ -1,6 +1,6 @@
 {
   "version": "31.1.0",
-  "generated_at": "2026-08-05T13:15:32.448782+00:00",
+  "generated_at": "2026-08-06T07:43:12.063875+00:00",
   "title": "Crypto Regime Research Report",
   "executive_summary": {
     "coins": 10,
@@ -59,8 +59,8 @@
     {
       "symbol": "UNI",
       "status": "PASS",
-      "regime": "MEAN REVERTING",
-      "preferred_family": "Grid",
+      "regime": "TRENDING",
+      "preferred_family": "Trend-filtered DCA",
       "degradation_pct": 34.2,
       "next_action": "Run independent fee-aware replay for the shortlisted strategy family; retain manual approval."
     },
@@ -83,8 +83,8 @@
     {
       "symbol": "ZEC",
       "status": "FAIL",
-      "regime": "TRENDING",
-      "preferred_family": "Trend-filtered DCA",
+      "regime": "MEAN REVERTING",
+      "preferred_family": "Grid",
       "degradation_pct": 825.8,
       "next_action": "Run independent fee-aware replay for the shortlisted strategy family; retain manual approval."
     }

@@ -2,16 +2,16 @@
   "schema_version": "1.0",
   "application_version": "32.6.0",
   "engine": "V32 Diagnostics and Acceptance Engine",
-  "generated_at": "2026-08-06T07:15:13.756269+00:00",
-  "host": "Delimaferguson",
-  "platform": "win32",
-  "python": "3.14.6",
+  "generated_at": "2026-08-06T07:43:12.285135+00:00",
+  "host": "runnervmvrwv9",
+  "platform": "linux",
+  "python": "3.12.13",
   "mode": "read_only_observability",
   "overall": {
     "state": "healthy",
     "score": 100,
-    "required_passed": 10,
-    "required_total": 10,
+    "required_passed": 8,
+    "required_total": 8,
     "warnings": 0,
     "failures": 0
   },
@@ -162,9 +162,9 @@
       "status": "pass",
       "message": "No write verbs or known mutation endpoints detected.",
       "evidence": [
-        "scripts\\integrations\\threecommas.py",
-        "scripts\\integrations\\__init__.py",
-        "scripts\\threecommas_sync.py"
+        "scripts/integrations/threecommas.py",
+        "scripts/integrations/__init__.py",
+        "scripts/threecommas_sync.py"
       ],
       "required": true
     },
@@ -184,35 +184,12 @@
       "status": "pass",
       "message": "All required operating sources are present.",
       "evidence": [
-        "strategies.json (298315 bytes)",
-        "threecommas.json (2837 bytes)",
-        "configuration_reconciliation.json (11865 bytes)",
-        "operating_state.json (4270 bytes)",
-        "system_integrity.json (1103 bytes)",
-        "cloud_status.json (756 bytes)"
-      ],
-      "required": true
-    },
-    {
-      "id": "acceptance.tests",
-      "name": "Python test suite",
-      "category": "acceptance",
-      "status": "pass",
-      "message": "Exited with code 0.",
-      "evidence": [
-        "..................................................................       [100%]",
-        "66 passed in 0.86s"
-      ],
-      "required": true
-    },
-    {
-      "id": "acceptance.publish",
-      "name": "Publication validator",
-      "category": "acceptance",
-      "status": "pass",
-      "message": "Exited with code 0.",
-      "evidence": [
-        "Publish validation passed for V32.6.0: 24 JSON files and 33 HTML pages checked."
+        "strategies.json (290916 bytes)",
+        "threecommas.json (2736 bytes)",
+        "configuration_reconciliation.json (11449 bytes)",
+        "operating_state.json (4169 bytes)",
+        "system_integrity.json (1072 bytes)",
+        "cloud_status.json (706 bytes)"
       ],
       "required": true
     }
@@ -221,19 +198,5 @@
     "secrets_included": false,
     "credentials_included": false,
     "raw_private_keys_included": false
-  },
-  "browser_capture": {
-    "screenshots": [
-      "index.png",
-      "cockpit.png",
-      "operating_state.png",
-      "capital.png",
-      "command_centre.png",
-      "outcome.png",
-      "research_hub.png",
-      "validation.png",
-      "diagnostics.png"
-    ],
-    "warnings": []
   }
 }
