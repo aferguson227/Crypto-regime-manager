@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0",
+  "required_component_names": ["regime", "historical", "live_conditions", "capital", "settings", "cross_source_agreement"],
+  "valid_actions": ["DEPLOY_TODAY", "KEEP_RUNNING", "WAIT"],
+  "valid_risk_levels": ["LOW", "MODERATE", "HIGH"]
+}

@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
-def test_version(): assert (ROOT/'VERSION').read_text(encoding="utf-8").strip()=='32.4.0'
+def test_version(): assert (ROOT/'VERSION').read_text(encoding="utf-8").strip()=='32.5.0'
 def test_v31_assets():
  assert (ROOT/'docs/v31.css').exists() and (ROOT/'docs/v31.js').exists()
 def test_html_v31_bundle():

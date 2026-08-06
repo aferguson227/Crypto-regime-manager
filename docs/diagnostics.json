@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "32.4.0",
+  "application_version": "32.5.0",
   "engine": "V32 Diagnostics and Acceptance Engine",
-  "generated_at": "2026-08-05T20:11:18.663727+00:00",
+  "generated_at": "2026-08-06T06:20:33.333569+00:00",
   "host": "Delimaferguson",
   "platform": "win32",
   "python": "3.14.6",
@@ -23,10 +23,10 @@
       "status": "pass",
       "message": "All release sources agree.",
       "evidence": [
-        "VERSION=32.4.0",
-        "release=32.4.0",
-        "docs=32.4.0",
-        "config=32.4.0"
+        "VERSION=32.5.0",
+        "release=32.5.0",
+        "docs=32.5.0",
+        "config=32.5.0"
       ],
       "required": true
     },
@@ -115,7 +115,7 @@
       "name": "Published JSON validity",
       "category": "data",
       "status": "pass",
-      "message": "21 JSON files parse successfully.",
+      "message": "23 JSON files parse successfully.",
       "evidence": [
         "backtest_lab.json",
         "candidate_registry.json",
@@ -131,6 +131,8 @@
         "health_history.json",
         "import_registry.json",
         "operating_state.json",
+        "recommendation_history.json",
+        "recommendation_intelligence.json",
         "research_analytics.json",
         "research_report.json",
         "strategies.json",
@@ -181,9 +183,9 @@
       "evidence": [
         "strategies.json (298315 bytes)",
         "threecommas.json (2837 bytes)",
-        "configuration_reconciliation.json (11449 bytes)",
+        "configuration_reconciliation.json (11865 bytes)",
         "operating_state.json (4270 bytes)",
-        "system_integrity.json (1085 bytes)",
+        "system_integrity.json (1104 bytes)",
         "cloud_status.json (756 bytes)"
       ],
       "required": true
@@ -195,8 +197,8 @@
       "status": "pass",
       "message": "Exited with code 0.",
       "evidence": [
-        "..........................................................               [100%]",
-        "58 passed in 1.24s"
+        "..............................................................           [100%]",
+        "62 passed in 0.69s"
       ],
       "required": true
     },
@@ -207,7 +209,7 @@
       "status": "pass",
       "message": "Exited with code 0.",
       "evidence": [
-        "Publish validation passed for V32.4.0: 21 JSON files and 32 HTML pages checked."
+        "Publish validation passed for V32.5.0: 23 JSON files and 32 HTML pages checked."
       ],
       "required": true
     }
