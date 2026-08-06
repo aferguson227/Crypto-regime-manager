@@ -29,7 +29,7 @@ jobs:
           git fetch origin main
           git rebase origin/main
       - name: Validate Python
-        run: python -c "import app.release; import scripts.threecommas_sync; import scripts.integrations.threecommas"
+        run: python -c "import app.release; import scripts.threecommas_sync; import scripts.integrations.threecommas; import scripts.cloud_reliability_engine"
       - name: Fetch read-only 3Commas data using RSA
         env:
           THREECOMMAS_API_KEY: ${{ secrets.THREECOMMAS_API_KEY }}

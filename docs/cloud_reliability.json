@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "application_version": "32.7.0",
+  "generated_at": "2026-08-06T08:10:40.622220+00:00",
+  "snapshot_id": "8d29352d10ccb3df7228",
+  "status": "FAILURE",
+  "sources": [
+    {
+      "name": "3Commas read-only sync",
+      "observed_at": "2026-08-05T13:16:41.429938+00:00",
+      "age_hours": 18.9,
+      "expected_cadence_hours": 1,
+      "warning_after_hours": 1.5,
+      "failure_after_hours": 3,
+      "state": "failure",
+      "source_status": "ok"
+    },
+    {
+      "name": "Main market/application refresh",
+      "observed_at": "2026-08-05T13:15:32.455070+00:00",
+      "age_hours": 18.92,
+      "expected_cadence_hours": 4,
+      "warning_after_hours": 5,
+      "failure_after_hours": 9,
+      "state": "failure",
+      "source_status": "healthy"
+    }
+  ],
+  "threecommas_endpoints": {},
+  "workflows": [
+    {
+      "file": ".github\\workflows\\threecommas-update.yml",
+      "status": "pass",
+      "findings": [],
+      "module_execution": "python -m scripts.threecommas_sync",
+      "expected_cron": "37 * * * *"
+    },
+    {
+      "file": ".github\\workflows\\multi-coin-update.yml",
+      "status": "pass",
+      "findings": [],
+      "module_execution": "python -m scripts.cloud_update",
+      "expected_cron": "18 0,4,8,12,16,20 * * *"
+    }
+  ],
+  "github": {
+    "repository": null,
+    "workflow_run_id": null,
+    "run_url": null
+  },
+  "automation_policy": {
+    "routine_manual_runs_required": false,
+    "manual_run_purpose": "Recovery and diagnosis only",
+    "threecommas_cadence": "hourly at minute 37 UTC",
+    "main_refresh_cadence": "every four hours at minute 18 UTC"
+  },
+  "read_only": true
+}

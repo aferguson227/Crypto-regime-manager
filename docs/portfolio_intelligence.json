@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0",
+  "application_version": "32.7.0",
+  "generated_at": "2026-08-06T08:10:40.521290+00:00",
+  "snapshot_id": "e12474ee2e748469f6ac",
+  "status": "PARTIAL",
+  "currency": "USDT",
+  "portfolio_health_score": 55.2,
+  "diversification_score": 50,
+  "capital_efficiency_score": 55.7,
+  "total_equity": null,
+  "allocated_capital": null,
+  "reserved_capital": null,
+  "deployable_capital": null,
+  "allocation_pct": null,
+  "reserve_pct": null,
+  "available_pct": null,
+  "next_capital_priority": "TEL Low Volatility Bot",
+  "positions": [
+    {
+      "asset": "TEL",
+      "bot_name": "TEL DCA - High Bear",
+      "action": "KEEP_RUNNING",
+      "enabled": true,
+      "active_deals": 0,
+      "allocated_capital": 0.0,
+      "reserve_capital": 0.0,
+      "deployable_priority": 1,
+      "efficiency_score": 72.4,
+      "overlap_group": "BTC-linked altcoin",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    },
+    {
+      "asset": "TEL",
+      "bot_name": "TEL DCA - High Bull",
+      "action": "KEEP_RUNNING",
+      "enabled": true,
+      "active_deals": 0,
+      "allocated_capital": 0.0,
+      "reserve_capital": 0.0,
+      "deployable_priority": 2,
+      "efficiency_score": 72.4,
+      "overlap_group": "BTC-linked altcoin",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    },
+    {
+      "asset": "TEL",
+      "bot_name": "TEL DCA - Medium Volatility",
+      "action": "KEEP_RUNNING",
+      "enabled": true,
+      "active_deals": 0,
+      "allocated_capital": 0.0,
+      "reserve_capital": 0.0,
+      "deployable_priority": 3,
+      "efficiency_score": 72.4,
+      "overlap_group": "BTC-linked altcoin",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    },
+    {
+      "asset": "TEL",
+      "bot_name": "TEL DCA - Low Volatility",
+      "action": "KEEP_RUNNING",
+      "enabled": true,
+      "active_deals": 1,
+      "allocated_capital": null,
+      "reserve_capital": null,
+      "deployable_priority": 4,
+      "efficiency_score": null,
+      "overlap_group": "BTC-linked altcoin",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable.",
+        "Active deal cost basis is incomplete.",
+        "Remaining safety-order reserve cannot be calculated."
+      ]
+    },
+    {
+      "asset": "TEL",
+      "bot_name": "TEL DCA",
+      "action": "KEEP_RUNNING",
+      "enabled": false,
+      "active_deals": 0,
+      "allocated_capital": 0.0,
+      "reserve_capital": 0.0,
+      "deployable_priority": 5,
+      "efficiency_score": 72.4,
+      "overlap_group": "BTC-linked altcoin",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    },
+    {
+      "asset": "TAO",
+      "bot_name": "TAO DCA",
+      "action": "WAIT",
+      "enabled": false,
+      "active_deals": 0,
+      "allocated_capital": 0.0,
+      "reserve_capital": 0.0,
+      "deployable_priority": 6,
+      "efficiency_score": 22.2,
+      "overlap_group": "BTC-linked altcoin",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    },
+    {
+      "asset": "TAO",
+      "bot_name": "Core liquid bot",
+      "action": "WAIT",
+      "enabled": false,
+      "active_deals": 0,
+      "allocated_capital": 0.0,
+      "reserve_capital": 0.0,
+      "deployable_priority": 7,
+      "efficiency_score": 22.2,
+      "overlap_group": "BTC-linked altcoin",
+      "warnings": [
+        "Complete base/safety-order sizing is unavailable."
+      ]
+    }
+  ],
+  "overlap_analysis": {
+    "BTC-linked altcoin": {
+      "assets": [
+        "TAO",
+        "TEL"
+      ],
+      "count": 2,
+      "concentration_warning": false
+    }
+  },
+  "warnings": [
+    "Total exchange equity remains unknown; portfolio percentages cannot be asserted.",
+    "Deployable capital remains unknown; next allocation is advisory only."
+  ],
+  "read_only": true,
+  "manual_approval_required": true
+}

@@ -163,8 +163,21 @@ def secret_check() -> Check:
     return Check('safety.secrets','Published secret scan','safety','fail' if findings else 'pass',f"Secret-like material detected in {len(findings)} files." if findings else 'No private keys, API secrets or bot-control tokens detected in published files.',findings)
 
 
+def workflow_automation_check() -> Check:
+    findings=[]; evidence=[]
+    expectations=[('.github/workflows/threecommas-update.yml','python -m scripts.threecommas_sync','37 * * * *'),('.github/workflows/multi-coin-update.yml','python -m scripts.cloud_update','18 0,4,8,12,16,20 * * *')]
+    for rel,module,cron in expectations:
+        path=ROOT/rel; evidence.append(rel)
+        if not path.exists(): findings.append(f'{rel}: missing'); continue
+        text=path.read_text(encoding='utf-8')
+        if module not in text: findings.append(f'{rel}: missing module execution {module}')
+        if cron not in text: findings.append(f'{rel}: missing expected cron {cron}')
+        if 'workflow_dispatch:' not in text: findings.append(f'{rel}: missing manual recovery trigger')
+        if re.search(r'run:\s*python\s+scripts/[^\s]+\.py',text): findings.append(f'{rel}: direct script execution may break package imports')
+    return Check('cloud.workflows','GitHub workflow automation','cloud','fail' if findings else 'pass','Workflow automation configuration is valid.' if not findings else 'Workflow automation problems detected.',findings or evidence)
+
 def source_checks() -> list[Check]:
-    required=['strategies.json','threecommas.json','configuration_reconciliation.json','operating_state.json','system_integrity.json','cloud_status.json']
+    required=['strategies.json','threecommas.json','configuration_reconciliation.json','operating_state.json','capital_intelligence.json','deployment_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','portfolio_intelligence.json','cloud_reliability.json','system_integrity.json','cloud_status.json']
     missing=[x for x in required if not (DOCS/x).exists()]
     src=[]
     for name in required:
@@ -255,7 +268,7 @@ def export_bundle(report:dict[str,Any],screenshots:bool) -> Path:
 
 
 def build_report(full:bool=False) -> dict[str,Any]:
-    checks=[check_release(),check_routes(),*html_checks(),*json_checks(),readonly_check(),secret_check(),*source_checks()]
+    checks=[check_release(),check_routes(),*html_checks(),*json_checks(),readonly_check(),secret_check(),workflow_automation_check(),*source_checks()]
     if full:
         checks.append(run_command_check('acceptance.tests','Python test suite',[sys.executable,'-m','pytest','-q']))
         checks.append(run_command_check('acceptance.publish','Publication validator',[sys.executable,'scripts/validate_publish.py']))

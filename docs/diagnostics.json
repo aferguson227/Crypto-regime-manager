@@ -1,17 +1,17 @@
 {
   "schema_version": "1.0",
-  "application_version": "32.6.0",
+  "application_version": "32.7.0",
   "engine": "V32 Diagnostics and Acceptance Engine",
-  "generated_at": "2026-08-06T07:43:12.285135+00:00",
-  "host": "runnervmvrwv9",
-  "platform": "linux",
-  "python": "3.12.13",
+  "generated_at": "2026-08-06T08:10:42.575285+00:00",
+  "host": "Delimaferguson",
+  "platform": "win32",
+  "python": "3.14.6",
   "mode": "read_only_observability",
   "overall": {
     "state": "healthy",
     "score": 100,
-    "required_passed": 8,
-    "required_total": 8,
+    "required_passed": 11,
+    "required_total": 11,
     "warnings": 0,
     "failures": 0
   },
@@ -23,10 +23,10 @@
       "status": "pass",
       "message": "All release sources agree.",
       "evidence": [
-        "VERSION=32.6.0",
-        "release=32.6.0",
-        "docs=32.6.0",
-        "config=32.6.0"
+        "VERSION=32.7.0",
+        "release=32.7.0",
+        "docs=32.7.0",
+        "config=32.7.0"
       ],
       "required": true
     },
@@ -35,7 +35,7 @@
       "name": "Route manifest",
       "category": "interface",
       "status": "pass",
-      "message": "11 declared routes exist.",
+      "message": "13 declared routes exist.",
       "evidence": [
         "index.html",
         "cockpit.html",
@@ -47,7 +47,9 @@
         "research_intelligence.html",
         "validation.html",
         "data.html",
-        "diagnostics.html"
+        "diagnostics.html",
+        "portfolio.html",
+        "cloud_reliability.html"
       ],
       "required": true
     },
@@ -56,13 +58,14 @@
       "name": "HTML asset references",
       "category": "interface",
       "status": "pass",
-      "message": "All references across 33 HTML pages resolve.",
+      "message": "All references across 35 HTML pages resolve.",
       "evidence": [
         "assets.html",
         "autonomy.html",
         "candidates.html",
         "capital.html",
         "cloud.html",
+        "cloud_reliability.html",
         "cockpit.html",
         "command_centre.html",
         "data.html",
@@ -81,6 +84,7 @@
         "operating_state.html",
         "outcome.html",
         "pipeline.html",
+        "portfolio.html",
         "research.html",
         "research_hub.html",
         "research_intelligence.html",
@@ -117,12 +121,13 @@
       "name": "Published JSON validity",
       "category": "data",
       "status": "pass",
-      "message": "24 JSON files parse successfully.",
+      "message": "26 JSON files parse successfully.",
       "evidence": [
         "backtest_lab.json",
         "candidate_registry.json",
         "candidate_validation.json",
         "capital_intelligence.json",
+        "cloud_reliability.json",
         "cloud_status.json",
         "coin_discovery.json",
         "coin_universe.json",
@@ -134,6 +139,7 @@
         "import_registry.json",
         "operating_state.json",
         "outcome_intelligence.json",
+        "portfolio_intelligence.json",
         "recommendation_history.json",
         "recommendation_intelligence.json",
         "research_analytics.json",
@@ -162,9 +168,9 @@
       "status": "pass",
       "message": "No write verbs or known mutation endpoints detected.",
       "evidence": [
-        "scripts/integrations/threecommas.py",
-        "scripts/integrations/__init__.py",
-        "scripts/threecommas_sync.py"
+        "scripts\\integrations\\threecommas.py",
+        "scripts\\integrations\\__init__.py",
+        "scripts\\threecommas_sync.py"
       ],
       "required": true
     },
@@ -178,18 +184,59 @@
       "required": true
     },
     {
+      "id": "cloud.workflows",
+      "name": "GitHub workflow automation",
+      "category": "cloud",
+      "status": "pass",
+      "message": "Workflow automation configuration is valid.",
+      "evidence": [
+        ".github/workflows/threecommas-update.yml",
+        ".github/workflows/multi-coin-update.yml"
+      ],
+      "required": true
+    },
+    {
       "id": "sources.required",
       "name": "Required operating sources",
       "category": "sources",
       "status": "pass",
       "message": "All required operating sources are present.",
       "evidence": [
-        "strategies.json (290916 bytes)",
-        "threecommas.json (2736 bytes)",
-        "configuration_reconciliation.json (11449 bytes)",
-        "operating_state.json (4169 bytes)",
-        "system_integrity.json (1072 bytes)",
-        "cloud_status.json (706 bytes)"
+        "strategies.json (298315 bytes)",
+        "threecommas.json (2837 bytes)",
+        "configuration_reconciliation.json (11865 bytes)",
+        "operating_state.json (4270 bytes)",
+        "capital_intelligence.json (5227 bytes)",
+        "deployment_intelligence.json (11784 bytes)",
+        "recommendation_intelligence.json (14005 bytes)",
+        "outcome_intelligence.json (13478 bytes)",
+        "portfolio_intelligence.json (4115 bytes)",
+        "cloud_reliability.json (1710 bytes)",
+        "system_integrity.json (1103 bytes)",
+        "cloud_status.json (756 bytes)"
+      ],
+      "required": true
+    },
+    {
+      "id": "acceptance.tests",
+      "name": "Python test suite",
+      "category": "acceptance",
+      "status": "pass",
+      "message": "Exited with code 0.",
+      "evidence": [
+        "......................................................................   [100%]",
+        "70 passed in 0.67s"
+      ],
+      "required": true
+    },
+    {
+      "id": "acceptance.publish",
+      "name": "Publication validator",
+      "category": "acceptance",
+      "status": "pass",
+      "message": "Exited with code 0.",
+      "evidence": [
+        "Publish validation passed for V32.7.0: 26 JSON files and 35 HTML pages checked."
       ],
       "required": true
     }

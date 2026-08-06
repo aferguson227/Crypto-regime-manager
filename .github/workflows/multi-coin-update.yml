@@ -1,8 +1,9 @@
-name: V32.0 Autonomous Crypto Regime Refresh
+name: V32.7 Autonomous Crypto Regime Refresh
 on:
   workflow_dispatch:
   schedule:
     - cron: "18 0,4,8,12,16,20 * * *"
+# Module entry point: scripts/cloud_update.py
 # Publishes docs/coin_discovery.json and docs/coin_universe.json and other read-only intelligence outputs.
 permissions:
   contents: write
@@ -27,7 +28,7 @@ jobs:
           git fetch origin main
           git rebase origin/main
       - name: Validate Python
-        run: python -m py_compile scripts/cloud_update.py scripts/validate_publish.py scripts/core/*.py
+        run: python -c "import app.release; import scripts.cloud_update; import scripts.validate_publish; import scripts.portfolio_intelligence_engine; import scripts.cloud_reliability_engine"
       - name: Run autonomous read-only refresh
         run: python -m scripts.cloud_update
       - name: Validate generated publication
@@ -39,18 +40,18 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A data/normalized docs
-          python scripts/validate_publish.py
+          python -m scripts.validate_publish
           if git diff --cached --quiet; then
             echo "No validated publication changes detected."
             exit 0
           fi
-          git commit -m "V31.2 validated cloud refresh"
+          git commit -m "V32.7 validated cloud refresh"
           for attempt in 1 2 3; do
             if git push origin HEAD:main; then exit 0; fi
             echo "Remote changed; rebasing before retry ${attempt}/3"
             git fetch origin main
             git rebase origin/main
-            python scripts/validate_publish.py
+            python -m scripts.validate_publish
             sleep 5
           done
           exit 1

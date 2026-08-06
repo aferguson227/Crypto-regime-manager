@@ -20,6 +20,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+class ThreeCommasEndpointError(RuntimeError):
+    def __init__(self, path: str, category: str, message: str, http_status: int | None = None):
+        super().__init__(message); self.path=path; self.category=category; self.http_status=http_status
+
+
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding
 
@@ -98,7 +103,12 @@ def signed_get(path: str, params: dict[str, Any], api_key: str, private_key) -> 
             detail = json.loads(body)
         except json.JSONDecodeError:
             detail = body[:500]
-        raise RuntimeError(f"3Commas HTTP {exc.code}: {detail}") from exc
+        category = "permission_denied" if exc.code == 403 else "authentication_failed" if exc.code == 401 else "rate_limited" if exc.code == 429 else "api_error"
+        raise ThreeCommasEndpointError(path, category, f"3Commas HTTP {exc.code}: {detail}", exc.code) from exc
+    except urllib.error.URLError as exc:
+        raise ThreeCommasEndpointError(path, "network_or_outage", f"3Commas connection failed: {exc.reason}") from exc
+    except TimeoutError as exc:
+        raise ThreeCommasEndpointError(path, "timeout", "3Commas request timed out.") from exc
 
 
 def pair_text(value: Any) -> str:
@@ -205,90 +215,73 @@ def sanitise_account(account: dict[str, Any]) -> dict[str, Any]:
         "balance_source": "3Commas read-only account payload",
     }
 
-def empty_payload(status: str, message: str, publish_mode: str = "masked") -> dict[str, Any]:
+def endpoint_result(path: str, status: str, category: str, message: str, http_status: int | None = None, records: int | None = None) -> dict[str, Any]:
+    return {"path": path, "status": status, "category": category, "message": message, "http_status": http_status, "records": records, "observed_at": now_iso()}
+
+def empty_payload(status: str, message: str, publish_mode: str = "masked", endpoints: dict[str, Any] | None = None) -> dict[str, Any]:
     return {
-        "version": VERSION,
-        "authentication": "RSA self-generated",
-        "generated_at": now_iso(),
-        "status": status,
-        "message": message,
-        "publish_mode": publish_mode,
-        "read_only": True,
-        "accounts": [],
-        "assets": {},
+        "version": VERSION, "authentication": "RSA self-generated", "generated_at": now_iso(),
+        "status": status, "message": message, "publish_mode": publish_mode, "read_only": True,
+        "endpoint_diagnostics": endpoints or {}, "accounts": [], "assets": {},
     }
+
+def attempt_endpoint(name: str, path: str, params: dict[str, Any], api_key: str, private_key, endpoints: dict[str, Any]) -> Any | None:
+    try:
+        value=signed_get(path,params,api_key,private_key)
+        records=len(value) if isinstance(value,list) else None
+        endpoints[name]=endpoint_result(path,"pass","ok","Endpoint completed successfully.",records=records)
+        return value
+    except ThreeCommasEndpointError as exc:
+        endpoints[name]=endpoint_result(path,"fail",exc.category,str(exc),exc.http_status)
+        return None
+    except Exception as exc:
+        endpoints[name]=endpoint_result(path,"fail","unexpected_error",f"{type(exc).__name__}: {exc}")
+        return None
 
 
 def main() -> int:
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     tcfg = config.get("threecommas", {})
     publish_mode = str(tcfg.get("publish_mode", "masked")).lower()
-    if publish_mode not in {"masked", "full"}:
-        publish_mode = "masked"
-
-    api_key = os.getenv("THREECOMMAS_API_KEY", "").strip()
-    private_key_b64 = os.getenv("THREECOMMAS_RSA_PRIVATE_KEY_B64", "").strip()
+    if publish_mode not in {"masked", "full"}: publish_mode = "masked"
+    api_key=os.getenv("THREECOMMAS_API_KEY","").strip(); private_key_b64=os.getenv("THREECOMMAS_RSA_PRIVATE_KEY_B64","").strip()
     if not api_key or not private_key_b64:
-        payload = empty_payload(
-            "not_configured",
-            "Add THREECOMMAS_API_KEY and THREECOMMAS_RSA_PRIVATE_KEY_B64 as GitHub Actions secrets.",
-            publish_mode,
-        )
-        OUTPUT_PATH.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-        print(json.dumps(payload, indent=2))
-        return 0
-
+        payload=empty_payload("not_configured","Add THREECOMMAS_API_KEY and THREECOMMAS_RSA_PRIVATE_KEY_B64 as GitHub Actions secrets.",publish_mode)
+        OUTPUT_PATH.write_text(json.dumps(payload,indent=2),encoding="utf-8");print(json.dumps(payload,indent=2));return 0
+    endpoints: dict[str, Any]={}
     try:
-        private_key = load_private_key(private_key_b64)
-        # Authentication check first; this uses one Starter-plan read request.
-        validation = signed_get("/public/api/ver1/validate", {}, api_key, private_key)
-        if not isinstance(validation, dict) or validation.get("valid") is not True:
-            raise RuntimeError(f"3Commas authentication validation failed: {validation}")
-
-        bots_raw = signed_get("/public/api/ver1/bots", {"limit": 100, "offset": 0}, api_key, private_key)
-        deals_raw = signed_get(
-            "/public/api/ver1/deals",
-            {"scope": "active", "limit": 1000, "offset": 0, "order_direction": "desc"},
-            api_key,
-            private_key,
-        )
-        if not isinstance(bots_raw, list):
-            raise RuntimeError(f"Unexpected bots response type: {type(bots_raw).__name__}")
-        if not isinstance(deals_raw, list):
-            raise RuntimeError(f"Unexpected deals response type: {type(deals_raw).__name__}")
-
-        accounts_raw = signed_get("/public/api/ver1/accounts", {}, api_key, private_key)
-        if not isinstance(accounts_raw, list):
-            raise RuntimeError(f"Unexpected accounts response type: {type(accounts_raw).__name__}")
-
-        assets: dict[str, dict[str, list[dict[str, Any]]]] = {}
-        for bot in bots_raw:
-            asset = asset_from_pair(bot.get("pairs") or bot.get("pair"))
-            if asset:
-                assets.setdefault(asset, {"bots": [], "deals": []})["bots"].append(sanitise_bot(bot))
-        for deal in deals_raw:
-            asset = asset_from_pair(deal.get("pair") or deal.get("pairs"))
-            if asset:
-                assets.setdefault(asset, {"bots": [], "deals": []})["deals"].append(sanitise_deal(deal, publish_mode))
-
-        payload = {
-            "version": VERSION,
-            "authentication": "RSA self-generated",
-            "generated_at": now_iso(),
-            "status": "ok",
-            "message": "Read-only 3Commas data updated successfully.",
-            "publish_mode": publish_mode,
-            "read_only": True,
-            "accounts": [sanitise_account(a) for a in accounts_raw if isinstance(a, dict)],
-            "assets": assets,
-        }
+        private_key=load_private_key(private_key_b64)
     except Exception as exc:
-        payload = empty_payload("error", str(exc), publish_mode)
-
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-    print(json.dumps(payload, indent=2))
-    return 0 if payload["status"] in {"ok", "not_configured"} else 1
+        payload=empty_payload("error",str(exc),publish_mode,{"key":endpoint_result("local","fail","private_key_invalid",str(exc))})
+        OUTPUT_PATH.write_text(json.dumps(payload,indent=2),encoding="utf-8");print(json.dumps(payload,indent=2));return 1
+    validation=attempt_endpoint("validate","/public/api/ver1/validate",{},api_key,private_key,endpoints)
+    authenticated=isinstance(validation,dict) and validation.get("valid") is True
+    if not authenticated and endpoints.get("validate",{}).get("status")=="pass":
+        endpoints["validate"]=endpoint_result("/public/api/ver1/validate","fail","authentication_failed",f"Validation response was not valid: {validation}")
+    # Probe every approved read endpoint independently so one denied permission does not hide other evidence.
+    accounts_raw=attempt_endpoint("accounts","/public/api/ver1/accounts",{},api_key,private_key,endpoints)
+    bots_raw=attempt_endpoint("bots","/public/api/ver1/bots",{"limit":100,"offset":0},api_key,private_key,endpoints)
+    deals_raw=attempt_endpoint("deals","/public/api/ver1/deals",{"scope":"active","limit":1000,"offset":0,"order_direction":"desc"},api_key,private_key,endpoints)
+    for name,value in (("accounts",accounts_raw),("bots",bots_raw),("deals",deals_raw)):
+        if value is not None and not isinstance(value,list):
+            endpoints[name]=endpoint_result(ALLOWED_PATHS and endpoints[name]["path"],"fail","response_shape",f"Expected list, received {type(value).__name__}.")
+    accounts_raw=accounts_raw if isinstance(accounts_raw,list) else [];bots_raw=bots_raw if isinstance(bots_raw,list) else [];deals_raw=deals_raw if isinstance(deals_raw,list) else []
+    assets: dict[str, dict[str, list[dict[str, Any]]]]={}
+    for bot in bots_raw:
+        if not isinstance(bot,dict):continue
+        asset=asset_from_pair(bot.get("pairs") or bot.get("pair"))
+        if asset:assets.setdefault(asset,{"bots":[],"deals":[]})["bots"].append(sanitise_bot(bot))
+    for deal in deals_raw:
+        if not isinstance(deal,dict):continue
+        asset=asset_from_pair(deal.get("pair") or deal.get("pairs"))
+        if asset:assets.setdefault(asset,{"bots":[],"deals":[]})["deals"].append(sanitise_deal(deal,publish_mode))
+    failed=[name for name,row in endpoints.items() if row.get("status")!="pass"]
+    status="ok" if not failed else "partial" if assets or accounts_raw or authenticated else "error"
+    message="All read-only 3Commas endpoints updated successfully." if status=="ok" else f"Read-only sync completed with endpoint issues: {', '.join(failed)}."
+    payload={"version":VERSION,"authentication":"RSA self-generated","generated_at":now_iso(),"status":status,"message":message,"publish_mode":publish_mode,"read_only":True,"endpoint_diagnostics":endpoints,"accounts":[sanitise_account(a) for a in accounts_raw if isinstance(a,dict)],"assets":assets}
+    OUTPUT_PATH.parent.mkdir(parents=True,exist_ok=True);OUTPUT_PATH.write_text(json.dumps(payload,indent=2),encoding="utf-8");print(json.dumps(payload,indent=2))
+    # Partial data is publishable and actionable; only complete authentication failure fails the workflow.
+    return 0 if status in {"ok","partial"} else 1
 
 
 if __name__ == "__main__":

@@ -75,9 +75,13 @@ if __name__ == '__main__':
         recommendation_intelligence()
         from scripts.outcome_intelligence_engine import main as outcome_intelligence
         outcome_intelligence()
+        from scripts.portfolio_intelligence_engine import main as portfolio_intelligence
+        portfolio_intelligence()
+        write_status('healthy', started)
+        from scripts.cloud_reliability_engine import main as cloud_reliability
+        cloud_reliability()
         from scripts.diagnostics_engine import build_report, OUTPUT
         OUTPUT.write_text(json.dumps(build_report(full=False), indent=2), encoding='utf-8')
-        write_status('healthy', started)
         raise SystemExit(0)
     except Exception as exc:
         write_status('error', started, f'{type(exc).__name__}: {exc}')
