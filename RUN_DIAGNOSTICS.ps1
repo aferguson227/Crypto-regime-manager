@@ -10,7 +10,7 @@ Start-Transcript -Path $Log -Force | Out-Null
 try {
   Set-Location $Root
   Write-Host "Running full diagnostics and acceptance checks..." -ForegroundColor Cyan
-  $args = @("scripts\diagnostics_engine.py", "--full", "--export")
+  $args = @("-m", "scripts.diagnostics_engine", "--full", "--export")
   if (-not $NoScreenshots) { $args += "--screenshots" }
   & python @args
   $code = $LASTEXITCODE
