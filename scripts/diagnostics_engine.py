@@ -178,9 +178,14 @@ def workflow_automation_check() -> Check:
         if cron not in text: findings.append(f'{rel}: missing expected cron {cron}')
         if 'workflow_dispatch:' not in text: findings.append(f'{rel}: missing manual recovery trigger')
         if rel.endswith('pages-deploy.yml'):
-            if 'actions/upload-pages-artifact@v4' not in text: findings.append(f'{rel}: missing Pages artifact upload')
-            if 'needs: build' not in text: findings.append(f'{rel}: deploy job is not linked to build job')
-            if 'cancel-in-progress: true' not in text: findings.append(f'{rel}: superseded Pages runs are not cancelled')
+            if 'actions/upload-pages-artifact@v4' not in text:
+                findings.append(f'{rel}: missing Pages artifact upload')
+            if 'needs: build' not in text:
+                findings.append(f'{rel}: deploy job is not linked to build job')
+            if 'cancel-in-progress: false' not in text:
+                findings.append(f'{rel}: Pages deployments are not configured to queue safely')
+            if 'timeout-minutes: 30' not in text:
+                findings.append(f'{rel}: Pages deploy timeout is not 30 minutes')
         elif 'actions/deploy-pages' in text or 'actions/upload-pages-artifact' in text:
             findings.append(f'{rel}: data workflow must not deploy Pages directly')
         if re.search(r'run:\s*python\s+scripts/[^\s]+\.py',text): findings.append(f'{rel}: direct script execution may break package imports')
