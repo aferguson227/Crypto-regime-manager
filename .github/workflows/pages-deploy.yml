@@ -14,15 +14,16 @@ permissions:
   pages: write
   id-token: write
 
-# One and only one Pages publisher. Newer runs supersede obsolete artifacts.
+# Pages deployments must finish in order. A new data refresh must not cancel
+# the deployment currently publishing the site.
 concurrency:
   group: crm-github-pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Check out latest main
         uses: actions/checkout@v4
@@ -38,7 +39,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # The previous workflow killed valid Pages deployments at exactly 10 minutes.
+    # Allow GitHub's Pages service enough time to leave its deployment queue.
+    timeout-minutes: 30
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
