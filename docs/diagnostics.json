@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "32.8.0",
+  "application_version": "32.9.0",
   "engine": "V32 Diagnostics and Acceptance Engine",
-  "generated_at": "2026-08-06T08:45:00.827708+00:00",
+  "generated_at": "2026-08-06T09:10:32.940927+00:00",
   "host": "Delimaferguson",
   "platform": "win32",
   "python": "3.14.6",
@@ -10,8 +10,8 @@
   "overall": {
     "state": "healthy",
     "score": 100,
-    "required_passed": 11,
-    "required_total": 11,
+    "required_passed": 9,
+    "required_total": 9,
     "warnings": 0,
     "failures": 0
   },
@@ -23,10 +23,10 @@
       "status": "pass",
       "message": "All release sources agree.",
       "evidence": [
-        "VERSION=32.8.0",
-        "release=32.8.0",
-        "docs=32.8.0",
-        "config=32.8.0"
+        "VERSION=32.9.0",
+        "release=32.9.0",
+        "docs=32.9.0",
+        "config=32.9.0"
       ],
       "required": true
     },
@@ -35,7 +35,7 @@
       "name": "Route manifest",
       "category": "interface",
       "status": "pass",
-      "message": "14 declared routes exist.",
+      "message": "15 declared routes exist.",
       "evidence": [
         "index.html",
         "cockpit.html",
@@ -50,7 +50,8 @@
         "diagnostics.html",
         "portfolio.html",
         "cloud_reliability.html",
-        "adaptive.html"
+        "adaptive.html",
+        "market.html"
       ],
       "required": true
     },
@@ -59,7 +60,7 @@
       "name": "HTML asset references",
       "category": "interface",
       "status": "pass",
-      "message": "All references across 36 HTML pages resolve.",
+      "message": "All references across 37 HTML pages resolve.",
       "evidence": [
         "adaptive.html",
         "assets.html",
@@ -82,6 +83,7 @@
         "index.html",
         "integrity.html",
         "intelligence.html",
+        "market.html",
         "more.html",
         "operating_state.html",
         "outcome.html",
@@ -123,7 +125,7 @@
       "name": "Published JSON validity",
       "category": "data",
       "status": "pass",
-      "message": "27 JSON files parse successfully.",
+      "message": "28 JSON files parse successfully.",
       "evidence": [
         "adaptive_intelligence.json",
         "backtest_lab.json",
@@ -140,6 +142,7 @@
         "diagnostics.json",
         "health_history.json",
         "import_registry.json",
+        "market_intelligence.json",
         "operating_state.json",
         "outcome_intelligence.json",
         "portfolio_intelligence.json",
@@ -208,39 +211,15 @@
         "strategies.json (298183 bytes)",
         "threecommas.json (2837 bytes)",
         "configuration_reconciliation.json (11865 bytes)",
-        "operating_state.json (4314 bytes)",
-        "capital_intelligence.json (5390 bytes)",
-        "deployment_intelligence.json (11828 bytes)",
-        "recommendation_intelligence.json (14049 bytes)",
-        "outcome_intelligence.json (15527 bytes)",
-        "portfolio_intelligence.json (4115 bytes)",
-        "cloud_reliability.json (1710 bytes)",
-        "system_integrity.json (1103 bytes)",
+        "operating_state.json (4169 bytes)",
+        "capital_intelligence.json (5227 bytes)",
+        "deployment_intelligence.json (11436 bytes)",
+        "recommendation_intelligence.json (13614 bytes)",
+        "outcome_intelligence.json (17051 bytes)",
+        "portfolio_intelligence.json (3972 bytes)",
+        "cloud_reliability.json (1649 bytes)",
+        "system_integrity.json (1084 bytes)",
         "cloud_status.json (756 bytes)"
-      ],
-      "required": true
-    },
-    {
-      "id": "acceptance.tests",
-      "name": "Python test suite",
-      "category": "acceptance",
-      "status": "pass",
-      "message": "Exited with code 0.",
-      "evidence": [
-        "........................................................................ [ 97%]",
-        "..                                                                       [100%]",
-        "74 passed in 0.65s"
-      ],
-      "required": true
-    },
-    {
-      "id": "acceptance.publish",
-      "name": "Publication validator",
-      "category": "acceptance",
-      "status": "pass",
-      "message": "Exited with code 0.",
-      "evidence": [
-        "Publish validation passed for V32.8.0: 27 JSON files and 36 HTML pages checked."
       ],
       "required": true
     }
