@@ -1,4 +1,4 @@
-# V33.0.2 - Operational Stability
+# V33.0.3 - Operational Stability
 
 - Separates versioned release diagnostics from runtime diagnostics.
 - Regenerates release metadata and snapshots before acceptance tests.
