@@ -2,16 +2,16 @@
   "schema_version": "1.0",
   "application_version": "32.7.0",
   "engine": "V32 Diagnostics and Acceptance Engine",
-  "generated_at": "2026-08-06T08:10:42.575285+00:00",
-  "host": "Delimaferguson",
-  "platform": "win32",
-  "python": "3.14.6",
+  "generated_at": "2026-08-06T08:27:17.833861+00:00",
+  "host": "runnervmvrwv9",
+  "platform": "linux",
+  "python": "3.12.13",
   "mode": "read_only_observability",
   "overall": {
     "state": "healthy",
     "score": 100,
-    "required_passed": 11,
-    "required_total": 11,
+    "required_passed": 9,
+    "required_total": 9,
     "warnings": 0,
     "failures": 0
   },
@@ -168,9 +168,9 @@
       "status": "pass",
       "message": "No write verbs or known mutation endpoints detected.",
       "evidence": [
-        "scripts\\integrations\\threecommas.py",
-        "scripts\\integrations\\__init__.py",
-        "scripts\\threecommas_sync.py"
+        "scripts/integrations/threecommas.py",
+        "scripts/integrations/__init__.py",
+        "scripts/threecommas_sync.py"
       ],
       "required": true
     },
@@ -202,41 +202,18 @@
       "status": "pass",
       "message": "All required operating sources are present.",
       "evidence": [
-        "strategies.json (298315 bytes)",
-        "threecommas.json (2837 bytes)",
-        "configuration_reconciliation.json (11865 bytes)",
-        "operating_state.json (4270 bytes)",
-        "capital_intelligence.json (5227 bytes)",
-        "deployment_intelligence.json (11784 bytes)",
-        "recommendation_intelligence.json (14005 bytes)",
-        "outcome_intelligence.json (13478 bytes)",
-        "portfolio_intelligence.json (4115 bytes)",
-        "cloud_reliability.json (1710 bytes)",
-        "system_integrity.json (1103 bytes)",
-        "cloud_status.json (756 bytes)"
-      ],
-      "required": true
-    },
-    {
-      "id": "acceptance.tests",
-      "name": "Python test suite",
-      "category": "acceptance",
-      "status": "pass",
-      "message": "Exited with code 0.",
-      "evidence": [
-        "......................................................................   [100%]",
-        "70 passed in 0.67s"
-      ],
-      "required": true
-    },
-    {
-      "id": "acceptance.publish",
-      "name": "Publication validator",
-      "category": "acceptance",
-      "status": "pass",
-      "message": "Exited with code 0.",
-      "evidence": [
-        "Publish validation passed for V32.7.0: 26 JSON files and 35 HTML pages checked."
+        "strategies.json (290936 bytes)",
+        "threecommas.json (5437 bytes)",
+        "configuration_reconciliation.json (11511 bytes)",
+        "operating_state.json (4135 bytes)",
+        "capital_intelligence.json (3451 bytes)",
+        "deployment_intelligence.json (11446 bytes)",
+        "recommendation_intelligence.json (13614 bytes)",
+        "outcome_intelligence.json (17051 bytes)",
+        "portfolio_intelligence.json (2405 bytes)",
+        "cloud_reliability.json (2936 bytes)",
+        "system_integrity.json (1102 bytes)",
+        "cloud_status.json (736 bytes)"
       ],
       "required": true
     }
