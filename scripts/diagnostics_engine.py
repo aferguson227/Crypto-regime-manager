@@ -169,7 +169,7 @@ def secret_check() -> Check:
 
 def workflow_automation_check() -> Check:
     findings=[]; evidence=[]
-    expectations=[('.github/workflows/threecommas-update.yml','python -m scripts.threecommas_sync','37 * * * *'),('.github/workflows/multi-coin-update.yml','python -m scripts.cloud_update','18 0,4,8,12,16,20 * * *')]
+    expectations=[('.github/workflows/threecommas-update.yml','python -m scripts.threecommas_sync','37 * * * *'),('.github/workflows/multi-coin-update.yml','python -m scripts.cloud_update','18 0,4,8,12,16,20 * * *'),('.github/workflows/pages-deploy.yml','actions/deploy-pages@v4','crm-github-pages')]
     for rel,module,cron in expectations:
         path=ROOT/rel; evidence.append(rel)
         if not path.exists(): findings.append(f'{rel}: missing'); continue
@@ -177,6 +177,12 @@ def workflow_automation_check() -> Check:
         if module not in text: findings.append(f'{rel}: missing module execution {module}')
         if cron not in text: findings.append(f'{rel}: missing expected cron {cron}')
         if 'workflow_dispatch:' not in text: findings.append(f'{rel}: missing manual recovery trigger')
+        if rel.endswith('pages-deploy.yml'):
+            if 'actions/upload-pages-artifact@v4' not in text: findings.append(f'{rel}: missing Pages artifact upload')
+            if 'needs: build' not in text: findings.append(f'{rel}: deploy job is not linked to build job')
+            if 'cancel-in-progress: true' not in text: findings.append(f'{rel}: superseded Pages runs are not cancelled')
+        elif 'actions/deploy-pages' in text or 'actions/upload-pages-artifact' in text:
+            findings.append(f'{rel}: data workflow must not deploy Pages directly')
         if re.search(r'run:\s*python\s+scripts/[^\s]+\.py',text): findings.append(f'{rel}: direct script execution may break package imports')
     return Check('cloud.workflows','GitHub workflow automation','cloud','fail' if findings else 'pass','Workflow automation configuration is valid.' if not findings else 'Workflow automation problems detected.',findings or evidence)
 

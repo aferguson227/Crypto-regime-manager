@@ -1,0 +1,48 @@
+name: Deploy CRM Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
+      - '.github/workflows/pages-deploy.yml'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One and only one Pages publisher. Newer runs supersede obsolete artifacts.
+concurrency:
+  group: crm-github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Validate published site
+        run: python -m scripts.validate_publish
+      - name: Upload docs as Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy latest CRM Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
