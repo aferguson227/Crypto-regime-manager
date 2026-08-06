@@ -29,9 +29,9 @@ jobs:
       - name: Validate Python
         run: python -m py_compile scripts/cloud_update.py scripts/validate_publish.py scripts/core/*.py
       - name: Run autonomous read-only refresh
-        run: python scripts/cloud_update.py
+        run: python -m scripts.cloud_update
       - name: Validate generated publication
-        run: python scripts/validate_publish.py
+        run: python -m scripts.validate_publish
       - name: Publish validated data atomically
         shell: bash
         run: |
