@@ -1,11 +1,11 @@
 {
   "version": "34.0.0",
   "authentication": "RSA self-generated",
-  "generated_at": "2026-08-06T10:48:55.387765+00:00",
-  "last_attempt_at": "2026-08-06T10:48:55.387765+00:00",
-  "last_success_at": "2026-08-06T10:48:55.387765+00:00",
-  "status": "ok",
-  "message": "All read-only 3Commas endpoints updated successfully.",
+  "generated_at": "2026-08-06T12:12:34.096894+00:00",
+  "last_attempt_at": "2026-08-06T12:12:34.096894+00:00",
+  "last_success_at": "2026-08-06T12:12:34.096894+00:00",
+  "status": "partial",
+  "message": "Read-only sync completed with endpoint issues: account_32632134_balances.",
   "publish_mode": "masked",
   "read_only": true,
   "endpoint_diagnostics": {
@@ -16,7 +16,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-06T10:48:56.269976+00:00"
+      "observed_at": "2026-08-06T12:12:34.657396+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
@@ -25,7 +25,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-06T10:48:56.575129+00:00"
+      "observed_at": "2026-08-06T12:12:34.900251+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
@@ -34,7 +34,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 4,
-      "observed_at": "2026-08-06T10:48:57.126647+00:00"
+      "observed_at": "2026-08-06T12:12:35.130908+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
@@ -43,7 +43,25 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-06T10:48:57.496769+00:00"
+      "observed_at": "2026-08-06T12:12:35.328786+00:00"
+    },
+    "account_32632134_details": {
+      "path": "/public/api/ver1/accounts/32632134",
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": null,
+      "observed_at": "2026-08-06T12:12:35.575979+00:00"
+    },
+    "account_32632134_balances": {
+      "path": "/public/api/ver1/accounts/32632134/account_table_data",
+      "status": "fail",
+      "category": "rate_limited",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-06 12:13:34 UTC'}",
+      "http_status": 429,
+      "records": null,
+      "observed_at": "2026-08-06T12:12:35.747517+00:00"
     }
   },
   "accounts": [
@@ -52,9 +70,12 @@
       "name": "My Kucoin",
       "exchange_name": "Kucoin Spot",
       "currency": "USDT",
-      "total_usd_value": 0.055840124017601224,
+      "total_usd_value": 3608.37636741087,
       "free_usdt": null,
-      "balance_source": "3Commas read-only account payload"
+      "balance_records": 0,
+      "balances": [],
+      "api_keys_state": "ok",
+      "balance_source": "3Commas ACCOUNTS_READ account info and account_table_data"
     }
   ],
   "assets": {
@@ -165,6 +186,8 @@
         {
           "bot_name": "TEL DCA - Low Volatility",
           "pair": "USDT_TEL",
+          "quote_currency": "USDT",
+          "base_asset": "TEL",
           "status": "bought",
           "created_at": "2026-08-06T08:14:19.281Z",
           "profit_pct": -1.05,
@@ -172,7 +195,11 @@
           "max_safety_orders": 6,
           "active_safety_orders": 3,
           "bot_id": 16945272,
-          "capital_used": 255493.0,
+          "allocated_asset_quantity": 255493.0,
+          "allocated_asset": "TEL",
+          "capital_used_quote": 392.19478893,
+          "capital_currency": "USDT",
+          "capital_used": 392.19478893,
           "placed_order_reserve": 0.0
         }
       ]

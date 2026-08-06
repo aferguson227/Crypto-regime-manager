@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "34.0.0",
-  "generated_at": "2026-08-06T11:57:41.601578+00:00",
-  "snapshot_id": "24e0214493ba11041748",
+  "generated_at": "2026-08-06T12:12:35.872227+00:00",
+  "snapshot_id": "88619fa89ada97b8898c",
   "currency": "USDT",
   "accounts": [
     {
@@ -10,9 +10,9 @@
       "name": "My Kucoin",
       "exchange": "Kucoin Spot",
       "currency": "USDT",
-      "total_equity": 0.055840124017601224,
+      "total_equity": 3608.37636741087,
       "free_available": null,
-      "observed_at": "2026-08-06T10:48:55.387765+00:00"
+      "observed_at": "2026-08-06T12:12:34.096894+00:00"
     }
   ],
   "bots": [
@@ -72,7 +72,7 @@
       "active_deals": 1,
       "max_active_deals": 1,
       "per_deal_max_capital": 2729.5360000000005,
-      "active_deal_capital": 255493.0,
+      "active_deal_capital": 392.19478893,
       "placed_order_reserve": 0.0,
       "remaining_dca_reserve": 2369.5360000000005,
       "idle_capacity_reserve": 0.0,
@@ -81,9 +81,9 @@
       "warnings": []
     }
   ],
-  "exchange_total": 0.055840124017601224,
+  "exchange_total": 3608.37636741087,
   "free_available": null,
-  "active_deal_capital": 255493.0,
+  "active_deal_capital": 392.19478893,
   "placed_order_reserve": 0.0,
   "remaining_active_deal_dca_reserve": 2369.5360000000005,
   "enabled_idle_capacity_reserve": 7070.992639999999,
@@ -106,5 +106,12 @@
     "Free USDT is unknown; deployable capital cannot be asserted."
   ],
   "read_only": true,
-  "asset_allocations": []
+  "asset_allocations": [
+    {
+      "asset": "TEL",
+      "quantity": 255493.0,
+      "quote_currency": "USDT",
+      "quote_cost": 392.19478893
+    }
+  ]
 }

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "34.0.0",
-  "generated_at": "2026-08-06T11:57:43.011606+00:00",
-  "snapshot_id": "ade67b8e2a9fe517388e5432",
+  "generated_at": "2026-08-06T12:12:36.204033+00:00",
+  "snapshot_id": "b7d69a3c8a90c0cfd8948c2a",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -43,9 +43,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 45.9,
+    "health_score": 50.1,
     "diversification_score": 25,
-    "capital_efficiency_score": 52.7,
+    "capital_efficiency_score": 65.3,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -93,10 +93,10 @@
         "action": "KEEP_RUNNING",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": 255493.0,
+        "allocated_capital": 392.19478893,
         "reserve_capital": 2369.5360000000005,
         "deployable_priority": 4,
-        "efficiency_score": 0.27,
+        "efficiency_score": 50.42,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -114,17 +114,24 @@
   "capital": {
     "status": null,
     "currency": "USDT",
-    "total_equity": 0.055840124017601224,
-    "allocated": 255493.0,
+    "total_equity": 3608.37636741087,
+    "allocated": 392.19478893,
     "reserved": 9440.528639999999,
     "deployable": null,
     "next_required": null,
     "can_fund_next": null,
-    "asset_allocations": []
+    "asset_allocations": [
+      {
+        "asset": "TEL",
+        "quantity": 255493.0,
+        "quote_currency": "USDT",
+        "quote_cost": 392.19478893
+      }
+    ]
   },
   "recommendations": [
     {
-      "recommendation_id": "7473e0fe000ec36bfb70ea7d",
+      "recommendation_id": "6ab2b00ac929597850fead9a",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
@@ -278,7 +285,7 @@
       }
     },
     {
-      "recommendation_id": "28bb0c7f995f2bfc33bef3f8",
+      "recommendation_id": "6e88192f16066043bf39099e",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -502,11 +509,11 @@
     }
   },
   "cloud": {
-    "overall_status": "HEALTHY",
+    "overall_status": "WARNING",
     "threecommas": {
-      "status": "ok",
-      "generated_at": "2026-08-06T10:48:55.387765+00:00",
-      "message": "All read-only 3Commas endpoints updated successfully."
+      "status": "partial",
+      "generated_at": "2026-08-06T12:12:34.096894+00:00",
+      "message": "Read-only sync completed with endpoint issues: account_32632134_balances."
     },
     "main_app": {},
     "publication": {}
@@ -515,18 +522,18 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "HEALTHY"
+    "cloud_status": "WARNING"
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "b0fde18c8bd7b3509a21",
-    "capital": "24e0214493ba11041748",
-    "deployment": "0ab002cb66be933f5d73",
-    "recommendations": "08220a91beb2a77dbebe",
+    "portfolio": "400f470c4c2626c6657e",
+    "capital": "88619fa89ada97b8898c",
+    "deployment": "853db0bbebdff3943386",
+    "recommendations": "0a5fdb06e849dcbe547e",
     "adaptive": "f9316b9dca4bec968d56",
     "outcomes": "2026-08-06T11:57:42.284913+00:00",
-    "cloud": "cdc5809f192f427d4df7",
-    "operating": "105140b62af960601c1c"
+    "cloud": "4b904daffec7fb23ed04",
+    "operating": "95f1a7c211ff79426af5"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
@@ -536,6 +543,7 @@
     "Capital reconciliation is incomplete; no new deployment may be asserted.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
-    "Deployable capital is unknown; no new deployment should be assumed fundable."
+    "Deployable capital is unknown; no new deployment should be assumed fundable.",
+    "One or more cloud data sources require attention."
   ]
 }
