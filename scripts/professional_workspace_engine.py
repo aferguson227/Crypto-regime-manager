@@ -65,15 +65,15 @@ def build():
     for key,val in recommended.items():
         if key in old_settings and old_settings.get(key)!=val: changed.append({'field':key,'before':old_settings.get(key),'after':val})
     payload={
-      'schema_version':'2.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),
+      'schema_version':'3.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),
       'read_only':True,'manual_approval_required':True,
       'briefing':brief,
       'daily_decision':{'bot_name':top.get('bot_name'),'asset':top.get('asset'),'action':action,'confidence_pct':confidence,'urgency':top.get('urgency'),'why':list(top.get('rationale') or []),'blockers':blockers},
       'decision_readiness':{'score_pct':readiness_score,'checks':readiness_checks,'ready_for_manual_action':readiness_score==100 and not blockers},
-      'allocation':{'required_quote':required,'quote_currency':cap.get('currency') or 'USDT','can_fund':can_fund,'deployable_quote':deployable,'asset_allocations':cap.get('asset_allocations') or []},
+      'allocation':{'required_quote':required,'quote_currency':cap.get('currency') or 'USDT','can_fund':can_fund,'deployable_quote':deployable,'asset_allocations':cap.get('asset_allocations') or [],'display_rule':'Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code.'},
       'recommended_settings':recommended,'settings_order':settings_order,'missing_settings':missing,
       'live_settings':live,'production_settings':production,'setting_differences':differences,
-      'what_changed':changed,'risks':risks,'market':market,'portfolio':portfolio,
+      'what_changed':changed,'risks':risks,'market':market,'portfolio':portfolio,'presentation':{'locale':'en-GB','timezone':'Europe/London','negative_sign':'−','currency_policy':'Use explicit currency codes such as USDT; never assume $ means USDT.','unknown_policy':'Unknown values remain Unknown and are never coerced to zero.'},
       'deployment_health':{'cloud':cloud.get('overall_status'),'threecommas':(cloud.get('threecommas') or {}).get('status'),'main_app':(cloud.get('main_app') or {}).get('status'),'publication':(cloud.get('publication') or {}).get('status'),'diagnostics':health.get('diagnostics_state'),'score':health.get('diagnostics_score')},
       'next_steps':[x for x in [
         'Review the recommended DCA settings in the Bots workspace.' if top.get('bot_name') else None,

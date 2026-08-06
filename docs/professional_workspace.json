@@ -1,7 +1,7 @@
 {
-  "schema_version": "2.0",
-  "application_version": "36.0.0",
-  "generated_at": "2026-08-06T17:20:01.382788+00:00",
+  "schema_version": "3.0",
+  "application_version": "37.0.0",
+  "generated_at": "2026-08-06T18:18:27.612381+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -61,7 +61,8 @@
         "quote_currency": "USDT",
         "quote_cost": 392.19478893
       }
-    ]
+    ],
+    "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
   },
   "recommended_settings": {
     "bot_name": "TEL Low Volatility Bot",
@@ -326,8 +327,15 @@
       }
     }
   },
+  "presentation": {
+    "locale": "en-GB",
+    "timezone": "Europe/London",
+    "negative_sign": "\u2212",
+    "currency_policy": "Use explicit currency codes such as USDT; never assume $ means USDT.",
+    "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
+  },
   "deployment_health": {
-    "cloud": "WARNING",
+    "cloud": "FAILURE",
     "threecommas": "partial",
     "main_app": null,
     "publication": null,
@@ -340,5 +348,5 @@
     "Resolve missing DCA fields before making changes.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "01d2e06e08f1c42021d93a46"
+  "snapshot_id": "481a963e593a3b7f0a6fd8dd"
 }

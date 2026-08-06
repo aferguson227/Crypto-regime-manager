@@ -121,7 +121,7 @@
           "step_scale": 1.2
         },
         "High-Bear": {
-          "name": "TAO High-Bear \u2014 Disabled",
+          "name": "TAO High-Bear — Disabled",
           "enabled": false
         }
       }
@@ -133,7 +133,7 @@
       "history_file": "data/SUIUSDT_4H.csv",
       "deal_log": "docs/sui_deals.csv",
       "production_status": "research",
-      "research_label": "Research only \u2014 not approved for live trading",
+      "research_label": "Research only — not approved for live trading",
       "forward_test_start": "2026-04-01T00:00:00Z",
       "research_basis": {
         "training_source": "Kraken SUI/USD 4-hour candles, 2024-01-01 to 2025-12-31",
@@ -204,7 +204,7 @@
           "step_scale": 1.2
         },
         "High-Bear": {
-          "name": "SUI High-Bear \u2014 Disabled",
+          "name": "SUI High-Bear — Disabled",
           "enabled": false
         }
       },
@@ -288,12 +288,12 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "36.0.0",
+    "version": "37.0.0",
     "mode": "Read-only explainable deployment intelligence",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
     "feature": "Advisory candidate validation and DCA improvement lab",
-    "release_name": "Adaptive Decision Workspace",
+    "release_name": "Visual Decision Workspace",
     "primary_navigation": [
       "Dashboard",
       "Workspace",
@@ -346,7 +346,7 @@
       "A rule must improve more than one asset before it can be described as generalisable",
       "No production strategy is changed automatically"
     ],
-    "note": "The evidence library compares suggested rules across TEL, TAO, and SUI. Results use each asset\u2019s available KuCoin history and are not independent forward validation."
+    "note": "The evidence library compares suggested rules across TEL, TAO, and SUI. Results use each asset’s available KuCoin history and are not independent forward validation."
   },
   "asset_dna": {
     "enabled": true,
@@ -689,7 +689,7 @@
       "Forward Validation"
     ]
   },
-  "version": "36.0.0",
+  "version": "37.0.0",
   "research_queue": {
     "enabled": true,
     "max_assets_per_cycle": 3,
@@ -870,8 +870,8 @@
       "rejected"
     ]
   },
-  "application_version": "36.0.0",
-  "release_name": "Adaptive Decision Workspace",
+  "application_version": "37.0.0",
+  "release_name": "Visual Decision Workspace",
   "deployment_intelligence_v32_4": {
     "enabled": true,
     "advisory_only": true,
