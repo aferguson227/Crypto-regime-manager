@@ -98,6 +98,7 @@ def build()->dict[str,Any]:
         'reserved':portfolio.get('reserved_capital') or capital.get('reserved_capital'),
         'deployable':portfolio.get('deployable_capital') or capital.get('deployable_capital'),
         'next_required':capital.get('next_priority_required_capital'),'can_fund_next':capital.get('can_fund_next_priority'),
+        'asset_allocations':capital.get('asset_allocations') or [],
     }
     cloud_summary={
         'overall_status':cloud.get('overall_status') or cloud.get('status') or 'UNKNOWN',

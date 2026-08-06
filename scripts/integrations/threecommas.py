@@ -157,6 +157,19 @@ def asset_from_pair(pair: Any) -> str | None:
             return "BTC" if token in {"XBT", "XXBT"} else token
     return None
 
+
+def pair_currencies(pair: Any) -> tuple[str | None, str | None]:
+    text = pair_text(pair).upper().replace("-", "_").replace("/", "_")
+    tokens = [t for t in text.replace(",", "_").split("_") if t]
+    if len(tokens) < 2:
+        return None, None
+    quote_codes = {"USDT", "USD", "USDC", "BTC", "XBT", "ETH", "EUR"}
+    if tokens[0] in quote_codes:
+        return ("BTC" if tokens[0] in {"XBT", "XXBT"} else tokens[0], "BTC" if tokens[1] in {"XBT", "XXBT"} else tokens[1])
+    if tokens[-1] in quote_codes:
+        return ("BTC" if tokens[-1] in {"XBT", "XXBT"} else tokens[-1], "BTC" if tokens[0] in {"XBT", "XXBT"} else tokens[0])
+    return tokens[0], tokens[-1]
+
 def deal_status(deal: dict[str, Any]) -> str:
     for key in ("status", "status_string", "type"):
         if deal.get(key):
@@ -207,17 +220,26 @@ def sanitise_bot(bot: dict[str, Any]) -> dict[str, Any]:
 
 def sanitise_deal(deal: dict[str, Any], publish_mode: str) -> dict[str, Any]:
     created = first_value(deal, ("created_at", "opened_at", "start_at"))
+    pair = pair_text(deal.get("pair") or deal.get("pairs"))
+    quote_currency, base_asset = pair_currencies(pair)
+    # 3Commas bought_amount is the acquired base-asset quantity. bought_volume is
+    # the quote-currency cost basis. Never label base quantity as USDT capital.
+    asset_quantity = to_float(first_value(deal, ("bought_amount", "base_amount", "reserved_base_coin")))
+    quote_cost = to_float(first_value(deal, ("bought_volume", "quote_volume", "invested_quote_amount")))
     result: dict[str, Any] = {
         "bot_name": str(deal.get("bot_name") or deal.get("name") or "3Commas DCA deal"),
-        "pair": pair_text(deal.get("pair") or deal.get("pairs")),
-        "status": deal_status(deal),
-        "created_at": created,
+        "pair": pair, "quote_currency": quote_currency, "base_asset": base_asset,
+        "status": deal_status(deal), "created_at": created,
         "profit_pct": to_float(first_value(deal, ("actual_profit_percentage", "profit_percentage"))),
         "completed_safety_orders": to_int(first_value(deal, ("completed_safety_orders_count", "completed_manual_safety_orders_count"))) or 0,
         "max_safety_orders": to_int(deal.get("max_safety_orders")),
         "active_safety_orders": to_int(first_value(deal, ("current_active_safety_orders_count", "active_safety_orders_count"))),
         "bot_id": to_int(deal.get("bot_id")),
-        "capital_used": to_float(first_value(deal, ("bought_amount", "bought_volume", "base_order_volume"))),
+        "allocated_asset_quantity": asset_quantity,
+        "allocated_asset": base_asset,
+        "capital_used_quote": quote_cost,
+        "capital_currency": quote_currency,
+        "capital_used": quote_cost,
         "placed_order_reserve": to_float(first_value(deal, ("reserved_quote_funds", "reserved_funds", "active_safety_order_capital"))),
     }
     if publish_mode == "full":
@@ -226,8 +248,6 @@ def sanitise_deal(deal: dict[str, Any], publish_mode: str) -> dict[str, Any]:
             "current_price": to_float(first_value(deal, ("current_price", "current_market_price", "last_price"))),
             "take_profit_price": to_float(first_value(deal, ("take_profit_price", "final_profit_price"))),
             "profit_usd": to_float(first_value(deal, ("actual_usd_profit", "usd_profit", "actual_profit"))),
-            "bought_volume": to_float(first_value(deal, ("bought_volume", "base_order_volume"))),
-            "capital_used": to_float(first_value(deal, ("bought_amount", "bought_volume", "reserved_base_coin"))),
         })
     return result
 

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.3",
-  "generated_at": "2026-08-06T11:24:19.701065+00:00",
-  "snapshot_id": "9bc912470ccb85854bae",
+  "application_version": "34.0.0",
+  "generated_at": "2026-08-06T11:57:42.107628+00:00",
+  "snapshot_id": "08220a91beb2a77dbebe",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Low",
   "recommendations": [
     {
-      "recommendation_id": "192069491a3dbc21a00a6dc7",
+      "recommendation_id": "7473e0fe000ec36bfb70ea7d",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
@@ -94,20 +94,20 @@
           {
             "field": "base_order_volume",
             "production_value": 100.0,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 100.0,
+            "status": "MATCH"
           },
           {
             "field": "safety_order_volume",
             "production_value": null,
-            "live_value": null,
+            "live_value": 100.0,
             "status": "NOT_COMPARABLE"
           },
           {
             "field": "take_profit_pct",
             "production_value": 1.5,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 1.5,
+            "status": "MATCH"
           },
           {
             "field": "so_deviation_pct",
@@ -118,55 +118,55 @@
           {
             "field": "safety_orders",
             "production_value": 6,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 6,
+            "status": "MATCH"
           },
           {
             "field": "volume_scale",
             "production_value": 1.6,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 1.6,
+            "status": "MATCH"
           },
           {
             "field": "step_scale",
             "production_value": 1.0,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 1.0,
+            "status": "MATCH"
           },
           {
             "field": "max_active_deals",
             "production_value": 1,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 1,
+            "status": "MATCH"
           },
           {
             "field": "max_active_safety_orders",
             "production_value": null,
-            "live_value": null,
+            "live_value": 3,
             "status": "NOT_COMPARABLE"
           },
           {
             "field": "start_condition",
             "production_value": null,
-            "live_value": null,
+            "live_value": "long",
             "status": "NOT_COMPARABLE"
           },
           {
             "field": "order_type",
             "production_value": null,
-            "live_value": null,
+            "live_value": "limit",
             "status": "NOT_COMPARABLE"
           },
           {
             "field": "trailing_enabled",
             "production_value": null,
-            "live_value": null,
+            "live_value": false,
             "status": "NOT_COMPARABLE"
           },
           {
             "field": "cooldown_seconds",
             "production_value": null,
-            "live_value": null,
+            "live_value": 0,
             "status": "NOT_COMPARABLE"
           }
         ],
@@ -200,7 +200,7 @@
         }
       },
       "capital_impact": {
-        "required": null,
+        "required": 1194.5599999999997,
         "available": null,
         "can_fund": null,
         "capital_status": "PARTIAL"
@@ -215,7 +215,7 @@
       "explanation": "Keep running TEL Low Volatility Bot. Confidence 70.2%; risk moderate. Current entry filters pass"
     },
     {
-      "recommendation_id": "984c886b8a1e1876a8ad8c4d",
+      "recommendation_id": "28bb0c7f995f2bfc33bef3f8",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -429,8 +429,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "8fff93817fb94d0f3fca",
-    "deployment_generated_at": "2026-08-06T11:24:19.643311+00:00",
+    "deployment_snapshot": "0ab002cb66be933f5d73",
+    "deployment_generated_at": "2026-08-06T11:57:41.959414+00:00",
     "decision_generated_at": "2026-08-06T07:43:12.060383+00:00"
   }
 }

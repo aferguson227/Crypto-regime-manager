@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.3",
+  "application_version": "34.0.0",
   "engine": "V33 Diagnostics and Acceptance Engine",
-  "generated_at": "2026-08-06T11:22:19.596983+00:00",
+  "generated_at": "2026-08-06T11:57:44.677203+00:00",
   "host": "Delimaferguson",
   "platform": "win32",
   "python": "3.14.6",
@@ -23,11 +23,11 @@
       "status": "pass",
       "message": "All release sources agree.",
       "evidence": [
-        "VERSION=33.0.3",
-        "release=33.0.3",
-        "docs=33.0.3",
-        "config=33.0.3",
-        "release_name=Trading Command Centre - Account Intelligence"
+        "VERSION=34.0.0",
+        "release=34.0.0",
+        "docs=34.0.0",
+        "config=34.0.0",
+        "release_name=Unified Trading Workspace"
       ],
       "required": true
     },
@@ -36,7 +36,7 @@
       "name": "Route manifest",
       "category": "interface",
       "status": "pass",
-      "message": "15 declared routes exist.",
+      "message": "16 declared routes exist.",
       "evidence": [
         "index.html",
         "cockpit.html",
@@ -52,7 +52,8 @@
         "portfolio.html",
         "cloud_reliability.html",
         "adaptive.html",
-        "market.html"
+        "market.html",
+        "bots.html"
       ],
       "required": true
     },
@@ -61,11 +62,12 @@
       "name": "HTML asset references",
       "category": "interface",
       "status": "pass",
-      "message": "All references across 37 HTML pages resolve.",
+      "message": "All references across 38 HTML pages resolve.",
       "evidence": [
         "adaptive.html",
         "assets.html",
         "autonomy.html",
+        "bots.html",
         "candidates.html",
         "capital.html",
         "cloud.html",
@@ -212,20 +214,20 @@
       "status": "pass",
       "message": "All required operating sources are present.",
       "evidence": [
-        "strategies.json (298183 bytes)",
+        "strategies.json (290916 bytes)",
         "threecommas.json (5724 bytes)",
         "configuration_reconciliation.json (11865 bytes)",
         "operating_state.json (4284 bytes)",
         "account_intelligence.json (1938 bytes)",
-        "capital_intelligence.json (3836 bytes)",
-        "deployment_intelligence.json (11855 bytes)",
-        "recommendation_intelligence.json (14049 bytes)",
-        "outcome_intelligence.json (31927 bytes)",
+        "capital_intelligence.json (3864 bytes)",
+        "deployment_intelligence.json (11808 bytes)",
+        "recommendation_intelligence.json (14002 bytes)",
+        "outcome_intelligence.json (33976 bytes)",
         "portfolio_intelligence.json (2434 bytes)",
         "cloud_reliability.json (7160 bytes)",
-        "command_state.json (17021 bytes)",
-        "system_integrity.json (1164 bytes)",
-        "cloud_status.json (756 bytes)"
+        "command_state.json (17018 bytes)",
+        "system_integrity.json (1152 bytes)",
+        "cloud_status.json (736 bytes)"
       ],
       "required": true
     }

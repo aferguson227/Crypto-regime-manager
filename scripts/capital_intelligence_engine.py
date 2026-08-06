@@ -28,7 +28,7 @@ def load(name):
     except Exception:return {}
 
 def deal_capital(d):
-    for k in ('capital_used','bought_amount','bought_volume','base_order_volume'):
+    for k in ('capital_used_quote','capital_used','bought_volume'):
         x=f(d.get(k))
         if x is not None:return x
     return None
@@ -113,6 +113,13 @@ def build()->dict[str,Any]:
       'enabled_idle_capacity_reserve':'Maximum full-ladder capital for unused enabled-bot deal slots.',
       'deployable_capital':'free_available minus enabled_idle_capacity_reserve; never inferred when source data is incomplete.'
     },tuple(warnings)).to_dict()
+    allocations=[]
+    for asset,entry in assets.items():
+        qty=sum(float(d.get('allocated_asset_quantity') or 0) for d in (entry.get('deals') or []) if isinstance(d,dict))
+        quote=sum(float(d.get('capital_used_quote') or 0) for d in (entry.get('deals') or []) if isinstance(d,dict))
+        if qty or quote:
+            allocations.append({'asset':asset,'quantity':qty or None,'quote_currency':next((d.get('quote_currency') for d in entry.get('deals') or [] if isinstance(d,dict) and d.get('quote_currency')), 'USDT'),'quote_cost':quote or None})
+    payload['asset_allocations']=allocations
     return payload
 
 def main():

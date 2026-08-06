@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.3",
-  "snapshot_id": "c69d46160f04bb8f5ed6",
-  "generated_at": "2026-08-06T11:24:19.580543+00:00",
+  "application_version": "34.0.0",
+  "snapshot_id": "105140b62af960601c1c",
+  "generated_at": "2026-08-06T11:57:41.738990+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
@@ -54,7 +54,7 @@
   "next_capital_priority": "TEL Low Volatility Bot",
   "capital": {
     "currency": "USDT",
-    "exchange_total": 3609.3233099411495,
+    "exchange_total": 0.055840124017601224,
     "free_available": null,
     "active_deal_capital": 255493.0,
     "placed_order_reserve": 0.0,
@@ -96,22 +96,22 @@
     },
     {
       "name": "3Commas live state",
-      "status": "partial",
-      "observed_at": "2026-08-06T11:24:16.410663+00:00",
-      "version": "33.0.3",
+      "status": "ok",
+      "observed_at": "2026-08-06T10:48:55.387765+00:00",
+      "version": "34.0.0",
       "warnings": []
     },
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-06T11:24:19.521406+00:00",
+      "observed_at": "2026-08-06T11:57:41.601578+00:00",
       "version": null,
       "warnings": []
     },
     {
       "name": "Configuration reconciliation",
       "status": "fresh",
-      "observed_at": "2026-08-06T11:22:17.198214+00:00",
+      "observed_at": "2026-08-06T11:57:41.198546+00:00",
       "version": null,
       "warnings": []
     },
@@ -125,7 +125,7 @@
     {
       "name": "System integrity",
       "status": "fresh",
-      "observed_at": "2026-08-06T11:22:17.312262+00:00",
+      "observed_at": "2026-08-06T11:57:41.339656+00:00",
       "version": null,
       "warnings": []
     }

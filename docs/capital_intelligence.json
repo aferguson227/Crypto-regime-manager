@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.3",
-  "generated_at": "2026-08-06T11:24:19.521406+00:00",
-  "snapshot_id": "0ce88c64e49ea5a89659",
+  "application_version": "34.0.0",
+  "generated_at": "2026-08-06T11:57:41.601578+00:00",
+  "snapshot_id": "24e0214493ba11041748",
   "currency": "USDT",
   "accounts": [
     {
@@ -10,9 +10,9 @@
       "name": "My Kucoin",
       "exchange": "Kucoin Spot",
       "currency": "USDT",
-      "total_equity": 3609.3233099411495,
+      "total_equity": 0.055840124017601224,
       "free_available": null,
-      "observed_at": "2026-08-06T11:24:16.410663+00:00"
+      "observed_at": "2026-08-06T10:48:55.387765+00:00"
     }
   ],
   "bots": [
@@ -81,7 +81,7 @@
       "warnings": []
     }
   ],
-  "exchange_total": 3609.3233099411495,
+  "exchange_total": 0.055840124017601224,
   "free_available": null,
   "active_deal_capital": 255493.0,
   "placed_order_reserve": 0.0,
@@ -105,5 +105,6 @@
     "One or more 3Commas accounts returned no balance records.",
     "Free USDT is unknown; deployable capital cannot be asserted."
   ],
-  "read_only": true
+  "read_only": true,
+  "asset_allocations": []
 }

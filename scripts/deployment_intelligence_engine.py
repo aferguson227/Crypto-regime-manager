@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """V32.4 transparent, read-only deployment intelligence engine."""
 from __future__ import annotations
-import hashlib, json, sys
+import hashlib, json, sys, re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -22,6 +22,18 @@ def num(v):
     except (TypeError,ValueError):return None
 
 def normal(v):return ''.join(c for c in str(v or '').lower() if c.isalnum())
+def name_tokens(v):
+    stop={'bot','dca','strategy','the'}
+    return {x for x in re.findall(r'[a-z0-9]+',str(v or '').lower()) if x not in stop}
+def best_live_bot(bots,name,asset):
+    wanted=name_tokens(name)|{str(asset).lower()}
+    scored=[]
+    for bot in bots:
+        tokens=name_tokens(bot.get('name'))
+        score=len(wanted & tokens)
+        if str(asset).lower() in tokens: score+=3
+        scored.append((score,bot))
+    return max(scored,key=lambda x:x[0])[1] if scored and max(x[0] for x in scored)>=3 else None
 
 def config_settings(cfg,asset,regime):
     a=next((x for x in cfg.get('assets',[]) if x.get('id')==asset),{})
@@ -40,7 +52,7 @@ def config_settings(cfg,asset,regime):
 def live_settings(three,asset,name):
     entry=((three.get('assets') or {}).get(asset) or {})
     bots=entry.get('bots') or []; target=normal(name)
-    bot=next((b for b in bots if target and (target in normal(b.get('name')) or normal(b.get('name')) in target)),None)
+    bot=next((b for b in bots if target and (target in normal(b.get('name')) or normal(b.get('name')) in target)),None) or best_live_bot(bots,name,asset)
     if not bot:return SettingsSnapshot('LIVE_3COMMAS_CONFIGURATION',{},False,EXACT_FIELDS)
     aliases={'base_order_volume':['base_order_volume'],'safety_order_volume':['safety_order_volume'],'take_profit_pct':['take_profit_pct','take_profit'],
       'so_deviation_pct':['so_deviation_pct','safety_order_step_percentage'],'safety_orders':['max_safety_orders','safety_orders'],
@@ -91,7 +103,7 @@ def build()->dict[str,Any]:
         osrow=state_rows.get(asset,{})
         prod=config_settings(cfg,asset,regime); live=live_settings(three,asset,name); changed,diffs=compare(prod,live)
         ev=evidence_for(state,asset); cap_required=None; cap_available=capital.get('deployable_capital'); can_fund=None
-        caprow=next((b for b in capital.get('bots') or [] if asset==b.get('asset') and normal(name) in normal(b.get('bot_name'))),None)
+        caprow=next((b for b in capital.get('bots') or [] if asset==b.get('asset') and len(name_tokens(name)&name_tokens(b.get('bot_name')))>=2),None)
         if caprow: cap_required=caprow.get('next_deal_required_capital')
         if cap_available is not None and cap_required is not None: can_fund=float(cap_available)>=float(cap_required)
         blocks=[]

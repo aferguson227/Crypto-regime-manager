@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.3",
-  "generated_at": "2026-08-06T11:24:19.863605+00:00",
-  "snapshot_id": "dc4abcd46870d3ac2d1b4c80",
+  "application_version": "34.0.0",
+  "generated_at": "2026-08-06T11:57:43.011606+00:00",
+  "snapshot_id": "ade67b8e2a9fe517388e5432",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -114,16 +114,17 @@
   "capital": {
     "status": null,
     "currency": "USDT",
-    "total_equity": 3609.3233099411495,
+    "total_equity": 0.055840124017601224,
     "allocated": 255493.0,
     "reserved": 9440.528639999999,
     "deployable": null,
     "next_required": null,
-    "can_fund_next": null
+    "can_fund_next": null,
+    "asset_allocations": []
   },
   "recommendations": [
     {
-      "recommendation_id": "192069491a3dbc21a00a6dc7",
+      "recommendation_id": "7473e0fe000ec36bfb70ea7d",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
@@ -150,20 +151,20 @@
           {
             "field": "base_order_volume",
             "production_value": 100.0,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 100.0,
+            "status": "MATCH"
           },
           {
             "field": "safety_order_volume",
             "production_value": null,
-            "live_value": null,
+            "live_value": 100.0,
             "status": "NOT_COMPARABLE"
           },
           {
             "field": "take_profit_pct",
             "production_value": 1.5,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 1.5,
+            "status": "MATCH"
           },
           {
             "field": "so_deviation_pct",
@@ -174,55 +175,55 @@
           {
             "field": "safety_orders",
             "production_value": 6,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 6,
+            "status": "MATCH"
           },
           {
             "field": "volume_scale",
             "production_value": 1.6,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 1.6,
+            "status": "MATCH"
           },
           {
             "field": "step_scale",
             "production_value": 1.0,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 1.0,
+            "status": "MATCH"
           },
           {
             "field": "max_active_deals",
             "production_value": 1,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 1,
+            "status": "MATCH"
           },
           {
             "field": "max_active_safety_orders",
             "production_value": null,
-            "live_value": null,
+            "live_value": 3,
             "status": "NOT_COMPARABLE"
           },
           {
             "field": "start_condition",
             "production_value": null,
-            "live_value": null,
+            "live_value": "long",
             "status": "NOT_COMPARABLE"
           },
           {
             "field": "order_type",
             "production_value": null,
-            "live_value": null,
+            "live_value": "limit",
             "status": "NOT_COMPARABLE"
           },
           {
             "field": "trailing_enabled",
             "production_value": null,
-            "live_value": null,
+            "live_value": false,
             "status": "NOT_COMPARABLE"
           },
           {
             "field": "cooldown_seconds",
             "production_value": null,
-            "live_value": null,
+            "live_value": 0,
             "status": "NOT_COMPARABLE"
           }
         ],
@@ -256,7 +257,7 @@
         }
       },
       "capital_impact": {
-        "required": null,
+        "required": 1194.5599999999997,
         "available": null,
         "can_fund": null,
         "capital_status": "PARTIAL"
@@ -277,7 +278,7 @@
       }
     },
     {
-      "recommendation_id": "984c886b8a1e1876a8ad8c4d",
+      "recommendation_id": "28bb0c7f995f2bfc33bef3f8",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -448,7 +449,7 @@
         "Recent capital efficiency is positive"
       ],
       "blockers": [],
-      "capital_required": null,
+      "capital_required": 1194.5599999999997,
       "can_fund": null
     },
     {
@@ -501,11 +502,11 @@
     }
   },
   "cloud": {
-    "overall_status": "WARNING",
+    "overall_status": "HEALTHY",
     "threecommas": {
-      "status": "partial",
-      "generated_at": "2026-08-06T11:24:16.410663+00:00",
-      "message": "Read-only sync completed with endpoint issues: account_32632134_balances."
+      "status": "ok",
+      "generated_at": "2026-08-06T10:48:55.387765+00:00",
+      "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
     "publication": {}
@@ -514,18 +515,18 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "WARNING"
+    "cloud_status": "HEALTHY"
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "e5c9680f8d0664be4e65",
-    "capital": "0ce88c64e49ea5a89659",
-    "deployment": "8fff93817fb94d0f3fca",
-    "recommendations": "9bc912470ccb85854bae",
+    "portfolio": "b0fde18c8bd7b3509a21",
+    "capital": "24e0214493ba11041748",
+    "deployment": "0ab002cb66be933f5d73",
+    "recommendations": "08220a91beb2a77dbebe",
     "adaptive": "f9316b9dca4bec968d56",
-    "outcomes": "2026-08-06T11:22:18.175186+00:00",
-    "cloud": "e4765e36316351ab6694",
-    "operating": "c69d46160f04bb8f5ed6"
+    "outcomes": "2026-08-06T11:57:42.284913+00:00",
+    "cloud": "cdc5809f192f427d4df7",
+    "operating": "105140b62af960601c1c"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
@@ -535,7 +536,6 @@
     "Capital reconciliation is incomplete; no new deployment may be asserted.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
-    "Deployable capital is unknown; no new deployment should be assumed fundable.",
-    "One or more cloud data sources require attention."
+    "Deployable capital is unknown; no new deployment should be assumed fundable."
   ]
 }

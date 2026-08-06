@@ -11,7 +11,7 @@
       "path": "cockpit.html",
       "title": "Cockpit",
       "category": "operations",
-      "primary": true,
+      "primary": false,
       "scope": "production"
     },
     {
@@ -39,7 +39,7 @@
       "path": "outcome.html",
       "title": "Outcome Intelligence",
       "category": "operations",
-      "primary": true,
+      "primary": false,
       "scope": "outcome_intelligence"
     },
     {
@@ -60,7 +60,7 @@
       "path": "validation.html",
       "title": "Validation",
       "category": "validation",
-      "primary": true,
+      "primary": false,
       "scope": "forward_validation"
     },
     {
@@ -95,7 +95,7 @@
       "path": "adaptive.html",
       "title": "Adaptive Intelligence",
       "category": "operations",
-      "primary": true,
+      "primary": false,
       "scope": "adaptive_intelligence"
     },
     {
@@ -104,6 +104,13 @@
       "category": "operations",
       "primary": true,
       "scope": "market_intelligence"
+    },
+    {
+      "path": "bots.html",
+      "title": "Bots & DCA Settings",
+      "category": "operations",
+      "primary": true,
+      "scope": "unified_bot_workspace"
     }
   ]
 }
