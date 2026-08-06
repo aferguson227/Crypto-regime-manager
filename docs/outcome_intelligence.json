@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "34.0.0",
-  "generated_at": "2026-08-06T11:57:42.284913+00:00",
+  "generated_at": "2026-08-06T13:21:32.233580+00:00",
   "mode": "read_only_outcome_reconciliation",
   "read_only": true,
   "manual_approval_required": true,
@@ -875,12 +875,70 @@
         "completed_safety_orders": null,
         "manual_annotation_present": false
       }
+    },
+    {
+      "recommendation_id": "494d1bbc58f61e7caef8121e",
+      "recommendation_snapshot_id": "db4b6a13368301f47a6e",
+      "recommendation_recorded_at": "2026-08-06T13:21:32.216987+00:00",
+      "asset": "TEL",
+      "bot_name": "TEL Low Volatility Bot",
+      "recommended_action": "KEEP_RUNNING",
+      "recommendation_confidence": 70.1,
+      "market_regime": "Low",
+      "status": "ACTIVE",
+      "reconciliation_source": "threecommas_read_only",
+      "acted_on_at": "2026-08-06T08:14:19.281Z",
+      "closed_at": null,
+      "entry_price": null,
+      "exit_price": null,
+      "realised_profit_value": null,
+      "realised_profit_pct": -1.05,
+      "maximum_adverse_excursion_pct": null,
+      "maximum_favourable_excursion_pct": null,
+      "hold_hours": null,
+      "correct": null,
+      "notes": null,
+      "evidence": {
+        "threecommas_deal_observed": true,
+        "deal_status": "bought",
+        "completed_safety_orders": 2,
+        "manual_annotation_present": false
+      }
+    },
+    {
+      "recommendation_id": "4570e9911164875e6fcf6792",
+      "recommendation_snapshot_id": "db4b6a13368301f47a6e",
+      "recommendation_recorded_at": "2026-08-06T13:21:32.216987+00:00",
+      "asset": "TAO",
+      "bot_name": "TAO Low Pullback Bot",
+      "recommended_action": "WAIT",
+      "recommendation_confidence": 22.2,
+      "market_regime": "Low",
+      "status": "PENDING",
+      "reconciliation_source": "recommendation_history",
+      "acted_on_at": null,
+      "closed_at": null,
+      "entry_price": null,
+      "exit_price": null,
+      "realised_profit_value": null,
+      "realised_profit_pct": null,
+      "maximum_adverse_excursion_pct": null,
+      "maximum_favourable_excursion_pct": null,
+      "hold_hours": null,
+      "correct": null,
+      "notes": null,
+      "evidence": {
+        "threecommas_deal_observed": false,
+        "deal_status": null,
+        "completed_safety_orders": null,
+        "manual_annotation_present": false
+      }
     }
   ],
   "analytics": {
-    "total_recommendations": 30,
-    "pending": 15,
-    "active": 15,
+    "total_recommendations": 32,
+    "pending": 16,
+    "active": 16,
     "completed": 0,
     "ignored": 0,
     "expired": 0,
@@ -891,7 +949,7 @@
     "average_realised_return_pct": null,
     "by_asset": {
       "TAO": {
-        "recommendations": 15,
+        "recommendations": 16,
         "completed": 0,
         "judged": 0,
         "correct": 0,
@@ -899,7 +957,7 @@
         "average_return_pct": null
       },
       "TEL": {
-        "recommendations": 15,
+        "recommendations": 16,
         "completed": 0,
         "judged": 0,
         "correct": 0,
@@ -909,7 +967,7 @@
     },
     "by_action": {
       "KEEP_RUNNING": {
-        "recommendations": 15,
+        "recommendations": 16,
         "completed": 0,
         "judged": 0,
         "correct": 0,
@@ -917,7 +975,7 @@
         "average_return_pct": null
       },
       "WAIT": {
-        "recommendations": 15,
+        "recommendations": 16,
         "completed": 0,
         "judged": 0,
         "correct": 0,
@@ -927,7 +985,7 @@
     },
     "by_regime": {
       "Low": {
-        "recommendations": 30,
+        "recommendations": 32,
         "completed": 0,
         "judged": 0,
         "correct": 0,
@@ -939,7 +997,7 @@
   "confidence_calibration": [
     {
       "band": "0-50%",
-      "recommendations": 15,
+      "recommendations": 16,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 25.0,
       "observed_accuracy_pct": null,
@@ -955,7 +1013,7 @@
     },
     {
       "band": "65-80%",
-      "recommendations": 15,
+      "recommendations": 16,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 72.5,
       "observed_accuracy_pct": null,
