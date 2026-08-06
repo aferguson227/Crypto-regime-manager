@@ -288,12 +288,12 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "34.0.0",
+    "version": "35.0.0",
     "mode": "Read-only explainable deployment intelligence",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
     "feature": "Advisory candidate validation and DCA improvement lab",
-    "release_name": "Unified Trading Workspace",
+    "release_name": "Professional Trading Workspace",
     "primary_navigation": [
       "Dashboard",
       "Workspace",
@@ -689,7 +689,7 @@
       "Forward Validation"
     ]
   },
-  "version": "34.0.0",
+  "version": "35.0.0",
   "research_queue": {
     "enabled": true,
     "max_assets_per_cycle": 3,
@@ -870,8 +870,8 @@
       "rejected"
     ]
   },
-  "application_version": "34.0.0",
-  "release_name": "Unified Trading Workspace",
+  "application_version": "35.0.0",
+  "release_name": "Professional Trading Workspace",
   "deployment_intelligence_v32_4": {
     "enabled": true,
     "advisory_only": true,
@@ -889,5 +889,18 @@
     "maximum_adaptive_influence_pct": 25,
     "automatic_live_changes": false,
     "manual_approval_required": true
+  },
+  "professional_workspace_v35": {
+    "enabled": true,
+    "read_only": true,
+    "manual_approval_required": true,
+    "core_questions": [
+      "which_bot",
+      "allocation",
+      "dca_settings",
+      "what_changed",
+      "why"
+    ],
+    "workflow_policy": "config/workflow_policy.json"
   }
 }

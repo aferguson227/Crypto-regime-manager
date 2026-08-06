@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "34.0.0",
+  "application_version": "35.0.0",
   "engine": "V33 Diagnostics and Acceptance Engine",
-  "generated_at": "2026-08-06T11:57:44.677203+00:00",
+  "generated_at": "2026-08-06T16:29:07.829400+00:00",
   "host": "Delimaferguson",
   "platform": "win32",
   "python": "3.14.6",
@@ -23,11 +23,11 @@
       "status": "pass",
       "message": "All release sources agree.",
       "evidence": [
-        "VERSION=34.0.0",
-        "release=34.0.0",
-        "docs=34.0.0",
-        "config=34.0.0",
-        "release_name=Unified Trading Workspace"
+        "VERSION=35.0.0",
+        "release=35.0.0",
+        "docs=35.0.0",
+        "config=35.0.0",
+        "release_name=Professional Trading Workspace"
       ],
       "required": true
     },
@@ -128,7 +128,7 @@
       "name": "Published JSON validity",
       "category": "data",
       "status": "pass",
-      "message": "31 JSON files parse successfully.",
+      "message": "32 JSON files parse successfully.",
       "evidence": [
         "account_intelligence.json",
         "adaptive_intelligence.json",
@@ -152,6 +152,7 @@
         "operating_state.json",
         "outcome_intelligence.json",
         "portfolio_intelligence.json",
+        "professional_workspace.json",
         "recommendation_history.json",
         "recommendation_intelligence.json",
         "research_analytics.json",
@@ -202,6 +203,8 @@
       "status": "pass",
       "message": "Workflow automation configuration is valid.",
       "evidence": [
+        "config/workflow_policy.json",
+        ".github/workflows/pages-deploy.yml",
         ".github/workflows/threecommas-update.yml",
         ".github/workflows/multi-coin-update.yml"
       ],
@@ -214,20 +217,21 @@
       "status": "pass",
       "message": "All required operating sources are present.",
       "evidence": [
-        "strategies.json (290916 bytes)",
-        "threecommas.json (5724 bytes)",
-        "configuration_reconciliation.json (11865 bytes)",
-        "operating_state.json (4284 bytes)",
-        "account_intelligence.json (1938 bytes)",
-        "capital_intelligence.json (3864 bytes)",
+        "strategies.json (298122 bytes)",
+        "threecommas.json (7040 bytes)",
+        "configuration_reconciliation.json (11929 bytes)",
+        "operating_state.json (4294 bytes)",
+        "account_intelligence.json (2717 bytes)",
+        "capital_intelligence.json (4001 bytes)",
         "deployment_intelligence.json (11808 bytes)",
         "recommendation_intelligence.json (14002 bytes)",
-        "outcome_intelligence.json (33976 bytes)",
-        "portfolio_intelligence.json (2434 bytes)",
-        "cloud_reliability.json (7160 bytes)",
-        "command_state.json (17018 bytes)",
-        "system_integrity.json (1152 bytes)",
-        "cloud_status.json (736 bytes)"
+        "outcome_intelligence.json (40123 bytes)",
+        "portfolio_intelligence.json (2427 bytes)",
+        "cloud_reliability.json (10413 bytes)",
+        "command_state.json (17249 bytes)",
+        "professional_workspace.json (7624 bytes)",
+        "system_integrity.json (1162 bytes)",
+        "cloud_status.json (755 bytes)"
       ],
       "required": true
     }

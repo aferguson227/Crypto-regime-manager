@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 ROOT=Path(__file__).parents[1]
 
 def test_single_dedicated_pages_publisher():
@@ -8,6 +8,7 @@ def test_single_dedicated_pages_publisher():
     assert 'needs: build' in pages
     assert 'group: crm-github-pages' in pages
     assert 'cancel-in-progress: false' in pages
+    assert 'timeout-minutes: 30' in pages
     assert "path: docs" in pages
     for name in ('threecommas-update.yml','multi-coin-update.yml'):
         text=(ROOT/'.github/workflows'/name).read_text(encoding='utf-8')
@@ -19,4 +20,3 @@ def test_cloud_update_uses_runtime_diagnostics_output():
     assert 'build_report, RUNTIME_OUTPUT' in text
     assert 'build_report, OUTPUT' not in text
     assert 'RUNTIME_OUTPUT.write_text' in text
-

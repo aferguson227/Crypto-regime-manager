@@ -1,3 +1,4 @@
+# Build System 2.1 compatibility marker; superseded by Build System 3.0
 [CmdletBinding()]
 param(
     [switch]$Screenshots,
@@ -59,7 +60,7 @@ function Run-Step {
 }
 
 try {
-    Write-Host 'Crypto Regime Manager Build System 2.1' -ForegroundColor Green
+    Write-Host 'Crypto Regime Manager Build System 3.0' -ForegroundColor Green
     Write-Host "Project: $ProjectPath"
     Write-Host "Log:     $log"
 
@@ -74,7 +75,7 @@ try {
             throw 'Git is unavailable'
         }
 
-        foreach ($generated in @('docs/diagnostics.json')) { & git -C $ProjectPath restore --worktree -- $generated 2>$null }
+        foreach ($generated in @('docs/diagnostics.json','docs/diagnostics_runtime.json')) { & git -C $ProjectPath restore --worktree -- $generated 2>$null }
         $dirty = (& git -C $ProjectPath status --porcelain | Out-String).Trim()
         if ($dirty -and -not $AllowDirty) {
             throw 'Repository has uncommitted changes. Commit them or rerun with -AllowDirty.'
@@ -89,6 +90,10 @@ try {
         if ([string]::IsNullOrWhiteSpace($script:v)) {
             throw 'VERSION file is empty.'
         }
+    }
+
+    Run-Step -Name 'Workflow policy validation' -Action {
+        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.workflow_policy') -WorkingDirectory $ProjectPath -LogPath $log
     }
 
     Run-Step -Name 'Python tests' -Action {
@@ -134,7 +139,7 @@ finally {
 
     $report = [ordered]@{
         schema_version = '1.0'
-        build_system = 'CRM Build System 2.1'
+        build_system = 'CRM Build System 3.0'
         version = $v
         result = $result
         started_at = $started.ToString('o')

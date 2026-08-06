@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "application_version": "35.0.0",
+  "publisher_workflow": ".github/workflows/pages-deploy.yml",
+  "publisher": {
+    "artifact_action": "actions/upload-pages-artifact@v4",
+    "deploy_action": "actions/deploy-pages@v4",
+    "needs": "build",
+    "concurrency_group": "crm-github-pages",
+    "cancel_in_progress": false,
+    "deploy_timeout_minutes": 30,
+    "publish_path": "docs"
+  },
+  "data_workflows": [
+    {
+      "path": ".github/workflows/threecommas-update.yml",
+      "module": "python -m scripts.threecommas_sync",
+      "cron": "37 * * * *"
+    },
+    {
+      "path": ".github/workflows/multi-coin-update.yml",
+      "module": "python -m scripts.cloud_update",
+      "cron": "18 0,4,8,12,16,20 * * *"
+    }
+  ],
+  "forbidden_in_data_workflows": [
+    "actions/deploy-pages",
+    "actions/upload-pages-artifact"
+  ]
+}

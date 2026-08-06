@@ -90,6 +90,8 @@ if __name__ == '__main__':
         RUNTIME_OUTPUT.write_text(json.dumps(build_report(full=False), indent=2), encoding='utf-8')
         from scripts.command_state_engine import main as command_state
         command_state()
+        from scripts.professional_workspace_engine import main as professional_workspace
+        professional_workspace()
         # Refresh diagnostics after the canonical command state is present.
         RUNTIME_OUTPUT.write_text(json.dumps(build_report(full=False), indent=2), encoding='utf-8')
         raise SystemExit(0)

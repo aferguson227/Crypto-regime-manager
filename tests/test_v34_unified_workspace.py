@@ -3,9 +3,9 @@ from pathlib import Path
 ROOT=Path(__file__).parents[1]
 
 def test_v34_release_and_unified_routes():
-    assert (ROOT/'VERSION').read_text(encoding="utf-8").strip()=='34.0.0'
+    assert (ROOT/'VERSION').read_text(encoding="utf-8").strip()=='35.0.0'
     release=json.loads((ROOT/'app/release.json').read_text(encoding="utf-8"))
-    assert release['release_name']=='Unified Trading Workspace'
+    assert release['release_name']=='Professional Trading Workspace'
     routes=json.loads((ROOT/'config/routes.json').read_text(encoding="utf-8"))['routes']
     primary={r['path'] for r in routes if r.get('primary')}
     assert {'index.html','bots.html','portfolio.html','market.html','cloud_reliability.html','diagnostics.html'} <= primary
