@@ -73,6 +73,8 @@ if __name__ == '__main__':
         deployment_intelligence()
         from scripts.recommendation_intelligence_engine import main as recommendation_intelligence
         recommendation_intelligence()
+        from scripts.outcome_intelligence_engine import main as outcome_intelligence
+        outcome_intelligence()
         from scripts.diagnostics_engine import build_report, OUTPUT
         OUTPUT.write_text(json.dumps(build_report(full=False), indent=2), encoding='utf-8')
         write_status('healthy', started)
