@@ -174,7 +174,7 @@ def workflow_automation_check() -> Check:
     return Check('cloud.workflows','GitHub workflow automation','cloud','fail' if findings else 'pass','Workflow automation configuration is valid.' if not findings else 'Workflow automation problems detected.',findings or evidence)
 
 def source_checks() -> list[Check]:
-    required=['strategies.json','threecommas.json','configuration_reconciliation.json','operating_state.json','account_intelligence.json','capital_intelligence.json','deployment_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','portfolio_intelligence.json','cloud_reliability.json','command_state.json','professional_workspace.json','system_integrity.json','cloud_status.json']
+    required=['strategies.json','threecommas.json','configuration_reconciliation.json','operating_state.json','account_intelligence.json','capital_intelligence.json','deployment_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','portfolio_intelligence.json','cloud_reliability.json','command_state.json','professional_workspace.json','operational_health.json','issues.json','performance_history.json','system_integrity.json','cloud_status.json']
     missing=[x for x in required if not (DOCS/x).exists()]
     src=[]
     for name in required:
@@ -277,7 +277,7 @@ def build_report(full:bool=False) -> dict[str,Any]:
     else: state='healthy'
     release=read_json(ROOT/'app'/'release.json')
     return {
-        'schema_version':'1.0','application_version':release['version'],'engine':'V33 Diagnostics and Acceptance Engine','generated_at':utcnow(),'host':socket.gethostname(),'platform':sys.platform,'python':sys.version.split()[0],
+        'schema_version':'1.0','application_version':release['version'],'engine':'V37.1 Operational Intelligence and Diagnostics Engine','generated_at':utcnow(),'host':socket.gethostname(),'platform':sys.platform,'python':sys.version.split()[0],
         'mode':'read_only_observability','overall':{'state':state,'score':score,'required_passed':passed,'required_total':len(required),'warnings':sum(c.status=='warn' for c in checks),'failures':sum(c.status=='fail' for c in checks)},
         'checks':[asdict(c) for c in checks],
         'privacy':{'secrets_included':False,'credentials_included':False,'raw_private_keys_included':False},

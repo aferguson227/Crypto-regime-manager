@@ -86,6 +86,8 @@ if __name__ == '__main__':
         market_intelligence()
         from scripts.cloud_reliability_engine import main as cloud_reliability
         cloud_reliability()
+        from scripts.operational_intelligence_engine import main as operational_intelligence
+        operational_intelligence()
         from scripts.diagnostics_engine import build_report, RUNTIME_OUTPUT
         RUNTIME_OUTPUT.write_text(json.dumps(build_report(full=False), indent=2), encoding='utf-8')
         from scripts.command_state_engine import main as command_state

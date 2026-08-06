@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "37.0.0",
-  "engine": "V33 Diagnostics and Acceptance Engine",
-  "generated_at": "2026-08-06T18:18:28.370479+00:00",
+  "application_version": "37.1.0",
+  "engine": "V37.1 Operational Intelligence and Diagnostics Engine",
+  "generated_at": "2026-08-06T19:27:17.486016+00:00",
   "host": "Delimaferguson",
   "platform": "win32",
   "python": "3.14.6",
@@ -23,11 +23,11 @@
       "status": "pass",
       "message": "All release sources agree.",
       "evidence": [
-        "VERSION=37.0.0",
-        "release=37.0.0",
-        "docs=37.0.0",
-        "config=37.0.0",
-        "release_name=Visual Decision Workspace"
+        "VERSION=37.1.0",
+        "release=37.1.0",
+        "docs=37.1.0",
+        "config=37.1.0",
+        "release_name=Operational Intelligence & Diagnostics"
       ],
       "required": true
     },
@@ -128,7 +128,7 @@
       "name": "Published JSON validity",
       "category": "data",
       "status": "pass",
-      "message": "32 JSON files parse successfully.",
+      "message": "35 JSON files parse successfully.",
       "evidence": [
         "account_intelligence.json",
         "adaptive_intelligence.json",
@@ -148,9 +148,12 @@
         "diagnostics_runtime.json",
         "health_history.json",
         "import_registry.json",
+        "issues.json",
         "market_intelligence.json",
         "operating_state.json",
+        "operational_health.json",
         "outcome_intelligence.json",
+        "performance_history.json",
         "portfolio_intelligence.json",
         "professional_workspace.json",
         "recommendation_history.json",
@@ -225,12 +228,15 @@
         "capital_intelligence.json (4001 bytes)",
         "deployment_intelligence.json (11808 bytes)",
         "recommendation_intelligence.json (14002 bytes)",
-        "outcome_intelligence.json (50368 bytes)",
+        "outcome_intelligence.json (56515 bytes)",
         "portfolio_intelligence.json (2427 bytes)",
         "cloud_reliability.json (10409 bytes)",
         "command_state.json (17249 bytes)",
         "professional_workspace.json (9619 bytes)",
-        "system_integrity.json (1153 bytes)",
+        "operational_health.json (5231 bytes)",
+        "issues.json (1646 bytes)",
+        "performance_history.json (1527 bytes)",
+        "system_integrity.json (1169 bytes)",
         "cloud_status.json (755 bytes)"
       ],
       "required": true
