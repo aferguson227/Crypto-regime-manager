@@ -1,29 +1,75 @@
 {
-  "schema_version": "1.0",
-  "application_version": "33.0.0",
-  "generated_at": "2026-08-06T09:43:15.529831+00:00",
-  "snapshot_id": "e462482d7379c4bcdec5",
-  "status": "FAILURE",
+  "schema_version": "2.0",
+  "application_version": "33.0.2",
+  "generated_at": "2026-08-06T10:11:05.157402+00:00",
+  "snapshot_id": "a3486ee9ec1c08fe7ae4",
+  "status": "WARNING",
+  "pipelines": {
+    "threecommas": {
+      "name": "3Commas read-only sync",
+      "state": "unknown",
+      "last_attempt_at": "2026-08-05T13:16:41.429938+00:00",
+      "last_attempt_age_hours": 20.91,
+      "last_success_at": null,
+      "last_success_age_hours": null,
+      "expected_cadence_hours": 1,
+      "warning_after_hours": 2,
+      "failure_after_hours": 6,
+      "source_status": "ok",
+      "message": "Read-only 3Commas data updated successfully.",
+      "endpoint_diagnostics": {
+        "results": {},
+        "failure_count": 0,
+        "failures": [],
+        "primary_failure_category": null
+      }
+    },
+    "application": {
+      "name": "Main market/application refresh",
+      "state": "healthy",
+      "last_attempt_at": "2026-08-06T07:43:08.293659+00:00",
+      "last_attempt_age_hours": 2.47,
+      "last_success_at": "2026-08-06T07:43:12.290564+00:00",
+      "last_success_age_hours": 2.46,
+      "expected_cadence_hours": 4,
+      "warning_after_hours": 6,
+      "failure_after_hours": 12,
+      "source_status": "healthy",
+      "message": null
+    }
+  },
   "sources": [
     {
       "name": "3Commas read-only sync",
-      "observed_at": "2026-08-05T13:16:41.429938+00:00",
-      "age_hours": 20.44,
+      "state": "unknown",
+      "last_attempt_at": "2026-08-05T13:16:41.429938+00:00",
+      "last_attempt_age_hours": 20.91,
+      "last_success_at": null,
+      "last_success_age_hours": null,
       "expected_cadence_hours": 1,
-      "warning_after_hours": 1.5,
-      "failure_after_hours": 3,
-      "state": "failure",
-      "source_status": "ok"
+      "warning_after_hours": 2,
+      "failure_after_hours": 6,
+      "source_status": "ok",
+      "message": "Read-only 3Commas data updated successfully.",
+      "endpoint_diagnostics": {
+        "results": {},
+        "failure_count": 0,
+        "failures": [],
+        "primary_failure_category": null
+      }
     },
     {
       "name": "Main market/application refresh",
-      "observed_at": "2026-08-06T07:43:12.290564+00:00",
-      "age_hours": 2.0,
-      "expected_cadence_hours": 4,
-      "warning_after_hours": 5,
-      "failure_after_hours": 9,
       "state": "healthy",
-      "source_status": "healthy"
+      "last_attempt_at": "2026-08-06T07:43:08.293659+00:00",
+      "last_attempt_age_hours": 2.47,
+      "last_success_at": "2026-08-06T07:43:12.290564+00:00",
+      "last_success_age_hours": 2.46,
+      "expected_cadence_hours": 4,
+      "warning_after_hours": 6,
+      "failure_after_hours": 12,
+      "source_status": "healthy",
+      "message": null
     }
   ],
   "threecommas_endpoints": {},

@@ -1,19 +1,19 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.0",
+  "application_version": "33.0.2",
   "engine": "V33 Diagnostics and Acceptance Engine",
-  "generated_at": "2026-08-06T09:45:27.601726+00:00",
+  "generated_at": "2026-08-06T10:11:07.096477+00:00",
   "host": "Delimaferguson",
   "platform": "win32",
   "python": "3.14.6",
   "mode": "read_only_observability",
   "overall": {
-    "state": "fail",
-    "score": 82,
+    "state": "healthy",
+    "score": 100,
     "required_passed": 9,
-    "required_total": 11,
+    "required_total": 9,
     "warnings": 0,
-    "failures": 2
+    "failures": 0
   },
   "checks": [
     {
@@ -23,10 +23,11 @@
       "status": "pass",
       "message": "All release sources agree.",
       "evidence": [
-        "VERSION=33.0.0",
-        "release=33.0.0",
-        "docs=33.0.0",
-        "config=33.0.0"
+        "VERSION=33.0.2",
+        "release=33.0.2",
+        "docs=33.0.2",
+        "config=33.0.2",
+        "release_name=Trading Command Centre - Operational Stability"
       ],
       "required": true
     },
@@ -216,46 +217,12 @@
         "capital_intelligence.json (5390 bytes)",
         "deployment_intelligence.json (11828 bytes)",
         "recommendation_intelligence.json (14049 bytes)",
-        "outcome_intelligence.json (21674 bytes)",
+        "outcome_intelligence.json (25780 bytes)",
         "portfolio_intelligence.json (4115 bytes)",
-        "cloud_reliability.json (1709 bytes)",
+        "cloud_reliability.json (3292 bytes)",
         "command_state.json (18903 bytes)",
-        "system_integrity.json (1118 bytes)",
+        "system_integrity.json (1150 bytes)",
         "cloud_status.json (756 bytes)"
-      ],
-      "required": true
-    },
-    {
-      "id": "acceptance.tests",
-      "name": "Python test suite",
-      "category": "acceptance",
-      "status": "fail",
-      "message": "Exited with code 1.",
-      "evidence": [
-        "    def test_diagnostics_report_is_healthy_and_read_only():",
-        "        report=json.loads((ROOT/'docs/diagnostics.json').read_text(encoding='utf-8'))",
-        ">       assert report['application_version']=='33.0.0'",
-        "E       AssertionError: assert '32.9.0' == '33.0.0'",
-        "E         ",
-        "E         - 33.0.0",
-        "E         + 32.9.0",
-        "",
-        "tests\\test_v32_1_diagnostics.py:19: AssertionError",
-        "=========================== short test summary info ===========================",
-        "FAILED tests/test_v32_1_diagnostics.py::test_diagnostics_report_is_healthy_and_read_only",
-        "1 failed, 83 passed in 0.76s"
-      ],
-      "required": true
-    },
-    {
-      "id": "acceptance.publish",
-      "name": "Publication validator",
-      "category": "acceptance",
-      "status": "fail",
-      "message": "Exited with code 1.",
-      "evidence": [
-        "PUBLISH VALIDATION FAILED",
-        " - docs/diagnostics.json reports version 32.9.0, expected 33.0.0"
       ],
       "required": true
     }

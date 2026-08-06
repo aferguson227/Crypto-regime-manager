@@ -215,12 +215,25 @@ def sanitise_account(account: dict[str, Any]) -> dict[str, Any]:
         "balance_source": "3Commas read-only account payload",
     }
 
+def load_previous_payload() -> dict[str, Any]:
+    try:
+        value=json.loads(OUTPUT_PATH.read_text(encoding="utf-8-sig"))
+        return value if isinstance(value,dict) else {}
+    except Exception:
+        return {}
+
+def success_timestamp(previous: dict[str, Any], status: str, attempted_at: str) -> str | None:
+    if status in {"ok", "partial"}:
+        return attempted_at
+    return previous.get("last_success_at") or previous.get("generated_at")
+
 def endpoint_result(path: str, status: str, category: str, message: str, http_status: int | None = None, records: int | None = None) -> dict[str, Any]:
     return {"path": path, "status": status, "category": category, "message": message, "http_status": http_status, "records": records, "observed_at": now_iso()}
 
 def empty_payload(status: str, message: str, publish_mode: str = "masked", endpoints: dict[str, Any] | None = None) -> dict[str, Any]:
     return {
         "version": VERSION, "authentication": "RSA self-generated", "generated_at": now_iso(),
+        "last_attempt_at": now_iso(), "last_success_at": None,
         "status": status, "message": message, "publish_mode": publish_mode, "read_only": True,
         "endpoint_diagnostics": endpoints or {}, "accounts": [], "assets": {},
     }
@@ -240,6 +253,8 @@ def attempt_endpoint(name: str, path: str, params: dict[str, Any], api_key: str,
 
 
 def main() -> int:
+    previous = load_previous_payload()
+    attempted_at = now_iso()
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     tcfg = config.get("threecommas", {})
     publish_mode = str(tcfg.get("publish_mode", "masked")).lower()
@@ -247,12 +262,14 @@ def main() -> int:
     api_key=os.getenv("THREECOMMAS_API_KEY","").strip(); private_key_b64=os.getenv("THREECOMMAS_RSA_PRIVATE_KEY_B64","").strip()
     if not api_key or not private_key_b64:
         payload=empty_payload("not_configured","Add THREECOMMAS_API_KEY and THREECOMMAS_RSA_PRIVATE_KEY_B64 as GitHub Actions secrets.",publish_mode)
+        payload["last_attempt_at"]=attempted_at; payload["last_success_at"]=previous.get("last_success_at") or previous.get("generated_at")
         OUTPUT_PATH.write_text(json.dumps(payload,indent=2),encoding="utf-8");print(json.dumps(payload,indent=2));return 0
     endpoints: dict[str, Any]={}
     try:
         private_key=load_private_key(private_key_b64)
     except Exception as exc:
         payload=empty_payload("error",str(exc),publish_mode,{"key":endpoint_result("local","fail","private_key_invalid",str(exc))})
+        payload["last_attempt_at"]=attempted_at; payload["last_success_at"]=previous.get("last_success_at") or previous.get("generated_at")
         OUTPUT_PATH.write_text(json.dumps(payload,indent=2),encoding="utf-8");print(json.dumps(payload,indent=2));return 1
     validation=attempt_endpoint("validate","/public/api/ver1/validate",{},api_key,private_key,endpoints)
     authenticated=isinstance(validation,dict) and validation.get("valid") is True
@@ -278,7 +295,7 @@ def main() -> int:
     failed=[name for name,row in endpoints.items() if row.get("status")!="pass"]
     status="ok" if not failed else "partial" if assets or accounts_raw or authenticated else "error"
     message="All read-only 3Commas endpoints updated successfully." if status=="ok" else f"Read-only sync completed with endpoint issues: {', '.join(failed)}."
-    payload={"version":VERSION,"authentication":"RSA self-generated","generated_at":now_iso(),"status":status,"message":message,"publish_mode":publish_mode,"read_only":True,"endpoint_diagnostics":endpoints,"accounts":[sanitise_account(a) for a in accounts_raw if isinstance(a,dict)],"assets":assets}
+    payload={"version":VERSION,"authentication":"RSA self-generated","generated_at":attempted_at,"last_attempt_at":attempted_at,"last_success_at":success_timestamp(previous,status,attempted_at),"status":status,"message":message,"publish_mode":publish_mode,"read_only":True,"endpoint_diagnostics":endpoints,"accounts":[sanitise_account(a) for a in accounts_raw if isinstance(a,dict)],"assets":assets}
     OUTPUT_PATH.parent.mkdir(parents=True,exist_ok=True);OUTPUT_PATH.write_text(json.dumps(payload,indent=2),encoding="utf-8");print(json.dumps(payload,indent=2))
     # Partial data is publishable and actionable; only complete authentication failure fails the workflow.
     return 0 if status in {"ok","partial"} else 1

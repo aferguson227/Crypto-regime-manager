@@ -9,6 +9,8 @@ def read(path:Path): return json.loads(path.read_text(encoding='utf-8-sig'))
 
 def main()->int:
     expected=(ROOT/'VERSION').read_text(encoding='utf-8').strip()
+    release=read(ROOT/'app/release.json')
+    expected_name=str(release.get('release_name') or '')
     errors=[]; checked=[]
     for path in sorted(DOCS.glob('*.json')):
         try: value=read(path)
@@ -22,6 +24,13 @@ def main()->int:
         for field,actual in candidates:
             checked.append(f'{path.name}:{field}')
             if str(actual)!=expected: errors.append(f'{path.name} {field}={actual!r}, expected {expected!r}')
+        name_candidates=[]
+        if path.name == 'version.json' and 'release_name' in value: name_candidates.append(('release_name',value.get('release_name')))
+        if path.name == 'system_integrity.json' and isinstance(value.get('release'),dict): name_candidates.append(('release.release_name',value['release'].get('release_name')))
+        if path.name == 'command_state.json' and 'release_name' in value: name_candidates.append(('release_name',value.get('release_name')))
+        for field,actual in name_candidates:
+            checked.append(f'{path.name}:{field}')
+            if str(actual)!=expected_name: errors.append(f'{path.name} {field}={actual!r}, expected {expected_name!r}')
     if errors:
         print('RELEASE METADATA VALIDATION FAILED')
         for error in errors: print(' -',error)

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "33.0.0",
-  "generated_at": "2026-08-06T09:43:16.512773+00:00",
-  "snapshot_id": "7da3f8499fcd395703a9bff5",
+  "application_version": "33.0.2",
+  "generated_at": "2026-08-06T10:11:05.363048+00:00",
+  "snapshot_id": "3604b408d860c83aeefdc679",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -179,7 +179,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "96c211149c4b095cb5a786f2",
+      "recommendation_id": "60dafb7e1cdd943f9ead9990",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
@@ -333,7 +333,7 @@
       }
     },
     {
-      "recommendation_id": "d7b98f9a9e806d24188f63d6",
+      "recommendation_id": "5e690c6afc0c2abf94136368",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -557,7 +557,7 @@
     }
   },
   "cloud": {
-    "overall_status": "FAILURE",
+    "overall_status": "WARNING",
     "threecommas": {
       "status": "ok",
       "generated_at": "2026-08-05T13:16:41.429938+00:00",
@@ -570,18 +570,18 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "FAILURE"
+    "cloud_status": "WARNING"
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "235e2766b2cf0d6bfea8",
-    "capital": "5f0b01eabe4371754b1f",
-    "deployment": "a4682f3750e19e1fa809",
-    "recommendations": "52becf99dd48c8afc20e",
+    "portfolio": "f3750722ea344c049ace",
+    "capital": "0ea7d74411b155719304",
+    "deployment": "b1bb74366187f230d186",
+    "recommendations": "f7504e9cb5da75dcb04f",
     "adaptive": "f9316b9dca4bec968d56",
-    "outcomes": "2026-08-06T09:43:14.988800+00:00",
-    "cloud": "e462482d7379c4bcdec5",
-    "operating": "35fd4bf9776b45fe6cdc"
+    "outcomes": "2026-08-06T10:11:04.562205+00:00",
+    "cloud": "a3486ee9ec1c08fe7ae4",
+    "operating": "db0dcfcf48d48a8f4366"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

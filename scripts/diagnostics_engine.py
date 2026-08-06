@@ -28,7 +28,8 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-OUTPUT = DOCS / "diagnostics.json"
+RELEASE_OUTPUT = DOCS / "diagnostics.json"
+RUNTIME_OUTPUT = DOCS / "diagnostics_runtime.json"
 EXPORT_DIR = ROOT / "diagnostics_exports"
 MOJIBAKE = ("â€™", "â€œ", "â€", "Â·", "â†", "ï¿½", "\ufffd")
 SECRET_PATTERNS = (
@@ -77,8 +78,9 @@ def check_release() -> Check:
         doc=read_json(DOCS/'version.json')
         config=read_json(ROOT/'config.json')
         values=[version,release.get('version'),doc.get('version'),config.get('version')]
-        evidence=[f"VERSION={values[0]}",f"release={values[1]}",f"docs={values[2]}",f"config={values[3]}"]
-        ok=len(set(values))==1 and values[0]==str(release.get('version'))
+        names=[release.get('release_name'),doc.get('release_name'),config.get('app',{}).get('release_name')]
+        evidence=[f"VERSION={values[0]}",f"release={values[1]}",f"docs={values[2]}",f"config={values[3]}",f"release_name={names[0]}"]
+        ok=len(set(values))==1 and values[0]==str(release.get('version')) and len(set(str(x) for x in names))==1
         return Check('release.identity','Release identity','release','pass' if ok else 'fail','All release sources agree.' if ok else 'Release version sources disagree.',evidence)
     except Exception as exc:
         return Check('release.identity','Release identity','release','fail',str(exc),evidence)
@@ -252,10 +254,10 @@ def export_bundle(report:dict[str,Any],screenshots:bool) -> Path:
             routes=[r['path'] for r in read_json(ROOT/'config'/'routes.json')['routes'] if r.get('primary')]
             shot_names,shot_errors=capture_screenshots(routes,shotdir)
         report['browser_capture']={'screenshots':shot_names,'warnings':shot_errors}
-        OUTPUT.write_text(json.dumps(report,indent=2),encoding='utf-8')
+        RUNTIME_OUTPUT.write_text(json.dumps(report,indent=2),encoding='utf-8')
         manifest={'created_at':utcnow(),'application_version':report['application_version'],'files':[],'redaction':'Secret-like files and values are excluded.'}
         with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as zf:
-            selected=['diagnostics.json','system_integrity.json','configuration_reconciliation.json','operating_state.json','version.json','cloud_status.json','threecommas.json','strategies.json','coin_discovery.json','candidate_validation.json','walk_forward_registry.json','research_analytics.json','market_intelligence.json','portfolio_intelligence.json','adaptive_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','command_state.json']
+            selected=['diagnostics.json','diagnostics_runtime.json','system_integrity.json','configuration_reconciliation.json','operating_state.json','version.json','cloud_status.json','threecommas.json','strategies.json','coin_discovery.json','candidate_validation.json','walk_forward_registry.json','research_analytics.json','market_intelligence.json','portfolio_intelligence.json','adaptive_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','command_state.json']
             for name in selected:
                 path=DOCS/name
                 if path.exists(): safe_add(zf,path,f'data/{name}');manifest['files'].append(f'data/{name}')
@@ -288,9 +290,16 @@ def build_report(full:bool=False) -> dict[str,Any]:
 
 
 def main() -> int:
-    parser=argparse.ArgumentParser();parser.add_argument('--full',action='store_true');parser.add_argument('--export',action='store_true');parser.add_argument('--screenshots',action='store_true');args=parser.parse_args()
-    report=build_report(args.full);OUTPUT.write_text(json.dumps(report,indent=2),encoding='utf-8')
-    print(f"Diagnostics: {report['overall']['state'].upper()} - {report['overall']['score']}%")
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--full',action='store_true')
+    parser.add_argument('--export',action='store_true')
+    parser.add_argument('--screenshots',action='store_true')
+    parser.add_argument('--release-snapshot',action='store_true',help='Update the versioned release diagnostics snapshot.')
+    args=parser.parse_args()
+    report=build_report(args.full)
+    target=RELEASE_OUTPUT if args.release_snapshot else RUNTIME_OUTPUT
+    target.write_text(json.dumps(report,indent=2),encoding='utf-8')
+    print(f"Diagnostics: {report['overall']['state'].upper()} - {report['overall']['score']}% ({target.name})")
     for c in report['checks']: print(f"[{c['status'].upper():4}] {c['name']}: {c['message']}")
     if args.export:
         out=export_bundle(report,args.screenshots);print(f"Export created: {out}")

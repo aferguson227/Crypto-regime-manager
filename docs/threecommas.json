@@ -1,152 +1,63 @@
 {
-  "version": "33.0.0",
+  "version": "6.1.0",
   "authentication": "RSA self-generated",
-  "generated_at": "2026-08-06T09:55:13.968808+00:00",
-  "status": "partial",
-  "message": "Read-only sync completed with endpoint issues: accounts.",
+  "generated_at": "2026-08-05T13:16:41.429938+00:00",
+  "status": "ok",
+  "message": "Read-only 3Commas data updated successfully.",
   "publish_mode": "masked",
   "read_only": true,
-  "endpoint_diagnostics": {
-    "validate": {
-      "path": "/public/api/ver1/validate",
-      "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
-      "http_status": null,
-      "records": null,
-      "observed_at": "2026-08-06T09:55:13.336853+00:00"
-    },
-    "accounts": {
-      "path": "/public/api/ver1/accounts",
-      "status": "fail",
-      "category": "permission_denied",
-      "message": "3Commas HTTP 403: {'error': 'Forbidden', 'error_description': 'Api key not authorized for this action'}",
-      "http_status": 403,
-      "records": null,
-      "observed_at": "2026-08-06T09:55:13.518418+00:00"
-    },
-    "bots": {
-      "path": "/public/api/ver1/bots",
-      "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
-      "http_status": null,
-      "records": 4,
-      "observed_at": "2026-08-06T09:55:13.753003+00:00"
-    },
-    "deals": {
-      "path": "/public/api/ver1/deals",
-      "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
-      "http_status": null,
-      "records": 1,
-      "observed_at": "2026-08-06T09:55:13.968592+00:00"
-    }
-  },
-  "accounts": [],
   "assets": {
     "TEL": {
       "bots": [
         {
-          "bot_id": 16945275,
-          "account_id": 32632134,
           "name": "TEL DCA - High Bear",
           "pair": "USDT_TEL",
           "enabled": true,
           "active_deals": 0,
           "max_active_deals": 1,
-          "base_order_volume": 100.0,
-          "safety_order_volume": 100.0,
           "take_profit_pct": 1.5,
           "max_safety_orders": 5,
-          "max_active_safety_orders": 3,
-          "safety_order_deviation_pct": 1.2,
-          "step_scale": 1.0,
-          "volume_scale": 1.8,
-          "start_condition": "long",
-          "start_order_type": "limit",
-          "safety_order_type": null,
-          "trailing_enabled": false,
-          "trailing_deviation": 0.2,
-          "cooldown_seconds": 0,
-          "reinvesting_percentage": 100.0,
-          "theoretical_max_dca_capital": 2336.96
+          "active_safety_orders": 3
         },
         {
-          "bot_id": 16945274,
-          "account_id": 32632134,
           "name": "TEL DCA - High Bull",
           "pair": "USDT_TEL",
           "enabled": true,
           "active_deals": 0,
           "max_active_deals": 1,
-          "base_order_volume": 100.0,
-          "safety_order_volume": 100.0,
           "take_profit_pct": 2.0,
           "max_safety_orders": 8,
-          "max_active_safety_orders": 4,
-          "safety_order_deviation_pct": 1.2,
-          "step_scale": 1.0,
-          "volume_scale": 1.4,
-          "start_condition": "long",
-          "start_order_type": "limit",
-          "safety_order_type": null,
-          "trailing_enabled": false,
-          "trailing_deviation": 0.2,
-          "cooldown_seconds": 0,
-          "reinvesting_percentage": 100.0,
-          "theoretical_max_dca_capital": 3539.4726399999986
+          "active_safety_orders": 4
         },
         {
-          "bot_id": 16945273,
-          "account_id": 32632134,
           "name": "TEL DCA - Medium Volatility",
           "pair": "USDT_TEL",
           "enabled": true,
           "active_deals": 0,
           "max_active_deals": 1,
-          "base_order_volume": 100.0,
-          "safety_order_volume": 100.0,
           "take_profit_pct": 1.5,
           "max_safety_orders": 5,
-          "max_active_safety_orders": 3,
-          "safety_order_deviation_pct": 5.0,
-          "step_scale": 1.2,
-          "volume_scale": 1.4,
-          "start_condition": "long",
-          "start_order_type": "limit",
-          "safety_order_type": null,
-          "trailing_enabled": false,
-          "trailing_deviation": 0.2,
-          "cooldown_seconds": 0,
-          "reinvesting_percentage": 100.0,
-          "theoretical_max_dca_capital": 1194.5599999999997
+          "active_safety_orders": 3
         },
         {
-          "bot_id": 16945272,
-          "account_id": 32632134,
           "name": "TEL DCA - Low Volatility",
           "pair": "USDT_TEL",
           "enabled": true,
           "active_deals": 1,
           "max_active_deals": 1,
-          "base_order_volume": 100.0,
-          "safety_order_volume": 100.0,
           "take_profit_pct": 1.5,
           "max_safety_orders": 6,
-          "max_active_safety_orders": 3,
-          "safety_order_deviation_pct": 1.2,
-          "step_scale": 1.0,
-          "volume_scale": 1.6,
-          "start_condition": "long",
-          "start_order_type": "limit",
-          "safety_order_type": null,
-          "trailing_enabled": false,
-          "trailing_deviation": 0.2,
-          "cooldown_seconds": 0,
-          "reinvesting_percentage": 100.0,
-          "theoretical_max_dca_capital": 2729.5360000000005
+          "active_safety_orders": 3
+        },
+        {
+          "name": "TEL DCA",
+          "pair": "USDT_TEL",
+          "enabled": false,
+          "active_deals": 0,
+          "max_active_deals": 1,
+          "take_profit_pct": 0.6,
+          "max_safety_orders": 5,
+          "active_safety_orders": 5
         }
       ],
       "deals": [
@@ -154,16 +65,38 @@
           "bot_name": "TEL DCA - Low Volatility",
           "pair": "USDT_TEL",
           "status": "bought",
-          "created_at": "2026-08-06T08:14:19.281Z",
-          "profit_pct": -1.24,
+          "created_at": "2026-08-05T11:10:19.507Z",
+          "profit_pct": -0.84,
           "completed_safety_orders": 2,
           "max_safety_orders": 6,
-          "active_safety_orders": 3,
-          "bot_id": 16945272,
-          "capital_used": 255493.0,
-          "placed_order_reserve": 0.0
+          "active_safety_orders": 3
         }
       ]
+    },
+    "TAO": {
+      "bots": [
+        {
+          "name": "TAO DCA",
+          "pair": "USDT_TAO",
+          "enabled": false,
+          "active_deals": 0,
+          "max_active_deals": 1,
+          "take_profit_pct": 0.6,
+          "max_safety_orders": 5,
+          "active_safety_orders": 2
+        },
+        {
+          "name": "Core liquid bot",
+          "pair": "USDT_DASH, USDT_DEXE, USDT_ETH, USDT_TAO",
+          "enabled": false,
+          "active_deals": 0,
+          "max_active_deals": 4,
+          "take_profit_pct": null,
+          "max_safety_orders": 3,
+          "active_safety_orders": 1
+        }
+      ],
+      "deals": []
     }
   }
 }

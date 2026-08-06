@@ -1,4 +1,4 @@
-# CRM Build System 2.0
+# CRM Build System 2.1
 
 The build system makes testing the source repository a mandatory gate before a release ZIP can be created.
 
@@ -23,4 +23,4 @@ The build and diagnostic tools are observational. They do not start or stop bots
 
 ## V2.0
 
-Build System 2.0 validates canonical release metadata, restores generated acceptance artefacts, keeps application and build outcomes distinct, and preserves strict read-only safeguards.
+Build System 2.1 validates canonical release metadata, restores generated acceptance artefacts, keeps application and build outcomes distinct, and preserves strict read-only safeguards.
