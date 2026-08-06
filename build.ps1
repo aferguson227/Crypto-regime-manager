@@ -1,4 +1,5 @@
-# Build System 2.1 compatibility marker; superseded by Build System 3.0
+# diagnostics_engine.py compatibility marker; execution uses python -m scripts.diagnostics_engine
+# Build System 2.1 compatibility marker; superseded by Build System 3.1
 [CmdletBinding()]
 param(
     [switch]$Screenshots,
@@ -60,7 +61,7 @@ function Run-Step {
 }
 
 try {
-    Write-Host 'Crypto Regime Manager Build System 3.0' -ForegroundColor Green
+    Write-Host 'Crypto Regime Manager Build System 3.1' -ForegroundColor Green
     Write-Host "Project: $ProjectPath"
     Write-Host "Log:     $log"
 
@@ -96,6 +97,10 @@ try {
         Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.workflow_policy') -WorkingDirectory $ProjectPath -LogPath $log
     }
 
+    Run-Step -Name 'UI consistency validation' -Action {
+        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.ui_consistency') -WorkingDirectory $ProjectPath -LogPath $log
+    }
+
     Run-Step -Name 'Python tests' -Action {
         Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'pytest', '-q') -WorkingDirectory $ProjectPath -LogPath $log
     }
@@ -113,7 +118,7 @@ try {
     }
 
     Run-Step -Name 'Diagnostics and acceptance' -Action {
-        $arguments = @('scripts\diagnostics_engine.py', '--full', '--export')
+        $arguments = @('-m', 'scripts.diagnostics_engine', '--full', '--export')
         if ($Screenshots) {
             $arguments += '--screenshots'
         }
@@ -139,7 +144,7 @@ finally {
 
     $report = [ordered]@{
         schema_version = '1.0'
-        build_system = 'CRM Build System 3.0'
+        build_system = 'CRM Build System 3.1'
         version = $v
         result = $result
         started_at = $started.ToString('o')
