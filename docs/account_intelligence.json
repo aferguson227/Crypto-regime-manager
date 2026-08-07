@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:16:03.927343+00:00",
-  "snapshot_id": "e5b760c7dec1b1a0bc7d",
+  "generated_at": "2026-08-07T10:35:19.088067+00:00",
+  "snapshot_id": "d9116626983ef24a1c77",
   "status": "HEALTHY",
   "read_only": true,
   "accounts": [
@@ -15,7 +15,7 @@
       "balances_status": "PASS",
       "total_usd_value": 3587.5538871179756,
       "free_usdt": 806.67111932,
-      "source": "3Commas ACCOUNTS_READ account info and account_table_data"
+      "source": "Cached recent 3Commas ACCOUNTS_READ balance snapshot (quota guard)"
     }
   ],
   "account_count": 1,
@@ -31,7 +31,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-07T10:15:58.014145+00:00"
+      "observed_at": "2026-08-07T10:35:18.277307+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
@@ -40,7 +40,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-07T10:15:58.227582+00:00"
+      "observed_at": "2026-08-07T10:35:18.528302+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
@@ -49,7 +49,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 4,
-      "observed_at": "2026-08-07T10:15:58.419613+00:00"
+      "observed_at": "2026-08-07T10:35:18.750123+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
@@ -58,7 +58,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-07T10:15:58.664922+00:00"
+      "observed_at": "2026-08-07T10:35:18.990271+00:00"
     },
     "account_32632134_details": {
       "path": "/public/api/ver1/accounts/32632134",
@@ -67,16 +67,17 @@
       "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-07T10:15:58.664961+00:00"
+      "observed_at": "2026-08-07T10:35:18.990315+00:00"
     },
     "account_32632134_balances": {
       "path": "/public/api/ver1/accounts/32632134/account_table_data",
       "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
+      "category": "cached_quota_guard",
+      "message": "Reused balance snapshot aged 19 minutes to reduce 3Commas quota usage.",
       "http_status": null,
       "records": 2,
-      "observed_at": "2026-08-07T10:15:58.892841+00:00"
+      "observed_at": "2026-08-07T10:35:18.990345+00:00",
+      "source_age_minutes": 19.4
     }
   }
 }

@@ -1,16 +1,16 @@
 {
   "schema_version": "2.0",
   "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:16:04.244185+00:00",
-  "snapshot_id": "722fe539fe26f6709846",
+  "generated_at": "2026-08-07T10:35:19.449688+00:00",
+  "snapshot_id": "9d4377ee7c2c492e4fa5",
   "status": "HEALTHY",
   "pipelines": {
     "threecommas": {
       "name": "3Commas read-only sync",
       "state": "healthy",
-      "last_attempt_at": "2026-08-07T10:15:57.473270+00:00",
+      "last_attempt_at": "2026-08-07T10:35:17.534134+00:00",
       "last_attempt_age_hours": 0.0,
-      "last_success_at": "2026-08-07T10:15:57.473270+00:00",
+      "last_success_at": "2026-08-07T10:35:17.534134+00:00",
       "last_success_age_hours": 0.0,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
@@ -26,7 +26,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-07T10:15:58.014145+00:00"
+            "observed_at": "2026-08-07T10:35:18.277307+00:00"
           },
           "accounts": {
             "path": "/public/api/ver1/accounts",
@@ -35,7 +35,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 1,
-            "observed_at": "2026-08-07T10:15:58.227582+00:00"
+            "observed_at": "2026-08-07T10:35:18.528302+00:00"
           },
           "bots": {
             "path": "/public/api/ver1/bots",
@@ -44,7 +44,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 4,
-            "observed_at": "2026-08-07T10:15:58.419613+00:00"
+            "observed_at": "2026-08-07T10:35:18.750123+00:00"
           },
           "deals": {
             "path": "/public/api/ver1/deals",
@@ -53,7 +53,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 1,
-            "observed_at": "2026-08-07T10:15:58.664922+00:00"
+            "observed_at": "2026-08-07T10:35:18.990271+00:00"
           },
           "account_32632134_details": {
             "path": "/public/api/ver1/accounts/32632134",
@@ -62,16 +62,17 @@
             "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-07T10:15:58.664961+00:00"
+            "observed_at": "2026-08-07T10:35:18.990315+00:00"
           },
           "account_32632134_balances": {
             "path": "/public/api/ver1/accounts/32632134/account_table_data",
             "status": "pass",
-            "category": "ok",
-            "message": "Endpoint completed successfully.",
+            "category": "cached_quota_guard",
+            "message": "Reused balance snapshot aged 19 minutes to reduce 3Commas quota usage.",
             "http_status": null,
             "records": 2,
-            "observed_at": "2026-08-07T10:15:58.892841+00:00"
+            "observed_at": "2026-08-07T10:35:18.990345+00:00",
+            "source_age_minutes": 19.4
           }
         },
         "failure_count": 0,
@@ -83,9 +84,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-07T10:15:59.017566+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 0.32,
       "last_success_at": "2026-08-07T10:16:03.359381+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 0.32,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -97,9 +98,9 @@
     {
       "name": "3Commas read-only sync",
       "state": "healthy",
-      "last_attempt_at": "2026-08-07T10:15:57.473270+00:00",
+      "last_attempt_at": "2026-08-07T10:35:17.534134+00:00",
       "last_attempt_age_hours": 0.0,
-      "last_success_at": "2026-08-07T10:15:57.473270+00:00",
+      "last_success_at": "2026-08-07T10:35:17.534134+00:00",
       "last_success_age_hours": 0.0,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
@@ -115,7 +116,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-07T10:15:58.014145+00:00"
+            "observed_at": "2026-08-07T10:35:18.277307+00:00"
           },
           "accounts": {
             "path": "/public/api/ver1/accounts",
@@ -124,7 +125,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 1,
-            "observed_at": "2026-08-07T10:15:58.227582+00:00"
+            "observed_at": "2026-08-07T10:35:18.528302+00:00"
           },
           "bots": {
             "path": "/public/api/ver1/bots",
@@ -133,7 +134,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 4,
-            "observed_at": "2026-08-07T10:15:58.419613+00:00"
+            "observed_at": "2026-08-07T10:35:18.750123+00:00"
           },
           "deals": {
             "path": "/public/api/ver1/deals",
@@ -142,7 +143,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 1,
-            "observed_at": "2026-08-07T10:15:58.664922+00:00"
+            "observed_at": "2026-08-07T10:35:18.990271+00:00"
           },
           "account_32632134_details": {
             "path": "/public/api/ver1/accounts/32632134",
@@ -151,16 +152,17 @@
             "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-07T10:15:58.664961+00:00"
+            "observed_at": "2026-08-07T10:35:18.990315+00:00"
           },
           "account_32632134_balances": {
             "path": "/public/api/ver1/accounts/32632134/account_table_data",
             "status": "pass",
-            "category": "ok",
-            "message": "Endpoint completed successfully.",
+            "category": "cached_quota_guard",
+            "message": "Reused balance snapshot aged 19 minutes to reduce 3Commas quota usage.",
             "http_status": null,
             "records": 2,
-            "observed_at": "2026-08-07T10:15:58.892841+00:00"
+            "observed_at": "2026-08-07T10:35:18.990345+00:00",
+            "source_age_minutes": 19.4
           }
         },
         "failure_count": 0,
@@ -172,9 +174,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-07T10:15:59.017566+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 0.32,
       "last_success_at": "2026-08-07T10:16:03.359381+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 0.32,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -190,7 +192,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-07T10:15:58.014145+00:00"
+      "observed_at": "2026-08-07T10:35:18.277307+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
@@ -199,7 +201,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-07T10:15:58.227582+00:00"
+      "observed_at": "2026-08-07T10:35:18.528302+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
@@ -208,7 +210,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 4,
-      "observed_at": "2026-08-07T10:15:58.419613+00:00"
+      "observed_at": "2026-08-07T10:35:18.750123+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
@@ -217,7 +219,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-07T10:15:58.664922+00:00"
+      "observed_at": "2026-08-07T10:35:18.990271+00:00"
     },
     "account_32632134_details": {
       "path": "/public/api/ver1/accounts/32632134",
@@ -226,16 +228,17 @@
       "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-07T10:15:58.664961+00:00"
+      "observed_at": "2026-08-07T10:35:18.990315+00:00"
     },
     "account_32632134_balances": {
       "path": "/public/api/ver1/accounts/32632134/account_table_data",
       "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
+      "category": "cached_quota_guard",
+      "message": "Reused balance snapshot aged 19 minutes to reduce 3Commas quota usage.",
       "http_status": null,
       "records": 2,
-      "observed_at": "2026-08-07T10:15:58.892841+00:00"
+      "observed_at": "2026-08-07T10:35:18.990345+00:00",
+      "source_age_minutes": 19.4
     }
   },
   "workflows": [
@@ -256,8 +259,8 @@
   ],
   "github": {
     "repository": "aferguson227/Crypto-regime-manager",
-    "workflow_run_id": "31169353144",
-    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31169353144"
+    "workflow_run_id": "31170663462",
+    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31170663462"
   },
   "automation_policy": {
     "routine_manual_runs_required": false,
