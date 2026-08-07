@@ -1,19 +1,5 @@
 {
   "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:13:48.663448+00:00",
-  "issues": [
-    {
-      "severity": "warning",
-      "system": "3Commas",
-      "title": "account_32632134_balances endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 08:47:23 UTC'}",
-      "recommended_action": "Review 3Commas permissions, quota and the next scheduled retry.",
-      "metric": {
-        "http_status": 429,
-        "records": null
-      },
-      "first_detected_at": "2026-08-07T10:13:48.679543+00:00",
-      "last_detected_at": "2026-08-07T10:13:48.679549+00:00"
-    }
-  ]
+  "generated_at": "2026-08-07T10:16:04.280550+00:00",
+  "issues": []
 }

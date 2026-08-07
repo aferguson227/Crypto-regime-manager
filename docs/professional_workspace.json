@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:13:51.811464+00:00",
+  "generated_at": "2026-08-07T10:16:04.680260+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -14,7 +14,7 @@
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
     "action": "KEEP_RUNNING",
-    "confidence_pct": 69.9,
+    "confidence_pct": 76.7,
     "urgency": "MONITOR",
     "why": [
       "Current entry filters pass",
@@ -24,7 +24,7 @@
     "blockers": []
   },
   "decision_readiness": {
-    "score_pct": 40.0,
+    "score_pct": 60.0,
     "checks": [
       {
         "label": "Bot selected",
@@ -36,7 +36,7 @@
       },
       {
         "label": "Funding confirmed",
-        "state": "warn"
+        "state": "fail"
       },
       {
         "label": "DCA settings complete",
@@ -44,7 +44,7 @@
       },
       {
         "label": "Cloud data current",
-        "state": "warn"
+        "state": "pass"
       }
     ],
     "ready_for_manual_action": false
@@ -52,8 +52,8 @@
   "allocation": {
     "required_quote": 1194.5599999999997,
     "quote_currency": "USDT",
-    "can_fund": null,
-    "deployable_quote": null,
+    "can_fund": false,
+    "deployable_quote": 0.0,
     "asset_allocations": [
       {
         "asset": "TEL",
@@ -259,9 +259,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 47.3,
+    "health_score": 62.5,
     "diversification_score": 25,
-    "capital_efficiency_score": 57.0,
+    "capital_efficiency_score": 62.6,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -273,7 +273,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 1,
-        "efficiency_score": 69.9,
+        "efficiency_score": 76.7,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -286,7 +286,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 2,
-        "efficiency_score": 69.9,
+        "efficiency_score": 76.7,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -299,7 +299,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 69.9,
+        "efficiency_score": 76.7,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -312,7 +312,7 @@
         "allocated_capital": 2808.56278875,
         "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 18.35,
+        "efficiency_score": 20.14,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -335,8 +335,8 @@
     "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
   },
   "deployment_health": {
-    "cloud": "WARNING",
-    "threecommas": "partial",
+    "cloud": "HEALTHY",
+    "threecommas": "ok",
     "main_app": null,
     "publication": null,
     "diagnostics": "healthy",
@@ -348,5 +348,5 @@
     "Resolve missing DCA fields before making changes.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "a7517ed2e502fef6b171ec42"
+  "snapshot_id": "c95e1fe596e8d3a1b1707ce5"
 }

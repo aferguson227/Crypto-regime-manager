@@ -1,24 +1,24 @@
 {
-  "version": "40.1.0",
+  "version": "41.0.0",
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "40.1.0",
-    "mode": "Read-only explainable deployment intelligence",
+    "version": "41.0.0",
+    "mode": "Read-only unified decision and quality workspace",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
     "feature": "Advisory candidate validation and DCA improvement lab",
-    "release_name": "Synchronisation & Workflow Efficiency",
+    "release_name": "Unified Decision & Quality Workspace",
     "primary_navigation": [
       "Dashboard",
-      "Workspace",
-      "Research",
-      "Data",
-      "Cockpit"
+      "Bots",
+      "Market",
+      "System",
+      "Engineering"
     ],
-    "legacy_navigation_preserved": true,
-    "note": "V27 repairs cloud/discovery mobile layout and adds an immutable advisory validation queue for discovered coins and DCA proposals. Live execution remains disabled."
+    "legacy_navigation_preserved": false,
+    "note": "V41 consolidates daily trading decisions and operational faults onto one canonical dashboard. Legacy pages remain drill-down only."
   },
-  "generated_at": "2026-08-07T08:46:26.158021+00:00",
+  "generated_at": "2026-08-07T10:16:00.063589+00:00",
   "workflow_status": "ok",
   "portfolio": {
     "version": "26.0",
@@ -2457,12 +2457,12 @@
         "Any changed rule must be registered as a new candidate."
       ],
       "forward_validation": {
-        "updated_at": "2026-08-07T01:44:13.709793+00:00",
+        "updated_at": "2026-08-07T08:46:26.034190+00:00",
         "status": "COLLECTING FORWARD EVIDENCE",
-        "forward_days": 3.833333333333333,
-        "forward_candles": 23,
+        "forward_days": 4.166666666666667,
+        "forward_candles": 25,
         "first_forward_candle": "2026-08-03T04:00:00Z",
-        "last_forward_candle": "2026-08-06T20:00:00Z",
+        "last_forward_candle": "2026-08-07T04:00:00Z",
         "completed_30_day_windows": 0,
         "profitable_30_day_windows": 0,
         "data_integrity_ok": true,
@@ -2532,12 +2532,12 @@
           "Any changed rule must be registered as a new candidate."
         ],
         "forward_validation": {
-          "updated_at": "2026-08-07T01:44:13.709793+00:00",
+          "updated_at": "2026-08-07T08:46:26.034190+00:00",
           "status": "COLLECTING FORWARD EVIDENCE",
-          "forward_days": 3.833333333333333,
-          "forward_candles": 23,
+          "forward_days": 4.166666666666667,
+          "forward_candles": 25,
           "first_forward_candle": "2026-08-03T04:00:00Z",
-          "last_forward_candle": "2026-08-06T20:00:00Z",
+          "last_forward_candle": "2026-08-07T04:00:00Z",
           "completed_30_day_windows": 0,
           "profitable_30_day_windows": 0,
           "data_integrity_ok": true,
@@ -2915,7 +2915,7 @@
   "operational_intelligence": {
     "version": "17.0",
     "mode": "read_only_operational_intelligence",
-    "generated_at": "2026-08-07T08:46:26.036898+00:00",
+    "generated_at": "2026-08-07T10:15:59.939481+00:00",
     "summary": {
       "production_assets": 2,
       "research_assets": 1,
@@ -3257,7 +3257,7 @@
   "research_queue": {
     "version": "21.0",
     "mode": "automatic_multi_asset_research_queue",
-    "generated_at": "2026-08-07T08:46:26.158003+00:00",
+    "generated_at": "2026-08-07T10:16:00.063572+00:00",
     "status": "READY",
     "queue": [
       {
@@ -4959,7 +4959,7 @@
         "recent_max_drawdown_pct_of_capital": -15.493742091577554,
         "open_loss_pct_of_capital": -6.514184387793881,
         "open_hours": 716.0,
-        "data_age_hours": 4.77374129500654,
+        "data_age_hours": 6.2665007936292225,
         "historical_average_trade_hours": 20.356687898089174,
         "historical_longest_trade_hours": 556,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -5489,7 +5489,7 @@
         "recent_max_drawdown_pct_of_capital": -12.068385719225839,
         "open_loss_pct_of_capital": 0.0,
         "open_hours": 0.0,
-        "data_age_hours": 4.773808953894509,
+        "data_age_hours": 6.266560453308953,
         "historical_average_trade_hours": 64.57142857142857,
         "historical_longest_trade_hours": 368,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -6064,7 +6064,7 @@
         "recent_max_drawdown_pct_of_capital": -31.073997089292053,
         "open_loss_pct_of_capital": -30.806733340121767,
         "open_hours": 1748.0,
-        "data_age_hours": 4.77387261695332,
+        "data_age_hours": 6.26662347998884,
         "historical_average_trade_hours": 19.466666666666665,
         "historical_longest_trade_hours": 152,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."

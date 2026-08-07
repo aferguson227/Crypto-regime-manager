@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:13:47.716089+00:00",
-  "snapshot_id": "28fa88385955dd3d64fc",
+  "generated_at": "2026-08-07T10:16:04.082677+00:00",
+  "snapshot_id": "72206c7d76c72274e6b7",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
   "current_market_regime": "Low",
-  "current_regime_confidence": 32.4,
+  "current_regime_confidence": 37.4,
   "overall_action": "MAINTAIN",
   "deploy_today": [],
   "keep_running": [
@@ -17,13 +17,13 @@
     "TAO Low Pullback Bot"
   ],
   "next_capital_priority": "TEL Low Volatility Bot",
-  "capital_status": "PARTIAL",
+  "capital_status": "COMPLETE",
   "capital_summary": {
-    "exchange_total": 3580.42650432722,
-    "free_available": null,
+    "exchange_total": 3587.5538871179756,
+    "free_available": 806.67111932,
     "active_deal_capital": 2808.56278875,
     "reserved_capital": 7070.992639999999,
-    "deployable_capital": null,
+    "deployable_capital": 0.0,
     "next_capital_required": null,
     "can_fund_next_priority": null
   },
@@ -32,7 +32,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
-      "confidence": 64.7,
+      "confidence": 74.7,
       "eligible": true,
       "blocking_reasons": [],
       "supporting_reasons": [
@@ -49,8 +49,8 @@
       "live_state": "RUNNING",
       "settings_state": "INCOMPLETE",
       "capital_required": 1194.5599999999997,
-      "capital_available": null,
-      "can_fund": null,
+      "capital_available": 0.0,
+      "can_fund": false,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
         "values": {
@@ -219,7 +219,7 @@
       "live_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": null,
+      "capital_available": 0.0,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -381,13 +381,12 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "4f5e104e946a0922e33e",
-    "capital_snapshot": "f8dcda74b4dea2364d64",
-    "decision_generated_at": "2026-08-07T08:46:29.041847+00:00",
-    "threecommas_generated_at": "2026-08-07T08:46:22.740722+00:00"
+    "operating_state_snapshot": "486fc97d623b201014ff",
+    "capital_snapshot": "10ef804ecefe93baa009",
+    "decision_generated_at": "2026-08-07T10:16:03.259236+00:00",
+    "threecommas_generated_at": "2026-08-07T10:15:57.473270+00:00"
   },
   "warnings": [
-    "Capital reconciliation is incomplete; no new deployment may be asserted.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."
   ]
 }

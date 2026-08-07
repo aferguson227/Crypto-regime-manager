@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0",
   "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:13:48.140320+00:00",
-  "snapshot_id": "53f195931a46f66d19b8",
-  "status": "PARTIAL",
+  "generated_at": "2026-08-07T10:16:04.206875+00:00",
+  "snapshot_id": "d01efa853574b2603c00",
+  "status": "COMPLETE",
   "currency": "USDT",
-  "portfolio_health_score": 47.3,
+  "portfolio_health_score": 62.5,
   "diversification_score": 25,
-  "capital_efficiency_score": 57.0,
-  "total_equity": 3580.42650432722,
+  "capital_efficiency_score": 62.6,
+  "total_equity": 3587.5538871179756,
   "allocated_capital": 2808.56278875,
   "reserved_capital": 7070.992639999999,
-  "deployable_capital": null,
-  "allocation_pct": 78.4,
-  "reserve_pct": 197.5,
-  "available_pct": null,
+  "deployable_capital": 0.0,
+  "allocation_pct": 78.3,
+  "reserve_pct": 197.1,
+  "available_pct": 0.0,
   "next_capital_priority": "TEL Low Volatility Bot",
   "positions": [
     {
@@ -26,7 +26,7 @@
       "allocated_capital": 0.0,
       "reserve_capital": 0.0,
       "deployable_priority": 1,
-      "efficiency_score": 69.9,
+      "efficiency_score": 76.7,
       "overlap_group": "BTC-linked altcoin",
       "warnings": []
     },
@@ -39,7 +39,7 @@
       "allocated_capital": 0.0,
       "reserve_capital": 0.0,
       "deployable_priority": 2,
-      "efficiency_score": 69.9,
+      "efficiency_score": 76.7,
       "overlap_group": "BTC-linked altcoin",
       "warnings": []
     },
@@ -52,7 +52,7 @@
       "allocated_capital": 0.0,
       "reserve_capital": 0.0,
       "deployable_priority": 3,
-      "efficiency_score": 69.9,
+      "efficiency_score": 76.7,
       "overlap_group": "BTC-linked altcoin",
       "warnings": []
     },
@@ -65,7 +65,7 @@
       "allocated_capital": 2808.56278875,
       "reserve_capital": 0.0,
       "deployable_priority": 4,
-      "efficiency_score": 18.35,
+      "efficiency_score": 20.14,
       "overlap_group": "BTC-linked altcoin",
       "warnings": []
     }
@@ -79,9 +79,7 @@
       "concentration_warning": false
     }
   },
-  "warnings": [
-    "Deployable capital remains unknown; next allocation is advisory only."
-  ],
+  "warnings": [],
   "read_only": true,
   "manual_approval_required": true
 }

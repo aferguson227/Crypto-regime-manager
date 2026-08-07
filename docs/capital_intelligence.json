@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:13:47.417196+00:00",
-  "snapshot_id": "f8dcda74b4dea2364d64",
+  "generated_at": "2026-08-07T10:16:03.975687+00:00",
+  "snapshot_id": "10ef804ecefe93baa009",
   "currency": "USDT",
   "accounts": [
     {
@@ -10,9 +10,9 @@
       "name": "My Kucoin",
       "exchange": "Kucoin Spot",
       "currency": "USDT",
-      "total_equity": 3580.42650432722,
-      "free_available": null,
-      "observed_at": "2026-08-07T08:46:22.740722+00:00"
+      "total_equity": 3587.5538871179756,
+      "free_available": 806.67111932,
+      "observed_at": "2026-08-07T10:15:57.473270+00:00"
     }
   ],
   "bots": [
@@ -81,15 +81,15 @@
       "warnings": []
     }
   ],
-  "exchange_total": 3580.42650432722,
-  "free_available": null,
+  "exchange_total": 3587.5538871179756,
+  "free_available": 806.67111932,
   "active_deal_capital": 2808.56278875,
   "placed_order_reserve": 0.0,
   "remaining_active_deal_dca_reserve": 0.0,
   "enabled_idle_capacity_reserve": 7070.992639999999,
-  "deployable_capital": null,
-  "reserve_coverage_ratio": null,
-  "capital_status": "PARTIAL",
+  "deployable_capital": 0.0,
+  "reserve_coverage_ratio": 0.11408173652405332,
+  "capital_status": "COMPLETE",
   "next_capital_priority": "TEL Low Volatility Bot",
   "next_capital_required": null,
   "can_fund_next_priority": null,
@@ -101,10 +101,7 @@
     "enabled_idle_capacity_reserve": "Maximum full-ladder capital for unused enabled-bot deal slots.",
     "deployable_capital": "free_available minus enabled_idle_capacity_reserve; never inferred when source data is incomplete."
   },
-  "warnings": [
-    "One or more 3Commas accounts returned no balance records.",
-    "Free USDT is unknown; deployable capital cannot be asserted."
-  ],
+  "warnings": [],
   "read_only": true,
   "asset_allocations": [
     {

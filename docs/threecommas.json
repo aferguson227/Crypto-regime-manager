@@ -1,11 +1,11 @@
 {
-  "version": "40.1.0",
+  "version": "41.0.0",
   "authentication": "RSA self-generated",
-  "generated_at": "2026-08-07T08:46:22.740722+00:00",
-  "last_attempt_at": "2026-08-07T08:46:22.740722+00:00",
-  "last_success_at": "2026-08-07T08:46:22.740722+00:00",
-  "status": "partial",
-  "message": "Read-only sync completed with endpoint issues: account_32632134_balances.",
+  "generated_at": "2026-08-07T10:15:57.473270+00:00",
+  "last_attempt_at": "2026-08-07T10:15:57.473270+00:00",
+  "last_success_at": "2026-08-07T10:15:57.473270+00:00",
+  "status": "ok",
+  "message": "All read-only 3Commas endpoints updated successfully.",
   "publish_mode": "masked",
   "read_only": true,
   "endpoint_diagnostics": {
@@ -16,7 +16,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-07T08:46:23.279079+00:00"
+      "observed_at": "2026-08-07T10:15:58.014145+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
@@ -25,7 +25,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-07T08:46:23.691384+00:00"
+      "observed_at": "2026-08-07T10:15:58.227582+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
@@ -34,7 +34,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 4,
-      "observed_at": "2026-08-07T08:46:24.133789+00:00"
+      "observed_at": "2026-08-07T10:15:58.419613+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
@@ -43,25 +43,25 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-07T08:46:24.373065+00:00"
+      "observed_at": "2026-08-07T10:15:58.664922+00:00"
     },
     "account_32632134_details": {
       "path": "/public/api/ver1/accounts/32632134",
       "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
+      "category": "not_requested_quota_guard",
+      "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-07T08:46:24.643251+00:00"
+      "observed_at": "2026-08-07T10:15:58.664961+00:00"
     },
     "account_32632134_balances": {
       "path": "/public/api/ver1/accounts/32632134/account_table_data",
-      "status": "fail",
-      "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 08:47:23 UTC'}",
-      "http_status": 429,
-      "records": null,
-      "observed_at": "2026-08-07T08:46:24.815487+00:00"
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": 2,
+      "observed_at": "2026-08-07T10:15:58.892841+00:00"
     }
   },
   "accounts": [
@@ -70,13 +70,32 @@
       "name": "My Kucoin",
       "exchange_name": "Kucoin Spot",
       "currency": "USDT",
-      "total_usd_value": 3580.42650432722,
-      "free_usdt": null,
-      "balance_records": 0,
-      "balances": [],
+      "total_usd_value": 3587.5538871179756,
+      "free_usdt": 806.67111932,
+      "balance_records": 2,
+      "balances": [
+        {
+          "currency": "TEL",
+          "equity": 1907460.0,
+          "available": 0.0,
+          "on_orders": 1907460.0,
+          "usd_value": 2780.88152395248,
+          "current_price_usd": 0.001457897688,
+          "account_id": 32632134
+        },
+        {
+          "currency": "USDT",
+          "equity": 806.67111932,
+          "available": 806.67111932,
+          "on_orders": 0.0,
+          "usd_value": 806.67111932,
+          "current_price_usd": 1.0,
+          "account_id": 32632134
+        }
+      ],
       "api_keys_state": "ok",
       "balance_source": "3Commas ACCOUNTS_READ account info and account_table_data",
-      "balance_observed_at": "2026-08-07T08:46:22.740722+00:00",
+      "balance_observed_at": "2026-08-07T10:15:57.473270+00:00",
       "balance_cached": false
     }
   ],
@@ -192,7 +211,7 @@
           "base_asset": "TEL",
           "status": "bought",
           "created_at": "2026-08-06T08:14:19.281Z",
-          "profit_pct": -1.05,
+          "profit_pct": -0.23,
           "completed_safety_orders": 6,
           "max_safety_orders": 6,
           "active_safety_orders": 0,

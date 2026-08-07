@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:13:48.283816+00:00",
-  "snapshot_id": "e2b2970f21a9490be6a7",
+  "generated_at": "2026-08-07T10:16:03.354201+00:00",
+  "snapshot_id": "cdfdcfc69a29bd014c7e",
   "mode": "advisory_capped_adaptive_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -15,16 +15,16 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
-      "static_score": 69.9,
-      "adaptive_score": 69.9,
-      "effective_score": 69.9,
+      "static_score": 76.7,
+      "adaptive_score": 76.7,
+      "effective_score": 76.7,
       "evidence_count": 0,
       "adaptation_status": "INSUFFICIENT_EVIDENCE",
       "confidence_calibration_pct": null,
       "observed_accuracy_pct": null,
       "average_return_pct": null,
-      "capital_efficiency_score": 18.35,
-      "risk_adjusted_score": 61.7,
+      "capital_efficiency_score": 20.14,
+      "risk_adjusted_score": 68.7,
       "rank": 1,
       "weight_adjustments": {},
       "reasons": [
@@ -61,7 +61,7 @@
   "confidence_calibration": [
     {
       "band": "0-50%",
-      "recommendations": 38,
+      "recommendations": 39,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 25.0,
       "observed_accuracy_pct": null,
@@ -77,7 +77,7 @@
     },
     {
       "band": "65-80%",
-      "recommendations": 38,
+      "recommendations": 39,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 72.5,
       "observed_accuracy_pct": null,
@@ -102,7 +102,7 @@
   ],
   "portfolio_optimisation": {
     "recommended_next_allocation": "TEL Low Volatility Bot",
-    "deployable_capital": null,
+    "deployable_capital": 0.0,
     "weakest_strategy": "TAO Low Pullback Bot",
     "ranking_basis": "risk-adjusted adaptive score with capped historical influence",
     "automatic_execution": false
@@ -113,7 +113,6 @@
     "portfolio_intelligence": "portfolio_intelligence.json"
   },
   "warnings": [
-    "Adaptive weighting is dormant because no strategy has 8 judged outcomes. Static scores remain authoritative.",
-    "Deployable capital is unknown; portfolio optimisation remains advisory."
+    "Adaptive weighting is dormant because no strategy has 8 judged outcomes. Static scores remain authoritative."
   ]
 }

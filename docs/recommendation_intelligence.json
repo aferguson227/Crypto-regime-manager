@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:13:47.853012+00:00",
-  "snapshot_id": "8d7cb0d5739ca9cab75e",
+  "generated_at": "2026-08-07T10:16:04.136253+00:00",
+  "snapshot_id": "4b51bb1f7a062f9919cc",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,16 +10,16 @@
   "market_regime": "Low",
   "recommendations": [
     {
-      "recommendation_id": "e6197f4b898371d9d8e0573b",
+      "recommendation_id": "8a79a5906db562dc96bc7727",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
-      "overall_confidence": 69.9,
+      "overall_confidence": 76.7,
       "risk_level": "MODERATE",
       "confidence_components": [
         {
           "name": "regime",
-          "score": 65,
+          "score": 74.7,
           "weight": 0.25,
           "status": "pass",
           "explanation": "Current regime and entry permission support this action."
@@ -40,9 +40,9 @@
         },
         {
           "name": "capital",
-          "score": 65.0,
+          "score": 90.0,
           "weight": 0.15,
-          "status": "partial",
+          "status": "pass",
           "explanation": "Existing live bot can remain running, but reserve confidence follows capital completeness."
         },
         {
@@ -201,9 +201,9 @@
       },
       "capital_impact": {
         "required": 1194.5599999999997,
-        "available": null,
-        "can_fund": null,
-        "capital_status": "PARTIAL"
+        "available": 0.0,
+        "can_fund": false,
+        "capital_status": "COMPLETE"
       },
       "evidence_agreement": {
         "asset": "TEL",
@@ -212,10 +212,10 @@
         "kucoin_current": "AVAILABLE",
         "agreement": "UNKNOWN"
       },
-      "explanation": "Keep running TEL Low Volatility Bot. Confidence 69.9%; risk moderate. Current entry filters pass"
+      "explanation": "Keep running TEL Low Volatility Bot. Confidence 76.7%; risk moderate. Current entry filters pass"
     },
     {
-      "recommendation_id": "7840aac38287a0c5753e9bbf",
+      "recommendation_id": "e9c79c1a1713b0d8155801a9",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -408,9 +408,9 @@
       },
       "capital_impact": {
         "required": null,
-        "available": null,
+        "available": 0.0,
         "can_fund": null,
-        "capital_status": "PARTIAL"
+        "capital_status": "COMPLETE"
       },
       "evidence_agreement": {
         "asset": "TAO",
@@ -424,13 +424,12 @@
   ],
   "history_file": "recommendation_history.json",
   "warnings": [
-    "Capital reconciliation is incomplete; no new deployment may be asserted.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "28fa88385955dd3d64fc",
-    "deployment_generated_at": "2026-08-07T10:13:47.716089+00:00",
-    "decision_generated_at": "2026-08-07T08:46:29.041847+00:00"
+    "deployment_snapshot": "72206c7d76c72274e6b7",
+    "deployment_generated_at": "2026-08-07T10:16:04.082677+00:00",
+    "decision_generated_at": "2026-08-07T10:16:03.259236+00:00"
   }
 }

@@ -1,6 +1,6 @@
 {
   "version": "31.1.0",
-  "generated_at": "2026-08-07T08:46:29.045153+00:00",
+  "generated_at": "2026-08-07T10:16:03.262656+00:00",
   "mode": "research_intelligence_read_only",
   "coins": [
     {
@@ -336,7 +336,7 @@
       "next_stage": "FORWARD VALIDATION",
       "regime": {
         "label": "MEAN REVERTING",
-        "trend_30d_pct": 10.9,
+        "trend_30d_pct": 11.1,
         "annualised_vol_pct": 37.3
       },
       "strategy_family_screening": [
@@ -771,29 +771,29 @@
       "status": "PASS",
       "next_stage": "FORWARD VALIDATION",
       "regime": {
-        "label": "TRENDING",
-        "trend_30d_pct": 15.4,
-        "annualised_vol_pct": 45.8
+        "label": "MEAN REVERTING",
+        "trend_30d_pct": 14.6,
+        "annualised_vol_pct": 45.9
       },
       "strategy_family_screening": [
         {
-          "family": "Trend-filtered DCA",
-          "screening_score": 90,
-          "status": "REQUIRES INDEPENDENT BACKTEST"
-        },
-        {
-          "family": "Breakout / momentum",
-          "screening_score": 78,
-          "status": "REQUIRES INDEPENDENT BACKTEST"
-        },
-        {
           "family": "Grid",
-          "screening_score": 35,
+          "screening_score": 88,
           "status": "REQUIRES INDEPENDENT BACKTEST"
         },
         {
-          "family": "QFL",
-          "screening_score": 42,
+          "family": "DCA",
+          "screening_score": 84,
+          "status": "REQUIRES INDEPENDENT BACKTEST"
+        },
+        {
+          "family": "QFL + DCA",
+          "screening_score": 75,
+          "status": "REQUIRES INDEPENDENT BACKTEST"
+        },
+        {
+          "family": "Momentum",
+          "screening_score": 35,
           "status": "REQUIRES INDEPENDENT BACKTEST"
         }
       ],
@@ -881,8 +881,8 @@
       "next_stage": "FORWARD VALIDATION",
       "regime": {
         "label": "MEAN REVERTING",
-        "trend_30d_pct": -4.0,
-        "annualised_vol_pct": 34.9
+        "trend_30d_pct": -3.5,
+        "annualised_vol_pct": 35.0
       },
       "strategy_family_screening": [
         {
@@ -990,8 +990,8 @@
       "next_stage": "RESEARCH / REJECT",
       "regime": {
         "label": "MEAN REVERTING",
-        "trend_30d_pct": 11.3,
-        "annualised_vol_pct": 60.8
+        "trend_30d_pct": 12.2,
+        "annualised_vol_pct": 61.1
       },
       "strategy_family_screening": [
         {

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:13:51.701644+00:00",
-  "snapshot_id": "8bca904488f4bc870669deb5",
+  "generated_at": "2026-08-07T10:16:04.642896+00:00",
+  "snapshot_id": "77e1572cc2bb6fe7af5c1218",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -43,9 +43,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 47.3,
+    "health_score": 62.5,
     "diversification_score": 25,
-    "capital_efficiency_score": 57.0,
+    "capital_efficiency_score": 62.6,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -57,7 +57,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 1,
-        "efficiency_score": 69.9,
+        "efficiency_score": 76.7,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -70,7 +70,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 2,
-        "efficiency_score": 69.9,
+        "efficiency_score": 76.7,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -83,7 +83,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 69.9,
+        "efficiency_score": 76.7,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -96,7 +96,7 @@
         "allocated_capital": 2808.56278875,
         "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 18.35,
+        "efficiency_score": 20.14,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -114,10 +114,10 @@
   "capital": {
     "status": null,
     "currency": "USDT",
-    "total_equity": 3580.42650432722,
+    "total_equity": 3587.5538871179756,
     "allocated": 2808.56278875,
     "reserved": 7070.992639999999,
-    "deployable": null,
+    "deployable": 0.0,
     "next_required": null,
     "can_fund_next": null,
     "asset_allocations": [
@@ -131,15 +131,15 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "e6197f4b898371d9d8e0573b",
+      "recommendation_id": "8a79a5906db562dc96bc7727",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
-      "confidence_pct": 69.9,
-      "static_confidence_pct": 69.9,
+      "confidence_pct": 76.7,
+      "static_confidence_pct": 76.7,
       "adaptive_active": false,
       "risk_level": "MODERATE",
-      "explanation": "Keep running TEL Low Volatility Bot. Confidence 69.9%; risk moderate. Current entry filters pass",
+      "explanation": "Keep running TEL Low Volatility Bot. Confidence 76.7%; risk moderate. Current entry filters pass",
       "supporting_evidence": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
@@ -265,9 +265,9 @@
       },
       "capital_impact": {
         "required": 1194.5599999999997,
-        "available": null,
-        "can_fund": null,
-        "capital_status": "PARTIAL"
+        "available": 0.0,
+        "can_fund": false,
+        "capital_status": "COMPLETE"
       },
       "expected_behaviour": {
         "expected_roi_pct": null,
@@ -285,7 +285,7 @@
       }
     },
     {
-      "recommendation_id": "7840aac38287a0c5753e9bbf",
+      "recommendation_id": "e9c79c1a1713b0d8155801a9",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -421,9 +421,9 @@
       },
       "capital_impact": {
         "required": null,
-        "available": null,
+        "available": 0.0,
         "can_fund": null,
-        "capital_status": "PARTIAL"
+        "capital_status": "COMPLETE"
       },
       "expected_behaviour": {
         "expected_roi_pct": null,
@@ -448,7 +448,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
-      "confidence_pct": 69.9,
+      "confidence_pct": 76.7,
       "urgency": "MONITOR",
       "rationale": [
         "Current entry filters pass",
@@ -457,7 +457,7 @@
       ],
       "blockers": [],
       "capital_required": 1194.5599999999997,
-      "can_fund": null
+      "can_fund": false
     },
     {
       "rank": 2,
@@ -509,11 +509,11 @@
     }
   },
   "cloud": {
-    "overall_status": "WARNING",
+    "overall_status": "HEALTHY",
     "threecommas": {
-      "status": "partial",
-      "generated_at": "2026-08-07T08:46:22.740722+00:00",
-      "message": "Read-only sync completed with endpoint issues: account_32632134_balances."
+      "status": "ok",
+      "generated_at": "2026-08-07T10:15:57.473270+00:00",
+      "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
     "publication": {}
@@ -522,28 +522,22 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "WARNING"
+    "cloud_status": "HEALTHY"
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "53f195931a46f66d19b8",
-    "capital": "f8dcda74b4dea2364d64",
-    "deployment": "28fa88385955dd3d64fc",
-    "recommendations": "8d7cb0d5739ca9cab75e",
-    "adaptive": "e2b2970f21a9490be6a7",
-    "outcomes": "2026-08-07T10:13:48.016272+00:00",
-    "cloud": "e469b0db9b6a3bd7cf04",
-    "operating": "4f5e104e946a0922e33e"
+    "portfolio": "d01efa853574b2603c00",
+    "capital": "10ef804ecefe93baa009",
+    "deployment": "72206c7d76c72274e6b7",
+    "recommendations": "4b51bb1f7a062f9919cc",
+    "adaptive": "cdfdcfc69a29bd014c7e",
+    "outcomes": "2026-08-07T10:16:03.338907+00:00",
+    "cloud": "722fe539fe26f6709846",
+    "operating": "486fc97d623b201014ff"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
-    "Deployable capital remains unknown; next allocation is advisory only.",
-    "One or more 3Commas accounts returned no balance records.",
-    "Free USDT is unknown; deployable capital cannot be asserted.",
-    "Capital reconciliation is incomplete; no new deployment may be asserted.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
-    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
-    "Deployable capital is unknown; no new deployment should be assumed fundable.",
-    "One or more cloud data sources require attention."
+    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ]
 }

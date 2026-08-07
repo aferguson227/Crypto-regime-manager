@@ -1,26 +1,26 @@
 {
   "schema_version": "1.0",
   "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:13:48.663448+00:00",
+  "generated_at": "2026-08-07T10:16:04.280550+00:00",
   "overall": {
-    "state": "WARNING",
-    "score_pct": 75.0,
-    "active_issue_count": 1,
+    "state": "HEALTHY",
+    "score_pct": 86.0,
+    "active_issue_count": 0,
     "critical_count": 0,
-    "warning_count": 1
+    "warning_count": 0
   },
   "scores": {
     "system": 100,
-    "data": 80.0,
+    "data": 100,
     "trading": 70.0,
-    "deployment": 85.0,
-    "decision_readiness": 40.0
+    "deployment": 100,
+    "decision_readiness": 60.0
   },
   "threecommas": {
-    "status": "partial",
-    "last_attempt_at": "2026-08-07T08:46:22.740722+00:00",
-    "last_success_at": "2026-08-07T08:46:22.740722+00:00",
-    "last_success_age_hours": 1.46,
+    "status": "ok",
+    "last_attempt_at": "2026-08-07T10:15:57.473270+00:00",
+    "last_success_at": "2026-08-07T10:15:57.473270+00:00",
+    "last_success_age_hours": 0.0,
     "endpoints": [
       {
         "name": "validate",
@@ -28,8 +28,8 @@
         "category": "ok",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-07T08:46:23.279079+00:00",
-        "age_hours": 1.46,
+        "observed_at": "2026-08-07T10:15:58.014145+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -39,8 +39,8 @@
         "category": "ok",
         "http_status": null,
         "records": 1,
-        "observed_at": "2026-08-07T08:46:23.691384+00:00",
-        "age_hours": 1.46,
+        "observed_at": "2026-08-07T10:15:58.227582+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -50,8 +50,8 @@
         "category": "ok",
         "http_status": null,
         "records": 4,
-        "observed_at": "2026-08-07T08:46:24.133789+00:00",
-        "age_hours": 1.46,
+        "observed_at": "2026-08-07T10:15:58.419613+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -61,32 +61,32 @@
         "category": "ok",
         "http_status": null,
         "records": 1,
-        "observed_at": "2026-08-07T08:46:24.373065+00:00",
-        "age_hours": 1.46,
+        "observed_at": "2026-08-07T10:15:58.664922+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
       {
         "name": "account_32632134_details",
         "status": "pass",
-        "category": "ok",
+        "category": "not_requested_quota_guard",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-07T08:46:24.643251+00:00",
-        "age_hours": 1.46,
+        "observed_at": "2026-08-07T10:15:58.664961+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
-        "message": "Endpoint completed successfully."
+        "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
       {
         "name": "account_32632134_balances",
-        "status": "fail",
-        "category": "rate_limited",
-        "http_status": 429,
-        "records": null,
-        "observed_at": "2026-08-07T08:46:24.815487+00:00",
-        "age_hours": 1.46,
+        "status": "pass",
+        "category": "ok",
+        "http_status": null,
+        "records": 2,
+        "observed_at": "2026-08-07T10:15:58.892841+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
-        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 08:47:23 UTC'}"
+        "message": "Endpoint completed successfully."
       }
     ],
     "accounts": 1,
@@ -95,8 +95,8 @@
   },
   "application": {
     "cloud_state": "healthy",
-    "last_success_at": "2026-08-07T08:46:29.140968+00:00",
-    "last_success_age_hours": 1.46,
+    "last_success_at": "2026-08-07T10:16:03.359381+00:00",
+    "last_success_age_hours": 0.0,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -105,7 +105,7 @@
         "asset": "TEL",
         "bot_name": "TEL DCA - Low Volatility",
         "status": "bought",
-        "profit_pct": -1.05,
+        "profit_pct": -0.23,
         "duration_hours": 26.0,
         "completed_safety_orders": 6,
         "max_safety_orders": 6,
@@ -118,24 +118,10 @@
   "decision": {
     "primary_action": "KEEP_RUNNING",
     "bot_name": "TEL Low Volatility Bot",
-    "readiness_score_pct": 40.0,
+    "readiness_score_pct": 60.0,
     "ready_for_manual_action": false
   },
-  "issues": [
-    {
-      "severity": "warning",
-      "system": "3Commas",
-      "title": "account_32632134_balances endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 08:47:23 UTC'}",
-      "recommended_action": "Review 3Commas permissions, quota and the next scheduled retry.",
-      "metric": {
-        "http_status": 429,
-        "records": null
-      },
-      "first_detected_at": "2026-08-07T10:13:48.679543+00:00",
-      "last_detected_at": "2026-08-07T10:13:48.679549+00:00"
-    }
-  ],
+  "issues": [],
   "safeguards": {
     "read_only": true,
     "manual_approval_required": true
