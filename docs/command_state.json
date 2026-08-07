@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "42.0.0",
-  "generated_at": "2026-08-07T14:31:34.636158+00:00",
-  "snapshot_id": "78e6fc1ce1d316ee8b5eda20",
+  "generated_at": "2026-08-07T17:34:57.874116+00:00",
+  "snapshot_id": "d81c3d6eb7c2343f4967c20b",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -43,9 +43,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 60.9,
+    "health_score": 70.6,
     "diversification_score": 25,
-    "capital_efficiency_score": 57.8,
+    "capital_efficiency_score": 86.8,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -93,10 +93,10 @@
         "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": 2808.56278875,
-        "reserve_capital": 0.0,
+        "allocated_capital": 116.712169422,
+        "reserve_capital": 2629.5360000000005,
         "deployable_priority": 4,
-        "efficiency_score": 24.05,
+        "efficiency_score": 82.03,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -115,23 +115,23 @@
     "status": null,
     "currency": "USDT",
     "total_equity": 806.67111932,
-    "allocated": 2808.56278875,
-    "reserved": 0.0,
-    "deployable": 806.67111932,
+    "allocated": 116.712169422,
+    "reserved": 2629.5360000000005,
+    "deployable": 0.0,
     "next_required": null,
     "can_fund_next": null,
     "asset_allocations": [
       {
         "asset": "TEL",
-        "quantity": 1907460.0,
+        "quantity": 77696.0,
         "quote_currency": "USDT",
-        "quote_cost": 2808.56278875
+        "quote_cost": 116.712169422
       }
     ]
   },
   "recommendations": [
     {
-      "recommendation_id": "fe41c41eecc3047bbdfe2444",
+      "recommendation_id": "7a44f2396400ba38e23cda87",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
@@ -273,7 +273,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 806.67111932,
+        "available": 0.0,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -293,7 +293,7 @@
       }
     },
     {
-      "recommendation_id": "e391bafd2f121e03c9286f27",
+      "recommendation_id": "bc218723da37a9b9cc39f36e",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -444,7 +444,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 806.67111932,
+        "available": 0.0,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -535,7 +535,7 @@
     "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-07T14:31:31.778164+00:00",
+      "generated_at": "2026-08-07T17:34:55.323955+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -549,14 +549,14 @@
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "92b6ed38d8fd02f4bd01",
-    "capital": "9cce2022744eaa57cb10",
-    "deployment": "d8426cbf4f92e523567d",
-    "recommendations": "b19823739e2edef70124",
+    "portfolio": "5809f92bd4dca5b617b8",
+    "capital": "860b0eb3fcd39fb5b875",
+    "deployment": "4ac5e11b8a95d368c96a",
+    "recommendations": "d5c2b725315b6605dbb2",
     "adaptive": "6f504eacaccd8421efb3",
     "outcomes": "2026-08-07T13:57:18.966893+00:00",
-    "cloud": "bdcc56b4d0a38ca52e98",
-    "operating": "6773881025cc2eb6a3fb"
+    "cloud": "1fba764e009c55056d52",
+    "operating": "6a2ef60d254444555154"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "42.0.0",
-  "generated_at": "2026-08-07T14:31:33.646058+00:00",
-  "snapshot_id": "d8426cbf4f92e523567d",
+  "generated_at": "2026-08-07T17:34:57.220369+00:00",
+  "snapshot_id": "4ac5e11b8a95d368c96a",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -21,9 +21,9 @@
   "capital_summary": {
     "exchange_total": 806.67111932,
     "free_available": 806.67111932,
-    "active_deal_capital": 2808.56278875,
-    "reserved_capital": 0.0,
-    "deployable_capital": 806.67111932,
+    "active_deal_capital": 116.712169422,
+    "reserved_capital": 2629.5360000000005,
+    "deployable_capital": 0.0,
     "next_capital_required": null,
     "can_fund_next_priority": null
   },
@@ -49,7 +49,7 @@
       "live_state": "ACTIVE_DEAL",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 806.67111932,
+      "capital_available": 0.0,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -227,7 +227,7 @@
       "live_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 806.67111932,
+      "capital_available": 0.0,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -404,10 +404,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "6773881025cc2eb6a3fb",
-    "capital_snapshot": "9cce2022744eaa57cb10",
+    "operating_state_snapshot": "6a2ef60d254444555154",
+    "capital_snapshot": "860b0eb3fcd39fb5b875",
     "decision_generated_at": "2026-08-07T13:25:03.374314+00:00",
-    "threecommas_generated_at": "2026-08-07T14:31:31.778164+00:00"
+    "threecommas_generated_at": "2026-08-07T17:34:55.323955+00:00"
   },
   "warnings": [
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."

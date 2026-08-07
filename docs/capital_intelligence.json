@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "42.0.0",
-  "generated_at": "2026-08-07T14:31:33.532234+00:00",
-  "snapshot_id": "9cce2022744eaa57cb10",
+  "generated_at": "2026-08-07T17:34:57.094508+00:00",
+  "snapshot_id": "860b0eb3fcd39fb5b875",
   "currency": "USDT",
   "accounts": [
     {
@@ -72,9 +72,9 @@
       "active_deals": 1,
       "max_active_deals": 1,
       "per_deal_max_capital": 2729.5360000000005,
-      "active_deal_capital": 2808.56278875,
+      "active_deal_capital": 116.712169422,
       "placed_order_reserve": 0.0,
-      "remaining_dca_reserve": 0.0,
+      "remaining_dca_reserve": 2629.5360000000005,
       "idle_capacity_reserve": 0.0,
       "next_deal_required_capital": null,
       "completeness": "complete",
@@ -83,12 +83,12 @@
   ],
   "exchange_total": 806.67111932,
   "free_available": 806.67111932,
-  "active_deal_capital": 2808.56278875,
+  "active_deal_capital": 116.712169422,
   "placed_order_reserve": 0.0,
-  "remaining_active_deal_dca_reserve": 0.0,
+  "remaining_active_deal_dca_reserve": 2629.5360000000005,
   "enabled_idle_capacity_reserve": 0.0,
-  "deployable_capital": 806.67111932,
-  "reserve_coverage_ratio": 1.0,
+  "deployable_capital": 0.0,
+  "reserve_coverage_ratio": 0.3067731794963065,
   "capital_status": "COMPLETE",
   "next_capital_priority": "TEL Low Volatility Bot",
   "next_capital_required": null,
@@ -106,14 +106,14 @@
   "asset_allocations": [
     {
       "asset": "TEL",
-      "quantity": 1907460.0,
+      "quantity": 77696.0,
       "quote_currency": "USDT",
-      "quote_cost": 2808.56278875
+      "quote_cost": 116.712169422
     }
   ],
   "capital_source": "KuCoin direct read-only account API",
   "kucoin_direct_status": "ok",
-  "reserved_capital": 0.0,
+  "reserved_capital": 2629.5360000000005,
   "idle_bot_potential_exposure": 0.0,
   "capital_policy": "Protect active-deal remaining DCA ladders; do not reserve theoretical idle-bot exposure until a deal is active or explicitly approved."
 }
