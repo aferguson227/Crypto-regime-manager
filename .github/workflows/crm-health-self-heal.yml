@@ -78,5 +78,12 @@ jobs:
           echo "Material health changes detected:"
           git diff --cached --name-only
           git commit -m "Update CRM operational health"
+          # Clean policy-declared runtime outputs before rebasing.
+          python -m scripts.generated_output_manager clean
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "Unexpected non-runtime changes remain after generated-output cleanup:"
+            git status --short
+            exit 1
+          fi
           git pull --rebase origin main
           git push origin main
