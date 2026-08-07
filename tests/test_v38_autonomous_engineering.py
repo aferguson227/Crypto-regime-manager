@@ -2,9 +2,9 @@ from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
 def test_v38_identity_and_routes():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='42.0.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='43.0.0'
  release=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
- assert release['release_name']=='Autonomous Research & Decision Integrity'
+ assert release['release_name']=='Live Trade Intelligence & Expansion Readiness'
  routes=json.loads((ROOT/'config/routes.json').read_text(encoding='utf-8'))['routes']
  assert any(r['path']=='engineering.html' for r in routes)
 def test_engineering_components_exist():
@@ -21,4 +21,4 @@ def test_engineering_json_outputs_present():
  for n in ['github_actions_health.json','engineering_health.json','release_readiness.json','decision_quality.json']:
   p=ROOT/'docs'/n
   assert p.exists(),n
-  assert json.loads(p.read_text(encoding='utf-8'))['application_version']=='42.0.0'
+  assert json.loads(p.read_text(encoding='utf-8'))['application_version']=='43.0.0'

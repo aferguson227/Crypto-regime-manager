@@ -1,12 +1,55 @@
 {
   "schema_version": "1.0",
-  "application_version": "42.0.0",
-  "generated_at": "2026-08-07T14:04:12.378717+00:00",
+  "application_version": "43.0.0",
+  "generated_at": "2026-08-07T19:37:38.811014+00:00",
   "summary": {
-    "open": 0,
+    "open": 3,
     "closed_this_scan": 0,
     "automatic_available": 0
   },
-  "issues": [],
+  "issues": [
+    {
+      "key": "92115f3459721a34",
+      "source": "operational",
+      "fingerprint": "3Commas data is stale",
+      "title": "3Commas data is stale",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-07T19:37:38.811014+00:00",
+      "last_detected_at": "2026-08-07T19:37:38.811014+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "9d3b6201791c06a4",
+      "source": "operational",
+      "fingerprint": "Application refresh is stale",
+      "title": "Application refresh is stale",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-07T19:37:38.811014+00:00",
+      "last_detected_at": "2026-08-07T19:37:38.811014+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "a43930f4134bf7af",
+      "source": "self_healing",
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "severity": "low",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Trigger the read-only 3Commas workflow.",
+      "first_detected_at": "2026-08-07T19:37:38.811014+00:00",
+      "last_detected_at": "2026-08-07T19:37:38.811014+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    }
+  ],
   "recently_closed": []
 }

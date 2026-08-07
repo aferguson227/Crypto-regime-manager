@@ -7,7 +7,7 @@ from pathlib import Path
 from app.release import application_version
 from scripts.generated_output_manager import clean
 ROOT=Path(__file__).resolve().parents[1];DOCS=ROOT/'docs'
-NAMES=['diagnostics.json','diagnostics_runtime.json','operational_health.json','issues.json','performance_history.json','self_healing_status.json','remediation_history.json','ui_health.json','visual_issues.json','github_actions_health.json','workflow_history.json','workflow_doctor.json','engineering_health.json','release_readiness.json','decision_quality.json','issue_lifecycle.json','repository_health.json','engineering_schedule.json','professional_workspace.json','command_state.json','threecommas.json','cloud_reliability.json','synchronization_status.json']
+NAMES=['diagnostics.json','diagnostics_runtime.json','operational_health.json','issues.json','performance_history.json','self_healing_status.json','remediation_history.json','ui_health.json','visual_issues.json','github_actions_health.json','workflow_history.json','workflow_doctor.json','engineering_health.json','release_readiness.json','decision_quality.json','issue_lifecycle.json','repository_health.json','engineering_schedule.json','professional_workspace.json','command_state.json','threecommas.json','cloud_reliability.json','trade_intelligence.json','expansion_readiness.json','research_pipeline.json','synchronization_status.json']
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--output-dir',default=str(ROOT/'engineering_exports'));ap.add_argument('--keep-generated',action='store_true');a=ap.parse_args();outdir=Path(a.output_dir);outdir.mkdir(parents=True,exist_ok=True);out=None
  try:

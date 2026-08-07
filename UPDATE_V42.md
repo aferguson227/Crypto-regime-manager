@@ -1,4 +1,4 @@
-# Crypto Regime Manager V42.0.0 — Autonomous Research & Decision Integrity
+# Crypto Regime Manager V43.0.0 — Autonomous Research & Decision Integrity
 
 ## Purpose
 

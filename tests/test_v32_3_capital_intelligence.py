@@ -5,14 +5,14 @@ from scripts.integrations.threecommas import ALLOWED_PATHS, sanitise_account
 ROOT=Path(__file__).parents[1]
 
 def test_v323_release_and_capital_route():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='42.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='43.0.0'
     routes=json.loads((ROOT/'config/routes.json').read_text(encoding='utf-8'))['routes']
     assert any(r['path']=='capital.html' and r['primary'] for r in routes)
     assert (ROOT/'docs/capital.js').exists()
 
 def test_capital_engine_is_read_only_and_does_not_invent_free_cash():
     state=build()
-    assert state['application_version']=='42.0.0'
+    assert state['application_version']=='43.0.0'
     assert state['read_only'] is True
     assert state['capital_status'] in {'COMPLETE','PARTIAL','UNAVAILABLE'}
     if state['free_available'] is None:

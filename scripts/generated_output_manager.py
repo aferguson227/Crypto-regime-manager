@@ -51,10 +51,16 @@ def remove_untracked_runtime(rel: str) -> bool:
     return True
 
 
-def clean() -> dict:
+def runtime_paths(cfg: dict | None = None) -> list[str]:
+    cfg = cfg or policy()
+    return list(dict.fromkeys(cfg.get('runtime_generated_patterns') or []))
+
+
+def clean_with_policy(cfg: dict | None = None) -> dict:
+    """Restore/remove only paths explicitly classified as runtime outputs."""
     restored = []
     removed = []
-    for rel in policy().get('runtime_generated_patterns') or []:
+    for rel in runtime_paths(cfg):
         if tracked(rel):
             if restore_tracked(rel):
                 restored.append(rel)
@@ -63,20 +69,41 @@ def clean() -> dict:
     return {'restored': restored, 'removed': removed}
 
 
+def clean() -> dict:
+    return clean_with_policy(policy())
+
+
+def classify_git_status(cfg: dict | None = None) -> dict:
+    cfg = cfg or policy()
+    runtime = set(runtime_paths(cfg))
+    release = set(cfg.get('tracked_release_snapshots') or [])
+    r = subprocess.run(['git','status','--porcelain'],cwd=ROOT,text=True,capture_output=True)
+    rows = []
+    for line in r.stdout.splitlines():
+        if not line.strip():
+            continue
+        rel = line[3:].strip().replace('\\','/')
+        if ' -> ' in rel:
+            rel = rel.split(' -> ',1)[1]
+        kind = 'GENERATED_RUNTIME' if rel in runtime else ('RELEASE_SNAPSHOT' if rel in release else 'SOURCE_OR_UNCLASSIFIED')
+        rows.append({'path':rel,'git_status':line[:2],'classification':kind})
+    return {'changes':rows,'source_or_unclassified':[x['path'] for x in rows if x['classification']=='SOURCE_OR_UNCLASSIFIED']}
+
+
 def status() -> dict:
     items = []
-    for rel in policy().get('runtime_generated_patterns') or []:
+    for rel in runtime_paths():
         p = ROOT / rel
         items.append({'path': rel, 'exists': p.exists(), 'tracked': tracked(rel)})
-    return {'runtime_outputs': items}
+    return {'runtime_outputs': items, **classify_git_status()}
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument('action', choices=['clean', 'status'], nargs='?', default='clean')
+    ap.add_argument('action', choices=['clean', 'status', 'classify'], nargs='?', default='clean')
     a = ap.parse_args()
-    if a.action == 'status':
-        print(json.dumps(status(), indent=2))
+    if a.action in {'status','classify'}:
+        print(json.dumps(status() if a.action=='status' else classify_git_status(), indent=2))
         return 0
 
     result = clean()

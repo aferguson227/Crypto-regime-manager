@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "application_version": "43.0.0",
+  "generated_at": "2026-08-07T19:37:40.427461+00:00",
+  "mode": "material_decision_inbox",
+  "items": [
+    {
+      "event_id": "bca20a2c5a758a88377e3d48",
+      "kind": "PRIMARY_DECISION",
+      "title": "Keep Active Deal: TEL Low Volatility Bot",
+      "detail": "Confidence 91.6%. Current entry filters pass; Recent realised P&L is positive; Recent capital efficiency is positive",
+      "severity": "info",
+      "action": "REVIEW_DECISION",
+      "payload": {
+        "bot_name": "TEL Low Volatility Bot",
+        "asset": "TEL",
+        "action": "KEEP_ACTIVE_DEAL",
+        "confidence_pct": 91.6,
+        "urgency": "MONITOR",
+        "why": [
+          "Current entry filters pass",
+          "Recent realised P&L is positive",
+          "Recent capital efficiency is positive"
+        ],
+        "blockers": []
+      }
+    },
+    {
+      "event_id": "936ab64d54ccd93dc6bd1875",
+      "kind": "SYSTEM_ISSUE",
+      "title": "3Commas data is stale",
+      "detail": "Last successful sync was 2.05 hours ago.",
+      "severity": "warning",
+      "action": "REVIEW_SYSTEM",
+      "payload": {
+        "severity": "warning",
+        "system": "3Commas",
+        "title": "3Commas data is stale",
+        "detail": "Last successful sync was 2.05 hours ago.",
+        "recommended_action": "Run the 3Commas workflow and inspect endpoint diagnostics.",
+        "metric": {
+          "age_hours": 2.05
+        },
+        "first_detected_at": "2026-08-07T19:37:38.450290+00:00",
+        "last_detected_at": "2026-08-07T19:37:38.450298+00:00"
+      }
+    },
+    {
+      "event_id": "0ed7cda55edfaace92709f10",
+      "kind": "SYSTEM_ISSUE",
+      "title": "Application refresh is stale",
+      "detail": "Last successful application refresh age: 6.21.",
+      "severity": "warning",
+      "action": "REVIEW_SYSTEM",
+      "payload": {
+        "severity": "warning",
+        "system": "Application",
+        "title": "Application refresh is stale",
+        "detail": "Last successful application refresh age: 6.21.",
+        "recommended_action": "Run the autonomous refresh workflow and inspect its failed step.",
+        "metric": {
+          "age_hours": 6.21
+        },
+        "first_detected_at": "2026-08-07T19:37:38.450304+00:00",
+        "last_detected_at": "2026-08-07T19:37:38.450307+00:00"
+      }
+    }
+  ],
+  "material_count": 3,
+  "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
+  "read_only": true,
+  "manual_approval_required": true,
+  "guardrails": {
+    "live_bot_mutations": false,
+    "order_mutations": false,
+    "browser_acknowledgement_only": true
+  },
+  "snapshot_id": "0f66b18c6ea6eb46d42e8208"
+}

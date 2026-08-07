@@ -103,6 +103,9 @@ jobs:
           python -m scripts.command_state_engine
           python -m scripts.professional_workspace_engine
           python -m scripts.execution_provider_manager
+          python -m scripts.research_pipeline_engine
+          python -m scripts.trade_intelligence_engine
+          python -m scripts.expansion_readiness_engine
 
       - name: Validate generated publication
         run: python -m scripts.validate_publish

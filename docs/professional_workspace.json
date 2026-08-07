@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
-  "application_version": "42.0.0",
-  "generated_at": "2026-08-07T17:34:57.917785+00:00",
+  "application_version": "43.0.0",
+  "generated_at": "2026-08-07T19:37:39.739967+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -24,7 +24,7 @@
     "blockers": []
   },
   "decision_readiness": {
-    "score_pct": 60.0,
+    "score_pct": 40.0,
     "checks": [
       {
         "label": "Bot selected",
@@ -44,7 +44,7 @@
       },
       {
         "label": "Cloud data current",
-        "state": "pass"
+        "state": "warn"
       }
     ],
     "ready_for_manual_action": false
@@ -266,24 +266,24 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 280.86,
-        "stressed_reserve_requirement": 0.0,
+        "estimated_capital_impact": 11.67,
+        "stressed_reserve_requirement": 3286.92,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 168.51,
-        "stressed_reserve_requirement": 0.0,
+        "estimated_capital_impact": 7.0,
+        "stressed_reserve_requirement": 3944.3,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 224.69,
-        "stressed_reserve_requirement": 0.0,
+        "estimated_capital_impact": 9.34,
+        "stressed_reserve_requirement": 2366.58,
         "status": "ESTIMATED",
         "automatic_action": false
       }
@@ -366,7 +366,7 @@
     "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
   },
   "deployment_health": {
-    "cloud": "HEALTHY",
+    "cloud": "WARNING",
     "threecommas": "ok",
     "main_app": null,
     "publication": null,
@@ -378,5 +378,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "3a5679bf14c8b0493b0cab16"
+  "snapshot_id": "d4ad46bbe4031179d652596b"
 }
