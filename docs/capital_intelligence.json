@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:35:19.145048+00:00",
-  "snapshot_id": "bc6eadee85b7ad00609c",
+  "application_version": "41.1.0",
+  "generated_at": "2026-08-07T10:48:50.808234+00:00",
+  "snapshot_id": "c9d05afe3adc39495020",
   "currency": "USDT",
   "accounts": [
     {
@@ -94,7 +94,7 @@
   "next_capital_required": null,
   "can_fund_next_priority": null,
   "methodology": {
-    "free_available": "Read-only free USDT reported for linked accounts.",
+    "free_available": "Read-only free USDT from 3Commas read-only account snapshot.",
     "active_deal_capital": "Sum of known cost basis for active deals.",
     "placed_order_reserve": "Shown separately; not subtracted from free USDT because exchange free balance normally already excludes open-order funds.",
     "remaining_active_deal_dca_reserve": "Unplaced remaining safety-order ladder requirement for active deals.",
@@ -110,5 +110,7 @@
       "quote_currency": "USDT",
       "quote_cost": 2808.56278875
     }
-  ]
+  ],
+  "capital_source": "3Commas read-only account snapshot",
+  "kucoin_direct_status": "not_configured"
 }

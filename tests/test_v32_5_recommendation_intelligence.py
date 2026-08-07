@@ -4,9 +4,9 @@ from scripts.recommendation_intelligence_engine import build
 ROOT=Path(__file__).parents[1]
 
 def test_v325_release_identity_and_build_system_separation():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.1.0'
     rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
-    assert rel['version']=='41.0.0' and rel['threecommas_mode']=='read_only'
+    assert rel['version']=='41.1.0' and rel['threecommas_mode']=='read_only'
     assert (ROOT/'build.ps1').exists()
 
 def test_recommendation_intelligence_is_explainable_and_read_only():

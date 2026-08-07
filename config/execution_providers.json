@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "application_version": "41.1.0",
+  "active_capital_provider": "kucoin_direct_read_only",
+  "bot_state_provider": "threecommas_read_only",
+  "providers": {
+    "threecommas_read_only": {
+      "role": [
+        "bot_state",
+        "deal_state"
+      ],
+      "mode": "read_only",
+      "enabled": true,
+      "limitations": "Starter-plan quota can limit account-balance reads; CRM no longer depends on this provider for exchange capital when KuCoin read-only credentials are configured."
+    },
+    "kucoin_direct_read_only": {
+      "role": [
+        "account_balance",
+        "capital_state"
+      ],
+      "mode": "read_only",
+      "enabled": true,
+      "required_secrets": [
+        "KUCOIN_API_KEY",
+        "KUCOIN_API_SECRET",
+        "KUCOIN_API_PASSPHRASE"
+      ],
+      "optional_secrets": [
+        "KUCOIN_API_KEY_VERSION",
+        "KUCOIN_API_BASE_URL"
+      ],
+      "permission": "General/read-only account access only",
+      "write_actions": false
+    },
+    "hummingbot": {
+      "role": [
+        "future_execution"
+      ],
+      "mode": "planned_paper_first",
+      "enabled": false,
+      "write_actions": false,
+      "activation_gate": "Paper-trading validation plus explicit human approval required before any live execution work."
+    },
+    "kucoin_direct_execution": {
+      "role": [
+        "future_execution"
+      ],
+      "mode": "disabled",
+      "enabled": false,
+      "write_actions": false,
+      "activation_gate": "Dedicated trading key/sub-account, idempotent order manager, paper validation and explicit human approval."
+    }
+  },
+  "guardrails": {
+    "live_write_enabled": false,
+    "manual_approval_required": true,
+    "separate_read_and_write_credentials": true,
+    "never_publish_secrets": true
+  }
+}

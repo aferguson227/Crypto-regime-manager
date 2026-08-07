@@ -45,17 +45,24 @@ def geometric_remaining(safety,scale,start,count):
     return sum(safety*(scale**n) for n in range(start,start+count))
 
 def build()->dict[str,Any]:
-    three=load('threecommas.json'); state=load('operating_state.json')
+    three=load('threecommas.json'); kucoin=load('kucoin_account.json'); state=load('operating_state.json')
     generated=datetime.now(timezone.utc).isoformat(); warnings=[]
     account_rows=[]
-    for a in three.get('accounts') or []:
-        if not isinstance(a,dict):continue
-        account_rows.append(AccountCapital(i(a.get('account_id'),None),str(a.get('name') or '3Commas account'),a.get('exchange_name'),str(a.get('currency') or 'USDT'),f(a.get('total_usd_value')),f(a.get('free_usdt')),three.get('generated_at')))
+    capital_source='3Commas read-only account snapshot'
+    if str(kucoin.get('status') or '').lower()=='ok' and kucoin.get('free_usdt') is not None:
+        capital_source='KuCoin direct read-only account API'
+        account_rows.append(AccountCapital(None,'KuCoin direct account','KuCoin',str(kucoin.get('currency') or 'USDT'),f(kucoin.get('usdt_balance')),f(kucoin.get('free_usdt')),kucoin.get('generated_at')))
+    else:
+        for a in three.get('accounts') or []:
+            if not isinstance(a,dict):continue
+            account_rows.append(AccountCapital(i(a.get('account_id'),None),str(a.get('name') or '3Commas account'),a.get('exchange_name'),str(a.get('currency') or 'USDT'),f(a.get('total_usd_value')),f(a.get('free_usdt')),three.get('generated_at')))
     totals=[a.total_equity for a in account_rows if a.total_equity is not None]
     frees=[a.free_available for a in account_rows if a.free_available is not None]
     exchange_total=sum(totals) if totals else None; free=sum(frees) if frees else None
-    if not account_rows: warnings.append('No read-only 3Commas account records are available.')
-    elif any((a.get('balance_records') or 0)==0 for a in (three.get('accounts') or []) if isinstance(a,dict)): warnings.append('One or more 3Commas accounts returned no balance records.')
+    if not account_rows:
+        warnings.append('No read-only exchange account records are available. Configure KuCoin read-only account access to remove the 3Commas balance dependency.')
+    elif capital_source.startswith('3Commas') and any((a.get('balance_records') or 0)==0 for a in (three.get('accounts') or []) if isinstance(a,dict)):
+        warnings.append('3Commas account balance data is incomplete. Configure KuCoin direct read-only account access for dependable deployable-capital calculation.')
     bot_rows=[]; all_active=[]; all_placed=[]; all_remaining=[]; all_idle=[]
     assets=three.get('assets') if isinstance(three.get('assets'),dict) else {}
     for asset,entry in assets.items():
@@ -106,7 +113,7 @@ def build()->dict[str,Any]:
     status='COMPLETE' if not warnings else ('PARTIAL' if bot_rows else 'UNAVAILABLE')
     seed=json.dumps({'generated':generated,'three':three.get('generated_at'),'state':state.get('snapshot_id')},sort_keys=True)
     payload=CapitalIntelligence('1.0',application_version(),generated,hashlib.sha256(seed.encode()).hexdigest()[:20],'USDT',tuple(account_rows),tuple(bot_rows),exchange_total,free,active_total,placed_total,remaining_total,idle_total,deployable,coverage,status,priority,next_required,can_fund,{
-      'free_available':'Read-only free USDT reported for linked accounts.',
+      'free_available':f'Read-only free USDT from {capital_source}.',
       'active_deal_capital':'Sum of known cost basis for active deals.',
       'placed_order_reserve':'Shown separately; not subtracted from free USDT because exchange free balance normally already excludes open-order funds.',
       'remaining_active_deal_dca_reserve':'Unplaced remaining safety-order ladder requirement for active deals.',
@@ -120,6 +127,8 @@ def build()->dict[str,Any]:
         if qty or quote:
             allocations.append({'asset':asset,'quantity':qty or None,'quote_currency':next((d.get('quote_currency') for d in entry.get('deals') or [] if isinstance(d,dict) and d.get('quote_currency')), 'USDT'),'quote_cost':quote or None})
     payload['asset_allocations']=allocations
+    payload['capital_source']=capital_source
+    payload['kucoin_direct_status']=kucoin.get('status') or 'not_configured'
     return payload
 
 def main():

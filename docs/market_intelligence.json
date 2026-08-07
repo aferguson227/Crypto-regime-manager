@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:16:03.368899+00:00",
+  "application_version": "41.1.0",
+  "generated_at": "2026-08-07T10:48:51.661507+00:00",
   "snapshot_id": "fb64364d89b64f726f94",
   "mode": "read_only_market_context",
   "read_only": true,
@@ -104,5 +104,11 @@
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete."
-  ]
+  ],
+  "breadth_evidence": {
+    "positive_assets": 4,
+    "assets_with_30d_trend": 5,
+    "source": "coin_discovery.researched_candidates.trend_30d_pct",
+    "status": "MEASURED"
+  }
 }

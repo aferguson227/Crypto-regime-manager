@@ -36,7 +36,7 @@ def main():
  def version_state(v,kind):
   if v is None:return 'UNKNOWN'
   if v==expected:return 'SYNCED'
-  if vt(v) and vt(expected) and vt(v)<vt(expected):return 'PENDING_PUSH' if kind=='github' else 'PENDING_PUBLICATION'
+  if vt(v) and vt(expected) and vt(v)<vt(expected):return 'REMOTE_BEHIND' if kind=='github' else 'PENDING_PUBLICATION'
   return 'DRIFT'
  tc_age=age_minutes(tc.get('generated_at') or (op.get('threecommas') or {}).get('last_success_at'))
  app_age=age_minutes((op.get('application') or {}).get('last_success_at'))
@@ -50,7 +50,7 @@ def main():
  }
  known=[x['status'] for x in components.values() if x['status']!='UNKNOWN']
  if any(x in {'DRIFT','CRITICAL','FAIL','FAILURE'} for x in known): overall='DRIFT'
- elif any(x in {'PENDING_PUSH','PENDING_PUBLICATION'} for x in known): overall='PENDING_PUBLICATION'
+ elif any(x in {'REMOTE_BEHIND','PENDING_PUBLICATION'} for x in known): overall='PENDING_PUBLICATION'
  elif any(x in {'WARNING','PARTIAL','STALE','DEGRADED'} for x in known): overall='ATTENTION'
  elif known and all(x in {'SYNCED','HEALTHY','OK'} for x in known): overall='SYNCHRONIZED'
  else: overall='CHECKING'

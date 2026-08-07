@@ -57,12 +57,24 @@ jobs:
           GITHUB_API_URL: ${{ github.api_url }}
         run: python -m scripts.github_workflow_telemetry
 
-      - name: Refresh read-only 3Commas data
+      - name: Refresh read-only 3Commas bot and deal data
         env:
           THREECOMMAS_API_KEY: ${{ secrets.THREECOMMAS_API_KEY }}
           THREECOMMAS_RSA_PRIVATE_KEY_B64: ${{ secrets.THREECOMMAS_RSA_PRIVATE_KEY_B64 }}
-          THREECOMMAS_BALANCE_REFRESH_MINUTES: "240"
+          THREECOMMAS_BALANCE_REFRESH_MINUTES: "1440"
+          KUCOIN_API_KEY: ${{ secrets.KUCOIN_API_KEY }}
+          KUCOIN_API_SECRET: ${{ secrets.KUCOIN_API_SECRET }}
+          KUCOIN_API_PASSPHRASE: ${{ secrets.KUCOIN_API_PASSPHRASE }}
         run: python -m scripts.threecommas_sync
+
+      - name: Refresh direct read-only KuCoin capital data
+        env:
+          KUCOIN_API_KEY: ${{ secrets.KUCOIN_API_KEY }}
+          KUCOIN_API_SECRET: ${{ secrets.KUCOIN_API_SECRET }}
+          KUCOIN_API_PASSPHRASE: ${{ secrets.KUCOIN_API_PASSPHRASE }}
+          KUCOIN_API_KEY_VERSION: ${{ secrets.KUCOIN_API_KEY_VERSION }}
+          KUCOIN_API_BASE_URL: ${{ secrets.KUCOIN_API_BASE_URL }}
+        run: python -m scripts.kucoin_account_sync
 
       - name: Decide whether market refresh is due
         id: plan
@@ -100,6 +112,7 @@ jobs:
           python -m scripts.engineering_intelligence_engine
           python -m scripts.command_state_engine
           python -m scripts.professional_workspace_engine
+          python -m scripts.execution_provider_manager
 
       - name: Validate generated publication
         run: python -m scripts.validate_publish

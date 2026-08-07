@@ -1,0 +1,28 @@
+{
+  "application_version": "41.1.0",
+  "generated_at": "2026-08-07T10:48:54.064213+00:00",
+  "providers": {
+    "kucoin_direct_read_only": {
+      "state": "NOT_CONFIGURED",
+      "role": "capital source",
+      "write_enabled": false
+    },
+    "threecommas_read_only": {
+      "state": "OK",
+      "role": "bot/deal state",
+      "write_enabled": false
+    },
+    "hummingbot": {
+      "state": "PLANNED_PAPER_FIRST",
+      "role": "future execution",
+      "write_enabled": false
+    },
+    "kucoin_direct_execution": {
+      "state": "DISABLED",
+      "role": "future execution",
+      "write_enabled": false
+    }
+  },
+  "live_write_enabled": false,
+  "manual_approval_required": true
+}

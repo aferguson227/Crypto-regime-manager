@@ -63,7 +63,9 @@ def build()->dict[str,Any]:
  if total is None:warnings.append('Exchange equity is unknown; stress-test capital impacts may be incomplete.')
  source={'strategies':'strategies.json','coin_discovery':'coin_discovery.json','adaptive_intelligence':'adaptive_intelligence.json','portfolio_intelligence':'portfolio_intelligence.json'}
  seed=json.dumps({'regime':regime,'composite':composite,'assets':assets,'sources':source},sort_keys=True)
- return MarketIntelligence('1.0',application_version(),generated,hashlib.sha256(seed.encode()).hexdigest()[:20],'read_only_market_context',True,True,regime,composite,trend,volatility,breadth,correlation,risk,exposure,tuple(assets),tuple(contexts),tuple(stress_tests),attribution,source,tuple(warnings)).to_dict()
+ payload=MarketIntelligence('1.0',application_version(),generated,hashlib.sha256(seed.encode()).hexdigest()[:20],'read_only_market_context',True,True,regime,composite,trend,volatility,breadth,correlation,risk,exposure,tuple(assets),tuple(contexts),tuple(stress_tests),attribution,source,tuple(warnings)).to_dict()
+ payload['breadth_evidence']={'positive_assets':positive,'assets_with_30d_trend':len(breadth_vals),'source':'coin_discovery.researched_candidates.trend_30d_pct','status':'MEASURED' if breadth_vals else 'NEUTRAL_FALLBACK'}
+ return payload
 def main()->int:
  p=build();OUTPUT.write_text(json.dumps(p,indent=2),encoding='utf-8');print(f'Market intelligence written: {OUTPUT}');return 0
 if __name__=='__main__':raise SystemExit(main())

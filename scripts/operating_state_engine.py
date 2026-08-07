@@ -99,7 +99,7 @@ def bot_live_state(three: dict[str, Any], asset: str, recommended: str | None) -
     return 'RUNNING' if any(bool(b.get('enabled')) for b in matches) else 'STOPPED'
 
 
-def capital_state(three: dict[str, Any]) -> CapitalState:
+def capital_state(three: dict[str, Any], kucoin: dict[str, Any] | None = None) -> CapitalState:
     enabled_reserve = 0.0
     known_reserve = False
     active = 0.0
@@ -115,14 +115,18 @@ def capital_state(three: dict[str, Any]) -> CapitalState:
             for key in ('bought_volume','actual_usd_profit','base_order_volume'):
                 if deal.get(key) is not None and key == 'bought_volume':
                     active += float(deal[key]); active_known = True; break
+    kucoin = kucoin or {}
     accounts = three.get('accounts') if isinstance(three.get('accounts'), list) else []
     total = free = None
+    if str(kucoin.get('status') or '').lower()=='ok':
+        total = kucoin.get('usdt_balance')
+        free = kucoin.get('free_usdt')
     for account in accounts:
         if not isinstance(account, dict): continue
         total = total if total is not None else account.get('total_usd_value') or account.get('total_balance')
         free = free if free is not None else account.get('available_usdt') or account.get('free_usdt')
     if total is None or free is None:
-        warnings.append('KuCoin account equity/free USDT are not available in the current 3Commas payload.')
+        warnings.append('Exchange free USDT is unavailable. Configure KuCoin direct read-only account access; 3Commas Starter balance quota is not a dependable capital source.')
     if not active_known:
         warnings.append('Active-deal cost basis is unavailable; active capital cannot be fully reconciled.')
     if not known_reserve:
@@ -164,7 +168,7 @@ def evidence_state(strategies: dict[str, Any], walk: dict[str, Any]) -> dict[str
 def build() -> dict[str, Any]:
     generated = now_iso()
     strategies=load('strategies.json'); decisions=load('decision_intelligence_v28.json')
-    three=load('threecommas.json'); recon=load('configuration_reconciliation.json')
+    three=load('threecommas.json'); kucoin=load('kucoin_account.json'); recon=load('configuration_reconciliation.json')
     walk=load('walk_forward_registry.json'); integrity=load('system_integrity.json'); capital_doc=load('capital_intelligence.json')
     assets={str(a.get('id')):a for a in strategies.get('assets',[]) if isinstance(a,dict)}
     ranked=decisions.get('production_ranking') if isinstance(decisions.get('production_ranking'),list) else []
@@ -187,7 +191,7 @@ def build() -> dict[str, Any]:
     failures=[s for s in sources if s.status in {'missing','error','fail'}]
     snapshot_seed='|'.join([generated]+[f'{s.name}:{s.observed_at}:{s.status}' for s in sources])
     snapshot_id=hashlib.sha256(snapshot_seed.encode()).hexdigest()[:20]
-    state=OperatingState('1.0',application_version(),snapshot_id,generated,'canonical_read_only_operating_state',True,'DEGRADED' if failures else 'READY',current,f"{len(regimes)} asset regimes observed: {', '.join(regimes) if regimes else 'none'}",tuple(bot_rows),tuple(deploy),next_priority,(CapitalState(currency=capital_doc.get('currency','USDT'),exchange_total=capital_doc.get('exchange_total'),free_available=capital_doc.get('free_available'),active_deal_capital=capital_doc.get('active_deal_capital'),placed_order_reserve=capital_doc.get('placed_order_reserve'),enabled_bot_theoretical_reserve=capital_doc.get('enabled_idle_capacity_reserve'),available_after_reserve=capital_doc.get('deployable_capital'),completeness=str(capital_doc.get('capital_status') or 'unknown').lower(),warnings=tuple(capital_doc.get('warnings') or ())) if capital_doc else capital_state(three)),evidence_state(strategies,walk),sources,{'manual_approval_required':True,'automatic_live_changes':False,'automatic_settings_changes':False,'categories':['PRODUCTION_CONFIGURATION','LIVE_3COMMAS_CONFIGURATION','RESEARCH_CANDIDATE','FORWARD_VALIDATED_CONFIGURATION','DEPLOYMENT_RECOMMENDATION']})
+    state=OperatingState('1.0',application_version(),snapshot_id,generated,'canonical_read_only_operating_state',True,'DEGRADED' if failures else 'READY',current,f"{len(regimes)} asset regimes observed: {', '.join(regimes) if regimes else 'none'}",tuple(bot_rows),tuple(deploy),next_priority,(CapitalState(currency=capital_doc.get('currency','USDT'),exchange_total=capital_doc.get('exchange_total'),free_available=capital_doc.get('free_available'),active_deal_capital=capital_doc.get('active_deal_capital'),placed_order_reserve=capital_doc.get('placed_order_reserve'),enabled_bot_theoretical_reserve=capital_doc.get('enabled_idle_capacity_reserve'),available_after_reserve=capital_doc.get('deployable_capital'),completeness=str(capital_doc.get('capital_status') or 'unknown').lower(),warnings=tuple(capital_doc.get('warnings') or ())) if capital_doc else capital_state(three,kucoin)),evidence_state(strategies,walk),sources,{'manual_approval_required':True,'automatic_live_changes':False,'automatic_settings_changes':False,'categories':['PRODUCTION_CONFIGURATION','LIVE_3COMMAS_CONFIGURATION','RESEARCH_CANDIDATE','FORWARD_VALIDATED_CONFIGURATION','DEPLOYMENT_RECOMMENDATION']})
     return state.to_dict()
 
 

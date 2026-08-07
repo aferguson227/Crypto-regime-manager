@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
-  "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:35:19.449688+00:00",
+  "application_version": "41.1.0",
+  "generated_at": "2026-08-07T10:48:51.795131+00:00",
   "snapshot_id": "9d4377ee7c2c492e4fa5",
   "status": "HEALTHY",
   "pipelines": {
@@ -9,13 +9,15 @@
       "name": "3Commas read-only sync",
       "state": "healthy",
       "last_attempt_at": "2026-08-07T10:35:17.534134+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 0.23,
       "last_success_at": "2026-08-07T10:35:17.534134+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 0.23,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
       "source_status": "ok",
+      "core_status": "ok",
+      "capital_fallback": null,
       "message": "All read-only 3Commas endpoints updated successfully.",
       "endpoint_diagnostics": {
         "results": {
@@ -84,9 +86,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-07T10:15:59.017566+00:00",
-      "last_attempt_age_hours": 0.32,
+      "last_attempt_age_hours": 0.55,
       "last_success_at": "2026-08-07T10:16:03.359381+00:00",
-      "last_success_age_hours": 0.32,
+      "last_success_age_hours": 0.55,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -99,13 +101,15 @@
       "name": "3Commas read-only sync",
       "state": "healthy",
       "last_attempt_at": "2026-08-07T10:35:17.534134+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 0.23,
       "last_success_at": "2026-08-07T10:35:17.534134+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 0.23,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
       "source_status": "ok",
+      "core_status": "ok",
+      "capital_fallback": null,
       "message": "All read-only 3Commas endpoints updated successfully.",
       "endpoint_diagnostics": {
         "results": {
@@ -174,9 +178,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-07T10:15:59.017566+00:00",
-      "last_attempt_age_hours": 0.32,
+      "last_attempt_age_hours": 0.55,
       "last_success_at": "2026-08-07T10:16:03.359381+00:00",
-      "last_success_age_hours": 0.32,
+      "last_success_age_hours": 0.55,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -243,14 +247,14 @@
   },
   "workflows": [
     {
-      "file": ".github/workflows/crm-data-refresh.yml",
+      "file": ".github\\workflows\\crm-data-refresh.yml",
       "status": "pass",
       "findings": [],
       "module_execution": "python -m scripts.threecommas_sync",
       "expected_cron": "37 * * * *"
     },
     {
-      "file": ".github/workflows/crm-health-self-heal.yml",
+      "file": ".github\\workflows\\crm-health-self-heal.yml",
       "status": "pass",
       "findings": [],
       "module_execution": "python -m scripts.engineering_scheduler",
@@ -258,15 +262,16 @@
     }
   ],
   "github": {
-    "repository": "aferguson227/Crypto-regime-manager",
-    "workflow_run_id": "31170663462",
-    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31170663462"
+    "repository": null,
+    "workflow_run_id": null,
+    "run_url": null
   },
   "automation_policy": {
     "routine_manual_runs_required": false,
     "manual_run_purpose": "Recovery and diagnosis only",
     "threecommas_cadence": "hourly at minute 37 UTC",
-    "main_refresh_cadence": "every four hours inside CRM Data Refresh"
+    "main_refresh_cadence": "every four hours inside CRM Data Refresh",
+    "capital_source": "KuCoin direct read-only when configured; 3Commas account balance is fallback only"
   },
   "read_only": true
 }

@@ -2,9 +2,9 @@ import json
 from pathlib import Path
 ROOT=Path(__file__).parents[1]
 def test_release_identity():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.0.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.1.0'
  release=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
- assert release['release_name']=='Unified Decision & Quality Workspace'
+ assert release['release_name']=='Data Completeness & Execution Independence'
 def test_shared_design_and_navigation():
  for p in (ROOT/'docs').glob('*.html'):
   text=p.read_text(encoding='utf-8')

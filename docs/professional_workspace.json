@@ -1,13 +1,13 @@
 {
   "schema_version": "3.0",
-  "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:35:19.960234+00:00",
+  "application_version": "41.1.0",
+  "generated_at": "2026-08-07T10:48:53.973929+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Keep Running TEL Low Volatility Bot.",
     "Suggested allocation: 1194.56 USDT.",
-    "DCA plan needs 6 more fields before it is complete.",
+    "The recommended DCA plan is complete for manual review.",
     "Main risk: Strategy health requires review"
   ],
   "daily_decision": {
@@ -24,7 +24,7 @@
     "blockers": []
   },
   "decision_readiness": {
-    "score_pct": 60.0,
+    "score_pct": 80.0,
     "checks": [
       {
         "label": "Bot selected",
@@ -40,7 +40,7 @@
       },
       {
         "label": "DCA settings complete",
-        "state": "warn"
+        "state": "pass"
       },
       {
         "label": "Cloud data current",
@@ -65,20 +65,73 @@
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
   },
   "recommended_settings": {
-    "bot_name": "TEL Low Volatility Bot",
     "base_order_volume": 100.0,
-    "safety_order_volume": null,
+    "safety_order_volume": 100.0,
     "take_profit_pct": 1.5,
     "so_deviation_pct": 1.2,
     "safety_orders": 6,
     "volume_scale": 1.6,
     "step_scale": 1.0,
+    "max_active_safety_orders": 3,
     "max_active_deals": 1,
-    "max_active_safety_orders": null,
-    "start_condition": null,
-    "order_type": null,
-    "trailing_enabled": null,
-    "cooldown_seconds": null
+    "start_condition": "long",
+    "order_type": "limit",
+    "trailing_enabled": false,
+    "cooldown_seconds": 0
+  },
+  "setting_evidence": {
+    "base_order_volume": {
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
+    },
+    "safety_order_volume": {
+      "source": "KEEP_LIVE",
+      "reason": "Insufficient evidence to change this live setting."
+    },
+    "take_profit_pct": {
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
+    },
+    "so_deviation_pct": {
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
+    },
+    "safety_orders": {
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
+    },
+    "volume_scale": {
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
+    },
+    "step_scale": {
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
+    },
+    "max_active_safety_orders": {
+      "source": "KEEP_LIVE",
+      "reason": "Insufficient evidence to change this live setting."
+    },
+    "max_active_deals": {
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
+    },
+    "start_condition": {
+      "source": "KEEP_LIVE",
+      "reason": "Insufficient evidence to change this live setting."
+    },
+    "order_type": {
+      "source": "KEEP_LIVE",
+      "reason": "Insufficient evidence to change this live setting."
+    },
+    "trailing_enabled": {
+      "source": "KEEP_LIVE",
+      "reason": "Insufficient evidence to change this live setting."
+    },
+    "cooldown_seconds": {
+      "source": "KEEP_LIVE",
+      "reason": "Insufficient evidence to change this live setting."
+    }
   },
   "settings_order": [
     "base_order_volume",
@@ -95,14 +148,7 @@
     "trailing_enabled",
     "cooldown_seconds"
   ],
-  "missing_settings": [
-    "safety_order_volume",
-    "max_active_safety_orders",
-    "start_condition",
-    "order_type",
-    "trailing_enabled",
-    "cooldown_seconds"
-  ],
+  "missing_settings": [],
   "live_settings": {
     "base_order_volume": 100.0,
     "safety_order_volume": 100.0,
@@ -117,21 +163,6 @@
     "order_type": "limit",
     "trailing_enabled": false,
     "cooldown_seconds": 0
-  },
-  "production_settings": {
-    "base_order_volume": 100.0,
-    "safety_order_volume": null,
-    "take_profit_pct": 1.5,
-    "so_deviation_pct": 1.2,
-    "safety_orders": 6,
-    "volume_scale": 1.6,
-    "step_scale": 1.0,
-    "max_active_deals": 1,
-    "max_active_safety_orders": null,
-    "start_condition": null,
-    "order_type": null,
-    "trailing_enabled": null,
-    "cooldown_seconds": null
   },
   "setting_differences": [
     {
@@ -213,7 +244,38 @@
       "status": "NOT_COMPARABLE"
     }
   ],
-  "what_changed": [],
+  "what_changed": [
+    {
+      "field": "safety_order_volume",
+      "before": null,
+      "after": 100.0
+    },
+    {
+      "field": "max_active_safety_orders",
+      "before": null,
+      "after": 3
+    },
+    {
+      "field": "start_condition",
+      "before": null,
+      "after": "long"
+    },
+    {
+      "field": "order_type",
+      "before": null,
+      "after": "limit"
+    },
+    {
+      "field": "trailing_enabled",
+      "before": null,
+      "after": false
+    },
+    {
+      "field": "cooldown_seconds",
+      "before": null,
+      "after": 0
+    }
+  ],
   "risks": [
     "Strategy health requires review",
     "Recent drawdown is elevated",
@@ -345,8 +407,7 @@
   "next_steps": [
     "Review the recommended DCA settings in the Bots workspace.",
     "Confirm available quote-currency capital before deployment.",
-    "Resolve missing DCA fields before making changes.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "6f4575d13e7ca7364b056710"
+  "snapshot_id": "2a224aafa96107afe38bcdfc"
 }

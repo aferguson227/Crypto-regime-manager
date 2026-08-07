@@ -98,17 +98,22 @@ def workflow_check(path: Path, expected_module: str, cron_hint: str) -> dict[str
     }
 
 
-def threecommas_pipeline(three: dict[str, Any]) -> dict[str, Any]:
+def threecommas_pipeline(three: dict[str, Any], kucoin: dict[str, Any] | None = None) -> dict[str, Any]:
     attempted = three.get("last_attempt_at") or three.get("generated_at")
     succeeded = three.get("last_success_at")
     status = str(three.get("status") or "unknown")
     attempt_state = classify_age(attempted, 1.5, 3)
     success_state = classify_age(succeeded, 2, 6)
     endpoint_info = endpoint_summary(three.get("endpoint_diagnostics"))
+    kucoin = kucoin or {}
+    core_status=str(three.get("core_status") or status)
+    core_failures=[x for x in endpoint_info["failures"] if x["endpoint"] in {"validate","accounts","bots","deals"}]
 
-    if status == "error" or success_state == "failure":
+    if core_status == "error" or success_state == "failure":
         state = "failure"
-    elif status == "partial" or attempt_state == "warning" or success_state == "warning":
+    elif core_failures or attempt_state == "warning" or success_state == "warning":
+        state = "warning"
+    elif status == "partial" and str(kucoin.get("status") or "").lower() != "ok":
         state = "warning"
     elif attempt_state == "healthy" and success_state == "healthy":
         state = "healthy"
@@ -126,6 +131,8 @@ def threecommas_pipeline(three: dict[str, Any]) -> dict[str, Any]:
         "warning_after_hours": 2,
         "failure_after_hours": 6,
         "source_status": status,
+        "core_status": core_status,
+        "capital_fallback": "KuCoin direct read-only" if str(kucoin.get("status") or "").lower()=="ok" else None,
         "message": three.get("message"),
         "endpoint_diagnostics": endpoint_info,
     }
@@ -154,9 +161,10 @@ def application_pipeline(cloud: dict[str, Any]) -> dict[str, Any]:
 
 def build() -> dict[str, Any]:
     three = load(DOCS / "threecommas.json")
+    kucoin = load(DOCS / "kucoin_account.json")
     cloud = load(DOCS / "cloud_status.json")
     pipelines = {
-        "threecommas": threecommas_pipeline(three),
+        "threecommas": threecommas_pipeline(three, kucoin),
         "application": application_pipeline(cloud),
     }
     workflows = [
@@ -205,6 +213,7 @@ def build() -> dict[str, Any]:
             "manual_run_purpose": "Recovery and diagnosis only",
             "threecommas_cadence": "hourly at minute 37 UTC",
             "main_refresh_cadence": "every four hours inside CRM Data Refresh",
+            "capital_source": "KuCoin direct read-only when configured; 3Commas account balance is fallback only",
         },
         "read_only": True,
     }

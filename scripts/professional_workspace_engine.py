@@ -27,7 +27,7 @@ def build():
     top=queue[0] if queue else {}
     rec=next((r for r in recs if r.get('bot_name')==top.get('bot_name')),recs[0] if recs else {})
     comp=rec.get('production_comparison') or {}
-    recommended=(comp.get('recommended_settings') or {}).get('values') or {}
+    governed=(comp.get('recommended_settings') or {}).get('values') or {}
     differences=comp.get('differences') or []
     live={d.get('field'):d.get('live_value') for d in differences if d.get('field')}
     production={d.get('field'):d.get('production_value') for d in differences if d.get('field')}
@@ -36,6 +36,22 @@ def build():
     required=first(top.get('capital_required'),cap.get('next_required'))
     deployable=cap.get('deployable')
     settings_order=['base_order_volume','safety_order_volume','take_profit_pct','so_deviation_pct','safety_orders','volume_scale','step_scale','max_active_safety_orders','max_active_deals','start_condition','order_type','trailing_enabled','cooldown_seconds']
+    # Canonical recommendation rule: never invent a missing setting. When the
+    # decision engine has no evidence for a change, preserve the current live value.
+    recommended={}
+    setting_evidence={}
+    for key in settings_order:
+        if setting_value(governed,key) is not None:
+            recommended[key]=setting_value(governed,key)
+            setting_evidence[key]={'source':'GOVERNED_RECOMMENDATION','reason':'CRM has evidence supporting this value.'}
+        elif setting_value(live,key) is not None:
+            recommended[key]=setting_value(live,key)
+            setting_evidence[key]={'source':'KEEP_LIVE','reason':'Insufficient evidence to change this live setting.'}
+        elif setting_value(production,key) is not None:
+            recommended[key]=setting_value(production,key)
+            setting_evidence[key]={'source':'GOVERNED_BASELINE_FALLBACK','reason':'Live value unavailable; retained governed baseline without asserting a change.'}
+        else:
+            setting_evidence[key]={'source':'UNAVAILABLE','reason':'Neither live nor governed evidence contains this field.'}
     missing=[k for k in settings_order if setting_value(recommended,k) is None]
     blockers=list(top.get('blockers') or [])
     can_fund=top.get('can_fund')
@@ -71,8 +87,8 @@ def build():
       'daily_decision':{'bot_name':top.get('bot_name'),'asset':top.get('asset'),'action':action,'confidence_pct':confidence,'urgency':top.get('urgency'),'why':list(top.get('rationale') or []),'blockers':blockers},
       'decision_readiness':{'score_pct':readiness_score,'checks':readiness_checks,'ready_for_manual_action':readiness_score==100 and not blockers},
       'allocation':{'required_quote':required,'quote_currency':cap.get('currency') or 'USDT','can_fund':can_fund,'deployable_quote':deployable,'asset_allocations':cap.get('asset_allocations') or [],'display_rule':'Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code.'},
-      'recommended_settings':recommended,'settings_order':settings_order,'missing_settings':missing,
-      'live_settings':live,'production_settings':production,'setting_differences':differences,
+      'recommended_settings':recommended,'setting_evidence':setting_evidence,'settings_order':settings_order,'missing_settings':missing,
+      'live_settings':live,'setting_differences':differences,
       'what_changed':changed,'risks':risks,'market':market,'portfolio':portfolio,'presentation':{'locale':'en-GB','timezone':'Europe/London','negative_sign':'−','currency_policy':'Use explicit currency codes such as USDT; never assume $ means USDT.','unknown_policy':'Unknown values remain Unknown and are never coerced to zero.'},
       'deployment_health':{'cloud':cloud.get('overall_status'),'threecommas':(cloud.get('threecommas') or {}).get('status'),'main_app':(cloud.get('main_app') or {}).get('status'),'publication':(cloud.get('publication') or {}).get('status'),'diagnostics':health.get('diagnostics_state'),'score':health.get('diagnostics_score')},
       'next_steps':[x for x in [

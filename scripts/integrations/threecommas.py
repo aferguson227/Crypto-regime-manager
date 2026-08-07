@@ -389,8 +389,9 @@ def main() -> int:
     accounts_raw=accounts_raw if isinstance(accounts_raw,list) else [];bots_raw=bots_raw if isinstance(bots_raw,list) else [];deals_raw=deals_raw if isinstance(deals_raw,list) else []
     account_outputs=[]
     previous_accounts=previous_account_map(previous)
-    try: balance_refresh_minutes=max(15,int(os.getenv("THREECOMMAS_BALANCE_REFRESH_MINUTES","120")))
-    except ValueError: balance_refresh_minutes=120
+    try: balance_refresh_minutes=max(15,int(os.getenv("THREECOMMAS_BALANCE_REFRESH_MINUTES","1440")))
+    except ValueError: balance_refresh_minutes=1440
+    direct_capital_configured=all(os.getenv(x,"").strip() for x in ("KUCOIN_API_KEY","KUCOIN_API_SECRET","KUCOIN_API_PASSPHRASE"))
     for account in accounts_raw:
         if not isinstance(account,dict): continue
         account_id=to_int(account.get("id"))
@@ -409,6 +410,14 @@ def main() -> int:
         )
         prev=previous_accounts.get(account_id) or {}
         prev_stamp=prev.get("balance_observed_at") or previous.get("generated_at")
+        if direct_capital_configured:
+            endpoints[f"account_{account_id}_balances"]=endpoint_result(
+                f"/public/api/ver1/accounts/{account_id}/account_table_data",
+                "pass","not_requested_direct_capital",
+                "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
+            )
+            account_outputs.append(cached_account(account,detail,prev,prev_stamp) if prev else sanitise_account(account,detail,[],balance_observed_at=None,balance_cached=False))
+            continue
         prev_age=age_minutes(prev_stamp)
         can_cache=bool(prev.get("balances")) and prev_age is not None and prev_age < balance_refresh_minutes
         balance_name=f"account_{account_id}_balances"; balance_path=f"/public/api/ver1/accounts/{account_id}/account_table_data"
@@ -438,9 +447,15 @@ def main() -> int:
         asset=asset_from_pair(deal.get("pair") or deal.get("pairs"))
         if asset:assets.setdefault(asset,{"bots":[],"deals":[]})["deals"].append(sanitise_deal(deal,publish_mode))
     failed=[name for name,row in endpoints.items() if row.get("status")!="pass"]
+    core_names={"validate","accounts","bots","deals"}
+    core_failed=[name for name in core_names if endpoints.get(name,{}).get("status")!="pass"]
+    core_status="ok" if not core_failed else "partial" if authenticated and (bots_raw or deals_raw or accounts_raw) else "error"
     status="ok" if not failed else "partial" if assets or accounts_raw or authenticated else "error"
-    message="All read-only 3Commas endpoints updated successfully." if status=="ok" else f"Read-only sync completed with endpoint issues: {', '.join(failed)}."
-    payload={"version":VERSION,"authentication":"RSA self-generated","generated_at":attempted_at,"last_attempt_at":attempted_at,"last_success_at":success_timestamp(previous,status,attempted_at),"status":status,"message":message,"publish_mode":publish_mode,"read_only":True,"endpoint_diagnostics":endpoints,"accounts":account_outputs,"assets":assets}
+    if core_status=="ok" and failed:
+        message="Core bot/deal/account sync is healthy; one or more optional account-balance reads are limited."
+    else:
+        message="All read-only 3Commas endpoints updated successfully." if status=="ok" else f"Read-only sync completed with endpoint issues: {', '.join(failed)}."
+    payload={"version":VERSION,"authentication":"RSA self-generated","generated_at":attempted_at,"last_attempt_at":attempted_at,"last_success_at":success_timestamp(previous,status,attempted_at),"status":status,"core_status":core_status,"core_failed":core_failed,"message":message,"publish_mode":publish_mode,"read_only":True,"endpoint_diagnostics":endpoints,"accounts":account_outputs,"assets":assets}
     OUTPUT_PATH.parent.mkdir(parents=True,exist_ok=True);OUTPUT_PATH.write_text(json.dumps(payload,indent=2),encoding="utf-8");print(json.dumps(payload,indent=2))
     # Partial data is publishable and actionable; only complete authentication failure fails the workflow.
     return 0 if status in {"ok","partial"} else 1

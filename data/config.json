@@ -135,10 +135,11 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "5.2.1",
+    "version": "41.1.0",
     "mode": "Advisory / paper-validation",
     "data_source": "KuCoin public spot candles",
-    "timeframe": "4hour"
+    "timeframe": "4hour",
+    "release_name": "Data Completeness & Execution Independence"
   },
   "threecommas": {
     "enabled": true,
@@ -146,6 +147,7 @@
     "note": "Read-only BOTS_READ via RSA. Masked hides exact prices and dollar amounts because GitHub Pages is public.",
     "authentication": "RSA self-generated"
   },
-  "version": "20.0.0",
-  "note": "V20 simplifies the operator experience while preserving all V19 trading, replay, DCA and forward-validation logic."
+  "version": "41.1.0",
+  "note": "V20 simplifies the operator experience while preserving all V19 trading, replay, DCA and forward-validation logic.",
+  "release_name": "Data Completeness & Execution Independence"
 }

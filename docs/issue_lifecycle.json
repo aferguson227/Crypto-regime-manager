@@ -1,13 +1,29 @@
 {
   "schema_version": "1.0",
-  "application_version": "41.0.0",
-  "generated_at": "2026-08-07T10:13:50.815886+00:00",
+  "application_version": "41.1.0",
+  "generated_at": "2026-08-07T10:48:53.002541+00:00",
   "summary": {
-    "open": 2,
-    "closed_this_scan": 6,
+    "open": 1,
+    "closed_this_scan": 1,
     "automatic_available": 0
   },
   "issues": [
+    {
+      "key": "12d85e3b022bfe64",
+      "source": "repository",
+      "fingerprint": "HISTORICAL_BACKUPS_IN_WORKTREE",
+      "title": "Historical backups are present locally",
+      "severity": "info",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Exclude them from normal source and release archives; preserve separately.",
+      "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
+      "last_detected_at": "2026-08-07T10:48:53.002541+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 14
+    }
+  ],
+  "recently_closed": [
     {
       "key": "c88b3626ba84c850",
       "source": "operational",
@@ -19,114 +35,9 @@
       "recommended_action": null,
       "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
       "last_detected_at": "2026-08-07T10:13:50.815886+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 13
-    },
-    {
-      "key": "12d85e3b022bfe64",
-      "source": "repository",
-      "fingerprint": "HISTORICAL_BACKUPS_IN_WORKTREE",
-      "title": "Historical backups are present locally",
-      "severity": "info",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Exclude them from normal source and release archives; preserve separately.",
-      "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-07T10:13:50.815886+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 13
-    }
-  ],
-  "recently_closed": [
-    {
-      "key": "fb93449715cf1432",
-      "source": "actions",
-      "fingerprint": "WORKFLOW_FAILURE",
-      "title": "CRM Safe Self-Heal latest run failed",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
-      "first_detected_at": "2026-08-07T09:23:44.771654+00:00",
-      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
       "lifecycle": "CLOSED",
-      "historical_occurrences": 1,
-      "closed_at": "2026-08-07T10:13:50.815886+00:00"
-    },
-    {
-      "key": "d41090fc659d3228",
-      "source": "actions",
-      "fingerprint": "WORKFLOW_SLOWDOWN",
-      "title": "CRM Safe Self-Heal latest run is unusually slow",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Compare with recent successful median before changing configuration.",
-      "first_detected_at": "2026-08-07T09:23:44.771654+00:00",
-      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 1,
-      "closed_at": "2026-08-07T10:13:50.815886+00:00"
-    },
-    {
-      "key": "7794fa351576a26a",
-      "source": "actions",
-      "fingerprint": "WORKFLOW_FAILURE",
-      "title": "V31 Autonomous Crypto Regime Refresh latest run failed",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
-      "first_detected_at": "2026-08-07T09:23:44.771654+00:00",
-      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 1,
-      "closed_at": "2026-08-07T10:13:50.815886+00:00"
-    },
-    {
-      "key": "a2f78a12cf904a63",
-      "source": "self_healing",
-      "fingerprint": "WORKFLOW_FAILURE",
-      "title": "CRM Safe Self-Heal latest run failed",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
-      "first_detected_at": "2026-08-07T09:23:44.771654+00:00",
-      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 1,
-      "closed_at": "2026-08-07T10:13:50.815886+00:00"
-    },
-    {
-      "key": "c0095b569273e8cd",
-      "source": "self_healing",
-      "fingerprint": "WORKFLOW_SLOWDOWN",
-      "title": "CRM Safe Self-Heal latest run is unusually slow",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Compare with recent successful median before changing configuration.",
-      "first_detected_at": "2026-08-07T09:23:44.771654+00:00",
-      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 1,
-      "closed_at": "2026-08-07T10:13:50.815886+00:00"
-    },
-    {
-      "key": "72e7efd83ad5ba6f",
-      "source": "self_healing",
-      "fingerprint": "WORKFLOW_FAILURE",
-      "title": "V31 Autonomous Crypto Regime Refresh latest run failed",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
-      "first_detected_at": "2026-08-07T09:23:44.771654+00:00",
-      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 1,
-      "closed_at": "2026-08-07T10:13:50.815886+00:00"
+      "historical_occurrences": 13,
+      "closed_at": "2026-08-07T10:48:53.002541+00:00"
     }
   ]
 }
