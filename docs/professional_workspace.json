@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
   "application_version": "43.0.0",
-  "generated_at": "2026-08-07T19:54:25.440932+00:00",
+  "generated_at": "2026-08-07T20:03:11.263185+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Keep Active Deal TEL Low Volatility Bot.",
-    "Deployable capital: 0 USDT; exact allocation remains advisory.",
+    "Deployable capital: 17.8583 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Strategy health requires review"
   ],
@@ -24,7 +24,7 @@
     "blockers": []
   },
   "decision_readiness": {
-    "score_pct": 40.0,
+    "score_pct": 60.0,
     "checks": [
       {
         "label": "Bot selected",
@@ -44,7 +44,7 @@
       },
       {
         "label": "Cloud data current",
-        "state": "warn"
+        "state": "pass"
       }
     ],
     "ready_for_manual_action": false
@@ -53,13 +53,13 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 0.0,
+    "deployable_quote": 17.858292729999448,
     "asset_allocations": [
       {
         "asset": "TEL",
-        "quantity": 77696.0,
+        "quantity": 156308.0,
         "quote_currency": "USDT",
-        "quote_cost": 116.712169422
+        "quote_cost": 233.605697838
       }
     ],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
@@ -248,7 +248,7 @@
   "risks": [
     "Strategy health requires review",
     "Recent drawdown is elevated",
-    "Open replay position has lasted 30.0 days",
+    "Open replay position has lasted 30.3 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -266,33 +266,33 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 11.67,
-        "stressed_reserve_requirement": 3286.92,
+        "estimated_capital_impact": 23.36,
+        "stressed_reserve_requirement": 3161.92,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 7.0,
-        "stressed_reserve_requirement": 3944.3,
+        "estimated_capital_impact": 14.02,
+        "stressed_reserve_requirement": 3794.3,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 9.34,
-        "stressed_reserve_requirement": 2366.58,
+        "estimated_capital_impact": 18.69,
+        "stressed_reserve_requirement": 2276.58,
         "status": "ESTIMATED",
         "automatic_action": false
       }
     ]
   },
   "portfolio": {
-    "health_score": 70.6,
+    "health_score": 69.3,
     "diversification_score": 25,
-    "capital_efficiency_score": 86.8,
+    "capital_efficiency_score": 82.9,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -340,10 +340,10 @@
         "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": 116.712169422,
-        "reserve_capital": 2629.5360000000005,
+        "allocated_capital": 233.605697838,
+        "reserve_capital": 2529.5360000000005,
         "deployable_priority": 4,
-        "efficiency_score": 82.03,
+        "efficiency_score": 74.25,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -366,7 +366,7 @@
     "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
   },
   "deployment_health": {
-    "cloud": "WARNING",
+    "cloud": "HEALTHY",
     "threecommas": "ok",
     "main_app": null,
     "publication": null,
@@ -378,5 +378,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "912fee636e249cf310ac3597"
+  "snapshot_id": "495d96cdb3ed8dfeb65c7adf"
 }

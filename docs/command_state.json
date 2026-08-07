@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "43.0.0",
-  "generated_at": "2026-08-07T19:54:25.336726+00:00",
-  "snapshot_id": "466eeb76374019b295038dbe",
+  "generated_at": "2026-08-07T20:03:11.225747+00:00",
+  "snapshot_id": "4febbf439393098e66810c2f",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -19,33 +19,33 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 11.67,
-        "stressed_reserve_requirement": 3286.92,
+        "estimated_capital_impact": 23.36,
+        "stressed_reserve_requirement": 3161.92,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 7.0,
-        "stressed_reserve_requirement": 3944.3,
+        "estimated_capital_impact": 14.02,
+        "stressed_reserve_requirement": 3794.3,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 9.34,
-        "stressed_reserve_requirement": 2366.58,
+        "estimated_capital_impact": 18.69,
+        "stressed_reserve_requirement": 2276.58,
         "status": "ESTIMATED",
         "automatic_action": false
       }
     ]
   },
   "portfolio": {
-    "health_score": 70.6,
+    "health_score": 69.3,
     "diversification_score": 25,
-    "capital_efficiency_score": 86.8,
+    "capital_efficiency_score": 82.9,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -93,10 +93,10 @@
         "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": 116.712169422,
-        "reserve_capital": 2629.5360000000005,
+        "allocated_capital": 233.605697838,
+        "reserve_capital": 2529.5360000000005,
         "deployable_priority": 4,
-        "efficiency_score": 82.03,
+        "efficiency_score": 74.25,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -115,23 +115,23 @@
     "status": null,
     "currency": "USDT",
     "total_equity": 3424.72575133,
-    "allocated": 116.712169422,
-    "reserved": 2629.5360000000005,
-    "deployable": 0.0,
+    "allocated": 233.605697838,
+    "reserved": 2529.5360000000005,
+    "deployable": 17.858292729999448,
     "next_required": null,
     "can_fund_next": null,
     "asset_allocations": [
       {
         "asset": "TEL",
-        "quantity": 77696.0,
+        "quantity": 156308.0,
         "quote_currency": "USDT",
-        "quote_cost": 116.712169422
+        "quote_cost": 233.605697838
       }
     ]
   },
   "recommendations": [
     {
-      "recommendation_id": "31a191763f4a2be71ce468b6",
+      "recommendation_id": "c0837ec2919c6e656728923b",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
@@ -148,7 +148,7 @@
       "risks": [
         "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 30.0 days"
+        "Open replay position has lasted 30.3 days"
       ],
       "blockers": [],
       "production_comparison": {
@@ -273,7 +273,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 0.0,
+        "available": 17.858292729999448,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -293,7 +293,7 @@
       }
     },
     {
-      "recommendation_id": "418abb1090aad2e981349dba",
+      "recommendation_id": "3ce3be534c67d318b3264d79",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -444,7 +444,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 0.0,
+        "available": 17.858292729999448,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -507,7 +507,7 @@
   "risks": [
     "Strategy health requires review",
     "Recent drawdown is elevated",
-    "Open replay position has lasted 30.0 days",
+    "Open replay position has lasted 30.3 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -532,10 +532,10 @@
     }
   },
   "cloud": {
-    "overall_status": "WARNING",
+    "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-07T17:34:55.323955+00:00",
+      "generated_at": "2026-08-07T20:03:03.852282+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -545,23 +545,22 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "WARNING"
+    "cloud_status": "HEALTHY"
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "3851430c763518f1a177",
-    "capital": "979716ee18172839bc01",
-    "deployment": "3ba7701abae1e599e2a0",
-    "recommendations": "dcf4c0acc4b4cd20f2a9",
+    "portfolio": "41caf46d37a5e509dbf0",
+    "capital": "b47fbee612b8a1b2cf50",
+    "deployment": "eec63663c75ae8233fb6",
+    "recommendations": "48af6ef895aff8b6a44d",
     "adaptive": "6f504eacaccd8421efb3",
-    "outcomes": "2026-08-07T19:37:37.842874+00:00",
-    "cloud": "1fba764e009c55056d52",
-    "operating": "c9815f6a8c5921b1c961"
+    "outcomes": "2026-08-07T20:03:09.782353+00:00",
+    "cloud": "c78e67b4a9562fefe478",
+    "operating": "12f97eb39cb78e4a9e06"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
-    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
-    "One or more cloud data sources require attention."
+    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ]
 }

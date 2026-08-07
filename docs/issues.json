@@ -1,30 +1,5 @@
 {
   "application_version": "43.0.0",
-  "generated_at": "2026-08-07T19:37:38.400835+00:00",
-  "issues": [
-    {
-      "severity": "warning",
-      "system": "3Commas",
-      "title": "3Commas data is stale",
-      "detail": "Last successful sync was 2.05 hours ago.",
-      "recommended_action": "Run the 3Commas workflow and inspect endpoint diagnostics.",
-      "metric": {
-        "age_hours": 2.05
-      },
-      "first_detected_at": "2026-08-07T19:37:38.450290+00:00",
-      "last_detected_at": "2026-08-07T19:37:38.450298+00:00"
-    },
-    {
-      "severity": "warning",
-      "system": "Application",
-      "title": "Application refresh is stale",
-      "detail": "Last successful application refresh age: 6.21.",
-      "recommended_action": "Run the autonomous refresh workflow and inspect its failed step.",
-      "metric": {
-        "age_hours": 6.21
-      },
-      "first_detected_at": "2026-08-07T19:37:38.450304+00:00",
-      "last_detected_at": "2026-08-07T19:37:38.450307+00:00"
-    }
-  ]
+  "generated_at": "2026-08-07T20:03:10.705983+00:00",
+  "issues": []
 }
