@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "39.0.0",
-  "generated_at": "2026-08-06T20:38:29.897891+00:00",
+  "generated_at": "2026-08-07T01:44:16.746242+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -14,7 +14,7 @@
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
     "action": "KEEP_RUNNING",
-    "confidence_pct": 70.1,
+    "confidence_pct": 70.0,
     "urgency": "MONITOR",
     "why": [
       "Current entry filters pass",
@@ -57,9 +57,9 @@
     "asset_allocations": [
       {
         "asset": "TEL",
-        "quantity": 255493.0,
+        "quantity": 717251.0,
         "quote_currency": "USDT",
-        "quote_cost": 392.19478893
+        "quote_cost": 1080.17212719
       }
     ],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
@@ -213,11 +213,17 @@
       "status": "NOT_COMPARABLE"
     }
   ],
-  "what_changed": [],
+  "what_changed": [
+    {
+      "field": "Confidence",
+      "before": 70.1,
+      "after": 70.0
+    }
+  ],
   "risks": [
     "Strategy health requires review",
     "Recent drawdown is elevated",
-    "Open replay position has lasted 29.0 days",
+    "Open replay position has lasted 29.5 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -235,33 +241,33 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 39.22,
-        "stressed_reserve_requirement": 11800.66,
+        "estimated_capital_impact": 108.02,
+        "stressed_reserve_requirement": 10968.66,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 23.53,
-        "stressed_reserve_requirement": 14160.79,
+        "estimated_capital_impact": 64.81,
+        "stressed_reserve_requirement": 13162.39,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 31.38,
-        "stressed_reserve_requirement": 8496.48,
+        "estimated_capital_impact": 86.41,
+        "stressed_reserve_requirement": 7897.44,
         "status": "ESTIMATED",
         "automatic_action": false
       }
     ]
   },
   "portfolio": {
-    "health_score": 50.1,
+    "health_score": 48.6,
     "diversification_score": 25,
-    "capital_efficiency_score": 65.2,
+    "capital_efficiency_score": 60.9,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -273,7 +279,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 1,
-        "efficiency_score": 70.1,
+        "efficiency_score": 70.0,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -286,7 +292,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 2,
-        "efficiency_score": 70.1,
+        "efficiency_score": 70.0,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -299,7 +305,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 70.1,
+        "efficiency_score": 70.0,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -309,10 +315,10 @@
         "action": "KEEP_RUNNING",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": 392.19478893,
-        "reserve_capital": 2369.5360000000005,
+        "allocated_capital": 1080.17212719,
+        "reserve_capital": 1703.9360000000004,
         "deployable_priority": 4,
-        "efficiency_score": 50.35,
+        "efficiency_score": 33.65,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -335,7 +341,7 @@
     "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
   },
   "deployment_health": {
-    "cloud": "FAILURE",
+    "cloud": "WARNING",
     "threecommas": "partial",
     "main_app": null,
     "publication": null,
@@ -348,5 +354,5 @@
     "Resolve missing DCA fields before making changes.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "f50e94883d574bf1c915bd3a"
+  "snapshot_id": "f6db4127766774966b33eb69"
 }

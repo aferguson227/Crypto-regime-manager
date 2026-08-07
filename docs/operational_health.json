@@ -1,26 +1,26 @@
 {
   "schema_version": "1.0",
   "application_version": "39.0.0",
-  "generated_at": "2026-08-07T01:43:20.978479+00:00",
+  "generated_at": "2026-08-07T01:44:16.482527+00:00",
   "overall": {
-    "state": "CRITICAL",
-    "score_pct": 61.6,
-    "active_issue_count": 2,
-    "critical_count": 1,
+    "state": "WARNING",
+    "score_pct": 75.0,
+    "active_issue_count": 1,
+    "critical_count": 0,
     "warning_count": 1
   },
   "scores": {
     "system": 100,
-    "data": 48.2,
+    "data": 80.0,
     "trading": 70.0,
-    "deployment": 50.0,
+    "deployment": 85.0,
     "decision_readiness": 40.0
   },
   "threecommas": {
     "status": "partial",
     "last_attempt_at": "2026-08-07T01:43:17.624101+00:00",
     "last_success_at": "2026-08-07T01:43:17.624101+00:00",
-    "last_success_age_hours": 0.0,
+    "last_success_age_hours": 0.02,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-07T01:43:18.204911+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.02,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-07T01:43:18.572321+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.02,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -51,7 +51,7 @@
         "http_status": null,
         "records": 4,
         "observed_at": "2026-08-07T01:43:18.891239+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.02,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -62,7 +62,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-07T01:43:19.167649+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.02,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -73,7 +73,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-07T01:43:19.892736+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.02,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -84,7 +84,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-07T01:43:20.459416+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.02,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 01:44:18 UTC'}"
       }
@@ -94,9 +94,9 @@
     "deals": 1
   },
   "application": {
-    "cloud_state": "failure",
-    "last_success_at": "2026-08-06T13:21:32.250664+00:00",
-    "last_success_age_hours": 12.36,
+    "cloud_state": "healthy",
+    "last_success_at": "2026-08-07T01:44:16.468273+00:00",
+    "last_success_age_hours": 0.0,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -132,20 +132,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-07T01:43:20.979652+00:00",
-      "last_detected_at": "2026-08-07T01:43:20.979657+00:00"
-    },
-    {
-      "severity": "critical",
-      "system": "Application",
-      "title": "Application refresh is stale",
-      "detail": "Last successful application refresh age: 12.36.",
-      "recommended_action": "Run the autonomous refresh workflow and inspect its failed step.",
-      "metric": {
-        "age_hours": 12.36
-      },
-      "first_detected_at": "2026-08-07T01:43:20.979668+00:00",
-      "last_detected_at": "2026-08-07T01:43:20.979670+00:00"
+      "first_detected_at": "2026-08-07T01:44:16.483273+00:00",
+      "last_detected_at": "2026-08-07T01:44:16.483277+00:00"
     }
   ],
   "safeguards": {

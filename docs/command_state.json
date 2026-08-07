@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "39.0.0",
-  "generated_at": "2026-08-07T01:43:21.169163+00:00",
-  "snapshot_id": "9112cf1d21b466f4e1f46878",
+  "generated_at": "2026-08-07T01:44:16.742354+00:00",
+  "snapshot_id": "9a15952dc016c13018d1c736",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -19,33 +19,33 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 39.22,
-        "stressed_reserve_requirement": 11800.66,
+        "estimated_capital_impact": 108.02,
+        "stressed_reserve_requirement": 10968.66,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 23.53,
-        "stressed_reserve_requirement": 14160.79,
+        "estimated_capital_impact": 64.81,
+        "stressed_reserve_requirement": 13162.39,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 31.38,
-        "stressed_reserve_requirement": 8496.48,
+        "estimated_capital_impact": 86.41,
+        "stressed_reserve_requirement": 7897.44,
         "status": "ESTIMATED",
         "automatic_action": false
       }
     ]
   },
   "portfolio": {
-    "health_score": 48.7,
+    "health_score": 48.6,
     "diversification_score": 25,
-    "capital_efficiency_score": 61.0,
+    "capital_efficiency_score": 60.9,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -57,7 +57,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 1,
-        "efficiency_score": 70.1,
+        "efficiency_score": 70.0,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -70,7 +70,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 2,
-        "efficiency_score": 70.1,
+        "efficiency_score": 70.0,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -83,7 +83,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 70.1,
+        "efficiency_score": 70.0,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -96,7 +96,7 @@
         "allocated_capital": 1080.17212719,
         "reserve_capital": 1703.9360000000004,
         "deployable_priority": 4,
-        "efficiency_score": 33.7,
+        "efficiency_score": 33.65,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -131,15 +131,15 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "6c0f50c5eb7b9cdfb2706100",
+      "recommendation_id": "0159db95a3db58eb9ef00ac2",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
-      "confidence_pct": 70.1,
-      "static_confidence_pct": 70.1,
+      "confidence_pct": 70.0,
+      "static_confidence_pct": 70.0,
       "adaptive_active": false,
       "risk_level": "MODERATE",
-      "explanation": "Keep running TEL Low Volatility Bot. Confidence 70.1%; risk moderate. Current entry filters pass",
+      "explanation": "Keep running TEL Low Volatility Bot. Confidence 70.0%; risk moderate. Current entry filters pass",
       "supporting_evidence": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
@@ -148,7 +148,7 @@
       "risks": [
         "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 29.0 days"
+        "Open replay position has lasted 29.5 days"
       ],
       "blockers": [],
       "production_comparison": {
@@ -285,7 +285,7 @@
       }
     },
     {
-      "recommendation_id": "843360a49b9c05a519f22bf7",
+      "recommendation_id": "298e688b37ea0ae778f1eb4d",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -448,7 +448,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
-      "confidence_pct": 70.1,
+      "confidence_pct": 70.0,
       "urgency": "MONITOR",
       "rationale": [
         "Current entry filters pass",
@@ -484,7 +484,7 @@
   "risks": [
     "Strategy health requires review",
     "Recent drawdown is elevated",
-    "Open replay position has lasted 29.0 days",
+    "Open replay position has lasted 29.5 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -509,7 +509,7 @@
     }
   },
   "cloud": {
-    "overall_status": "FAILURE",
+    "overall_status": "WARNING",
     "threecommas": {
       "status": "partial",
       "generated_at": "2026-08-07T01:43:17.624101+00:00",
@@ -522,18 +522,18 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "FAILURE"
+    "cloud_status": "WARNING"
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "c301cb317ae92fd61481",
-    "capital": "9eecd0cd7673d78e2d1a",
-    "deployment": "34a019dd17ecb4acd2f8",
-    "recommendations": "d711dc81669f6f14a450",
-    "adaptive": "ba0bb038fe74989f72ca",
-    "outcomes": "2026-08-06T20:38:28.424364+00:00",
-    "cloud": "643e1469c12817dcdb05",
-    "operating": "c91dd526ade360bcdcf7"
+    "portfolio": "9494546bdbf8fe6fdbaa",
+    "capital": "0d3d8171082c1fc719e1",
+    "deployment": "053fd3ba91390e24a270",
+    "recommendations": "9dcee99e963484e63ea7",
+    "adaptive": "70e78020f6ef50a5ff6a",
+    "outcomes": "2026-08-07T01:44:16.450014+00:00",
+    "cloud": "08b379cdeee23ef86fa3",
+    "operating": "ccfbbbed3fff1590b2ca"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
