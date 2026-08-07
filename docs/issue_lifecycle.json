@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "application_version": "41.1.0",
-  "generated_at": "2026-08-07T10:48:53.002541+00:00",
+  "generated_at": "2026-08-07T12:28:37.882369+00:00",
   "summary": {
     "open": 1,
-    "closed_this_scan": 1,
+    "closed_this_scan": 0,
     "automatic_available": 0
   },
   "issues": [
@@ -18,26 +18,10 @@
       "automatic": false,
       "recommended_action": "Exclude them from normal source and release archives; preserve separately.",
       "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-07T10:48:53.002541+00:00",
+      "last_detected_at": "2026-08-07T12:28:37.882369+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 14
+      "historical_occurrences": 15
     }
   ],
-  "recently_closed": [
-    {
-      "key": "c88b3626ba84c850",
-      "source": "operational",
-      "fingerprint": "account_32632134_balances endpoint rate limited",
-      "title": "account_32632134_balances endpoint rate limited",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-07T10:13:50.815886+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 13,
-      "closed_at": "2026-08-07T10:48:53.002541+00:00"
-    }
-  ]
+  "recently_closed": []
 }
