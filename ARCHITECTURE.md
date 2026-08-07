@@ -51,3 +51,7 @@ Pending one-variable experiments are executed automatically during the main work
 ## V33 unified command state
 
 `docs/command_state.json` is the canonical presentation snapshot for the Trading Command Centre. It references rather than replaces the governed Market, Operating State, Capital, Portfolio, Recommendation, Adaptive, Outcome and Cloud Reliability outputs. All decisions remain read-only and require manual approval.
+
+
+## V40 Unified Core Managers
+Operational plumbing is centralised behind canonical managers for generated outputs, workflows, releases, diagnostics and UI validation. This reduces duplicated logic and regression risk.

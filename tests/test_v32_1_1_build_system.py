@@ -14,7 +14,7 @@ def test_build_system_files_and_release_gate():
     build = (ROOT / 'build.ps1').read_text(encoding='utf-8')
     package = (ROOT / 'package.ps1').read_text(encoding='utf-8')
     assert "python" in build and "pytest" in build
-    assert "validate_publish.py" in build
+    assert 'scripts.release_manager' in build
     assert "diagnostics_engine.py" in build
     assert "Build gate failed; package not created" in package
 

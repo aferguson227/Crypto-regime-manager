@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "application_version": "39.1.0",
-  "generated_at": "2026-08-07T07:08:56.979113+00:00",
+  "application_version": "40.0.0",
+  "generated_at": "2026-08-07T07:27:39.684200+00:00",
   "summary": {
-    "open": 2,
-    "closed_this_scan": 0,
-    "automatic_available": 0
+    "open": 3,
+    "closed_this_scan": 2,
+    "automatic_available": 1
   },
   "issues": [
     {
@@ -18,9 +18,9 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-07T07:08:56.979113+00:00",
+      "last_detected_at": "2026-08-07T07:27:39.684200+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 7
+      "historical_occurrences": 10
     },
     {
       "key": "12d85e3b022bfe64",
@@ -32,10 +32,55 @@
       "automatic": false,
       "recommended_action": "Exclude them from normal source and release archives; preserve separately.",
       "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-07T07:08:56.979113+00:00",
+      "last_detected_at": "2026-08-07T07:27:39.684200+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 7
+      "historical_occurrences": 10
+    },
+    {
+      "key": "9a2f2e55c5fd8d68",
+      "source": "self_healing",
+      "fingerprint": "STALE_RUNTIME_DIAGNOSTICS",
+      "title": "Runtime diagnostics version is stale",
+      "severity": "low",
+      "occurrences": 1,
+      "automatic": true,
+      "recommended_action": "Regenerate runtime diagnostics.",
+      "first_detected_at": "2026-08-07T07:27:39.684200+00:00",
+      "last_detected_at": "2026-08-07T07:27:39.684200+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
     }
   ],
-  "recently_closed": []
+  "recently_closed": [
+    {
+      "key": "92115f3459721a34",
+      "source": "operational",
+      "fingerprint": "3Commas data is stale",
+      "title": "3Commas data is stale",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
+      "last_detected_at": "2026-08-07T07:20:09.668337+00:00",
+      "lifecycle": "CLOSED",
+      "historical_occurrences": 9,
+      "closed_at": "2026-08-07T07:27:39.684200+00:00"
+    },
+    {
+      "key": "a43930f4134bf7af",
+      "source": "self_healing",
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "severity": "low",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Trigger the read-only 3Commas workflow.",
+      "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
+      "last_detected_at": "2026-08-07T07:20:09.668337+00:00",
+      "lifecycle": "CLOSED",
+      "historical_occurrences": 9,
+      "closed_at": "2026-08-07T07:27:39.684200+00:00"
+    }
+  ]
 }

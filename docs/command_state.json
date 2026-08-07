@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "39.1.0",
-  "generated_at": "2026-08-07T07:08:55.647990+00:00",
-  "snapshot_id": "ab2b9b63d67c30f93e7f1fa0",
+  "application_version": "40.0.0",
+  "generated_at": "2026-08-07T07:27:40.502899+00:00",
+  "snapshot_id": "0fb939a8f4332fad7bcf6a0f",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -131,7 +131,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "e735407695c4e4cff875eab3",
+      "recommendation_id": "408c5d299dd977efc781c5b9",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
@@ -285,7 +285,7 @@
       }
     },
     {
-      "recommendation_id": "cb62e92838d3c2f763903c72",
+      "recommendation_id": "611205a1c34136e4faf829ba",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -526,14 +526,14 @@
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "0eda191ae8d44ee2ca3b",
-    "capital": "99a1c63d3a1a8cf6fc19",
-    "deployment": "ec2b324f1251b208fb76",
-    "recommendations": "bcaf4f496f3072c018e3",
+    "portfolio": "4433af289f7ad0402fe5",
+    "capital": "e7c9f68df7a926f3c0c1",
+    "deployment": "23e5c4a2072b4e690442",
+    "recommendations": "6799b0aab45c166987fe",
     "adaptive": "70e78020f6ef50a5ff6a",
-    "outcomes": "2026-08-07T07:08:53.597593+00:00",
+    "outcomes": "2026-08-07T07:27:38.645719+00:00",
     "cloud": "8b45f1f1d092ae62d11e",
-    "operating": "72b9990c5adb4ec3aa7a"
+    "operating": "20aee48dbbc70c89ef57"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

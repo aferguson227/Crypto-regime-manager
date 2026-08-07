@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "application_version": "40.0.0",
+  "managers": {
+    "generated_outputs": "scripts.generated_output_manager",
+    "workflows": "scripts.workflow_manager",
+    "release": "scripts.release_manager",
+    "diagnostics": "scripts.diagnostics_manager",
+    "ui_validation": "scripts.ui_validation_manager"
+  },
+  "principles": {
+    "single_authoritative_implementation": true,
+    "module_execution_only": true,
+    "tracked_check_before_git_restore": true,
+    "build_cleanup_before_and_after": true,
+    "trading_mutations_forbidden": true
+  }
+}

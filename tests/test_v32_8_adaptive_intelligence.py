@@ -3,9 +3,9 @@ from pathlib import Path
 ROOT=Path(__file__).parents[1]
 
 def test_v328_release_and_output():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='39.1.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='40.0.0'
  rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
- assert rel['release_name']=='Workflow Reliability & Clean Operations'
+ assert rel['release_name']=='Unified Core Managers'
  assert (ROOT/'docs/adaptive_intelligence.json').exists()
  assert (ROOT/'docs/adaptive.html').exists()
 
@@ -28,6 +28,6 @@ def test_v328_routes_and_cloud_pipeline():
 
 def test_v328_build_restores_generated_diagnostics():
  text=(ROOT/'build.ps1').read_text(encoding='utf-8')
- assert 'docs/diagnostics.json' in text
+ assert 'scripts.generated_output_manager' in text
  assert 'diagnostics_runtime.json' in (ROOT/'.gitignore').read_text(encoding='utf-8')
  assert 'Build System 2.1' in text

@@ -24,3 +24,7 @@ The build and diagnostic tools are observational. They do not start or stop bots
 ## V2.0
 
 Build System 2.1 validates canonical release metadata, restores generated acceptance artefacts, keeps application and build outcomes distinct, and preserves strict read-only safeguards.
+
+
+## Build System 4.0
+V40 centralises generated-output, workflow, release, diagnostics and UI validation in shared Python managers. Build scripts no longer perform direct generated-file `git restore` operations.

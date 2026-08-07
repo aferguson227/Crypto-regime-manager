@@ -1,11 +1,11 @@
 {
   "schema_version": "2.0",
-  "application_version": "39.1.0",
-  "generated_at": "2026-08-07T07:08:57.082699+00:00",
-  "readiness_pct": 95.8,
+  "application_version": "40.0.0",
+  "generated_at": "2026-08-07T07:27:40.329241+00:00",
+  "readiness_pct": 90.8,
   "ready": true,
   "recommendation": "READY",
-  "regression_risk": "VERY_LOW",
+  "regression_risk": "LOW",
   "expected_build_seconds": null,
   "expected_deployment_seconds": null,
   "actions_success_rate_pct": null,
@@ -15,7 +15,7 @@
     "operations": 75.0,
     "interface": 100,
     "actions": 100,
-    "self_healing": 100,
+    "self_healing": 70,
     "repository": 100
   }
 }

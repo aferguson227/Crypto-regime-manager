@@ -11,3 +11,7 @@ Open `docs/command_centre.html` for the unified read-only command view backed by
 
 ## V38 Engineering Mode
 Open `engineering.html` for engineering health and run `GENERATE_ENGINEERING_PACKAGE.cmd` to produce one evidence ZIP for future development.
+
+
+### V40 reliability architecture
+V40 uses shared core managers so builds, installers, diagnostics and engineering tools follow the same cleanup and validation policies.

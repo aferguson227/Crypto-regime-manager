@@ -1,5 +1,5 @@
 # diagnostics_engine.py compatibility marker; execution uses python -m scripts.diagnostics_engine
-# Build System 2.1 compatibility marker; superseded by Build System 3.5
+# Build System 2.1 compatibility marker; superseded by Build System 4.0
 [CmdletBinding()]
 param(
     [switch]$Screenshots,
@@ -61,7 +61,7 @@ function Run-Step {
 }
 
 try {
-    Write-Host 'Crypto Regime Manager Build System 3.5' -ForegroundColor Green
+    Write-Host 'Crypto Regime Manager Build System 4.0' -ForegroundColor Green
     Write-Host "Project: $ProjectPath"
     Write-Host "Log:     $log"
 
@@ -76,7 +76,7 @@ try {
             throw 'Git is unavailable'
         }
 
-        foreach ($generated in @('docs/diagnostics.json','docs/diagnostics_runtime.json')) { & git -C $ProjectPath restore --worktree -- $generated 2>$null }
+        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.generated_output_manager', 'clean') -WorkingDirectory $ProjectPath -LogPath $log
         $dirty = (& git -C $ProjectPath status --porcelain | Out-String).Trim()
         if ($dirty -and -not $AllowDirty) {
             throw 'Repository has uncommitted changes. Commit them or rerun with -AllowDirty.'
@@ -94,7 +94,7 @@ try {
     }
 
     Run-Step -Name 'Workflow policy validation' -Action {
-        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.workflow_policy') -WorkingDirectory $ProjectPath -LogPath $log
+        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.workflow_manager', 'validate') -WorkingDirectory $ProjectPath -LogPath $log
     }
 
     Run-Step -Name 'Operational intelligence' -Action {
@@ -113,11 +113,7 @@ try {
         Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.self_healing_engine') -WorkingDirectory $ProjectPath -LogPath $log
     }
     Run-Step -Name 'Visual formatting audit' -Action {
-        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.ui_health_engine') -WorkingDirectory $ProjectPath -LogPath $log
-    }
-
-    Run-Step -Name 'UI consistency validation' -Action {
-        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.ui_consistency') -WorkingDirectory $ProjectPath -LogPath $log
+        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.ui_validation_manager') -WorkingDirectory $ProjectPath -LogPath $log
     }
 
     Run-Step -Name 'Repository hygiene intelligence' -Action {
@@ -136,12 +132,8 @@ try {
         Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'pytest', '-q') -WorkingDirectory $ProjectPath -LogPath $log
     }
 
-    Run-Step -Name 'Publication validation' -Action {
-        Invoke-CRMCommand -Command 'python' -Arguments @('scripts\validate_publish.py') -WorkingDirectory $ProjectPath -LogPath $log
-    }
-
-    Run-Step -Name 'Release metadata validation' -Action {
-        Invoke-CRMCommand -Command 'python' -Arguments @('scripts\validate_release_metadata.py') -WorkingDirectory $ProjectPath -LogPath $log
+    Run-Step -Name 'Unified release validation' -Action {
+        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.release_manager') -WorkingDirectory $ProjectPath -LogPath $log
     }
 
     Run-Step -Name 'Python compilation' -Action {
@@ -149,12 +141,16 @@ try {
     }
 
     Run-Step -Name 'Diagnostics and acceptance' -Action {
-        $arguments = @('-m', 'scripts.diagnostics_engine', '--full', '--export')
+        $arguments = @('-m', 'scripts.diagnostics_manager', '--full', '--export')
         if ($Screenshots) {
             $arguments += '--screenshots'
         }
         Invoke-CRMCommand -Command 'python' -Arguments $arguments -WorkingDirectory $ProjectPath -LogPath $log
         # Runtime diagnostics are intentionally untracked; the release snapshot remains unchanged.
+    }
+
+    Run-Step -Name 'Generated-output cleanup' -Action {
+        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.generated_output_manager', 'clean') -WorkingDirectory $ProjectPath -LogPath $log
     }
 
     $result = 'pass'
@@ -165,6 +161,14 @@ catch {
     Write-Host "`nBUILD FAILED: $failure" -ForegroundColor Red
 }
 finally {
+    try {
+        & python -m scripts.generated_output_manager clean *> $null
+        $global:LASTEXITCODE = 0
+    }
+    catch {
+        # Cleanup is best-effort here; the original build failure remains authoritative.
+    }
+
     $gitCommit = ''
     try {
         $gitCommit = (& git -C $ProjectPath rev-parse HEAD 2>$null | Out-String).Trim()
@@ -175,7 +179,7 @@ finally {
 
     $report = [ordered]@{
         schema_version = '1.0'
-        build_system = 'CRM Build System 3.5'
+        build_system = 'CRM Build System 4.0'
         version = $v
         result = $result
         started_at = $started.ToString('o')

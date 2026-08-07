@@ -4,7 +4,7 @@ ROOT=Path(__file__).parents[1]
 def test_build_system_2_metadata_gate():
     text=(ROOT/'build.ps1').read_text(encoding='utf-8')
     assert 'Build System 2.1' in text
-    assert 'validate_release_metadata.py' in text
+    assert 'scripts.release_manager' in text
 
 def test_metadata_validator_exists_and_is_read_only():
     text=(ROOT/'scripts/validate_release_metadata.py').read_text(encoding='utf-8')
