@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
   "application_version": "40.1.0",
-  "generated_at": "2026-08-07T08:35:32.386292+00:00",
+  "generated_at": "2026-08-07T09:23:44.771654+00:00",
   "summary": {
-    "open": 3,
+    "open": 8,
     "closed_this_scan": 1,
     "automatic_available": 0
   },
@@ -18,21 +18,91 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-07T08:35:32.386292+00:00",
+      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 11
+      "historical_occurrences": 12
     },
     {
-      "key": "9d3b6201791c06a4",
-      "source": "operational",
-      "fingerprint": "Application refresh is stale",
-      "title": "Application refresh is stale",
+      "key": "fb93449715cf1432",
+      "source": "actions",
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "CRM Safe Self-Heal latest run failed",
       "severity": "warning",
       "occurrences": 1,
       "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-07T08:35:32.386292+00:00",
-      "last_detected_at": "2026-08-07T08:35:32.386292+00:00",
+      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "first_detected_at": "2026-08-07T09:23:44.771654+00:00",
+      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "d41090fc659d3228",
+      "source": "actions",
+      "fingerprint": "WORKFLOW_SLOWDOWN",
+      "title": "CRM Safe Self-Heal latest run is unusually slow",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Compare with recent successful median before changing configuration.",
+      "first_detected_at": "2026-08-07T09:23:44.771654+00:00",
+      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "7794fa351576a26a",
+      "source": "actions",
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "V31 Autonomous Crypto Regime Refresh latest run failed",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "first_detected_at": "2026-08-07T09:23:44.771654+00:00",
+      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "a2f78a12cf904a63",
+      "source": "self_healing",
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "CRM Safe Self-Heal latest run failed",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "first_detected_at": "2026-08-07T09:23:44.771654+00:00",
+      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "c0095b569273e8cd",
+      "source": "self_healing",
+      "fingerprint": "WORKFLOW_SLOWDOWN",
+      "title": "CRM Safe Self-Heal latest run is unusually slow",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Compare with recent successful median before changing configuration.",
+      "first_detected_at": "2026-08-07T09:23:44.771654+00:00",
+      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "72e7efd83ad5ba6f",
+      "source": "self_healing",
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "V31 Autonomous Crypto Regime Refresh latest run failed",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "first_detected_at": "2026-08-07T09:23:44.771654+00:00",
+      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
       "lifecycle": "DETECTED",
       "historical_occurrences": 1
     },
@@ -46,26 +116,26 @@
       "automatic": false,
       "recommended_action": "Exclude them from normal source and release archives; preserve separately.",
       "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-07T08:35:32.386292+00:00",
+      "last_detected_at": "2026-08-07T09:23:44.771654+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 11
+      "historical_occurrences": 12
     }
   ],
   "recently_closed": [
     {
-      "key": "9a2f2e55c5fd8d68",
-      "source": "self_healing",
-      "fingerprint": "STALE_RUNTIME_DIAGNOSTICS",
-      "title": "Runtime diagnostics version is stale",
-      "severity": "low",
+      "key": "9d3b6201791c06a4",
+      "source": "operational",
+      "fingerprint": "Application refresh is stale",
+      "title": "Application refresh is stale",
+      "severity": "warning",
       "occurrences": 1,
-      "automatic": true,
-      "recommended_action": "Regenerate runtime diagnostics.",
-      "first_detected_at": "2026-08-07T07:27:39.684200+00:00",
-      "last_detected_at": "2026-08-07T07:27:39.684200+00:00",
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-07T08:35:32.386292+00:00",
+      "last_detected_at": "2026-08-07T08:35:32.386292+00:00",
       "lifecycle": "CLOSED",
       "historical_occurrences": 1,
-      "closed_at": "2026-08-07T08:35:32.386292+00:00"
+      "closed_at": "2026-08-07T09:23:44.771654+00:00"
     }
   ]
 }
