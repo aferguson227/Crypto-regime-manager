@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
-  "application_version": "41.2.0",
-  "generated_at": "2026-08-07T13:25:04.856156+00:00",
+  "application_version": "42.0.0",
+  "generated_at": "2026-08-07T13:57:20.959609+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -14,8 +14,8 @@
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
     "action": "KEEP_ACTIVE_DEAL",
-    "confidence_pct": 76.9,
-    "urgency": "WAIT",
+    "confidence_pct": 91.6,
+    "urgency": "MONITOR",
     "why": [
       "Current entry filters pass",
       "Recent realised P&L is positive",
@@ -85,8 +85,8 @@
       "reason": "CRM has evidence supporting this value."
     },
     "safety_order_volume": {
-      "source": "KEEP_LIVE",
-      "reason": "Insufficient evidence to change this live setting."
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
     },
     "take_profit_pct": {
       "source": "GOVERNED_RECOMMENDATION",
@@ -109,28 +109,28 @@
       "reason": "CRM has evidence supporting this value."
     },
     "max_active_safety_orders": {
-      "source": "KEEP_LIVE",
-      "reason": "Insufficient evidence to change this live setting."
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
     },
     "max_active_deals": {
       "source": "GOVERNED_RECOMMENDATION",
       "reason": "CRM has evidence supporting this value."
     },
     "start_condition": {
-      "source": "KEEP_LIVE",
-      "reason": "Insufficient evidence to change this live setting."
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
     },
     "order_type": {
-      "source": "KEEP_LIVE",
-      "reason": "Insufficient evidence to change this live setting."
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
     },
     "trailing_enabled": {
-      "source": "KEEP_LIVE",
-      "reason": "Insufficient evidence to change this live setting."
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
     },
     "cooldown_seconds": {
-      "source": "KEEP_LIVE",
-      "reason": "Insufficient evidence to change this live setting."
+      "source": "GOVERNED_RECOMMENDATION",
+      "reason": "CRM has evidence supporting this value."
     }
   },
   "settings_order": [
@@ -173,9 +173,9 @@
     },
     {
       "field": "safety_order_volume",
-      "production_value": null,
+      "production_value": 100.0,
       "live_value": 100.0,
-      "status": "NOT_COMPARABLE"
+      "status": "MATCH"
     },
     {
       "field": "take_profit_pct",
@@ -215,36 +215,42 @@
     },
     {
       "field": "max_active_safety_orders",
-      "production_value": null,
+      "production_value": 3,
       "live_value": 3,
-      "status": "NOT_COMPARABLE"
+      "status": "MATCH"
     },
     {
       "field": "start_condition",
-      "production_value": null,
+      "production_value": "long",
       "live_value": "long",
-      "status": "NOT_COMPARABLE"
+      "status": "MATCH"
     },
     {
       "field": "order_type",
-      "production_value": null,
+      "production_value": "limit",
       "live_value": "limit",
-      "status": "NOT_COMPARABLE"
+      "status": "MATCH"
     },
     {
       "field": "trailing_enabled",
-      "production_value": null,
+      "production_value": false,
       "live_value": false,
-      "status": "NOT_COMPARABLE"
+      "status": "MATCH"
     },
     {
       "field": "cooldown_seconds",
-      "production_value": null,
+      "production_value": 0,
       "live_value": 0,
-      "status": "NOT_COMPARABLE"
+      "status": "MATCH"
     }
   ],
-  "what_changed": [],
+  "what_changed": [
+    {
+      "field": "Confidence",
+      "before": 76.9,
+      "after": 91.6
+    }
+  ],
   "risks": [
     "Strategy health requires review",
     "Recent drawdown is elevated",
@@ -290,47 +296,47 @@
     ]
   },
   "portfolio": {
-    "health_score": 62.6,
+    "health_score": 60.9,
     "diversification_score": 25,
-    "capital_efficiency_score": 62.7,
+    "capital_efficiency_score": 57.8,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - High Bear",
-        "action": "KEEP_ACTIVE_DEAL",
+        "action": "PAUSE_NEW_DEALS",
         "enabled": true,
         "active_deals": 0,
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 1,
-        "efficiency_score": 76.9,
+        "efficiency_score": null,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - High Bull",
-        "action": "KEEP_ACTIVE_DEAL",
+        "action": "PAUSE_NEW_DEALS",
         "enabled": true,
         "active_deals": 0,
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 2,
-        "efficiency_score": 76.9,
+        "efficiency_score": null,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Medium Volatility",
-        "action": "KEEP_ACTIVE_DEAL",
+        "action": "PAUSE_NEW_DEALS",
         "enabled": true,
         "active_deals": 0,
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 76.9,
+        "efficiency_score": 91.6,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -343,7 +349,7 @@
         "allocated_capital": 2808.56278875,
         "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 20.19,
+        "efficiency_score": 24.05,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -378,5 +384,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "16400a81c77dc952185f513b"
+  "snapshot_id": "eaacf16d6e97eb97bc76126c"
 }

@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "application_version": "41.2.0",
-  "generated_at": "2026-08-07T13:25:04.199183+00:00",
-  "snapshot_id": "b8d9c8d3fc9ac936ea22",
+  "application_version": "42.0.0",
+  "generated_at": "2026-08-07T13:57:18.652011+00:00",
+  "snapshot_id": "a8c36ca1c04a26205543",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
   "current_market_regime": "Low",
-  "current_regime_confidence": 37.5,
+  "current_regime_confidence": 41.5,
   "overall_action": "MAINTAIN",
   "deploy_today": [],
   "keep_running": [
@@ -32,7 +32,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
-      "confidence": 75.0,
+      "confidence": 83.0,
       "eligible": true,
       "blocking_reasons": [],
       "supporting_reasons": [
@@ -80,32 +80,40 @@
         ]
       },
       "recommended_settings": {
-        "source": "PRODUCTION_CONFIGURATION",
+        "source": "CANONICAL_LIVE_GOVERNED_RECOMMENDATION",
         "values": {
           "bot_name": "TEL Low Volatility Bot",
           "base_order_volume": 100.0,
-          "safety_order_volume": null,
+          "safety_order_volume": 100.0,
           "take_profit_pct": 1.5,
           "so_deviation_pct": 1.2,
           "safety_orders": 6,
           "volume_scale": 1.6,
           "step_scale": 1.0,
           "max_active_deals": 1,
-          "max_active_safety_orders": null,
-          "start_condition": null,
-          "order_type": null,
-          "trailing_enabled": null,
-          "cooldown_seconds": null
+          "max_active_safety_orders": 3,
+          "start_condition": "long",
+          "order_type": "limit",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0,
+          "_evidence": {
+            "base_order_volume": "GOVERNED",
+            "safety_order_volume": "KEEP_LIVE",
+            "take_profit_pct": "GOVERNED",
+            "so_deviation_pct": "GOVERNED",
+            "safety_orders": "GOVERNED",
+            "volume_scale": "GOVERNED",
+            "step_scale": "GOVERNED",
+            "max_active_deals": "GOVERNED",
+            "max_active_safety_orders": "KEEP_LIVE",
+            "start_condition": "KEEP_LIVE",
+            "order_type": "KEEP_LIVE",
+            "trailing_enabled": "KEEP_LIVE",
+            "cooldown_seconds": "KEEP_LIVE"
+          }
         },
-        "complete": false,
-        "missing_fields": [
-          "safety_order_volume",
-          "max_active_safety_orders",
-          "start_condition",
-          "order_type",
-          "trailing_enabled",
-          "cooldown_seconds"
-        ]
+        "complete": true,
+        "missing_fields": []
       },
       "settings_changed": false,
       "settings_differences": [
@@ -117,9 +125,9 @@
         },
         {
           "field": "safety_order_volume",
-          "production_value": null,
+          "production_value": 100.0,
           "live_value": 100.0,
-          "status": "NOT_COMPARABLE"
+          "status": "MATCH"
         },
         {
           "field": "take_profit_pct",
@@ -159,33 +167,33 @@
         },
         {
           "field": "max_active_safety_orders",
-          "production_value": null,
+          "production_value": 3,
           "live_value": 3,
-          "status": "NOT_COMPARABLE"
+          "status": "MATCH"
         },
         {
           "field": "start_condition",
-          "production_value": null,
+          "production_value": "long",
           "live_value": "long",
-          "status": "NOT_COMPARABLE"
+          "status": "MATCH"
         },
         {
           "field": "order_type",
-          "production_value": null,
+          "production_value": "limit",
           "live_value": "limit",
-          "status": "NOT_COMPARABLE"
+          "status": "MATCH"
         },
         {
           "field": "trailing_enabled",
-          "production_value": null,
+          "production_value": false,
           "live_value": false,
-          "status": "NOT_COMPARABLE"
+          "status": "MATCH"
         },
         {
           "field": "cooldown_seconds",
-          "production_value": null,
+          "production_value": 0,
           "live_value": 0,
-          "status": "NOT_COMPARABLE"
+          "status": "MATCH"
         }
       ],
       "evidence": {
@@ -250,7 +258,7 @@
         ]
       },
       "recommended_settings": {
-        "source": "PRODUCTION_CONFIGURATION",
+        "source": "CANONICAL_LIVE_GOVERNED_RECOMMENDATION",
         "values": {
           "bot_name": "TAO Low Pullback Bot",
           "base_order_volume": 100.0,
@@ -265,7 +273,22 @@
           "start_condition": null,
           "order_type": null,
           "trailing_enabled": null,
-          "cooldown_seconds": null
+          "cooldown_seconds": null,
+          "_evidence": {
+            "base_order_volume": "GOVERNED",
+            "safety_order_volume": "UNAVAILABLE",
+            "take_profit_pct": "GOVERNED",
+            "so_deviation_pct": "GOVERNED",
+            "safety_orders": "GOVERNED",
+            "volume_scale": "GOVERNED",
+            "step_scale": "GOVERNED",
+            "max_active_deals": "GOVERNED",
+            "max_active_safety_orders": "UNAVAILABLE",
+            "start_condition": "UNAVAILABLE",
+            "order_type": "UNAVAILABLE",
+            "trailing_enabled": "UNAVAILABLE",
+            "cooldown_seconds": "UNAVAILABLE"
+          }
         },
         "complete": false,
         "missing_fields": [
@@ -277,7 +300,7 @@
           "cooldown_seconds"
         ]
       },
-      "settings_changed": false,
+      "settings_changed": null,
       "settings_differences": [
         {
           "field": "base_order_volume",
@@ -381,8 +404,8 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "c9cbd89b4e2d9398e43a",
-    "capital_snapshot": "cfbf470ac76e28d4fb4f",
+    "operating_state_snapshot": "129d3adfe3d99de262f7",
+    "capital_snapshot": "322a07707550ec40ebc8",
     "decision_generated_at": "2026-08-07T13:25:03.374314+00:00",
     "threecommas_generated_at": "2026-08-07T13:24:57.839876+00:00"
   },

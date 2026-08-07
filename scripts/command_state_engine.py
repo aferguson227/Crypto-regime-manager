@@ -53,7 +53,7 @@ def build()->dict[str,Any]:
         blockers=tuple(str(x) for x in rec.get('blockers') or [])
         supports=tuple(str(x) for x in rec.get('supporting_evidence') or [])
         capital_impact=rec.get('capital_impact') or {}
-        urgency='NOW' if action=='DEPLOY_TODAY' and not blockers else ('MONITOR' if action=='KEEP_RUNNING' else 'WAIT')
+        urgency='NOW' if action=='DEPLOY_TODAY' and not blockers else ('MONITOR' if action in {'KEEP_RUNNING','KEEP_ACTIVE_DEAL','KEEP_ENABLED','PAUSE_NEW_DEALS'} else 'WAIT')
         recs.append({
             'recommendation_id':rec.get('recommendation_id'),'asset':asset,'bot_name':rec.get('bot_name'),
             'action':action,'confidence_pct':confidence,'static_confidence_pct':rec.get('overall_confidence'),
@@ -72,7 +72,7 @@ def build()->dict[str,Any]:
         risks.extend(f'{asset}: {x}' for x in blockers)
 
     def priority(item:CommandPriority)->tuple[int,float]:
-        action_order={'DEPLOY_TODAY':0,'KEEP_RUNNING':1,'WAIT':2}
+        action_order={'DEPLOY_TODAY':0,'KEEP_ACTIVE_DEAL':1,'KEEP_ENABLED':2,'PAUSE_NEW_DEALS':3,'KEEP_RUNNING':4,'WAIT':5}
         blocked=1 if item.blockers else 0
         return (blocked*10+action_order.get(item.action,9),-(item.confidence_pct or 0))
     ordered=[]
@@ -122,7 +122,7 @@ def build()->dict[str,Any]:
     if str(cloud_summary['overall_status']).upper() not in {'HEALTHY','OK','PASS'}: warnings.append('One or more cloud data sources require attention.')
     overall='READY'
     if any(q.action=='DEPLOY_TODAY' and not q.blockers and q.can_fund is True for q in ordered): overall='ACTION_AVAILABLE'
-    elif any(q.action=='KEEP_RUNNING' for q in ordered): overall='MAINTAIN'
+    elif any(q.action in {'KEEP_RUNNING','KEEP_ACTIVE_DEAL','KEEP_ENABLED','PAUSE_NEW_DEALS'} for q in ordered): overall='MAINTAIN'
     if str(diag_overall.get('state')).lower()=='fail': overall='SYSTEM_ATTENTION'
     sources={name:(obj.get('snapshot_id') or obj.get('generated_at')) for name,obj in {
         'market':market,'portfolio':portfolio,'capital':capital,'deployment':deployment,'recommendations':recommendations,

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """V32.7 portfolio-wide read-only capital, overlap and priority analysis."""
 from __future__ import annotations
-import hashlib,json,math,sys
+import hashlib,json,math,sys,re
 from datetime import datetime,timezone
 from pathlib import Path
 from typing import Any
@@ -23,18 +23,31 @@ def build()->dict[str,Any]:
  cap=load('capital_intelligence.json'); rec=load('recommendation_intelligence.json'); three=load('threecommas.json')
  generated=datetime.now(timezone.utc).isoformat();warnings=[]
  recs={str(r.get('asset')):r for r in rec.get('recommendations',[]) if isinstance(r,dict)}
+ def tokens(value):
+  return {x for x in re.findall(r'[a-z0-9]+',str(value or '').lower()) if x not in {'bot','dca','strategy','the'}}
+ def matches(a,b):
+  aa=tokens(a); bb=tokens(b)
+  return len(aa & bb)>=2 or (('low' in aa and 'low' in bb) and ('volatility' in aa and 'volatility' in bb))
  positions=[];groups={}
  for b in cap.get('bots',[]) if isinstance(cap.get('bots'),list) else []:
   asset=str(b.get('asset') or 'UNKNOWN');r=recs.get(asset,{})
   allocated=num(b.get('active_deal_capital'));reserve=num(b.get('remaining_dca_reserve'))
   if reserve is None:reserve=num(b.get('idle_capacity_reserve'))
-  action=str(r.get('action') or 'WAIT');confidence=num(r.get('overall_confidence'))
+  active_deals=int(b.get('active_deals') or 0); enabled=bool(b.get('enabled'))
+  recommended_name=str(r.get('bot_name') or '')
+  if active_deals>0:
+   action='KEEP_ACTIVE_DEAL'
+  elif enabled:
+   action='KEEP_ENABLED' if r.get('action')=='KEEP_ENABLED' and matches(b.get('bot_name'),recommended_name) else 'PAUSE_NEW_DEALS'
+  else:
+   action='DISABLED'
+  confidence=num(r.get('overall_confidence')) if matches(b.get('bot_name'),recommended_name) or active_deals>0 else None
   efficiency=None
   if confidence is not None and allocated is not None: efficiency=round(confidence/(1+allocated/1000),2)
   group='BTC-linked altcoin' if asset not in {'BTC','ETH','USDT'} else asset
   groups.setdefault(group,[]).append(asset)
   bw=tuple(b.get('warnings') or ())
-  positions.append(PortfolioPosition(asset,str(b.get('bot_name') or asset),action,bool(b.get('enabled')),int(b.get('active_deals') or 0),allocated,reserve,None,efficiency,group,bw))
+  positions.append(PortfolioPosition(asset,str(b.get('bot_name') or asset),action,enabled,active_deals,allocated,reserve,None,efficiency,group,bw))
  ranked=sorted(range(len(positions)),key=lambda i:((recs.get(positions[i].asset,{}) or {}).get('overall_confidence') or -1),reverse=True)
  out=[]
  for rank,i in enumerate(ranked,1):
@@ -52,7 +65,7 @@ def build()->dict[str,Any]:
  if total is None:warnings.append('Total exchange equity remains unknown; portfolio percentages cannot be asserted.')
  if deployable is None:warnings.append('Deployable capital remains unknown; next allocation is advisory only.')
  overlap={k:{'assets':sorted(set(v)),'count':len(set(v)),'concentration_warning':len(set(v))>2} for k,v in groups.items()}
- nextp=cap.get('next_capital_priority') or next((p.bot_name for p in positions if p.action in {'DEPLOY_TODAY','KEEP_RUNNING'}),None)
+ nextp=cap.get('next_capital_priority') or next((p.bot_name for p in positions if p.action in {'DEPLOY_TODAY','KEEP_ENABLED','KEEP_ACTIVE_DEAL'}),None)
  seed=json.dumps({'generated':generated,'capital':cap.get('snapshot_id'),'recommendation':rec.get('snapshot_id')},sort_keys=True)
  payload=PortfolioIntelligence('1.1',application_version(),generated,hashlib.sha256(seed.encode()).hexdigest()[:20],'COMPLETE' if not warnings else 'PARTIAL',str(cap.get('currency') or 'USDT'),health,div,eff,total,allocated,reserved,deployable,allocation_pct,reserve_pct,available_pct,nextp,tuple(positions),overlap,tuple(warnings)).to_dict()
  payload['idle_bot_potential_exposure']=idle

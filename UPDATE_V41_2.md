@@ -1,4 +1,4 @@
-# Crypto Regime Manager V41.2.0 — Capital Truth & Local Autonomous Agent
+# Crypto Regime Manager V42.0.0 — Capital Truth & Local Autonomous Agent
 
 V41.2 corrects capital semantics, bot lifecycle state and DCA field mapping, and moves private KuCoin collection from U.S.-routed GitHub-hosted runners to a local Windows agent.
 

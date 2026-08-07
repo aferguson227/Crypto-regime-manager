@@ -77,6 +77,21 @@ def compare(a,b):
     changed=any(r['status']=='DIFFERENT' for r in comparable) if comparable else None
     return changed,tuple(rows)
 
+def recommended_settings(production,live):
+    values={'bot_name':production.values.get('bot_name') or live.values.get('bot_name')}
+    evidence={}
+    for field in EXACT_FIELDS:
+        pv=production.values.get(field); lv=live.values.get(field)
+        if pv is not None:
+            values[field]=pv; evidence[field]='GOVERNED'
+        elif lv is not None:
+            values[field]=lv; evidence[field]='KEEP_LIVE'
+        else:
+            values[field]=None; evidence[field]='UNAVAILABLE'
+    missing=tuple(k for k in EXACT_FIELDS if values.get(k) is None)
+    values['_evidence']=evidence
+    return SettingsSnapshot('CANONICAL_LIVE_GOVERNED_RECOMMENDATION',values,not missing,missing)
+
 def evidence_for(state,asset):
     rows=((state.get('evidence_agreement') or {}).get('assets') or [])
     row=next((x for x in rows if x.get('asset')==asset),None)
@@ -101,7 +116,7 @@ def build()->dict[str,Any]:
     for row in ranked:
         asset=str(row.get('id') or ''); regime=str(row.get('regime') or 'Unknown'); name=str(row.get('recommended_bot') or asset)
         osrow=state_rows.get(asset,{})
-        prod=config_settings(cfg,asset,regime); live=live_settings(three,asset,name); changed,diffs=compare(prod,live)
+        prod=config_settings(cfg,asset,regime); live=live_settings(three,asset,name); recommended=recommended_settings(prod,live); changed,diffs=compare(recommended,live)
         ev=evidence_for(state,asset); cap_required=None; cap_available=capital.get('deployable_capital'); can_fund=None
         caprow=next((b for b in capital.get('bots') or [] if asset==b.get('asset') and len(name_tokens(name)&name_tokens(b.get('bot_name')))>=2),None)
         if caprow: cap_required=caprow.get('next_deal_required_capital')
@@ -119,13 +134,13 @@ def build()->dict[str,Any]:
             (keep if action=='KEEP_ENABLED' else review).append(name)
         else:
             if capital.get('capital_status')!='COMPLETE' or can_fund is not True: blocks.append('Complete deployable-capital confirmation is unavailable.')
-            if not prod.complete: blocks.append('Exact DCA settings are incomplete; deployment is blocked.')
+            if not recommended.complete: blocks.append('Exact DCA settings are incomplete; deployment is blocked.')
             if ev.get('agreement')=='DISAGREE': blocks.append('Kraken, Q1 validation and current KuCoin evidence disagree.')
             action='DEPLOY_TODAY' if not blocks else 'WAIT'
             (deploy if action=='DEPLOY_TODAY' else review).append(name)
-        conf=confidence(row,ev,capital,prod.complete)
+        conf=confidence(row,ev,capital,recommended.complete)
         eligible=action in {'KEEP_ACTIVE_DEAL','KEEP_ENABLED','DEPLOY_TODAY'} and bool(row.get('entry_allowed'))
-        actions.append(DeploymentAction(asset,name,action,conf,eligible,tuple(blocks),tuple(row.get('positives') or ()),tuple(row.get('cautions') or ()),regime,str(osrow.get('live_bot_state') or 'UNKNOWN'),str(osrow.get('settings_state') or 'NOT_COMPARED'),cap_required,cap_available,can_fund,prod,prod,False,tuple(diffs),ev))
+        actions.append(DeploymentAction(asset,name,action,conf,eligible,tuple(blocks),tuple(row.get('positives') or ()),tuple(row.get('cautions') or ()),regime,str(osrow.get('live_bot_state') or 'UNKNOWN'),str(osrow.get('settings_state') or 'NOT_COMPARED'),cap_required,cap_available,can_fund,prod,recommended,changed,tuple(diffs),ev))
     overall='DEPLOY' if deploy else ('MAINTAIN' if keep else 'WAIT')
     if capital.get('capital_status')!='COMPLETE': warnings.append('Capital reconciliation is incomplete; no new deployment may be asserted.')
     if any(not a.recommended_settings.complete for a in actions): warnings.append('One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.')

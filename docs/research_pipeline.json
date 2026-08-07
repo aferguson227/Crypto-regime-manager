@@ -1,0 +1,243 @@
+{
+  "schema_version": "1.0",
+  "application_version": "42.0.0",
+  "generated_at": "2026-08-07T13:57:21.263927+00:00",
+  "mode": "governed_read_only_research_promotion",
+  "automatic_backtest_execution": false,
+  "automatic_production_promotion": false,
+  "manual_approval_required": true,
+  "summary": {
+    "candidate_count": 5,
+    "ready_for_manual_review": 4,
+    "needs_historical_validation": 1,
+    "research_reject": 0
+  },
+  "candidates": [
+    {
+      "asset": "XMR",
+      "pair": "XMR-USDT",
+      "discovery_rank": 1,
+      "current_research_score": 81.7,
+      "stage": "READY_FOR_MANUAL_REVIEW",
+      "walk_forward_status": "PASS",
+      "frozen_settings": {
+        "take_profit_pct": 2.0,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 17970.19,
+        "closed_deals": 908,
+        "average_hours": 15.3,
+        "longest_hours": 3984,
+        "max_drawdown_dollars": -2274.7,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 16594.364999999998
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 4863.52,
+        "realised_pnl": 4863.52,
+        "open_pnl": 3.56,
+        "mark_to_market_pnl": 4867.08,
+        "closed_deals": 217,
+        "average_hours": 5.9,
+        "longest_hours": 160,
+        "max_drawdown_dollars": -737.5,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "gates": {
+        "current_kucoin_screen": "PASS",
+        "kraken_training": "PASS",
+        "q1_independent_validation": "PASS",
+        "drawdown_review": "REVIEW",
+        "manual_approval": "REQUIRED"
+      },
+      "production_eligible": false,
+      "manual_approval_required": true,
+      "automatic_promotion": false,
+      "next_action": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+    },
+    {
+      "asset": "UNI",
+      "pair": "UNI-USDT",
+      "discovery_rank": 2,
+      "current_research_score": 80.8,
+      "stage": "READY_FOR_MANUAL_REVIEW",
+      "walk_forward_status": "PASS",
+      "frozen_settings": {
+        "take_profit_pct": 1.5,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 24512.2,
+        "closed_deals": 1703,
+        "average_hours": 6.3,
+        "longest_hours": 3400,
+        "max_drawdown_dollars": -2986.73,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 22898.8445
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 2116.48,
+        "realised_pnl": 2116.48,
+        "open_pnl": -628.5,
+        "mark_to_market_pnl": 1487.98,
+        "closed_deals": 157,
+        "average_hours": 7.4,
+        "longest_hours": 280,
+        "max_drawdown_dollars": -1457.48,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "gates": {
+        "current_kucoin_screen": "PASS",
+        "kraken_training": "PASS",
+        "q1_independent_validation": "PASS",
+        "drawdown_review": "REVIEW",
+        "manual_approval": "REQUIRED"
+      },
+      "production_eligible": false,
+      "manual_approval_required": true,
+      "automatic_promotion": false,
+      "next_action": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+    },
+    {
+      "asset": "BTC",
+      "pair": "BTC-USDT",
+      "discovery_rank": 3,
+      "current_research_score": 77.4,
+      "stage": "NEEDS_HISTORICAL_VALIDATION",
+      "walk_forward_status": null,
+      "frozen_settings": null,
+      "training_metrics": null,
+      "q1_2026_metrics": null,
+      "gates": {
+        "current_kucoin_screen": "PASS",
+        "kraken_training": "MISSING",
+        "q1_independent_validation": "MISSING",
+        "drawdown_review": "MISSING",
+        "manual_approval": "REQUIRED"
+      },
+      "production_eligible": false,
+      "manual_approval_required": true,
+      "automatic_promotion": false,
+      "next_action": "Acquire/import comparable historical data and run frozen walk-forward validation."
+    },
+    {
+      "asset": "ETH",
+      "pair": "ETH-USDT",
+      "discovery_rank": 4,
+      "current_research_score": 77.3,
+      "stage": "READY_FOR_MANUAL_REVIEW",
+      "walk_forward_status": "PASS",
+      "frozen_settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 8780.62,
+        "closed_deals": 2160,
+        "average_hours": 4.1,
+        "longest_hours": 448,
+        "max_drawdown_dollars": -634.23,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 8049.679500000002
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 1290.67,
+        "realised_pnl": 1290.67,
+        "open_pnl": 0.81,
+        "mark_to_market_pnl": 1291.47,
+        "closed_deals": 299,
+        "average_hours": 3.2,
+        "longest_hours": 44,
+        "max_drawdown_dollars": -271.79,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "gates": {
+        "current_kucoin_screen": "PASS",
+        "kraken_training": "PASS",
+        "q1_independent_validation": "PASS",
+        "drawdown_review": "REVIEW",
+        "manual_approval": "REQUIRED"
+      },
+      "production_eligible": false,
+      "manual_approval_required": true,
+      "automatic_promotion": false,
+      "next_action": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+    },
+    {
+      "asset": "XRP",
+      "pair": "XRP-USDT",
+      "discovery_rank": 5,
+      "current_research_score": 75.9,
+      "stage": "READY_FOR_MANUAL_REVIEW",
+      "walk_forward_status": "PASS",
+      "frozen_settings": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 17771.34,
+        "closed_deals": 1596,
+        "average_hours": 6.9,
+        "longest_hours": 1096,
+        "max_drawdown_dollars": -1909.44,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 16581.116
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 1855.42,
+        "realised_pnl": 1855.42,
+        "open_pnl": -72.74,
+        "mark_to_market_pnl": 1782.68,
+        "closed_deals": 212,
+        "average_hours": 5.4,
+        "longest_hours": 56,
+        "max_drawdown_dollars": -392.83,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "gates": {
+        "current_kucoin_screen": "PASS",
+        "kraken_training": "PASS",
+        "q1_independent_validation": "PASS",
+        "drawdown_review": "REVIEW",
+        "manual_approval": "REQUIRED"
+      },
+      "production_eligible": false,
+      "manual_approval_required": true,
+      "automatic_promotion": false,
+      "next_action": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+    }
+  ],
+  "policy": {
+    "production_requires": [
+      "current KuCoin screen",
+      "frozen historical training",
+      "independent Q1 validation",
+      "drawdown review",
+      "manual approval"
+    ],
+    "no_data_no_claim": true,
+    "no_automatic_bot_changes": true
+  },
+  "snapshot_id": "e8f3c15d3819cd64354bbf78"
+}
