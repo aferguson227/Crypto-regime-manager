@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0",
-  "application_version": "40.0.0",
+  "application_version": "40.1.0",
   "workflows": {
     "data_refresh": {
       "path": ".github/workflows/crm-data-refresh.yml",
@@ -49,5 +49,11 @@
     "no_secret_changes": true,
     "no_trading_mutations": true,
     "module_execution_required": true
+  },
+  "efficiency": {
+    "health_material_change_only": true,
+    "data_refresh_collects_actions_telemetry": true,
+    "pages_live_version_verification": true,
+    "health_does_not_publish_timestamp_only_evidence": true
   }
 }

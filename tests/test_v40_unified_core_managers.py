@@ -3,17 +3,19 @@ import json
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_v40_identity_and_policy():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='40.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='40.1.0'
     rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
-    assert rel['release_name']=='Unified Core Managers'
+    assert rel['release_name']=='Synchronisation & Workflow Efficiency'
     p=json.loads((ROOT/'config/core_managers_policy.json').read_text(encoding='utf-8'))
     assert p['principles']['single_authoritative_implementation'] is True
 
 def test_generated_output_manager_is_tracked_safe():
     text=(ROOT/'scripts/generated_output_manager.py').read_text(encoding='utf-8')
-    assert "ls-files','--error-unmatch" in text
-    assert 'if not tracked(rel): return False' in text
-    assert "git','restore','--worktree" in text
+    assert 'def tracked(rel: str)' in text
+    assert "'ls-files'" in text and "'--error-unmatch'" in text
+    assert 'if not tracked(rel):' in text
+    assert 'def restore_tracked(rel: str)' in text
+    assert "'restore'" in text and "'--worktree'" in text
 
 def test_build_uses_shared_managers_and_no_blind_restore():
     text=(ROOT/'build.ps1').read_text(encoding='utf-8-sig')

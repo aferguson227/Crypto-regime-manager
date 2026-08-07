@@ -28,3 +28,6 @@ Build System 2.1 validates canonical release metadata, restores generated accept
 
 ## Build System 4.0
 V40 centralises generated-output, workflow, release, diagnostics and UI validation in shared Python managers. Build scripts no longer perform direct generated-file `git restore` operations.
+
+## Build System 4.1
+Adds material-change policy validation and Synchronisation Intelligence while retaining the V40 canonical manager model.

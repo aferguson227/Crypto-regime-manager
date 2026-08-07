@@ -55,3 +55,6 @@ Pending one-variable experiments are executed automatically during the main work
 
 ## V40 Unified Core Managers
 Operational plumbing is centralised behind canonical managers for generated outputs, workflows, releases, diagnostics and UI validation. This reduces duplicated logic and regression risk.
+
+## V40.1 Synchronisation & Workflow Efficiency
+Health publication now uses semantic material-change detection, Pages verifies the deployed version, and Synchronisation Intelligence compares repository, live-site, Actions and data health without changing remote state.

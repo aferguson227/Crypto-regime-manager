@@ -60,6 +60,8 @@ jobs:
         run: |
           python -m scripts.workflow_policy
           python -m scripts.github_actions_intelligence_engine
+          python -m scripts.synchronization_engine
+          python -m scripts.material_change_manager validate
           python -m scripts.ui_consistency
 
       - name: Publish health evidence only when changed
@@ -68,11 +70,13 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .github/workflows docs/workflow_history.json docs/workflow_doctor.json docs/github_actions_health.json docs/operational_health.json docs/issues.json docs/performance_history.json docs/self_healing_status.json docs/remediation_history.json docs/issue_lifecycle.json docs/engineering_health.json docs/release_readiness.json
+          python -m scripts.material_change_manager stage --profile health
           if git diff --cached --quiet; then
-            echo "No health evidence changes to publish."
+            echo "No material health changes detected; timestamp-only evidence will not create a commit or Pages deployment."
             exit 0
           fi
+          echo "Material health changes detected:"
+          git diff --cached --name-only
           git commit -m "Update CRM operational health"
           git pull --rebase origin main
           git push origin main

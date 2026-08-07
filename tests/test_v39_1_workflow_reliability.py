@@ -3,9 +3,9 @@ import json
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_v391_identity():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='40.0.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='40.1.0'
  release=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
- assert release['release_name']=='Unified Core Managers'
+ assert release['release_name']=='Synchronisation & Workflow Efficiency'
 
 def test_exactly_four_top_level_workflows():
  names=sorted(p.name for p in (ROOT/'.github/workflows').glob('*.yml'))
@@ -26,8 +26,10 @@ def test_actions_engine_reads_deploy_timeout_not_build_timeout():
 
 def test_generated_cleanup_is_tracked_safe():
  text=(ROOT/'scripts/generated_output_manager.py').read_text(encoding='utf-8')
- assert "git','ls-files','--error-unmatch" in text
- assert "git','restore','--worktree" in text
+ assert 'def tracked(rel: str)' in text
+ assert "'ls-files'" in text and "'--error-unmatch'" in text
+ assert 'def restore_tracked(rel: str)' in text
+ assert "'restore'" in text and "'--worktree'" in text
 
 def test_data_refresh_is_quota_aware():
  w=(ROOT/'.github/workflows/crm-data-refresh.yml').read_text(encoding='utf-8')

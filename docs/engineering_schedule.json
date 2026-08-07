@@ -1,44 +1,24 @@
 {
   "schema_version": "1.0",
-  "application_version": "40.0.0",
-  "generated_at": "2026-08-07T07:03:38.818700+00:00",
-  "mode": "daily",
-  "duration_seconds": 4.08,
+  "application_version": "40.1.0",
+  "generated_at": "2026-08-07T08:35:33.869355+00:00",
+  "mode": "quick",
+  "duration_seconds": 0.49,
   "steps": [
-    {
-      "module": "scripts.repository_hygiene_engine",
-      "result": "pass",
-      "seconds": 0.6
-    },
-    {
-      "module": "scripts.ui_health_engine",
-      "result": "pass",
-      "seconds": 0.62
-    },
     {
       "module": "scripts.github_actions_intelligence_engine",
       "result": "pass",
-      "seconds": 0.55
+      "seconds": 0.09
     },
     {
-      "module": "scripts.decision_quality_engine",
+      "module": "scripts.synchronization_engine",
       "result": "pass",
-      "seconds": 0.57
+      "seconds": 0.26
     },
     {
       "module": "scripts.self_healing_engine",
       "result": "pass",
-      "seconds": 0.56
-    },
-    {
-      "module": "scripts.issue_lifecycle_engine",
-      "result": "pass",
-      "seconds": 0.58
-    },
-    {
-      "module": "scripts.engineering_intelligence_engine",
-      "result": "pass",
-      "seconds": 0.59
+      "seconds": 0.14
     }
   ],
   "result": "pass"

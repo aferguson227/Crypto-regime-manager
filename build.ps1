@@ -1,5 +1,5 @@
 # diagnostics_engine.py compatibility marker; execution uses python -m scripts.diagnostics_engine
-# Build System 2.1 compatibility marker; superseded by Build System 4.0
+# Build System 2.1 compatibility marker; superseded by Build System 4.1
 [CmdletBinding()]
 param(
     [switch]$Screenshots,
@@ -61,7 +61,7 @@ function Run-Step {
 }
 
 try {
-    Write-Host 'Crypto Regime Manager Build System 4.0' -ForegroundColor Green
+    Write-Host 'Crypto Regime Manager Build System 4.1' -ForegroundColor Green
     Write-Host "Project: $ProjectPath"
     Write-Host "Log:     $log"
 
@@ -105,6 +105,14 @@ try {
         Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.github_actions_intelligence_engine') -WorkingDirectory $ProjectPath -LogPath $log
     }
 
+    Run-Step -Name 'Synchronization intelligence' -Action {
+        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.synchronization_engine') -WorkingDirectory $ProjectPath -LogPath $log
+    }
+
+    Run-Step -Name 'Material-change policy validation' -Action {
+        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.material_change_manager', 'validate') -WorkingDirectory $ProjectPath -LogPath $log
+    }
+
     Run-Step -Name 'Decision quality intelligence' -Action {
         Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.decision_quality_engine') -WorkingDirectory $ProjectPath -LogPath $log
     }
@@ -126,6 +134,10 @@ try {
 
     Run-Step -Name 'Engineering intelligence and release advisor' -Action {
         Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.engineering_intelligence_engine') -WorkingDirectory $ProjectPath -LogPath $log
+    }
+
+    Run-Step -Name 'Engineering schedule snapshot' -Action {
+        Invoke-CRMCommand -Command 'python' -Arguments @('-m', 'scripts.engineering_scheduler', '--mode', 'quick') -WorkingDirectory $ProjectPath -LogPath $log
     }
 
     Run-Step -Name 'Python tests' -Action {
@@ -179,7 +191,7 @@ finally {
 
     $report = [ordered]@{
         schema_version = '1.0'
-        build_system = 'CRM Build System 4.0'
+        build_system = 'CRM Build System 4.1'
         version = $v
         result = $result
         started_at = $started.ToString('o')

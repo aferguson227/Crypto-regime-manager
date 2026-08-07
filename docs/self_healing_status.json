@@ -1,26 +1,14 @@
 {
   "schema_version": "1.0",
-  "application_version": "40.0.0",
-  "generated_at": "2026-08-07T07:27:39.558895+00:00",
-  "state": "ATTENTION",
+  "application_version": "40.1.0",
+  "generated_at": "2026-08-07T08:35:33.838057+00:00",
+  "state": "HEALTHY",
   "scan": {
-    "issues_found": 1,
-    "remaining": 1,
+    "issues_found": 0,
+    "remaining": 0,
     "repaired": 0
   },
-  "issues": [
-    {
-      "fingerprint": "STALE_RUNTIME_DIAGNOSTICS",
-      "title": "Runtime diagnostics version is stale",
-      "risk": "low",
-      "automatic": true,
-      "detail": "Found 39.1.0; expected 40.0.0.",
-      "repair": "Regenerate runtime diagnostics.",
-      "validation": [
-        "release_metadata"
-      ]
-    }
-  ],
+  "issues": [],
   "repairs_applied": [],
   "approval_required": [],
   "guardrails": {

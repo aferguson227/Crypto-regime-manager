@@ -46,6 +46,28 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Check out release identity for verification
+        uses: actions/checkout@v4
       - name: Deploy latest CRM Pages artifact
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify live site version
+        shell: bash
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          set -euo pipefail
+          expected=$(cat VERSION)
+          url="${PAGE_URL%/}/version.json"
+          for attempt in 1 2 3 4 5; do
+            live=$(curl -fsSL -H 'Cache-Control: no-cache' "${url}?t=$(date +%s)" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d.get("version") or d.get("application_version") or "")') || live=""
+            if [[ "$live" == "$expected" ]]; then
+              echo "Live Pages version verified: $live"
+              exit 0
+            fi
+            echo "Attempt ${attempt}/5: live version '${live:-unavailable}', expected '$expected'."
+            sleep $((attempt * 5))
+          done
+          echo "Live website did not report the expected version after deployment." >&2
+          exit 1
+

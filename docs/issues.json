@@ -1,6 +1,6 @@
 {
-  "application_version": "40.0.0",
-  "generated_at": "2026-08-07T07:27:39.209574+00:00",
+  "application_version": "40.1.0",
+  "generated_at": "2026-08-07T08:35:31.437377+00:00",
   "issues": [
     {
       "severity": "warning",
@@ -12,8 +12,20 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-07T07:27:39.245595+00:00",
-      "last_detected_at": "2026-08-07T07:27:39.245602+00:00"
+      "first_detected_at": "2026-08-07T08:35:31.476129+00:00",
+      "last_detected_at": "2026-08-07T08:35:31.476136+00:00"
+    },
+    {
+      "severity": "warning",
+      "system": "Application",
+      "title": "Application refresh is stale",
+      "detail": "Last successful application refresh age: 6.85.",
+      "recommended_action": "Run the autonomous refresh workflow and inspect its failed step.",
+      "metric": {
+        "age_hours": 6.85
+      },
+      "first_detected_at": "2026-08-07T08:35:31.476148+00:00",
+      "last_detected_at": "2026-08-07T08:35:31.476150+00:00"
     }
   ]
 }

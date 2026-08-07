@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
-  "application_version": "40.0.0",
-  "generated_at": "2026-08-07T07:27:39.345237+00:00",
+  "application_version": "40.1.0",
+  "generated_at": "2026-08-07T08:35:33.455469+00:00",
   "state": "HEALTHY",
   "workflow_count": 4,
   "target_workflow_count": 4,
@@ -17,6 +17,12 @@
   "average_queue_seconds": null,
   "successful_runs": 0,
   "failed_runs": 0,
+  "historical_runs": {
+    "cancelled": 0,
+    "failed": 0,
+    "timed_out": 0,
+    "successful": 0
+  },
   "issues": [],
   "workflows": {
     "crm-data-refresh.yml": {

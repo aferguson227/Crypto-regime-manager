@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "application_version": "40.1.0",
+  "repository": "aferguson227/Crypto-regime-manager",
+  "branch": "main",
+  "pages_url": "https://aferguson227.github.io/Crypto-regime-manager/",
+  "version_document": "docs/version.json",
+  "live_version_path": "version.json",
+  "freshness": {
+    "threecommas_warning_minutes": 90,
+    "application_warning_minutes": 300
+  },
+  "guardrails": {
+    "network_failures_are_nonfatal_in_local_builds": true,
+    "never_change_remote_state": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "application_version": "40.1.0",
+  "volatile_keys": [
+    "generated_at",
+    "updated_at",
+    "observed_at",
+    "first_detected_at",
+    "last_detected_at",
+    "created_at",
+    "closed_at"
+  ],
+  "profiles": {
+    "health": {
+      "paths": [
+        ".github/workflows/*.yml",
+        "docs/workflow_doctor.json",
+        "docs/github_actions_health.json",
+        "docs/operational_health.json",
+        "docs/issues.json",
+        "docs/self_healing_status.json",
+        "docs/remediation_history.json",
+        "docs/issue_lifecycle.json",
+        "docs/engineering_health.json",
+        "docs/release_readiness.json",
+        "docs/synchronization_status.json"
+      ],
+      "exclude": [
+        "docs/workflow_history.json",
+        "docs/performance_history.json"
+      ],
+      "purpose": "Publish health evidence only when state or issue content materially changes; volatile timestamps alone do not create commits."
+    }
+  }
+}

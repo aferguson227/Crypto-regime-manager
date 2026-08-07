@@ -34,16 +34,29 @@ def main():
   g=row.get('concurrency_group')
   if g and g in groups:issues.append({'fingerprint':'WORKFLOW_CONCURRENCY_COLLISION','severity':'critical','title':'Workflows share a concurrency group','detail':f'{name} and {groups[g]} share {g}.','safe_action':'Restore isolated canonical concurrency groups.'})
   elif g:groups[g]=name
+ # Only the latest run per workflow can create an active workflow incident. Older failures are historical evidence.
+ latest={}
+ for r in runs:
+  name=r.get('name') or 'Workflow'
+  if name not in latest: latest[name]=r
+ historical={'cancelled':0,'failed':0,'timed_out':0,'successful':0}
  for r in runs[-100:]:
-  status=str(r.get('status','')).lower(); queue=r.get('queue_seconds'); dur=r.get('duration_seconds'); name=r.get('name') or 'Workflow'
+  st=str(r.get('status','')).lower()
+  if st=='success': historical['successful']+=1
+  elif st in {'cancelled','canceled'}: historical['cancelled']+=1
+  elif st in {'timed_out','timeout'}: historical['timed_out']+=1
+  elif st in {'failure','failed'}: historical['failed']+=1
+ for name,r in latest.items():
+  status=str(r.get('status','')).lower(); queue=r.get('queue_seconds'); dur=r.get('duration_seconds')
   if status=='queued' and isinstance(queue,(int,float)) and queue>=300:
    sev='warning' if queue<600 else 'critical'
    issues.append({'fingerprint':'GITHUB_HOSTED_RUNNER_DELAY','severity':sev,'title':f'{name} is waiting for a GitHub-hosted runner','detail':f'Queue time: {queue:.0f}s. This is runner capacity, not CRM concurrency.','safe_action':'Do not start duplicate runs; retry once only if the wait exceeds the recovery threshold.'})
-  elif status in {'cancelled','canceled'}:
-   issues.append({'fingerprint':'WORKFLOW_CANCELLED','severity':'info','title':f'{name} was cancelled','detail':'Treat as historical if a newer relevant run succeeded.','safe_action':'No repair when superseded by a newer success.'})
   elif status in {'timed_out','timeout'}:
    issues.append({'fingerprint':'WORKFLOW_TIMEOUT','severity':'critical','title':f'{name} timed out','detail':f'Runtime: {dur}.','safe_action':'Compare runtime with the workflow timeout and recent successful baseline.'})
-  if isinstance(dur,(int,float)) and dur>900:issues.append({'fingerprint':'WORKFLOW_SLOWDOWN','severity':'warning','title':f'{name} is unusually slow','detail':f'Runtime: {dur:.0f}s.','safe_action':'Compare with recent successful median before changing configuration.'})
+  elif status in {'failure','failed'}:
+   issues.append({'fingerprint':'WORKFLOW_FAILURE','severity':'warning','title':f'{name} latest run failed','detail':'This is active because no newer successful run supersedes it.','safe_action':'Inspect the failing step; do not treat older superseded failures as active.'})
+  if isinstance(dur,(int,float)) and dur>900:
+   issues.append({'fingerprint':'WORKFLOW_SLOWDOWN','severity':'warning','title':f'{name} latest run is unusually slow','detail':f'Runtime: {dur:.0f}s.','safe_action':'Compare with recent successful median before changing configuration.'})
  # Collapse duplicates by fingerprint/title.
  consolidated={}
  for item in issues:
@@ -57,6 +70,6 @@ def main():
  success_rate=round((success/completed)*100,1) if completed else None
  q=[float(r['queue_seconds']) for r in runs if isinstance(r.get('queue_seconds'),(int,float))]; avg_queue=round(sum(q)/len(q),1) if q else None
  state='CRITICAL' if any(x.get('severity')=='critical' for x in issues) else ('WARNING' if any(x.get('severity')=='warning' for x in issues) else 'HEALTHY')
- payload={'schema_version':'2.0','application_version':application_version(),'generated_at':now.isoformat(),'state':state,'workflow_count':len(workflows),'target_workflow_count':4,'single_pages_publisher':len(pages)==1,'pages_publishers':pages,'pages_timeout_minutes':timeout,'queue_safe':'cancel-in-progress: false' in text,'successful_duration_median_seconds':median,'telemetry_runs':len(runs),'success_rate_pct':success_rate,'average_queue_seconds':avg_queue,'successful_runs':success,'failed_runs':failed,'issues':issues,'workflows':workflows,'repair_policy':{'max_automatic_retries':1,'queue_warning_seconds':300,'queue_critical_seconds':600,'never_force_push':True,'never_change_secrets':True,'never_change_trading':True}}
+ payload={'schema_version':'2.0','application_version':application_version(),'generated_at':now.isoformat(),'state':state,'workflow_count':len(workflows),'target_workflow_count':4,'single_pages_publisher':len(pages)==1,'pages_publishers':pages,'pages_timeout_minutes':timeout,'queue_safe':'cancel-in-progress: false' in text,'successful_duration_median_seconds':median,'telemetry_runs':len(runs),'success_rate_pct':success_rate,'average_queue_seconds':avg_queue,'successful_runs':success,'failed_runs':failed,'historical_runs':historical,'issues':issues,'workflows':workflows,'repair_policy':{'max_automatic_retries':1,'queue_warning_seconds':300,'queue_critical_seconds':600,'never_force_push':True,'never_change_secrets':True,'never_change_trading':True}}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8');print(f'GitHub Actions health written: {OUT}');return 0
 if __name__=='__main__':raise SystemExit(main())
