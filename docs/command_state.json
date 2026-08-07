@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "41.1.0",
-  "generated_at": "2026-08-07T10:48:53.841578+00:00",
-  "snapshot_id": "28d0e679bb011c74b7ce2160",
+  "generated_at": "2026-08-07T12:27:18.663354+00:00",
+  "snapshot_id": "c88144890e80f150b2bd97dd",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -43,9 +43,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 62.5,
+    "health_score": 62.6,
     "diversification_score": 25,
-    "capital_efficiency_score": 62.6,
+    "capital_efficiency_score": 62.7,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -57,7 +57,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 1,
-        "efficiency_score": 76.7,
+        "efficiency_score": 76.9,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -70,7 +70,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 2,
-        "efficiency_score": 76.7,
+        "efficiency_score": 76.9,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -83,7 +83,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 76.7,
+        "efficiency_score": 76.9,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -96,7 +96,7 @@
         "allocated_capital": 2808.56278875,
         "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 20.14,
+        "efficiency_score": 20.19,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -131,15 +131,15 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "5befd6c26fa0c8830cc5be24",
+      "recommendation_id": "13fbb5784bea54017ef3b5a9",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
-      "confidence_pct": 76.7,
-      "static_confidence_pct": 76.7,
+      "confidence_pct": 76.9,
+      "static_confidence_pct": 76.9,
       "adaptive_active": false,
       "risk_level": "MODERATE",
-      "explanation": "Keep running TEL Low Volatility Bot. Confidence 76.7%; risk moderate. Current entry filters pass",
+      "explanation": "Keep running TEL Low Volatility Bot. Confidence 76.9%; risk moderate. Current entry filters pass",
       "supporting_evidence": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
@@ -148,7 +148,7 @@
       "risks": [
         "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 29.8 days"
+        "Open replay position has lasted 30.0 days"
       ],
       "blockers": [],
       "production_comparison": {
@@ -285,7 +285,7 @@
       }
     },
     {
-      "recommendation_id": "d041501732eef2ed9ac74a21",
+      "recommendation_id": "c6a022455f2be81c4261a049",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -448,7 +448,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
-      "confidence_pct": 76.7,
+      "confidence_pct": 76.9,
       "urgency": "MONITOR",
       "rationale": [
         "Current entry filters pass",
@@ -484,7 +484,7 @@
   "risks": [
     "Strategy health requires review",
     "Recent drawdown is elevated",
-    "Open replay position has lasted 29.8 days",
+    "Open replay position has lasted 30.0 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -512,7 +512,7 @@
     "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-07T10:35:17.534134+00:00",
+      "generated_at": "2026-08-07T12:27:10.654508+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -526,14 +526,14 @@
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "39f8da3c2ccd0f0501fc",
-    "capital": "c9d05afe3adc39495020",
-    "deployment": "b059dcbe4e6c6434a53a",
-    "recommendations": "005098d080c7e3cee87a",
-    "adaptive": "cdfdcfc69a29bd014c7e",
-    "outcomes": "2026-08-07T10:48:51.229753+00:00",
-    "cloud": "9d4377ee7c2c492e4fa5",
-    "operating": "3fbd6084e754a1fedbbe"
+    "portfolio": "4ae31a2f9935c92d01c7",
+    "capital": "493972cbe2644ee30cdc",
+    "deployment": "ad21136208bd34a40eb0",
+    "recommendations": "12d6819cb79ffecf5728",
+    "adaptive": "da60a027d75fce5f0c27",
+    "outcomes": "2026-08-07T12:27:17.201246+00:00",
+    "cloud": "6c152f8e7fcf09b43022",
+    "operating": "a0f30fa9f8e996d2c359"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

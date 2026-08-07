@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "41.1.0",
-  "generated_at": "2026-08-07T10:48:53.973929+00:00",
+  "generated_at": "2026-08-07T12:27:18.701117+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -14,7 +14,7 @@
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
     "action": "KEEP_RUNNING",
-    "confidence_pct": 76.7,
+    "confidence_pct": 76.9,
     "urgency": "MONITOR",
     "why": [
       "Current entry filters pass",
@@ -244,42 +244,11 @@
       "status": "NOT_COMPARABLE"
     }
   ],
-  "what_changed": [
-    {
-      "field": "safety_order_volume",
-      "before": null,
-      "after": 100.0
-    },
-    {
-      "field": "max_active_safety_orders",
-      "before": null,
-      "after": 3
-    },
-    {
-      "field": "start_condition",
-      "before": null,
-      "after": "long"
-    },
-    {
-      "field": "order_type",
-      "before": null,
-      "after": "limit"
-    },
-    {
-      "field": "trailing_enabled",
-      "before": null,
-      "after": false
-    },
-    {
-      "field": "cooldown_seconds",
-      "before": null,
-      "after": 0
-    }
-  ],
+  "what_changed": [],
   "risks": [
     "Strategy health requires review",
     "Recent drawdown is elevated",
-    "Open replay position has lasted 29.8 days",
+    "Open replay position has lasted 30.0 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -321,9 +290,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 62.5,
+    "health_score": 62.6,
     "diversification_score": 25,
-    "capital_efficiency_score": 62.6,
+    "capital_efficiency_score": 62.7,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -335,7 +304,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 1,
-        "efficiency_score": 76.7,
+        "efficiency_score": 76.9,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -348,7 +317,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 2,
-        "efficiency_score": 76.7,
+        "efficiency_score": 76.9,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -361,7 +330,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 76.7,
+        "efficiency_score": 76.9,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -374,7 +343,7 @@
         "allocated_capital": 2808.56278875,
         "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 20.14,
+        "efficiency_score": 20.19,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -409,5 +378,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "2a224aafa96107afe38bcdfc"
+  "snapshot_id": "8b8f02aaef78ee3c9fa525e6"
 }
