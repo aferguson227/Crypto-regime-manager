@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "42.0.0",
-  "generated_at": "2026-08-07T14:22:01.411541+00:00",
-  "snapshot_id": "c351d9a179b13f8377c7874a",
+  "generated_at": "2026-08-07T14:31:34.636158+00:00",
+  "snapshot_id": "78e6fc1ce1d316ee8b5eda20",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -51,8 +51,8 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - High Bear",
-        "action": "PAUSE_NEW_DEALS",
-        "enabled": true,
+        "action": "DISABLED",
+        "enabled": false,
         "active_deals": 0,
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
@@ -64,8 +64,8 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - High Bull",
-        "action": "PAUSE_NEW_DEALS",
-        "enabled": true,
+        "action": "DISABLED",
+        "enabled": false,
         "active_deals": 0,
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
@@ -77,8 +77,8 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Medium Volatility",
-        "action": "PAUSE_NEW_DEALS",
-        "enabled": true,
+        "action": "DISABLED",
+        "enabled": false,
         "active_deals": 0,
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
@@ -131,7 +131,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "2821d17fa39f971f4b70e81f",
+      "recommendation_id": "fe41c41eecc3047bbdfe2444",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
@@ -272,9 +272,9 @@
         }
       },
       "capital_impact": {
-        "required": 1194.5599999999997,
+        "required": null,
         "available": 806.67111932,
-        "can_fund": false,
+        "can_fund": null,
         "capital_status": "COMPLETE"
       },
       "expected_behaviour": {
@@ -293,7 +293,7 @@
       }
     },
     {
-      "recommendation_id": "bb39c50a473417b4b6e119e2",
+      "recommendation_id": "e391bafd2f121e03c9286f27",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -479,8 +479,8 @@
         "Recent capital efficiency is positive"
       ],
       "blockers": [],
-      "capital_required": 1194.5599999999997,
-      "can_fund": false
+      "capital_required": null,
+      "can_fund": null
     },
     {
       "rank": 2,
@@ -535,7 +535,7 @@
     "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-07T13:24:57.839876+00:00",
+      "generated_at": "2026-08-07T14:31:31.778164+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -549,14 +549,14 @@
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "304a67aba741f5a074b0",
-    "capital": "9349c90f00539ae45b32",
-    "deployment": "5dcffcadc03119bf931a",
-    "recommendations": "57115fbc031befd943f4",
+    "portfolio": "92b6ed38d8fd02f4bd01",
+    "capital": "9cce2022744eaa57cb10",
+    "deployment": "d8426cbf4f92e523567d",
+    "recommendations": "b19823739e2edef70124",
     "adaptive": "6f504eacaccd8421efb3",
     "outcomes": "2026-08-07T13:57:18.966893+00:00",
-    "cloud": "66b7317b497f44304d3e",
-    "operating": "6896d804f855efa0f1fe"
+    "cloud": "bdcc56b4d0a38ca52e98",
+    "operating": "6773881025cc2eb6a3fb"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

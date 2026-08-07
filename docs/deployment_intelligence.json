@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "42.0.0",
-  "generated_at": "2026-08-07T14:22:00.060776+00:00",
-  "snapshot_id": "5dcffcadc03119bf931a",
+  "generated_at": "2026-08-07T14:31:33.646058+00:00",
+  "snapshot_id": "d8426cbf4f92e523567d",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -48,9 +48,9 @@
       "current_regime": "Low",
       "live_state": "ACTIVE_DEAL",
       "settings_state": "INCOMPLETE",
-      "capital_required": 1194.5599999999997,
+      "capital_required": null,
       "capital_available": 806.67111932,
-      "can_fund": false,
+      "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
         "values": {
@@ -404,10 +404,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "6896d804f855efa0f1fe",
-    "capital_snapshot": "9349c90f00539ae45b32",
+    "operating_state_snapshot": "6773881025cc2eb6a3fb",
+    "capital_snapshot": "9cce2022744eaa57cb10",
     "decision_generated_at": "2026-08-07T13:25:03.374314+00:00",
-    "threecommas_generated_at": "2026-08-07T13:24:57.839876+00:00"
+    "threecommas_generated_at": "2026-08-07T14:31:31.778164+00:00"
   },
   "warnings": [
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."

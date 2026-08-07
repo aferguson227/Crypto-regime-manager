@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
   "application_version": "42.0.0",
-  "generated_at": "2026-08-07T14:22:01.510403+00:00",
+  "generated_at": "2026-08-07T14:31:34.678301+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Keep Active Deal TEL Low Volatility Bot.",
-    "Suggested allocation: 1194.56 USDT.",
+    "Deployable capital: 806.671 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Strategy health requires review"
   ],
@@ -24,7 +24,7 @@
     "blockers": []
   },
   "decision_readiness": {
-    "score_pct": 80.0,
+    "score_pct": 60.0,
     "checks": [
       {
         "label": "Bot selected",
@@ -32,11 +32,11 @@
       },
       {
         "label": "Allocation known",
-        "state": "pass"
+        "state": "warn"
       },
       {
         "label": "Funding confirmed",
-        "state": "fail"
+        "state": "warn"
       },
       {
         "label": "DCA settings complete",
@@ -50,9 +50,9 @@
     "ready_for_manual_action": false
   },
   "allocation": {
-    "required_quote": 1194.5599999999997,
+    "required_quote": null,
     "quote_currency": "USDT",
-    "can_fund": false,
+    "can_fund": null,
     "deployable_quote": 806.67111932,
     "asset_allocations": [
       {
@@ -298,8 +298,8 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - High Bear",
-        "action": "PAUSE_NEW_DEALS",
-        "enabled": true,
+        "action": "DISABLED",
+        "enabled": false,
         "active_deals": 0,
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
@@ -311,8 +311,8 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - High Bull",
-        "action": "PAUSE_NEW_DEALS",
-        "enabled": true,
+        "action": "DISABLED",
+        "enabled": false,
         "active_deals": 0,
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
@@ -324,8 +324,8 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Medium Volatility",
-        "action": "PAUSE_NEW_DEALS",
-        "enabled": true,
+        "action": "DISABLED",
+        "enabled": false,
         "active_deals": 0,
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
@@ -378,5 +378,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "ee53db0d3eb918ca494cbce2"
+  "snapshot_id": "d13aec433e3f30188c23e73f"
 }
