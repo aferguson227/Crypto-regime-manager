@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "44.0.0",
-  "generated_at": "2026-08-07T20:43:00.825538+00:00",
-  "snapshot_id": "d10822ee5a3f70f06532",
+  "generated_at": "2026-08-07T20:44:51.183924+00:00",
+  "snapshot_id": "218c9d0f73ad39469171",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -19,11 +19,11 @@
   "next_capital_priority": "TEL Low Volatility Bot",
   "capital_status": "COMPLETE",
   "capital_summary": {
-    "exchange_total": 3424.72575133,
-    "free_available": 2547.39429273,
+    "exchange_total": 3591.62103391,
+    "free_available": 3023.004616,
     "active_deal_capital": 233.605697838,
     "reserved_capital": 2529.5360000000005,
-    "deployable_capital": 17.858292729999448,
+    "deployable_capital": 493.46861599999966,
     "next_capital_required": null,
     "can_fund_next_priority": null
   },
@@ -49,7 +49,7 @@
       "live_state": "ACTIVE_DEAL",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 17.858292729999448,
+      "capital_available": 493.46861599999966,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -227,7 +227,7 @@
       "live_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 17.858292729999448,
+      "capital_available": 493.46861599999966,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -404,8 +404,8 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "c8c54003e14fb5d3ef6d",
-    "capital_snapshot": "694377ca90b0cdd5eb17",
+    "operating_state_snapshot": "1dbcf328157461f73c74",
+    "capital_snapshot": "6b84deb18f945e4d671f",
     "decision_generated_at": "2026-08-07T20:03:09.695271+00:00",
     "threecommas_generated_at": "2026-08-07T20:03:03.852282+00:00"
   },

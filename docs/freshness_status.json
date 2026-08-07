@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0",
   "application_version": "44.0.0",
-  "generated_at": "2026-08-07T20:43:04.078173+00:00",
+  "generated_at": "2026-08-07T20:44:54.087778+00:00",
   "overall": "REFRESH_DUE",
   "components": [
     {
       "name": "3Commas",
       "status": "CURRENT",
-      "age_minutes": 40.0,
-      "age_display": "40 min ago",
+      "age_minutes": 41.8,
+      "age_display": "42 min ago",
       "expected_cadence_minutes": 60,
       "next_refresh_guidance": "Within expected refresh cadence.",
       "source": "GitHub CRM Data Refresh"
@@ -16,8 +16,8 @@
     {
       "name": "Local private data",
       "status": "REFRESH_DUE",
-      "age_minutes": 48.6,
-      "age_display": "49 min ago",
+      "age_minutes": 50.5,
+      "age_display": "50 min ago",
       "expected_cadence_minutes": 15,
       "next_refresh_guidance": "Refresh is due soon; last validated data remains usable.",
       "source": "Windows Local Agent"
@@ -25,19 +25,19 @@
     {
       "name": "Application publication",
       "status": "CURRENT",
-      "age_minutes": 39.6,
-      "age_display": "40 min ago",
+      "age_minutes": 41.4,
+      "age_display": "41 min ago",
       "expected_cadence_minutes": 60,
       "next_refresh_guidance": "Within expected refresh cadence.",
       "source": "Validated application/cloud publication"
     },
     {
       "name": "Diagnostics",
-      "status": "REFRESH_DUE",
-      "age_minutes": 65.4,
-      "age_display": "1h 05m ago",
+      "status": "CURRENT",
+      "age_minutes": 1.8,
+      "age_display": "2 min ago",
       "expected_cadence_minutes": 15,
-      "next_refresh_guidance": "Refresh is due soon; last validated data remains usable.",
+      "next_refresh_guidance": "Within expected refresh cadence.",
       "source": "Autonomous diagnostics"
     }
   ],
