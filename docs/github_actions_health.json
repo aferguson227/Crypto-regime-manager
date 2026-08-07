@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
   "application_version": "40.1.0",
-  "generated_at": "2026-08-07T08:35:33.455469+00:00",
-  "state": "HEALTHY",
+  "generated_at": "2026-08-07T08:46:30.061242+00:00",
+  "state": "WARNING",
   "workflow_count": 4,
   "target_workflow_count": 4,
   "single_pages_publisher": true,
@@ -11,19 +11,44 @@
   ],
   "pages_timeout_minutes": 30,
   "queue_safe": true,
-  "successful_duration_median_seconds": null,
-  "telemetry_runs": 0,
-  "success_rate_pct": null,
-  "average_queue_seconds": null,
-  "successful_runs": 0,
-  "failed_runs": 0,
+  "successful_duration_median_seconds": 26.0,
+  "telemetry_runs": 100,
+  "success_rate_pct": 87.5,
+  "average_queue_seconds": 0.0,
+  "successful_runs": 84,
+  "failed_runs": 12,
   "historical_runs": {
-    "cancelled": 0,
-    "failed": 0,
+    "cancelled": 3,
+    "failed": 12,
     "timed_out": 0,
-    "successful": 0
+    "successful": 84
   },
-  "issues": [],
+  "issues": [
+    {
+      "fingerprint": "WORKFLOW_FAILURE",
+      "severity": "warning",
+      "title": "CRM Safe Self-Heal latest run failed",
+      "detail": "This is active because no newer successful run supersedes it.",
+      "safe_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "occurrences": 1
+    },
+    {
+      "fingerprint": "WORKFLOW_SLOWDOWN",
+      "severity": "warning",
+      "title": "CRM Safe Self-Heal latest run is unusually slow",
+      "detail": "Runtime: 903s.",
+      "safe_action": "Compare with recent successful median before changing configuration.",
+      "occurrences": 1
+    },
+    {
+      "fingerprint": "WORKFLOW_FAILURE",
+      "severity": "warning",
+      "title": "V31 Autonomous Crypto Regime Refresh latest run failed",
+      "detail": "This is active because no newer successful run supersedes it.",
+      "safe_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "occurrences": 1
+    }
+  ],
   "workflows": {
     "crm-data-refresh.yml": {
       "deploy_pages": false,

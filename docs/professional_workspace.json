@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "40.1.0",
-  "generated_at": "2026-08-07T08:35:33.263037+00:00",
+  "generated_at": "2026-08-07T08:46:30.486270+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -14,7 +14,7 @@
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
     "action": "KEEP_RUNNING",
-    "confidence_pct": 70.0,
+    "confidence_pct": 69.9,
     "urgency": "MONITOR",
     "why": [
       "Current entry filters pass",
@@ -217,7 +217,7 @@
   "risks": [
     "Strategy health requires review",
     "Recent drawdown is elevated",
-    "Open replay position has lasted 29.5 days",
+    "Open replay position has lasted 29.8 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -259,9 +259,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 47.4,
+    "health_score": 47.3,
     "diversification_score": 25,
-    "capital_efficiency_score": 57.1,
+    "capital_efficiency_score": 57.0,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -273,7 +273,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 1,
-        "efficiency_score": 70.0,
+        "efficiency_score": 69.9,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -286,7 +286,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 2,
-        "efficiency_score": 70.0,
+        "efficiency_score": 69.9,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -299,7 +299,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 70.0,
+        "efficiency_score": 69.9,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -312,7 +312,7 @@
         "allocated_capital": 2808.56278875,
         "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 18.38,
+        "efficiency_score": 18.35,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -348,5 +348,5 @@
     "Resolve missing DCA fields before making changes.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "c634a1c22ed3934b3f638e48"
+  "snapshot_id": "8f52614e6287537b7149e943"
 }

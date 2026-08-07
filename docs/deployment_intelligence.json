@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "application_version": "40.1.0",
-  "generated_at": "2026-08-07T08:35:30.596210+00:00",
-  "snapshot_id": "a99f141b2de2014733e8",
+  "generated_at": "2026-08-07T08:46:29.806082+00:00",
+  "snapshot_id": "c7c3068b37718e83962e",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
   "current_market_regime": "Low",
-  "current_regime_confidence": 32.6,
+  "current_regime_confidence": 32.4,
   "overall_action": "MAINTAIN",
   "deploy_today": [],
   "keep_running": [
@@ -19,7 +19,7 @@
   "next_capital_priority": "TEL Low Volatility Bot",
   "capital_status": "PARTIAL",
   "capital_summary": {
-    "exchange_total": 3554.96827852124,
+    "exchange_total": 3580.42650432722,
     "free_available": null,
     "active_deal_capital": 2808.56278875,
     "reserved_capital": 7070.992639999999,
@@ -32,7 +32,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
-      "confidence": 65.2,
+      "confidence": 64.7,
       "eligible": true,
       "blocking_reasons": [],
       "supporting_reasons": [
@@ -43,7 +43,7 @@
       "cautions": [
         "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 29.5 days"
+        "Open replay position has lasted 29.8 days"
       ],
       "current_regime": "Low",
       "live_state": "RUNNING",
@@ -381,10 +381,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "94de217fff955920a3ce",
-    "capital_snapshot": "43f9e13cdf3f4ba44485",
-    "decision_generated_at": "2026-08-07T01:44:16.344256+00:00",
-    "threecommas_generated_at": "2026-08-07T06:52:48.431809+00:00"
+    "operating_state_snapshot": "bfce888f4510f419ff87",
+    "capital_snapshot": "340a9d72a43a9206df58",
+    "decision_generated_at": "2026-08-07T08:46:29.041847+00:00",
+    "threecommas_generated_at": "2026-08-07T08:46:22.740722+00:00"
   },
   "warnings": [
     "Capital reconciliation is incomplete; no new deployment may be asserted.",

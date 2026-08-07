@@ -1,31 +1,19 @@
 {
   "application_version": "40.1.0",
-  "generated_at": "2026-08-07T08:35:31.437377+00:00",
+  "generated_at": "2026-08-07T08:46:30.018476+00:00",
   "issues": [
     {
       "severity": "warning",
       "system": "3Commas",
       "title": "account_32632134_balances endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 06:53:48 UTC'}",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 08:47:23 UTC'}",
       "recommended_action": "Review 3Commas permissions, quota and the next scheduled retry.",
       "metric": {
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-07T08:35:31.476129+00:00",
-      "last_detected_at": "2026-08-07T08:35:31.476136+00:00"
-    },
-    {
-      "severity": "warning",
-      "system": "Application",
-      "title": "Application refresh is stale",
-      "detail": "Last successful application refresh age: 6.85.",
-      "recommended_action": "Run the autonomous refresh workflow and inspect its failed step.",
-      "metric": {
-        "age_hours": 6.85
-      },
-      "first_detected_at": "2026-08-07T08:35:31.476148+00:00",
-      "last_detected_at": "2026-08-07T08:35:31.476150+00:00"
+      "first_detected_at": "2026-08-07T08:46:30.019707+00:00",
+      "last_detected_at": "2026-08-07T08:46:30.019711+00:00"
     }
   ]
 }
