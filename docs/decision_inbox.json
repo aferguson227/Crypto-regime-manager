@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "43.0.0",
-  "generated_at": "2026-08-07T19:37:40.427461+00:00",
+  "generated_at": "2026-08-07T19:39:23.447823+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,43 +26,43 @@
       }
     },
     {
-      "event_id": "936ab64d54ccd93dc6bd1875",
+      "event_id": "5dadc5a0779f1c0bd75b6cd5",
       "kind": "SYSTEM_ISSUE",
       "title": "3Commas data is stale",
-      "detail": "Last successful sync was 2.05 hours ago.",
+      "detail": "Last successful sync was 2.07 hours ago.",
       "severity": "warning",
       "action": "REVIEW_SYSTEM",
       "payload": {
         "severity": "warning",
         "system": "3Commas",
         "title": "3Commas data is stale",
-        "detail": "Last successful sync was 2.05 hours ago.",
+        "detail": "Last successful sync was 2.07 hours ago.",
         "recommended_action": "Run the 3Commas workflow and inspect endpoint diagnostics.",
         "metric": {
-          "age_hours": 2.05
+          "age_hours": 2.07
         },
-        "first_detected_at": "2026-08-07T19:37:38.450290+00:00",
-        "last_detected_at": "2026-08-07T19:37:38.450298+00:00"
+        "first_detected_at": "2026-08-07T19:39:21.832382+00:00",
+        "last_detected_at": "2026-08-07T19:39:21.832388+00:00"
       }
     },
     {
-      "event_id": "0ed7cda55edfaace92709f10",
+      "event_id": "d451ac16d0325484e735d891",
       "kind": "SYSTEM_ISSUE",
       "title": "Application refresh is stale",
-      "detail": "Last successful application refresh age: 6.21.",
+      "detail": "Last successful application refresh age: 6.24.",
       "severity": "warning",
       "action": "REVIEW_SYSTEM",
       "payload": {
         "severity": "warning",
         "system": "Application",
         "title": "Application refresh is stale",
-        "detail": "Last successful application refresh age: 6.21.",
+        "detail": "Last successful application refresh age: 6.24.",
         "recommended_action": "Run the autonomous refresh workflow and inspect its failed step.",
         "metric": {
-          "age_hours": 6.21
+          "age_hours": 6.24
         },
-        "first_detected_at": "2026-08-07T19:37:38.450304+00:00",
-        "last_detected_at": "2026-08-07T19:37:38.450307+00:00"
+        "first_detected_at": "2026-08-07T19:39:21.832395+00:00",
+        "last_detected_at": "2026-08-07T19:39:21.832397+00:00"
       }
     }
   ],
@@ -75,5 +75,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "0f66b18c6ea6eb46d42e8208"
+  "snapshot_id": "557f85e18a5fd5d12f8d4890"
 }

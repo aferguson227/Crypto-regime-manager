@@ -1,26 +1,26 @@
 {
   "schema_version": "1.0",
   "application_version": "43.0.0",
-  "generated_at": "2026-08-07T19:37:38.400835+00:00",
+  "generated_at": "2026-08-07T19:39:21.817200+00:00",
   "overall": {
     "state": "WARNING",
-    "score_pct": 79.7,
+    "score_pct": 75.6,
     "active_issue_count": 2,
     "critical_count": 0,
     "warning_count": 2
   },
   "scores": {
     "system": 100,
-    "data": 98.5,
+    "data": 98.2,
     "trading": 70.0,
     "deployment": 70.0,
-    "decision_readiness": 60.0
+    "decision_readiness": 40.0
   },
   "threecommas": {
     "status": "ok",
     "last_attempt_at": "2026-08-07T17:34:55.323955+00:00",
     "last_success_at": "2026-08-07T17:34:55.323955+00:00",
-    "last_success_age_hours": 2.05,
+    "last_success_age_hours": 2.07,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-07T17:34:55.866150+00:00",
-        "age_hours": 2.05,
+        "age_hours": 2.07,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-07T17:34:56.126058+00:00",
-        "age_hours": 2.05,
+        "age_hours": 2.07,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -51,7 +51,7 @@
         "http_status": null,
         "records": 4,
         "observed_at": "2026-08-07T17:34:56.465501+00:00",
-        "age_hours": 2.04,
+        "age_hours": 2.07,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -62,7 +62,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-07T17:34:56.942194+00:00",
-        "age_hours": 2.04,
+        "age_hours": 2.07,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -73,7 +73,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-07T17:34:56.942244+00:00",
-        "age_hours": 2.04,
+        "age_hours": 2.07,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -84,7 +84,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-07T17:34:56.942251+00:00",
-        "age_hours": 2.04,
+        "age_hours": 2.07,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
@@ -96,7 +96,7 @@
   "application": {
     "cloud_state": "warning",
     "last_success_at": "2026-08-07T13:25:03.481201+00:00",
-    "last_success_age_hours": 6.21,
+    "last_success_age_hours": 6.24,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -118,7 +118,7 @@
   "decision": {
     "primary_action": "KEEP_ACTIVE_DEAL",
     "bot_name": "TEL Low Volatility Bot",
-    "readiness_score_pct": 60.0,
+    "readiness_score_pct": 40.0,
     "ready_for_manual_action": false
   },
   "capital_source": "KuCoin direct read-only account API",
@@ -128,25 +128,25 @@
       "severity": "warning",
       "system": "3Commas",
       "title": "3Commas data is stale",
-      "detail": "Last successful sync was 2.05 hours ago.",
+      "detail": "Last successful sync was 2.07 hours ago.",
       "recommended_action": "Run the 3Commas workflow and inspect endpoint diagnostics.",
       "metric": {
-        "age_hours": 2.05
+        "age_hours": 2.07
       },
-      "first_detected_at": "2026-08-07T19:37:38.450290+00:00",
-      "last_detected_at": "2026-08-07T19:37:38.450298+00:00"
+      "first_detected_at": "2026-08-07T19:39:21.832382+00:00",
+      "last_detected_at": "2026-08-07T19:39:21.832388+00:00"
     },
     {
       "severity": "warning",
       "system": "Application",
       "title": "Application refresh is stale",
-      "detail": "Last successful application refresh age: 6.21.",
+      "detail": "Last successful application refresh age: 6.24.",
       "recommended_action": "Run the autonomous refresh workflow and inspect its failed step.",
       "metric": {
-        "age_hours": 6.21
+        "age_hours": 6.24
       },
-      "first_detected_at": "2026-08-07T19:37:38.450304+00:00",
-      "last_detected_at": "2026-08-07T19:37:38.450307+00:00"
+      "first_detected_at": "2026-08-07T19:39:21.832395+00:00",
+      "last_detected_at": "2026-08-07T19:39:21.832397+00:00"
     }
   ],
   "safeguards": {
