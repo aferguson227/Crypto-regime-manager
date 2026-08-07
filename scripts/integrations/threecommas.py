@@ -391,7 +391,8 @@ def main() -> int:
     previous_accounts=previous_account_map(previous)
     try: balance_refresh_minutes=max(15,int(os.getenv("THREECOMMAS_BALANCE_REFRESH_MINUTES","1440")))
     except ValueError: balance_refresh_minutes=1440
-    direct_capital_configured=all(os.getenv(x,"").strip() for x in ("KUCOIN_API_KEY","KUCOIN_API_SECRET","KUCOIN_API_PASSPHRASE"))
+    capital_provider=os.getenv("CRM_CAPITAL_PROVIDER","").strip().upper()
+    direct_capital_configured=(capital_provider in {"LOCAL_KUCOIN","KUCOIN_DIRECT"}) or all(os.getenv(x,"").strip() for x in ("KUCOIN_API_KEY","KUCOIN_API_SECRET","KUCOIN_API_PASSPHRASE"))
     for account in accounts_raw:
         if not isinstance(account,dict): continue
         account_id=to_int(account.get("id"))

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "41.1.0",
-  "generated_at": "2026-08-07T12:27:17.217031+00:00",
+  "application_version": "41.2.0",
+  "generated_at": "2026-08-07T13:08:47.065128+00:00",
   "snapshot_id": "da60a027d75fce5f0c27",
   "mode": "advisory_capped_adaptive_intelligence",
   "read_only": true,
@@ -14,7 +14,7 @@
     {
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
-      "action": "KEEP_RUNNING",
+      "action": "KEEP_ACTIVE_DEAL",
       "static_score": 76.9,
       "adaptive_score": 76.9,
       "effective_score": 76.9,
@@ -61,7 +61,7 @@
   "confidence_calibration": [
     {
       "band": "0-50%",
-      "recommendations": 43,
+      "recommendations": 45,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 25.0,
       "observed_accuracy_pct": null,
@@ -77,7 +77,7 @@
     },
     {
       "band": "65-80%",
-      "recommendations": 43,
+      "recommendations": 45,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 72.5,
       "observed_accuracy_pct": null,
@@ -102,7 +102,7 @@
   ],
   "portfolio_optimisation": {
     "recommended_next_allocation": "TEL Low Volatility Bot",
-    "deployable_capital": 0.0,
+    "deployable_capital": 806.67111932,
     "weakest_strategy": "TAO Low Pullback Bot",
     "ranking_basis": "risk-adjusted adaptive score with capped historical influence",
     "automatic_execution": false

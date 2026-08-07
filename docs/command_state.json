@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "application_version": "41.1.0",
-  "generated_at": "2026-08-07T12:27:18.663354+00:00",
-  "snapshot_id": "c88144890e80f150b2bd97dd",
+  "application_version": "41.2.0",
+  "generated_at": "2026-08-07T13:08:50.054757+00:00",
+  "snapshot_id": "503b16677dc3b1d836592054",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
-  "overall_status": "MAINTAIN",
+  "overall_status": "READY",
   "market": {
     "regime": "ACCUMULATION",
     "confidence_pct": 62.0,
@@ -20,7 +20,7 @@
         "scenario": "BTC decline",
         "market_shock_pct": -10,
         "estimated_capital_impact": 280.86,
-        "stressed_reserve_requirement": 8838.74,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       },
@@ -28,7 +28,7 @@
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
         "estimated_capital_impact": 168.51,
-        "stressed_reserve_requirement": 10606.49,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       },
@@ -36,7 +36,7 @@
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
         "estimated_capital_impact": 224.69,
-        "stressed_reserve_requirement": 6363.89,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       }
@@ -51,7 +51,7 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - High Bear",
-        "action": "KEEP_RUNNING",
+        "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 0,
         "allocated_capital": 0.0,
@@ -64,7 +64,7 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - High Bull",
-        "action": "KEEP_RUNNING",
+        "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 0,
         "allocated_capital": 0.0,
@@ -77,7 +77,7 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Medium Volatility",
-        "action": "KEEP_RUNNING",
+        "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 0,
         "allocated_capital": 0.0,
@@ -90,7 +90,7 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Low Volatility",
-        "action": "KEEP_RUNNING",
+        "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 1,
         "allocated_capital": 2808.56278875,
@@ -116,8 +116,8 @@
     "currency": "USDT",
     "total_equity": 3587.5538871179756,
     "allocated": 2808.56278875,
-    "reserved": 7070.992639999999,
-    "deployable": 0.0,
+    "reserved": 0.0,
+    "deployable": 806.67111932,
     "next_required": null,
     "can_fund_next": null,
     "asset_allocations": [
@@ -131,15 +131,15 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "13fbb5784bea54017ef3b5a9",
+      "recommendation_id": "64b68d1a3dabfde21be64c81",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
-      "action": "KEEP_RUNNING",
+      "action": "KEEP_ACTIVE_DEAL",
       "confidence_pct": 76.9,
       "static_confidence_pct": 76.9,
       "adaptive_active": false,
       "risk_level": "MODERATE",
-      "explanation": "Keep running TEL Low Volatility Bot. Confidence 76.9%; risk moderate. Current entry filters pass",
+      "explanation": "Keep active deal TEL Low Volatility Bot. Confidence 76.9%; risk moderate. Current entry filters pass",
       "supporting_evidence": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
@@ -176,8 +176,8 @@
           {
             "field": "so_deviation_pct",
             "production_value": 1.2,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
+            "live_value": 1.2,
+            "status": "MATCH"
           },
           {
             "field": "safety_orders",
@@ -265,7 +265,7 @@
       },
       "capital_impact": {
         "required": 1194.5599999999997,
-        "available": 0.0,
+        "available": 806.67111932,
         "can_fund": false,
         "capital_status": "COMPLETE"
       },
@@ -285,7 +285,7 @@
       }
     },
     {
-      "recommendation_id": "c6a022455f2be81c4261a049",
+      "recommendation_id": "11de6dc89d1006028731d09d",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -421,7 +421,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 0.0,
+        "available": 806.67111932,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -447,9 +447,9 @@
       "category": "deployment",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
-      "action": "KEEP_RUNNING",
+      "action": "KEEP_ACTIVE_DEAL",
       "confidence_pct": 76.9,
-      "urgency": "MONITOR",
+      "urgency": "WAIT",
       "rationale": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
@@ -526,14 +526,14 @@
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "4ae31a2f9935c92d01c7",
-    "capital": "493972cbe2644ee30cdc",
-    "deployment": "ad21136208bd34a40eb0",
-    "recommendations": "12d6819cb79ffecf5728",
+    "portfolio": "aa487ed015fc1d28fc45",
+    "capital": "452b513d7e13f4af9825",
+    "deployment": "640e31da6234759ff784",
+    "recommendations": "64c52c3fc29fb6db5ae7",
     "adaptive": "da60a027d75fce5f0c27",
-    "outcomes": "2026-08-07T12:27:17.201246+00:00",
+    "outcomes": "2026-08-07T13:08:46.798138+00:00",
     "cloud": "6c152f8e7fcf09b43022",
-    "operating": "a0f30fa9f8e996d2c359"
+    "operating": "3d0bffa5cf9f2f6ebe81"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

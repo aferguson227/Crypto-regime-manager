@@ -3,7 +3,7 @@ import json
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_v391_identity():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.1.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.2.0'
  release=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
  assert release['release_name']=='Data Completeness & Execution Independence'
 

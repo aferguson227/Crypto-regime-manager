@@ -1,4 +1,4 @@
-# Crypto Regime Manager V41.1.0 — Unified Decision & Quality Workspace
+# Crypto Regime Manager V41.2.0 — Unified Decision & Quality Workspace
 
 V41 makes the Dashboard the canonical daily workspace and fixes display faults found in live use.
 

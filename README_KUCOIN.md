@@ -17,5 +17,5 @@ After the next CRM Data Refresh, `docs/kucoin_account.json` should report `statu
 V41.1 remains read-only. Future execution integrations are present only as disabled provider definitions.
 
 
-## Connectivity hotfix
-Private requests now include Content-Type, use safe key-version and official-region fallback, publish sanitised diagnostics, and never abort the whole CRM refresh solely because this optional capital source is degraded.
+## V41.2 local private-data architecture
+GitHub-hosted runners can be routed through unsupported U.S. IP space, so V41.2 no longer calls the private KuCoin account API from GitHub Actions. Run `SETUP_LOCAL_AGENT.cmd` once. The Windows task then refreshes KuCoin through the PC's local network and publishes validated, read-only capital intelligence. The PC must be on for a fresh private KuCoin snapshot; when it is off, CRM retains the most recent validated snapshot and marks its age.

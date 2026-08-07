@@ -1,23 +1,15 @@
 {
   "schema_version": "1.0",
-  "application_version": "41.1.0",
-  "generated_at": "2026-08-07T10:48:53.575597+00:00",
+  "application_version": "41.2.0",
+  "generated_at": "2026-08-07T13:08:49.799261+00:00",
   "state": "HEALTHY",
-  "repository_bytes": 62773030,
-  "release_reclaimable_bytes": 55011482,
-  "historical_backup_files": 62,
+  "repository_bytes": 62844640,
+  "release_reclaimable_bytes": 55004230,
+  "historical_backup_files": 59,
   "generated_export_files": 105,
   "large_files": [],
-  "issues": [
-    {
-      "fingerprint": "HISTORICAL_BACKUPS_IN_WORKTREE",
-      "severity": "info",
-      "title": "Historical backups are present locally",
-      "count": 62,
-      "automatic": false,
-      "action": "Exclude them from normal source and release archives; preserve separately."
-    }
-  ],
-  "archive_policy": "lean_by_default",
+  "issues": [],
+  "archive_policy": "lean_by_default_external_backups",
+  "external_backup_root": "C:/Crypto/CRM_Backups",
   "full_archive_available": true
 }

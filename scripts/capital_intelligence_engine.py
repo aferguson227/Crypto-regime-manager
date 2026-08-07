@@ -101,8 +101,8 @@ def build()->dict[str,Any]:
     placed_total=sum(all_placed) if bot_rows and len(all_placed)==len(bot_rows) else None
     remaining_total=sum(all_remaining) if bot_rows and len(all_remaining)==len(bot_rows) else None
     idle_total=sum(all_idle) if bot_rows and len(all_idle)==len(bot_rows) else None
-    deployable=max(0.0,free-(idle_total or 0.0)) if free is not None and idle_total is not None else None
-    required=(remaining_total or 0)+(idle_total or 0) if remaining_total is not None and idle_total is not None else None
+    deployable=max(0.0,free-(remaining_total or 0.0)) if free is not None and remaining_total is not None else None
+    required=(remaining_total or 0) if remaining_total is not None else None
     coverage=(free/required) if free is not None and required and required>0 else (1.0 if required==0 and free is not None else None)
     priority=state.get('next_capital_priority')
     priority_row=next((b for b in bot_rows if priority and priority.lower() in b.bot_name.lower()),None)
@@ -117,8 +117,8 @@ def build()->dict[str,Any]:
       'active_deal_capital':'Sum of known cost basis for active deals.',
       'placed_order_reserve':'Shown separately; not subtracted from free USDT because exchange free balance normally already excludes open-order funds.',
       'remaining_active_deal_dca_reserve':'Unplaced remaining safety-order ladder requirement for active deals.',
-      'enabled_idle_capacity_reserve':'Maximum full-ladder capital for unused enabled-bot deal slots.',
-      'deployable_capital':'free_available minus enabled_idle_capacity_reserve; never inferred when source data is incomplete.'
+       'enabled_idle_capacity_reserve':'Potential exposure only: maximum full-ladder capital for unused enabled-bot deal slots. It is not labelled reserved and is not subtracted from deployable capital.',
+      'deployable_capital':'free_available minus remaining_active_deal_dca_reserve. Idle enabled bots are shown as contingent exposure, not already-reserved capital.' 
     },tuple(warnings)).to_dict()
     allocations=[]
     for asset,entry in assets.items():
@@ -129,6 +129,9 @@ def build()->dict[str,Any]:
     payload['asset_allocations']=allocations
     payload['capital_source']=capital_source
     payload['kucoin_direct_status']=kucoin.get('status') or 'not_configured'
+    payload['reserved_capital']=remaining_total
+    payload['idle_bot_potential_exposure']=idle_total
+    payload['capital_policy']='Protect active-deal remaining DCA ladders; do not reserve theoretical idle-bot exposure until a deal is active or explicitly approved.'
     return payload
 
 def main():

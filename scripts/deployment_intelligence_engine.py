@@ -55,7 +55,7 @@ def live_settings(three,asset,name):
     bot=next((b for b in bots if target and (target in normal(b.get('name')) or normal(b.get('name')) in target)),None) or best_live_bot(bots,name,asset)
     if not bot:return SettingsSnapshot('LIVE_3COMMAS_CONFIGURATION',{},False,EXACT_FIELDS)
     aliases={'base_order_volume':['base_order_volume'],'safety_order_volume':['safety_order_volume'],'take_profit_pct':['take_profit_pct','take_profit'],
-      'so_deviation_pct':['so_deviation_pct','safety_order_step_percentage'],'safety_orders':['max_safety_orders','safety_orders'],
+      'so_deviation_pct':['so_deviation_pct','safety_order_deviation_pct','safety_order_step_percentage','price_deviation_to_open_safety_orders'],'safety_orders':['max_safety_orders','safety_orders'],
       'volume_scale':['volume_scale','martingale_volume_coefficient'],'step_scale':['step_scale','martingale_step_coefficient'],
       'max_active_deals':['max_active_deals'],'max_active_safety_orders':['max_active_safety_orders','active_safety_orders_count'],
       'start_condition':['start_condition','strategy_list'],'order_type':['order_type','start_order_type'],'trailing_enabled':['trailing_enabled','trailing'],
@@ -109,8 +109,14 @@ def build()->dict[str,Any]:
         blocks=[]
         if not row.get('entry_allowed'): blocks.append('Current entry permission is blocked.')
         if str(osrow.get('production_status')).lower() not in {'production','forward_validated','forward-validated'}: blocks.append('Strategy is not approved production or forward-validated configuration.')
-        if osrow.get('live_bot_state')=='RUNNING':
-            action='KEEP_RUNNING'; keep.append(name)
+        live_state=str(osrow.get('live_bot_state') or 'UNKNOWN')
+        if live_state=='ACTIVE_DEAL':
+            action='KEEP_ACTIVE_DEAL'; keep.append(name)
+        elif live_state=='ENABLED_IDLE':
+            # An enabled bot with no deal is not automatically a keep-running decision.
+            # Preserve entry only when current entry permission is positive; otherwise recommend pausing new deals.
+            action='KEEP_ENABLED' if bool(row.get('entry_allowed')) else 'PAUSE_NEW_DEALS'
+            (keep if action=='KEEP_ENABLED' else review).append(name)
         else:
             if capital.get('capital_status')!='COMPLETE' or can_fund is not True: blocks.append('Complete deployable-capital confirmation is unavailable.')
             if not prod.complete: blocks.append('Exact DCA settings are incomplete; deployment is blocked.')
@@ -118,7 +124,7 @@ def build()->dict[str,Any]:
             action='DEPLOY_TODAY' if not blocks else 'WAIT'
             (deploy if action=='DEPLOY_TODAY' else review).append(name)
         conf=confidence(row,ev,capital,prod.complete)
-        eligible=action in {'KEEP_RUNNING','DEPLOY_TODAY'} and bool(row.get('entry_allowed'))
+        eligible=action in {'KEEP_ACTIVE_DEAL','KEEP_ENABLED','DEPLOY_TODAY'} and bool(row.get('entry_allowed'))
         actions.append(DeploymentAction(asset,name,action,conf,eligible,tuple(blocks),tuple(row.get('positives') or ()),tuple(row.get('cautions') or ()),regime,str(osrow.get('live_bot_state') or 'UNKNOWN'),str(osrow.get('settings_state') or 'NOT_COMPARED'),cap_required,cap_available,can_fund,prod,prod,False,tuple(diffs),ev))
     overall='DEPLOY' if deploy else ('MAINTAIN' if keep else 'WAIT')
     if capital.get('capital_status')!='COMPLETE': warnings.append('Capital reconciliation is incomplete; no new deployment may be asserted.')
@@ -126,7 +132,7 @@ def build()->dict[str,Any]:
     source={'operating_state_snapshot':state.get('snapshot_id'),'capital_snapshot':capital.get('snapshot_id'),'decision_generated_at':decisions.get('generated_at'),'threecommas_generated_at':three.get('generated_at')}
     seed=json.dumps({'generated':generated,'source':source},sort_keys=True)
     payload=DeploymentIntelligence('1.0',application_version(),generated,hashlib.sha256(seed.encode()).hexdigest()[:20],'read_only_advisory_deployment_intelligence',True,True,str(state.get('current_market_regime') or 'Unknown'),round(sum(a.confidence for a in actions)/len(actions),1) if actions else 0,overall,tuple(deploy),tuple(keep),tuple(review),state.get('next_capital_priority'),str(capital.get('capital_status') or 'UNAVAILABLE'),{
-      'exchange_total':capital.get('exchange_total'),'free_available':capital.get('free_available'),'active_deal_capital':capital.get('active_deal_capital'),'reserved_capital':capital.get('enabled_idle_capacity_reserve'),'deployable_capital':capital.get('deployable_capital'),'next_capital_required':capital.get('next_capital_required'),'can_fund_next_priority':capital.get('can_fund_next_priority')},tuple(actions),state.get('evidence_agreement') or {},source,tuple(warnings)).to_dict()
+      'exchange_total':capital.get('exchange_total'),'free_available':capital.get('free_available'),'active_deal_capital':capital.get('active_deal_capital'),'reserved_capital':capital.get('remaining_active_deal_dca_reserve'),'deployable_capital':capital.get('deployable_capital'),'next_capital_required':capital.get('next_capital_required'),'can_fund_next_priority':capital.get('can_fund_next_priority')},tuple(actions),state.get('evidence_agreement') or {},source,tuple(warnings)).to_dict()
     return payload
 
 def main()->int:

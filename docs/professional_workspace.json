@@ -1,11 +1,11 @@
 {
   "schema_version": "3.0",
-  "application_version": "41.1.0",
-  "generated_at": "2026-08-07T12:27:18.701117+00:00",
+  "application_version": "41.2.0",
+  "generated_at": "2026-08-07T13:08:50.155920+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
-    "Primary action: Keep Running TEL Low Volatility Bot.",
+    "Primary action: Keep Active Deal TEL Low Volatility Bot.",
     "Suggested allocation: 1194.56 USDT.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Strategy health requires review"
@@ -13,9 +13,9 @@
   "daily_decision": {
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
-    "action": "KEEP_RUNNING",
+    "action": "KEEP_ACTIVE_DEAL",
     "confidence_pct": 76.9,
-    "urgency": "MONITOR",
+    "urgency": "WAIT",
     "why": [
       "Current entry filters pass",
       "Recent realised P&L is positive",
@@ -53,7 +53,7 @@
     "required_quote": 1194.5599999999997,
     "quote_currency": "USDT",
     "can_fund": false,
-    "deployable_quote": 0.0,
+    "deployable_quote": 806.67111932,
     "asset_allocations": [
       {
         "asset": "TEL",
@@ -153,7 +153,7 @@
     "base_order_volume": 100.0,
     "safety_order_volume": 100.0,
     "take_profit_pct": 1.5,
-    "so_deviation_pct": null,
+    "so_deviation_pct": 1.2,
     "safety_orders": 6,
     "volume_scale": 1.6,
     "step_scale": 1.0,
@@ -186,8 +186,8 @@
     {
       "field": "so_deviation_pct",
       "production_value": 1.2,
-      "live_value": null,
-      "status": "NOT_COMPARABLE"
+      "live_value": 1.2,
+      "status": "MATCH"
     },
     {
       "field": "safety_orders",
@@ -244,7 +244,13 @@
       "status": "NOT_COMPARABLE"
     }
   ],
-  "what_changed": [],
+  "what_changed": [
+    {
+      "field": "Action",
+      "before": "KEEP_RUNNING",
+      "after": "KEEP_ACTIVE_DEAL"
+    }
+  ],
   "risks": [
     "Strategy health requires review",
     "Recent drawdown is elevated",
@@ -267,7 +273,7 @@
         "scenario": "BTC decline",
         "market_shock_pct": -10,
         "estimated_capital_impact": 280.86,
-        "stressed_reserve_requirement": 8838.74,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       },
@@ -275,7 +281,7 @@
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
         "estimated_capital_impact": 168.51,
-        "stressed_reserve_requirement": 10606.49,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       },
@@ -283,7 +289,7 @@
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
         "estimated_capital_impact": 224.69,
-        "stressed_reserve_requirement": 6363.89,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       }
@@ -298,7 +304,7 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - High Bear",
-        "action": "KEEP_RUNNING",
+        "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 0,
         "allocated_capital": 0.0,
@@ -311,7 +317,7 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - High Bull",
-        "action": "KEEP_RUNNING",
+        "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 0,
         "allocated_capital": 0.0,
@@ -324,7 +330,7 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Medium Volatility",
-        "action": "KEEP_RUNNING",
+        "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 0,
         "allocated_capital": 0.0,
@@ -337,7 +343,7 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Low Volatility",
-        "action": "KEEP_RUNNING",
+        "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 1,
         "allocated_capital": 2808.56278875,
@@ -378,5 +384,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "8b8f02aaef78ee3c9fa525e6"
+  "snapshot_id": "b181082eca8ea0764be682e7"
 }

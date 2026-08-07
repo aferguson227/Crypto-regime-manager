@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "41.1.0",
-  "generated_at": "2026-08-07T12:27:17.770555+00:00",
-  "snapshot_id": "493972cbe2644ee30cdc",
+  "application_version": "41.2.0",
+  "generated_at": "2026-08-07T13:08:46.149287+00:00",
+  "snapshot_id": "452b513d7e13f4af9825",
   "currency": "USDT",
   "accounts": [
     {
@@ -87,8 +87,8 @@
   "placed_order_reserve": 0.0,
   "remaining_active_deal_dca_reserve": 0.0,
   "enabled_idle_capacity_reserve": 7070.992639999999,
-  "deployable_capital": 0.0,
-  "reserve_coverage_ratio": 0.11408173652405332,
+  "deployable_capital": 806.67111932,
+  "reserve_coverage_ratio": 1.0,
   "capital_status": "COMPLETE",
   "next_capital_priority": "TEL Low Volatility Bot",
   "next_capital_required": null,
@@ -98,8 +98,8 @@
     "active_deal_capital": "Sum of known cost basis for active deals.",
     "placed_order_reserve": "Shown separately; not subtracted from free USDT because exchange free balance normally already excludes open-order funds.",
     "remaining_active_deal_dca_reserve": "Unplaced remaining safety-order ladder requirement for active deals.",
-    "enabled_idle_capacity_reserve": "Maximum full-ladder capital for unused enabled-bot deal slots.",
-    "deployable_capital": "free_available minus enabled_idle_capacity_reserve; never inferred when source data is incomplete."
+    "enabled_idle_capacity_reserve": "Potential exposure only: maximum full-ladder capital for unused enabled-bot deal slots. It is not labelled reserved and is not subtracted from deployable capital.",
+    "deployable_capital": "free_available minus remaining_active_deal_dca_reserve. Idle enabled bots are shown as contingent exposure, not already-reserved capital."
   },
   "warnings": [],
   "read_only": true,
@@ -112,5 +112,8 @@
     }
   ],
   "capital_source": "3Commas read-only account snapshot",
-  "kucoin_direct_status": "error"
+  "kucoin_direct_status": "error",
+  "reserved_capital": 0.0,
+  "idle_bot_potential_exposure": 7070.992639999999,
+  "capital_policy": "Protect active-deal remaining DCA ladders; do not reserve theoretical idle-bot exposure until a deal is active or explicitly approved."
 }

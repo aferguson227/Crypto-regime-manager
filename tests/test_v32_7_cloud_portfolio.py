@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).parents[1]
 
 def test_v327_release_and_outputs():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.1.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.2.0'
  rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
  assert rel['release_name']=='Data Completeness & Execution Independence'
  for name in ('portfolio_intelligence.json','cloud_reliability.json'):

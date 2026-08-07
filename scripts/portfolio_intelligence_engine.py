@@ -41,7 +41,7 @@ def build()->dict[str,Any]:
   p=positions[i];out.append(PortfolioPosition(p.asset,p.bot_name,p.action,p.enabled,p.active_deals,p.allocated_capital,p.reserve_capital,rank,p.efficiency_score,p.overlap_group,p.warnings))
  positions=out
  total=num(cap.get('exchange_total'));allocated=num(cap.get('active_deal_capital'));reserved=num(cap.get('remaining_active_deal_dca_reserve'))
- idle=num(cap.get('enabled_idle_capacity_reserve')); reserved=(reserved+idle) if reserved is not None and idle is not None else (reserved if idle is None else idle)
+ idle=num(cap.get('enabled_idle_capacity_reserve'))
  deployable=num(cap.get('deployable_capital'))
  def pct(v):return round(100*v/total,1) if v is not None and total and total>0 else None
  allocation_pct,reserve_pct,available_pct=pct(allocated),pct(reserved),pct(deployable)
@@ -54,7 +54,10 @@ def build()->dict[str,Any]:
  overlap={k:{'assets':sorted(set(v)),'count':len(set(v)),'concentration_warning':len(set(v))>2} for k,v in groups.items()}
  nextp=cap.get('next_capital_priority') or next((p.bot_name for p in positions if p.action in {'DEPLOY_TODAY','KEEP_RUNNING'}),None)
  seed=json.dumps({'generated':generated,'capital':cap.get('snapshot_id'),'recommendation':rec.get('snapshot_id')},sort_keys=True)
- payload=PortfolioIntelligence('1.0',application_version(),generated,hashlib.sha256(seed.encode()).hexdigest()[:20],'COMPLETE' if not warnings else 'PARTIAL',str(cap.get('currency') or 'USDT'),health,div,eff,total,allocated,reserved,deployable,allocation_pct,reserve_pct,available_pct,nextp,tuple(positions),overlap,tuple(warnings)).to_dict()
+ payload=PortfolioIntelligence('1.1',application_version(),generated,hashlib.sha256(seed.encode()).hexdigest()[:20],'COMPLETE' if not warnings else 'PARTIAL',str(cap.get('currency') or 'USDT'),health,div,eff,total,allocated,reserved,deployable,allocation_pct,reserve_pct,available_pct,nextp,tuple(positions),overlap,tuple(warnings)).to_dict()
+ payload['idle_bot_potential_exposure']=idle
+ payload['reserved_capital_definition']='Remaining safety-order ladder capital protected for active deals only.'
+ payload['position_state_counts']={'active_deal':sum(1 for p in positions if p.active_deals>0),'enabled_idle':sum(1 for p in positions if p.enabled and p.active_deals==0),'disabled':sum(1 for p in positions if not p.enabled and p.active_deals==0)}
  return payload
 def main():
  p=build();OUTPUT.write_text(json.dumps(p,indent=2),encoding='utf-8');print(f'Portfolio intelligence written: {OUTPUT}');return 0

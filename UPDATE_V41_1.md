@@ -1,4 +1,4 @@
-# V41.1.0 — Data Completeness & Execution Independence
+# V41.2.0 — Data Completeness & Execution Independence
 
 - Direct read-only KuCoin account provider for free USDT and capital state.
 - 3Commas remains the live bot/deal provider; Starter-plan balance quota is no longer a capital dependency once KuCoin read-only access is configured.

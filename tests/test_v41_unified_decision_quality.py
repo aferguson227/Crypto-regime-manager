@@ -2,7 +2,7 @@ from pathlib import Path
 import json,re
 ROOT=Path(__file__).resolve().parents[1];DOCS=ROOT/'docs'
 def test_v41_release_identity():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.1.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.2.0'
  assert json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))['release_name']=='Data Completeness & Execution Independence'
 def test_dashboard_is_unified():
  h=(DOCS/'index.html').read_text(encoding='utf-8')
@@ -18,7 +18,7 @@ def test_canonical_visible_versions_are_current():
  for row in p['canonical_pages']:
   h=(DOCS/row['path']).read_text(encoding='utf-8')
   visible=re.findall(r'>\s*V(\d+\.\d+\.\d+)(?=\s|<|·)',h)
-  assert all(v=='41.1.0' for v in visible),(row['path'],visible)
+  assert all(v=='41.2.0' for v in visible),(row['path'],visible)
 def test_portfolio_does_not_format_usdt_as_usd_symbol():
  s=(DOCS/'portfolio.js').read_text(encoding='utf-8')
  assert "style:'currency'" not in s

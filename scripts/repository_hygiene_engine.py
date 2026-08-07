@@ -22,7 +22,8 @@ def main():
    if rel.startswith(('diagnostics_exports/','engineering_exports/','diagnostics_logs/')):generated.append({'path':rel,'bytes':n})
  reclaim=sum(x['bytes'] for x in backups+generated)
  issues=[]
- if backups:issues.append({'fingerprint':'HISTORICAL_BACKUPS_IN_WORKTREE','severity':'info','title':'Historical backups are present locally','count':len(backups),'automatic':False,'action':'Exclude them from normal source and release archives; preserve separately.'})
- payload={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'state':'HEALTHY' if not large else 'WARNING','repository_bytes':total,'release_reclaimable_bytes':reclaim,'historical_backup_files':len(backups),'generated_export_files':len(generated),'large_files':large[:25],'issues':issues,'archive_policy':'lean_by_default','full_archive_available':True}
+ # V41.2 installers migrate untracked legacy backup trees outside the repository.
+ # If legacy folders remain, count them as historical evidence but do not create an active engineering issue.
+ payload={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'state':'HEALTHY' if not large else 'WARNING','repository_bytes':total,'release_reclaimable_bytes':reclaim,'historical_backup_files':len(backups),'generated_export_files':len(generated),'large_files':large[:25],'issues':issues,'archive_policy':'lean_by_default_external_backups','external_backup_root':'C:/Crypto/CRM_Backups','full_archive_available':True}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8');print(f'Repository health written: {OUT}');return 0
 if __name__=='__main__':raise SystemExit(main())

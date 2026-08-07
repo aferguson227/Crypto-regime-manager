@@ -31,7 +31,7 @@ def agreement_score(e:dict[str,Any])->tuple[float|None,str,str]:
     return None,'unknown','Cross-source agreement is incomplete or unavailable.'
 
 def capital_score(action:dict[str,Any],capital_status:str)->tuple[float|None,str,str]:
-    if action.get('action')=='KEEP_RUNNING':
+    if action.get('action') in {'KEEP_RUNNING','KEEP_ACTIVE_DEAL','KEEP_ENABLED'}:
         return (90.0 if capital_status=='COMPLETE' else 65.0),'pass' if capital_status=='COMPLETE' else 'partial','Existing live bot can remain running, but reserve confidence follows capital completeness.'
     can=action.get('can_fund')
     if can is True:return 100.0,'pass','Deployable capital is confirmed sufficient for the next deal.'
@@ -48,9 +48,11 @@ def settings_score(action:dict[str,Any])->tuple[float|None,str,str]:
 
 def live_score(action:dict[str,Any])->tuple[float|None,str,str]:
     state=str(action.get('live_state') or 'UNKNOWN').upper()
-    if action.get('action')=='KEEP_RUNNING' and state=='RUNNING':return 100.0,'pass','The recommended bot is already running.'
+    if action.get('action')=='KEEP_ACTIVE_DEAL' and state=='ACTIVE_DEAL':return 100.0,'pass','The recommended bot has an active deal.'
+    if action.get('action')=='KEEP_ENABLED' and state=='ENABLED_IDLE':return 90.0,'pass','The bot is enabled but idle; current evidence supports leaving new entries enabled.'
+    if action.get('action')=='PAUSE_NEW_DEALS' and state=='ENABLED_IDLE':return 85.0,'review','The bot is enabled but idle; current evidence recommends pausing new entries.'
     if state in {'STOPPED','DISABLED','IDLE'}:return 80.0,'pass','The bot is not currently consuming an active-deal slot.'
-    if state=='RUNNING':return 70.0,'review','A live bot already exists; avoid duplicate deployment without manual review.'
+    if state=='ACTIVE_DEAL':return 70.0,'review','A live active deal already exists; avoid duplicate deployment without manual review.'
     return None,'unknown','Live 3Commas state is unavailable.'
 
 def regime_score(action:dict[str,Any])->tuple[float,str,str]:
@@ -85,7 +87,7 @@ def expected(row:dict[str,Any])->dict[str,Any]:
       'note':'ROI and hold-time expectations are not published unless supported by a comparable validated dataset.'}
 
 def explanation(action:dict[str,Any],overall:float,risk:str)->str:
-    verb={'KEEP_RUNNING':'Keep running','DEPLOY_TODAY':'Deploy today','WAIT':'Wait'}.get(action.get('action'),str(action.get('action')))
+    verb={'KEEP_RUNNING':'Keep running','KEEP_ACTIVE_DEAL':'Keep active deal','KEEP_ENABLED':'Keep enabled','PAUSE_NEW_DEALS':'Pause new deals','DEPLOY_TODAY':'Deploy today','WAIT':'Wait'}.get(action.get('action'),str(action.get('action')))
     reason=(action.get('supporting_reasons') or action.get('blocking_reasons') or ['Current evidence has been reconciled.'])[0]
     return f"{verb} {action.get('bot_name')}. Confidence {overall:.1f}%; risk {risk.lower()}. {reason}"
 

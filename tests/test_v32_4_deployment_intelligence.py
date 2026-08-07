@@ -4,7 +4,7 @@ from scripts.deployment_intelligence_engine import build, EXACT_FIELDS
 ROOT=Path(__file__).parents[1]
 
 def test_v324_release_and_command_centre_route():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.1.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.2.0'
     rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
     assert rel['deployment_recommendations_enabled'] is True
     routes=json.loads((ROOT/'config/routes.json').read_text(encoding='utf-8'))['routes']
@@ -12,13 +12,13 @@ def test_v324_release_and_command_centre_route():
 
 def test_deployment_intelligence_is_read_only_and_explainable():
     d=build()
-    assert d['application_version']=='41.1.0'
+    assert d['application_version']=='41.2.0'
     assert d['read_only'] is True and d['manual_approval_required'] is True
     assert d['overall_action'] in {'DEPLOY','MAINTAIN','WAIT'}
     assert d['actions']
     for a in d['actions']:
         assert 0 <= a['confidence'] <= 100
-        assert a['action'] in {'DEPLOY_TODAY','KEEP_RUNNING','WAIT'}
+        assert a['action'] in {'DEPLOY_TODAY','KEEP_ACTIVE_DEAL','KEEP_ENABLED','PAUSE_NEW_DEALS','WAIT'}
         assert 'recommended_settings' in a and 'blocking_reasons' in a
 
 def test_new_deployment_requires_capital_and_exact_settings():
@@ -26,8 +26,8 @@ def test_new_deployment_requires_capital_and_exact_settings():
     if d['capital_status']!='COMPLETE':
         assert not d['deploy_today']
     for a in d['actions']:
-        if not a['recommended_settings']['complete'] and a['action']!='KEEP_RUNNING':
-            assert a['action']=='WAIT'
+        if not a['recommended_settings']['complete'] and a['action'] not in {'KEEP_ACTIVE_DEAL','KEEP_ENABLED'}:
+            assert a['action'] in {'WAIT','PAUSE_NEW_DEALS'}
             assert any('settings' in x.lower() for x in a['blocking_reasons'])
 
 def test_exact_setting_contract_is_explicit():

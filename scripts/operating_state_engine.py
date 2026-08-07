@@ -96,7 +96,15 @@ def bot_live_state(three: dict[str, Any], asset: str, recommended: str | None) -
         matches = [b for b in bots if any(w in norm_name(b.get('name')) for w in words)]
     if not matches:
         return 'NO_MATCHING_BOT'
-    return 'RUNNING' if any(bool(b.get('enabled')) for b in matches) else 'STOPPED'
+    deals=live_deals(three,asset)
+    match_ids={b.get('bot_id') for b in matches if b.get('bot_id') is not None}
+    match_names={norm_name(b.get('name')) for b in matches}
+    has_deal=any((d.get('bot_id') in match_ids) or (norm_name(d.get('bot_name')) in match_names) for d in deals)
+    if has_deal:
+        return 'ACTIVE_DEAL'
+    if any(bool(b.get('enabled')) for b in matches):
+        return 'ENABLED_IDLE'
+    return 'DISABLED'
 
 
 def capital_state(three: dict[str, Any], kucoin: dict[str, Any] | None = None) -> CapitalState:
@@ -178,14 +186,14 @@ def build() -> dict[str, Any]:
         recommendation=row.get('recommended_bot'); allowed=bool(row.get('entry_allowed'))
         live=bot_live_state(three,asset,recommendation)
         settings=reconciliation_state(recon,asset,regime)
-        if allowed and live != 'RUNNING': action='DEPLOY_CANDIDATE'; deploy.append(str(recommendation or asset))
-        elif allowed and live == 'RUNNING': action='KEEP_RUNNING'
-        elif live == 'RUNNING': action='REVIEW_RUNNING_BOT'
-        else: action='WAIT'
+        if live=='ACTIVE_DEAL': action='KEEP_ACTIVE_DEAL' if allowed else 'REVIEW_ACTIVE_DEAL'
+        elif live=='ENABLED_IDLE': action='KEEP_ENABLED' if allowed else 'PAUSE_NEW_DEALS'
+        elif allowed and live in {'DISABLED','NOT_FOUND','NO_MATCHING_BOT'}: action='DEPLOY_CANDIDATE'; deploy.append(str(recommendation or asset))
+        else: action='WAIT' 
         bot_rows.append(BotDecision(asset,regime,str(assets.get(asset,{}).get('production_status') or 'production'),action,recommendation,allowed,float(row['decision_score']) if row.get('decision_score') is not None else None,live,settings,tuple(row.get('positives') or ()),tuple(row.get('cautions') or ())))
     regimes=[str(a.get('latest',{}).get('regime')) for a in assets.values() if isinstance(a.get('latest'),dict) and a.get('latest',{}).get('regime')]
     current='Mixed' if len(set(regimes))>1 else (regimes[0] if regimes else 'Unknown')
-    best=next((b for b in bot_rows if b.entry_allowed and b.action in {'DEPLOY_CANDIDATE','KEEP_RUNNING'}),None)
+    best=next((b for b in bot_rows if b.entry_allowed and b.action in {'DEPLOY_CANDIDATE','KEEP_ACTIVE_DEAL','KEEP_ENABLED'}),None)
     next_priority=best.recommendation if best else None
     sources=(source_state('KuCoin strategy snapshot',strategies),source_state('Unified decision intelligence',decisions),source_state('3Commas live state',three),source_state('Capital intelligence',capital_doc,False),source_state('Configuration reconciliation',recon),source_state('Walk-forward registry',walk,False),source_state('System integrity',integrity))
     failures=[s for s in sources if s.status in {'missing','error','fail'}]
