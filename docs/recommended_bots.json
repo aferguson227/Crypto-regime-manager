@@ -1,18 +1,29 @@
 {
   "schema_version": "1.0",
-  "application_version": "43.0.0",
-  "generated_at": "2026-08-07T19:37:40.314716+00:00",
+  "application_version": "44.0.0",
+  "generated_at": "2026-08-07T20:43:03.747149+00:00",
   "mode": "read_only_recommended_bot_packages",
-  "candidate_count": 4,
+  "candidate_count": 3,
   "candidates": [
     {
       "candidate_id": "29a4e251e4892509e03ddcaf",
       "asset": "XMR",
       "pair": "XMR-USDT",
       "state": "READY_FOR_MANUAL_REVIEW",
-      "confidence_pct": 81.7,
-      "suggested_pilot_usdt": null,
+      "confidence_pct": 82.0,
+      "suggested_pilot_usdt": 3.57,
+      "suggested_initial_allocation_usdt": 3.57,
       "historical_max_capital": 5819.12,
+      "profitability_evidence": {
+        "q1_return_on_max_capital_pct": 83.6,
+        "training_return_on_max_capital_pct": 308.8,
+        "q1_net_pnl": 4863.52,
+        "q1_closed_deals": 217,
+        "q1_average_hold_hours": 5.9,
+        "q1_longest_hold_hours": 160.0,
+        "label": "Historical validated return on maximum capital; not a future-profit forecast.",
+        "worthwhile_indicator": "STRONG_EVIDENCE"
+      },
       "dca_settings": {
         "base_order_volume": null,
         "safety_order_volume": null,
@@ -61,74 +72,27 @@
       },
       "manual_approval_required": true,
       "creates_live_bot": false,
-      "promotion_note": "Adding here saves a recommended-bot package only. It does not create, edit, start or stop a 3Commas bot."
-    },
-    {
-      "candidate_id": "9729766091dd739a1cdb8917",
-      "asset": "UNI",
-      "pair": "UNI-USDT",
-      "state": "READY_FOR_MANUAL_REVIEW",
-      "confidence_pct": 80.8,
-      "suggested_pilot_usdt": null,
-      "historical_max_capital": 5819.12,
-      "dca_settings": {
-        "base_order_volume": null,
-        "safety_order_volume": null,
-        "take_profit_pct": 1.5,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 7,
-        "volume_scale": 1.7,
-        "step_scale": 1.0,
-        "max_active_safety_orders": null,
-        "max_active_deals": null,
-        "start_condition": null,
-        "order_type": null,
-        "trailing_enabled": null,
-        "cooldown_seconds": null
-      },
-      "settings_completeness_pct": 38.5,
-      "kraken_q1_status": "PASS",
-      "training_metrics": {
-        "net_pnl": 24512.2,
-        "closed_deals": 1703,
-        "average_hours": 6.3,
-        "longest_hours": 3400,
-        "max_drawdown_dollars": -2986.73,
-        "max_capital": 5819.12,
-        "open_position": true,
-        "score": 22898.8445
-      },
-      "q1_2026_metrics": {
-        "net_pnl": 2116.48,
-        "realised_pnl": 2116.48,
-        "open_pnl": -628.5,
-        "mark_to_market_pnl": 1487.98,
-        "closed_deals": 157,
-        "average_hours": 7.4,
-        "longest_hours": 280,
-        "max_drawdown_dollars": -1457.48,
-        "max_capital": 5819.12,
-        "open_position": true
-      },
-      "evidence_gates": {
-        "current_kucoin_screen": "PASS",
-        "kraken_training": "PASS",
-        "q1_independent_validation": "PASS",
-        "drawdown_review": "REVIEW",
-        "manual_approval": "REQUIRED"
-      },
-      "manual_approval_required": true,
-      "creates_live_bot": false,
-      "promotion_note": "Adding here saves a recommended-bot package only. It does not create, edit, start or stop a 3Commas bot."
+      "promotion_note": "Adding here saves a recommended-bot package only. Optimisation status is tracked automatically; live deployment remains manual."
     },
     {
       "candidate_id": "0f8d51fd35b58ddae29b35de",
       "asset": "ETH",
       "pair": "ETH-USDT",
       "state": "READY_FOR_MANUAL_REVIEW",
-      "confidence_pct": 77.3,
-      "suggested_pilot_usdt": null,
+      "confidence_pct": 77.2,
+      "suggested_pilot_usdt": 3.57,
+      "suggested_initial_allocation_usdt": 3.57,
       "historical_max_capital": 5819.12,
+      "profitability_evidence": {
+        "q1_return_on_max_capital_pct": 22.2,
+        "training_return_on_max_capital_pct": 150.9,
+        "q1_net_pnl": 1290.67,
+        "q1_closed_deals": 299,
+        "q1_average_hold_hours": 3.2,
+        "q1_longest_hold_hours": 44.0,
+        "label": "Historical validated return on maximum capital; not a future-profit forecast.",
+        "worthwhile_indicator": "STRONG_EVIDENCE"
+      },
       "dca_settings": {
         "base_order_volume": null,
         "safety_order_volume": null,
@@ -177,16 +141,27 @@
       },
       "manual_approval_required": true,
       "creates_live_bot": false,
-      "promotion_note": "Adding here saves a recommended-bot package only. It does not create, edit, start or stop a 3Commas bot."
+      "promotion_note": "Adding here saves a recommended-bot package only. Optimisation status is tracked automatically; live deployment remains manual."
     },
     {
       "candidate_id": "1f8534f80a834533a2ce894a",
       "asset": "XRP",
       "pair": "XRP-USDT",
       "state": "READY_FOR_MANUAL_REVIEW",
-      "confidence_pct": 75.9,
-      "suggested_pilot_usdt": null,
+      "confidence_pct": 75.7,
+      "suggested_pilot_usdt": 3.57,
+      "suggested_initial_allocation_usdt": 3.57,
       "historical_max_capital": 5819.12,
+      "profitability_evidence": {
+        "q1_return_on_max_capital_pct": 31.9,
+        "training_return_on_max_capital_pct": 305.4,
+        "q1_net_pnl": 1855.42,
+        "q1_closed_deals": 212,
+        "q1_average_hold_hours": 5.4,
+        "q1_longest_hold_hours": 56.0,
+        "label": "Historical validated return on maximum capital; not a future-profit forecast.",
+        "worthwhile_indicator": "STRONG_EVIDENCE"
+      },
       "dca_settings": {
         "base_order_volume": null,
         "safety_order_volume": null,
@@ -235,7 +210,7 @@
       },
       "manual_approval_required": true,
       "creates_live_bot": false,
-      "promotion_note": "Adding here saves a recommended-bot package only. It does not create, edit, start or stop a 3Commas bot."
+      "promotion_note": "Adding here saves a recommended-bot package only. Optimisation status is tracked automatically; live deployment remains manual."
     }
   ],
   "promotion_policy": {
@@ -245,5 +220,5 @@
     "automatic_live_deployment": false
   },
   "read_only": true,
-  "snapshot_id": "1531b562f5e9643ba2b09d38"
+  "snapshot_id": "21fc96a26619390a046f1b90"
 }

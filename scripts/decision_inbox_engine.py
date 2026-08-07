@@ -26,7 +26,7 @@ def event(kind,title,detail,severity='info',action=None,payload=None):
 def build():
     ws=load('professional_workspace.json'); expansion=load('expansion_readiness.json'); trades=load('trade_intelligence.json')
     market=load('market_intelligence.json'); capital=load('capital_intelligence.json'); issues=load('issues.json')
-    rec=load('recommendation_intelligence.json'); pipeline=load('research_pipeline.json')
+    rec=load('recommendation_intelligence.json'); pipeline=load('research_pipeline.json'); globalm=load('global_market.json'); coins=load('coin_registry.json')
     items=[]
     d=ws.get('daily_decision') or {}
     if d.get('bot_name'):
@@ -45,6 +45,12 @@ def build():
             items.append(event('TRADE_ATTENTION',f"{t.get('bot_name') or t.get('asset')} needs attention",
                 f"{str(t.get('monitoring_state')).replace('_',' ').title()} · P/L {t.get('profit_pct')}% · hold {t.get('hold_hours')}h",
                 'warning','REVIEW_TRADE',t))
+    # Global regime and meaningful coin-state changes are material opening-briefing events.
+    if globalm.get('regime'):
+        items.append(event('GLOBAL_REGIME',f"Global market regime: {str(globalm.get('regime')).replace('_',' ').title()}",f"Universal market score {globalm.get('score_pct')}%. BTC/current breadth evidence is included where available.",'info','REVIEW_MARKET',{'regime':globalm.get('regime'),'score_pct':globalm.get('score_pct')}))
+    for c in coins.get('coins') or []:
+        if c.get('status') in {'DEPLOYMENT_CANDIDATE','READY_FOR_REVIEW'}:
+            items.append(event('COIN_STATUS',f"{c.get('asset')} is {str(c.get('status')).replace('_',' ').title()}",'; '.join(c.get('reasons') or [])[:260],'opportunity','REVIEW_COIN',c))
     # Only surface genuine active issues.
     for it in (issues.get('issues') or [])[:6]:
         if not isinstance(it,dict): continue

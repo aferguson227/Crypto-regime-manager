@@ -1,4 +1,4 @@
-# Crypto Regime Manager V43.0.0 — Live Trade Intelligence & Expansion Readiness
+# Crypto Regime Manager V44.0.0 — Live Trade Intelligence & Expansion Readiness
 
 V43 adds a read-only active-deal intelligence snapshot and an evidence-based gate for adding a second production coin. It never closes a deal, changes a bot, places an order or automatically promotes a research candidate.
 

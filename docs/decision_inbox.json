@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "43.0.0",
-  "generated_at": "2026-08-07T19:54:26.107059+00:00",
+  "application_version": "44.0.0",
+  "generated_at": "2026-08-07T20:43:04.201246+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,47 +26,149 @@
       }
     },
     {
-      "event_id": "7abcb1d1ae939423993bd1d2",
-      "kind": "SYSTEM_ISSUE",
-      "title": "3Commas data is stale",
-      "detail": "Last successful sync was 2.32 hours ago.",
-      "severity": "warning",
-      "action": "REVIEW_SYSTEM",
+      "event_id": "51528d84e4d91bd534e3feef",
+      "kind": "NEW_CANDIDATE",
+      "title": "XMR/USDT ready for manual review",
+      "detail": "Review XMR for a small manual pilot allocation; do not copy historical max-capital mechanically.",
+      "severity": "opportunity",
+      "action": "ADD_RECOMMENDED_BOT",
       "payload": {
-        "severity": "warning",
-        "system": "3Commas",
-        "title": "3Commas data is stale",
-        "detail": "Last successful sync was 2.32 hours ago.",
-        "recommended_action": "Run the 3Commas workflow and inspect endpoint diagnostics.",
-        "metric": {
-          "age_hours": 2.32
+        "asset": "XMR",
+        "candidate": {
+          "asset": "XMR",
+          "pair": "XMR-USDT",
+          "discovery_rank": 1,
+          "current_research_score": 82.0,
+          "stage": "READY_FOR_MANUAL_REVIEW",
+          "walk_forward_status": "PASS",
+          "frozen_settings": {
+            "take_profit_pct": 2.0,
+            "so_deviation_pct": 0.8,
+            "safety_orders": 7,
+            "volume_scale": 1.7,
+            "step_scale": 1.0
+          },
+          "training_metrics": {
+            "net_pnl": 17970.19,
+            "closed_deals": 908,
+            "average_hours": 15.3,
+            "longest_hours": 3984,
+            "max_drawdown_dollars": -2274.7,
+            "max_capital": 5819.12,
+            "open_position": true,
+            "score": 16594.364999999998
+          },
+          "q1_2026_metrics": {
+            "net_pnl": 4863.52,
+            "realised_pnl": 4863.52,
+            "open_pnl": 3.56,
+            "mark_to_market_pnl": 4867.08,
+            "closed_deals": 217,
+            "average_hours": 5.9,
+            "longest_hours": 160,
+            "max_drawdown_dollars": -737.5,
+            "max_capital": 5819.12,
+            "open_position": true
+          },
+          "gates": {
+            "current_kucoin_screen": "PASS",
+            "kraken_training": "PASS",
+            "q1_independent_validation": "PASS",
+            "drawdown_review": "REVIEW",
+            "manual_approval": "REQUIRED"
+          },
+          "production_eligible": false,
+          "manual_approval_required": true,
+          "automatic_promotion": false,
+          "next_action": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
         },
-        "first_detected_at": "2026-08-07T19:54:24.465280+00:00",
-        "last_detected_at": "2026-08-07T19:54:24.465286+00:00"
+        "score_pct": 100.0,
+        "deployable_capital": 17.858292729999448
       }
     },
     {
-      "event_id": "de5af7fd5a8891904a362362",
-      "kind": "SYSTEM_ISSUE",
-      "title": "Application refresh is stale",
-      "detail": "Last successful application refresh age: 6.49.",
-      "severity": "warning",
-      "action": "REVIEW_SYSTEM",
+      "event_id": "3cace79e7df65ff95754d44a",
+      "kind": "GLOBAL_REGIME",
+      "title": "Global market regime: Bull",
+      "detail": "Universal market score 64.9%. BTC/current breadth evidence is included where available.",
+      "severity": "info",
+      "action": "REVIEW_MARKET",
       "payload": {
-        "severity": "warning",
-        "system": "Application",
-        "title": "Application refresh is stale",
-        "detail": "Last successful application refresh age: 6.49.",
-        "recommended_action": "Run the autonomous refresh workflow and inspect its failed step.",
-        "metric": {
-          "age_hours": 6.49
-        },
-        "first_detected_at": "2026-08-07T19:54:24.465292+00:00",
-        "last_detected_at": "2026-08-07T19:54:24.465294+00:00"
+        "regime": "BULL",
+        "score_pct": 64.9
+      }
+    },
+    {
+      "event_id": "9827473ee0dc3c34621b09dd",
+      "kind": "COIN_STATUS",
+      "title": "ETH is Ready For Review",
+      "detail": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only.",
+      "severity": "opportunity",
+      "action": "REVIEW_COIN",
+      "payload": {
+        "asset": "ETH",
+        "status": "READY_FOR_REVIEW",
+        "reasons": [
+          "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+        ],
+        "current_recommendation": null,
+        "research_stage": "READY_FOR_MANUAL_REVIEW",
+        "history_sources": [
+          "recommended_bots",
+          "research_pipeline"
+        ],
+        "validated_return_pct": 22.2,
+        "global_regime": "BULL"
+      }
+    },
+    {
+      "event_id": "3e955d8f1e973adb4b75cd31",
+      "kind": "COIN_STATUS",
+      "title": "XMR is Ready For Review",
+      "detail": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only.",
+      "severity": "opportunity",
+      "action": "REVIEW_COIN",
+      "payload": {
+        "asset": "XMR",
+        "status": "READY_FOR_REVIEW",
+        "reasons": [
+          "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+        ],
+        "current_recommendation": null,
+        "research_stage": "READY_FOR_MANUAL_REVIEW",
+        "history_sources": [
+          "recommended_bots",
+          "research_pipeline"
+        ],
+        "validated_return_pct": 83.6,
+        "global_regime": "BULL"
+      }
+    },
+    {
+      "event_id": "8471051ec1f0e49c3447f81a",
+      "kind": "COIN_STATUS",
+      "title": "XRP is Ready For Review",
+      "detail": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only.",
+      "severity": "opportunity",
+      "action": "REVIEW_COIN",
+      "payload": {
+        "asset": "XRP",
+        "status": "READY_FOR_REVIEW",
+        "reasons": [
+          "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+        ],
+        "current_recommendation": null,
+        "research_stage": "READY_FOR_MANUAL_REVIEW",
+        "history_sources": [
+          "recommended_bots",
+          "research_pipeline"
+        ],
+        "validated_return_pct": 31.9,
+        "global_regime": "BULL"
       }
     }
   ],
-  "material_count": 3,
+  "material_count": 6,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -75,5 +177,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "4ba1b278af13e87a14728e7e"
+  "snapshot_id": "7b0f178a5c7d572ea09e29d2"
 }

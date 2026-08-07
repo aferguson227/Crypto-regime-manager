@@ -42,9 +42,9 @@ def main()->int:
                 continue
             active.append(issue('warning' if row.get('category') in {'rate_limited','rate_limited_cached','permission_denied'} else 'critical','3Commas',f'{name} endpoint {row.get("category","failed").replace("_"," ")}',row.get('message') or 'Endpoint failed.','Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.',{'http_status':row.get('http_status'),'records':row.get('records')}))
     tc_age=age_hours(tc.get('last_success_at') or tc.get('generated_at'))
-    if tc_age is None or tc_age>2: active.append(issue('critical' if tc_age is None or tc_age>6 else 'warning','3Commas','3Commas data is stale',f'Last successful sync was {tc_age if tc_age is not None else "unknown"} hours ago.','Run the 3Commas workflow and inspect endpoint diagnostics.',{'age_hours':tc_age}))
+    if tc_age is None or tc_age>3: active.append(issue('critical' if tc_age is None or tc_age>6 else 'warning','3Commas','3Commas refresh needs attention',f'Last successful sync was {tc_age if tc_age is not None else "unknown"} hours ago. Expected cadence is about 60 minutes.','The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.',{'age_hours':tc_age,'expected_cadence_hours':1}))
     app_pipe=(cloud.get('pipelines') or {}).get('application') or {}; app_age=app_pipe.get('last_success_age_hours')
-    if app_age is None or app_age>6: active.append(issue('critical' if app_age is None or app_age>12 else 'warning','Application','Application refresh is stale',f'Last successful application refresh age: {app_age}.','Run the autonomous refresh workflow and inspect its failed step.',{'age_hours':app_age}))
+    if app_age is None or app_age>8: active.append(issue('critical' if app_age is None or app_age>12 else 'warning','Application','Application publication needs attention',f'Last successful publication was {app_age} hours ago.','Automatic refresh and publication are enabled; inspect the collector only if this persists.',{'age_hours':app_age,'unit':'hours'}))
     dscore=((diag.get('overall') or {}).get('score')) or 0
     system_score=clamp(dscore)
     data_score=100

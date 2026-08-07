@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "application_version": "44.0.0",
+  "generated_at": "2026-08-07T20:43:03.862643+00:00",
+  "coin_count": 8,
+  "coins": [
+    {
+      "asset": "TEL",
+      "status": "LIVE",
+      "reasons": [
+        "Strategy classification: forward_testing; action: CAUTIOUS"
+      ],
+      "current_recommendation": "KEEP_ACTIVE_DEAL",
+      "research_stage": null,
+      "history_sources": [
+        "recommendation_intelligence",
+        "strategies"
+      ],
+      "recommendation_confidence_pct": 91.6,
+      "global_regime": "BULL"
+    },
+    {
+      "asset": "ETH",
+      "status": "READY_FOR_REVIEW",
+      "reasons": [
+        "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+      ],
+      "current_recommendation": null,
+      "research_stage": "READY_FOR_MANUAL_REVIEW",
+      "history_sources": [
+        "recommended_bots",
+        "research_pipeline"
+      ],
+      "validated_return_pct": 22.2,
+      "global_regime": "BULL"
+    },
+    {
+      "asset": "XMR",
+      "status": "READY_FOR_REVIEW",
+      "reasons": [
+        "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+      ],
+      "current_recommendation": null,
+      "research_stage": "READY_FOR_MANUAL_REVIEW",
+      "history_sources": [
+        "recommended_bots",
+        "research_pipeline"
+      ],
+      "validated_return_pct": 83.6,
+      "global_regime": "BULL"
+    },
+    {
+      "asset": "XRP",
+      "status": "READY_FOR_REVIEW",
+      "reasons": [
+        "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+      ],
+      "current_recommendation": null,
+      "research_stage": "READY_FOR_MANUAL_REVIEW",
+      "history_sources": [
+        "recommended_bots",
+        "research_pipeline"
+      ],
+      "validated_return_pct": 31.9,
+      "global_regime": "BULL"
+    },
+    {
+      "asset": "BTC",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Acquire/import comparable historical data and run frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "BULL"
+    },
+    {
+      "asset": "SUI",
+      "status": "ARCHIVED",
+      "reasons": [
+        "FAIL \u2014 review risk"
+      ],
+      "current_recommendation": null,
+      "research_stage": null,
+      "history_sources": [
+        "strategies.research"
+      ],
+      "global_regime": "BULL"
+    },
+    {
+      "asset": "TAO",
+      "status": "ARCHIVED",
+      "reasons": [
+        "Strategy classification: rejected; action: WAIT"
+      ],
+      "current_recommendation": "WAIT",
+      "research_stage": null,
+      "history_sources": [
+        "recommendation_intelligence",
+        "strategies"
+      ],
+      "recommendation_confidence_pct": 22.2,
+      "global_regime": "BULL"
+    },
+    {
+      "asset": "ZEC",
+      "status": "REJECTED",
+      "reasons": [
+        "Retain as research-only; historical validation failed."
+      ],
+      "current_recommendation": null,
+      "research_stage": "RESEARCH_REJECT",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "BULL"
+    }
+  ],
+  "policy": {
+    "never_forget_analysed_coin": true,
+    "automatic_live_deployment": false
+  },
+  "snapshot_id": "7f499f8f9e61764a415a027c"
+}

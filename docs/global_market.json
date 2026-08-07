@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "application_version": "44.0.0",
+  "generated_at": "2026-08-07T20:43:03.522584+00:00",
+  "regime": "BULL",
+  "score_pct": 64.9,
+  "current_evidence": {
+    "btc_30d_trend_pct": 4.8,
+    "btc_24h_change_pct": 0.71,
+    "breadth_pct": 80.0,
+    "market_trend_pct": 55.0,
+    "volatility_pct": 35.0,
+    "source": "KuCoin current/public CRM market evidence"
+  },
+  "historical_btc_evidence": {
+    "status": "MISSING",
+    "registry_symbol": null,
+    "walk_forward_status": null,
+    "note": "Historical BTC/XBT Kraken evidence contributes only when present in the walk-forward registry."
+  },
+  "policy": {
+    "universal_context": true,
+    "asset_specific_regime_still_required": true,
+    "automatic_bot_changes": false,
+    "manual_approval_required": true
+  },
+  "snapshot_id": "04235c3c2bf23df8b5cb6f2f"
+}

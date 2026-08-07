@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0",
+  "application_version": "44.0.0",
+  "generated_at": "2026-08-07T20:43:03.634215+00:00",
+  "current_global_regime": "BULL",
+  "raw_archive_paths": {
+    "training": "C:\\Crypto\\Research\\Kraken\\training",
+    "validation": "C:\\Crypto\\Research\\Kraken\\validation",
+    "available": false
+  },
+  "items": [
+    {
+      "asset": "XMR",
+      "pair": "XMR-USDT",
+      "status": "VALIDATED_BASELINE",
+      "current_global_regime": "BULL",
+      "validated_baseline": {
+        "take_profit_pct": 2.0,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "regime_profiles": {
+        "BULL": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "ACCUMULATION": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "NEUTRAL": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "BEAR": {
+          "status": "PENDING_OPTIMISATION"
+        }
+      },
+      "raw_archives_available": false,
+      "next_action": "Use frozen Kraken/Q1 baseline while retaining manual approval; raw archives are required for a fresh regime optimisation.",
+      "automatic_live_changes": false
+    },
+    {
+      "asset": "BTC",
+      "pair": "BTC-USDT",
+      "status": "WAIT",
+      "current_global_regime": "BULL",
+      "validated_baseline": null,
+      "regime_profiles": {
+        "BULL": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "ACCUMULATION": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "NEUTRAL": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "BEAR": {
+          "status": "PENDING_OPTIMISATION"
+        }
+      },
+      "raw_archives_available": false,
+      "next_action": "Remain in research queue.",
+      "automatic_live_changes": false
+    },
+    {
+      "asset": "ETH",
+      "pair": "ETH-USDT",
+      "status": "VALIDATED_BASELINE",
+      "current_global_regime": "BULL",
+      "validated_baseline": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "regime_profiles": {
+        "BULL": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "ACCUMULATION": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "NEUTRAL": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "BEAR": {
+          "status": "PENDING_OPTIMISATION"
+        }
+      },
+      "raw_archives_available": false,
+      "next_action": "Use frozen Kraken/Q1 baseline while retaining manual approval; raw archives are required for a fresh regime optimisation.",
+      "automatic_live_changes": false
+    },
+    {
+      "asset": "XRP",
+      "pair": "XRP-USDT",
+      "status": "VALIDATED_BASELINE",
+      "current_global_regime": "BULL",
+      "validated_baseline": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "regime_profiles": {
+        "BULL": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "ACCUMULATION": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "NEUTRAL": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "BEAR": {
+          "status": "PENDING_OPTIMISATION"
+        }
+      },
+      "raw_archives_available": false,
+      "next_action": "Use frozen Kraken/Q1 baseline while retaining manual approval; raw archives are required for a fresh regime optimisation.",
+      "automatic_live_changes": false
+    },
+    {
+      "asset": "ZEC",
+      "pair": "ZEC-USDT",
+      "status": "WAIT",
+      "current_global_regime": "BULL",
+      "validated_baseline": {
+        "take_profit_pct": 2.0,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "regime_profiles": {
+        "BULL": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "ACCUMULATION": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "NEUTRAL": {
+          "status": "PENDING_OPTIMISATION"
+        },
+        "BEAR": {
+          "status": "PENDING_OPTIMISATION"
+        }
+      },
+      "raw_archives_available": false,
+      "next_action": "Remain in research queue.",
+      "automatic_live_changes": false
+    }
+  ],
+  "automatic_queue_management": true,
+  "automatic_live_deployment": false,
+  "manual_approval_required": true,
+  "snapshot_id": "10211e2726613dc00c92ca79"
+}
