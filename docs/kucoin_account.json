@@ -1,53 +1,324 @@
 {
   "application_version": "42.0.0",
-  "generated_at": "2026-08-07T12:27:13.532934+00:00",
-  "status": "error",
-  "health": "DEGRADED",
-  "message": "Our services are currently unavailable in the U.S. To ensure a seamless experience, please access the platform from a non-restricted country/region using a supported IP address. For more details, please refer to our Terms of Use. (current i",
+  "generated_at": "2026-08-07T13:59:01.202539+00:00",
+  "status": "ok",
+  "health": "HEALTHY",
   "source": "KuCoin private spot account API",
   "read_only": true,
+  "endpoint": "GET /api/v1/accounts",
+  "permission_required": "General",
+  "api_base": "https://api.kucoin.com",
+  "api_key_version_used": "3",
   "currency": "USDT",
-  "free_usdt": null,
-  "usdt_balance": null,
-  "balances": [],
-  "record_count": 0,
+  "free_usdt": 806.67111932,
+  "usdt_balance": 806.67111932,
+  "balances": [
+    {
+      "currency": "TEL",
+      "account_type": "trade",
+      "balance": 1907460.0,
+      "available": 0.0,
+      "holds": 1907460.0
+    },
+    {
+      "currency": "USDT",
+      "account_type": "trade",
+      "balance": 806.67111932,
+      "available": 806.67111932,
+      "holds": 0.0
+    },
+    {
+      "currency": "DATA",
+      "account_type": "main",
+      "balance": 99.80711596,
+      "available": 99.80711596,
+      "holds": 0.0
+    },
+    {
+      "currency": "LUNA",
+      "account_type": "main",
+      "balance": 7.47134712,
+      "available": 7.47134712,
+      "holds": 0.0
+    },
+    {
+      "currency": "KCS",
+      "account_type": "main",
+      "balance": 0.01357799,
+      "available": 0.01357799,
+      "holds": 0.0
+    },
+    {
+      "currency": "SUI",
+      "account_type": "main",
+      "balance": 0.00219974,
+      "available": 0.00219974,
+      "holds": 0.0
+    },
+    {
+      "currency": "ATH",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "AVAX",
+      "account_type": "main",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "BNB",
+      "account_type": "main",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "BTC",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "DATA",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "DRIFT",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "ETH",
+      "account_type": "main",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "ETH",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "GRAM",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "HYPE",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "JASMY",
+      "account_type": "main",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "JASMY",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "KAITO",
+      "account_type": "main",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "KAITO",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "KAS",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "KCS",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "LUNA",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "MANA",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "ONDO",
+      "account_type": "main",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "ONDO",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "OP",
+      "account_type": "main",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "RENDER",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "ROAM",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "SOL",
+      "account_type": "main",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "SOL",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "SUI",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "TAO",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "TRX",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "USDC",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "USDT",
+      "account_type": "main",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "USDT",
+      "account_type": "margin",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "USTC",
+      "account_type": "main",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "USTC",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "VELO",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "XRP",
+      "account_type": "main",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "XRP",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    },
+    {
+      "currency": "ZEC",
+      "account_type": "trade",
+      "balance": 0.0,
+      "available": 0.0,
+      "holds": 0.0
+    }
+  ],
+  "record_count": 43,
   "diagnostic": {
-    "category": "UNEXPECTED_RESPONSE",
-    "message": "Our services are currently unavailable in the U.S. To ensure a seamless experience, please access the platform from a non-restricted country/region using a supported IP address. For more details, please refer to our Terms of Use. (current i",
-    "attempts": [
-      {
-        "base": "https://api.kucoin.eu",
-        "key_version": "3",
-        "category": "INVALID_API_KEY",
-        "api_code": "400003",
-        "http_status": 401,
-        "message": "The API key does not exist or site mismatch."
-      },
-      {
-        "base": "https://api.kucoin.eu",
-        "key_version": "2",
-        "category": "INVALID_API_KEY",
-        "api_code": "400003",
-        "http_status": 401,
-        "message": "The API key does not exist or site mismatch."
-      },
-      {
-        "base": "https://api.kucoin.com",
-        "key_version": "3",
-        "category": "UNEXPECTED_RESPONSE",
-        "api_code": "400302",
-        "http_status": null,
-        "message": "Our services are currently unavailable in the U.S. To ensure a seamless experience, please access the platform from a non-restricted country/region using a supported IP address. For more details, please refer to our Terms of Use. (current i"
-      },
-      {
-        "base": "https://api.kucoin.com",
-        "key_version": "2",
-        "category": "UNEXPECTED_RESPONSE",
-        "api_code": "400302",
-        "http_status": null,
-        "message": "Our services are currently unavailable in the U.S. To ensure a seamless experience, please access the platform from a non-restricted country/region using a supported IP address. For more details, please refer to our Terms of Use. (current i"
-      }
-    ]
+    "category": null,
+    "message": null
   },
   "guardrails": {
     "write_endpoints_implemented": false,

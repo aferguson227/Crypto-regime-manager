@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
   "application_version": "42.0.0",
-  "generated_at": "2026-08-07T13:57:18.306401+00:00",
-  "snapshot_id": "322a07707550ec40ebc8",
+  "generated_at": "2026-08-07T13:59:01.340377+00:00",
+  "snapshot_id": "57cac2f20f3015c008b8",
   "currency": "USDT",
   "accounts": [
     {
-      "account_id": 32632134,
-      "name": "My Kucoin",
-      "exchange": "Kucoin Spot",
+      "account_id": null,
+      "name": "KuCoin direct account",
+      "exchange": "KuCoin",
       "currency": "USDT",
-      "total_equity": 3587.5538871179756,
+      "total_equity": 806.67111932,
       "free_available": 806.67111932,
-      "observed_at": "2026-08-07T13:24:57.839876+00:00"
+      "observed_at": "2026-08-07T13:59:01.202539+00:00"
     }
   ],
   "bots": [
@@ -81,7 +81,7 @@
       "warnings": []
     }
   ],
-  "exchange_total": 3587.5538871179756,
+  "exchange_total": 806.67111932,
   "free_available": 806.67111932,
   "active_deal_capital": 2808.56278875,
   "placed_order_reserve": 0.0,
@@ -94,7 +94,7 @@
   "next_capital_required": null,
   "can_fund_next_priority": null,
   "methodology": {
-    "free_available": "Read-only free USDT from 3Commas read-only account snapshot.",
+    "free_available": "Read-only free USDT from KuCoin direct read-only account API.",
     "active_deal_capital": "Sum of known cost basis for active deals.",
     "placed_order_reserve": "Shown separately; not subtracted from free USDT because exchange free balance normally already excludes open-order funds.",
     "remaining_active_deal_dca_reserve": "Unplaced remaining safety-order ladder requirement for active deals.",
@@ -111,8 +111,8 @@
       "quote_cost": 2808.56278875
     }
   ],
-  "capital_source": "3Commas read-only account snapshot",
-  "kucoin_direct_status": "error",
+  "capital_source": "KuCoin direct read-only account API",
+  "kucoin_direct_status": "ok",
   "reserved_capital": 0.0,
   "idle_bot_potential_exposure": 7070.992639999999,
   "capital_policy": "Protect active-deal remaining DCA ladders; do not reserve theoretical idle-bot exposure until a deal is active or explicitly approved."

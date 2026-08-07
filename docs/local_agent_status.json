@@ -1,10 +1,13 @@
 {
   "application_version": "42.0.0",
-  "generated_at": null,
-  "status": "NOT_CONFIGURED",
-  "message": "Run SETUP_LOCAL_AGENT.cmd once to enable local private KuCoin refresh.",
+  "generated_at": "2026-08-07T13:59:03.362405+00:00",
+  "started_at": "2026-08-07T13:58:55.888004+00:00",
+  "status": "HEALTHY",
+  "message": "Local private-data refresh completed.",
   "mode": "local_read_only_agent",
   "pc_required_for_private_refresh": true,
   "execution_enabled": false,
-  "write_trading_enabled": false
+  "write_trading_enabled": false,
+  "kucoin_status": "ok",
+  "kucoin_diagnostic": null
 }
