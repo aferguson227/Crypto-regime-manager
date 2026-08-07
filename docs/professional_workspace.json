@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
   "application_version": "44.0.0",
-  "generated_at": "2026-08-07T21:09:31.508968+00:00",
+  "generated_at": "2026-08-07T22:20:30.199000+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Keep Active Deal TEL Low Volatility Bot.",
-    "Deployable capital: 493.469 USDT; exact allocation remains advisory.",
+    "Deployable capital: 393.469 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Strategy health requires review"
   ],
@@ -53,13 +53,13 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 493.46861599999966,
+    "deployable_quote": 393.46861599999966,
     "asset_allocations": [
       {
         "asset": "TEL",
-        "quantity": 156308.0,
+        "quantity": 19576.0,
         "quote_currency": "USDT",
-        "quote_cost": 233.605697838
+        "quote_cost": 29.420001558
       }
     ],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
@@ -290,9 +290,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 69.3,
+    "health_score": 71.8,
     "diversification_score": 25,
-    "capital_efficiency_score": 82.9,
+    "capital_efficiency_score": 90.3,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -340,10 +340,10 @@
         "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": 233.605697838,
-        "reserve_capital": 2529.5360000000005,
+        "allocated_capital": 29.420001558,
+        "reserve_capital": 2629.5360000000005,
         "deployable_priority": 4,
-        "efficiency_score": 74.25,
+        "efficiency_score": 88.98,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -378,5 +378,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "0515d63af52ebfa285be2793"
+  "snapshot_id": "bf75bc7118cad74dcd15fe15"
 }
