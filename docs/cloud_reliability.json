@@ -1,17 +1,17 @@
 {
   "schema_version": "2.0",
   "application_version": "39.0.0",
-  "generated_at": "2026-08-07T01:44:16.479804+00:00",
-  "snapshot_id": "08b379cdeee23ef86fa3",
+  "generated_at": "2026-08-07T06:52:51.328965+00:00",
+  "snapshot_id": "8b45f1f1d092ae62d11e",
   "status": "WARNING",
   "pipelines": {
     "threecommas": {
       "name": "3Commas read-only sync",
       "state": "warning",
-      "last_attempt_at": "2026-08-07T01:43:17.624101+00:00",
-      "last_attempt_age_hours": 0.02,
-      "last_success_at": "2026-08-07T01:43:17.624101+00:00",
-      "last_success_age_hours": 0.02,
+      "last_attempt_at": "2026-08-07T06:52:48.431809+00:00",
+      "last_attempt_age_hours": 0.0,
+      "last_success_at": "2026-08-07T06:52:48.431809+00:00",
+      "last_success_age_hours": 0.0,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -26,7 +26,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-07T01:43:18.204911+00:00"
+            "observed_at": "2026-08-07T06:52:49.034236+00:00"
           },
           "accounts": {
             "path": "/public/api/ver1/accounts",
@@ -35,7 +35,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 1,
-            "observed_at": "2026-08-07T01:43:18.572321+00:00"
+            "observed_at": "2026-08-07T06:52:49.341036+00:00"
           },
           "bots": {
             "path": "/public/api/ver1/bots",
@@ -44,7 +44,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 4,
-            "observed_at": "2026-08-07T01:43:18.891239+00:00"
+            "observed_at": "2026-08-07T06:52:49.689582+00:00"
           },
           "deals": {
             "path": "/public/api/ver1/deals",
@@ -53,7 +53,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 1,
-            "observed_at": "2026-08-07T01:43:19.167649+00:00"
+            "observed_at": "2026-08-07T06:52:50.356365+00:00"
           },
           "account_32632134_details": {
             "path": "/public/api/ver1/accounts/32632134",
@@ -62,16 +62,16 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-07T01:43:19.892736+00:00"
+            "observed_at": "2026-08-07T06:52:50.776598+00:00"
           },
           "account_32632134_balances": {
             "path": "/public/api/ver1/accounts/32632134/account_table_data",
             "status": "fail",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 01:44:18 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 06:53:48 UTC'}",
             "http_status": 429,
             "records": null,
-            "observed_at": "2026-08-07T01:43:20.459416+00:00"
+            "observed_at": "2026-08-07T06:52:51.020503+00:00"
           }
         },
         "failure_count": 1,
@@ -79,7 +79,7 @@
           {
             "endpoint": "account_32632134_balances",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 01:44:18 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 06:53:48 UTC'}",
             "http_status": 429
           }
         ],
@@ -90,9 +90,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-07T01:44:12.902604+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 5.14,
       "last_success_at": "2026-08-07T01:44:16.468273+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 5.14,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -104,10 +104,10 @@
     {
       "name": "3Commas read-only sync",
       "state": "warning",
-      "last_attempt_at": "2026-08-07T01:43:17.624101+00:00",
-      "last_attempt_age_hours": 0.02,
-      "last_success_at": "2026-08-07T01:43:17.624101+00:00",
-      "last_success_age_hours": 0.02,
+      "last_attempt_at": "2026-08-07T06:52:48.431809+00:00",
+      "last_attempt_age_hours": 0.0,
+      "last_success_at": "2026-08-07T06:52:48.431809+00:00",
+      "last_success_age_hours": 0.0,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -122,7 +122,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-07T01:43:18.204911+00:00"
+            "observed_at": "2026-08-07T06:52:49.034236+00:00"
           },
           "accounts": {
             "path": "/public/api/ver1/accounts",
@@ -131,7 +131,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 1,
-            "observed_at": "2026-08-07T01:43:18.572321+00:00"
+            "observed_at": "2026-08-07T06:52:49.341036+00:00"
           },
           "bots": {
             "path": "/public/api/ver1/bots",
@@ -140,7 +140,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 4,
-            "observed_at": "2026-08-07T01:43:18.891239+00:00"
+            "observed_at": "2026-08-07T06:52:49.689582+00:00"
           },
           "deals": {
             "path": "/public/api/ver1/deals",
@@ -149,7 +149,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 1,
-            "observed_at": "2026-08-07T01:43:19.167649+00:00"
+            "observed_at": "2026-08-07T06:52:50.356365+00:00"
           },
           "account_32632134_details": {
             "path": "/public/api/ver1/accounts/32632134",
@@ -158,16 +158,16 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-07T01:43:19.892736+00:00"
+            "observed_at": "2026-08-07T06:52:50.776598+00:00"
           },
           "account_32632134_balances": {
             "path": "/public/api/ver1/accounts/32632134/account_table_data",
             "status": "fail",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 01:44:18 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 06:53:48 UTC'}",
             "http_status": 429,
             "records": null,
-            "observed_at": "2026-08-07T01:43:20.459416+00:00"
+            "observed_at": "2026-08-07T06:52:51.020503+00:00"
           }
         },
         "failure_count": 1,
@@ -175,7 +175,7 @@
           {
             "endpoint": "account_32632134_balances",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 01:44:18 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 06:53:48 UTC'}",
             "http_status": 429
           }
         ],
@@ -186,9 +186,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-07T01:44:12.902604+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 5.14,
       "last_success_at": "2026-08-07T01:44:16.468273+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 5.14,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -204,7 +204,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-07T01:43:18.204911+00:00"
+      "observed_at": "2026-08-07T06:52:49.034236+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
@@ -213,7 +213,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-07T01:43:18.572321+00:00"
+      "observed_at": "2026-08-07T06:52:49.341036+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
@@ -222,7 +222,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 4,
-      "observed_at": "2026-08-07T01:43:18.891239+00:00"
+      "observed_at": "2026-08-07T06:52:49.689582+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
@@ -231,7 +231,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-07T01:43:19.167649+00:00"
+      "observed_at": "2026-08-07T06:52:50.356365+00:00"
     },
     "account_32632134_details": {
       "path": "/public/api/ver1/accounts/32632134",
@@ -240,16 +240,16 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-07T01:43:19.892736+00:00"
+      "observed_at": "2026-08-07T06:52:50.776598+00:00"
     },
     "account_32632134_balances": {
       "path": "/public/api/ver1/accounts/32632134/account_table_data",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 01:44:18 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 06:53:48 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-07T01:43:20.459416+00:00"
+      "observed_at": "2026-08-07T06:52:51.020503+00:00"
     }
   },
   "workflows": [
@@ -270,8 +270,8 @@
   ],
   "github": {
     "repository": "aferguson227/Crypto-regime-manager",
-    "workflow_run_id": "31138967544",
-    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31138967544"
+    "workflow_run_id": "31155507736",
+    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31155507736"
   },
   "automation_policy": {
     "routine_manual_runs_required": false,
