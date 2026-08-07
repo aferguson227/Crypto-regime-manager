@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "42.0.0",
-  "generated_at": "2026-08-07T13:57:20.656114+00:00",
+  "generated_at": "2026-08-07T14:22:01.262964+00:00",
   "overall": {
     "state": "HEALTHY",
     "score_pct": 98.3
@@ -16,23 +16,7 @@
   },
   "action_queue": [],
   "highest_value_improvements": [],
-  "recently_closed": [
-    {
-      "key": "12d85e3b022bfe64",
-      "source": "repository",
-      "fingerprint": "HISTORICAL_BACKUPS_IN_WORKTREE",
-      "title": "Historical backups are present locally",
-      "severity": "info",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Exclude them from normal source and release archives; preserve separately.",
-      "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-07T13:08:48.958336+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 16,
-      "closed_at": "2026-08-07T13:57:20.015905+00:00"
-    }
-  ],
+  "recently_closed": [],
   "technical_debt": {
     "state": "LOW",
     "known_items": 0
