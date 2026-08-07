@@ -2,8 +2,8 @@ from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
 def test_v39_identity():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='40.1.0'
- assert json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))['release_name']=='Synchronisation & Workflow Efficiency'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.0.0'
+ assert json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))['release_name']=='Unified Decision & Quality Workspace'
 def test_v39_components():
  for p in ['scripts/issue_lifecycle_engine.py','scripts/repository_hygiene_engine.py','scripts/engineering_scheduler.py','config/generated_outputs_policy.json','RUN_ENGINEERING_AUDIT.cmd','PREPARE_RELEASE.cmd','.github/workflows/crm-health-self-heal.yml']:
   assert (ROOT/p).exists(),p

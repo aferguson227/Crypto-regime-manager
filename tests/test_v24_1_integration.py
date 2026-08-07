@@ -12,7 +12,7 @@ def test_discovery_is_in_scheduled_pipeline():
 def test_discovery_navigation_and_refresh_feedback():
     page=(ROOT/'docs/discovery.html').read_text(encoding='utf-8')
     index=(ROOT/'docs/index.html').read_text(encoding='utf-8')
-    assert 'v24-primary-nav' in page
+    assert 'design-system.js' in page
     assert 'Refresh latest published results' in page
     assert 'Refresh latest published data' in index
     assert 'refreshButton.addEventListener' in index

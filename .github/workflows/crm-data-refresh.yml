@@ -61,7 +61,7 @@ jobs:
         env:
           THREECOMMAS_API_KEY: ${{ secrets.THREECOMMAS_API_KEY }}
           THREECOMMAS_RSA_PRIVATE_KEY_B64: ${{ secrets.THREECOMMAS_RSA_PRIVATE_KEY_B64 }}
-          THREECOMMAS_BALANCE_REFRESH_MINUTES: "120"
+          THREECOMMAS_BALANCE_REFRESH_MINUTES: "240"
         run: python -m scripts.threecommas_sync
 
       - name: Decide whether market refresh is due

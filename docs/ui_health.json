@@ -1,331 +1,493 @@
 {
-  "schema_version": "1.0",
-  "application_version": "40.1.0",
-  "generated_at": "2026-08-07T08:35:34.446469+00:00",
+  "schema_version": "2.0",
+  "application_version": "41.0.0",
+  "generated_at": "2026-08-07T10:13:52.545470+00:00",
   "overall": {
     "state": "HEALTHY",
     "score_pct": 100.0,
     "pages_checked": 39,
-    "issue_count": 0
+    "issue_count": 0,
+    "canonical_pages": 5,
+    "legacy_pages": 25
   },
   "policy": {
     "font": "Inter/system UI stack",
-    "layout": "shared responsive shell",
+    "layout": "single canonical navigation + unified dashboard",
     "locale": "en-GB",
-    "symbols": "explicit asset and quote codes"
+    "symbols": "explicit asset and quote codes",
+    "visible_version": "41.0.0"
   },
   "pages": [
     {
       "page": "adaptive.html",
+      "role": "drilldown",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "assets.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "autonomy.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "bots.html",
+      "role": "canonical",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "candidates.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "capital.html",
+      "role": "drilldown",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "cloud.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "cloud_reliability.html",
+      "role": "drilldown",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "cockpit.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "command_centre.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "data.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "decisions.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "diagnostics.html",
+      "role": "drilldown",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "discovery.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "dna.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "engineering.html",
+      "role": "canonical",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "evidence.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "evolution.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "explainability.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "health.html",
+      "role": "canonical",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "index.html",
+      "role": "canonical",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "integrity.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "intelligence.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "market.html",
+      "role": "canonical",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "more.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "operating_state.html",
+      "role": "drilldown",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "outcome.html",
+      "role": "drilldown",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "pipeline.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "portfolio.html",
+      "role": "drilldown",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "research.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "research_hub.html",
+      "role": "drilldown",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "research_intelligence.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "research_queue.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [
+        "v20-nav",
+        "v20-tools"
+      ],
+      "raw_nav_count": 0
     },
     {
       "page": "settings.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "timeline.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "traits.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "validation.html",
+      "role": "drilldown",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "validation_queue.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     },
     {
       "page": "workspace.html",
+      "role": "legacy",
       "design_css": true,
       "design_js": true,
       "viewport": true,
       "home_path": true,
-      "mojibake": false
+      "mojibake": false,
+      "stale_visible_versions": [],
+      "legacy_nav_classes": [],
+      "raw_nav_count": 0
     }
   ],
   "issues": []

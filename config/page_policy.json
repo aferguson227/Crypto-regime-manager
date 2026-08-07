@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "application_version": "41.0.0",
+  "canonical_pages": [
+    {
+      "path": "index.html",
+      "role": "dashboard",
+      "label": "Dashboard"
+    },
+    {
+      "path": "bots.html",
+      "role": "bots",
+      "label": "Bots"
+    },
+    {
+      "path": "market.html",
+      "role": "market",
+      "label": "Market"
+    },
+    {
+      "path": "health.html",
+      "role": "system",
+      "label": "System"
+    },
+    {
+      "path": "engineering.html",
+      "role": "engineering",
+      "label": "Engineering"
+    }
+  ],
+  "drilldown_pages": [
+    "portfolio.html",
+    "diagnostics.html",
+    "cloud_reliability.html",
+    "operating_state.html",
+    "capital.html",
+    "outcome.html",
+    "adaptive.html",
+    "research_hub.html",
+    "validation.html"
+  ],
+  "legacy_pages": [
+    "assets.html",
+    "autonomy.html",
+    "candidates.html",
+    "cloud.html",
+    "cockpit.html",
+    "command_centre.html",
+    "data.html",
+    "decisions.html",
+    "discovery.html",
+    "dna.html",
+    "evidence.html",
+    "evolution.html",
+    "explainability.html",
+    "integrity.html",
+    "intelligence.html",
+    "more.html",
+    "pipeline.html",
+    "research.html",
+    "research_intelligence.html",
+    "research_queue.html",
+    "settings.html",
+    "timeline.html",
+    "traits.html",
+    "validation_queue.html",
+    "workspace.html"
+  ],
+  "single_navigation_owner": "design-system.js",
+  "forbidden_legacy_nav_classes": [
+    "workspace-nav",
+    "v20-nav",
+    "v20-tools"
+  ],
+  "visible_version_policy": "current_release_only"
+}

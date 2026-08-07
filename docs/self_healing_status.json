@@ -1,90 +1,16 @@
 {
   "schema_version": "1.0",
-  "application_version": "40.1.0",
-  "generated_at": "2026-08-07T09:23:44.845274+00:00",
-  "state": "ATTENTION",
+  "application_version": "41.0.0",
+  "generated_at": "2026-08-07T10:13:50.691636+00:00",
+  "state": "HEALTHY",
   "scan": {
-    "issues_found": 3,
-    "remaining": 3,
+    "issues_found": 0,
+    "remaining": 0,
     "repaired": 0
   },
-  "issues": [
-    {
-      "fingerprint": "WORKFLOW_FAILURE",
-      "title": "CRM Safe Self-Heal latest run failed",
-      "risk": "warning",
-      "automatic": false,
-      "detail": "This is active because no newer successful run supersedes it.",
-      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
-      "validation": [
-        "workflow_policy",
-        "latest_commit_published"
-      ]
-    },
-    {
-      "fingerprint": "WORKFLOW_SLOWDOWN",
-      "title": "CRM Safe Self-Heal latest run is unusually slow",
-      "risk": "warning",
-      "automatic": false,
-      "detail": "Runtime: 903s.",
-      "repair": "Compare with recent successful median before changing configuration.",
-      "validation": [
-        "workflow_policy",
-        "latest_commit_published"
-      ]
-    },
-    {
-      "fingerprint": "WORKFLOW_FAILURE",
-      "title": "V31 Autonomous Crypto Regime Refresh latest run failed",
-      "risk": "warning",
-      "automatic": false,
-      "detail": "This is active because no newer successful run supersedes it.",
-      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
-      "validation": [
-        "workflow_policy",
-        "latest_commit_published"
-      ]
-    }
-  ],
+  "issues": [],
   "repairs_applied": [],
-  "approval_required": [
-    {
-      "fingerprint": "WORKFLOW_FAILURE",
-      "title": "CRM Safe Self-Heal latest run failed",
-      "risk": "warning",
-      "automatic": false,
-      "detail": "This is active because no newer successful run supersedes it.",
-      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
-      "validation": [
-        "workflow_policy",
-        "latest_commit_published"
-      ]
-    },
-    {
-      "fingerprint": "WORKFLOW_SLOWDOWN",
-      "title": "CRM Safe Self-Heal latest run is unusually slow",
-      "risk": "warning",
-      "automatic": false,
-      "detail": "Runtime: 903s.",
-      "repair": "Compare with recent successful median before changing configuration.",
-      "validation": [
-        "workflow_policy",
-        "latest_commit_published"
-      ]
-    },
-    {
-      "fingerprint": "WORKFLOW_FAILURE",
-      "title": "V31 Autonomous Crypto Regime Refresh latest run failed",
-      "risk": "warning",
-      "automatic": false,
-      "detail": "This is active because no newer successful run supersedes it.",
-      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
-      "validation": [
-        "workflow_policy",
-        "latest_commit_published"
-      ]
-    }
-  ],
+  "approval_required": [],
   "guardrails": {
     "read_only_trading": true,
     "no_secret_changes": true,

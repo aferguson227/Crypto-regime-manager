@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "40.1.0",
+  "application_version": "41.0.0",
   "engine": "V37.1 Operational Intelligence and Diagnostics Engine",
-  "generated_at": "2026-08-07T08:35:35.176146+00:00",
+  "generated_at": "2026-08-07T10:13:53.448646+00:00",
   "host": "Delimaferguson",
   "platform": "win32",
   "python": "3.14.6",
@@ -23,11 +23,11 @@
       "status": "pass",
       "message": "All release sources agree.",
       "evidence": [
-        "VERSION=40.1.0",
-        "release=40.1.0",
-        "docs=40.1.0",
-        "config=40.1.0",
-        "release_name=Synchronisation & Workflow Efficiency"
+        "VERSION=41.0.0",
+        "release=41.0.0",
+        "docs=41.0.0",
+        "config=41.0.0",
+        "release_name=Unified Decision & Quality Workspace"
       ],
       "required": true
     },
@@ -36,7 +36,7 @@
       "name": "Route manifest",
       "category": "interface",
       "status": "pass",
-      "message": "17 declared routes exist.",
+      "message": "18 declared routes exist.",
       "evidence": [
         "index.html",
         "cockpit.html",
@@ -54,7 +54,8 @@
         "adaptive.html",
         "market.html",
         "bots.html",
-        "engineering.html"
+        "engineering.html",
+        "health.html"
       ],
       "required": true
     },
@@ -130,7 +131,7 @@
       "name": "Published JSON validity",
       "category": "data",
       "status": "pass",
-      "message": "47 JSON files parse successfully.",
+      "message": "48 JSON files parse successfully.",
       "evidence": [
         "account_intelligence.json",
         "adaptive_intelligence.json",
@@ -178,7 +179,8 @@
         "version.json",
         "visual_issues.json",
         "walk_forward_registry.json",
-        "workflow_doctor.json"
+        "workflow_doctor.json",
+        "workflow_history.json"
       ],
       "required": true
     },
@@ -234,23 +236,23 @@
       "status": "pass",
       "message": "All required operating sources are present.",
       "evidence": [
-        "strategies.json (298171 bytes)",
-        "threecommas.json (7043 bytes)",
+        "strategies.json (298159 bytes)",
+        "threecommas.json (7141 bytes)",
         "configuration_reconciliation.json (11929 bytes)",
         "operating_state.json (4295 bytes)",
         "account_intelligence.json (2717 bytes)",
         "capital_intelligence.json (3975 bytes)",
         "deployment_intelligence.json (11809 bytes)",
-        "recommendation_intelligence.json (14002 bytes)",
-        "outcome_intelligence.json (74956 bytes)",
+        "recommendation_intelligence.json (14000 bytes)",
+        "outcome_intelligence.json (81103 bytes)",
         "portfolio_intelligence.json (2414 bytes)",
-        "cloud_reliability.json (10982 bytes)",
+        "cloud_reliability.json (10419 bytes)",
         "command_state.json (17240 bytes)",
         "professional_workspace.json (9609 bytes)",
-        "operational_health.json (4783 bytes)",
-        "issues.json (1199 bytes)",
-        "performance_history.json (6946 bytes)",
-        "system_integrity.json (1192 bytes)",
+        "operational_health.json (4312 bytes)",
+        "issues.json (728 bytes)",
+        "performance_history.json (7959 bytes)",
+        "system_integrity.json (1195 bytes)",
         "cloud_status.json (756 bytes)"
       ],
       "required": true

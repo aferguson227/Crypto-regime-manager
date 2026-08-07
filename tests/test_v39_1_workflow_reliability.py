@@ -3,9 +3,9 @@ import json
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_v391_identity():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='40.1.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='41.0.0'
  release=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
- assert release['release_name']=='Synchronisation & Workflow Efficiency'
+ assert release['release_name']=='Unified Decision & Quality Workspace'
 
 def test_exactly_four_top_level_workflows():
  names=sorted(p.name for p in (ROOT/'.github/workflows').glob('*.yml'))

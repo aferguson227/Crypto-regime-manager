@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_v24_version_and_discovery_safeguards():
     cfg = json.loads((ROOT / 'config.json').read_text(encoding='utf-8'))
-    assert cfg['app']['version'] == '40.1.0'
+    assert cfg['app']['version'] == '41.0.0'
     discovery = cfg['coin_discovery']
     assert discovery['mode'] == 'research_only'
     assert discovery['automatic_add_to_production'] is False
@@ -16,9 +16,8 @@ def test_v24_version_and_discovery_safeguards():
 
 def test_timeline_has_return_navigation():
     html = (ROOT / 'docs' / 'timeline.html').read_text(encoding='utf-8')
-    assert 'href="index.html">Dashboard</a>' in html
+    assert 'design-system.js' in html
     assert 'v24-dashboard-home' in html
-    assert 'href="discovery.html"' in html
 
 
 def test_discovery_page_and_scanner_exist():

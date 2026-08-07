@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
-  "application_version": "40.1.0",
-  "generated_at": "2026-08-07T08:46:30.486270+00:00",
+  "application_version": "41.0.0",
+  "generated_at": "2026-08-07T10:13:51.811464+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -335,7 +335,7 @@
     "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
   },
   "deployment_health": {
-    "cloud": "FAILURE",
+    "cloud": "WARNING",
     "threecommas": "partial",
     "main_app": null,
     "publication": null,
@@ -348,5 +348,5 @@
     "Resolve missing DCA fields before making changes.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "8f52614e6287537b7149e943"
+  "snapshot_id": "a7517ed2e502fef6b171ec42"
 }

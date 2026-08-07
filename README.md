@@ -15,3 +15,6 @@ Open `engineering.html` for engineering health and run `GENERATE_ENGINEERING_PAC
 
 ### V40 reliability architecture
 V40 uses shared core managers so builds, installers, diagnostics and engineering tools follow the same cleanup and validation policies.
+
+### V41 unified decision workspace
+V41 makes the Dashboard the canonical daily operating surface. It combines the current trading recommendation, capital and portfolio context, DCA settings, market state, 3Commas health, workflow/synchronisation health, active issues and interface quality on one consistent page. Legacy specialist pages remain available as drill-down evidence but no longer own navigation or release identity.

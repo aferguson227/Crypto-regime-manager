@@ -58,3 +58,6 @@ Operational plumbing is centralised behind canonical managers for generated outp
 
 ## V40.1 Synchronisation & Workflow Efficiency
 Health publication now uses semantic material-change detection, Pages verifies the deployed version, and Synchronisation Intelligence compares repository, live-site, Actions and data health without changing remote state.
+
+## V41 canonical presentation layer
+V41 defines `docs/index.html` as the canonical decision workspace and `docs/design-system.js` as the single navigation owner. `config/page_policy.json` classifies canonical, drill-down and legacy pages. UI health validates visible release labels, duplicate/legacy navigation, shared design assets and quote/base-asset presentation. Runtime health engines only treat the four current GitHub workflows as active operational sources.

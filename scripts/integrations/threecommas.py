@@ -396,11 +396,17 @@ def main() -> int:
         account_id=to_int(account.get("id"))
         if account_id is None:
             account_outputs.append(sanitise_account(account,balance_observed_at=attempted_at)); continue
-        detail=attempt_endpoint(f"account_{account_id}_details",f"/public/api/ver1/accounts/{account_id}",{},api_key,private_key,endpoints)
-        if detail is not None and not isinstance(detail,dict):
-            endpoints[f"account_{account_id}_details"]=endpoint_result(f"/public/api/ver1/accounts/{account_id}","fail","response_shape",f"Expected object, received {type(detail).__name__}.")
-            detail={}
-        detail=detail if isinstance(detail,dict) else {}
+        # Preserve scarce Starter-plan quota for the balance-table request.
+        # The accounts listing already supplies the identity fields CRM needs;
+        # the optional per-account detail GET previously made the balance read
+        # the sixth rapid request and repeatedly triggered HTTP 429.
+        detail={}
+        endpoints[f"account_{account_id}_details"]=endpoint_result(
+            f"/public/api/ver1/accounts/{account_id}",
+            "pass",
+            "not_requested_quota_guard",
+            "Optional account-detail request skipped to preserve quota for the read-only balance table.",
+        )
         prev=previous_accounts.get(account_id) or {}
         prev_stamp=prev.get("balance_observed_at") or previous.get("generated_at")
         prev_age=age_minutes(prev_stamp)

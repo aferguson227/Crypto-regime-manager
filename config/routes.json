@@ -2,10 +2,10 @@
   "routes": [
     {
       "path": "index.html",
-      "title": "Adaptive Decision Workspace",
+      "title": "Unified Decision & Quality Workspace",
       "category": "operations",
       "primary": true,
-      "scope": "production"
+      "scope": "unified_decision_quality"
     },
     {
       "path": "cockpit.html",
@@ -46,7 +46,7 @@
       "path": "research_hub.html",
       "title": "Research Hub",
       "category": "research",
-      "primary": true,
+      "primary": false,
       "scope": "research"
     },
     {
@@ -118,6 +118,13 @@
       "category": "system",
       "primary": true,
       "scope": "autonomous_development"
+    },
+    {
+      "path": "health.html",
+      "title": "System Health",
+      "category": "system",
+      "primary": true,
+      "scope": "unified_system_health"
     }
   ]
 }

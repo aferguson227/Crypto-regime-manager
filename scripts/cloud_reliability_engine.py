@@ -161,14 +161,14 @@ def build() -> dict[str, Any]:
     }
     workflows = [
         workflow_check(
-            ROOT / ".github/workflows/threecommas-update.yml",
+            ROOT / ".github/workflows/crm-data-refresh.yml",
             "python -m scripts.threecommas_sync",
             "37 * * * *",
         ),
         workflow_check(
-            ROOT / ".github/workflows/multi-coin-update.yml",
-            "python -m scripts.cloud_update",
-            "18 0,4,8,12,16,20 * * *",
+            ROOT / ".github/workflows/crm-health-self-heal.yml",
+            "python -m scripts.engineering_scheduler",
+            "17 */6 * * *",
         ),
     ]
     states = [row["state"] for row in pipelines.values()]
@@ -204,7 +204,7 @@ def build() -> dict[str, Any]:
             "routine_manual_runs_required": False,
             "manual_run_purpose": "Recovery and diagnosis only",
             "threecommas_cadence": "hourly at minute 37 UTC",
-            "main_refresh_cadence": "every four hours at minute 18 UTC",
+            "main_refresh_cadence": "every four hours inside CRM Data Refresh",
         },
         "read_only": True,
     }

@@ -17,6 +17,11 @@ def run(module: str, *args: str) -> int:
 
 
 def validate() -> int:
+    # Canonical identity sync prevents stale runtime snapshots from carrying an older UI/release version.
+    rc = run('scripts.release_identity_sync')
+    if rc:
+        return rc
+
     rc = run('scripts.validate_publish')
     if rc:
         return rc

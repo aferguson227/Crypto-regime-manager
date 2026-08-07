@@ -34,10 +34,16 @@ def main():
   g=row.get('concurrency_group')
   if g and g in groups:issues.append({'fingerprint':'WORKFLOW_CONCURRENCY_COLLISION','severity':'critical','title':'Workflows share a concurrency group','detail':f'{name} and {groups[g]} share {g}.','safe_action':'Restore isolated canonical concurrency groups.'})
   elif g:groups[g]=name
- # Only the latest run per workflow can create an active workflow incident. Older failures are historical evidence.
+ # Only current canonical workflows can create active incidents. Retired workflow names remain historical evidence.
+ canonical_names=set()
+ for wf in (ROOT/'.github/workflows').glob('*.yml'):
+  txt=wf.read_text(encoding='utf-8',errors='replace')
+  m=re.search(r'^name:\s*(.+?)\s*$',txt,re.M)
+  if m: canonical_names.add(m.group(1).strip().strip('"\''))
  latest={}
  for r in runs:
   name=r.get('name') or 'Workflow'
+  if name not in canonical_names: continue
   if name not in latest: latest[name]=r
  historical={'cancelled':0,'failed':0,'timed_out':0,'successful':0}
  for r in runs[-100:]:

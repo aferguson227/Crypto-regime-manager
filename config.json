@@ -288,21 +288,21 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "40.1.0",
-    "mode": "Read-only explainable deployment intelligence",
+    "version": "41.0.0",
+    "mode": "Read-only unified decision and quality workspace",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
     "feature": "Advisory candidate validation and DCA improvement lab",
-    "release_name": "Synchronisation & Workflow Efficiency",
+    "release_name": "Unified Decision & Quality Workspace",
     "primary_navigation": [
       "Dashboard",
-      "Workspace",
-      "Research",
-      "Data",
-      "Cockpit"
+      "Bots",
+      "Market",
+      "System",
+      "Engineering"
     ],
-    "legacy_navigation_preserved": true,
-    "note": "V27 repairs cloud/discovery mobile layout and adds an immutable advisory validation queue for discovered coins and DCA proposals. Live execution remains disabled."
+    "legacy_navigation_preserved": false,
+    "note": "V41 consolidates daily trading decisions and operational faults onto one canonical dashboard. Legacy pages remain drill-down only."
   },
   "threecommas": {
     "enabled": true,
@@ -689,7 +689,7 @@
       "Forward Validation"
     ]
   },
-  "version": "40.1.0",
+  "version": "41.0.0",
   "research_queue": {
     "enabled": true,
     "max_assets_per_cycle": 3,
