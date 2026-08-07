@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "application_version": "39.1.0",
+  "generated_at": "2026-08-07T07:08:55.870418+00:00",
+  "state": "HEALTHY",
+  "issues": [],
+  "repairs_applied": [],
+  "approval_model": "Workflow source repair only occurs after explicit --apply-approved invocation.",
+  "guardrails": {
+    "no_force_push": true,
+    "no_secret_changes": true,
+    "no_trading_changes": true
+  }
+}

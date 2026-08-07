@@ -1,17 +1,17 @@
 {
   "schema_version": "2.0",
-  "application_version": "39.0.0",
-  "generated_at": "2026-08-07T06:52:51.328965+00:00",
+  "application_version": "39.1.0",
+  "generated_at": "2026-08-07T07:08:54.063823+00:00",
   "snapshot_id": "8b45f1f1d092ae62d11e",
-  "status": "WARNING",
+  "status": "FAILURE",
   "pipelines": {
     "threecommas": {
       "name": "3Commas read-only sync",
       "state": "warning",
       "last_attempt_at": "2026-08-07T06:52:48.431809+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 0.27,
       "last_success_at": "2026-08-07T06:52:48.431809+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 0.27,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -90,9 +90,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-07T01:44:12.902604+00:00",
-      "last_attempt_age_hours": 5.14,
+      "last_attempt_age_hours": 5.41,
       "last_success_at": "2026-08-07T01:44:16.468273+00:00",
-      "last_success_age_hours": 5.14,
+      "last_success_age_hours": 5.41,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -105,9 +105,9 @@
       "name": "3Commas read-only sync",
       "state": "warning",
       "last_attempt_at": "2026-08-07T06:52:48.431809+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 0.27,
       "last_success_at": "2026-08-07T06:52:48.431809+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 0.27,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -186,9 +186,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-07T01:44:12.902604+00:00",
-      "last_attempt_age_hours": 5.14,
+      "last_attempt_age_hours": 5.41,
       "last_success_at": "2026-08-07T01:44:16.468273+00:00",
-      "last_success_age_hours": 5.14,
+      "last_success_age_hours": 5.41,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -254,24 +254,36 @@
   },
   "workflows": [
     {
-      "file": ".github/workflows/threecommas-update.yml",
-      "status": "pass",
-      "findings": [],
+      "file": ".github\\workflows\\threecommas-update.yml",
+      "status": "fail",
+      "findings": [
+        "Manual recovery trigger is missing.",
+        "Scheduled trigger is missing.",
+        "Module execution is missing: python -m scripts.threecommas_sync",
+        "Explicit contents write permission is missing.",
+        "Expected cron not found: 37 * * * *"
+      ],
       "module_execution": "python -m scripts.threecommas_sync",
       "expected_cron": "37 * * * *"
     },
     {
-      "file": ".github/workflows/multi-coin-update.yml",
-      "status": "pass",
-      "findings": [],
+      "file": ".github\\workflows\\multi-coin-update.yml",
+      "status": "fail",
+      "findings": [
+        "Manual recovery trigger is missing.",
+        "Scheduled trigger is missing.",
+        "Module execution is missing: python -m scripts.cloud_update",
+        "Explicit contents write permission is missing.",
+        "Expected cron not found: 18 0,4,8,12,16,20 * * *"
+      ],
       "module_execution": "python -m scripts.cloud_update",
       "expected_cron": "18 0,4,8,12,16,20 * * *"
     }
   ],
   "github": {
-    "repository": "aferguson227/Crypto-regime-manager",
-    "workflow_run_id": "31155507736",
-    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31155507736"
+    "repository": null,
+    "workflow_run_id": null,
+    "run_url": null
   },
   "automation_policy": {
     "routine_manual_runs_required": false,

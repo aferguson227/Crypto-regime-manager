@@ -10,7 +10,7 @@ def test_single_dedicated_pages_publisher():
     assert 'cancel-in-progress: false' in pages
     assert 'timeout-minutes: 30' in pages
     assert "path: docs" in pages
-    for name in ('threecommas-update.yml','multi-coin-update.yml'):
+    for name in ('crm-data-refresh.yml','crm-health-self-heal.yml','crm-release-validation.yml'):
         text=(ROOT/'.github/workflows'/name).read_text(encoding='utf-8')
         assert 'actions/deploy-pages' not in text
         assert 'actions/upload-pages-artifact' not in text

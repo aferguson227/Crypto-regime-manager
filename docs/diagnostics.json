@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "39.0.0",
+  "application_version": "39.1.0",
   "engine": "V37.1 Operational Intelligence and Diagnostics Engine",
-  "generated_at": "2026-08-06T20:38:34.197642+00:00",
+  "generated_at": "2026-08-07T07:08:57.639452+00:00",
   "host": "Delimaferguson",
   "platform": "win32",
   "python": "3.14.6",
@@ -23,11 +23,11 @@
       "status": "pass",
       "message": "All release sources agree.",
       "evidence": [
-        "VERSION=39.0.0",
-        "release=39.0.0",
-        "docs=39.0.0",
-        "config=39.0.0",
-        "release_name=Autonomous Development Platform"
+        "VERSION=39.1.0",
+        "release=39.1.0",
+        "docs=39.1.0",
+        "config=39.1.0",
+        "release_name=Workflow Reliability & Clean Operations"
       ],
       "required": true
     },
@@ -130,7 +130,7 @@
       "name": "Published JSON validity",
       "category": "data",
       "status": "pass",
-      "message": "45 JSON files parse successfully.",
+      "message": "47 JSON files parse successfully.",
       "evidence": [
         "account_intelligence.json",
         "adaptive_intelligence.json",
@@ -150,6 +150,7 @@
         "diagnostics.json",
         "diagnostics_runtime.json",
         "engineering_health.json",
+        "engineering_schedule.json",
         "github_actions_health.json",
         "health_history.json",
         "import_registry.json",
@@ -176,7 +177,8 @@
         "ui_health.json",
         "version.json",
         "visual_issues.json",
-        "walk_forward_registry.json"
+        "walk_forward_registry.json",
+        "workflow_doctor.json"
       ],
       "required": true
     },
@@ -232,24 +234,24 @@
       "status": "pass",
       "message": "All required operating sources are present.",
       "evidence": [
-        "strategies.json (298122 bytes)",
-        "threecommas.json (7040 bytes)",
+        "strategies.json (298171 bytes)",
+        "threecommas.json (7043 bytes)",
         "configuration_reconciliation.json (11929 bytes)",
-        "operating_state.json (4294 bytes)",
+        "operating_state.json (4295 bytes)",
         "account_intelligence.json (2717 bytes)",
-        "capital_intelligence.json (4001 bytes)",
-        "deployment_intelligence.json (11808 bytes)",
+        "capital_intelligence.json (3975 bytes)",
+        "deployment_intelligence.json (11809 bytes)",
         "recommendation_intelligence.json (14002 bytes)",
-        "outcome_intelligence.json (64711 bytes)",
-        "portfolio_intelligence.json (2427 bytes)",
-        "cloud_reliability.json (10413 bytes)",
-        "command_state.json (17249 bytes)",
-        "professional_workspace.json (9619 bytes)",
-        "operational_health.json (5232 bytes)",
-        "issues.json (1648 bytes)",
-        "performance_history.json (4576 bytes)",
-        "system_integrity.json (1162 bytes)",
-        "cloud_status.json (755 bytes)"
+        "outcome_intelligence.json (68809 bytes)",
+        "portfolio_intelligence.json (2414 bytes)",
+        "cloud_reliability.json (10982 bytes)",
+        "command_state.json (17240 bytes)",
+        "professional_workspace.json (9609 bytes)",
+        "operational_health.json (4312 bytes)",
+        "issues.json (728 bytes)",
+        "performance_history.json (6269 bytes)",
+        "system_integrity.json (1177 bytes)",
+        "cloud_status.json (756 bytes)"
       ],
       "required": true
     }

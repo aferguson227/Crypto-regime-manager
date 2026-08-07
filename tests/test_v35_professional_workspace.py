@@ -3,9 +3,9 @@ from pathlib import Path
 ROOT=Path(__file__).parents[1]
 
 def test_v35_release():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='39.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='39.1.0'
     release=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
-    assert release['release_name']=='Autonomous Development Platform'
+    assert release['release_name']=='Workflow Reliability & Clean Operations'
 
 def test_dashboard_answers_five_daily_questions():
     html=(ROOT/'docs/index.html').read_text(encoding='utf-8')
@@ -16,8 +16,8 @@ def test_dashboard_answers_five_daily_questions():
 
 def test_canonical_workflow_policy_is_shared():
     policy=json.loads((ROOT/'config/workflow_policy.json').read_text(encoding='utf-8'))
-    assert policy['publisher']['cancel_in_progress'] is False
-    assert policy['publisher']['deploy_timeout_minutes']==30
+    assert policy['workflows']['pages']['cancel_in_progress'] is False
+    assert policy['workflows']['pages']['deploy_timeout_minutes']==30
     from scripts.workflow_policy import validate
     assert validate()==[]
     diag=(ROOT/'scripts/diagnostics_engine.py').read_text(encoding='utf-8')
@@ -27,7 +27,7 @@ def test_single_publisher_and_queue_safe_pages():
     pages=(ROOT/'.github/workflows/pages-deploy.yml').read_text(encoding='utf-8')
     assert 'cancel-in-progress: false' in pages
     assert 'timeout-minutes: 30' in pages
-    for name in ['multi-coin-update.yml','threecommas-update.yml']:
+    for name in ['crm-data-refresh.yml','crm-health-self-heal.yml','crm-release-validation.yml']:
         text=(ROOT/'.github/workflows'/name).read_text(encoding='utf-8')
         assert 'actions/deploy-pages' not in text
         assert 'actions/upload-pages-artifact' not in text

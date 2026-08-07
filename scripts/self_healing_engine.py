@@ -5,6 +5,7 @@ import argparse,json,re,subprocess
 from datetime import datetime,timezone
 from pathlib import Path
 from app.release import application_version
+from scripts.workflow_policy import validate as validate_workflows
 ROOT=Path(__file__).resolve().parents[1]; DOCS=ROOT/'docs'; CFG=ROOT/'config'
 STATUS=DOCS/'self_healing_status.json'; HISTORY=DOCS/'remediation_history.json'
 def load(p,default):
@@ -19,11 +20,9 @@ def scan():
  rt=load(DOCS/'diagnostics_runtime.json',{})
  if rt and rt.get('application_version')!=version:
   issues.append(issue('STALE_RUNTIME_DIAGNOSTICS','Runtime diagnostics version is stale','low',True,f"Found {rt.get('application_version')}; expected {version}.",'Regenerate runtime diagnostics.',['release_metadata']))
- pages=ROOT/'.github/workflows/pages-deploy.yml'; policy=load(CFG/'workflow_policy.json',{})
- if pages.exists():
-  text=pages.read_text(encoding='utf-8')
-  if 'cancel-in-progress: false' not in text or 'timeout-minutes: 30' not in text:
-   issues.append(issue('PAGES_POLICY_DRIFT','Pages deployment policy drift','medium',False,'Pages queue-safe settings differ from approved policy.','Restore approved Pages workflow after approval.',['workflow_policy','tests']))
+ workflow_errors=validate_workflows()
+ if workflow_errors:
+  issues.append(issue('WORKFLOW_POLICY_DRIFT','Workflow configuration differs from the canonical policy','medium',False,'; '.join(workflow_errors[:5]),'Run Workflow Doctor with explicit approval.',['workflow_policy','tests']))
  tc=load(DOCS/'threecommas.json',{}); ts=tc.get('last_success_at') or tc.get('generated_at')
  if ts:
   try:

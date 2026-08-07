@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "application_version": "39.0.0",
+  "application_version": "39.1.0",
   "tracked_release_snapshots": [
     "docs/diagnostics.json"
   ],
@@ -19,7 +19,9 @@
     "docs/decision_quality.json",
     "docs/issue_lifecycle.json",
     "docs/repository_health.json",
-    "docs/engineering_schedule.json"
+    "docs/engineering_schedule.json",
+    "docs/workflow_history.json",
+    "docs/workflow_doctor.json"
   ],
   "archive_exclusions": [
     ".update-backups/**",

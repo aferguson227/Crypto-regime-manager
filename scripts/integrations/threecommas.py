@@ -272,7 +272,7 @@ def sanitise_balance(row: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def sanitise_account(account: dict[str, Any], detail: dict[str, Any] | None = None, balances: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+def sanitise_account(account: dict[str, Any], detail: dict[str, Any] | None = None, balances: list[dict[str, Any]] | None = None, balance_observed_at: str | None = None, balance_cached: bool = False) -> dict[str, Any]:
     merged=dict(account); merged.update(detail or {})
     clean_balances=[sanitise_balance(x) for x in (balances or []) if isinstance(x,dict)]
     total = amount_value(first_value(merged,("primary_display_currency_amount","usd_amount","total_usd_value","total_balance")))
@@ -292,6 +292,8 @@ def sanitise_account(account: dict[str, Any], detail: dict[str, Any] | None = No
         "balances": clean_balances,
         "api_keys_state": merged.get("api_keys_state"),
         "balance_source": "3Commas ACCOUNTS_READ account info and account_table_data",
+        "balance_observed_at": balance_observed_at,
+        "balance_cached": bool(balance_cached),
     }
 
 def load_previous_payload() -> dict[str, Any]:
@@ -300,6 +302,29 @@ def load_previous_payload() -> dict[str, Any]:
         return value if isinstance(value,dict) else {}
     except Exception:
         return {}
+
+def previous_account_map(previous: dict[str, Any]) -> dict[int, dict[str, Any]]:
+    out={}
+    for row in previous.get("accounts") or []:
+        if isinstance(row,dict):
+            aid=to_int(row.get("account_id"))
+            if aid is not None: out[aid]=row
+    return out
+
+def age_minutes(value: Any) -> float | None:
+    if not value: return None
+    try:
+        dt=datetime.fromisoformat(str(value).replace("Z","+00:00")).astimezone(timezone.utc)
+        return (datetime.now(timezone.utc)-dt).total_seconds()/60
+    except Exception:
+        return None
+
+def cached_account(account: dict[str, Any], detail: dict[str, Any], previous_row: dict[str, Any], observed_at: str | None) -> dict[str, Any]:
+    current=sanitise_account(account,detail,[],balance_observed_at=observed_at,balance_cached=True)
+    for key in ("total_usd_value","free_usdt","balance_records","balances"):
+        if key in previous_row: current[key]=previous_row.get(key)
+    current["balance_source"]="Cached recent 3Commas ACCOUNTS_READ balance snapshot (quota guard)"
+    return current
 
 def success_timestamp(previous: dict[str, Any], status: str, attempted_at: str) -> str | None:
     if status in {"ok", "partial"}:
@@ -363,20 +388,40 @@ def main() -> int:
             endpoints[name]=endpoint_result(endpoints[name]["path"],"fail","response_shape",f"Expected list, received {type(value).__name__}.")
     accounts_raw=accounts_raw if isinstance(accounts_raw,list) else [];bots_raw=bots_raw if isinstance(bots_raw,list) else [];deals_raw=deals_raw if isinstance(deals_raw,list) else []
     account_outputs=[]
+    previous_accounts=previous_account_map(previous)
+    try: balance_refresh_minutes=max(15,int(os.getenv("THREECOMMAS_BALANCE_REFRESH_MINUTES","120")))
+    except ValueError: balance_refresh_minutes=120
     for account in accounts_raw:
         if not isinstance(account,dict): continue
         account_id=to_int(account.get("id"))
         if account_id is None:
-            account_outputs.append(sanitise_account(account)); continue
+            account_outputs.append(sanitise_account(account,balance_observed_at=attempted_at)); continue
         detail=attempt_endpoint(f"account_{account_id}_details",f"/public/api/ver1/accounts/{account_id}",{},api_key,private_key,endpoints)
-        balances=attempt_endpoint(f"account_{account_id}_balances",f"/public/api/ver1/accounts/{account_id}/account_table_data",{},api_key,private_key,endpoints,method="POST")
         if detail is not None and not isinstance(detail,dict):
             endpoints[f"account_{account_id}_details"]=endpoint_result(f"/public/api/ver1/accounts/{account_id}","fail","response_shape",f"Expected object, received {type(detail).__name__}.")
             detail={}
+        detail=detail if isinstance(detail,dict) else {}
+        prev=previous_accounts.get(account_id) or {}
+        prev_stamp=prev.get("balance_observed_at") or previous.get("generated_at")
+        prev_age=age_minutes(prev_stamp)
+        can_cache=bool(prev.get("balances")) and prev_age is not None and prev_age < balance_refresh_minutes
+        balance_name=f"account_{account_id}_balances"; balance_path=f"/public/api/ver1/accounts/{account_id}/account_table_data"
+        if can_cache:
+            endpoints[balance_name]=endpoint_result(balance_path,"pass","cached_quota_guard",f"Reused balance snapshot aged {prev_age:.0f} minutes to reduce 3Commas quota usage.",records=to_int(prev.get("balance_records")))
+            endpoints[balance_name]["source_age_minutes"]=round(prev_age,1)
+            account_outputs.append(cached_account(account,detail,prev,prev_stamp))
+            continue
+        balances=attempt_endpoint(balance_name,balance_path,{},api_key,private_key,endpoints,method="POST")
         if balances is not None and not isinstance(balances,list):
-            endpoints[f"account_{account_id}_balances"]=endpoint_result(f"/public/api/ver1/accounts/{account_id}/account_table_data","fail","response_shape",f"Expected list, received {type(balances).__name__}.")
+            endpoints[balance_name]=endpoint_result(balance_path,"fail","response_shape",f"Expected list, received {type(balances).__name__}.")
             balances=[]
-        account_outputs.append(sanitise_account(account,detail if isinstance(detail,dict) else {},balances if isinstance(balances,list) else []))
+        if balances is None and endpoints.get(balance_name,{}).get("category")=="rate_limited" and prev.get("balances"):
+            endpoints[balance_name]["category"]="rate_limited_cached"
+            endpoints[balance_name]["message"] += " Reused the most recent balance snapshot."
+            endpoints[balance_name]["cached_records"]=to_int(prev.get("balance_records"))
+            account_outputs.append(cached_account(account,detail,prev,prev_stamp))
+        else:
+            account_outputs.append(sanitise_account(account,detail,balances if isinstance(balances,list) else [],balance_observed_at=attempted_at,balance_cached=False))
     assets: dict[str, dict[str, list[dict[str, Any]]]]={}
     for bot in bots_raw:
         if not isinstance(bot,dict):continue

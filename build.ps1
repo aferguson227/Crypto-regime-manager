@@ -1,5 +1,5 @@
 # diagnostics_engine.py compatibility marker; execution uses python -m scripts.diagnostics_engine
-# Build System 2.1 compatibility marker; superseded by Build System 3.4
+# Build System 2.1 compatibility marker; superseded by Build System 3.5
 [CmdletBinding()]
 param(
     [switch]$Screenshots,
@@ -61,7 +61,7 @@ function Run-Step {
 }
 
 try {
-    Write-Host 'Crypto Regime Manager Build System 3.4' -ForegroundColor Green
+    Write-Host 'Crypto Regime Manager Build System 3.5' -ForegroundColor Green
     Write-Host "Project: $ProjectPath"
     Write-Host "Log:     $log"
 
@@ -175,7 +175,7 @@ finally {
 
     $report = [ordered]@{
         schema_version = '1.0'
-        build_system = 'CRM Build System 3.4'
+        build_system = 'CRM Build System 3.5'
         version = $v
         result = $result
         started_at = $started.ToString('o')

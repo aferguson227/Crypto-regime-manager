@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
-  "application_version": "39.0.0",
-  "generated_at": "2026-08-07T01:44:16.746242+00:00",
+  "application_version": "39.1.0",
+  "generated_at": "2026-08-07T07:08:55.749751+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -57,9 +57,9 @@
     "asset_allocations": [
       {
         "asset": "TEL",
-        "quantity": 717251.0,
+        "quantity": 1907460.0,
         "quote_currency": "USDT",
-        "quote_cost": 1080.17212719
+        "quote_cost": 2808.56278875
       }
     ],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
@@ -213,13 +213,7 @@
       "status": "NOT_COMPARABLE"
     }
   ],
-  "what_changed": [
-    {
-      "field": "Confidence",
-      "before": 70.1,
-      "after": 70.0
-    }
-  ],
+  "what_changed": [],
   "risks": [
     "Strategy health requires review",
     "Recent drawdown is elevated",
@@ -241,33 +235,33 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 108.02,
-        "stressed_reserve_requirement": 10968.66,
+        "estimated_capital_impact": 280.86,
+        "stressed_reserve_requirement": 8838.74,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 64.81,
-        "stressed_reserve_requirement": 13162.39,
+        "estimated_capital_impact": 168.51,
+        "stressed_reserve_requirement": 10606.49,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 86.41,
-        "stressed_reserve_requirement": 7897.44,
+        "estimated_capital_impact": 224.69,
+        "stressed_reserve_requirement": 6363.89,
         "status": "ESTIMATED",
         "automatic_action": false
       }
     ]
   },
   "portfolio": {
-    "health_score": 48.6,
+    "health_score": 47.4,
     "diversification_score": 25,
-    "capital_efficiency_score": 60.9,
+    "capital_efficiency_score": 57.1,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -315,10 +309,10 @@
         "action": "KEEP_RUNNING",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": 1080.17212719,
-        "reserve_capital": 1703.9360000000004,
+        "allocated_capital": 2808.56278875,
+        "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 33.65,
+        "efficiency_score": 18.38,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -341,7 +335,7 @@
     "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
   },
   "deployment_health": {
-    "cloud": "WARNING",
+    "cloud": "FAILURE",
     "threecommas": "partial",
     "main_app": null,
     "publication": null,
@@ -354,5 +348,5 @@
     "Resolve missing DCA fields before making changes.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "f6db4127766774966b33eb69"
+  "snapshot_id": "8342a1ad04c61ee93c5d24a2"
 }

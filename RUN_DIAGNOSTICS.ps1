@@ -1,4 +1,4 @@
-﻿[CmdletBinding()]
+[CmdletBinding()]
 param([switch]$NoScreenshots)
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -19,6 +19,7 @@ try {
     Write-Host "Review package: $($latest.FullName)" -ForegroundColor Green
     Start-Process explorer.exe "/select,`"$($latest.FullName)`""
   }
+  & python -m scripts.generated_output_manager clean | Out-Null
   exit $code
 }
 finally { try { Stop-Transcript | Out-Null } catch {} }

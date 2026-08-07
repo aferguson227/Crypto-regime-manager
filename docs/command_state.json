@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "39.0.0",
-  "generated_at": "2026-08-07T06:52:51.502039+00:00",
-  "snapshot_id": "235b46d9a12b0fb6734f7653",
+  "application_version": "39.1.0",
+  "generated_at": "2026-08-07T07:08:55.647990+00:00",
+  "snapshot_id": "ab2b9b63d67c30f93e7f1fa0",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -19,24 +19,24 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 108.02,
-        "stressed_reserve_requirement": 10968.66,
+        "estimated_capital_impact": 280.86,
+        "stressed_reserve_requirement": 8838.74,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 64.81,
-        "stressed_reserve_requirement": 13162.39,
+        "estimated_capital_impact": 168.51,
+        "stressed_reserve_requirement": 10606.49,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 86.41,
-        "stressed_reserve_requirement": 7897.44,
+        "estimated_capital_impact": 224.69,
+        "stressed_reserve_requirement": 6363.89,
         "status": "ESTIMATED",
         "automatic_action": false
       }
@@ -131,7 +131,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "1ca937752a37d32abdca65f2",
+      "recommendation_id": "e735407695c4e4cff875eab3",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_RUNNING",
@@ -285,7 +285,7 @@
       }
     },
     {
-      "recommendation_id": "ce79bfe329556208475fbd00",
+      "recommendation_id": "cb62e92838d3c2f763903c72",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -509,7 +509,7 @@
     }
   },
   "cloud": {
-    "overall_status": "WARNING",
+    "overall_status": "FAILURE",
     "threecommas": {
       "status": "partial",
       "generated_at": "2026-08-07T06:52:48.431809+00:00",
@@ -522,18 +522,18 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "WARNING"
+    "cloud_status": "FAILURE"
   },
   "source_snapshots": {
     "market": "fb64364d89b64f726f94",
-    "portfolio": "52ce626b572a4f2f8d15",
-    "capital": "9d0253d40a602f5c1287",
-    "deployment": "bf1878fd6aba68e2654e",
-    "recommendations": "6fa59aa3c74f0e35055a",
+    "portfolio": "0eda191ae8d44ee2ca3b",
+    "capital": "99a1c63d3a1a8cf6fc19",
+    "deployment": "ec2b324f1251b208fb76",
+    "recommendations": "bcaf4f496f3072c018e3",
     "adaptive": "70e78020f6ef50a5ff6a",
-    "outcomes": "2026-08-07T01:44:16.450014+00:00",
+    "outcomes": "2026-08-07T07:08:53.597593+00:00",
     "cloud": "8b45f1f1d092ae62d11e",
-    "operating": "968fcc36e3f3a007fc71"
+    "operating": "72b9990c5adb4ec3aa7a"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

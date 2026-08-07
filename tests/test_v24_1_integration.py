@@ -4,7 +4,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def test_discovery_is_in_scheduled_pipeline():
     wrapper=(ROOT/'scripts/multi_coin_sync_backtest.py').read_text(encoding='utf-8')
-    workflow=(ROOT/'.github/workflows/multi-coin-update.yml').read_text(encoding='utf-8')
+    workflow=(ROOT/'.github/workflows/crm-data-refresh.yml').read_text(encoding='utf-8')
     assert 'discovery_run(False)' in wrapper
     assert 'docs/coin_discovery.json' in workflow
     assert 'docs/coin_universe.json' in workflow

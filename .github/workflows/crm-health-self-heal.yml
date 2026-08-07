@@ -1,0 +1,78 @@
+name: CRM Health & Self-Heal
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply_safe_repairs:
+        description: Apply approved low-risk deterministic repairs
+        required: false
+        default: true
+        type: boolean
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: crm-health-self-heal
+  cancel-in-progress: false
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Collect GitHub Actions telemetry
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_API_URL: ${{ github.api_url }}
+        run: python -m scripts.github_workflow_telemetry
+
+      - name: Diagnose workflow policy
+        run: python -m scripts.workflow_doctor
+        continue-on-error: true
+
+      - name: Diagnose current health
+        run: python -m scripts.engineering_scheduler --mode hourly
+
+      - name: Apply approved operational repairs
+        if: github.event_name == 'schedule' || inputs.apply_safe_repairs == true
+        run: python -m scripts.self_healing_engine --apply-safe
+
+      - name: Apply explicitly approved workflow repairs
+        if: github.event_name == 'workflow_dispatch' && inputs.apply_safe_repairs == true
+        run: python -m scripts.workflow_doctor --apply-approved
+
+      - name: Validate health state
+        run: |
+          python -m scripts.workflow_policy
+          python -m scripts.github_actions_intelligence_engine
+          python -m scripts.ui_consistency
+
+      - name: Publish health evidence only when changed
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows docs/workflow_history.json docs/workflow_doctor.json docs/github_actions_health.json docs/operational_health.json docs/issues.json docs/performance_history.json docs/self_healing_status.json docs/remediation_history.json docs/issue_lifecycle.json docs/engineering_health.json docs/release_readiness.json
+          if git diff --cached --quiet; then
+            echo "No health evidence changes to publish."
+            exit 0
+          fi
+          git commit -m "Update CRM operational health"
+          git pull --rebase origin main
+          git push origin main

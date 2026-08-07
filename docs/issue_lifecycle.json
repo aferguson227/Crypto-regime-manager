@@ -1,27 +1,13 @@
 {
   "schema_version": "1.0",
-  "application_version": "39.0.0",
-  "generated_at": "2026-08-06T20:38:42.798550+00:00",
+  "application_version": "39.1.0",
+  "generated_at": "2026-08-07T07:08:56.979113+00:00",
   "summary": {
-    "open": 7,
+    "open": 2,
     "closed_this_scan": 0,
     "automatic_available": 0
   },
   "issues": [
-    {
-      "key": "92115f3459721a34",
-      "source": "operational",
-      "fingerprint": "3Commas data is stale",
-      "title": "3Commas data is stale",
-      "severity": "critical",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-06T20:38:42.798550+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 5
-    },
     {
       "key": "c88b3626ba84c850",
       "source": "operational",
@@ -32,51 +18,9 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-06T20:38:42.798550+00:00",
+      "last_detected_at": "2026-08-07T07:08:56.979113+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 5
-    },
-    {
-      "key": "9d3b6201791c06a4",
-      "source": "operational",
-      "fingerprint": "Application refresh is stale",
-      "title": "Application refresh is stale",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-06T20:38:42.798550+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 5
-    },
-    {
-      "key": "830af1610a855d96",
-      "source": "actions",
-      "fingerprint": "PAGES_TIMEOUT_TOO_SHORT",
-      "title": "Pages timeout is below approved threshold",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Restore the approved 30-minute timeout.",
-      "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-06T20:38:42.798550+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 5
-    },
-    {
-      "key": "863b3974463c3b83",
-      "source": "self_healing",
-      "fingerprint": "PAGES_TIMEOUT_TOO_SHORT",
-      "title": "Pages timeout is below approved threshold",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Restore the approved 30-minute timeout.",
-      "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-06T20:38:42.798550+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 5
+      "historical_occurrences": 7
     },
     {
       "key": "12d85e3b022bfe64",
@@ -88,23 +32,9 @@
       "automatic": false,
       "recommended_action": "Exclude them from normal source and release archives; preserve separately.",
       "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-06T20:38:42.798550+00:00",
+      "last_detected_at": "2026-08-07T07:08:56.979113+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 5
-    },
-    {
-      "key": "a43930f4134bf7af",
-      "source": "self_healing",
-      "fingerprint": "STALE_THREECOMMAS",
-      "title": "3Commas data is stale",
-      "severity": "low",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Trigger the read-only 3Commas workflow.",
-      "first_detected_at": "2026-08-06T20:16:04.942281+00:00",
-      "last_detected_at": "2026-08-06T20:38:42.798550+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 5
+      "historical_occurrences": 7
     }
   ],
   "recently_closed": []

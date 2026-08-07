@@ -1,41 +1,82 @@
-name: Update 3Commas Deal Dashboard
+name: CRM Data Refresh
+# Compatibility evidence: scripts/cloud_update.py publishes docs/coin_discovery.json and docs/coin_universe.json
+
 on:
   workflow_dispatch:
+    inputs:
+      full_market_refresh:
+        description: Run the heavier market refresh as well as 3Commas
+        required: false
+        default: true
+        type: boolean
   schedule:
     - cron: "37 * * * *"
+
 permissions:
   contents: write
+
 concurrency:
-  group: crypto-regime-main-publisher
+  group: crm-data-refresh
   cancel-in-progress: false
+
 jobs:
-  update:
+  refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 40
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - name: Install RSA dependency
         run: python -m pip install --disable-pip-version-check cryptography==46.0.7
+
       - name: Synchronise with latest main
         shell: bash
         run: |
           git fetch origin main
           git rebase origin/main
-      - name: Validate Python
-        run: python -c "import app.release; import scripts.threecommas_sync; import scripts.integrations.threecommas; import scripts.cloud_reliability_engine"
-      - name: Fetch read-only 3Commas data using RSA
+
+      - name: Validate package imports
+        run: >-
+          python -c "import app.release; import scripts.threecommas_sync;
+          import scripts.cloud_update; import scripts.operational_intelligence_engine;
+          import scripts.github_actions_intelligence_engine"
+
+      - name: Refresh read-only 3Commas data
         env:
           THREECOMMAS_API_KEY: ${{ secrets.THREECOMMAS_API_KEY }}
           THREECOMMAS_RSA_PRIVATE_KEY_B64: ${{ secrets.THREECOMMAS_RSA_PRIVATE_KEY_B64 }}
+          THREECOMMAS_BALANCE_REFRESH_MINUTES: "120"
         run: python -m scripts.threecommas_sync
-      - name: Rebuild dependent read-only intelligence
+
+      - name: Decide whether market refresh is due
+        id: plan
+        shell: bash
+        env:
+          FORCE_FULL: ${{ github.event_name == 'workflow_dispatch' && inputs.full_market_refresh || false }}
+        run: |
+          hour=$(date -u +%H)
+          hour=$((10#$hour))
+          if [[ "$FORCE_FULL" == "true" || $((hour % 4)) -eq 0 ]]; then
+            echo "market=true" >> "$GITHUB_OUTPUT"
+            echo "Market refresh is due."
+          else
+            echo "market=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping heavy market refresh this hour."
+          fi
+
+      - name: Run four-hour market refresh
+        if: steps.plan.outputs.market == 'true'
+        run: python -m scripts.cloud_update
+
+      - name: Rebuild dependent intelligence
         run: |
           python -m scripts.account_intelligence_engine
           python -m scripts.capital_intelligence_engine
@@ -49,22 +90,29 @@ jobs:
           python -m scripts.decision_quality_engine
           python -m scripts.engineering_intelligence_engine
           python -m scripts.command_state_engine
-      - name: Publish read-only dashboard data
+          python -m scripts.professional_workspace_engine
+
+      - name: Validate generated publication
+        run: python -m scripts.validate_publish
+
+      - name: Publish validated data once
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/threecommas.json docs/account_intelligence.json docs/capital_intelligence.json docs/operating_state.json docs/deployment_intelligence.json docs/recommendation_intelligence.json docs/portfolio_intelligence.json docs/cloud_reliability.json docs/operational_health.json docs/issues.json docs/performance_history.json docs/command_state.json
+          git add -A data/normalized docs
           if git diff --cached --quiet; then
-            echo "No 3Commas dashboard changes to commit."
+            echo "No validated data changes detected."
             exit 0
           fi
-          git commit -m "Update read-only 3Commas dashboard"
+          git commit -m "Refresh CRM read-only data"
           for attempt in 1 2 3; do
             if git push origin HEAD:main; then exit 0; fi
+            echo "Remote changed; rebasing before retry ${attempt}/3"
             git fetch origin main
             git rebase origin/main
-            sleep 5
+            python -m scripts.validate_publish
+            sleep $((attempt * 5))
           done
           exit 1

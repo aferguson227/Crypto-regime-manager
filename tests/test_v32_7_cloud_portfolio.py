@@ -3,9 +3,9 @@ from pathlib import Path
 ROOT=Path(__file__).parents[1]
 
 def test_v327_release_and_outputs():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='39.0.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='39.1.0'
  rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
- assert rel['release_name']=='Autonomous Development Platform'
+ assert rel['release_name']=='Workflow Reliability & Clean Operations'
  for name in ('portfolio_intelligence.json','cloud_reliability.json'):
   assert (ROOT/'docs'/name).exists()
 
@@ -16,8 +16,8 @@ def test_v327_threecommas_endpoint_diagnostics_and_read_only():
  assert 'sell_all_to_usd' not in text and 'panic_sell' not in text
 
 def test_v327_workflow_module_execution():
- three=(ROOT/'.github/workflows/threecommas-update.yml').read_text(encoding='utf-8')
- cloud=(ROOT/'.github/workflows/multi-coin-update.yml').read_text(encoding='utf-8')
+ three=(ROOT/'.github/workflows/crm-data-refresh.yml').read_text(encoding='utf-8')
+ cloud=(ROOT/'.github/workflows/crm-data-refresh.yml').read_text(encoding='utf-8')
  assert 'python -m scripts.threecommas_sync' in three
  assert 'python -m scripts.cloud_update' in cloud
 
