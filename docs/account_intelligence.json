@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "39.0.0",
-  "generated_at": "2026-08-06T20:38:27.133206+00:00",
-  "snapshot_id": "c7593cbfaf35e26c6126",
+  "generated_at": "2026-08-07T01:43:20.527119+00:00",
+  "snapshot_id": "7d8bb1625a8b87ca92b4",
   "status": "PARTIAL",
   "read_only": true,
   "accounts": [
@@ -13,14 +13,14 @@
       "account_record": "PASS",
       "balance_records": 0,
       "balances_status": "EMPTY",
-      "total_usd_value": 3608.37636741087,
+      "total_usd_value": 3598.363964244736,
       "free_usdt": null,
       "source": "3Commas ACCOUNTS_READ account info and account_table_data"
     }
   ],
   "account_count": 1,
   "balance_record_count": 0,
-  "exchange_total": 3608.37636741087,
+  "exchange_total": 3598.363964244736,
   "free_usdt": null,
   "missing": [
     "One or more accounts returned no balance rows.",
@@ -34,7 +34,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-06T12:12:34.657396+00:00"
+      "observed_at": "2026-08-07T01:43:18.204911+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
@@ -43,7 +43,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-06T12:12:34.900251+00:00"
+      "observed_at": "2026-08-07T01:43:18.572321+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
@@ -52,7 +52,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 4,
-      "observed_at": "2026-08-06T12:12:35.130908+00:00"
+      "observed_at": "2026-08-07T01:43:18.891239+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
@@ -61,7 +61,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-06T12:12:35.328786+00:00"
+      "observed_at": "2026-08-07T01:43:19.167649+00:00"
     },
     "account_32632134_details": {
       "path": "/public/api/ver1/accounts/32632134",
@@ -70,16 +70,16 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-06T12:12:35.575979+00:00"
+      "observed_at": "2026-08-07T01:43:19.892736+00:00"
     },
     "account_32632134_balances": {
       "path": "/public/api/ver1/accounts/32632134/account_table_data",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-06 12:13:34 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 01:44:18 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-06T12:12:35.747517+00:00"
+      "observed_at": "2026-08-07T01:43:20.459416+00:00"
     }
   }
 }

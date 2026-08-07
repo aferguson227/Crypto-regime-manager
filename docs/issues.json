@@ -1,43 +1,31 @@
 {
   "application_version": "39.0.0",
-  "generated_at": "2026-08-06T20:38:40.723510+00:00",
+  "generated_at": "2026-08-07T01:43:20.978479+00:00",
   "issues": [
     {
       "severity": "warning",
       "system": "3Commas",
       "title": "account_32632134_balances endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-06 12:13:34 UTC'}",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-07 01:44:18 UTC'}",
       "recommended_action": "Review 3Commas permissions, quota and the next scheduled retry.",
       "metric": {
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-06T20:38:40.726869+00:00",
-      "last_detected_at": "2026-08-06T20:38:40.726880+00:00"
+      "first_detected_at": "2026-08-07T01:43:20.979652+00:00",
+      "last_detected_at": "2026-08-07T01:43:20.979657+00:00"
     },
     {
       "severity": "critical",
-      "system": "3Commas",
-      "title": "3Commas data is stale",
-      "detail": "Last successful sync was 8.44 hours ago.",
-      "recommended_action": "Run the 3Commas workflow and inspect endpoint diagnostics.",
-      "metric": {
-        "age_hours": 8.44
-      },
-      "first_detected_at": "2026-08-06T20:38:40.726905+00:00",
-      "last_detected_at": "2026-08-06T20:38:40.726912+00:00"
-    },
-    {
-      "severity": "warning",
       "system": "Application",
       "title": "Application refresh is stale",
-      "detail": "Last successful application refresh age: 7.28.",
+      "detail": "Last successful application refresh age: 12.36.",
       "recommended_action": "Run the autonomous refresh workflow and inspect its failed step.",
       "metric": {
-        "age_hours": 7.28
+        "age_hours": 12.36
       },
-      "first_detected_at": "2026-08-06T20:38:40.726924+00:00",
-      "last_detected_at": "2026-08-06T20:38:40.726930+00:00"
+      "first_detected_at": "2026-08-07T01:43:20.979668+00:00",
+      "last_detected_at": "2026-08-07T01:43:20.979670+00:00"
     }
   ]
 }
