@@ -1,17 +1,18 @@
 {
   "schema_version": "1.0",
-  "application_version": "47.0.0",
-  "generated_at": "2026-08-08T08:29:47.909965+00:00",
+  "application_version": "48.0.0",
+  "generated_at": "2026-08-08T11:40:35.483530+00:00",
   "capital_source": "local KuCoin private read-only account snapshot",
   "execution_telemetry_source": "3Commas until direct KuCoin fill ledger is enabled",
   "active_trade_count": 1,
   "deployed_quote": 117.693,
-  "open_pnl_quote": 0.0,
+  "open_pnl_quote": -0.5465,
+  "open_pnl_status": "KNOWN",
   "realised_profit_quote": null,
-  "realised_profit_status": "UNAVAILABLE_FROM_CURRENT_SOURCE",
+  "realised_profit_status": "AWAITING_COMPLETE_CLOSED_FILL_COST_BASIS",
   "portfolio_value_quote": null,
   "read_only": true,
   "execution_enabled": false,
   "reconciliation_status": "PARTIAL",
-  "migration_note": "V46 establishes an independent accounting boundary; future direct KuCoin order/fill reconciliation can replace 3Commas as trade truth."
+  "migration_note": "V48 reconstructs open P/L from current KuCoin price plus active-deal cost basis when possible. Realised P/L remains unavailable unless a complete closed-fill cost basis is present; CRM will not fabricate it."
 }

@@ -28,25 +28,55 @@ def write_status(status,message,started,extra=None):
 def clean_generated(): run([sys.executable,'-m','scripts.generated_output_manager','clean'])
 def git_clean(): return run(['git','status','--porcelain'],check=False).stdout.strip()==''
 
+def _ahead_commit_subjects():
+    r=run(['git','log','--format=%s','origin/main..HEAD'],check=False)
+    return [x.strip() for x in r.stdout.splitlines() if x.strip()]
+
+def _safe_align_to_remote():
+    """Generated-state automation never rebases JSON snapshots.
+    Source/user commits are never discarded automatically.
+    """
+    run(['git','fetch','origin','main'])
+    subjects=_ahead_commit_subjects()
+    non_runtime=[x for x in subjects if not x.startswith('Refresh CRM local capital intelligence')]
+    if non_runtime:
+        raise RuntimeError('Local branch has unpublished non-runtime commits; Local Agent will not reset them automatically: '+ '; '.join(non_runtime[:4]))
+    remote=run(['git','rev-parse','origin/main'],check=False).stdout.strip()
+    local=run(['git','rev-parse','HEAD'],check=False).stdout.strip()
+    if remote and local!=remote:
+        print('Local Agent: aligning generated runtime state to latest origin/main; interactive rebase is deliberately disabled.')
+        run(['git','reset','--hard','origin/main'])
+
+def _rebuild_intelligence():
+    for mod in MODULES:
+        run([sys.executable,'-m',mod])
+    run([sys.executable,'-m','scripts.validate_publish'])
+
 def publish_material():
-    rows=run([sys.executable,'-m','scripts.material_change_manager','stage','--profile','local_agent']).stdout
-    staged=run(['git','diff','--cached','--name-only'],check=False).stdout.strip().splitlines()
-    if not staged:
-        print('Local agent: no material changes to publish.')
-        clean_generated()
-        return False
-    run(['git','config','user.name','crm-local-agent'])
-    run(['git','config','user.email','crm-local-agent@users.noreply.github.com'])
-    run(['git','commit','-m','Refresh CRM local capital intelligence'])
     for attempt in range(1,4):
+        run([sys.executable,'-m','scripts.material_change_manager','stage','--profile','local_agent'])
+        staged=run(['git','diff','--cached','--name-only'],check=False).stdout.strip().splitlines()
+        if not staged:
+            print('Local agent: no material changes to publish.')
+            clean_generated()
+            return False
+        run(['git','config','user.name','crm-local-agent'])
+        run(['git','config','user.email','crm-local-agent@users.noreply.github.com'])
+        run(['git','commit','-m','Refresh CRM local capital intelligence'])
         p=run(['git','push','origin','main'],check=False)
         if p.returncode==0:
             clean_generated()
             return True
+        print(f'Local Agent: remote changed during publish; rebuilding generated state on latest main ({attempt}/3).')
         run(['git','fetch','origin','main'])
-        run(['git','rebase','origin/main'])
+        subjects=_ahead_commit_subjects()
+        non_runtime=[x for x in subjects if not x.startswith('Refresh CRM local capital intelligence')]
+        if non_runtime:
+            raise RuntimeError('Cannot safely rebuild: unpublished non-runtime commit detected.')
+        run(['git','reset','--hard','origin/main'])
+        _rebuild_intelligence()
         time.sleep(attempt*3)
-    raise RuntimeError('Local agent could not push after three retries.')
+    raise RuntimeError('Local agent could not publish after three rebuild-and-retry attempts.')
 
 def main():
     os.environ['CRM_KUCOIN_HISTORY_SYNC']='1'
@@ -56,7 +86,7 @@ def main():
         if not git_clean():
             write_status('BLOCKED','Local repository has source changes; automatic data refresh skipped.',started)
             return 2
-        run(['git','fetch','origin','main']); run(['git','pull','--rebase','origin','main'])
+        _safe_align_to_remote()
         for mod in MODULES: run([sys.executable,'-m',mod])
         ku=json.loads((DOCS/'kucoin_account.json').read_text(encoding='utf-8-sig'))
         status='HEALTHY' if ku.get('status')=='ok' else 'DEGRADED'

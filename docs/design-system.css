@@ -94,3 +94,17 @@
  .crm-stat>strong{text-align:left!important}
  .crm-stat>strong,.metric strong,.metric-value,.crm-fit-text{font-size:clamp(.95rem,8cqi,1.25rem)}
 }
+
+/* V48 universal mobile-safe text system. */
+.crm-status,.crm-fit-text,.crm-big,.metric-value,.crm-stat>strong{
+  white-space:normal!important;overflow-wrap:break-word!important;word-break:normal!important;max-width:100%!important;
+}
+.crm-status{text-transform:none;line-height:1.15}
+.crm-staged-row{display:grid;grid-template-columns:minmax(7rem,1.1fr) minmax(7rem,.9fr) minmax(7rem,.8fr) auto;gap:.6rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--line,#203149)}
+.crm-staged-row small{grid-column:1/-1}
+@container (max-width:520px){.crm-staged-row{grid-template-columns:1fr auto}.crm-staged-row>span:nth-of-type(2){grid-column:1/-1}}
+@media(max-width:600px){
+ .crm-page{padding:.65rem}.crm-grid{grid-template-columns:1fr!important}.crm-card{grid-column:1/-1!important}
+ .crm-stat{grid-template-columns:minmax(0,1fr)!important}.crm-stat>strong{text-align:left!important;font-size:clamp(.95rem,5.2vw,1.3rem)!important}
+ .crm-status{font-size:clamp(.72rem,3.6vw,.9rem)!important}
+}

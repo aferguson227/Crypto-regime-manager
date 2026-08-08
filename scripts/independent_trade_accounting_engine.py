@@ -16,9 +16,12 @@ def num(v):
  except:return 0.0
 def main():
  ku=load('kucoin_account.json'); ti=load('trade_intelligence.json'); tc=load('threecommas.json')
- trades=ti.get('trades') or []; open_pnl=sum(num(x.get('profit_quote')) for x in trades); deployed=sum(num(x.get('capital_used_quote')) for x in trades)
+ trades=ti.get('trades') or []
+ known_open=[x.get('profit_quote') for x in trades if x.get('profit_quote') is not None]
+ open_pnl=sum(num(x) for x in known_open) if known_open else None
+ deployed=sum(num(x.get('capital_used_quote')) for x in trades)
  # realised fields vary by 3Commas response; publish unknown rather than fabricate.
  realised=tc.get('realised_profit_usdt')
- p={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'capital_source':'local KuCoin private read-only account snapshot','execution_telemetry_source':'3Commas until direct KuCoin fill ledger is enabled','active_trade_count':len(trades),'deployed_quote':round(deployed,4),'open_pnl_quote':round(open_pnl,4),'realised_profit_quote':realised,'realised_profit_status':'KNOWN' if realised is not None else 'UNAVAILABLE_FROM_CURRENT_SOURCE','portfolio_value_quote':ku.get('total_usdt_equivalent') or ku.get('total_equity_usdt'),'read_only':True,'execution_enabled':False,'reconciliation_status':'PARTIAL' if trades else 'CAPITAL_ONLY','migration_note':'V46 establishes an independent accounting boundary; future direct KuCoin order/fill reconciliation can replace 3Commas as trade truth.'}
+ p={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'capital_source':'local KuCoin private read-only account snapshot','execution_telemetry_source':'3Commas until direct KuCoin fill ledger is enabled','active_trade_count':len(trades),'deployed_quote':round(deployed,4),'open_pnl_quote':round(open_pnl,4) if open_pnl is not None else None,'open_pnl_status':'KNOWN' if open_pnl is not None else 'WAITING_FOR_CURRENT_PRICE_OR_ENTRY','realised_profit_quote':realised,'realised_profit_status':'KNOWN' if realised is not None else 'AWAITING_COMPLETE_CLOSED_FILL_COST_BASIS','portfolio_value_quote':ku.get('total_usdt_equivalent') or ku.get('total_equity_usdt'),'read_only':True,'execution_enabled':False,'reconciliation_status':'PARTIAL' if trades else 'CAPITAL_ONLY','migration_note':'V48 reconstructs open P/L from current KuCoin price plus active-deal cost basis when possible. Realised P/L remains unavailable unless a complete closed-fill cost basis is present; CRM will not fabricate it.'}
  OUT.write_text(json.dumps(p,indent=2),encoding='utf-8'); print('Independent trade accounting written:',OUT);return 0
 if __name__=='__main__':raise SystemExit(main())

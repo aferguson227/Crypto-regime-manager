@@ -13,8 +13,8 @@ def load(name: str):
 def test_release_identity_is_v33_0_2():
     release = load("app/release.json")
     version = load("docs/version.json")
-    assert (ROOT / "VERSION").read_text(encoding="utf-8").strip() == "47.0.0"
-    assert release["version"] == version["version"] == "47.0.0"
+    assert (ROOT / "VERSION").read_text(encoding="utf-8").strip() == "48.0.0"
+    assert release["version"] == version["version"] == "48.0.0"
     assert release["release_name"] == version["release_name"]
 
 

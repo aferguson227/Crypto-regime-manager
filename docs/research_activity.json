@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "47.0.0",
-  "generated_at": "2026-08-08T08:29:48.846320+00:00",
+  "application_version": "48.0.0",
+  "generated_at": "2026-08-08T11:40:36.424538+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -9,10 +9,10 @@
     "historical_symbols": 11,
     "historical_ready": 0,
     "history_progress_pct": 0.0,
-    "kucoin_walk_forward_ready": 0,
+    "kucoin_walk_forward_ready": 5,
     "candidates_under_review": 5,
     "regime_research_complete": 0,
-    "optimisation_pending": 4,
+    "optimisation_pending": 1,
     "rejected": 0,
     "backtests_last_cycle": 0,
     "datasets_last_cycle": 0
@@ -173,8 +173,8 @@
   },
   "kucoin_walk_forward": {
     "assets": 8,
-    "ready_for_manual_review": 0,
-    "backtests_run": 0
+    "ready_for_manual_review": 5,
+    "backtests_run": 80640
   },
   "process": [
     "Scan KuCoin USDT universe",
@@ -204,22 +204,22 @@
     },
     {
       "asset": "ETH",
-      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "status": "KUCOIN_WALK_FORWARD_COMPLETE",
       "current_regime": "ACCUMULATION",
-      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+      "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     },
     {
       "asset": "XRP",
-      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "status": "KUCOIN_WALK_FORWARD_COMPLETE",
       "current_regime": "ACCUMULATION",
-      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+      "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     },
     {
       "asset": "NEAR",
-      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "status": "KUCOIN_WALK_FORWARD_COMPLETE",
       "current_regime": "ACCUMULATION",
-      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+      "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     }
   ],
-  "snapshot_id": "1563ab8a4960b4f339fe6198"
+  "snapshot_id": "2c428c2db336d271e51e544c"
 }
