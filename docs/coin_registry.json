@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T17:43:24.639571+00:00",
+  "generated_at": "2026-08-08T18:31:45.733831+00:00",
   "coin_count": 23,
   "coins": [
     {
@@ -35,21 +35,6 @@
       "global_regime": "ACCUMULATION"
     },
     {
-      "asset": "BNB",
-      "status": "READY_FOR_REVIEW",
-      "reasons": [
-        "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
-      ],
-      "current_recommendation": null,
-      "research_stage": "READY_FOR_MANUAL_REVIEW",
-      "history_sources": [
-        "recommended_bots",
-        "research_pipeline"
-      ],
-      "validated_return_pct": null,
-      "global_regime": "ACCUMULATION"
-    },
-    {
       "asset": "ZEC",
       "status": "READY_FOR_REVIEW",
       "reasons": [
@@ -78,7 +63,7 @@
       "global_regime": "ACCUMULATION"
     },
     {
-      "asset": "BTC",
+      "asset": "BNB",
       "status": "WATCHLIST",
       "reasons": [
         "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
@@ -91,7 +76,7 @@
       "global_regime": "ACCUMULATION"
     },
     {
-      "asset": "CYS",
+      "asset": "BTC",
       "status": "WATCHLIST",
       "reasons": [
         "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
@@ -131,6 +116,19 @@
     },
     {
       "asset": "LINK",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "LTC",
       "status": "WATCHLIST",
       "reasons": [
         "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
@@ -318,5 +316,5 @@
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "d3dd6b2c582088f01da52413"
+  "snapshot_id": "46f198155d0f88e573027cda"
 }

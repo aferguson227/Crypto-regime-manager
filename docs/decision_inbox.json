@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T17:43:25.064233+00:00",
+  "generated_at": "2026-08-08T18:31:46.228344+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,7 +26,7 @@
       }
     },
     {
-      "event_id": "7ff943e2deeefef31787946e",
+      "event_id": "3bfabc36a50c386273a50f3b",
       "kind": "NEW_CANDIDATE",
       "title": "AAVE/USDT ready for manual review",
       "detail": "Review AAVE for a small manual pilot allocation; do not copy historical max-capital mechanically.",
@@ -37,8 +37,8 @@
         "candidate": {
           "asset": "AAVE",
           "pair": "AAVE-USDT",
-          "discovery_rank": 6,
-          "current_research_score": 73.6,
+          "discovery_rank": null,
+          "current_research_score": null,
           "stage": "READY_FOR_MANUAL_REVIEW",
           "walk_forward_status": "FAIL",
           "kucoin_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
@@ -125,29 +125,6 @@
       }
     },
     {
-      "event_id": "988e909ceb32c97febdbf9ee",
-      "kind": "COIN_STATUS",
-      "title": "BNB is Ready For Review",
-      "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only.",
-      "severity": "opportunity",
-      "action": "REVIEW_COIN",
-      "payload": {
-        "asset": "BNB",
-        "status": "READY_FOR_REVIEW",
-        "reasons": [
-          "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
-        ],
-        "current_recommendation": null,
-        "research_stage": "READY_FOR_MANUAL_REVIEW",
-        "history_sources": [
-          "recommended_bots",
-          "research_pipeline"
-        ],
-        "validated_return_pct": null,
-        "global_regime": "ACCUMULATION"
-      }
-    },
-    {
       "event_id": "d6f72d22b59bb3b510c244e6",
       "kind": "COIN_STATUS",
       "title": "ZEC is Ready For Review",
@@ -171,28 +148,28 @@
       }
     },
     {
-      "event_id": "56033ac2c8670ef0a632c693",
+      "event_id": "d1fc886ca1246fe8c6ae959b",
       "kind": "SYSTEM_ISSUE",
       "title": "Application publication needs attention",
-      "detail": "Last successful publication was 12.83 hours ago.",
+      "detail": "Last successful publication was 13.83 hours ago.",
       "severity": "critical",
       "action": "REVIEW_SYSTEM",
       "payload": {
         "severity": "critical",
         "system": "Application",
         "title": "Application publication needs attention",
-        "detail": "Last successful publication was 12.83 hours ago.",
+        "detail": "Last successful publication was 13.83 hours ago.",
         "recommended_action": "Automatic refresh and publication are enabled; inspect the collector only if this persists.",
         "metric": {
-          "age_hours": 12.83,
+          "age_hours": 13.83,
           "unit": "hours"
         },
-        "first_detected_at": "2026-08-08T17:26:43.252104+00:00",
-        "last_detected_at": "2026-08-08T17:26:43.252111+00:00"
+        "first_detected_at": "2026-08-08T18:26:45.444987+00:00",
+        "last_detected_at": "2026-08-08T18:26:45.444995+00:00"
       }
     }
   ],
-  "material_count": 7,
+  "material_count": 6,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -201,5 +178,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "e7a2f833424c02a47250c513"
+  "snapshot_id": "7aa8d33cb2b1b2b5b7e81c8d"
 }
