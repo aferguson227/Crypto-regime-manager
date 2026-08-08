@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "44.0.0",
-  "generated_at": "2026-08-07T22:20:29.336449+00:00",
-  "snapshot_id": "5f1ce67edc8345b41b90",
+  "generated_at": "2026-08-08T00:03:45.832663+00:00",
+  "snapshot_id": "a6e56cce5d4a6e5e2cf2",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -21,9 +21,9 @@
   "capital_summary": {
     "exchange_total": 3591.62103391,
     "free_available": 3023.004616,
-    "active_deal_capital": 29.420001558,
-    "reserved_capital": 2629.5360000000005,
-    "deployable_capital": 393.46861599999966,
+    "active_deal_capital": 137.434732824,
+    "reserved_capital": 2529.5360000000005,
+    "deployable_capital": 493.46861599999966,
     "next_capital_required": null,
     "can_fund_next_priority": null
   },
@@ -43,13 +43,13 @@
       "cautions": [
         "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 30.3 days"
+        "Open replay position has lasted 30.5 days"
       ],
       "current_regime": "Low",
       "live_state": "ACTIVE_DEAL",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 393.46861599999966,
+      "capital_available": 493.46861599999966,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -227,7 +227,7 @@
       "live_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 393.46861599999966,
+      "capital_available": 493.46861599999966,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -404,10 +404,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "c2ee788004ba9777f224",
-    "capital_snapshot": "edf5527df914c045b6f8",
-    "decision_generated_at": "2026-08-07T20:03:09.695271+00:00",
-    "threecommas_generated_at": "2026-08-07T22:20:27.080021+00:00"
+    "operating_state_snapshot": "bc966144f6ba61d061b6",
+    "capital_snapshot": "cd4ddc0ff2dbc58ec498",
+    "decision_generated_at": "2026-08-08T00:03:45.007593+00:00",
+    "threecommas_generated_at": "2026-08-08T00:03:39.187980+00:00"
   },
   "warnings": [
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."

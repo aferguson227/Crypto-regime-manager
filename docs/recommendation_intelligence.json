@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "44.0.0",
-  "generated_at": "2026-08-07T22:20:29.393299+00:00",
-  "snapshot_id": "77cb542b67a49b58c042",
+  "generated_at": "2026-08-08T00:03:45.886217+00:00",
+  "snapshot_id": "047c44d8baeb2f40848c",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Low",
   "recommendations": [
     {
-      "recommendation_id": "c1752a13c55fca0a288471cf",
+      "recommendation_id": "74fa450453d931ba8ffb40af",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
@@ -66,7 +66,7 @@
         "health": 2.16,
         "recent_profit": 10.958,
         "drawdown": -4.395,
-        "duration": -6.193,
+        "duration": -6.251,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -77,7 +77,7 @@
       "risks": [
         "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 30.3 days"
+        "Open replay position has lasted 30.5 days"
       ],
       "blockers": [],
       "expected_behaviour": {
@@ -209,7 +209,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 393.46861599999966,
+        "available": 493.46861599999966,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -223,7 +223,7 @@
       "explanation": "Keep active deal TEL Low Volatility Bot. Confidence 91.6%; risk moderate. Current entry filters pass"
     },
     {
-      "recommendation_id": "2be4d3d9ff9b0610f5b7437a",
+      "recommendation_id": "c88c861b2cd694003085ecc2",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -431,7 +431,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 393.46861599999966,
+        "available": 493.46861599999966,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -451,8 +451,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "5f1ce67edc8345b41b90",
-    "deployment_generated_at": "2026-08-07T22:20:29.336449+00:00",
-    "decision_generated_at": "2026-08-07T20:03:09.695271+00:00"
+    "deployment_snapshot": "a6e56cce5d4a6e5e2cf2",
+    "deployment_generated_at": "2026-08-08T00:03:45.832663+00:00",
+    "decision_generated_at": "2026-08-08T00:03:45.007593+00:00"
   }
 }
