@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
-  "application_version": "46.0.0",
-  "generated_at": "2026-08-08T08:27:10.303529+00:00",
+  "application_version": "47.0.0",
+  "generated_at": "2026-08-08T08:29:47.090502+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -266,24 +266,24 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 13.74,
-        "stressed_reserve_requirement": 3161.92,
+        "estimated_capital_impact": 11.77,
+        "stressed_reserve_requirement": 3286.92,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 8.25,
-        "stressed_reserve_requirement": 3794.3,
+        "estimated_capital_impact": 7.06,
+        "stressed_reserve_requirement": 3944.3,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 10.99,
-        "stressed_reserve_requirement": 2276.58,
+        "estimated_capital_impact": 9.42,
+        "stressed_reserve_requirement": 2366.58,
         "status": "ESTIMATED",
         "automatic_action": false
       }
@@ -378,5 +378,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "0b21e62a34c02307fc99818e"
+  "snapshot_id": "486d92cf34cc66454377f017"
 }

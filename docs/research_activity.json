@@ -1,11 +1,15 @@
 {
   "schema_version": "1.0",
-  "application_version": "46.0.0",
-  "generated_at": "2026-08-08T07:24:28.584099+00:00",
+  "application_version": "47.0.0",
+  "generated_at": "2026-08-08T08:29:48.846320+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
   "summary": {
+    "historical_symbols": 11,
+    "historical_ready": 0,
+    "history_progress_pct": 0.0,
+    "kucoin_walk_forward_ready": 0,
     "candidates_under_review": 5,
     "regime_research_complete": 0,
     "optimisation_pending": 4,
@@ -17,7 +21,164 @@
   "trade_duration_policy": {},
   "last_full_research_at": null,
   "independent_walk_forward": {},
+  "data_acquisition": {
+    "status": "READY",
+    "mode": "plan_only",
+    "progress_pct": 0.0,
+    "inventory": [
+      {
+        "symbol": "XMR-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-USDT_4H.csv",
+        "bars": 0,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": null,
+        "latest": null,
+        "backfill_complete": false,
+        "errors": [],
+        "status": "QUEUED"
+      },
+      {
+        "symbol": "BTC-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\BTC-USDT_4H.csv",
+        "bars": 0,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": null,
+        "latest": null,
+        "backfill_complete": false,
+        "errors": [],
+        "status": "QUEUED"
+      },
+      {
+        "symbol": "ETH-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ETH-USDT_4H.csv",
+        "bars": 0,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": null,
+        "latest": null,
+        "backfill_complete": false,
+        "errors": [],
+        "status": "QUEUED"
+      },
+      {
+        "symbol": "XRP-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XRP-USDT_4H.csv",
+        "bars": 0,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": null,
+        "latest": null,
+        "backfill_complete": false,
+        "errors": [],
+        "status": "QUEUED"
+      },
+      {
+        "symbol": "NEAR-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
+        "bars": 0,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": null,
+        "latest": null,
+        "backfill_complete": false,
+        "errors": [],
+        "status": "QUEUED"
+      },
+      {
+        "symbol": "ZEC-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ZEC-USDT_4H.csv",
+        "bars": 0,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": null,
+        "latest": null,
+        "backfill_complete": false,
+        "errors": [],
+        "status": "QUEUED"
+      },
+      {
+        "symbol": "UNI-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\UNI-USDT_4H.csv",
+        "bars": 0,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": null,
+        "latest": null,
+        "backfill_complete": false,
+        "errors": [],
+        "status": "QUEUED"
+      },
+      {
+        "symbol": "AAVE-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AAVE-USDT_4H.csv",
+        "bars": 0,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": null,
+        "latest": null,
+        "backfill_complete": false,
+        "errors": [],
+        "status": "QUEUED"
+      },
+      {
+        "symbol": "XMR-BTC",
+        "quote": "BTC",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-BTC_4H.csv",
+        "bars": 0,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": null,
+        "latest": null,
+        "backfill_complete": false,
+        "errors": [],
+        "status": "QUEUED"
+      },
+      {
+        "symbol": "ETH-BTC",
+        "quote": "BTC",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ETH-BTC_4H.csv",
+        "bars": 0,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": null,
+        "latest": null,
+        "backfill_complete": false,
+        "errors": [],
+        "status": "QUEUED"
+      },
+      {
+        "symbol": "XRP-BTC",
+        "quote": "BTC",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XRP-BTC_4H.csv",
+        "bars": 0,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": null,
+        "latest": null,
+        "backfill_complete": false,
+        "errors": [],
+        "status": "QUEUED"
+      }
+    ]
+  },
+  "kucoin_walk_forward": {
+    "assets": 8,
+    "ready_for_manual_review": 0,
+    "backtests_run": 0
+  },
   "process": [
+    "Scan KuCoin USDT universe",
+    "Acquire/backfill KuCoin 4h history",
     "Discover candidates",
     "Classify regime",
     "Test entry triggers",
@@ -60,5 +221,5 @@
       "next_action": "Background regime research requires a comparable 4h dataset for this asset."
     }
   ],
-  "snapshot_id": "7241915d709185501e7c9bf5"
+  "snapshot_id": "1563ab8a4960b4f339fe6198"
 }

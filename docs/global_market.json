@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
-  "application_version": "46.0.0",
-  "generated_at": "2026-08-08T07:24:27.316294+00:00",
+  "application_version": "47.0.0",
+  "generated_at": "2026-08-08T08:29:47.286848+00:00",
   "regime": "ACCUMULATION",
   "score_pct": 59.1,
   "explanation": "Accumulation because the weighted current-market score is 59.1%.",
@@ -54,11 +54,13 @@
   },
   "breadth_explanation": "3 of 5 tracked candidates have positive medium-term trend.",
   "historical_btc_evidence": {
-    "status": "MISSING",
+    "status": "BUILDING",
     "registry_symbol": null,
     "walk_forward_status": null,
+    "kucoin_bars": null,
+    "kucoin_period_start": null,
     "xbt_normalised_to_btc": true,
-    "note": "CRM normalises XBT/XXBT to BTC. MISSING means no BTC/XBT result is currently present in the walk-forward registry; raw archives are not treated as validated evidence."
+    "note": "CRM normalises XBT/XXBT to BTC. If Kraken validation is absent, KuCoin BTC-USDT history becomes the primary exchange-specific historical regime source while Kraken remains optional robustness evidence."
   },
   "policy": {
     "universal_context": true,

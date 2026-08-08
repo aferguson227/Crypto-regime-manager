@@ -5,7 +5,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_v44_version():
-    assert (ROOT / 'VERSION').read_text(encoding='utf-8').strip() == '46.0.0'
+    assert (ROOT / 'VERSION').read_text(encoding='utf-8').strip() == '47.0.0'
 
 
 def test_autonomous_diagnostics_and_freshness_exist():
@@ -21,7 +21,7 @@ def test_local_agent_target_is_15_minutes():
 
 def test_global_market_does_not_fake_kraken_btc():
     text = (ROOT / 'scripts/global_market_engine.py').read_text(encoding='utf-8')
-    assert "'status':'AVAILABLE' if btc_hist else 'MISSING'" in text
+    assert "'status':'KRAKEN_VALIDATED' if btc_hist else ('KUCOIN_HISTORY_AVAILABLE' if btc_kucoin else 'BUILDING')" in text
 
 
 def test_profitability_is_historical_not_forecast():

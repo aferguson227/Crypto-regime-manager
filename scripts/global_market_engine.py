@@ -22,9 +22,10 @@ def historical_btc(registry):
   if isinstance(x,dict) and canonical_asset(str(x.get('symbol') or ''))=='BTC':return x
  return None
 def main():
- market=load('market_intelligence.json');discovery=load('coin_discovery.json');registry=load('walk_forward_registry.json');candidates=discovery.get('researched_candidates') or []
+ market=load('market_intelligence.json');discovery=load('coin_discovery.json');registry=load('walk_forward_registry.json');hist=load('historical_data_status.json');candidates=discovery.get('researched_candidates') or []
  btc=next((x for x in candidates if isinstance(x,dict) and canonical_asset(str(x.get('base_currency') or x.get('symbol') or ''))=='BTC'),{})
  btc30=num(btc.get('trend_30d_pct'));btc24=num(btc.get('change_24h_pct'));breadth=num(market.get('breadth_score'));trend=num(market.get('trend_score'));vol=num(market.get('volatility_score'));btc_hist=historical_btc(registry)
+ btc_kucoin=next((x for x in hist.get('inventory') or [] if str(x.get('symbol')).upper()=='BTC-USDT' and (x.get('bars') or 0)>0),None)
  contributions=[];score=50.0
  def add(label,value,weight,delta,source):
   nonlocal score
@@ -48,7 +49,7 @@ def main():
   'explanation':f'{regime.replace("_"," ").title()} because the weighted current-market score is {score:.1f}%.',
   'criteria':contributions,'current_evidence':{'btc_30d_trend_pct':btc30,'btc_24h_change_pct':btc24,'breadth_pct':breadth,'breadth_positive_count':positive,'breadth_universe_count':universe,'market_trend_pct':trend,'volatility_pct':vol,'source':'KuCoin current/public CRM market evidence'},
   'breadth_explanation':(f'{positive} of {universe} tracked candidates have positive medium-term trend.' if positive is not None and universe else 'Breadth sample detail is unavailable.'),
-  'historical_btc_evidence':{'status':'AVAILABLE' if btc_hist else 'MISSING','registry_symbol':(btc_hist or {}).get('symbol'),'walk_forward_status':(btc_hist or {}).get('status'),'xbt_normalised_to_btc':True,'note':'CRM normalises XBT/XXBT to BTC. MISSING means no BTC/XBT result is currently present in the walk-forward registry; raw archives are not treated as validated evidence.'},
+  'historical_btc_evidence':{'status':'KRAKEN_VALIDATED' if btc_hist else ('KUCOIN_HISTORY_AVAILABLE' if btc_kucoin else 'BUILDING'),'registry_symbol':(btc_hist or {}).get('symbol'),'walk_forward_status':(btc_hist or {}).get('status'),'kucoin_bars':(btc_kucoin or {}).get('bars'),'kucoin_period_start':(btc_kucoin or {}).get('earliest'),'xbt_normalised_to_btc':True,'note':'CRM normalises XBT/XXBT to BTC. If Kraken validation is absent, KuCoin BTC-USDT history becomes the primary exchange-specific historical regime source while Kraken remains optional robustness evidence.'},
   'policy':{'universal_context':True,'asset_specific_regime_still_required':True,'automatic_bot_changes':False,'manual_approval_required':True}}
  payload['snapshot_id']=hashlib.sha256(json.dumps({'regime':regime,'score':score,'btc':btc30,'breadth':breadth},sort_keys=True).encode()).hexdigest()[:24]
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8');print(f'Global market written: {OUT}');return 0

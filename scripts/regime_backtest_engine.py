@@ -139,19 +139,36 @@ def optimise_dataset(path,policy):
    fluid='GOOD' if dur['longest_hours']<=dpol['preferred_longest_closed_hours'] and not dur['open_position'] else ('CAUTION' if dur['longest_hours']<=dpol['strong_penalty_hours'] else 'POOR')
    best['status']='EXPLORATORY_PASS' if best['metrics']['mark_to_market_pnl']>0 and best['metrics']['closed_deals']>=5 else 'EXPLORATORY_FAIL';best['trade_fluidity']=fluid
    profiles[regime]=best
- return {'asset':asset,'dataset':path.name,'bars':len(rows),'period':{'start':rows[0]['time'] if rows else None,'end':rows[-1]['time'] if rows else None},'entry_triggers_tested':len(triggers),'parameter_combinations_per_trigger':len(settings),'total_backtests':tested,'regime_profiles':profiles}
+ return {'asset':asset,'dataset':path.name,'data_source':'KuCoin' if 'KuCoin' in str(path) or 'CRM_Data' in str(path) else 'packaged_historical','bars':len(rows),'period':{'start':rows[0]['time'] if rows else None,'end':rows[-1]['time'] if rows else None},'entry_triggers_tested':len(triggers),'parameter_combinations_per_trigger':len(settings),'total_backtests':tested,'regime_profiles':profiles}
 
 def dataset_asset(path):
  name=Path(path).stem.upper().replace('_4H','').replace('-4H','')
  if name.endswith('4H'):name=name[:-2]
  return canonical_asset(name)
 
+def external_history_dir():
+ raw=os.getenv('CRM_DATA_ROOT')
+ base=Path(raw) if raw else (Path(r'C:\Crypto\CRM_Data') if os.name=='nt' else Path.home()/'.crypto_regime_manager_data')
+ return base/'KuCoin'/'4h'
+
 def input_files():
  files=[]
  # packaged/local TradingView/Kraken-derived 4h datasets
  files.extend(sorted(ROOT.glob('data/*USDT_4H.csv')))
  files.extend(sorted((ROOT/'data'/'normalized').glob('*_4H.csv')))
- # avoid duplicate assets; prefer normalized copy
+ # V47 KuCoin-first dynamic cache. Keep research selective: top current candidates only.
+ ext=external_history_dir()
+ if ext.exists():
+  disc=load_json(DOCS/'coin_discovery.json',{})
+  wanted=[]
+  for x in (disc.get('researched_candidates') or [])+(disc.get('shortlist') or []):
+   a=canonical_asset(str(x.get('base_currency') or x.get('symbol') or ''))
+   if a and a not in wanted:wanted.append(a)
+  max_dynamic=int(os.getenv('CRM_REGIME_RESEARCH_MAX_DYNAMIC_ASSETS','8'))
+  for a in wanted[:max_dynamic]:
+   p=ext/f'{a}-USDT_4H.csv'
+   if p.exists():files.append(p)
+ # avoid duplicate assets; prefer newest/external KuCoin copy
  by={}
  for p in files:by[dataset_asset(p)]=p
  return list(by.values())

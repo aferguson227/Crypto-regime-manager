@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
-  "application_version": "46.0.0",
-  "generated_at": "2026-08-08T08:12:06.794909+00:00",
+  "application_version": "47.0.0",
+  "generated_at": "2026-08-08T08:29:46.804380+00:00",
   "overall": {
     "state": "HEALTHY",
     "score_pct": 97.7
@@ -16,23 +16,7 @@
   },
   "action_queue": [],
   "highest_value_improvements": [],
-  "recently_closed": [
-    {
-      "key": "a43930f4134bf7af",
-      "source": "self_healing",
-      "fingerprint": "STALE_THREECOMMAS",
-      "title": "3Commas data is stale",
-      "severity": "low",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Trigger the read-only 3Commas workflow.",
-      "first_detected_at": "2026-08-08T07:24:26.185000+00:00",
-      "last_detected_at": "2026-08-08T07:24:26.185000+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 1,
-      "closed_at": "2026-08-08T08:08:53.130422+00:00"
-    }
-  ],
+  "recently_closed": [],
   "technical_debt": {
     "state": "LOW",
     "known_items": 0

@@ -68,3 +68,29 @@
 @media(max-width:700px){
   .crm-hero-actions{justify-content:flex-start;min-width:0}
 }
+
+/* V47 universal responsive typography: text role, not viewport width, determines size. */
+:root{
+ --crm-font-label:clamp(.78rem,.86rem + .08cqi,.95rem);
+ --crm-font-value:clamp(1rem,1.15rem + .55cqi,1.75rem);
+ --crm-font-hero:clamp(1.35rem,1.55rem + .8cqi,2.35rem);
+}
+.crm-card,.metric,.context-card,.crm-stat,.crm-candidate{container-type:inline-size;min-width:0}
+.crm-card *, .metric *, .context-card *, .crm-stat *, .crm-candidate *{min-width:0}
+.crm-stat>span,.metric-label,.crm-muted,small{font-size:var(--crm-font-label)}
+.crm-stat>strong,.metric strong,.metric-value,.crm-fit-text{
+ font-size:var(--crm-font-value);
+ line-height:1.12;
+ white-space:normal;
+ overflow-wrap:anywhere;
+ word-break:normal;
+ hyphens:auto;
+ max-width:100%;
+}
+.crm-big{font-size:var(--crm-font-hero);line-height:1.05;overflow-wrap:anywhere;word-break:normal}
+.crm-status{max-width:100%;white-space:normal;text-align:center;overflow-wrap:anywhere}
+@container (max-width:260px){
+ .crm-stat{grid-template-columns:1fr!important}
+ .crm-stat>strong{text-align:left!important}
+ .crm-stat>strong,.metric strong,.metric-value,.crm-fit-text{font-size:clamp(.95rem,8cqi,1.25rem)}
+}

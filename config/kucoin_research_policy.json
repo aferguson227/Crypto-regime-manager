@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "application_version": "47.0.0",
+  "production_quote": "USDT",
+  "experimental_quotes": [
+    "BTC"
+  ],
+  "timeframe": "4hour",
+  "seconds_per_candle": 14400,
+  "candles_per_request": 1500,
+  "deep_research_usdt_assets": 8,
+  "experimental_btc_assets": 3,
+  "symbols_per_local_agent_cycle": 5,
+  "backfill_pages_per_symbol_per_cycle": 2,
+  "minimum_backtest_bars": 900,
+  "preferred_backtest_bars": 3000,
+  "request_pause_seconds": 0.25,
+  "request_retries": 3,
+  "walk_forward": {
+    "training_fraction": 0.6,
+    "validation_fraction": 0.2,
+    "forward_fraction": 0.2,
+    "minimum_training_bars": 540,
+    "minimum_validation_bars": 180,
+    "minimum_forward_bars": 180,
+    "preferred_longest_hours": 168,
+    "maximum_validation_longest_hours": 336,
+    "reject_open_hours": 720
+  },
+  "principle": "Scan broadly, acquire selectively, optimise on training data, freeze settings, validate on unseen KuCoin data, then use Kraken as independent robustness evidence."
+}

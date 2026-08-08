@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "46.0.0",
-  "generated_at": "2026-08-08T07:24:25.518804+00:00",
+  "application_version": "47.0.0",
+  "generated_at": "2026-08-08T08:29:45.263983+00:00",
   "snapshot_id": "b29b1d5a685ae5e0f982",
   "mode": "advisory_capped_adaptive_intelligence",
   "read_only": true,
@@ -23,8 +23,8 @@
       "confidence_calibration_pct": null,
       "observed_accuracy_pct": null,
       "average_return_pct": null,
-      "capital_efficiency_score": 80.71,
-      "risk_adjusted_score": 89.9,
+      "capital_efficiency_score": 82.13,
+      "risk_adjusted_score": 90.0,
       "rank": 1,
       "weight_adjustments": {},
       "reasons": [
@@ -61,7 +61,7 @@
   "confidence_calibration": [
     {
       "band": "0-50%",
-      "recommendations": 71,
+      "recommendations": 79,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 25.0,
       "observed_accuracy_pct": null,
@@ -93,7 +93,7 @@
     },
     {
       "band": "90-100%",
-      "recommendations": 24,
+      "recommendations": 32,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 95.0,
       "observed_accuracy_pct": null,
@@ -102,7 +102,7 @@
   ],
   "portfolio_optimisation": {
     "recommended_next_allocation": "TEL Low Volatility Bot",
-    "deployable_capital": 397.0056665099996,
+    "deployable_capital": 297.0056665099996,
     "weakest_strategy": "TAO Low Pullback Bot",
     "ranking_basis": "risk-adjusted adaptive score with capped historical influence",
     "automatic_execution": false
