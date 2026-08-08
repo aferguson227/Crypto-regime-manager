@@ -288,12 +288,12 @@
   },
   "app": {
     "name": "Crypto Regime Manager",
-    "version": "45.0.0",
+    "version": "46.0.0",
     "mode": "Read-only unified decision and quality workspace",
     "data_source": "KuCoin public spot candles",
     "timeframe": "4hour",
     "feature": "Advisory candidate validation and DCA improvement lab",
-    "release_name": "Regime-Aware Backtesting & Explainable Operations",
+    "release_name": "Autonomous Market Research & Independent Trade Accounting",
     "primary_navigation": [
       "Dashboard",
       "Bots",
@@ -689,7 +689,7 @@
       "Forward Validation"
     ]
   },
-  "version": "45.0.0",
+  "version": "46.0.0",
   "research_queue": {
     "enabled": true,
     "max_assets_per_cycle": 3,
@@ -788,15 +788,15 @@
       ]
     },
     "research_limits": {
-      "maximum_shortlist": 20,
-      "maximum_new_assets_per_cycle": 5,
+      "maximum_shortlist": 50,
+      "maximum_new_assets_per_cycle": 10,
       "manual_approval_required": true,
       "full_dca_backtest_required": true,
       "forward_validation_required": true
     },
     "deep_research": {
       "enabled": true,
-      "maximum_assets_per_run": 5,
+      "maximum_assets_per_run": 10,
       "history_candles": 540,
       "request_pause_seconds": 0.25,
       "ranking_weights": {
@@ -820,7 +820,11 @@
         "volume_scale",
         "step_scale"
       ]
-    }
+    },
+    "experimental_quote_currencies": [
+      "BTC"
+    ],
+    "experimental_btc_pairs_research_only": true
   },
   "hypothesis_generator": {
     "enabled": true,

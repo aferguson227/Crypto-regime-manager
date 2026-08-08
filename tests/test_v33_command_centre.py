@@ -3,14 +3,14 @@ from pathlib import Path
 ROOT=Path(__file__).parents[1]
 
 def test_v33_release_and_command_state_present():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='45.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='46.0.0'
     rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
-    assert rel['release_name']=='Regime-Aware Backtesting & Explainable Operations'
+    assert rel['release_name']=='Autonomous Market Research & Independent Trade Accounting'
     assert (ROOT/'docs/command_state.json').exists()
 
 def test_command_state_is_governed_and_read_only():
     state=json.loads((ROOT/'docs/command_state.json').read_text(encoding='utf-8'))
-    assert state['application_version']=='45.0.0'
+    assert state['application_version']=='46.0.0'
     assert state['read_only'] is True
     assert state['manual_approval_required'] is True
     assert state['mode']=='unified_read_only_trading_command_state'
@@ -24,6 +24,6 @@ def test_command_state_contains_all_primary_domains():
 def test_command_centre_uses_canonical_state():
     html=(ROOT/'docs/command_centre.html').read_text(encoding='utf-8')
     js=(ROOT/'docs/command_centre.js').read_text(encoding='utf-8')
-    assert 'V45.0.0' in html
+    assert 'V46.0.0' in html
     assert "fetch('command_state.json'" in js
     assert 'recommendation_intelligence.json' not in js

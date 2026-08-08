@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "application_version": "46.0.0",
+  "generated_at": "2026-08-08T07:24:27.611810+00:00",
+  "open_validation_positions": 10,
+  "positions": [
+    {
+      "asset": "AAVE",
+      "validation_cutoff_state": "OPEN",
+      "original_validation_preserved": true,
+      "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+      "note": "Later candles may resolve this frozen trade, but never rewrite the Q1 validation result."
+    },
+    {
+      "asset": "AVAX",
+      "validation_cutoff_state": "OPEN",
+      "original_validation_preserved": true,
+      "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+      "note": "Later candles may resolve this frozen trade, but never rewrite the Q1 validation result."
+    },
+    {
+      "asset": "DOT",
+      "validation_cutoff_state": "OPEN",
+      "original_validation_preserved": true,
+      "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+      "note": "Later candles may resolve this frozen trade, but never rewrite the Q1 validation result."
+    },
+    {
+      "asset": "ETH",
+      "validation_cutoff_state": "OPEN",
+      "original_validation_preserved": true,
+      "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+      "note": "Later candles may resolve this frozen trade, but never rewrite the Q1 validation result."
+    },
+    {
+      "asset": "NEAR",
+      "validation_cutoff_state": "OPEN",
+      "original_validation_preserved": true,
+      "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+      "note": "Later candles may resolve this frozen trade, but never rewrite the Q1 validation result."
+    },
+    {
+      "asset": "SOL",
+      "validation_cutoff_state": "OPEN",
+      "original_validation_preserved": true,
+      "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+      "note": "Later candles may resolve this frozen trade, but never rewrite the Q1 validation result."
+    },
+    {
+      "asset": "UNI",
+      "validation_cutoff_state": "OPEN",
+      "original_validation_preserved": true,
+      "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+      "note": "Later candles may resolve this frozen trade, but never rewrite the Q1 validation result."
+    },
+    {
+      "asset": "XMR",
+      "validation_cutoff_state": "OPEN",
+      "original_validation_preserved": true,
+      "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+      "note": "Later candles may resolve this frozen trade, but never rewrite the Q1 validation result."
+    },
+    {
+      "asset": "XRP",
+      "validation_cutoff_state": "OPEN",
+      "original_validation_preserved": true,
+      "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+      "note": "Later candles may resolve this frozen trade, but never rewrite the Q1 validation result."
+    },
+    {
+      "asset": "ZEC",
+      "validation_cutoff_state": "OPEN",
+      "original_validation_preserved": true,
+      "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+      "note": "Later candles may resolve this frozen trade, but never rewrite the Q1 validation result."
+    }
+  ],
+  "integrity_rule": "post-validation outcomes are reported separately and cannot alter frozen validation metrics"
+}

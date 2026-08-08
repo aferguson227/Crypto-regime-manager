@@ -3,9 +3,9 @@ import json
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_v40_identity_and_policy():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='45.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='46.0.0'
     rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
-    assert rel['release_name']=='Regime-Aware Backtesting & Explainable Operations'
+    assert rel['release_name']=='Autonomous Market Research & Independent Trade Accounting'
     p=json.loads((ROOT/'config/core_managers_policy.json').read_text(encoding='utf-8'))
     assert p['principles']['single_authoritative_implementation'] is True
 

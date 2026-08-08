@@ -3,9 +3,9 @@ import json
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_v401_identity():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='45.0.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='46.0.0'
  rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
- assert rel['release_name']=='Regime-Aware Backtesting & Explainable Operations'
+ assert rel['release_name']=='Autonomous Market Research & Independent Trade Accounting'
 
 def test_health_uses_material_change_staging():
  w=(ROOT/'.github/workflows/crm-health-self-heal.yml').read_text(encoding='utf-8')

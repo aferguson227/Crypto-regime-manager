@@ -2,8 +2,8 @@ from pathlib import Path
 import json,re
 ROOT=Path(__file__).resolve().parents[1];DOCS=ROOT/'docs'
 def test_v41_release_identity():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='45.0.0'
- assert json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))['release_name']=='Regime-Aware Backtesting & Explainable Operations'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='46.0.0'
+ assert json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))['release_name']=='Autonomous Market Research & Independent Trade Accounting'
 def test_dashboard_is_unified():
  h=(DOCS/'index.html').read_text(encoding='utf-8')
  for text in ('Recommended action','Capital & portfolio','System synchronisation','DCA settings','Active issues','Interface quality'): assert text in h
@@ -18,7 +18,7 @@ def test_canonical_visible_versions_are_current():
  for row in p['canonical_pages']:
   h=(DOCS/row['path']).read_text(encoding='utf-8')
   visible=re.findall(r'>\s*V(\d+\.\d+\.\d+)(?=\s|<|·)',h)
-  assert all(v=='45.0.0' for v in visible),(row['path'],visible)
+  assert all(v=='46.0.0' for v in visible),(row['path'],visible)
 def test_portfolio_does_not_format_usdt_as_usd_symbol():
  s=(DOCS/'portfolio.js').read_text(encoding='utf-8')
  assert "style:'currency'" not in s

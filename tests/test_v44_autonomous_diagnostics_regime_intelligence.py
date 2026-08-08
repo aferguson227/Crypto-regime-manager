@@ -5,7 +5,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_v44_version():
-    assert (ROOT / 'VERSION').read_text(encoding='utf-8').strip() == '45.0.0'
+    assert (ROOT / 'VERSION').read_text(encoding='utf-8').strip() == '46.0.0'
 
 
 def test_autonomous_diagnostics_and_freshness_exist():
