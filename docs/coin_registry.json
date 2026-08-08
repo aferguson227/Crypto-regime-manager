@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T22:58:42.630602+00:00",
+  "generated_at": "2026-08-08T23:28:44.587399+00:00",
   "coin_count": 23,
   "coins": [
     {
@@ -89,19 +89,6 @@
       "global_regime": "ACCUMULATION"
     },
     {
-      "asset": "CYS",
-      "status": "WATCHLIST",
-      "reasons": [
-        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-      ],
-      "current_recommendation": null,
-      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "global_regime": "ACCUMULATION"
-    },
-    {
       "asset": "DOT",
       "status": "WATCHLIST",
       "reasons": [
@@ -141,6 +128,19 @@
       "global_regime": "ACCUMULATION"
     },
     {
+      "asset": "LTC",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
       "asset": "NEAR",
       "status": "WATCHLIST",
       "reasons": [
@@ -167,7 +167,7 @@
       "global_regime": "ACCUMULATION"
     },
     {
-      "asset": "SHIB",
+      "asset": "SEI",
       "status": "WATCHLIST",
       "reasons": [
         "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
@@ -180,7 +180,7 @@
       "global_regime": "ACCUMULATION"
     },
     {
-      "asset": "SIREN",
+      "asset": "SHIB",
       "status": "WATCHLIST",
       "reasons": [
         "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
@@ -316,5 +316,5 @@
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "5207ab076da6079a851d8f92"
+  "snapshot_id": "46f198155d0f88e573027cda"
 }
