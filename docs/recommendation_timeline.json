@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T20:59:06.802071+00:00",
+  "generated_at": "2026-08-08T21:28:55.501668+00:00",
   "events": [
     {
       "event_id": "58f05bae44fe949aef1e2959",
@@ -3257,8 +3257,45 @@
         "realised_profit_pct": null,
         "notes": null
       }
+    },
+    {
+      "event_id": "5048b50f39f585d2fa2f4406",
+      "recorded_at": "2026-08-08T21:11:43.085488+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ACTIVE_DEAL",
+      "confidence_pct": 91.8,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "3ece0df519a99ab4b3adefbc",
+      "recorded_at": "2026-08-08T21:11:43.085488+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 22.2,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "e0e23d666671ddc14591d8bb",
+      "recorded_at": "2026-08-08T21:28:54.318679+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "SIREN",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
     }
   ],
-  "event_count": 245,
+  "event_count": 248,
   "live_updating": true
 }

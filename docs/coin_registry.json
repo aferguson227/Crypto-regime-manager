@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T19:29:09.756921+00:00",
+  "generated_at": "2026-08-08T21:28:55.383051+00:00",
   "coin_count": 23,
   "coins": [
     {
@@ -89,6 +89,19 @@
       "global_regime": "ACCUMULATION"
     },
     {
+      "asset": "CYS",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
       "asset": "DOT",
       "status": "WATCHLIST",
       "reasons": [
@@ -116,19 +129,6 @@
     },
     {
       "asset": "LINK",
-      "status": "WATCHLIST",
-      "reasons": [
-        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-      ],
-      "current_recommendation": null,
-      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "global_regime": "ACCUMULATION"
-    },
-    {
-      "asset": "LTC",
       "status": "WATCHLIST",
       "reasons": [
         "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
@@ -193,7 +193,7 @@
       "global_regime": "ACCUMULATION"
     },
     {
-      "asset": "SOL",
+      "asset": "SIREN",
       "status": "WATCHLIST",
       "reasons": [
         "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
@@ -206,7 +206,7 @@
       "global_regime": "ACCUMULATION"
     },
     {
-      "asset": "TRUMP",
+      "asset": "SOL",
       "status": "WATCHLIST",
       "reasons": [
         "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
@@ -316,5 +316,5 @@
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "46f198155d0f88e573027cda"
+  "snapshot_id": "153c9c700481b7b4d8b6effa"
 }
