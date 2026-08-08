@@ -1,15 +1,15 @@
 {
   "schema_version": "1.1",
   "application_version": "45.0.0",
-  "generated_at": "2026-08-08T06:18:39.155453+00:00",
-  "overall": "OVERDUE",
-  "overall_reason": "Automatic refresh is overdue. If this persists, inspect the collector.",
+  "generated_at": "2026-08-08T06:27:37.642554+00:00",
+  "overall": "REFRESH_DUE",
+  "overall_reason": "Valid data remains available; the next automatic refresh is due.",
   "components": [
     {
       "name": "3Commas",
       "status": "REFRESH_DUE",
-      "age_minutes": 102.1,
-      "age_display": "1h 42m ago",
+      "age_minutes": 111.1,
+      "age_display": "1h 51m ago",
       "expected_cadence_minutes": 60,
       "reason": "Valid data remains available; the next automatic refresh is due.",
       "source": "GitHub CRM Data Refresh",
@@ -17,19 +17,19 @@
     },
     {
       "name": "Local private data",
-      "status": "OVERDUE",
-      "age_minutes": 549.1,
-      "age_display": "9h 09m ago",
+      "status": "CURRENT",
+      "age_minutes": 9.0,
+      "age_display": "9 min ago",
       "expected_cadence_minutes": 15,
-      "reason": "Automatic refresh is overdue. If this persists, inspect the collector.",
+      "reason": "Within the expected automatic refresh window.",
       "source": "Windows Local Agent / KuCoin",
       "automatic": true
     },
     {
       "name": "Application publication",
       "status": "CURRENT",
-      "age_minutes": 101.4,
-      "age_display": "1h 41m ago",
+      "age_minutes": 110.4,
+      "age_display": "1h 50m ago",
       "expected_cadence_minutes": 60,
       "reason": "Within the expected automatic refresh window.",
       "source": "Validated Pages publication",
@@ -37,11 +37,11 @@
     },
     {
       "name": "Diagnostics",
-      "status": "OVERDUE",
-      "age_minutes": 549.1,
-      "age_display": "9h 09m ago",
+      "status": "CURRENT",
+      "age_minutes": 9.0,
+      "age_display": "9 min ago",
       "expected_cadence_minutes": 15,
-      "reason": "Automatic refresh is overdue. If this persists, inspect the collector.",
+      "reason": "Within the expected automatic refresh window.",
       "source": "Autonomous diagnostics",
       "automatic": true
     }
