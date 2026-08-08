@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T19:29:10.329019+00:00",
-  "overall": "CURRENT",
+  "generated_at": "2026-08-08T20:16:46.322994+00:00",
+  "overall": "REFRESH_DUE",
   "fault_count": 0,
   "overdue_count": 0,
   "components": [
     {
       "name": "3Commas",
       "status": "CURRENT",
-      "age_minutes": 89.2,
-      "age_display": "1h 29m ago",
+      "age_minutes": 21.3,
+      "age_display": "21 min ago",
       "expected_cadence_minutes": 60,
       "reason": "Within the expected automatic refresh window.",
       "source": "GitHub CRM Data Refresh",
@@ -18,19 +18,19 @@
     },
     {
       "name": "Local private data",
-      "status": "CURRENT",
-      "age_minutes": 14.9,
-      "age_display": "15 min ago",
+      "status": "REFRESH_DUE",
+      "age_minutes": 47.6,
+      "age_display": "48 min ago",
       "expected_cadence_minutes": 15,
-      "reason": "Within the expected automatic refresh window.",
+      "reason": "Valid data remains available; the next automatic refresh is due.",
       "source": "Windows Local Agent / KuCoin",
       "automatic": true
     },
     {
       "name": "Website publication",
       "status": "CURRENT",
-      "age_minutes": 875.4,
-      "age_display": "14h 35m ago",
+      "age_minutes": 934.8,
+      "age_display": "15h 35m ago",
       "expected_cadence_minutes": 60,
       "reason": "Published application content is current; deployment age alone is not a fault.",
       "source": "Validated Pages publication",
@@ -38,11 +38,11 @@
     },
     {
       "name": "Diagnostics",
-      "status": "CURRENT",
-      "age_minutes": 14.9,
-      "age_display": "15 min ago",
+      "status": "REFRESH_DUE",
+      "age_minutes": 62.5,
+      "age_display": "1h 02m ago",
       "expected_cadence_minutes": 15,
-      "reason": "Within the expected automatic refresh window.",
+      "reason": "Valid data remains available; the next automatic refresh is due.",
       "source": "Autonomous diagnostics",
       "automatic": true
     }

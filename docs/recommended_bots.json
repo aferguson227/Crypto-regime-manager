@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T19:29:09.580628+00:00",
+  "generated_at": "2026-08-08T20:16:45.454795+00:00",
   "mode": "explainable_recommended_bot_packages",
   "candidate_count": 2,
   "candidates": [
@@ -116,7 +116,7 @@
       "next_step": "Review deployment package and create manually only after regime optimisation is complete."
     },
     {
-      "candidate_id": "5eeb5292c35b6851d7caded6",
+      "candidate_id": "9129cc73c7990a59e3cf4ad6",
       "asset": "AAVE",
       "pair": "AAVE-USDT",
       "state": "DEPLOYMENT_REVIEW_READY",
@@ -147,11 +147,11 @@
       "dca_settings": {
         "base_order_volume": null,
         "safety_order_volume": null,
-        "take_profit_pct": 1.2,
+        "take_profit_pct": 1.5,
         "so_deviation_pct": 0.8,
         "safety_orders": 4,
         "volume_scale": 1.5,
-        "step_scale": 1.0,
+        "step_scale": 1.15,
         "max_active_safety_orders": null,
         "max_active_deals": null,
         "start_condition": null,
@@ -160,25 +160,25 @@
         "cooldown_seconds": null
       },
       "settings_completeness_pct": 38.5,
-      "entry_trigger": "pullback_3pct",
-      "trade_fluidity": "GOOD",
+      "entry_trigger": "immediate",
+      "trade_fluidity": "CAUTION",
       "regime_backtest_metrics": {
-        "net_pnl": 3038.6,
-        "mark_to_market_pnl": 3038.6,
+        "net_pnl": 442.93,
+        "mark_to_market_pnl": 442.93,
         "open_pnl": 0.0,
-        "closed_deals": 651,
-        "average_hours": 1.8,
-        "median_hours": 0,
-        "p90_hours": 4,
-        "longest_hours": 160,
-        "max_drawdown_dollars": -191.76,
+        "closed_deals": 92,
+        "average_hours": 9.5,
+        "median_hours": 4.0,
+        "p90_hours": 20,
+        "longest_hours": 236,
+        "max_drawdown_dollars": -90.74,
         "max_capital": 912.5,
         "open_position": false,
         "open_duration_hours": 0,
-        "average_safety_orders": 1.76,
-        "return_on_max_capital_pct": 333.0,
-        "max_drawdown_pct": 21.01,
-        "score": 334.124,
+        "average_safety_orders": 1.43,
+        "return_on_max_capital_pct": 48.54,
+        "max_drawdown_pct": 9.94,
+        "score": 33.011,
         "rejected_for_open_duration": false
       },
       "kucoin_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
@@ -236,5 +236,5 @@
   ],
   "read_only": true,
   "automatic_live_deployment": false,
-  "snapshot_id": "a0224c6b192c852eb6815dfa"
+  "snapshot_id": "337b161577dcbf7c1b6732e7"
 }
