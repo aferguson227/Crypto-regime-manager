@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T16:31:03.494594+00:00",
+  "generated_at": "2026-08-08T17:13:43.462614+00:00",
   "events": [
     {
       "event_id": "58f05bae44fe949aef1e2959",
@@ -3033,8 +3033,36 @@
       "status": "READY_FOR_REVIEW",
       "confidence_pct": null,
       "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
+    },
+    {
+      "event_id": "58c5f891b5a3cae733fd4d26",
+      "recorded_at": "2026-08-08T16:56:42.927937+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ACTIVE_DEAL",
+      "confidence_pct": 91.8,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "fe11582feadf2b26bcc0af98",
+      "recorded_at": "2026-08-08T16:56:42.927937+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 22.2,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
     }
   ],
-  "event_count": 229,
+  "event_count": 231,
   "live_updating": true
 }

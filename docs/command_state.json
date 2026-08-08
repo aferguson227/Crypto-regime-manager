@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T16:26:46.210541+00:00",
-  "snapshot_id": "296dbb961bbdbddeb5a58f4d",
+  "generated_at": "2026-08-08T16:56:44.068135+00:00",
+  "snapshot_id": "c4168effc83a3f3ee4091b12",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -131,7 +131,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "799045404cf53fab861c26bc",
+      "recommendation_id": "469a76add522a6e625e80d2c",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
@@ -293,7 +293,7 @@
       }
     },
     {
-      "recommendation_id": "75c7a10a92f27e15818caccf",
+      "recommendation_id": "aceb3c0ee1571c7eaee630e7",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -532,7 +532,7 @@
     }
   },
   "cloud": {
-    "overall_status": "WARNING",
+    "overall_status": "FAILURE",
     "threecommas": {
       "status": "ok",
       "generated_at": "2026-08-08T15:58:55.048849+00:00",
@@ -545,18 +545,18 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "WARNING"
+    "cloud_status": "FAILURE"
   },
   "source_snapshots": {
     "market": "31019e1015d7330a09da",
-    "portfolio": "48b1641b58d43c46630b",
-    "capital": "98c42c3d4ae5177175f1",
-    "deployment": "3fe445e54e32d510b9f5",
-    "recommendations": "6cc5301cacc8a7345543",
+    "portfolio": "877f87055f49109fdbed",
+    "capital": "372afb904018dab2ed08",
+    "deployment": "973eb105b0ff74956320",
+    "recommendations": "fdca3b5acc0681a1f009",
     "adaptive": "b29b1d5a685ae5e0f982",
     "outcomes": "2026-08-08T12:39:00.841656+00:00",
     "cloud": "a0df4a8090a1d58388cc",
-    "operating": "f1715f251823cdb2f8a1"
+    "operating": "1778715eaa881d436572"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
