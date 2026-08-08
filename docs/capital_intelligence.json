@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "46.0.0",
-  "generated_at": "2026-08-08T07:27:03.688637+00:00",
-  "snapshot_id": "eb3d13fa0f264b95a84a",
+  "generated_at": "2026-08-08T07:36:20.884466+00:00",
+  "snapshot_id": "9850ad18b3e0e620b700",
   "currency": "USDT",
   "accounts": [
     {
@@ -12,7 +12,7 @@
       "currency": "USDT",
       "total_equity": 3496.0525628,
       "free_available": 2926.54166651,
-      "observed_at": "2026-08-08T07:27:03.563627+00:00"
+      "observed_at": "2026-08-08T06:18:10.463544+00:00"
     }
   ],
   "bots": [
@@ -72,9 +72,9 @@
       "active_deals": 1,
       "max_active_deals": 1,
       "per_deal_max_capital": 2729.5360000000005,
-      "active_deal_capital": 137.434732824,
+      "active_deal_capital": 117.69303624,
       "placed_order_reserve": 0.0,
-      "remaining_dca_reserve": 2529.5360000000005,
+      "remaining_dca_reserve": 2629.5360000000005,
       "idle_capacity_reserve": 0.0,
       "next_deal_required_capital": null,
       "completeness": "complete",
@@ -83,12 +83,12 @@
   ],
   "exchange_total": 3496.0525628,
   "free_available": 2926.54166651,
-  "active_deal_capital": 137.434732824,
+  "active_deal_capital": 117.69303624,
   "placed_order_reserve": 0.0,
-  "remaining_active_deal_dca_reserve": 2529.5360000000005,
+  "remaining_active_deal_dca_reserve": 2629.5360000000005,
   "enabled_idle_capacity_reserve": 0.0,
-  "deployable_capital": 397.0056665099996,
-  "reserve_coverage_ratio": 1.1569480199174866,
+  "deployable_capital": 297.0056665099996,
+  "reserve_coverage_ratio": 1.1129498384924184,
   "capital_status": "COMPLETE",
   "next_capital_priority": "TEL Low Volatility Bot",
   "next_capital_required": null,
@@ -106,14 +106,14 @@
   "asset_allocations": [
     {
       "asset": "TEL",
-      "quantity": 91973.0,
+      "quantity": 77890.0,
       "quote_currency": "USDT",
-      "quote_cost": 137.434732824
+      "quote_cost": 117.69303624
     }
   ],
   "capital_source": "KuCoin direct read-only account API",
   "kucoin_direct_status": "ok",
-  "reserved_capital": 2529.5360000000005,
+  "reserved_capital": 2629.5360000000005,
   "idle_bot_potential_exposure": 0.0,
   "capital_policy": "Protect active-deal remaining DCA ladders; do not reserve theoretical idle-bot exposure until a deal is active or explicitly approved."
 }

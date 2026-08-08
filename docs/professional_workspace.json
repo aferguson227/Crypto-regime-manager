@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
   "application_version": "46.0.0",
-  "generated_at": "2026-08-08T07:27:05.341110+00:00",
+  "generated_at": "2026-08-08T07:36:21.806614+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Keep Active Deal TEL Low Volatility Bot.",
-    "Deployable capital: 397.006 USDT; exact allocation remains advisory.",
+    "Deployable capital: 297.006 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Strategy health requires review"
   ],
@@ -24,7 +24,7 @@
     "blockers": []
   },
   "decision_readiness": {
-    "score_pct": 40.0,
+    "score_pct": 60.0,
     "checks": [
       {
         "label": "Bot selected",
@@ -44,7 +44,7 @@
       },
       {
         "label": "Cloud data current",
-        "state": "warn"
+        "state": "pass"
       }
     ],
     "ready_for_manual_action": false
@@ -53,13 +53,13 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 397.0056665099996,
+    "deployable_quote": 297.0056665099996,
     "asset_allocations": [
       {
         "asset": "TEL",
-        "quantity": 91973.0,
+        "quantity": 77890.0,
         "quote_currency": "USDT",
-        "quote_cost": 137.434732824
+        "quote_cost": 117.69303624
       }
     ],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
@@ -290,9 +290,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 70.4,
+    "health_score": 70.7,
     "diversification_score": 25,
-    "capital_efficiency_score": 86.3,
+    "capital_efficiency_score": 87.0,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -340,10 +340,10 @@
         "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": 137.434732824,
-        "reserve_capital": 2529.5360000000005,
+        "allocated_capital": 117.69303624,
+        "reserve_capital": 2629.5360000000005,
         "deployable_priority": 4,
-        "efficiency_score": 80.71,
+        "efficiency_score": 82.13,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -366,7 +366,7 @@
     "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
   },
   "deployment_health": {
-    "cloud": "WARNING",
+    "cloud": "HEALTHY",
     "threecommas": "ok",
     "main_app": null,
     "publication": null,
@@ -378,5 +378,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "66d9ef74299709adfa2aabc1"
+  "snapshot_id": "782c79318350e181cbb43f95"
 }

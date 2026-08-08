@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "46.0.0",
-  "generated_at": "2026-08-08T07:27:03.936312+00:00",
-  "snapshot_id": "5baf38a184bc62bdc8d4",
+  "generated_at": "2026-08-08T07:36:21.000870+00:00",
+  "snapshot_id": "33d8f4184965188f913f",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -21,9 +21,9 @@
   "capital_summary": {
     "exchange_total": 3496.0525628,
     "free_available": 2926.54166651,
-    "active_deal_capital": 137.434732824,
-    "reserved_capital": 2529.5360000000005,
-    "deployable_capital": 397.0056665099996,
+    "active_deal_capital": 117.69303624,
+    "reserved_capital": 2629.5360000000005,
+    "deployable_capital": 297.0056665099996,
     "next_capital_required": null,
     "can_fund_next_priority": null
   },
@@ -49,7 +49,7 @@
       "live_state": "ACTIVE_DEAL",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 397.0056665099996,
+      "capital_available": 297.0056665099996,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -227,7 +227,7 @@
       "live_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 397.0056665099996,
+      "capital_available": 297.0056665099996,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -404,10 +404,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "a0c716ad8f966c64ee43",
-    "capital_snapshot": "eb3d13fa0f264b95a84a",
+    "operating_state_snapshot": "b7a93b3e730874775ad0",
+    "capital_snapshot": "9850ad18b3e0e620b700",
     "decision_generated_at": "2026-08-08T04:36:40.777074+00:00",
-    "threecommas_generated_at": "2026-08-08T04:36:33.943952+00:00"
+    "threecommas_generated_at": "2026-08-08T07:36:19.343051+00:00"
   },
   "warnings": [
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."

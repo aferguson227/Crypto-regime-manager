@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "46.0.0",
-  "generated_at": "2026-08-08T07:24:24.597012+00:00",
-  "snapshot_id": "a0eca0d5d72474b4a30a",
+  "generated_at": "2026-08-08T07:36:20.830514+00:00",
+  "snapshot_id": "59ed8b77d78d03cc86d3",
   "status": "HEALTHY",
   "read_only": true,
   "accounts": [
@@ -31,7 +31,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-08T04:36:34.799220+00:00"
+      "observed_at": "2026-08-08T07:36:19.922442+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
@@ -40,7 +40,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-08T04:36:35.418798+00:00"
+      "observed_at": "2026-08-08T07:36:20.242976+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
@@ -49,7 +49,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 4,
-      "observed_at": "2026-08-08T04:36:35.722633+00:00"
+      "observed_at": "2026-08-08T07:36:20.490880+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
@@ -58,7 +58,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-08T04:36:36.391281+00:00"
+      "observed_at": "2026-08-08T07:36:20.752165+00:00"
     },
     "account_32632134_details": {
       "path": "/public/api/ver1/accounts/32632134",
@@ -67,7 +67,7 @@
       "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-08T04:36:36.391325+00:00"
+      "observed_at": "2026-08-08T07:36:20.752203+00:00"
     },
     "account_32632134_balances": {
       "path": "/public/api/ver1/accounts/32632134/account_table_data",
@@ -76,7 +76,7 @@
       "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-08T04:36:36.391329+00:00"
+      "observed_at": "2026-08-08T07:36:20.752209+00:00"
     }
   }
 }
