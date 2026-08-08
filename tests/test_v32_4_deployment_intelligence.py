@@ -4,7 +4,7 @@ from scripts.deployment_intelligence_engine import build, EXACT_FIELDS
 ROOT=Path(__file__).parents[1]
 
 def test_v324_release_and_command_centre_route():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='48.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='49.0.0'
     rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
     assert rel['deployment_recommendations_enabled'] is True
     routes=json.loads((ROOT/'config/routes.json').read_text(encoding='utf-8'))['routes']
@@ -12,7 +12,7 @@ def test_v324_release_and_command_centre_route():
 
 def test_deployment_intelligence_is_read_only_and_explainable():
     d=build()
-    assert d['application_version']=='48.0.0'
+    assert d['application_version']=='49.0.0'
     assert d['read_only'] is True and d['manual_approval_required'] is True
     assert d['overall_action'] in {'DEPLOY','MAINTAIN','WAIT'}
     assert d['actions']

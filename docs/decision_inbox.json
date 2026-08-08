@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "48.0.0",
-  "generated_at": "2026-08-08T12:00:14.837326+00:00",
+  "application_version": "49.0.0",
+  "generated_at": "2026-08-08T12:39:06.159697+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,61 +26,64 @@
       }
     },
     {
-      "event_id": "939b5e7182a181d1bb1af1f8",
+      "event_id": "d6fe050217790eb51478abd5",
       "kind": "NEW_CANDIDATE",
-      "title": "XMR/USDT ready for manual review",
-      "detail": "Review XMR for a small manual pilot allocation; do not copy historical max-capital mechanically.",
+      "title": "AAVE/USDT ready for manual review",
+      "detail": "Review AAVE for a small manual pilot allocation; do not copy historical max-capital mechanically.",
       "severity": "opportunity",
       "action": "ADD_RECOMMENDED_BOT",
       "payload": {
-        "asset": "XMR",
+        "asset": "AAVE",
         "candidate": {
-          "asset": "XMR",
-          "pair": "XMR-USDT",
-          "discovery_rank": 1,
-          "current_research_score": 82.1,
+          "asset": "AAVE",
+          "pair": "AAVE-USDT",
+          "discovery_rank": null,
+          "current_research_score": null,
           "stage": "READY_FOR_MANUAL_REVIEW",
-          "walk_forward_status": "PASS",
+          "walk_forward_status": "FAIL",
+          "kucoin_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
+          "kucoin_primary_validation_pass": true,
           "frozen_settings": {
-            "take_profit_pct": 2.0,
+            "take_profit_pct": 1.2,
             "so_deviation_pct": 0.8,
-            "safety_orders": 7,
-            "volume_scale": 1.7,
+            "safety_orders": 4,
+            "volume_scale": 1.5,
             "step_scale": 1.0
           },
           "training_metrics": {
-            "net_pnl": 17970.19,
-            "closed_deals": 908,
-            "average_hours": 15.3,
-            "longest_hours": 3984,
-            "max_drawdown_dollars": -2274.7,
+            "net_pnl": 32426.3,
+            "closed_deals": 1303,
+            "average_hours": 7.4,
+            "longest_hours": 904,
+            "max_drawdown_dollars": -3139.43,
             "max_capital": 5819.12,
             "open_position": true,
-            "score": 16594.364999999998
+            "score": 30809.419499999996
           },
           "q1_2026_metrics": {
-            "net_pnl": 4863.52,
-            "realised_pnl": 4863.52,
-            "open_pnl": 3.56,
-            "mark_to_market_pnl": 4867.08,
-            "closed_deals": 217,
-            "average_hours": 5.9,
-            "longest_hours": 160,
-            "max_drawdown_dollars": -737.5,
+            "net_pnl": 834.64,
+            "realised_pnl": 834.64,
+            "open_pnl": -2090.54,
+            "mark_to_market_pnl": -1255.9,
+            "closed_deals": 39,
+            "average_hours": 12.9,
+            "longest_hours": 60,
+            "max_drawdown_dollars": -2330.4,
             "max_capital": 5819.12,
             "open_position": true
           },
           "gates": {
             "current_kucoin_screen": "PASS",
-            "kraken_training": "PASS",
-            "q1_independent_validation": "PASS",
+            "kucoin_history": "PASS",
+            "kucoin_walk_forward": "PASS",
+            "kraken_robustness": "FAIL",
             "drawdown_review": "REVIEW",
             "manual_approval": "REQUIRED"
           },
           "production_eligible": false,
           "manual_approval_required": true,
           "automatic_promotion": false,
-          "next_action": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+          "next_action": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
         },
         "score_pct": 100.0,
         "deployable_capital": 297.0056665099996
@@ -99,17 +102,17 @@
       }
     },
     {
-      "event_id": "dbadb4ba0741d83167e17364",
+      "event_id": "5d431cc55f5bba5be5d0a46a",
       "kind": "COIN_STATUS",
-      "title": "ETH is Ready For Review",
-      "detail": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only.",
+      "title": "AAVE is Ready For Review",
+      "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only.",
       "severity": "opportunity",
       "action": "REVIEW_COIN",
       "payload": {
-        "asset": "ETH",
+        "asset": "AAVE",
         "status": "READY_FOR_REVIEW",
         "reasons": [
-          "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+          "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
         ],
         "current_recommendation": null,
         "research_stage": "READY_FOR_MANUAL_REVIEW",
@@ -117,22 +120,22 @@
           "recommended_bots",
           "research_pipeline"
         ],
-        "validated_return_pct": 22.2,
+        "validated_return_pct": -21.6,
         "global_regime": "ACCUMULATION"
       }
     },
     {
-      "event_id": "e20a453e880d4f530ca3106d",
+      "event_id": "d6f72d22b59bb3b510c244e6",
       "kind": "COIN_STATUS",
-      "title": "NEAR is Ready For Review",
-      "detail": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only.",
+      "title": "ZEC is Ready For Review",
+      "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only.",
       "severity": "opportunity",
       "action": "REVIEW_COIN",
       "payload": {
-        "asset": "NEAR",
+        "asset": "ZEC",
         "status": "READY_FOR_REVIEW",
         "reasons": [
-          "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+          "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
         ],
         "current_recommendation": null,
         "research_stage": "READY_FOR_MANUAL_REVIEW",
@@ -140,58 +143,33 @@
           "recommended_bots",
           "research_pipeline"
         ],
-        "validated_return_pct": 37.3,
+        "validated_return_pct": -44.7,
         "global_regime": "ACCUMULATION"
       }
     },
     {
-      "event_id": "3780ae591bdb06bdb38b42cf",
-      "kind": "COIN_STATUS",
-      "title": "XMR is Ready For Review",
-      "detail": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only.",
-      "severity": "opportunity",
-      "action": "REVIEW_COIN",
+      "event_id": "fdb83dae8b283e55b6cc5438",
+      "kind": "SYSTEM_ISSUE",
+      "title": "Application publication needs attention",
+      "detail": "Last successful publication was 8.04 hours ago.",
+      "severity": "warning",
+      "action": "REVIEW_SYSTEM",
       "payload": {
-        "asset": "XMR",
-        "status": "READY_FOR_REVIEW",
-        "reasons": [
-          "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
-        ],
-        "current_recommendation": null,
-        "research_stage": "READY_FOR_MANUAL_REVIEW",
-        "history_sources": [
-          "recommended_bots",
-          "research_pipeline"
-        ],
-        "validated_return_pct": 83.6,
-        "global_regime": "ACCUMULATION"
-      }
-    },
-    {
-      "event_id": "2f492bff76a6e7eeb1a861d4",
-      "kind": "COIN_STATUS",
-      "title": "XRP is Ready For Review",
-      "detail": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only.",
-      "severity": "opportunity",
-      "action": "REVIEW_COIN",
-      "payload": {
-        "asset": "XRP",
-        "status": "READY_FOR_REVIEW",
-        "reasons": [
-          "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
-        ],
-        "current_recommendation": null,
-        "research_stage": "READY_FOR_MANUAL_REVIEW",
-        "history_sources": [
-          "recommended_bots",
-          "research_pipeline"
-        ],
-        "validated_return_pct": 30.6,
-        "global_regime": "ACCUMULATION"
+        "severity": "warning",
+        "system": "Application",
+        "title": "Application publication needs attention",
+        "detail": "Last successful publication was 8.04 hours ago.",
+        "recommended_action": "Automatic refresh and publication are enabled; inspect the collector only if this persists.",
+        "metric": {
+          "age_hours": 8.04,
+          "unit": "hours"
+        },
+        "first_detected_at": "2026-08-08T12:39:01.529210+00:00",
+        "last_detected_at": "2026-08-08T12:39:01.529216+00:00"
       }
     }
   ],
-  "material_count": 7,
+  "material_count": 6,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -200,5 +178,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "568efd2c25d881cf9e0f6813"
+  "snapshot_id": "6307e800a9e12066a9bd3184"
 }

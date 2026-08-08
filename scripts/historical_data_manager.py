@@ -133,13 +133,13 @@ def main():
    'earliest':datetime.fromtimestamp(ks[0],tz=timezone.utc).isoformat() if ks else None,'latest':datetime.fromtimestamp(ks[-1],tz=timezone.utc).isoformat() if ks else None,
    'backfill_complete':False,'errors':[],'status':'CACHED' if rows else 'QUEUED'})
  minbars=int(p.get('minimum_backtest_bars',900));ready=sum(1 for x in inventory if x.get('bars',0)>=minbars)
- payload={'schema_version':'2.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'provider':'KuCoin public spot candles',
+ payload={'schema_version':'2.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'provider':'KuCoin public spot candles','autonomous_discovery_source':'Full KuCoin USDT scan -> ranked shortlist -> bounded historical acquisition',
   'mode':'bounded_incremental_acquisition' if do_sync else 'plan_only','data_root':str(data_root()),'target_timeframe':'4hour',
   'production_research':{'quote':'USDT','symbols':usdt,'count':len(usdt)},'experimental_research':{'quote':'BTC','symbols':btc,'count':len(btc),'execution_allowed':False},
   'minimum_backtest_bars':minbars,'candidate_count':len(symbols),'research_ready_count':ready,'inventory':inventory,
   'progress_pct':round(100*ready/len(symbols),1) if symbols else 0,
   'status':'ACTIVE' if do_sync else ('READY' if symbols else 'WAITING_FOR_DISCOVERY'),
   'continuity_policy':'append completed candles, backfill older history incrementally, deduplicate timestamps, keep raw research data outside Git',
-  'note':'Local Agent downloads only a bounded number of pages per cycle. Full-history depth grows automatically without blocking the 15-minute refresh.'}
+  'note':'Local Agent downloads only a bounded number of pages per cycle. New candidates nominated by the hourly full KuCoin USDT scan enter this queue automatically. Full-history depth grows without blocking the 15-minute refresh.'}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8');print(f'Historical data status written: {OUT}; mode={payload["mode"]}; ready={ready}/{len(symbols)}');return 0
 if __name__=='__main__':raise SystemExit(main())

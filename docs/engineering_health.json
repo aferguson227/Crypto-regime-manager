@@ -1,25 +1,67 @@
 {
   "schema_version": "2.0",
-  "application_version": "48.0.0",
-  "generated_at": "2026-08-08T12:13:23.410474+00:00",
+  "application_version": "49.0.0",
+  "generated_at": "2026-08-08T12:39:02.634417+00:00",
   "overall": {
     "state": "HEALTHY",
-    "score_pct": 96.2
+    "score_pct": 95.7
   },
   "scores": {
     "application": 100,
-    "operations": 77.4,
+    "operations": 74.0,
     "interface": 100,
     "actions": 100,
     "self_healing": 100,
     "repository": 100
   },
-  "action_queue": [],
-  "highest_value_improvements": [],
+  "action_queue": [
+    {
+      "key": "54f9554d6425d74c",
+      "source": "operational",
+      "fingerprint": "Application publication needs attention",
+      "title": "Application publication needs attention",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-08T12:39:01.904026+00:00",
+      "last_detected_at": "2026-08-08T12:39:01.904026+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 4,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 5.0
+    }
+  ],
+  "highest_value_improvements": [
+    {
+      "key": "54f9554d6425d74c",
+      "source": "operational",
+      "fingerprint": "Application publication needs attention",
+      "title": "Application publication needs attention",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-08T12:39:01.904026+00:00",
+      "last_detected_at": "2026-08-08T12:39:01.904026+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 4,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 5.0
+    }
+  ],
   "recently_closed": [],
   "technical_debt": {
     "state": "LOW",
-    "known_items": 0
+    "known_items": 1
   },
   "decision_quality_display": {
     "state": "LEARNING",
@@ -27,7 +69,7 @@
     "evidence_coverage_pct": 20.0
   },
   "release_predictor": {
-    "readiness_pct": 96.2,
+    "readiness_pct": 95.7,
     "ready": true,
     "recommendation": "READY",
     "regression_risk": "VERY_LOW",

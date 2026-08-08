@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "application_version": "48.0.0",
+  "application_version": "49.0.0",
   "production_quote": "USDT",
   "experimental_quotes": [
     "BTC"
@@ -8,9 +8,9 @@
   "timeframe": "4hour",
   "seconds_per_candle": 14400,
   "candles_per_request": 1500,
-  "deep_research_usdt_assets": 8,
-  "experimental_btc_assets": 3,
-  "symbols_per_local_agent_cycle": 5,
+  "deep_research_usdt_assets": 12,
+  "experimental_btc_assets": 4,
+  "symbols_per_local_agent_cycle": 6,
   "backfill_pages_per_symbol_per_cycle": 2,
   "minimum_backtest_bars": 900,
   "preferred_backtest_bars": 3000,
@@ -27,5 +27,6 @@
     "maximum_validation_longest_hours": 336,
     "reject_open_hours": 720
   },
-  "principle": "Scan broadly, acquire selectively, optimise on training data, freeze settings, validate on unseen KuCoin data, then use Kraken as independent robustness evidence."
+  "principle": "Scan broadly, acquire selectively, optimise on training data, freeze settings, validate on unseen KuCoin data, then use Kraken as independent robustness evidence.",
+  "persistent_database": "Research/crm_research.db"
 }

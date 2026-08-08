@@ -38,7 +38,12 @@ def main():
  app=(cloud.get('pipelines') or {}).get('application') or {};app_age=None
  try:app_age=round(float(app.get('last_success_age_hours'))*60,1) if app.get('last_success_age_hours') is not None else None
  except:pass
- rows=[row('3Commas',tc_age,60,90,180,'GitHub CRM Data Refresh',str(tc.get('overall_status') or tc.get('status') or '').lower() in {'error','failed'}),row('Local private data',local_age,15,30,75,'Windows Local Agent / KuCoin',str(agent.get('status') or '').upper()=='ERROR'),row('Application publication',app_age,60,120,480,'Validated Pages publication'),row('Diagnostics',mins(diag.get('generated_at')),15,60,360,'Autonomous diagnostics')]
+ rows=[row('3Commas',tc_age,60,90,180,'GitHub CRM Data Refresh',str(tc.get('overall_status') or tc.get('status') or '').lower() in {'error','failed'}),row('Local private data',local_age,15,30,75,'Windows Local Agent / KuCoin',str(agent.get('status') or '').upper()=='ERROR')]
+ approw=row('Website publication',app_age,60,120,480,'Validated Pages publication')
+ pending=bool(app.get('pending_publication') or app.get('pending_push'))
+ if not pending and approw['status'] in {'REFRESH_DUE','OVERDUE'}:
+  approw['status']='CURRENT';approw['reason']='Published application content is current; deployment age alone is not a fault.'
+ rows += [approw,row('Diagnostics',mins(diag.get('generated_at')),15,60,360,'Autonomous diagnostics')]
  # Age alone is never generic ATTENTION. Action required is reserved for real collector errors.
  if any(x['status']=='ACTION_REQUIRED' for x in rows):overall='ACTION_REQUIRED'
  elif any(x['status']=='OVERDUE' for x in rows[:2]):overall='OVERDUE'

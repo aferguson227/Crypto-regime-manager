@@ -1,5 +1,19 @@
 {
-  "application_version": "48.0.0",
-  "generated_at": "2026-08-08T11:04:50.131913+00:00",
-  "issues": []
+  "application_version": "49.0.0",
+  "generated_at": "2026-08-08T12:39:01.501351+00:00",
+  "issues": [
+    {
+      "severity": "warning",
+      "system": "Application",
+      "title": "Application publication needs attention",
+      "detail": "Last successful publication was 8.04 hours ago.",
+      "recommended_action": "Automatic refresh and publication are enabled; inspect the collector only if this persists.",
+      "metric": {
+        "age_hours": 8.04,
+        "unit": "hours"
+      },
+      "first_detected_at": "2026-08-08T12:39:01.529210+00:00",
+      "last_detected_at": "2026-08-08T12:39:01.529216+00:00"
+    }
+  ]
 }

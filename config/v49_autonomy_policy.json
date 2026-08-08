@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "application_version": "49.0.0",
+  "database_relative_path": "Research/crm_research.db",
+  "market_scan_minutes": 60,
+  "history_sync_minutes": 15,
+  "research_cycle_minutes": 30,
+  "full_revalidation_hours": 24,
+  "max_deep_research_assets": 12,
+  "max_new_candidates_per_scan": 4,
+  "minimum_candidate_score": 55,
+  "cache_policy": {
+    "reuse_when_fingerprint_unchanged": true,
+    "fingerprint_inputs": [
+      "dataset size/mtime",
+      "research policy",
+      "KuCoin research policy",
+      "engine version"
+    ],
+    "force_research_after_hours": 24
+  },
+  "portfolio_policy": {
+    "cash_buffer_pct": 15,
+    "pilot_allocation_pct_of_deployable": 18,
+    "max_single_candidate_pct_of_deployable": 25,
+    "minimum_allocation_usdt": 100
+  }
+}

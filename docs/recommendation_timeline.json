@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "48.0.0",
-  "generated_at": "2026-08-08T12:15:03.278402+00:00",
+  "application_version": "49.0.0",
+  "generated_at": "2026-08-08T12:39:05.593917+00:00",
   "events": [
     {
       "event_id": "58f05bae44fe949aef1e2959",
@@ -2519,8 +2519,207 @@
         "realised_profit_pct": null,
         "notes": null
       }
+    },
+    {
+      "event_id": "2bbf9836f46737eb04f81524",
+      "recorded_at": "2026-08-08T12:39:00.634358+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ACTIVE_DEAL",
+      "confidence_pct": 91.8,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "1f36cc054a55664f54fd7cf1",
+      "recorded_at": "2026-08-08T12:39:00.634358+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 22.2,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "d78430fda915f58f04666709",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "AAVE",
+      "status": "READY_FOR_REVIEW",
+      "confidence_pct": null,
+      "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
+    },
+    {
+      "event_id": "ecb7b49d571edea7e07e62f9",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "ZEC",
+      "status": "READY_FOR_REVIEW",
+      "confidence_pct": null,
+      "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
+    },
+    {
+      "event_id": "76af6a85eabeac376e018dae",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "AEON",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "3e3adbb4fb1983664beff7a6",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "BNB",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "bc73529068dd8d4e06368c7c",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "ETH",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "c71c8d116882c37f8104ac54",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "LINK",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "04d5cc15004bb96229373169",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "LTC",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "e5be92aec1514319df21a321",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "NEAR",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "2259d545f6ce917ff73f7528",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "PIEVERSE",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "fd912a1bed02a310cc37b123",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "SEI",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "de031475982e0e0af3edab10",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "SHIB",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "2fbb237c243d0705612f1824",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "TRUMP",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "417de03d9cba3a26b89a7625",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "UNI",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "3fb7f9de744e8827a540b38f",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "WIF",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "64c115cd99980f9cd413e594",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "XMR",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "25d1e95d132dfb167af29dee",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "XRP",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "fcaf1750acb81896b29c8e7f",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "AVAX",
+      "status": "REJECTED",
+      "confidence_pct": null,
+      "detail": "Retain as research-only; historical validation failed."
+    },
+    {
+      "event_id": "a78f85ddf60162cb87eae0fc",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "DOT",
+      "status": "REJECTED",
+      "confidence_pct": null,
+      "detail": "Retain as research-only; historical validation failed."
+    },
+    {
+      "event_id": "2ce20aa8253af7295326e91d",
+      "recorded_at": "2026-08-08T12:39:05.465440+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "SOL",
+      "status": "REJECTED",
+      "confidence_pct": null,
+      "detail": "Retain as research-only; historical validation failed."
     }
   ],
-  "event_count": 183,
+  "event_count": 204,
   "live_updating": true
 }

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "48.0.0",
-  "generated_at": "2026-08-08T11:40:36.074984+00:00",
-  "coin_count": 8,
+  "application_version": "49.0.0",
+  "generated_at": "2026-08-08T12:39:05.465440+00:00",
+  "coin_count": 23,
   "coins": [
     {
       "asset": "TEL",
@@ -20,10 +20,10 @@
       "global_regime": "ACCUMULATION"
     },
     {
-      "asset": "ETH",
+      "asset": "AAVE",
       "status": "READY_FOR_REVIEW",
       "reasons": [
-        "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+        "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
       ],
       "current_recommendation": null,
       "research_stage": "READY_FOR_MANUAL_REVIEW",
@@ -31,14 +31,14 @@
         "recommended_bots",
         "research_pipeline"
       ],
-      "validated_return_pct": 22.2,
+      "validated_return_pct": -21.6,
       "global_regime": "ACCUMULATION"
     },
     {
-      "asset": "NEAR",
+      "asset": "ZEC",
       "status": "READY_FOR_REVIEW",
       "reasons": [
-        "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+        "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
       ],
       "current_recommendation": null,
       "research_stage": "READY_FOR_MANUAL_REVIEW",
@@ -46,44 +46,196 @@
         "recommended_bots",
         "research_pipeline"
       ],
-      "validated_return_pct": 37.3,
+      "validated_return_pct": -44.7,
       "global_regime": "ACCUMULATION"
     },
     {
-      "asset": "XMR",
-      "status": "READY_FOR_REVIEW",
+      "asset": "AEON",
+      "status": "WATCHLIST",
       "reasons": [
-        "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
       ],
       "current_recommendation": null,
-      "research_stage": "READY_FOR_MANUAL_REVIEW",
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
       "history_sources": [
-        "recommended_bots",
         "research_pipeline"
       ],
-      "validated_return_pct": 83.6,
       "global_regime": "ACCUMULATION"
     },
     {
-      "asset": "XRP",
-      "status": "READY_FOR_REVIEW",
+      "asset": "BNB",
+      "status": "WATCHLIST",
       "reasons": [
-        "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
       ],
       "current_recommendation": null,
-      "research_stage": "READY_FOR_MANUAL_REVIEW",
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
       "history_sources": [
-        "recommended_bots",
         "research_pipeline"
       ],
-      "validated_return_pct": 30.6,
       "global_regime": "ACCUMULATION"
     },
     {
       "asset": "BTC",
       "status": "WATCHLIST",
       "reasons": [
-        "Acquire/import comparable historical data and run frozen walk-forward validation."
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "ETH",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "LINK",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "LTC",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "NEAR",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "PIEVERSE",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "SEI",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "SHIB",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "TRUMP",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "UNI",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "WIF",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "XMR",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "current_recommendation": null,
+      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "XRP",
+      "status": "WATCHLIST",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
       ],
       "current_recommendation": null,
       "research_stage": "NEEDS_HISTORICAL_VALIDATION",
@@ -119,11 +271,50 @@
       ],
       "recommendation_confidence_pct": 22.2,
       "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "AVAX",
+      "status": "REJECTED",
+      "reasons": [
+        "Retain as research-only; historical validation failed."
+      ],
+      "current_recommendation": null,
+      "research_stage": "RESEARCH_REJECT",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "DOT",
+      "status": "REJECTED",
+      "reasons": [
+        "Retain as research-only; historical validation failed."
+      ],
+      "current_recommendation": null,
+      "research_stage": "RESEARCH_REJECT",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "SOL",
+      "status": "REJECTED",
+      "reasons": [
+        "Retain as research-only; historical validation failed."
+      ],
+      "current_recommendation": null,
+      "research_stage": "RESEARCH_REJECT",
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "global_regime": "ACCUMULATION"
     }
   ],
   "policy": {
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "efb8832108296d754ce28bd3"
+  "snapshot_id": "3107619a1c41df78c28b422f"
 }
