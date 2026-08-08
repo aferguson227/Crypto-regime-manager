@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T14:00:49.081478+00:00",
+  "generated_at": "2026-08-08T14:09:25.647594+00:00",
   "overall": {
     "state": "WARNING",
     "score_pct": 75.6,
@@ -20,7 +20,7 @@
     "status": "ok",
     "last_attempt_at": "2026-08-08T14:00:46.508097+00:00",
     "last_success_at": "2026-08-08T14:00:46.508097+00:00",
-    "last_success_age_hours": 0.0,
+    "last_success_age_hours": 0.14,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-08T14:00:47.357834+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.14,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-08T14:00:47.682146+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.14,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -51,7 +51,7 @@
         "http_status": null,
         "records": 4,
         "observed_at": "2026-08-08T14:00:47.961380+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.14,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -62,7 +62,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-08T14:00:48.569117+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.14,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -73,7 +73,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-08T14:00:48.569167+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.14,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -84,7 +84,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-08T14:00:48.569172+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.14,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
@@ -106,7 +106,7 @@
         "bot_name": "TEL DCA - Low Volatility",
         "status": "bought",
         "profit_pct": -0.66,
-        "duration_hours": 7.8,
+        "duration_hours": 7.9,
         "completed_safety_orders": 0,
         "max_safety_orders": 6,
         "capital_used": 117.69303624,
@@ -134,8 +134,8 @@
         "age_hours": 9.4,
         "unit": "hours"
       },
-      "first_detected_at": "2026-08-08T14:00:49.083390+00:00",
-      "last_detected_at": "2026-08-08T14:00:49.083395+00:00"
+      "first_detected_at": "2026-08-08T14:09:25.648869+00:00",
+      "last_detected_at": "2026-08-08T14:09:25.648874+00:00"
     }
   ],
   "safeguards": {
