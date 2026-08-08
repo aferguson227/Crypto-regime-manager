@@ -33,3 +33,38 @@
 
 /* V46 universal overflow guard */
 .crm-card,.crm-stat,.crm-alert{min-width:0;overflow-wrap:anywhere}.crm-fit-text,.crm-big{max-width:100%;font-size:clamp(.9rem,2.2vw,2rem);line-height:1.08;word-break:normal}.crm-live-strip .crm-stat{display:inline-flex;vertical-align:top;flex-direction:column;min-width:12rem;max-width:22rem;margin:.25rem .5rem .25rem 0}@media(min-width:1600px){.crm-card{min-width:0}.crm-big{font-size:clamp(1rem,1.7vw,2rem)}}
+
+
+/* V46 dashboard recovery hotfix: card-aware responsive layout */
+.crm-card{container-type:inline-size}
+.crm-stat{
+  display:grid;
+  grid-template-columns:minmax(8rem,1.05fr) minmax(6rem,.8fr);
+  gap:.25rem .8rem;
+  align-items:start;
+}
+.crm-stat>span{min-width:0;overflow-wrap:break-word;word-break:normal}
+.crm-stat>strong{
+  min-width:0;
+  text-align:right;
+  font-size:clamp(1rem,1.5rem,1.8rem);
+  line-height:1.12;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.crm-stat>small{grid-column:1/-1;text-align:left;line-height:1.35}
+.crm-big,.metric-value,.metric strong{font-size:clamp(1.25rem,1.7rem,2rem)}
+.crm-hero-actions{display:flex;align-items:center;justify-content:flex-end;gap:.55rem;flex-wrap:wrap;min-width:max-content}
+.crm-hero-actions .crm-status,.crm-hero-actions .primary-action{margin:0!important}
+.crm-live-strip .crm-stat{display:grid;min-width:min(15rem,100%);max-width:24rem}
+@container (max-width:330px){
+  .crm-stat{grid-template-columns:1fr}
+  .crm-stat>strong{text-align:left}
+}
+@media(min-width:1500px){
+  .crm-page{max-width:1440px}
+  .crm-card{padding:1.1rem}
+}
+@media(max-width:700px){
+  .crm-hero-actions{justify-content:flex-start;min-width:0}
+}
