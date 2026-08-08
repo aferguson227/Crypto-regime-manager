@@ -1,14 +1,14 @@
 {
   "schema_version": "1.1",
   "application_version": "48.0.0",
-  "generated_at": "2026-08-08T12:15:02.856552+00:00",
+  "generated_at": "2026-08-08T12:30:34.398579+00:00",
   "current_global_regime": "ACCUMULATION",
   "current_regime_family": "ACCUMULATION",
   "items": [
     {
       "asset": "XMR",
       "pair": "XMR-USDT",
-      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "status": "REGIME_RESEARCH_COMPLETE",
       "current_global_regime": "ACCUMULATION",
       "current_regime_family": "ACCUMULATION",
       "validated_baseline": {
@@ -18,16 +18,46 @@
         "volume_scale": 1.7,
         "step_scale": 1.0
       },
-      "current_regime_profile": null,
+      "current_regime_profile": {
+        "entry_trigger": "immediate",
+        "settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.3,
+          "step_scale": 1.0
+        },
+        "metrics": {
+          "net_pnl": 1955.76,
+          "mark_to_market_pnl": 1955.76,
+          "open_pnl": 0.0,
+          "closed_deals": 1046,
+          "average_hours": 3.9,
+          "median_hours": 0.0,
+          "p90_hours": 8,
+          "longest_hours": 324,
+          "max_drawdown_dollars": -80.01,
+          "max_capital": 718.7,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 1.11,
+          "return_on_max_capital_pct": 272.12,
+          "max_drawdown_pct": 11.13
+        },
+        "fluidity_score": 291.805,
+        "rejected_for_open_duration": false,
+        "status": "EXPLORATORY_PASS",
+        "trade_fluidity": "CAUTION"
+      },
       "recommended_research_settings": {
-        "take_profit_pct": 2.0,
+        "take_profit_pct": 0.8,
         "so_deviation_pct": 0.8,
-        "safety_orders": 7,
-        "volume_scale": 1.7,
+        "safety_orders": 4,
+        "volume_scale": 1.3,
         "step_scale": 1.0
       },
       "independent_validation_status": "PASS",
-      "deployment_candidate": false,
+      "deployment_candidate": true,
       "manual_approval_required": true,
       "automatic_live_changes": false,
       "kucoin_walk_forward_status": "RESEARCH_PENDING",
@@ -50,7 +80,7 @@
         "score": 94.646,
         "rejected_for_open_duration": false
       },
-      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+      "next_action": "Review current-regime settings and evidence; manual deployment only."
     },
     {
       "asset": "BTC",
@@ -59,7 +89,37 @@
       "current_global_regime": "ACCUMULATION",
       "current_regime_family": "ACCUMULATION",
       "validated_baseline": null,
-      "current_regime_profile": null,
+      "current_regime_profile": {
+        "entry_trigger": "pullback_3pct",
+        "settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.7,
+          "step_scale": 1.15
+        },
+        "metrics": {
+          "net_pnl": 859.74,
+          "mark_to_market_pnl": 859.74,
+          "open_pnl": 0.0,
+          "closed_deals": 483,
+          "average_hours": 6.8,
+          "median_hours": 0,
+          "p90_hours": 16,
+          "longest_hours": 184,
+          "max_drawdown_dollars": -179.54,
+          "max_capital": 1150.3,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 0.84,
+          "return_on_max_capital_pct": 74.74,
+          "max_drawdown_pct": 15.61
+        },
+        "fluidity_score": 71.973,
+        "rejected_for_open_duration": false,
+        "status": "EXPLORATORY_PASS",
+        "trade_fluidity": "CAUTION"
+      },
       "recommended_research_settings": null,
       "independent_validation_status": null,
       "deployment_candidate": false,
@@ -90,7 +150,7 @@
     {
       "asset": "ETH",
       "pair": "ETH-USDT",
-      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "status": "REGIME_RESEARCH_COMPLETE",
       "current_global_regime": "ACCUMULATION",
       "current_regime_family": "ACCUMULATION",
       "validated_baseline": {
@@ -100,16 +160,46 @@
         "volume_scale": 1.7,
         "step_scale": 1.0
       },
-      "current_regime_profile": null,
+      "current_regime_profile": {
+        "entry_trigger": "immediate",
+        "settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.5,
+          "step_scale": 1.0
+        },
+        "metrics": {
+          "net_pnl": 1817.92,
+          "mark_to_market_pnl": 1817.92,
+          "open_pnl": 0.0,
+          "closed_deals": 808,
+          "average_hours": 7.9,
+          "median_hours": 0.0,
+          "p90_hours": 16,
+          "longest_hours": 1824,
+          "max_drawdown_dollars": -144.1,
+          "max_capital": 912.5,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 1.26,
+          "return_on_max_capital_pct": 199.22,
+          "max_drawdown_pct": 15.79
+        },
+        "fluidity_score": 151.892,
+        "rejected_for_open_duration": false,
+        "status": "EXPLORATORY_PASS",
+        "trade_fluidity": "POOR"
+      },
       "recommended_research_settings": {
         "take_profit_pct": 0.8,
         "so_deviation_pct": 0.8,
-        "safety_orders": 7,
-        "volume_scale": 1.7,
+        "safety_orders": 4,
+        "volume_scale": 1.5,
         "step_scale": 1.0
       },
       "independent_validation_status": "PASS",
-      "deployment_candidate": false,
+      "deployment_candidate": true,
       "manual_approval_required": true,
       "automatic_live_changes": false,
       "kucoin_walk_forward_status": "RESEARCH_PENDING",
@@ -132,12 +222,12 @@
         "score": -428.121,
         "rejected_for_open_duration": true
       },
-      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+      "next_action": "Review current-regime settings and evidence; manual deployment only."
     },
     {
       "asset": "XRP",
       "pair": "XRP-USDT",
-      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "status": "REGIME_RESEARCH_COMPLETE",
       "current_global_regime": "ACCUMULATION",
       "current_regime_family": "ACCUMULATION",
       "validated_baseline": {
@@ -147,16 +237,46 @@
         "volume_scale": 1.7,
         "step_scale": 1.0
       },
-      "current_regime_profile": null,
+      "current_regime_profile": {
+        "entry_trigger": "qfl_proxy_3",
+        "settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.3,
+          "step_scale": 1.15
+        },
+        "metrics": {
+          "net_pnl": 585.14,
+          "mark_to_market_pnl": 585.14,
+          "open_pnl": 0.0,
+          "closed_deals": 329,
+          "average_hours": 5.1,
+          "median_hours": 0,
+          "p90_hours": 16,
+          "longest_hours": 60,
+          "max_drawdown_dollars": -14.18,
+          "max_capital": 718.7,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 1.02,
+          "return_on_max_capital_pct": 81.42,
+          "max_drawdown_pct": 1.97
+        },
+        "fluidity_score": 89.101,
+        "rejected_for_open_duration": false,
+        "status": "EXPLORATORY_PASS",
+        "trade_fluidity": "GOOD"
+      },
       "recommended_research_settings": {
-        "take_profit_pct": 1.2,
+        "take_profit_pct": 0.8,
         "so_deviation_pct": 0.8,
-        "safety_orders": 7,
-        "volume_scale": 1.7,
-        "step_scale": 1.0
+        "safety_orders": 4,
+        "volume_scale": 1.3,
+        "step_scale": 1.15
       },
       "independent_validation_status": "PASS",
-      "deployment_candidate": false,
+      "deployment_candidate": true,
       "manual_approval_required": true,
       "automatic_live_changes": false,
       "kucoin_walk_forward_status": "RESEARCH_PENDING",
@@ -179,12 +299,12 @@
         "score": -149.723,
         "rejected_for_open_duration": true
       },
-      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+      "next_action": "Review current-regime settings and evidence; manual deployment only."
     },
     {
       "asset": "NEAR",
       "pair": "NEAR-USDT",
-      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "status": "REGIME_RESEARCH_COMPLETE",
       "current_global_regime": "ACCUMULATION",
       "current_regime_family": "ACCUMULATION",
       "validated_baseline": {
@@ -194,26 +314,56 @@
         "volume_scale": 1.7,
         "step_scale": 1.0
       },
-      "current_regime_profile": null,
+      "current_regime_profile": {
+        "entry_trigger": "pullback_3pct",
+        "settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.3,
+          "step_scale": 1.0
+        },
+        "metrics": {
+          "net_pnl": 737.67,
+          "mark_to_market_pnl": 737.67,
+          "open_pnl": 0.0,
+          "closed_deals": 378,
+          "average_hours": 2.6,
+          "median_hours": 0.0,
+          "p90_hours": 8,
+          "longest_hours": 112,
+          "max_drawdown_dollars": -29.99,
+          "max_capital": 718.7,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 1.16,
+          "return_on_max_capital_pct": 102.64,
+          "max_drawdown_pct": 4.17
+        },
+        "fluidity_score": 109.284,
+        "rejected_for_open_duration": false,
+        "status": "EXPLORATORY_PASS",
+        "trade_fluidity": "GOOD"
+      },
       "recommended_research_settings": {
-        "take_profit_pct": 1.2,
+        "take_profit_pct": 0.8,
         "so_deviation_pct": 0.8,
-        "safety_orders": 7,
-        "volume_scale": 1.7,
+        "safety_orders": 4,
+        "volume_scale": 1.3,
         "step_scale": 1.0
       },
       "independent_validation_status": "PASS",
-      "deployment_candidate": false,
+      "deployment_candidate": true,
       "manual_approval_required": true,
       "automatic_live_changes": false,
       "kucoin_walk_forward_status": "RESEARCH_PENDING",
       "kucoin_validation": {
-        "net_pnl": 4058.16,
-        "mark_to_market_pnl": 4058.16,
+        "net_pnl": 4070.75,
+        "mark_to_market_pnl": 4070.75,
         "open_pnl": 0.0,
-        "closed_deals": 692,
+        "closed_deals": 693,
         "average_hours": 2.3,
-        "median_hours": 0.0,
+        "median_hours": 0,
         "p90_hours": 4,
         "longest_hours": 440,
         "max_drawdown_dollars": -513.16,
@@ -221,12 +371,12 @@
         "open_position": false,
         "open_duration_hours": 0,
         "average_safety_orders": 1.91,
-        "return_on_max_capital_pct": 186.31,
+        "return_on_max_capital_pct": 186.89,
         "max_drawdown_pct": 23.56,
-        "score": 176.991,
+        "score": 177.609,
         "rejected_for_open_duration": false
       },
-      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+      "next_action": "Review current-regime settings and evidence; manual deployment only."
     }
   ],
   "process": [
@@ -243,5 +393,5 @@
   "automatic_backtesting": true,
   "automatic_live_deployment": false,
   "manual_approval_required": true,
-  "snapshot_id": "0e9987be097fe56e83e671c5"
+  "snapshot_id": "84c685b57fcb10033b39ebf0"
 }

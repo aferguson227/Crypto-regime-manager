@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "application_version": "48.0.0",
-  "generated_at": "2026-08-08T12:15:03.831428+00:00",
+  "generated_at": "2026-08-08T12:30:35.376158+00:00",
   "mode": "read_only_active_trade_intelligence",
   "source": "3Commas active deal snapshots",
-  "snapshot_age_minutes": 70.3,
+  "snapshot_age_minutes": 85.8,
   "monitoring_cadence": "snapshot-based; freshness follows the latest successful 3Commas refresh",
   "real_time_streaming": false,
   "active_trade_count": 1,
@@ -16,7 +16,7 @@
       "pair": "USDT_TEL",
       "status": "bought",
       "opened_at": "2026-08-08T06:14:36.618Z",
-      "hold_hours": 6.01,
+      "hold_hours": 6.27,
       "profit_pct": -0.4,
       "profit_quote": -0.39069624,
       "capital_used_quote": 117.69303624,
@@ -49,5 +49,5 @@
     "deal_closure": false,
     "probability_claims_without_evidence": false
   },
-  "snapshot_id": "c532b3b710d9dcdfcbef3a78"
+  "snapshot_id": "a7a9aba632314afc755f2f2d"
 }

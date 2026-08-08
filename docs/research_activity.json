@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "48.0.0",
-  "generated_at": "2026-08-08T12:15:04.094238+00:00",
+  "generated_at": "2026-08-08T12:30:35.584609+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -11,16 +11,37 @@
     "history_progress_pct": 100.0,
     "kucoin_walk_forward_ready": 2,
     "candidates_under_review": 5,
-    "regime_research_complete": 0,
-    "optimisation_pending": 4,
+    "regime_research_complete": 4,
+    "optimisation_pending": 0,
     "rejected": 0,
-    "backtests_last_cycle": 0,
-    "datasets_last_cycle": 0
+    "backtests_last_cycle": 110880,
+    "datasets_last_cycle": 11
   },
-  "entry_trigger_families": [],
-  "trade_duration_policy": {},
-  "last_full_research_at": null,
-  "independent_walk_forward": {},
+  "entry_trigger_families": [
+    "immediate",
+    "pullback_3pct",
+    "rsi_oversold",
+    "trend_pullback",
+    "breakout_20",
+    "qfl_proxy_3",
+    "mean_reversion"
+  ],
+  "trade_duration_policy": {
+    "typical_target_hours": 24,
+    "p90_target_hours": 72,
+    "preferred_longest_closed_hours": 168,
+    "warning_hours": 168,
+    "strong_penalty_hours": 336,
+    "reject_open_duration_hours": 720,
+    "explanation": "Optimise profit and capital fluidity together. Long closed trades are penalised; unresolved positions receive a stronger penalty and may reject a configuration."
+  },
+  "last_full_research_at": "2026-08-08T12:24:24.917062+00:00",
+  "independent_walk_forward": {
+    "status": "NOT_CONFIGURED",
+    "training_dir": "C:\\Crypto\\Research\\Kraken\\training",
+    "validation_dir": "C:\\Crypto\\Research\\Kraken\\validation",
+    "freeze_before_validation": true
+  },
   "data_acquisition": {
     "status": "ACTIVE",
     "mode": "bounded_incremental_acquisition",
@@ -192,9 +213,9 @@
   "items": [
     {
       "asset": "XMR",
-      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "status": "REGIME_RESEARCH_COMPLETE",
       "current_regime": "ACCUMULATION",
-      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+      "next_action": "Review current-regime settings and evidence; manual deployment only."
     },
     {
       "asset": "BTC",
@@ -204,22 +225,22 @@
     },
     {
       "asset": "ETH",
-      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "status": "REGIME_RESEARCH_COMPLETE",
       "current_regime": "ACCUMULATION",
-      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+      "next_action": "Review current-regime settings and evidence; manual deployment only."
     },
     {
       "asset": "XRP",
-      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "status": "REGIME_RESEARCH_COMPLETE",
       "current_regime": "ACCUMULATION",
-      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+      "next_action": "Review current-regime settings and evidence; manual deployment only."
     },
     {
       "asset": "NEAR",
-      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "status": "REGIME_RESEARCH_COMPLETE",
       "current_regime": "ACCUMULATION",
-      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+      "next_action": "Review current-regime settings and evidence; manual deployment only."
     }
   ],
-  "snapshot_id": "cceae12e75987d042bf605fd"
+  "snapshot_id": "4192751ccf14a173d3e32fbe"
 }

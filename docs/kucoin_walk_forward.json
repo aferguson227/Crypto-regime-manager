@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "48.0.0",
-  "generated_at": "2026-08-08T12:15:02.196961+00:00",
+  "generated_at": "2026-08-08T12:30:33.880688+00:00",
   "mode": "kucoin_primary_frozen_walk_forward",
   "data_source": "KuCoin public 4h candles",
   "training_optimisation_only": true,
@@ -1497,17 +1497,17 @@
       "asset": "NEAR",
       "pair": "NEAR-USDT",
       "status": "RESEARCH_PENDING",
-      "bars": 11129,
+      "bars": 11130,
       "period": {
         "start": "2021-07-09T08:00:00Z",
-        "end": "2026-08-08T04:00:00Z"
+        "end": "2026-08-08T08:00:00Z"
       },
       "split": {
-        "training_bars": 6677,
-        "validation_bars": 2225,
-        "forward_bars": 2227,
-        "training_end": "2024-07-26T20:00:00Z",
-        "validation_end": "2025-08-01T20:00:00Z"
+        "training_bars": 6678,
+        "validation_bars": 2226,
+        "forward_bars": 2226,
+        "training_end": "2024-07-27T00:00:00Z",
+        "validation_end": "2025-08-02T04:00:00Z"
       },
       "current_regime_family": "BEAR",
       "current_regime_profile": {
@@ -1522,8 +1522,8 @@
           },
           "training_metrics": {
             "net_pnl": 12202.5,
-            "mark_to_market_pnl": 12205.73,
-            "open_pnl": 3.24,
+            "mark_to_market_pnl": 12202.25,
+            "open_pnl": -0.24,
             "closed_deals": 1779,
             "average_hours": 2.6,
             "median_hours": 0,
@@ -1532,20 +1532,20 @@
             "max_drawdown_dollars": -458.16,
             "max_capital": 2178.12,
             "open_position": true,
-            "open_duration_hours": 0,
+            "open_duration_hours": 4,
             "average_safety_orders": 2.18,
-            "return_on_max_capital_pct": 560.38,
+            "return_on_max_capital_pct": 560.22,
             "max_drawdown_pct": 21.03
           },
-          "score": 577.568
+          "score": 577.088
         },
         "validation_metrics": {
-          "net_pnl": 4058.16,
-          "mark_to_market_pnl": 4058.16,
+          "net_pnl": 4070.75,
+          "mark_to_market_pnl": 4070.75,
           "open_pnl": 0.0,
-          "closed_deals": 692,
+          "closed_deals": 693,
           "average_hours": 2.3,
-          "median_hours": 0.0,
+          "median_hours": 0,
           "p90_hours": 4,
           "longest_hours": 440,
           "max_drawdown_dollars": -513.16,
@@ -1553,14 +1553,14 @@
           "open_position": false,
           "open_duration_hours": 0,
           "average_safety_orders": 1.91,
-          "return_on_max_capital_pct": 186.31,
+          "return_on_max_capital_pct": 186.89,
           "max_drawdown_pct": 23.56,
-          "score": 176.991,
+          "score": 177.609,
           "rejected_for_open_duration": false
         },
         "forward_observation": {
-          "net_pnl": 3498.71,
-          "mark_to_market_pnl": 3498.71,
+          "net_pnl": 3493.02,
+          "mark_to_market_pnl": 3493.02,
           "open_pnl": 0.0,
           "closed_deals": 633,
           "average_hours": 3.1,
@@ -1569,12 +1569,12 @@
           "longest_hours": 248,
           "max_drawdown_dollars": -190.3,
           "max_capital": 2178.12,
-          "open_position": true,
+          "open_position": false,
           "open_duration_hours": 0,
-          "average_safety_orders": 1.8,
-          "return_on_max_capital_pct": 160.63,
+          "average_safety_orders": 1.79,
+          "return_on_max_capital_pct": 160.37,
           "max_drawdown_pct": 8.74,
-          "score": 150.607,
+          "score": 168.345,
           "rejected_for_open_duration": false
         },
         "validation_pass": false
@@ -1768,8 +1768,8 @@
           },
           "forward_observation": {
             "net_pnl": 521.48,
-            "mark_to_market_pnl": 516.47,
-            "open_pnl": -5.01,
+            "mark_to_market_pnl": 521.23,
+            "open_pnl": -0.25,
             "closed_deals": 151,
             "average_hours": 7.3,
             "median_hours": 0,
@@ -1778,11 +1778,11 @@
             "max_drawdown_dollars": -83.69,
             "max_capital": 718.7,
             "open_position": true,
-            "open_duration_hours": 28,
+            "open_duration_hours": 32,
             "average_safety_orders": 1.05,
-            "return_on_max_capital_pct": 71.86,
+            "return_on_max_capital_pct": 72.52,
             "max_drawdown_pct": 11.64,
-            "score": 38.322,
+            "score": 38.664,
             "rejected_for_open_duration": false
           },
           "validation_pass": true
@@ -1799,8 +1799,8 @@
             },
             "training_metrics": {
               "net_pnl": 12202.5,
-              "mark_to_market_pnl": 12205.73,
-              "open_pnl": 3.24,
+              "mark_to_market_pnl": 12202.25,
+              "open_pnl": -0.24,
               "closed_deals": 1779,
               "average_hours": 2.6,
               "median_hours": 0,
@@ -1809,20 +1809,20 @@
               "max_drawdown_dollars": -458.16,
               "max_capital": 2178.12,
               "open_position": true,
-              "open_duration_hours": 0,
+              "open_duration_hours": 4,
               "average_safety_orders": 2.18,
-              "return_on_max_capital_pct": 560.38,
+              "return_on_max_capital_pct": 560.22,
               "max_drawdown_pct": 21.03
             },
-            "score": 577.568
+            "score": 577.088
           },
           "validation_metrics": {
-            "net_pnl": 4058.16,
-            "mark_to_market_pnl": 4058.16,
+            "net_pnl": 4070.75,
+            "mark_to_market_pnl": 4070.75,
             "open_pnl": 0.0,
-            "closed_deals": 692,
+            "closed_deals": 693,
             "average_hours": 2.3,
-            "median_hours": 0.0,
+            "median_hours": 0,
             "p90_hours": 4,
             "longest_hours": 440,
             "max_drawdown_dollars": -513.16,
@@ -1830,14 +1830,14 @@
             "open_position": false,
             "open_duration_hours": 0,
             "average_safety_orders": 1.91,
-            "return_on_max_capital_pct": 186.31,
+            "return_on_max_capital_pct": 186.89,
             "max_drawdown_pct": 23.56,
-            "score": 176.991,
+            "score": 177.609,
             "rejected_for_open_duration": false
           },
           "forward_observation": {
-            "net_pnl": 3498.71,
-            "mark_to_market_pnl": 3498.71,
+            "net_pnl": 3493.02,
+            "mark_to_market_pnl": 3493.02,
             "open_pnl": 0.0,
             "closed_deals": 633,
             "average_hours": 3.1,
@@ -1846,12 +1846,12 @@
             "longest_hours": 248,
             "max_drawdown_dollars": -190.3,
             "max_capital": 2178.12,
-            "open_position": true,
+            "open_position": false,
             "open_duration_hours": 0,
-            "average_safety_orders": 1.8,
-            "return_on_max_capital_pct": 160.63,
+            "average_safety_orders": 1.79,
+            "return_on_max_capital_pct": 160.37,
             "max_drawdown_pct": 8.74,
-            "score": 150.607,
+            "score": 168.345,
             "rejected_for_open_duration": false
           },
           "validation_pass": false
@@ -2975,5 +2975,5 @@
     }
   ],
   "manual_deployment_only": true,
-  "snapshot_id": "c683a1e3be53fad29728ca14"
+  "snapshot_id": "4fa235f159616207281e53d7"
 }
