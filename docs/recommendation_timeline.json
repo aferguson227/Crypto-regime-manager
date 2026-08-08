@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T12:57:42.422394+00:00",
+  "generated_at": "2026-08-08T13:16:36.702589+00:00",
   "events": [
     {
       "event_id": "58f05bae44fe949aef1e2959",
@@ -2773,8 +2773,54 @@
       "status": "READY_FOR_REVIEW",
       "confidence_pct": null,
       "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
+    },
+    {
+      "event_id": "f3a0c0089c067da0890a2178",
+      "recorded_at": "2026-08-08T13:11:46.768405+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ACTIVE_DEAL",
+      "confidence_pct": 91.8,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "f6d6ac193af3839f1c37d14f",
+      "recorded_at": "2026-08-08T13:11:46.768405+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 22.2,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "152d0256e558151fc47cac30",
+      "recorded_at": "2026-08-08T13:16:34.964253+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "DOT",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "b91f53967041281f4db04e35",
+      "recorded_at": "2026-08-08T13:16:34.964253+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "SOL",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
     }
   ],
-  "event_count": 209,
+  "event_count": 213,
   "live_updating": true
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T12:57:42.816645+00:00",
+  "generated_at": "2026-08-08T13:16:37.143870+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,17 +26,17 @@
       }
     },
     {
-      "event_id": "6405e9fb05e129cda265f4c8",
+      "event_id": "d6fe050217790eb51478abd5",
       "kind": "NEW_CANDIDATE",
-      "title": "DOT/USDT ready for manual review",
-      "detail": "Review DOT for a small manual pilot allocation; do not copy historical max-capital mechanically.",
+      "title": "AAVE/USDT ready for manual review",
+      "detail": "Review AAVE for a small manual pilot allocation; do not copy historical max-capital mechanically.",
       "severity": "opportunity",
       "action": "ADD_RECOMMENDED_BOT",
       "payload": {
-        "asset": "DOT",
+        "asset": "AAVE",
         "candidate": {
-          "asset": "DOT",
-          "pair": "DOT-USDT",
+          "asset": "AAVE",
+          "pair": "AAVE-USDT",
           "discovery_rank": null,
           "current_research_score": null,
           "stage": "READY_FOR_MANUAL_REVIEW",
@@ -51,24 +51,24 @@
             "step_scale": 1.0
           },
           "training_metrics": {
-            "net_pnl": 16320.9,
-            "closed_deals": 1059,
-            "average_hours": 10.2,
-            "longest_hours": 2828,
-            "max_drawdown_dollars": -3614.39,
+            "net_pnl": 32426.3,
+            "closed_deals": 1303,
+            "average_hours": 7.4,
+            "longest_hours": 904,
+            "max_drawdown_dollars": -3139.43,
             "max_capital": 5819.12,
             "open_position": true,
-            "score": 14499.3035
+            "score": 30809.419499999996
           },
           "q1_2026_metrics": {
-            "net_pnl": 1579.18,
-            "realised_pnl": 1579.18,
-            "open_pnl": -1140.18,
-            "mark_to_market_pnl": 438.99,
-            "closed_deals": 116,
-            "average_hours": 11.7,
-            "longest_hours": 624,
-            "max_drawdown_dollars": -1450.93,
+            "net_pnl": 834.64,
+            "realised_pnl": 834.64,
+            "open_pnl": -2090.54,
+            "mark_to_market_pnl": -1255.9,
+            "closed_deals": 39,
+            "average_hours": 12.9,
+            "longest_hours": 60,
+            "max_drawdown_dollars": -2330.4,
             "max_capital": 5819.12,
             "open_position": true
           },
@@ -125,29 +125,6 @@
       }
     },
     {
-      "event_id": "ad7bf6070ab3b75817d31c56",
-      "kind": "COIN_STATUS",
-      "title": "DOT is Ready For Review",
-      "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only.",
-      "severity": "opportunity",
-      "action": "REVIEW_COIN",
-      "payload": {
-        "asset": "DOT",
-        "status": "READY_FOR_REVIEW",
-        "reasons": [
-          "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
-        ],
-        "current_recommendation": null,
-        "research_stage": "READY_FOR_MANUAL_REVIEW",
-        "history_sources": [
-          "recommended_bots",
-          "research_pipeline"
-        ],
-        "validated_return_pct": 7.5,
-        "global_regime": "ACCUMULATION"
-      }
-    },
-    {
       "event_id": "6751eff0020b19f747de0ba0",
       "kind": "COIN_STATUS",
       "title": "LINK is Ready For Review",
@@ -167,29 +144,6 @@
           "research_pipeline"
         ],
         "validated_return_pct": null,
-        "global_regime": "ACCUMULATION"
-      }
-    },
-    {
-      "event_id": "bea959af6c2b6b803a471932",
-      "kind": "COIN_STATUS",
-      "title": "SOL is Ready For Review",
-      "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only.",
-      "severity": "opportunity",
-      "action": "REVIEW_COIN",
-      "payload": {
-        "asset": "SOL",
-        "status": "READY_FOR_REVIEW",
-        "reasons": [
-          "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
-        ],
-        "current_recommendation": null,
-        "research_stage": "READY_FOR_MANUAL_REVIEW",
-        "history_sources": [
-          "recommended_bots",
-          "research_pipeline"
-        ],
-        "validated_return_pct": -24.6,
         "global_regime": "ACCUMULATION"
       }
     },
@@ -217,28 +171,28 @@
       }
     },
     {
-      "event_id": "3612c32ce384472b1465384a",
+      "event_id": "db0863d118c577c86c860fbd",
       "kind": "SYSTEM_ISSUE",
       "title": "Application publication needs attention",
-      "detail": "Last successful publication was 8.33 hours ago.",
+      "detail": "Last successful publication was 8.59 hours ago.",
       "severity": "warning",
       "action": "REVIEW_SYSTEM",
       "payload": {
         "severity": "warning",
         "system": "Application",
         "title": "Application publication needs attention",
-        "detail": "Last successful publication was 8.33 hours ago.",
+        "detail": "Last successful publication was 8.59 hours ago.",
         "recommended_action": "Automatic refresh and publication are enabled; inspect the collector only if this persists.",
         "metric": {
-          "age_hours": 8.33,
+          "age_hours": 8.59,
           "unit": "hours"
         },
-        "first_detected_at": "2026-08-08T12:56:46.058835+00:00",
-        "last_detected_at": "2026-08-08T12:56:46.058843+00:00"
+        "first_detected_at": "2026-08-08T13:11:47.209903+00:00",
+        "last_detected_at": "2026-08-08T13:11:47.209914+00:00"
       }
     }
   ],
-  "material_count": 9,
+  "material_count": 7,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -247,5 +201,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "cc87fdab30a1fc9fbddfc79c"
+  "snapshot_id": "e1169e2fd06c4718d3679857"
 }

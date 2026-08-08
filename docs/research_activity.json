@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T12:57:42.665794+00:00",
+  "generated_at": "2026-08-08T13:16:36.975552+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -9,7 +9,7 @@
     "historical_symbols": 16,
     "historical_ready": 15,
     "history_progress_pct": 93.8,
-    "kucoin_walk_forward_ready": 5,
+    "kucoin_walk_forward_ready": 3,
     "candidates_under_review": 20,
     "regime_research_complete": 0,
     "optimisation_pending": 0,
@@ -140,10 +140,10 @@
         "symbol": "DOT-USDT",
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\DOT-USDT_4H.csv",
-        "bars": 7495,
+        "bars": 10493,
         "new_bars": 2998,
         "pages_requested": 3,
-        "earliest": "2023-03-07T16:00:00+00:00",
+        "earliest": "2021-10-23T16:00:00+00:00",
         "latest": "2026-08-08T08:00:00+00:00",
         "backfill_complete": true,
         "errors": [],
@@ -153,10 +153,10 @@
         "symbol": "SOL-USDT",
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\SOL-USDT_4H.csv",
-        "bars": 7495,
+        "bars": 10493,
         "new_bars": 2998,
         "pages_requested": 3,
-        "earliest": "2023-03-07T16:00:00+00:00",
+        "earliest": "2021-10-23T16:00:00+00:00",
         "latest": "2026-08-08T08:00:00+00:00",
         "backfill_complete": true,
         "errors": [],
@@ -179,10 +179,10 @@
         "symbol": "LINK-USDT",
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\LINK-USDT_4H.csv",
-        "bars": 7495,
+        "bars": 10493,
         "new_bars": 2998,
         "pages_requested": 3,
-        "earliest": "2023-03-07T16:00:00+00:00",
+        "earliest": "2021-10-23T16:00:00+00:00",
         "latest": "2026-08-08T08:00:00+00:00",
         "backfill_complete": true,
         "errors": [],
@@ -231,10 +231,10 @@
         "symbol": "NEAR-BTC",
         "quote": "BTC",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-BTC_4H.csv",
-        "bars": 4497,
-        "new_bars": 4497,
+        "bars": 7495,
+        "new_bars": 2998,
         "pages_requested": 3,
-        "earliest": "2024-07-19T16:00:00+00:00",
+        "earliest": "2023-03-07T16:00:00+00:00",
         "latest": "2026-08-08T08:00:00+00:00",
         "backfill_complete": true,
         "errors": [],
@@ -244,7 +244,7 @@
   },
   "kucoin_walk_forward": {
     "assets": 12,
-    "ready_for_manual_review": 5,
+    "ready_for_manual_review": 3,
     "backtests_run": 110880
   },
   "process": [
@@ -311,15 +311,15 @@
     },
     {
       "asset": "DOT",
-      "status": "KUCOIN_WALK_FORWARD_COMPLETE",
+      "status": "WAIT",
       "current_regime": "ACCUMULATION",
-      "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
+      "next_action": "Remain in research queue."
     },
     {
       "asset": "SOL",
-      "status": "KUCOIN_WALK_FORWARD_COMPLETE",
+      "status": "WAIT",
       "current_regime": "ACCUMULATION",
-      "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
+      "next_action": "Remain in research queue."
     },
     {
       "asset": "PIEVERSE",
@@ -382,5 +382,5 @@
       "next_action": "Remain in research queue."
     }
   ],
-  "snapshot_id": "c8eda62e0aaed29411c85211"
+  "snapshot_id": "e24ff062427a53a688c8c9a9"
 }
