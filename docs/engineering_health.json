@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T17:59:59.585185+00:00",
+  "generated_at": "2026-08-08T19:55:31.127713+00:00",
   "overall": {
     "state": "HEALTHY",
     "score_pct": 94.7
@@ -20,20 +20,20 @@
       "source": "operational",
       "fingerprint": "Application publication needs attention",
       "title": "Application publication needs attention",
-      "severity": "warning",
+      "severity": "critical",
       "occurrences": 1,
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-08T12:39:01.904026+00:00",
-      "last_detected_at": "2026-08-08T14:09:26.054238+00:00",
+      "last_detected_at": "2026-08-08T19:46:53.365806+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 2,
-      "user_benefit": 4,
-      "frequency": 2,
+      "historical_occurrences": 3,
+      "user_benefit": 5,
+      "frequency": 3,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 10.0
+      "roi_score": 18.8
     }
   ],
   "highest_value_improvements": [
@@ -42,20 +42,20 @@
       "source": "operational",
       "fingerprint": "Application publication needs attention",
       "title": "Application publication needs attention",
-      "severity": "warning",
+      "severity": "critical",
       "occurrences": 1,
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-08T12:39:01.904026+00:00",
-      "last_detected_at": "2026-08-08T14:09:26.054238+00:00",
+      "last_detected_at": "2026-08-08T19:46:53.365806+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 2,
-      "user_benefit": 4,
-      "frequency": 2,
+      "historical_occurrences": 3,
+      "user_benefit": 5,
+      "frequency": 3,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 10.0
+      "roi_score": 18.8
     }
   ],
   "recently_closed": [],
@@ -69,14 +69,16 @@
     "evidence_coverage_pct": 20.0
   },
   "release_predictor": {
-    "readiness_pct": 94.7,
-    "ready": true,
-    "recommendation": "READY",
+    "readiness_pct": 79.7,
+    "ready": false,
+    "recommendation": "HOLD",
     "regression_risk": "LOW",
     "expected_build_seconds": null,
     "expected_deployment_seconds": 26.0,
     "actions_success_rate_pct": 94.9,
-    "blockers": []
+    "blockers": [
+      "Application publication needs attention"
+    ]
   },
   "guardrails": {
     "no_trading_changes": true,
