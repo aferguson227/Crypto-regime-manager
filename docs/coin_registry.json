@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T12:39:05.465440+00:00",
+  "generated_at": "2026-08-08T12:57:42.264652+00:00",
   "coin_count": 23,
   "coins": [
     {
@@ -32,6 +32,51 @@
         "research_pipeline"
       ],
       "validated_return_pct": -21.6,
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "DOT",
+      "status": "READY_FOR_REVIEW",
+      "reasons": [
+        "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
+      ],
+      "current_recommendation": null,
+      "research_stage": "READY_FOR_MANUAL_REVIEW",
+      "history_sources": [
+        "recommended_bots",
+        "research_pipeline"
+      ],
+      "validated_return_pct": 7.5,
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "LINK",
+      "status": "READY_FOR_REVIEW",
+      "reasons": [
+        "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
+      ],
+      "current_recommendation": null,
+      "research_stage": "READY_FOR_MANUAL_REVIEW",
+      "history_sources": [
+        "recommended_bots",
+        "research_pipeline"
+      ],
+      "validated_return_pct": null,
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "SOL",
+      "status": "READY_FOR_REVIEW",
+      "reasons": [
+        "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
+      ],
+      "current_recommendation": null,
+      "research_stage": "READY_FOR_MANUAL_REVIEW",
+      "history_sources": [
+        "recommended_bots",
+        "research_pipeline"
+      ],
+      "validated_return_pct": -24.6,
       "global_regime": "ACCUMULATION"
     },
     {
@@ -90,19 +135,6 @@
     },
     {
       "asset": "ETH",
-      "status": "WATCHLIST",
-      "reasons": [
-        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-      ],
-      "current_recommendation": null,
-      "research_stage": "NEEDS_HISTORICAL_VALIDATION",
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "global_regime": "ACCUMULATION"
-    },
-    {
-      "asset": "LINK",
       "status": "WATCHLIST",
       "reasons": [
         "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
@@ -284,37 +316,11 @@
         "research_pipeline"
       ],
       "global_regime": "ACCUMULATION"
-    },
-    {
-      "asset": "DOT",
-      "status": "REJECTED",
-      "reasons": [
-        "Retain as research-only; historical validation failed."
-      ],
-      "current_recommendation": null,
-      "research_stage": "RESEARCH_REJECT",
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "global_regime": "ACCUMULATION"
-    },
-    {
-      "asset": "SOL",
-      "status": "REJECTED",
-      "reasons": [
-        "Retain as research-only; historical validation failed."
-      ],
-      "current_recommendation": null,
-      "research_stage": "RESEARCH_REJECT",
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "global_regime": "ACCUMULATION"
     }
   ],
   "policy": {
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "3107619a1c41df78c28b422f"
+  "snapshot_id": "f544045a8157219aeb9d7966"
 }
