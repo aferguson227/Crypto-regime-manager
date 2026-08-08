@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T21:57:51.389140+00:00",
+  "generated_at": "2026-08-08T22:16:57.400985+00:00",
   "mode": "governed_read_only_research_promotion",
   "automatic_backtest_execution": false,
   "automatic_production_promotion": false,
@@ -535,17 +535,23 @@
       "current_research_score": null,
       "stage": "NEEDS_HISTORICAL_VALIDATION",
       "walk_forward_status": null,
-      "kucoin_walk_forward_status": null,
+      "kucoin_walk_forward_status": "RESEARCH_PENDING",
       "kucoin_primary_validation_pass": false,
-      "frozen_settings": null,
+      "frozen_settings": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.3,
+        "step_scale": 1.0
+      },
       "training_metrics": null,
       "q1_2026_metrics": null,
       "gates": {
         "current_kucoin_screen": "PASS",
-        "kucoin_history": "BUILDING",
+        "kucoin_history": "PASS",
         "kucoin_walk_forward": "PENDING",
         "kraken_robustness": "OPTIONAL",
-        "drawdown_review": "PENDING",
+        "drawdown_review": "REVIEW",
         "manual_approval": "REQUIRED"
       },
       "production_eligible": false,
@@ -560,23 +566,17 @@
       "current_research_score": null,
       "stage": "NEEDS_HISTORICAL_VALIDATION",
       "walk_forward_status": null,
-      "kucoin_walk_forward_status": "RESEARCH_PENDING",
+      "kucoin_walk_forward_status": null,
       "kucoin_primary_validation_pass": false,
-      "frozen_settings": {
-        "take_profit_pct": 0.8,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.5,
-        "step_scale": 1.15
-      },
+      "frozen_settings": null,
       "training_metrics": null,
       "q1_2026_metrics": null,
       "gates": {
         "current_kucoin_screen": "PASS",
-        "kucoin_history": "PASS",
+        "kucoin_history": "BUILDING",
         "kucoin_walk_forward": "PENDING",
         "kraken_robustness": "OPTIONAL",
-        "drawdown_review": "REVIEW",
+        "drawdown_review": "PENDING",
         "manual_approval": "REQUIRED"
       },
       "production_eligible": false,
@@ -797,5 +797,5 @@
     "no_data_no_claim": true,
     "no_automatic_bot_changes": true
   },
-  "snapshot_id": "af957769921e40ab8d6ba16b"
+  "snapshot_id": "838b00fde201bae14041267a"
 }

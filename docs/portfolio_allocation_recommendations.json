@@ -1,24 +1,24 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T21:28:55.295964+00:00",
+  "generated_at": "2026-08-08T22:16:57.736968+00:00",
   "deployable_capital_usdt": 416.4831626499995,
   "usable_after_cash_buffer_usdt": 354.01,
   "recommendations": [
-    {
-      "asset": "AAVE",
-      "pair": "AAVE-USDT",
-      "recommended_allocation_usdt": 100.0,
-      "reason": "18% pilot share of deployable capital after 15% cash buffer.",
-      "confidence_pct": 73.1,
-      "manual_approval_required": true
-    },
     {
       "asset": "ZEC",
       "pair": "ZEC-USDT",
       "recommended_allocation_usdt": 100.0,
       "reason": "18% pilot share of deployable capital after 15% cash buffer.",
-      "confidence_pct": 72.8,
+      "confidence_pct": null,
+      "manual_approval_required": true
+    },
+    {
+      "asset": "AAVE",
+      "pair": "AAVE-USDT",
+      "recommended_allocation_usdt": 100.0,
+      "reason": "18% pilot share of deployable capital after 15% cash buffer.",
+      "confidence_pct": null,
       "manual_approval_required": true
     }
   ],
