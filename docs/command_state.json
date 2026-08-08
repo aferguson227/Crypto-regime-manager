@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "47.0.0",
-  "generated_at": "2026-08-08T09:23:16.994447+00:00",
-  "snapshot_id": "4d95ad73d25830e44a0f6ed3",
+  "generated_at": "2026-08-08T11:04:50.585001+00:00",
+  "snapshot_id": "a738d6f75111d46274a85ccf",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -131,7 +131,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "da270b98d3412bbba8245be7",
+      "recommendation_id": "5c9b6961f5b23fbbdde6ca5c",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
@@ -293,7 +293,7 @@
       }
     },
     {
-      "recommendation_id": "4ec50b4853f6294f44c9a932",
+      "recommendation_id": "ffde7d2902bbd0c03fd8e2c1",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -532,10 +532,10 @@
     }
   },
   "cloud": {
-    "overall_status": "HEALTHY",
+    "overall_status": "WARNING",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-08T09:23:13.497506+00:00",
+      "generated_at": "2026-08-08T11:04:46.188658+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -545,22 +545,23 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "HEALTHY"
+    "cloud_status": "WARNING"
   },
   "source_snapshots": {
     "market": "31019e1015d7330a09da",
-    "portfolio": "2c1c84ee299f20b8aa3c",
-    "capital": "2b079fd1ad6f0b8b6f0c",
-    "deployment": "b0097310d43b56a10640",
-    "recommendations": "9587b83658f91e72a6e0",
+    "portfolio": "57575e3aa82bc08ae731",
+    "capital": "7d2b60c5171487965b62",
+    "deployment": "8a491c18fb5cdca8ebcb",
+    "recommendations": "c70e69293a8c713d1dd0",
     "adaptive": "b29b1d5a685ae5e0f982",
     "outcomes": "2026-08-08T08:29:45.016165+00:00",
-    "cloud": "dc5034d749897437c5ac",
-    "operating": "c51c799a6844a49f1442"
+    "cloud": "9903626d61c4f8c34546",
+    "operating": "0c774202c1de63cee112"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
-    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
+    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
+    "One or more cloud data sources require attention."
   ]
 }
