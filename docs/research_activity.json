@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "48.0.0",
-  "generated_at": "2026-08-08T11:57:19.650329+00:00",
+  "generated_at": "2026-08-08T12:00:14.693510+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -11,37 +11,16 @@
     "history_progress_pct": 100.0,
     "kucoin_walk_forward_ready": 4,
     "candidates_under_review": 5,
-    "regime_research_complete": 2,
-    "optimisation_pending": 0,
+    "regime_research_complete": 0,
+    "optimisation_pending": 2,
     "rejected": 0,
-    "backtests_last_cycle": 110880,
-    "datasets_last_cycle": 11
+    "backtests_last_cycle": 0,
+    "datasets_last_cycle": 0
   },
-  "entry_trigger_families": [
-    "immediate",
-    "pullback_3pct",
-    "rsi_oversold",
-    "trend_pullback",
-    "breakout_20",
-    "qfl_proxy_3",
-    "mean_reversion"
-  ],
-  "trade_duration_policy": {
-    "typical_target_hours": 24,
-    "p90_target_hours": 72,
-    "preferred_longest_closed_hours": 168,
-    "warning_hours": 168,
-    "strong_penalty_hours": 336,
-    "reject_open_duration_hours": 720,
-    "explanation": "Optimise profit and capital fluidity together. Long closed trades are penalised; unresolved positions receive a stronger penalty and may reject a configuration."
-  },
-  "last_full_research_at": "2026-08-08T11:54:12.244147+00:00",
-  "independent_walk_forward": {
-    "status": "NOT_CONFIGURED",
-    "training_dir": "C:\\Crypto\\Research\\Kraken\\training",
-    "validation_dir": "C:\\Crypto\\Research\\Kraken\\validation",
-    "freeze_before_validation": true
-  },
+  "entry_trigger_families": [],
+  "trade_duration_policy": {},
+  "last_full_research_at": null,
+  "independent_walk_forward": {},
   "data_acquisition": {
     "status": "ACTIVE",
     "mode": "bounded_incremental_acquisition",
@@ -52,18 +31,31 @@
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-USDT_4H.csv",
         "bars": 11771,
-        "new_bars": 1278,
-        "pages_requested": 3,
+        "new_bars": 0,
+        "pages_requested": 0,
         "earliest": "2021-03-24T08:00:00+00:00",
         "latest": "2026-08-08T04:00:00+00:00",
-        "backfill_complete": true,
+        "backfill_complete": false,
         "errors": [],
-        "status": "OK"
+        "status": "CACHED"
       },
       {
         "symbol": "BTC-USDT",
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\BTC-USDT_4H.csv",
+        "bars": 13491,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": "2020-06-10T12:00:00+00:00",
+        "latest": "2026-08-08T04:00:00+00:00",
+        "backfill_complete": false,
+        "errors": [],
+        "status": "CACHED"
+      },
+      {
+        "symbol": "ETH-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ETH-USDT_4H.csv",
         "bars": 13491,
         "new_bars": 2998,
         "pages_requested": 3,
@@ -74,69 +66,56 @@
         "status": "OK"
       },
       {
-        "symbol": "ETH-USDT",
-        "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ETH-USDT_4H.csv",
-        "bars": 10493,
-        "new_bars": 0,
-        "pages_requested": 0,
-        "earliest": "2021-10-23T12:00:00+00:00",
-        "latest": "2026-08-08T04:00:00+00:00",
-        "backfill_complete": false,
-        "errors": [],
-        "status": "CACHED"
-      },
-      {
         "symbol": "XRP-USDT",
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XRP-USDT_4H.csv",
-        "bars": 10493,
-        "new_bars": 0,
-        "pages_requested": 0,
-        "earliest": "2021-10-23T12:00:00+00:00",
+        "bars": 13491,
+        "new_bars": 2998,
+        "pages_requested": 3,
+        "earliest": "2020-06-10T12:00:00+00:00",
         "latest": "2026-08-08T04:00:00+00:00",
-        "backfill_complete": false,
+        "backfill_complete": true,
         "errors": [],
-        "status": "CACHED"
+        "status": "OK"
       },
       {
         "symbol": "NEAR-USDT",
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
-        "bars": 10493,
-        "new_bars": 0,
-        "pages_requested": 0,
-        "earliest": "2021-10-23T12:00:00+00:00",
+        "bars": 11129,
+        "new_bars": 636,
+        "pages_requested": 3,
+        "earliest": "2021-07-09T08:00:00+00:00",
         "latest": "2026-08-08T04:00:00+00:00",
-        "backfill_complete": false,
+        "backfill_complete": true,
         "errors": [],
-        "status": "CACHED"
+        "status": "OK"
       },
       {
         "symbol": "ZEC-USDT",
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ZEC-USDT_4H.csv",
-        "bars": 10493,
-        "new_bars": 0,
-        "pages_requested": 0,
-        "earliest": "2021-10-23T12:00:00+00:00",
+        "bars": 13491,
+        "new_bars": 2998,
+        "pages_requested": 3,
+        "earliest": "2020-06-10T12:00:00+00:00",
         "latest": "2026-08-08T04:00:00+00:00",
-        "backfill_complete": false,
+        "backfill_complete": true,
         "errors": [],
-        "status": "CACHED"
+        "status": "OK"
       },
       {
         "symbol": "UNI-USDT",
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\UNI-USDT_4H.csv",
-        "bars": 10493,
-        "new_bars": 0,
-        "pages_requested": 0,
-        "earliest": "2021-10-23T12:00:00+00:00",
+        "bars": 12898,
+        "new_bars": 2405,
+        "pages_requested": 3,
+        "earliest": "2020-09-17T08:00:00+00:00",
         "latest": "2026-08-08T04:00:00+00:00",
-        "backfill_complete": false,
+        "backfill_complete": true,
         "errors": [],
-        "status": "CACHED"
+        "status": "OK"
       },
       {
         "symbol": "AAVE-USDT",
@@ -156,39 +135,39 @@
         "quote": "BTC",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-BTC_4H.csv",
         "bars": 10493,
-        "new_bars": 2998,
-        "pages_requested": 3,
+        "new_bars": 0,
+        "pages_requested": 0,
         "earliest": "2021-10-23T12:00:00+00:00",
         "latest": "2026-08-08T04:00:00+00:00",
-        "backfill_complete": true,
+        "backfill_complete": false,
         "errors": [],
-        "status": "OK"
+        "status": "CACHED"
       },
       {
         "symbol": "ETH-BTC",
         "quote": "BTC",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ETH-BTC_4H.csv",
         "bars": 10493,
-        "new_bars": 2998,
-        "pages_requested": 3,
+        "new_bars": 0,
+        "pages_requested": 0,
         "earliest": "2021-10-23T12:00:00+00:00",
         "latest": "2026-08-08T04:00:00+00:00",
-        "backfill_complete": true,
+        "backfill_complete": false,
         "errors": [],
-        "status": "OK"
+        "status": "CACHED"
       },
       {
         "symbol": "XRP-BTC",
         "quote": "BTC",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XRP-BTC_4H.csv",
         "bars": 10493,
-        "new_bars": 2998,
-        "pages_requested": 3,
+        "new_bars": 0,
+        "pages_requested": 0,
         "earliest": "2021-10-23T12:00:00+00:00",
         "latest": "2026-08-08T04:00:00+00:00",
-        "backfill_complete": true,
+        "backfill_complete": false,
         "errors": [],
-        "status": "OK"
+        "status": "CACHED"
       }
     ]
   },
@@ -213,9 +192,9 @@
   "items": [
     {
       "asset": "XMR",
-      "status": "REGIME_RESEARCH_COMPLETE",
+      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
       "current_regime": "ACCUMULATION",
-      "next_action": "Review current-regime settings and evidence; manual deployment only."
+      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
     },
     {
       "asset": "BTC",
@@ -237,10 +216,10 @@
     },
     {
       "asset": "NEAR",
-      "status": "REGIME_RESEARCH_COMPLETE",
+      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
       "current_regime": "ACCUMULATION",
-      "next_action": "Review current-regime settings and evidence; manual deployment only."
+      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
     }
   ],
-  "snapshot_id": "68390546b88bec6918539c6b"
+  "snapshot_id": "0d721a66ee21f60eb01e7c4c"
 }

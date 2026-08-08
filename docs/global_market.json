@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
   "application_version": "48.0.0",
-  "generated_at": "2026-08-08T08:29:47.286848+00:00",
+  "generated_at": "2026-08-08T11:58:22.662736+00:00",
   "regime": "ACCUMULATION",
   "score_pct": 59.1,
   "explanation": "Accumulation because the weighted current-market score is 59.1%.",
@@ -54,11 +54,11 @@
   },
   "breadth_explanation": "3 of 5 tracked candidates have positive medium-term trend.",
   "historical_btc_evidence": {
-    "status": "BUILDING",
+    "status": "KUCOIN_HISTORY_AVAILABLE",
     "registry_symbol": null,
     "walk_forward_status": null,
-    "kucoin_bars": null,
-    "kucoin_period_start": null,
+    "kucoin_bars": 13491,
+    "kucoin_period_start": "2020-06-10T12:00:00+00:00",
     "xbt_normalised_to_btc": true,
     "note": "CRM normalises XBT/XXBT to BTC. If Kraken validation is absent, KuCoin BTC-USDT history becomes the primary exchange-specific historical regime source while Kraken remains optional robustness evidence."
   },
