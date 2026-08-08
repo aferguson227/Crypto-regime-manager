@@ -1,26 +1,26 @@
 {
   "schema_version": "1.0",
   "application_version": "44.0.0",
-  "generated_at": "2026-08-08T04:32:25.121657+00:00",
+  "generated_at": "2026-08-08T04:36:41.791913+00:00",
   "overall": {
-    "state": "WARNING",
-    "score_pct": 82.0,
-    "active_issue_count": 1,
+    "state": "HEALTHY",
+    "score_pct": 86.0,
+    "active_issue_count": 0,
     "critical_count": 0,
-    "warning_count": 1
+    "warning_count": 0
   },
   "scores": {
     "system": 100,
-    "data": 80.2,
+    "data": 100,
     "trading": 70.0,
     "deployment": 100,
     "decision_readiness": 60.0
   },
   "threecommas": {
     "status": "ok",
-    "last_attempt_at": "2026-08-08T00:03:39.187980+00:00",
-    "last_success_at": "2026-08-08T00:03:39.187980+00:00",
-    "last_success_age_hours": 4.48,
+    "last_attempt_at": "2026-08-08T04:36:33.943952+00:00",
+    "last_success_at": "2026-08-08T04:36:33.943952+00:00",
+    "last_success_age_hours": 0.0,
     "endpoints": [
       {
         "name": "validate",
@@ -28,8 +28,8 @@
         "category": "ok",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-08T00:03:39.688652+00:00",
-        "age_hours": 4.48,
+        "observed_at": "2026-08-08T04:36:34.799220+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -39,8 +39,8 @@
         "category": "ok",
         "http_status": null,
         "records": 1,
-        "observed_at": "2026-08-08T00:03:39.947510+00:00",
-        "age_hours": 4.48,
+        "observed_at": "2026-08-08T04:36:35.418798+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -50,8 +50,8 @@
         "category": "ok",
         "http_status": null,
         "records": 4,
-        "observed_at": "2026-08-08T00:03:40.160894+00:00",
-        "age_hours": 4.48,
+        "observed_at": "2026-08-08T04:36:35.722633+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -61,8 +61,8 @@
         "category": "ok",
         "http_status": null,
         "records": 1,
-        "observed_at": "2026-08-08T00:03:40.373748+00:00",
-        "age_hours": 4.48,
+        "observed_at": "2026-08-08T04:36:36.391281+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -72,8 +72,8 @@
         "category": "not_requested_quota_guard",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-08T00:03:40.373798+00:00",
-        "age_hours": 4.48,
+        "observed_at": "2026-08-08T04:36:36.391325+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -83,8 +83,8 @@
         "category": "not_requested_direct_capital",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-08T00:03:40.373805+00:00",
-        "age_hours": 4.48,
+        "observed_at": "2026-08-08T04:36:36.391329+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
@@ -95,7 +95,7 @@
   },
   "application": {
     "cloud_state": "healthy",
-    "last_success_at": "2026-08-08T00:03:45.123268+00:00",
+    "last_success_at": "2026-08-08T04:36:40.869916+00:00",
     "last_success_age_hours": 0.0,
     "diagnostics_score_pct": 100
   },
@@ -105,8 +105,8 @@
         "asset": "TEL",
         "bot_name": "TEL DCA - Low Volatility",
         "status": "bought",
-        "profit_pct": 0.18,
-        "duration_hours": 7.9,
+        "profit_pct": 0.38,
+        "duration_hours": 8.0,
         "completed_safety_orders": 1,
         "max_safety_orders": 6,
         "capital_used": 137.434732824,
@@ -123,21 +123,7 @@
   },
   "capital_source": "KuCoin direct read-only account API",
   "kucoin_direct_status": "ok",
-  "issues": [
-    {
-      "severity": "warning",
-      "system": "3Commas",
-      "title": "3Commas refresh needs attention",
-      "detail": "Last successful sync was 4.48 hours ago. Expected cadence is about 60 minutes.",
-      "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
-      "metric": {
-        "age_hours": 4.48,
-        "expected_cadence_hours": 1
-      },
-      "first_detected_at": "2026-08-08T04:32:25.123140+00:00",
-      "last_detected_at": "2026-08-08T04:32:25.123146+00:00"
-    }
-  ],
+  "issues": [],
   "safeguards": {
     "read_only": true,
     "manual_approval_required": true

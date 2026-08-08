@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "44.0.0",
-  "generated_at": "2026-08-08T00:03:45.886217+00:00",
-  "snapshot_id": "047c44d8baeb2f40848c",
+  "generated_at": "2026-08-08T04:36:41.659168+00:00",
+  "snapshot_id": "b4767ed3c691aa42b293",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,23 +10,23 @@
   "market_regime": "Low",
   "recommendations": [
     {
-      "recommendation_id": "74fa450453d931ba8ffb40af",
+      "recommendation_id": "867bcc355acd47b7a718c1b1",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
-      "overall_confidence": 91.6,
+      "overall_confidence": 91.8,
       "risk_level": "MODERATE",
       "confidence_components": [
         {
           "name": "regime",
-          "score": 82.9,
+          "score": 83.4,
           "weight": 0.25,
           "status": "pass",
           "explanation": "Current regime and entry permission support this action."
         },
         {
           "name": "historical",
-          "score": 90.9,
+          "score": 91.4,
           "weight": 0.2,
           "status": "pass",
           "explanation": "Historical/replay decision score from the governed production ranking."
@@ -62,11 +62,11 @@
       ],
       "score_breakdown": {
         "entry_permission": 24.0,
-        "opportunity": 11.4,
+        "opportunity": 12.0,
         "health": 2.16,
         "recent_profit": 10.958,
         "drawdown": -4.395,
-        "duration": -6.251,
+        "duration": -6.309,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -77,7 +77,7 @@
       "risks": [
         "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 30.5 days"
+        "Open replay position has lasted 30.7 days"
       ],
       "blockers": [],
       "expected_behaviour": {
@@ -220,10 +220,10 @@
         "kucoin_current": "AVAILABLE",
         "agreement": "UNKNOWN"
       },
-      "explanation": "Keep active deal TEL Low Volatility Bot. Confidence 91.6%; risk moderate. Current entry filters pass"
+      "explanation": "Keep active deal TEL Low Volatility Bot. Confidence 91.8%; risk moderate. Current entry filters pass"
     },
     {
-      "recommendation_id": "c88c861b2cd694003085ecc2",
+      "recommendation_id": "47dece654d14edd2cb872aed",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -451,8 +451,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "a6e56cce5d4a6e5e2cf2",
-    "deployment_generated_at": "2026-08-08T00:03:45.832663+00:00",
-    "decision_generated_at": "2026-08-08T00:03:45.007593+00:00"
+    "deployment_snapshot": "ebfedb681bb13bfcf951",
+    "deployment_generated_at": "2026-08-08T04:36:41.607937+00:00",
+    "decision_generated_at": "2026-08-08T04:36:40.777074+00:00"
   }
 }

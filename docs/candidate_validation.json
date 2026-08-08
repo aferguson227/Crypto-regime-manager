@@ -1,6 +1,6 @@
 {
   "version": "27.0.0",
-  "generated_at": "2026-08-08T00:03:45.002127+00:00",
+  "generated_at": "2026-08-08T04:36:40.772204+00:00",
   "mode": "advisory_only_immutable_queue",
   "automatic_live_changes": false,
   "automatic_dca_changes": false,
@@ -9,14 +9,14 @@
     {
       "symbol": "XMR-USDT",
       "discovery_rank": 1,
-      "research_score": 82.0,
+      "research_score": 82.1,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
       "walk_forward_required": true,
       "proposed_dca": {
         "take_profit_pct": 0.8,
-        "safety_order_deviation_pct": 1.0,
+        "safety_order_deviation_pct": 0.9,
         "safety_orders": 6,
         "volume_scale": 1.5,
         "step_scale": 1.1
@@ -33,7 +33,7 @@
     {
       "symbol": "BTC-USDT",
       "discovery_rank": 2,
-      "research_score": 77.3,
+      "research_score": 77.4,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -81,7 +81,7 @@
     {
       "symbol": "XRP-USDT",
       "discovery_rank": 4,
-      "research_score": 75.5,
+      "research_score": 75.9,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -103,16 +103,16 @@
       "next_action": "Run full fee-aware replay before any forward test or production consideration."
     },
     {
-      "symbol": "ZEC-USDT",
+      "symbol": "NEAR-USDT",
       "discovery_rank": 5,
-      "research_score": 72.4,
+      "research_score": 69.9,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
       "walk_forward_required": true,
       "proposed_dca": {
-        "take_profit_pct": 0.9,
-        "safety_order_deviation_pct": 1.1,
+        "take_profit_pct": 0.8,
+        "safety_order_deviation_pct": 1.0,
         "safety_orders": 7,
         "volume_scale": 1.5,
         "step_scale": 1.1
