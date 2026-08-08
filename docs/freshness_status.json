@@ -1,15 +1,15 @@
 {
   "schema_version": "1.1",
   "application_version": "45.0.0",
-  "generated_at": "2026-08-08T06:17:33.910170+00:00",
+  "generated_at": "2026-08-08T06:18:39.155453+00:00",
   "overall": "OVERDUE",
   "overall_reason": "Automatic refresh is overdue. If this persists, inspect the collector.",
   "components": [
     {
       "name": "3Commas",
       "status": "REFRESH_DUE",
-      "age_minutes": 101.0,
-      "age_display": "1h 41m ago",
+      "age_minutes": 102.1,
+      "age_display": "1h 42m ago",
       "expected_cadence_minutes": 60,
       "reason": "Valid data remains available; the next automatic refresh is due.",
       "source": "GitHub CRM Data Refresh",
@@ -18,8 +18,8 @@
     {
       "name": "Local private data",
       "status": "OVERDUE",
-      "age_minutes": 548.0,
-      "age_display": "9h 08m ago",
+      "age_minutes": 549.1,
+      "age_display": "9h 09m ago",
       "expected_cadence_minutes": 15,
       "reason": "Automatic refresh is overdue. If this persists, inspect the collector.",
       "source": "Windows Local Agent / KuCoin",
@@ -28,7 +28,7 @@
     {
       "name": "Application publication",
       "status": "CURRENT",
-      "age_minutes": 100.8,
+      "age_minutes": 101.4,
       "age_display": "1h 41m ago",
       "expected_cadence_minutes": 60,
       "reason": "Within the expected automatic refresh window.",
@@ -38,8 +38,8 @@
     {
       "name": "Diagnostics",
       "status": "OVERDUE",
-      "age_minutes": 548.0,
-      "age_display": "9h 08m ago",
+      "age_minutes": 549.1,
+      "age_display": "9h 09m ago",
       "expected_cadence_minutes": 15,
       "reason": "Automatic refresh is overdue. If this persists, inspect the collector.",
       "source": "Autonomous diagnostics",
