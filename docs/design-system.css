@@ -135,3 +135,21 @@ button,.primary-action,.crm-actions a{border-radius:10px;min-height:2.25rem}
  .crm-activity-grid>div{padding:.6rem}
  .crm-activity-grid strong{font-size:clamp(1rem,6vw,1.3rem)}
 }
+
+/* V49 dashboard startup/display hotfix */
+.crm-staged-row .crm-status,
+.crm-candidate .crm-status{
+  font-size:clamp(.68rem,2.7cqi,.88rem)!important;
+  line-height:1.12!important;
+  white-space:normal!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+  hyphens:none!important;
+  width:fit-content;
+  max-width:100%;
+}
+@container (max-width:360px){
+  .crm-staged-row .crm-status,.crm-candidate .crm-status{
+    font-size:clamp(.64rem,4.5cqi,.8rem)!important;
+  }
+}
