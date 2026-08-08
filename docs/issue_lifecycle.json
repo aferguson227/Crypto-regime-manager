@@ -1,13 +1,14 @@
 {
   "schema_version": "1.0",
-  "application_version": "44.0.0",
-  "generated_at": "2026-08-08T04:32:25.672967+00:00",
+  "application_version": "45.0.0",
+  "generated_at": "2026-08-08T06:17:31.413432+00:00",
   "summary": {
-    "open": 2,
-    "closed_this_scan": 0,
+    "open": 0,
+    "closed_this_scan": 2,
     "automatic_available": 0
   },
-  "issues": [
+  "issues": [],
+  "recently_closed": [
     {
       "key": "df0b590c64ba8e2f",
       "source": "operational",
@@ -19,8 +20,9 @@
       "recommended_action": null,
       "first_detected_at": "2026-08-08T04:32:25.672967+00:00",
       "last_detected_at": "2026-08-08T04:32:25.672967+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1
+      "lifecycle": "CLOSED",
+      "historical_occurrences": 1,
+      "closed_at": "2026-08-08T06:17:31.413432+00:00"
     },
     {
       "key": "a43930f4134bf7af",
@@ -33,9 +35,9 @@
       "recommended_action": "Trigger the read-only 3Commas workflow.",
       "first_detected_at": "2026-08-08T04:32:25.672967+00:00",
       "last_detected_at": "2026-08-08T04:32:25.672967+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1
+      "lifecycle": "CLOSED",
+      "historical_occurrences": 1,
+      "closed_at": "2026-08-08T06:17:31.413432+00:00"
     }
-  ],
-  "recently_closed": []
+  ]
 }

@@ -1,21 +1,21 @@
 {
   "schema_version": "1.0",
-  "application_version": "44.0.0",
-  "generated_at": "2026-08-07T20:44:53.658214+00:00",
+  "application_version": "45.0.0",
+  "generated_at": "2026-08-08T06:17:34.029164+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
-      "event_id": "bca20a2c5a758a88377e3d48",
+      "event_id": "a2a72d658ac3feaa4d9f9ae8",
       "kind": "PRIMARY_DECISION",
       "title": "Keep Active Deal: TEL Low Volatility Bot",
-      "detail": "Confidence 91.6%. Current entry filters pass; Recent realised P&L is positive; Recent capital efficiency is positive",
+      "detail": "Confidence 91.8%. Current entry filters pass; Recent realised P&L is positive; Recent capital efficiency is positive",
       "severity": "info",
       "action": "REVIEW_DECISION",
       "payload": {
         "bot_name": "TEL Low Volatility Bot",
         "asset": "TEL",
         "action": "KEEP_ACTIVE_DEAL",
-        "confidence_pct": 91.6,
+        "confidence_pct": 91.8,
         "urgency": "MONITOR",
         "why": [
           "Current entry filters pass",
@@ -26,7 +26,7 @@
       }
     },
     {
-      "event_id": "7aed89d3352316462b7a52c4",
+      "event_id": "8bea173001959c127dc1c164",
       "kind": "NEW_CANDIDATE",
       "title": "XMR/USDT ready for manual review",
       "detail": "Review XMR for a small manual pilot allocation; do not copy historical max-capital mechanically.",
@@ -38,7 +38,7 @@
           "asset": "XMR",
           "pair": "XMR-USDT",
           "discovery_rank": 1,
-          "current_research_score": 82.0,
+          "current_research_score": 82.1,
           "stage": "READY_FOR_MANUAL_REVIEW",
           "walk_forward_status": "PASS",
           "frozen_settings": {
@@ -87,19 +87,19 @@
       }
     },
     {
-      "event_id": "3cace79e7df65ff95754d44a",
+      "event_id": "09ce97d90cf38d7b12578d37",
       "kind": "GLOBAL_REGIME",
-      "title": "Global market regime: Bull",
-      "detail": "Universal market score 64.9%. BTC/current breadth evidence is included where available.",
+      "title": "Global market regime: Accumulation",
+      "detail": "Universal market score 59.1%. BTC/current breadth evidence is included where available.",
       "severity": "info",
       "action": "REVIEW_MARKET",
       "payload": {
-        "regime": "BULL",
-        "score_pct": 64.9
+        "regime": "ACCUMULATION",
+        "score_pct": 59.1
       }
     },
     {
-      "event_id": "9827473ee0dc3c34621b09dd",
+      "event_id": "dbadb4ba0741d83167e17364",
       "kind": "COIN_STATUS",
       "title": "ETH is Ready For Review",
       "detail": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only.",
@@ -118,11 +118,34 @@
           "research_pipeline"
         ],
         "validated_return_pct": 22.2,
-        "global_regime": "BULL"
+        "global_regime": "ACCUMULATION"
       }
     },
     {
-      "event_id": "3e955d8f1e973adb4b75cd31",
+      "event_id": "e20a453e880d4f530ca3106d",
+      "kind": "COIN_STATUS",
+      "title": "NEAR is Ready For Review",
+      "detail": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only.",
+      "severity": "opportunity",
+      "action": "REVIEW_COIN",
+      "payload": {
+        "asset": "NEAR",
+        "status": "READY_FOR_REVIEW",
+        "reasons": [
+          "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+        ],
+        "current_recommendation": null,
+        "research_stage": "READY_FOR_MANUAL_REVIEW",
+        "history_sources": [
+          "recommended_bots",
+          "research_pipeline"
+        ],
+        "validated_return_pct": 37.3,
+        "global_regime": "ACCUMULATION"
+      }
+    },
+    {
+      "event_id": "3780ae591bdb06bdb38b42cf",
       "kind": "COIN_STATUS",
       "title": "XMR is Ready For Review",
       "detail": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only.",
@@ -141,11 +164,11 @@
           "research_pipeline"
         ],
         "validated_return_pct": 83.6,
-        "global_regime": "BULL"
+        "global_regime": "ACCUMULATION"
       }
     },
     {
-      "event_id": "8471051ec1f0e49c3447f81a",
+      "event_id": "2f492bff76a6e7eeb1a861d4",
       "kind": "COIN_STATUS",
       "title": "XRP is Ready For Review",
       "detail": "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only.",
@@ -163,12 +186,12 @@
           "recommended_bots",
           "research_pipeline"
         ],
-        "validated_return_pct": 31.9,
-        "global_regime": "BULL"
+        "validated_return_pct": 30.6,
+        "global_regime": "ACCUMULATION"
       }
     }
   ],
-  "material_count": 6,
+  "material_count": 7,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -177,5 +200,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "c26ff3c133882142a0c93b3e"
+  "snapshot_id": "66d5b86cd9c705ac8ea1e877"
 }

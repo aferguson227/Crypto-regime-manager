@@ -29,7 +29,8 @@ def main():
   for mod,args in [('scripts.engineering_scheduler',('--mode','hourly')),('scripts.ui_validation_manager',())]:
    rc=runmod(mod,*args); steps.append({'module':mod,'result':'pass' if rc==0 else 'fail'})
    if rc:return rc
- payload={'schema_version':'1.0','application_version':application_version(),'generated_at':now,'mode':'hourly' if deeper else 'quick','result':'HEALTHY','steps':steps,
-          'last_hourly_at':now if deeper else prev.get('last_hourly_at'),'full_release_validation_required':False,'automatic':True}
+ research=(DOCS/'research_activity.json'); research_status='AVAILABLE' if research.exists() else 'AWAITING_FIRST_CYCLE'
+ payload={'schema_version':'1.1','application_version':application_version(),'generated_at':now,'mode':'hourly' if deeper else 'quick','result':'HEALTHY','steps':steps,
+          'last_hourly_at':now if deeper else prev.get('last_hourly_at'),'full_release_validation_required':False,'automatic':True,'background_research_status':research_status,'routine_manual_diagnostics_required':False}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8'); print(f'Autonomous diagnostics: HEALTHY ({payload["mode"]})'); return 0
 if __name__=='__main__':raise SystemExit(main())

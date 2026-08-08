@@ -3,9 +3,9 @@ import json
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_v391_identity():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='44.0.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='45.0.0'
  release=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
- assert release['release_name']=='Autonomous Diagnostics & Regime Intelligence'
+ assert release['release_name']=='Regime-Aware Backtesting & Explainable Operations'
 
 def test_exactly_four_top_level_workflows():
  names=sorted(p.name for p in (ROOT/'.github/workflows').glob('*.yml'))

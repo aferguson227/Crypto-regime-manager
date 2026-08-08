@@ -24,3 +24,9 @@
 
 /* V44 freshness/timeline readability */
 .crm-stat small{display:block;margin-top:.25rem}.crm-status.refresh_due{opacity:.9}.crm-history-row{gap:1rem;align-items:center}
+
+/* V45 universal bounded text policy */
+.crm-fit-text,.crm-status,.crm-big,.metric strong,.context-card strong{max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none}
+.crm-status{white-space:normal;text-align:center;line-height:1.15}
+.crm-card h2,.crm-card h3{overflow-wrap:normal;word-break:normal}
+.crm-process{display:flex;gap:.35rem;flex-wrap:wrap;margin:.6rem 0}.crm-process span{padding:.32rem .48rem;border-radius:999px;background:rgba(101,169,255,.11);font-size:.76rem}.crm-explain{font-size:.86rem;color:var(--crm-muted);line-height:1.45}.crm-research-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.65rem}.crm-research-summary>div{padding:.7rem;border:1px solid var(--crm-border);border-radius:12px;background:rgba(255,255,255,.025)}

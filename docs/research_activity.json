@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "application_version": "45.0.0",
+  "generated_at": "2026-08-08T06:17:33.800540+00:00",
+  "status": "ACTIVE",
+  "automatic": true,
+  "research_cycle_hours": 24,
+  "summary": {
+    "candidates_under_review": 5,
+    "regime_research_complete": 0,
+    "optimisation_pending": 4,
+    "rejected": 0,
+    "backtests_last_cycle": 0,
+    "datasets_last_cycle": 0
+  },
+  "entry_trigger_families": [],
+  "trade_duration_policy": {},
+  "last_full_research_at": null,
+  "independent_walk_forward": {},
+  "process": [
+    "Discover candidates",
+    "Classify regime",
+    "Test entry triggers",
+    "Optimise DCA settings",
+    "Penalise drawdown and capital lock",
+    "Freeze training winner",
+    "Validate independently",
+    "Confirm current KuCoin/global regime",
+    "Surface manual deployment candidate"
+  ],
+  "items": [
+    {
+      "asset": "XMR",
+      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+    },
+    {
+      "asset": "BTC",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "ETH",
+      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+    },
+    {
+      "asset": "XRP",
+      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+    },
+    {
+      "asset": "NEAR",
+      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+    }
+  ],
+  "snapshot_id": "7241915d709185501e7c9bf5"
+}

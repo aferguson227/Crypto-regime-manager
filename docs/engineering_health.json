@@ -1,20 +1,22 @@
 {
   "schema_version": "2.0",
-  "application_version": "44.0.0",
-  "generated_at": "2026-08-08T04:36:42.278279+00:00",
+  "application_version": "45.0.0",
+  "generated_at": "2026-08-08T06:17:32.360062+00:00",
   "overall": {
     "state": "HEALTHY",
-    "score_pct": 92.7
+    "score_pct": 97.2
   },
   "scores": {
     "application": 100,
-    "operations": 86.0,
+    "operations": 83.0,
     "interface": 100,
     "actions": 100,
-    "self_healing": 70,
+    "self_healing": 100,
     "repository": 100
   },
-  "action_queue": [
+  "action_queue": [],
+  "highest_value_improvements": [],
+  "recently_closed": [
     {
       "key": "df0b590c64ba8e2f",
       "source": "operational",
@@ -26,14 +28,9 @@
       "recommended_action": null,
       "first_detected_at": "2026-08-08T04:32:25.672967+00:00",
       "last_detected_at": "2026-08-08T04:32:25.672967+00:00",
-      "lifecycle": "DETECTED",
+      "lifecycle": "CLOSED",
       "historical_occurrences": 1,
-      "user_benefit": 4,
-      "frequency": 1,
-      "confidence": 5,
-      "estimated_effort": 2,
-      "regression_risk": 2,
-      "roi_score": 5.0
+      "closed_at": "2026-08-08T06:17:31.413432+00:00"
     },
     {
       "key": "a43930f4134bf7af",
@@ -46,62 +43,14 @@
       "recommended_action": "Trigger the read-only 3Commas workflow.",
       "first_detected_at": "2026-08-08T04:32:25.672967+00:00",
       "last_detected_at": "2026-08-08T04:32:25.672967+00:00",
-      "lifecycle": "DETECTED",
+      "lifecycle": "CLOSED",
       "historical_occurrences": 1,
-      "user_benefit": 2,
-      "frequency": 1,
-      "confidence": 5,
-      "estimated_effort": 2,
-      "regression_risk": 2,
-      "roi_score": 2.5
+      "closed_at": "2026-08-08T06:17:31.413432+00:00"
     }
   ],
-  "highest_value_improvements": [
-    {
-      "key": "df0b590c64ba8e2f",
-      "source": "operational",
-      "fingerprint": "3Commas refresh needs attention",
-      "title": "3Commas refresh needs attention",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-08T04:32:25.672967+00:00",
-      "last_detected_at": "2026-08-08T04:32:25.672967+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
-      "user_benefit": 4,
-      "frequency": 1,
-      "confidence": 5,
-      "estimated_effort": 2,
-      "regression_risk": 2,
-      "roi_score": 5.0
-    },
-    {
-      "key": "a43930f4134bf7af",
-      "source": "self_healing",
-      "fingerprint": "STALE_THREECOMMAS",
-      "title": "3Commas data is stale",
-      "severity": "low",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Trigger the read-only 3Commas workflow.",
-      "first_detected_at": "2026-08-08T04:32:25.672967+00:00",
-      "last_detected_at": "2026-08-08T04:32:25.672967+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
-      "user_benefit": 2,
-      "frequency": 1,
-      "confidence": 5,
-      "estimated_effort": 2,
-      "regression_risk": 2,
-      "roi_score": 2.5
-    }
-  ],
-  "recently_closed": [],
   "technical_debt": {
     "state": "LOW",
-    "known_items": 2
+    "known_items": 0
   },
   "decision_quality_display": {
     "state": "LEARNING",
@@ -109,10 +58,10 @@
     "evidence_coverage_pct": 20.0
   },
   "release_predictor": {
-    "readiness_pct": 92.7,
+    "readiness_pct": 97.2,
     "ready": true,
     "recommendation": "READY",
-    "regression_risk": "LOW",
+    "regression_risk": "VERY_LOW",
     "expected_build_seconds": null,
     "expected_deployment_seconds": 26.0,
     "actions_success_rate_pct": 87.8,

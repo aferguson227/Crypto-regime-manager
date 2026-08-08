@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "44.0.0",
-  "generated_at": "2026-08-08T04:36:42.320840+00:00",
-  "snapshot_id": "8b8288f6752fea4639d42a5f",
+  "application_version": "45.0.0",
+  "generated_at": "2026-08-08T06:17:32.542930+00:00",
+  "snapshot_id": "07033df8a2bab41133ee3bf1",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -131,7 +131,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "867bcc355acd47b7a718c1b1",
+      "recommendation_id": "7338f9041fc49266b0d64a4e",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
@@ -293,7 +293,7 @@
       }
     },
     {
-      "recommendation_id": "47dece654d14edd2cb872aed",
+      "recommendation_id": "3e61f98ed74b4eddc38d0eb2",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -532,7 +532,7 @@
     }
   },
   "cloud": {
-    "overall_status": "HEALTHY",
+    "overall_status": "WARNING",
     "threecommas": {
       "status": "ok",
       "generated_at": "2026-08-08T04:36:33.943952+00:00",
@@ -545,22 +545,23 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "HEALTHY"
+    "cloud_status": "WARNING"
   },
   "source_snapshots": {
     "market": "31019e1015d7330a09da",
-    "portfolio": "237f4ad7da04592ef95c",
-    "capital": "c8b29220863c2f83d33f",
-    "deployment": "ebfedb681bb13bfcf951",
-    "recommendations": "b4767ed3c691aa42b293",
+    "portfolio": "0420ca74c90cf5c262d8",
+    "capital": "e7dc1e69017eecb03edd",
+    "deployment": "6668782334594af155a2",
+    "recommendations": "f1682fe2805d56d3388a",
     "adaptive": "b29b1d5a685ae5e0f982",
-    "outcomes": "2026-08-08T04:36:40.850805+00:00",
+    "outcomes": "2026-08-08T06:17:30.372152+00:00",
     "cloud": "34da94e0f5f30fa0d369",
-    "operating": "51c4155ab0a3a8371fe2"
+    "operating": "0cb47a75bb4b3b436b6c"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
-    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
+    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
+    "One or more cloud data sources require attention."
   ]
 }

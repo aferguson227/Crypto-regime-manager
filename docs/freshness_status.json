@@ -1,51 +1,57 @@
 {
-  "schema_version": "1.0",
-  "application_version": "44.0.0",
-  "generated_at": "2026-08-07T21:09:32.976140+00:00",
-  "overall": "CURRENT",
+  "schema_version": "1.1",
+  "application_version": "45.0.0",
+  "generated_at": "2026-08-08T06:17:33.910170+00:00",
+  "overall": "OVERDUE",
+  "overall_reason": "Automatic refresh is overdue. If this persists, inspect the collector.",
   "components": [
     {
       "name": "3Commas",
-      "status": "CURRENT",
-      "age_minutes": 66.5,
-      "age_display": "1h 06m ago",
+      "status": "REFRESH_DUE",
+      "age_minutes": 101.0,
+      "age_display": "1h 41m ago",
       "expected_cadence_minutes": 60,
-      "next_refresh_guidance": "Within expected refresh cadence.",
-      "source": "GitHub CRM Data Refresh"
+      "reason": "Valid data remains available; the next automatic refresh is due.",
+      "source": "GitHub CRM Data Refresh",
+      "automatic": true
     },
     {
       "name": "Local private data",
-      "status": "CURRENT",
-      "age_minutes": 24.6,
-      "age_display": "25 min ago",
+      "status": "OVERDUE",
+      "age_minutes": 548.0,
+      "age_display": "9h 08m ago",
       "expected_cadence_minutes": 15,
-      "next_refresh_guidance": "Within expected refresh cadence.",
-      "source": "Windows Local Agent"
+      "reason": "Automatic refresh is overdue. If this persists, inspect the collector.",
+      "source": "Windows Local Agent / KuCoin",
+      "automatic": true
     },
     {
       "name": "Application publication",
       "status": "CURRENT",
-      "age_minutes": 66.6,
-      "age_display": "1h 07m ago",
+      "age_minutes": 100.8,
+      "age_display": "1h 41m ago",
       "expected_cadence_minutes": 60,
-      "next_refresh_guidance": "Within expected refresh cadence.",
-      "source": "Validated application/cloud publication"
+      "reason": "Within the expected automatic refresh window.",
+      "source": "Validated Pages publication",
+      "automatic": true
     },
     {
       "name": "Diagnostics",
-      "status": "CURRENT",
-      "age_minutes": 26.4,
-      "age_display": "26 min ago",
+      "status": "OVERDUE",
+      "age_minutes": 548.0,
+      "age_display": "9h 08m ago",
       "expected_cadence_minutes": 15,
-      "next_refresh_guidance": "Within expected refresh cadence.",
-      "source": "Autonomous diagnostics"
+      "reason": "Automatic refresh is overdue. If this persists, inspect the collector.",
+      "source": "Autonomous diagnostics",
+      "automatic": true
     }
   ],
-  "wording_policy": "Use Current, Refresh due and Attention. Do not describe expected age alone as stale.",
   "automatic_refresh": {
     "local_agent_minutes": 15,
     "threecommas_target_minutes": 60,
-    "full_diagnostics_manual_required": false
+    "diagnostics_quick_each_agent_cycle": true,
+    "diagnostics_deep_minutes": 60,
+    "manual_routine_diagnostics_required": false
   },
   "read_only": true
 }

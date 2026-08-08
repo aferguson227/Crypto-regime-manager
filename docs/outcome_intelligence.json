@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "44.0.0",
-  "generated_at": "2026-08-08T04:36:40.850805+00:00",
+  "application_version": "45.0.0",
+  "generated_at": "2026-08-08T06:17:30.372152+00:00",
   "mode": "read_only_outcome_reconciliation",
   "read_only": true,
   "manual_approval_required": true,
@@ -3601,11 +3601,127 @@
         "completed_safety_orders": null,
         "manual_annotation_present": false
       }
+    },
+    {
+      "recommendation_id": "867bcc355acd47b7a718c1b1",
+      "recommendation_snapshot_id": "b4767ed3c691aa42b293",
+      "recommendation_recorded_at": "2026-08-08T04:36:41.659168+00:00",
+      "asset": "TEL",
+      "bot_name": "TEL Low Volatility Bot",
+      "recommended_action": "KEEP_ACTIVE_DEAL",
+      "recommendation_confidence": 91.8,
+      "market_regime": "Low",
+      "status": "PENDING",
+      "reconciliation_source": "threecommas_read_only",
+      "acted_on_at": "2026-08-07T20:39:11.569Z",
+      "closed_at": null,
+      "entry_price": null,
+      "exit_price": null,
+      "realised_profit_value": null,
+      "realised_profit_pct": null,
+      "maximum_adverse_excursion_pct": null,
+      "maximum_favourable_excursion_pct": null,
+      "hold_hours": null,
+      "correct": null,
+      "notes": null,
+      "evidence": {
+        "threecommas_deal_observed": true,
+        "deal_status": "bought",
+        "completed_safety_orders": 1,
+        "manual_annotation_present": false
+      }
+    },
+    {
+      "recommendation_id": "47dece654d14edd2cb872aed",
+      "recommendation_snapshot_id": "b4767ed3c691aa42b293",
+      "recommendation_recorded_at": "2026-08-08T04:36:41.659168+00:00",
+      "asset": "TAO",
+      "bot_name": "TAO Low Pullback Bot",
+      "recommended_action": "WAIT",
+      "recommendation_confidence": 22.2,
+      "market_regime": "Low",
+      "status": "PENDING",
+      "reconciliation_source": "recommendation_history",
+      "acted_on_at": null,
+      "closed_at": null,
+      "entry_price": null,
+      "exit_price": null,
+      "realised_profit_value": null,
+      "realised_profit_pct": null,
+      "maximum_adverse_excursion_pct": null,
+      "maximum_favourable_excursion_pct": null,
+      "hold_hours": null,
+      "correct": null,
+      "notes": null,
+      "evidence": {
+        "threecommas_deal_observed": false,
+        "deal_status": null,
+        "completed_safety_orders": null,
+        "manual_annotation_present": false
+      }
+    },
+    {
+      "recommendation_id": "7338f9041fc49266b0d64a4e",
+      "recommendation_snapshot_id": "f1682fe2805d56d3388a",
+      "recommendation_recorded_at": "2026-08-08T06:17:30.204358+00:00",
+      "asset": "TEL",
+      "bot_name": "TEL Low Volatility Bot",
+      "recommended_action": "KEEP_ACTIVE_DEAL",
+      "recommendation_confidence": 91.8,
+      "market_regime": "Low",
+      "status": "PENDING",
+      "reconciliation_source": "threecommas_read_only",
+      "acted_on_at": "2026-08-07T20:39:11.569Z",
+      "closed_at": null,
+      "entry_price": null,
+      "exit_price": null,
+      "realised_profit_value": null,
+      "realised_profit_pct": null,
+      "maximum_adverse_excursion_pct": null,
+      "maximum_favourable_excursion_pct": null,
+      "hold_hours": null,
+      "correct": null,
+      "notes": null,
+      "evidence": {
+        "threecommas_deal_observed": true,
+        "deal_status": "bought",
+        "completed_safety_orders": 1,
+        "manual_annotation_present": false
+      }
+    },
+    {
+      "recommendation_id": "3e61f98ed74b4eddc38d0eb2",
+      "recommendation_snapshot_id": "f1682fe2805d56d3388a",
+      "recommendation_recorded_at": "2026-08-08T06:17:30.204358+00:00",
+      "asset": "TAO",
+      "bot_name": "TAO Low Pullback Bot",
+      "recommended_action": "WAIT",
+      "recommendation_confidence": 22.2,
+      "market_regime": "Low",
+      "status": "PENDING",
+      "reconciliation_source": "recommendation_history",
+      "acted_on_at": null,
+      "closed_at": null,
+      "entry_price": null,
+      "exit_price": null,
+      "realised_profit_value": null,
+      "realised_profit_pct": null,
+      "maximum_adverse_excursion_pct": null,
+      "maximum_favourable_excursion_pct": null,
+      "hold_hours": null,
+      "correct": null,
+      "notes": null,
+      "evidence": {
+        "threecommas_deal_observed": false,
+        "deal_status": null,
+        "completed_safety_orders": null,
+        "manual_annotation_present": false
+      }
     }
   ],
   "analytics": {
-    "total_recommendations": 124,
-    "pending": 80,
+    "total_recommendations": 128,
+    "pending": 84,
     "active": 44,
     "completed": 0,
     "ignored": 0,
@@ -3617,7 +3733,7 @@
     "average_realised_return_pct": null,
     "by_asset": {
       "TAO": {
-        "recommendations": 62,
+        "recommendations": 64,
         "completed": 0,
         "judged": 0,
         "correct": 0,
@@ -3625,7 +3741,7 @@
         "average_return_pct": null
       },
       "TEL": {
-        "recommendations": 62,
+        "recommendations": 64,
         "completed": 0,
         "judged": 0,
         "correct": 0,
@@ -3635,7 +3751,7 @@
     },
     "by_action": {
       "KEEP_ACTIVE_DEAL": {
-        "recommendations": 18,
+        "recommendations": 20,
         "completed": 0,
         "judged": 0,
         "correct": 0,
@@ -3651,7 +3767,7 @@
         "average_return_pct": null
       },
       "WAIT": {
-        "recommendations": 62,
+        "recommendations": 64,
         "completed": 0,
         "judged": 0,
         "correct": 0,
@@ -3661,7 +3777,7 @@
     },
     "by_regime": {
       "Low": {
-        "recommendations": 124,
+        "recommendations": 128,
         "completed": 0,
         "judged": 0,
         "correct": 0,
@@ -3673,7 +3789,7 @@
   "confidence_calibration": [
     {
       "band": "0-50%",
-      "recommendations": 62,
+      "recommendations": 64,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 25.0,
       "observed_accuracy_pct": null,
@@ -3705,7 +3821,7 @@
     },
     {
       "band": "90-100%",
-      "recommendations": 15,
+      "recommendations": 17,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 95.0,
       "observed_accuracy_pct": null,

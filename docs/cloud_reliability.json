@@ -1,17 +1,17 @@
 {
   "schema_version": "2.0",
-  "application_version": "44.0.0",
-  "generated_at": "2026-08-08T04:36:41.759985+00:00",
+  "application_version": "45.0.0",
+  "generated_at": "2026-08-08T06:17:30.924352+00:00",
   "snapshot_id": "34da94e0f5f30fa0d369",
-  "status": "HEALTHY",
+  "status": "WARNING",
   "pipelines": {
     "threecommas": {
       "name": "3Commas read-only sync",
-      "state": "healthy",
+      "state": "warning",
       "last_attempt_at": "2026-08-08T04:36:33.943952+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 1.68,
       "last_success_at": "2026-08-08T04:36:33.943952+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 1.68,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -85,9 +85,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-08T04:36:36.497194+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 1.68,
       "last_success_at": "2026-08-08T04:36:40.869916+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 1.68,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -98,11 +98,11 @@
   "sources": [
     {
       "name": "3Commas read-only sync",
-      "state": "healthy",
+      "state": "warning",
       "last_attempt_at": "2026-08-08T04:36:33.943952+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 1.68,
       "last_success_at": "2026-08-08T04:36:33.943952+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 1.68,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -176,9 +176,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-08T04:36:36.497194+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 1.68,
       "last_success_at": "2026-08-08T04:36:40.869916+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 1.68,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -244,14 +244,14 @@
   },
   "workflows": [
     {
-      "file": ".github/workflows/crm-data-refresh.yml",
+      "file": ".github\\workflows\\crm-data-refresh.yml",
       "status": "pass",
       "findings": [],
       "module_execution": "python -m scripts.threecommas_sync",
       "expected_cron": "37 * * * *"
     },
     {
-      "file": ".github/workflows/crm-health-self-heal.yml",
+      "file": ".github\\workflows\\crm-health-self-heal.yml",
       "status": "pass",
       "findings": [],
       "module_execution": "python -m scripts.engineering_scheduler",
@@ -259,9 +259,9 @@
     }
   ],
   "github": {
-    "repository": "aferguson227/Crypto-regime-manager",
-    "workflow_run_id": "31239833660",
-    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31239833660"
+    "repository": null,
+    "workflow_run_id": null,
+    "run_url": null
   },
   "automation_policy": {
     "routine_manual_runs_required": false,

@@ -1,26 +1,36 @@
 {
-  "schema_version": "1.0",
-  "application_version": "44.0.0",
-  "generated_at": "2026-08-07T20:44:53.349107+00:00",
-  "mode": "read_only_recommended_bot_packages",
-  "candidate_count": 3,
+  "schema_version": "1.1",
+  "application_version": "45.0.0",
+  "generated_at": "2026-08-08T06:17:33.267940+00:00",
+  "mode": "explainable_recommended_bot_packages",
+  "candidate_count": 4,
   "candidates": [
     {
-      "candidate_id": "29a4e251e4892509e03ddcaf",
+      "candidate_id": "eaef6e6b23f146dc86901c3d",
       "asset": "XMR",
       "pair": "XMR-USDT",
-      "state": "READY_FOR_MANUAL_REVIEW",
-      "confidence_pct": 82.0,
+      "state": "OPTIMISATION_PENDING",
+      "confidence_pct": 82.1,
+      "confidence_label": "Research confidence \u2014 not expected return.",
+      "current_global_regime": "ACCUMULATION",
+      "optimisation_status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
       "suggested_pilot_usdt": 98.69,
       "suggested_initial_allocation_usdt": 98.69,
+      "allocation_explanation": "Conservative first allocation: up to 20% of currently deployable capital, capped by historical max-capital evidence. Manual approval required.",
+      "capital_source": "KuCoin direct read-only account API",
       "historical_max_capital": 5819.12,
       "profitability_evidence": {
         "q1_return_on_max_capital_pct": 83.6,
+        "q1_validated_return_on_max_capital_pct": 83.6,
         "training_return_on_max_capital_pct": 308.8,
         "q1_net_pnl": 4863.52,
         "q1_closed_deals": 217,
         "q1_average_hold_hours": 5.9,
-        "q1_longest_hold_hours": 160.0,
+        "q1_longest_closed_trade_hours": 160.0,
+        "q1_ended_with_open_position": true,
+        "q1_open_pnl": 3.56,
+        "training_longest_closed_trade_hours": 3984.0,
+        "training_ended_with_open_position": true,
         "label": "Historical validated return on maximum capital; not a future-profit forecast.",
         "worthwhile_indicator": "STRONG_EVIDENCE"
       },
@@ -40,6 +50,9 @@
         "cooldown_seconds": null
       },
       "settings_completeness_pct": 38.5,
+      "entry_trigger": null,
+      "trade_fluidity": null,
+      "regime_backtest_metrics": null,
       "kraken_q1_status": "PASS",
       "training_metrics": {
         "net_pnl": 17970.19,
@@ -72,24 +85,41 @@
       },
       "manual_approval_required": true,
       "creates_live_bot": false,
-      "promotion_note": "Adding here saves a recommended-bot package only. Optimisation status is tracked automatically; live deployment remains manual."
+      "process_explanation": [
+        "Add to Recommended Bots saves the candidate for governed follow-up.",
+        "Background optimisation tests entry triggers and DCA ladders by regime when comparable data is available.",
+        "Settings are frozen before independent validation.",
+        "Current KuCoin/global regime is checked before deployment review.",
+        "Live deployment remains manual."
+      ],
+      "next_step": "Keep in Recommended Bots while background regime optimisation/validation completes."
     },
     {
-      "candidate_id": "0f8d51fd35b58ddae29b35de",
+      "candidate_id": "73bfa5008a185ba084173e4f",
       "asset": "ETH",
       "pair": "ETH-USDT",
-      "state": "READY_FOR_MANUAL_REVIEW",
-      "confidence_pct": 77.2,
+      "state": "OPTIMISATION_PENDING",
+      "confidence_pct": 76.9,
+      "confidence_label": "Research confidence \u2014 not expected return.",
+      "current_global_regime": "ACCUMULATION",
+      "optimisation_status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
       "suggested_pilot_usdt": 98.69,
       "suggested_initial_allocation_usdt": 98.69,
+      "allocation_explanation": "Conservative first allocation: up to 20% of currently deployable capital, capped by historical max-capital evidence. Manual approval required.",
+      "capital_source": "KuCoin direct read-only account API",
       "historical_max_capital": 5819.12,
       "profitability_evidence": {
         "q1_return_on_max_capital_pct": 22.2,
+        "q1_validated_return_on_max_capital_pct": 22.2,
         "training_return_on_max_capital_pct": 150.9,
         "q1_net_pnl": 1290.67,
         "q1_closed_deals": 299,
         "q1_average_hold_hours": 3.2,
-        "q1_longest_hold_hours": 44.0,
+        "q1_longest_closed_trade_hours": 44.0,
+        "q1_ended_with_open_position": true,
+        "q1_open_pnl": 0.81,
+        "training_longest_closed_trade_hours": 448.0,
+        "training_ended_with_open_position": true,
         "label": "Historical validated return on maximum capital; not a future-profit forecast.",
         "worthwhile_indicator": "STRONG_EVIDENCE"
       },
@@ -109,6 +139,9 @@
         "cooldown_seconds": null
       },
       "settings_completeness_pct": 38.5,
+      "entry_trigger": null,
+      "trade_fluidity": null,
+      "regime_backtest_metrics": null,
       "kraken_q1_status": "PASS",
       "training_metrics": {
         "net_pnl": 8780.62,
@@ -141,24 +174,41 @@
       },
       "manual_approval_required": true,
       "creates_live_bot": false,
-      "promotion_note": "Adding here saves a recommended-bot package only. Optimisation status is tracked automatically; live deployment remains manual."
+      "process_explanation": [
+        "Add to Recommended Bots saves the candidate for governed follow-up.",
+        "Background optimisation tests entry triggers and DCA ladders by regime when comparable data is available.",
+        "Settings are frozen before independent validation.",
+        "Current KuCoin/global regime is checked before deployment review.",
+        "Live deployment remains manual."
+      ],
+      "next_step": "Keep in Recommended Bots while background regime optimisation/validation completes."
     },
     {
-      "candidate_id": "1f8534f80a834533a2ce894a",
+      "candidate_id": "a80dcb26921131e1b5da0276",
       "asset": "XRP",
       "pair": "XRP-USDT",
-      "state": "READY_FOR_MANUAL_REVIEW",
-      "confidence_pct": 75.7,
+      "state": "OPTIMISATION_PENDING",
+      "confidence_pct": 75.9,
+      "confidence_label": "Research confidence \u2014 not expected return.",
+      "current_global_regime": "ACCUMULATION",
+      "optimisation_status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
       "suggested_pilot_usdt": 98.69,
       "suggested_initial_allocation_usdt": 98.69,
+      "allocation_explanation": "Conservative first allocation: up to 20% of currently deployable capital, capped by historical max-capital evidence. Manual approval required.",
+      "capital_source": "KuCoin direct read-only account API",
       "historical_max_capital": 5819.12,
       "profitability_evidence": {
-        "q1_return_on_max_capital_pct": 31.9,
+        "q1_return_on_max_capital_pct": 30.6,
+        "q1_validated_return_on_max_capital_pct": 30.6,
         "training_return_on_max_capital_pct": 305.4,
         "q1_net_pnl": 1855.42,
         "q1_closed_deals": 212,
         "q1_average_hold_hours": 5.4,
-        "q1_longest_hold_hours": 56.0,
+        "q1_longest_closed_trade_hours": 56.0,
+        "q1_ended_with_open_position": true,
+        "q1_open_pnl": -72.74,
+        "training_longest_closed_trade_hours": 1096.0,
+        "training_ended_with_open_position": true,
         "label": "Historical validated return on maximum capital; not a future-profit forecast.",
         "worthwhile_indicator": "STRONG_EVIDENCE"
       },
@@ -178,6 +228,9 @@
         "cooldown_seconds": null
       },
       "settings_completeness_pct": 38.5,
+      "entry_trigger": null,
+      "trade_fluidity": null,
+      "regime_backtest_metrics": null,
       "kraken_q1_status": "PASS",
       "training_metrics": {
         "net_pnl": 17771.34,
@@ -210,15 +263,114 @@
       },
       "manual_approval_required": true,
       "creates_live_bot": false,
-      "promotion_note": "Adding here saves a recommended-bot package only. Optimisation status is tracked automatically; live deployment remains manual."
+      "process_explanation": [
+        "Add to Recommended Bots saves the candidate for governed follow-up.",
+        "Background optimisation tests entry triggers and DCA ladders by regime when comparable data is available.",
+        "Settings are frozen before independent validation.",
+        "Current KuCoin/global regime is checked before deployment review.",
+        "Live deployment remains manual."
+      ],
+      "next_step": "Keep in Recommended Bots while background regime optimisation/validation completes."
+    },
+    {
+      "candidate_id": "25be40fb31f7646a7690dc3a",
+      "asset": "NEAR",
+      "pair": "NEAR-USDT",
+      "state": "OPTIMISATION_PENDING",
+      "confidence_pct": 69.9,
+      "confidence_label": "Research confidence \u2014 not expected return.",
+      "current_global_regime": "ACCUMULATION",
+      "optimisation_status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "suggested_pilot_usdt": 98.69,
+      "suggested_initial_allocation_usdt": 98.69,
+      "allocation_explanation": "Conservative first allocation: up to 20% of currently deployable capital, capped by historical max-capital evidence. Manual approval required.",
+      "capital_source": "KuCoin direct read-only account API",
+      "historical_max_capital": 5819.12,
+      "profitability_evidence": {
+        "q1_return_on_max_capital_pct": 37.3,
+        "q1_validated_return_on_max_capital_pct": 37.3,
+        "training_return_on_max_capital_pct": 496.3,
+        "q1_net_pnl": 2456.01,
+        "q1_closed_deals": 284,
+        "q1_average_hold_hours": 3.0,
+        "q1_longest_closed_trade_hours": 44.0,
+        "q1_ended_with_open_position": true,
+        "q1_open_pnl": -284.73,
+        "training_longest_closed_trade_hours": 436.0,
+        "training_ended_with_open_position": false,
+        "label": "Historical validated return on maximum capital; not a future-profit forecast.",
+        "worthwhile_indicator": "STRONG_EVIDENCE"
+      },
+      "dca_settings": {
+        "base_order_volume": null,
+        "safety_order_volume": null,
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0,
+        "max_active_safety_orders": null,
+        "max_active_deals": null,
+        "start_condition": null,
+        "order_type": null,
+        "trailing_enabled": null,
+        "cooldown_seconds": null
+      },
+      "settings_completeness_pct": 38.5,
+      "entry_trigger": null,
+      "trade_fluidity": null,
+      "regime_backtest_metrics": null,
+      "kraken_q1_status": "PASS",
+      "training_metrics": {
+        "net_pnl": 28879.93,
+        "closed_deals": 2933,
+        "average_hours": 2.0,
+        "longest_hours": 436,
+        "max_drawdown_dollars": -1379.74,
+        "max_capital": 5819.12,
+        "open_position": false,
+        "score": 28388.301
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 2456.01,
+        "realised_pnl": 2456.01,
+        "open_pnl": -284.73,
+        "mark_to_market_pnl": 2171.29,
+        "closed_deals": 284,
+        "average_hours": 3.0,
+        "longest_hours": 44,
+        "max_drawdown_dollars": -460.45,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "evidence_gates": {
+        "current_kucoin_screen": "PASS",
+        "kraken_training": "PASS",
+        "q1_independent_validation": "PASS",
+        "drawdown_review": "REVIEW",
+        "manual_approval": "REQUIRED"
+      },
+      "manual_approval_required": true,
+      "creates_live_bot": false,
+      "process_explanation": [
+        "Add to Recommended Bots saves the candidate for governed follow-up.",
+        "Background optimisation tests entry triggers and DCA ladders by regime when comparable data is available.",
+        "Settings are frozen before independent validation.",
+        "Current KuCoin/global regime is checked before deployment review.",
+        "Live deployment remains manual."
+      ],
+      "next_step": "Keep in Recommended Bots while background regime optimisation/validation completes."
     }
   ],
-  "promotion_policy": {
-    "manual_approval_required": true,
-    "browser_save_only": true,
-    "downloadable_configuration": true,
-    "automatic_live_deployment": false
-  },
+  "workflow": [
+    "RESEARCH",
+    "ADD_TO_RECOMMENDED",
+    "BACKGROUND_OPTIMISATION",
+    "INDEPENDENT_VALIDATION",
+    "CURRENT_REGIME_CHECK",
+    "MANUAL_DEPLOYMENT_REVIEW"
+  ],
   "read_only": true,
-  "snapshot_id": "21fc96a26619390a046f1b90"
+  "automatic_live_deployment": false,
+  "snapshot_id": "b52e0a53cf14c16e89acdc64"
 }

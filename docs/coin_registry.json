@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "44.0.0",
-  "generated_at": "2026-08-07T20:43:03.862643+00:00",
+  "application_version": "45.0.0",
+  "generated_at": "2026-08-08T06:17:33.372823+00:00",
   "coin_count": 8,
   "coins": [
     {
@@ -16,8 +16,8 @@
         "recommendation_intelligence",
         "strategies"
       ],
-      "recommendation_confidence_pct": 91.6,
-      "global_regime": "BULL"
+      "recommendation_confidence_pct": 91.8,
+      "global_regime": "ACCUMULATION"
     },
     {
       "asset": "ETH",
@@ -32,7 +32,22 @@
         "research_pipeline"
       ],
       "validated_return_pct": 22.2,
-      "global_regime": "BULL"
+      "global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "NEAR",
+      "status": "READY_FOR_REVIEW",
+      "reasons": [
+        "Review frozen Kraken/Q1 evidence against current KuCoin conditions; manual approval only."
+      ],
+      "current_recommendation": null,
+      "research_stage": "READY_FOR_MANUAL_REVIEW",
+      "history_sources": [
+        "recommended_bots",
+        "research_pipeline"
+      ],
+      "validated_return_pct": 37.3,
+      "global_regime": "ACCUMULATION"
     },
     {
       "asset": "XMR",
@@ -47,7 +62,7 @@
         "research_pipeline"
       ],
       "validated_return_pct": 83.6,
-      "global_regime": "BULL"
+      "global_regime": "ACCUMULATION"
     },
     {
       "asset": "XRP",
@@ -61,8 +76,8 @@
         "recommended_bots",
         "research_pipeline"
       ],
-      "validated_return_pct": 31.9,
-      "global_regime": "BULL"
+      "validated_return_pct": 30.6,
+      "global_regime": "ACCUMULATION"
     },
     {
       "asset": "BTC",
@@ -75,7 +90,7 @@
       "history_sources": [
         "research_pipeline"
       ],
-      "global_regime": "BULL"
+      "global_regime": "ACCUMULATION"
     },
     {
       "asset": "SUI",
@@ -88,7 +103,7 @@
       "history_sources": [
         "strategies.research"
       ],
-      "global_regime": "BULL"
+      "global_regime": "ACCUMULATION"
     },
     {
       "asset": "TAO",
@@ -103,25 +118,12 @@
         "strategies"
       ],
       "recommendation_confidence_pct": 22.2,
-      "global_regime": "BULL"
-    },
-    {
-      "asset": "ZEC",
-      "status": "REJECTED",
-      "reasons": [
-        "Retain as research-only; historical validation failed."
-      ],
-      "current_recommendation": null,
-      "research_stage": "RESEARCH_REJECT",
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "global_regime": "BULL"
+      "global_regime": "ACCUMULATION"
     }
   ],
   "policy": {
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "7f499f8f9e61764a415a027c"
+  "snapshot_id": "efb8832108296d754ce28bd3"
 }

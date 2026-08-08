@@ -1,4 +1,4 @@
-# Crypto Regime Manager V44.0.0 — Autonomous Diagnostics & Regime Intelligence
+# Crypto Regime Manager V45.0.0 — Autonomous Diagnostics & Regime Intelligence
 
 V44 makes the Operations Centre proactive instead of requiring routine manual checks.
 

@@ -1,19 +1,16 @@
 {
-  "schema_version": "1.0",
-  "application_version": "44.0.0",
-  "generated_at": "2026-08-07T20:43:03.634215+00:00",
-  "current_global_regime": "BULL",
-  "raw_archive_paths": {
-    "training": "C:\\Crypto\\Research\\Kraken\\training",
-    "validation": "C:\\Crypto\\Research\\Kraken\\validation",
-    "available": false
-  },
+  "schema_version": "1.1",
+  "application_version": "45.0.0",
+  "generated_at": "2026-08-08T06:17:33.147951+00:00",
+  "current_global_regime": "ACCUMULATION",
+  "current_regime_family": "ACCUMULATION",
   "items": [
     {
       "asset": "XMR",
       "pair": "XMR-USDT",
-      "status": "VALIDATED_BASELINE",
-      "current_global_regime": "BULL",
+      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "current_global_regime": "ACCUMULATION",
+      "current_regime_family": "ACCUMULATION",
       "validated_baseline": {
         "take_profit_pct": 2.0,
         "so_deviation_pct": 0.8,
@@ -21,53 +18,41 @@
         "volume_scale": 1.7,
         "step_scale": 1.0
       },
-      "regime_profiles": {
-        "BULL": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "ACCUMULATION": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "NEUTRAL": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "BEAR": {
-          "status": "PENDING_OPTIMISATION"
-        }
+      "current_regime_profile": null,
+      "recommended_research_settings": {
+        "take_profit_pct": 2.0,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
       },
-      "raw_archives_available": false,
-      "next_action": "Use frozen Kraken/Q1 baseline while retaining manual approval; raw archives are required for a fresh regime optimisation.",
-      "automatic_live_changes": false
+      "independent_validation_status": "PASS",
+      "deployment_candidate": false,
+      "manual_approval_required": true,
+      "automatic_live_changes": false,
+      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
     },
     {
       "asset": "BTC",
       "pair": "BTC-USDT",
       "status": "WAIT",
-      "current_global_regime": "BULL",
+      "current_global_regime": "ACCUMULATION",
+      "current_regime_family": "ACCUMULATION",
       "validated_baseline": null,
-      "regime_profiles": {
-        "BULL": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "ACCUMULATION": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "NEUTRAL": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "BEAR": {
-          "status": "PENDING_OPTIMISATION"
-        }
-      },
-      "raw_archives_available": false,
-      "next_action": "Remain in research queue.",
-      "automatic_live_changes": false
+      "current_regime_profile": null,
+      "recommended_research_settings": null,
+      "independent_validation_status": null,
+      "deployment_candidate": false,
+      "manual_approval_required": true,
+      "automatic_live_changes": false,
+      "next_action": "Remain in research queue."
     },
     {
       "asset": "ETH",
       "pair": "ETH-USDT",
-      "status": "VALIDATED_BASELINE",
-      "current_global_regime": "BULL",
+      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "current_global_regime": "ACCUMULATION",
+      "current_regime_family": "ACCUMULATION",
       "validated_baseline": {
         "take_profit_pct": 0.8,
         "so_deviation_pct": 0.8,
@@ -75,29 +60,26 @@
         "volume_scale": 1.7,
         "step_scale": 1.0
       },
-      "regime_profiles": {
-        "BULL": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "ACCUMULATION": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "NEUTRAL": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "BEAR": {
-          "status": "PENDING_OPTIMISATION"
-        }
+      "current_regime_profile": null,
+      "recommended_research_settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
       },
-      "raw_archives_available": false,
-      "next_action": "Use frozen Kraken/Q1 baseline while retaining manual approval; raw archives are required for a fresh regime optimisation.",
-      "automatic_live_changes": false
+      "independent_validation_status": "PASS",
+      "deployment_candidate": false,
+      "manual_approval_required": true,
+      "automatic_live_changes": false,
+      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
     },
     {
       "asset": "XRP",
       "pair": "XRP-USDT",
-      "status": "VALIDATED_BASELINE",
-      "current_global_regime": "BULL",
+      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "current_global_regime": "ACCUMULATION",
+      "current_regime_family": "ACCUMULATION",
       "validated_baseline": {
         "take_profit_pct": 1.2,
         "so_deviation_pct": 0.8,
@@ -105,57 +87,61 @@
         "volume_scale": 1.7,
         "step_scale": 1.0
       },
-      "regime_profiles": {
-        "BULL": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "ACCUMULATION": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "NEUTRAL": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "BEAR": {
-          "status": "PENDING_OPTIMISATION"
-        }
-      },
-      "raw_archives_available": false,
-      "next_action": "Use frozen Kraken/Q1 baseline while retaining manual approval; raw archives are required for a fresh regime optimisation.",
-      "automatic_live_changes": false
-    },
-    {
-      "asset": "ZEC",
-      "pair": "ZEC-USDT",
-      "status": "WAIT",
-      "current_global_regime": "BULL",
-      "validated_baseline": {
-        "take_profit_pct": 2.0,
+      "current_regime_profile": null,
+      "recommended_research_settings": {
+        "take_profit_pct": 1.2,
         "so_deviation_pct": 0.8,
         "safety_orders": 7,
         "volume_scale": 1.7,
         "step_scale": 1.0
       },
-      "regime_profiles": {
-        "BULL": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "ACCUMULATION": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "NEUTRAL": {
-          "status": "PENDING_OPTIMISATION"
-        },
-        "BEAR": {
-          "status": "PENDING_OPTIMISATION"
-        }
+      "independent_validation_status": "PASS",
+      "deployment_candidate": false,
+      "manual_approval_required": true,
+      "automatic_live_changes": false,
+      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
+    },
+    {
+      "asset": "NEAR",
+      "pair": "NEAR-USDT",
+      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "current_global_regime": "ACCUMULATION",
+      "current_regime_family": "ACCUMULATION",
+      "validated_baseline": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
       },
-      "raw_archives_available": false,
-      "next_action": "Remain in research queue.",
-      "automatic_live_changes": false
+      "current_regime_profile": null,
+      "recommended_research_settings": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "independent_validation_status": "PASS",
+      "deployment_candidate": false,
+      "manual_approval_required": true,
+      "automatic_live_changes": false,
+      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
     }
   ],
+  "process": [
+    "DISCOVERY",
+    "ENTRY_TRIGGER_RESEARCH",
+    "DCA_OPTIMISATION",
+    "TRADE_FLUIDITY_REVIEW",
+    "FREEZE_TRAINING_SETTINGS",
+    "INDEPENDENT_VALIDATION",
+    "CURRENT_REGIME_CONFIRMATION",
+    "MANUAL_DEPLOYMENT_REVIEW"
+  ],
   "automatic_queue_management": true,
+  "automatic_backtesting": true,
   "automatic_live_deployment": false,
   "manual_approval_required": true,
-  "snapshot_id": "10211e2726613dc00c92ca79"
+  "snapshot_id": "0e9987be097fe56e83e671c5"
 }

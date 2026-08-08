@@ -1,22 +1,64 @@
 {
-  "schema_version": "1.0",
-  "application_version": "44.0.0",
-  "generated_at": "2026-08-07T20:43:03.522584+00:00",
-  "regime": "BULL",
-  "score_pct": 64.9,
+  "schema_version": "1.1",
+  "application_version": "45.0.0",
+  "generated_at": "2026-08-08T06:17:32.840819+00:00",
+  "regime": "ACCUMULATION",
+  "score_pct": 59.1,
+  "explanation": "Accumulation because the weighted current-market score is 59.1%.",
+  "criteria": [
+    {
+      "criterion": "Market trend",
+      "value": 55.0,
+      "weight": 0.35,
+      "score_contribution": 1.75,
+      "source": "KuCoin/current CRM market intelligence"
+    },
+    {
+      "criterion": "Market breadth",
+      "value": 60.0,
+      "weight": 0.25,
+      "score_contribution": 2.5,
+      "source": "Share of tracked candidates with positive medium-term trend"
+    },
+    {
+      "criterion": "BTC 30-day trend",
+      "value": 3.6,
+      "weight": 1.0,
+      "score_contribution": 3.6,
+      "source": "KuCoin BTC public market evidence"
+    },
+    {
+      "criterion": "BTC 24-hour move",
+      "value": 1.01,
+      "weight": 1.2,
+      "score_contribution": 1.21,
+      "source": "KuCoin BTC public market evidence"
+    },
+    {
+      "criterion": "Volatility penalty",
+      "value": 35.0,
+      "weight": -0.15,
+      "score_contribution": 0.0,
+      "source": "Current market volatility score"
+    }
+  ],
   "current_evidence": {
-    "btc_30d_trend_pct": 4.8,
-    "btc_24h_change_pct": 0.71,
-    "breadth_pct": 80.0,
+    "btc_30d_trend_pct": 3.6,
+    "btc_24h_change_pct": 1.01,
+    "breadth_pct": 60.0,
+    "breadth_positive_count": 3,
+    "breadth_universe_count": 5,
     "market_trend_pct": 55.0,
     "volatility_pct": 35.0,
     "source": "KuCoin current/public CRM market evidence"
   },
+  "breadth_explanation": "3 of 5 tracked candidates have positive medium-term trend.",
   "historical_btc_evidence": {
     "status": "MISSING",
     "registry_symbol": null,
     "walk_forward_status": null,
-    "note": "Historical BTC/XBT Kraken evidence contributes only when present in the walk-forward registry."
+    "xbt_normalised_to_btc": true,
+    "note": "CRM normalises XBT/XXBT to BTC. MISSING means no BTC/XBT result is currently present in the walk-forward registry; raw archives are not treated as validated evidence."
   },
   "policy": {
     "universal_context": true,
@@ -24,5 +66,5 @@
     "automatic_bot_changes": false,
     "manual_approval_required": true
   },
-  "snapshot_id": "04235c3c2bf23df8b5cb6f2f"
+  "snapshot_id": "beea09e1458d8529068fb1aa"
 }
