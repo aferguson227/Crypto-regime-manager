@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0",
-  "application_version": "54.0.0",
-  "generated_at": "2026-08-09T10:11:16.693608+00:00",
+  "application_version": "55.0.0",
+  "generated_at": "2026-08-09T10:32:09.047692+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
-      "event_id": "e63932bf1e16a38fe7f7cd74",
+      "event_id": "b8981dfd9a6c5d578afe03b2",
       "kind": "PRIMARY_DECISION",
-      "title": "Keep Enabled: TEL Low Volatility Bot",
+      "title": "Keep Active Deal: TEL Low Volatility Bot",
       "detail": "Confidence 92.0%. Current entry filters pass; Recent realised P&L is positive; Recent capital efficiency is positive",
       "severity": "info",
       "action": "REVIEW_DECISION",
       "payload": {
         "bot_name": "TEL Low Volatility Bot",
         "asset": "TEL",
-        "action": "KEEP_ENABLED",
+        "action": "KEEP_ACTIVE_DEAL",
         "confidence_pct": 92.0,
         "urgency": "MONITOR",
         "why": [
@@ -26,7 +26,7 @@
       }
     },
     {
-      "event_id": "556fe5ba80418f8bb4faae7f",
+      "event_id": "3432b27ed04f0cfc4b171153",
       "kind": "NEW_CANDIDATE",
       "title": "AAVE/USDT ready for manual review",
       "detail": "Review AAVE for a small manual pilot allocation; do not copy historical max-capital mechanically.",
@@ -86,7 +86,7 @@
           "next_action": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
         },
         "score_pct": 100.0,
-        "deployable_capital": 3615.53005894
+        "deployable_capital": 985.9940589399994
       }
     },
     {
@@ -159,5 +159,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "9f388c2f2a51402186da801d"
+  "snapshot_id": "0e09cf47db931484a9782305"
 }

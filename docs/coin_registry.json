@@ -1,13 +1,13 @@
 {
   "schema_version": "2.0",
-  "application_version": "54.0.0",
-  "generated_at": "2026-08-09T10:11:15.385618+00:00",
+  "application_version": "55.0.0",
+  "generated_at": "2026-08-09T10:32:07.140052+00:00",
   "coin_count": 22,
   "coins": [
     {
       "asset": "TEL",
       "lifecycle": "LIVE_PRODUCTION",
-      "execution_state": "DEPLOYED_IDLE",
+      "execution_state": "ACTIVE_DEAL",
       "research_state": "NOT_STARTED",
       "reasons": [
         "Live execution-provider bot/deal evidence takes precedence over research labels."
@@ -18,9 +18,9 @@
       ],
       "live_bot_count": 1,
       "provider_bot_count": 4,
-      "active_deal_count": 0,
-      "current_recommendation": "KEEP_ENABLED",
-      "recommendation_confidence_pct": 92.0,
+      "active_deal_count": 1,
+      "current_recommendation": "KEEP_ACTIVE_DEAL",
+      "recommendation_confidence_pct": 93.7,
       "current_regime": "ACCUMULATION",
       "research_continues_while_live": true
     },
@@ -338,5 +338,5 @@
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "008b2b4c4cf0792f163993ec"
+  "snapshot_id": "73c9bacd1efd7286af868776"
 }

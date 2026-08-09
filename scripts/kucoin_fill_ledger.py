@@ -124,11 +124,19 @@ def reconcile():
   'assets':per_asset,'inventory_cost_basis':inv}
 def main():
  rows,status,msg=fetch_recent();inserted=ingest(rows) if rows is not None else 0;rec=reconcile()
- p={'schema_version':'1.0','application_version':application_version(),'generated_at':now(),'status':status,'source':'KuCoin private read-only GET /api/v1/hf/fills',
+ rp_status='COMPLETE' if rec['realised_profit_complete'] else ('PARTIAL_COST_BASIS' if rec['fill_count'] else 'NO_FILL_HISTORY_YET')
+ if status!='OK':progress=0
+ elif rec['fill_count']==0:progress=25
+ elif rec['unmatched_sell_count']>0:progress=70
+ else:progress=100
+ p={'schema_version':'1.1','application_version':application_version(),'generated_at':now(),'status':status,'source':'KuCoin private read-only GET /api/v1/hf/fills',
   'api_message':msg,'new_fills':inserted,'ledger_path':str(db_path()),'persistent_across_upgrades':True,
   'coverage_note':'KuCoin recent spot fill queries are time-limited; CRM persists each refresh so ledger coverage grows from V50 onward.',
   'realised_profit_quote':rec['matched_realised_profit_usdt'] if rec['realised_profit_complete'] else None,
-  'partial_matched_realised_profit_quote':rec['matched_realised_profit_usdt'],'realised_profit_status':'COMPLETE' if rec['realised_profit_complete'] else ('PARTIAL_COST_BASIS' if rec['fill_count'] else 'NO_FILL_HISTORY_YET'),
+  'partial_matched_realised_profit_quote':rec['matched_realised_profit_usdt'],'realised_profit_status':rp_status,
+  'reconciliation_progress_pct':progress,
+  'next_automatic_retry_minutes':15 if status!='OK' or not rec['realised_profit_complete'] else 0,
+  'progress_explanation':('Complete KuCoin cost basis is available.' if rec['realised_profit_complete'] else ('KuCoin fills are available, but one or more sells still need an earlier matching buy cost basis.' if rec['fill_count'] else ('KuCoin fill-history request failed; CRM will retry automatically.' if status!='OK' else 'No KuCoin fills are stored yet; CRM will retry on the next Local Agent cycle.'))),
   'reconciliation':rec,'read_only':True,'write_endpoints_implemented':False}
  OUT.write_text(json.dumps(p,indent=2),encoding='utf-8')
  print(f"KuCoin fill ledger: {status}; new={inserted}; total={rec['fill_count']}; realised_status={p['realised_profit_status']}")

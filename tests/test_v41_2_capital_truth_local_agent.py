@@ -4,7 +4,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def text(rel): return (ROOT/rel).read_text(encoding='utf-8')
 
-def test_version(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='54.0.0'
+def test_version(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='55.0.0'
 def test_so_deviation_alias_is_canonical(): assert 'safety_order_deviation_pct' in text('scripts/deployment_intelligence_engine.py')
 def test_bot_states_distinguish_active_and_idle():
     s=text('scripts/operating_state_engine.py'); assert 'ACTIVE_DEAL' in s and 'ENABLED_IDLE' in s and 'DISABLED' in s

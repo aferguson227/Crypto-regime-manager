@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "application_version": "55.0.0",
+  "generated_at": "2026-08-09T10:32:09.259347+00:00",
+  "overall": "ACTION_REQUIRED",
+  "summary": {
+    "issues_before": 2,
+    "issues_after": 2,
+    "automatic_repairs_attempted": 0,
+    "blocking_after": 1
+  },
+  "issues": [
+    {
+      "code": "KUCOIN_TRADING_DATA",
+      "title": "KuCoin trading data needs attention",
+      "area": "Trading data",
+      "severity": "high",
+      "state": "ATTENTION",
+      "detail": "HTTP Error 401: Unauthorized",
+      "automatic_repair_available": true,
+      "repair_module": "scripts.kucoin_order_state",
+      "user_action": "Check KuCoin API permissions/connection if retry fails."
+    },
+    {
+      "code": "KUCOIN_FILL_HISTORY",
+      "title": "KuCoin trade history needs attention",
+      "area": "Profit & loss",
+      "severity": "medium",
+      "state": "UPDATING",
+      "detail": "HTTP Error 401: Unauthorized",
+      "automatic_repair_available": true,
+      "repair_module": "scripts.kucoin_fill_ledger",
+      "user_action": "No manual action unless repeated retries fail."
+    }
+  ],
+  "repair_log": [],
+  "safe_repair_policy": [
+    "read-only API refresh",
+    "local generated-output regeneration",
+    "accounting/freshness recomputation"
+  ],
+  "never_automatic": [
+    "place/cancel KuCoin orders",
+    "change API credentials",
+    "start/stop/edit 3Commas bots",
+    "Git push/force push",
+    "change capital allocation"
+  ],
+  "next_action": "Review the remaining blocking item(s)."
+}

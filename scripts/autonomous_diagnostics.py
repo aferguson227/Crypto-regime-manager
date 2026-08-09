@@ -21,9 +21,9 @@ def runmod(m,*args):
 def main():
  ap=argparse.ArgumentParser(); ap.add_argument('--full',action='store_true'); a=ap.parse_args(); prev=load(); now=datetime.now(timezone.utc).isoformat(); steps=[]
  # Always-run lightweight checks.
- for mod,args in [('scripts.repository_guardian',('scan',)),('scripts.freshness_controller',()),('scripts.self_healing_engine',())]:
+ for mod,args in [('scripts.repository_guardian',('scan',)),('scripts.freshness_controller',()),('scripts.self_healing_engine',('--apply-safe',)),('scripts.crm_health_recovery_engine',('--repair',))]:
   rc=runmod(mod,*args); steps.append({'module':mod,'result':'pass' if rc==0 else 'fail'}); 
-  if rc:return rc
+  if rc and mod not in {'scripts.crm_health_recovery_engine'}:return rc
  deeper=a.full or age_minutes(prev.get('last_hourly_at'))>=60
  if deeper:
   for mod,args in [('scripts.engineering_scheduler',('--mode','hourly')),('scripts.ui_validation_manager',())]:

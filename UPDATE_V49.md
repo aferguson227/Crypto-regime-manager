@@ -1,4 +1,4 @@
-# Crypto Regime Manager V54.0.0 — Autonomous Candidate Discovery, Persistent Research & Professional Operations UI
+# Crypto Regime Manager V55.0.0 — Autonomous Candidate Discovery, Persistent Research & Professional Operations UI
 
 ## Persistent research memory
 V49 introduces a SQLite research database outside Git under `C:\Crypto\CRM_Data\Research\crm_research.db`.

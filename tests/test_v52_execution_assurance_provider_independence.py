@@ -4,7 +4,7 @@ import pytest
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_version():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='54.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='55.0.0'
 
 def test_execution_assurance_checks_tp_so_and_orphans():
     text=(ROOT/'scripts/execution_assurance_engine.py').read_text(encoding='utf-8')

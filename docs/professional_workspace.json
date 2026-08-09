@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
-  "application_version": "54.0.0",
-  "generated_at": "2026-08-09T10:16:56.058947+00:00",
+  "application_version": "55.0.0",
+  "generated_at": "2026-08-09T10:32:05.072344+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -244,13 +244,7 @@
       "status": "MATCH"
     }
   ],
-  "what_changed": [
-    {
-      "field": "Action",
-      "before": "KEEP_ENABLED",
-      "after": "KEEP_ACTIVE_DEAL"
-    }
-  ],
+  "what_changed": [],
   "risks": [
     "Recent drawdown is elevated",
     "Open replay position has lasted 31.8 days",
@@ -383,5 +377,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "30f3272dfab54537d0783889"
+  "snapshot_id": "47173f836781979e9f701eb8"
 }
