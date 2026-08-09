@@ -20,10 +20,13 @@ def replay(rows,tp,dev,n,vs,step,fee=.001,bo=100,so=100):
   mark=pnl+(t['qty']*c['close']-t['cost'] if t else 0);equity.append(mark)
  peak=-1e99;mdd=0
  for x in equity:peak=max(peak,x);mdd=min(mdd,x-peak)
- open_pnl=0.0
+ open_pnl=0.0;open_state=None
  if open_trade and rows:
   open_pnl=open_trade['qty']*rows[-1]['close']-open_trade['cost']
- return {'net_pnl':round(pnl,2),'realised_pnl':round(pnl,2),'open_pnl':round(open_pnl,2),'mark_to_market_pnl':round(pnl+open_pnl,2),'closed_deals':deals,'average_hours':round(sum(dur)/len(dur),1) if dur else 0,'longest_hours':max(dur) if dur else 0,'max_drawdown_dollars':round(mdd,2),'max_capital':round(maxcap,2),'open_position':bool(open_trade)}
+  avg=open_trade['cost']/open_trade['qty'];target=avg*(1+tp+fee*2)
+  entry=rows[open_trade['i']]['time']
+  open_state={'entry_time':entry.isoformat(),'entry_index':open_trade['i'],'cost':open_trade['cost'],'qty':open_trade['qty'],'average_entry':avg,'next_safety_price':open_trade['next'],'safety_orders_used':open_trade['so'],'target_price':target,'open_duration_hours':(len(rows)-1-open_trade['i'])*4}
+ return {'net_pnl':round(pnl,2),'realised_pnl':round(pnl,2),'open_pnl':round(open_pnl,2),'mark_to_market_pnl':round(pnl+open_pnl,2),'closed_deals':deals,'average_hours':round(sum(dur)/len(dur),1) if dur else 0,'longest_hours':max(dur) if dur else 0,'max_drawdown_dollars':round(mdd,2),'max_capital':round(maxcap,2),'open_position':bool(open_trade),'open_state':open_state}
 def optimise(path:Path):
  rows=load(path);results=[]
  for tp,dev,n,vs,step in itertools.product((.008,.012,.015,.02),(.008,.015,.025,.04),(4,6,7),(1.3,1.5,1.7),(1.0,1.15)):

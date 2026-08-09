@@ -68,13 +68,15 @@ def infer_tp(entry,deal,bot):
     return None,'unavailable'
 
 def build():
-    tc=load('threecommas.json'); rec=load('recommendation_intelligence.json'); wf=load('walk_forward_registry.json')
+    tc=load('threecommas.json'); rec=load('recommendation_intelligence.json'); wf=load('walk_forward_registry.json'); recon=load('execution_reconciliation.json')
     reg={str(x.get('symbol') or '').upper():x for x in wf.get('coins') or [] if isinstance(x,dict)}
     recs={str(x.get('asset') or '').upper():x for x in rec.get('recommendations') or [] if isinstance(x,dict)}
+    stale={(str(x.get('asset') or '').upper(),x.get('bot_id')) for x in recon.get('deals') or [] if isinstance(x,dict) and x.get('reconciliation_state')=='PROVIDER_STALE_OPEN'}
     rows=[]
     for asset,bucket in (tc.get('assets') or {}).items():
         asset=str(asset).upper(); evidence=reg.get(asset) or {}; q1=evidence.get('q1_2026_metrics') or {}; recommendation=recs.get(asset) or {}
         for deal in bucket.get('deals') or []:
+            if (asset,deal.get('bot_id')) in stale: continue
             if not isinstance(deal,dict):continue
             bot=bot_for(bucket,deal)
             entry,entry_source=infer_entry(deal)

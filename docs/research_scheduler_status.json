@@ -1,46 +1,28 @@
 {
   "schema_version": "1.0",
-  "application_version": "50.0.0",
-  "generated_at": "2026-08-09T06:54:38.971080+00:00",
-  "mode": "autonomous_cached_background_research",
-  "status": "HEALTHY",
-  "activity": [
-    {
-      "stage": "KuCoin history",
-      "status": "COMPLETE",
-      "seconds": 5.15
-    },
-    {
-      "stage": "Cached optimisation + walk-forward",
-      "status": "COMPLETE",
-      "seconds": 3151.44,
-      "backtests": 542080,
-      "cache_reason": "fingerprint changed"
-    }
-  ],
-  "elapsed_seconds": 3158.4,
-  "typical_cycle_seconds": 2016.7,
+  "application_version": "51.0.0",
+  "generated_at": "2026-08-09T07:13:46.827633+00:00",
+  "mode": "status_only",
   "market_scan": {
-    "markets_shortlisted": 50,
-    "researched_this_scan": 10,
-    "cadence_minutes": 60
+    "known_eligible": 50,
+    "last_run": "2026-08-09T06:49:16.663027+00:00",
+    "next_due_minutes": 35.5
   },
   "history": {
     "ready": 14,
     "total": 16,
-    "progress_pct": 87.5
+    "progress_pct": 87.5,
+    "last_run": "2026-08-09T06:49:22.944641+00:00"
   },
   "research": {
-    "fingerprint_changed": true,
-    "cache_hit": false,
-    "backtests_run_this_cycle": 542080,
-    "ready_for_manual_review": 4,
-    "next_full_revalidation_hours": 24
+    "last_run": "2026-08-09T06:54:37.273336+00:00",
+    "last_fingerprint": "d2383e3a46be261db00fda8044eedb069d71225ce4ad66c96f1200ef9a8d204a",
+    "ready_for_review": 4
   },
   "database": {
     "schema_version": "1.0",
-    "application_version": "50.0.0",
-    "generated_at": "2026-08-09T06:54:38.974458+00:00",
+    "application_version": "51.0.0",
+    "generated_at": "2026-08-09T07:13:46.837527+00:00",
     "database_path": "C:\\Crypto\\CRM_Data\\Research\\crm_research.db",
     "exists": true,
     "size_bytes": 307200,
@@ -51,5 +33,6 @@
     "persistent_across_upgrades": true,
     "status": "READY"
   },
-  "principle": "Scan broadly, download selectively, cache aggressively, validate on unseen KuCoin data, surface only evidence-backed actions."
+  "status": "READY",
+  "installer_runs_expensive_backtests": false
 }

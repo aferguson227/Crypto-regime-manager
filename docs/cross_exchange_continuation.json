@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "application_version": "51.0.0",
+  "generated_at": "2026-08-09T07:13:44.379256+00:00",
+  "method": "Reconstruct frozen Kraken cutoff open position, then continue it using later KuCoin 4h candles only.",
+  "assets": [
+    {
+      "asset": "AAVE",
+      "kraken_cutoff_status": "FAIL",
+      "kraken_cutoff_mark_to_market_pnl": -1255.9,
+      "original_validation_preserved": true,
+      "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AAVE-USDT_4H.csv",
+      "validation_file": null,
+      "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
+      "reason": "Normalized Q1 validation data or later KuCoin 4h history is not available yet."
+    },
+    {
+      "asset": "AVAX",
+      "kraken_cutoff_status": "FAIL",
+      "kraken_cutoff_mark_to_market_pnl": -753.58,
+      "original_validation_preserved": true,
+      "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AVAX-USDT_4H.csv",
+      "validation_file": null,
+      "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
+      "reason": "Normalized Q1 validation data or later KuCoin 4h history is not available yet."
+    },
+    {
+      "asset": "DOT",
+      "kraken_cutoff_status": "FAIL",
+      "kraken_cutoff_mark_to_market_pnl": 438.99,
+      "original_validation_preserved": true,
+      "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\DOT-USDT_4H.csv",
+      "validation_file": null,
+      "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
+      "reason": "Normalized Q1 validation data or later KuCoin 4h history is not available yet."
+    },
+    {
+      "asset": "ETH",
+      "kraken_cutoff_status": "PASS",
+      "kraken_cutoff_mark_to_market_pnl": 1291.47,
+      "original_validation_preserved": true,
+      "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ETH-USDT_4H.csv",
+      "validation_file": null,
+      "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
+      "reason": "Normalized Q1 validation data or later KuCoin 4h history is not available yet."
+    },
+    {
+      "asset": "NEAR",
+      "kraken_cutoff_status": "PASS",
+      "kraken_cutoff_mark_to_market_pnl": 2171.29,
+      "original_validation_preserved": true,
+      "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
+      "validation_file": null,
+      "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
+      "reason": "Normalized Q1 validation data or later KuCoin 4h history is not available yet."
+    },
+    {
+      "asset": "SOL",
+      "kraken_cutoff_status": "FAIL",
+      "kraken_cutoff_mark_to_market_pnl": -1428.64,
+      "original_validation_preserved": true,
+      "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\SOL-USDT_4H.csv",
+      "validation_file": null,
+      "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
+      "reason": "Normalized Q1 validation data or later KuCoin 4h history is not available yet."
+    },
+    {
+      "asset": "UNI",
+      "kraken_cutoff_status": "PASS",
+      "kraken_cutoff_mark_to_market_pnl": 1487.98,
+      "original_validation_preserved": true,
+      "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\UNI-USDT_4H.csv",
+      "validation_file": null,
+      "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
+      "reason": "Normalized Q1 validation data or later KuCoin 4h history is not available yet."
+    },
+    {
+      "asset": "XMR",
+      "kraken_cutoff_status": "PASS",
+      "kraken_cutoff_mark_to_market_pnl": 4867.08,
+      "original_validation_preserved": true,
+      "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-USDT_4H.csv",
+      "validation_file": null,
+      "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
+      "reason": "Normalized Q1 validation data or later KuCoin 4h history is not available yet."
+    },
+    {
+      "asset": "XRP",
+      "kraken_cutoff_status": "PASS",
+      "kraken_cutoff_mark_to_market_pnl": 1782.68,
+      "original_validation_preserved": true,
+      "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XRP-USDT_4H.csv",
+      "validation_file": null,
+      "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
+      "reason": "Normalized Q1 validation data or later KuCoin 4h history is not available yet."
+    },
+    {
+      "asset": "ZEC",
+      "kraken_cutoff_status": "FAIL",
+      "kraken_cutoff_mark_to_market_pnl": -2603.9,
+      "original_validation_preserved": true,
+      "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ZEC-USDT_4H.csv",
+      "validation_file": null,
+      "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
+      "reason": "Normalized Q1 validation data or later KuCoin 4h history is not available yet."
+    }
+  ],
+  "summary": {
+    "open_at_kraken_cutoff": 10,
+    "closed_later_on_kucoin": 0,
+    "still_open": 0
+  },
+  "safeguards": {
+    "original_validation_rewritten": false,
+    "research_only": true
+  }
+}

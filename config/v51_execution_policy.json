@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "application_version": "51.0.0",
+  "reconciliation": {
+    "stale_provider_warning_minutes": 10,
+    "stale_provider_critical_minutes": 60,
+    "closed_fill_quantity_ratio": 0.9
+  },
+  "portfolio": {
+    "cash_buffer_pct": 15,
+    "max_live_bots": 4,
+    "max_single_bot_pct": 30,
+    "pilot_pct": 15,
+    "correlation_penalty_weight": 0.35,
+    "capital_lock_penalty_weight": 0.3,
+    "drawdown_penalty_weight": 0.35
+  },
+  "continuation": {
+    "enabled": true,
+    "use_kucoin_after_kraken_cutoff": true,
+    "preserve_original_validation": true
+  },
+  "execution": {
+    "shadow_mode": true,
+    "automatic_orders": false,
+    "automatic_bot_mutation": false,
+    "manual_confirmation_required": true
+  },
+  "presentation": {
+    "raw_enum_gate": true,
+    "raw_enum_regex": "\\b[A-Z][A-Z0-9]*_[A-Z0-9_]+\\b"
+  }
+}

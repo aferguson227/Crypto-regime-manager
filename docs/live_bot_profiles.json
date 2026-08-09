@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "application_version": "51.0.0",
+  "generated_at": "2026-08-09T07:13:45.365792+00:00",
+  "bots": [
+    {
+      "asset": "TEL",
+      "bot_id": 16945272,
+      "bot_name": "TEL DCA - Low Volatility",
+      "enabled": true,
+      "current_regime": "ACCUMULATION",
+      "live_settings": {
+        "take_profit_pct": 1.5,
+        "so_deviation_pct": null,
+        "safety_orders": 6,
+        "volume_scale": 1.6,
+        "step_scale": 1.0,
+        "base_order_volume": 100.0,
+        "safety_order_volume": 100.0,
+        "max_active_deals": 1,
+        "start_condition": "long",
+        "order_type": null,
+        "trailing_enabled": false,
+        "cooldown_seconds": 0
+      },
+      "recommended_current_regime": {},
+      "regime_profiles": {},
+      "recommendation": "Use the validated current-regime profile only after manual review; an unvalidated regime means do not start a new deal automatically."
+    }
+  ],
+  "per_bot_settings": true,
+  "automatic_changes": false
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "50.0.0",
-  "generated_at": "2026-08-09T06:54:40.732149+00:00",
+  "application_version": "51.0.0",
+  "generated_at": "2026-08-09T07:13:45.927175+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -286,16 +286,16 @@
       "next_action": "Remain in research queue."
     },
     {
+      "asset": "PIEVERSE",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
       "asset": "AAVE",
       "status": "KUCOIN_WALK_FORWARD_COMPLETE",
       "current_regime": "ACCUMULATION",
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
-    },
-    {
-      "asset": "SOL",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
     },
     {
       "asset": "ZEC",
@@ -304,7 +304,7 @@
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     },
     {
-      "asset": "PIEVERSE",
+      "asset": "SOL",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -322,16 +322,16 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "XRP",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
       "asset": "CYS",
       "status": "KUCOIN_WALK_FORWARD_COMPLETE",
       "current_regime": "ACCUMULATION",
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
+    },
+    {
+      "asset": "XRP",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
     },
     {
       "asset": "DOT",
@@ -346,7 +346,7 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "TUT",
+      "asset": "SIREN",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -364,7 +364,7 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "SIREN",
+      "asset": "TUT",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -376,7 +376,7 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "BLUAI",
+      "asset": "ACE",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."

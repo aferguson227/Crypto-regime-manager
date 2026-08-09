@@ -45,7 +45,7 @@ def geometric_remaining(safety,scale,start,count):
     return sum(safety*(scale**n) for n in range(start,start+count))
 
 def build()->dict[str,Any]:
-    three=load('threecommas.json'); kucoin=load('kucoin_account.json'); state=load('operating_state.json')
+    three=load('threecommas.json'); kucoin=load('kucoin_account.json'); state=load('operating_state.json'); recon=load('execution_reconciliation.json')
     generated=datetime.now(timezone.utc).isoformat(); warnings=[]
     account_rows=[]
     capital_source='3Commas read-only account snapshot'
@@ -65,9 +65,10 @@ def build()->dict[str,Any]:
         warnings.append('3Commas account balance data is incomplete. Configure KuCoin direct read-only account access for dependable deployable-capital calculation.')
     bot_rows=[]; all_active=[]; all_placed=[]; all_remaining=[]; all_idle=[]
     assets=three.get('assets') if isinstance(three.get('assets'),dict) else {}
+    stale_keys={(str(x.get('asset') or '').upper(),x.get('bot_id')) for x in recon.get('deals') or [] if x.get('reconciliation_state')=='PROVIDER_STALE_OPEN'}
     for asset,entry in assets.items():
         if not isinstance(entry,dict):continue
-        deals=entry.get('deals') or []
+        deals=[d for d in (entry.get('deals') or []) if (str(asset).upper(),d.get('bot_id')) not in stale_keys]
         for bot in entry.get('bots') or []:
             if not isinstance(bot,dict):continue
             bid=bot.get('bot_id'); name=str(bot.get('name') or 'Unnamed bot')
@@ -118,20 +119,22 @@ def build()->dict[str,Any]:
       'placed_order_reserve':'Shown separately; not subtracted from free USDT because exchange free balance normally already excludes open-order funds.',
       'remaining_active_deal_dca_reserve':'Unplaced remaining safety-order ladder requirement for active deals.',
        'enabled_idle_capacity_reserve':'Potential exposure only: maximum full-ladder capital for unused enabled-bot deal slots. It is not labelled reserved and is not subtracted from deployable capital.',
-      'deployable_capital':'free_available minus remaining_active_deal_dca_reserve. Idle enabled bots are shown as contingent exposure, not already-reserved capital.' 
+      'deployable_capital':'free_available minus remaining active-deal DCA reserve after KuCoin↔provider reconciliation. Provider-stale deals proven closed on KuCoin do not keep capital reserved.' 
     },tuple(warnings)).to_dict()
     allocations=[]
     for asset,entry in assets.items():
-        qty=sum(float(d.get('allocated_asset_quantity') or 0) for d in (entry.get('deals') or []) if isinstance(d,dict))
-        quote=sum(float(d.get('capital_used_quote') or 0) for d in (entry.get('deals') or []) if isinstance(d,dict))
+        live_deals=[d for d in (entry.get('deals') or []) if isinstance(d,dict) and (str(asset).upper(),d.get('bot_id')) not in stale_keys]
+        qty=sum(float(d.get('allocated_asset_quantity') or 0) for d in live_deals)
+        quote=sum(float(d.get('capital_used_quote') or 0) for d in live_deals)
         if qty or quote:
-            allocations.append({'asset':asset,'quantity':qty or None,'quote_currency':next((d.get('quote_currency') for d in entry.get('deals') or [] if isinstance(d,dict) and d.get('quote_currency')), 'USDT'),'quote_cost':quote or None})
+            allocations.append({'asset':asset,'quantity':qty or None,'quote_currency':next((d.get('quote_currency') for d in live_deals if d.get('quote_currency')), 'USDT'),'quote_cost':quote or None})
     payload['asset_allocations']=allocations
     payload['capital_source']=capital_source
     payload['kucoin_direct_status']=kucoin.get('status') or 'not_configured'
     payload['reserved_capital']=remaining_total
     payload['idle_bot_potential_exposure']=idle_total
-    payload['capital_policy']='Protect active-deal remaining DCA ladders; do not reserve theoretical idle-bot exposure until a deal is active or explicitly approved.'
+    payload['capital_policy']='Protect only reconciled active-deal remaining DCA ladders; provider-stale deals proven closed on KuCoin do not consume CRM capital. Idle theoretical exposure is not reserved until approved.'
+    payload['provider_stale_deals_excluded']=len(stale_keys)
     return payload
 
 def main():

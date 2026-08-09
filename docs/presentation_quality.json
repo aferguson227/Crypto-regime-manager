@@ -1,15 +1,15 @@
 {
-  "schema_version": "1.0",
-  "application_version": "50.0.0",
+  "schema_version": "2.0",
+  "application_version": "51.0.0",
   "result": "HEALTHY",
   "issue_count": 0,
+  "pages_checked": 39,
   "issues": [],
   "checks": [
-    "no known raw enum leakage",
+    "universal raw-enum barrier",
+    "canonical label formatter",
     "mobile responsive rules",
     "activity visibility",
-    "status formatting",
-    "canonical timestamps",
-    "candidate review workflow"
+    "known direct-enum leaks"
   ]
 }

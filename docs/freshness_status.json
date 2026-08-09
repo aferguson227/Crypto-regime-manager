@@ -1,15 +1,15 @@
 {
   "schema_version": "1.1",
-  "application_version": "50.0.0",
-  "generated_at": "2026-08-09T06:54:41.708304+00:00",
+  "application_version": "51.0.0",
+  "generated_at": "2026-08-09T07:13:46.043319+00:00",
   "overall": "REFRESH_DUE",
   "overall_reason": "Valid data remains available; the next automatic refresh is due.",
   "components": [
     {
       "name": "3Commas",
       "status": "REFRESH_DUE",
-      "age_minutes": 124.6,
-      "age_display": "2h 05m ago",
+      "age_minutes": 143.7,
+      "age_display": "2h 24m ago",
       "expected_cadence_minutes": 60,
       "reason": "Valid data remains available; the next automatic refresh is due.",
       "source": "GitHub CRM Data Refresh",
@@ -17,33 +17,33 @@
     },
     {
       "name": "Local private data",
-      "status": "REFRESH_DUE",
-      "age_minutes": 58.3,
-      "age_display": "58 min ago",
+      "status": "CURRENT",
+      "age_minutes": 19.0,
+      "age_display": "19 min ago",
       "expected_cadence_minutes": 15,
-      "reason": "Valid data remains available; the next automatic refresh is due.",
+      "reason": "Within the expected automatic refresh window.",
       "source": "Windows Local Agent / KuCoin",
       "automatic": true
     },
     {
       "name": "Website publication",
       "status": "CURRENT",
-      "age_minutes": 118.8,
-      "age_display": "1h 59m ago",
+      "age_minutes": 143.4,
+      "age_display": "2h 23m ago",
       "expected_cadence_minutes": 240,
-      "reason": "Live Pages is synchronised with the published CRM version. Deployment age is informational only.",
+      "reason": "Within the expected automatic refresh window.",
       "source": "Validated Pages publication",
       "automatic": true,
       "content_pending": false,
-      "synchronization_status": "SYNCED"
+      "synchronization_status": "PENDING_PUBLICATION"
     },
     {
       "name": "Diagnostics",
-      "status": "REFRESH_DUE",
-      "age_minutes": 88.4,
-      "age_display": "1h 28m ago",
+      "status": "CURRENT",
+      "age_minutes": 19.1,
+      "age_display": "19 min ago",
       "expected_cadence_minutes": 15,
-      "reason": "Valid data remains available; the next automatic refresh is due.",
+      "reason": "Within the expected automatic refresh window.",
       "source": "Autonomous diagnostics",
       "automatic": true
     }

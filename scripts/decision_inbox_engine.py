@@ -26,7 +26,7 @@ def event(kind,title,detail,severity='info',action=None,payload=None):
 def build():
     ws=load('professional_workspace.json'); expansion=load('expansion_readiness.json'); trades=load('trade_intelligence.json')
     market=load('market_intelligence.json'); capital=load('capital_intelligence.json'); issues=load('issues.json')
-    rec=load('recommendation_intelligence.json'); pipeline=load('research_pipeline.json'); globalm=load('global_market.json'); coins=load('coin_registry.json')
+    rec=load('recommendation_intelligence.json'); pipeline=load('research_pipeline.json'); globalm=load('global_market.json'); coins=load('coin_registry.json'); reconcile=load('execution_reconciliation.json')
     items=[]
     d=ws.get('daily_decision') or {}
     if d.get('bot_name'):
@@ -49,8 +49,12 @@ def build():
     if globalm.get('regime'):
         items.append(event('GLOBAL_REGIME',f"Global market regime: {str(globalm.get('regime')).replace('_',' ').title()}",f"Universal market score {globalm.get('score_pct')}%. BTC/current breadth evidence is included where available.",'info','REVIEW_MARKET',{'regime':globalm.get('regime'),'score_pct':globalm.get('score_pct')}))
     for c in coins.get('coins') or []:
-        if c.get('status') in {'DEPLOYMENT_CANDIDATE','READY_FOR_REVIEW'}:
-            items.append(event('COIN_STATUS',f"{c.get('asset')} is {str(c.get('status')).replace('_',' ').title()}",'; '.join(c.get('reasons') or [])[:260],'opportunity','REVIEW_COIN',c))
+        if c.get('lifecycle') in {'DEPLOYMENT_CANDIDATE','READY_FOR_REVIEW'}:
+            items.append(event('COIN_STATUS',f"{c.get('asset')} is {str(c.get('lifecycle')).replace('_',' ').title()}",'; '.join(c.get('reasons') or [])[:260],'opportunity','REVIEW_COIN',c))
+    for x in reconcile.get('deals') or []:
+        if x.get('reconciliation_state')=='PROVIDER_STALE_OPEN':
+            items.append(event('EXECUTION_PROVIDER_MISMATCH',f"{x.get('asset')} closed on KuCoin but 3Commas still shows open",
+                x.get('action') or 'Reconcile the stale provider deal before the next entry.','warning','REVIEW_EXECUTION_RECONCILIATION',x))
     # Only surface genuine active issues.
     for it in (issues.get('issues') or [])[:6]:
         if not isinstance(it,dict): continue

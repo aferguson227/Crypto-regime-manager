@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
 def test_v38_identity_and_routes():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='50.0.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='51.0.0'
  release=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
  assert release['release_name']=='KuCoin Historical Research & Universal Responsive UI'
  routes=json.loads((ROOT/'config/routes.json').read_text(encoding='utf-8'))['routes']
@@ -21,4 +21,4 @@ def test_engineering_json_outputs_present():
  for n in ['github_actions_health.json','engineering_health.json','release_readiness.json','decision_quality.json']:
   p=ROOT/'docs'/n
   assert p.exists(),n
-  assert json.loads(p.read_text(encoding='utf-8'))['application_version']=='50.0.0'
+  assert json.loads(p.read_text(encoding='utf-8'))['application_version']=='51.0.0'
