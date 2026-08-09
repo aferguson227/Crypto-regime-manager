@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "snapshot_id": "1ce4f0306d0a3673e776",
-  "generated_at": "2026-08-09T04:26:43.179903+00:00",
+  "snapshot_id": "cd0f5101f34501cc1dde",
+  "generated_at": "2026-08-09T04:50:15.268848+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
@@ -16,7 +16,7 @@
       "action": "KEEP_ACTIVE_DEAL",
       "recommendation": "TEL Low Volatility Bot",
       "entry_allowed": true,
-      "decision_score": 91.4,
+      "decision_score": 95.2,
       "live_bot_state": "ACTIVE_DEAL",
       "settings_state": "INCOMPLETE",
       "reasons": [
@@ -25,9 +25,8 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 30.7 days"
+        "Open replay position has lasted 31.7 days"
       ]
     },
     {
@@ -37,7 +36,7 @@
       "action": "WAIT",
       "recommendation": "TAO Low Pullback Bot",
       "entry_allowed": false,
-      "decision_score": 47.7,
+      "decision_score": 46.3,
       "live_bot_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "reasons": [
@@ -80,35 +79,35 @@
     {
       "name": "KuCoin strategy snapshot",
       "status": "ok",
-      "observed_at": "2026-08-08T04:36:37.700103+00:00",
-      "version": "44.0.0",
+      "observed_at": "2026-08-09T04:50:09.651195+00:00",
+      "version": "49.0.0",
       "warnings": []
     },
     {
       "name": "Unified decision intelligence",
       "status": "available",
-      "observed_at": "2026-08-08T04:36:40.777074+00:00",
+      "observed_at": "2026-08-09T04:50:14.508361+00:00",
       "version": "29.0.0",
       "warnings": []
     },
     {
       "name": "3Commas live state",
       "status": "ok",
-      "observed_at": "2026-08-08T23:57:28.450356+00:00",
+      "observed_at": "2026-08-09T04:50:07.022157+00:00",
       "version": "49.0.0",
       "warnings": []
     },
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-09T04:26:43.071853+00:00",
+      "observed_at": "2026-08-09T04:50:15.229716+00:00",
       "version": null,
       "warnings": []
     },
     {
       "name": "Configuration reconciliation",
       "status": "fresh",
-      "observed_at": "2026-08-08T12:38:59.752057+00:00",
+      "observed_at": "2026-08-09T04:50:14.516535+00:00",
       "version": null,
       "warnings": []
     },
@@ -122,7 +121,7 @@
     {
       "name": "System integrity",
       "status": "fresh",
-      "observed_at": "2026-08-08T12:38:59.875763+00:00",
+      "observed_at": "2026-08-09T04:50:14.517201+00:00",
       "version": null,
       "warnings": []
     }

@@ -1,17 +1,17 @@
 {
   "schema_version": "2.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T04:26:44.501944+00:00",
+  "generated_at": "2026-08-09T04:50:15.754091+00:00",
   "overall": {
     "state": "HEALTHY",
-    "score_pct": 93.5
+    "score_pct": 92.7
   },
   "scores": {
     "application": 100,
-    "operations": 61.0,
+    "operations": 86.0,
     "interface": 100,
     "actions": 100,
-    "self_healing": 100,
+    "self_healing": 70,
     "repository": 100
   },
   "action_queue": [
@@ -25,15 +25,55 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-08T12:39:01.904026+00:00",
-      "last_detected_at": "2026-08-08T19:46:53.365806+00:00",
+      "last_detected_at": "2026-08-09T04:48:58.004881+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 3,
+      "historical_occurrences": 4,
       "user_benefit": 5,
-      "frequency": 3,
+      "frequency": 4,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 18.8
+      "roi_score": 25.0
+    },
+    {
+      "key": "df0b590c64ba8e2f",
+      "source": "operational",
+      "fingerprint": "3Commas refresh needs attention",
+      "title": "3Commas refresh needs attention",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-09T04:48:58.004881+00:00",
+      "last_detected_at": "2026-08-09T04:48:58.004881+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 4,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 5.0
+    },
+    {
+      "key": "a43930f4134bf7af",
+      "source": "self_healing",
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "severity": "low",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Trigger the read-only 3Commas workflow.",
+      "first_detected_at": "2026-08-09T04:48:58.004881+00:00",
+      "last_detected_at": "2026-08-09T04:48:58.004881+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 2,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 2.5
     }
   ],
   "highest_value_improvements": [
@@ -47,21 +87,61 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-08T12:39:01.904026+00:00",
-      "last_detected_at": "2026-08-08T19:46:53.365806+00:00",
+      "last_detected_at": "2026-08-09T04:48:58.004881+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 3,
+      "historical_occurrences": 4,
       "user_benefit": 5,
-      "frequency": 3,
+      "frequency": 4,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 18.8
+      "roi_score": 25.0
+    },
+    {
+      "key": "df0b590c64ba8e2f",
+      "source": "operational",
+      "fingerprint": "3Commas refresh needs attention",
+      "title": "3Commas refresh needs attention",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-09T04:48:58.004881+00:00",
+      "last_detected_at": "2026-08-09T04:48:58.004881+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 4,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 5.0
+    },
+    {
+      "key": "a43930f4134bf7af",
+      "source": "self_healing",
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "severity": "low",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Trigger the read-only 3Commas workflow.",
+      "first_detected_at": "2026-08-09T04:48:58.004881+00:00",
+      "last_detected_at": "2026-08-09T04:48:58.004881+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 2,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 2.5
     }
   ],
   "recently_closed": [],
   "technical_debt": {
     "state": "LOW",
-    "known_items": 1
+    "known_items": 3
   },
   "decision_quality_display": {
     "state": "LEARNING",
@@ -69,13 +149,13 @@
     "evidence_coverage_pct": 20.0
   },
   "release_predictor": {
-    "readiness_pct": 78.5,
+    "readiness_pct": 77.7,
     "ready": false,
     "recommendation": "HOLD",
     "regression_risk": "LOW",
     "expected_build_seconds": null,
     "expected_deployment_seconds": 26.0,
-    "actions_success_rate_pct": 98.0,
+    "actions_success_rate_pct": 99.0,
     "blockers": [
       "Application publication needs attention"
     ]

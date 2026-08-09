@@ -1,32 +1,5 @@
 {
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T04:48:57.255354+00:00",
-  "issues": [
-    {
-      "severity": "warning",
-      "system": "3Commas",
-      "title": "3Commas refresh needs attention",
-      "detail": "Last successful sync was 4.86 hours ago. Expected cadence is about 60 minutes.",
-      "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
-      "metric": {
-        "age_hours": 4.86,
-        "expected_cadence_hours": 1
-      },
-      "first_detected_at": "2026-08-09T04:48:57.256602+00:00",
-      "last_detected_at": "2026-08-09T04:48:57.256606+00:00"
-    },
-    {
-      "severity": "critical",
-      "system": "Application",
-      "title": "Application publication needs attention",
-      "detail": "Last successful publication was 23.83 hours ago.",
-      "recommended_action": "Automatic refresh and publication are enabled; inspect the collector only if this persists.",
-      "metric": {
-        "age_hours": 23.83,
-        "unit": "hours"
-      },
-      "first_detected_at": "2026-08-09T04:48:57.256613+00:00",
-      "last_detected_at": "2026-08-09T04:48:57.256615+00:00"
-    }
-  ]
+  "generated_at": "2026-08-09T04:50:15.491237+00:00",
+  "issues": []
 }

@@ -1,17 +1,17 @@
 {
   "schema_version": "2.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T04:26:43.685707+00:00",
-  "snapshot_id": "8af0a3a7f1e70e8c214b",
-  "status": "FAILURE",
+  "generated_at": "2026-08-09T04:50:15.463195+00:00",
+  "snapshot_id": "115c61c0e7aa7a117f2c",
+  "status": "HEALTHY",
   "pipelines": {
     "threecommas": {
       "name": "3Commas read-only sync",
-      "state": "warning",
-      "last_attempt_at": "2026-08-08T23:57:28.450356+00:00",
-      "last_attempt_age_hours": 4.49,
-      "last_success_at": "2026-08-08T23:57:28.450356+00:00",
-      "last_success_age_hours": 4.49,
+      "state": "healthy",
+      "last_attempt_at": "2026-08-09T04:50:07.022157+00:00",
+      "last_attempt_age_hours": 0.0,
+      "last_success_at": "2026-08-09T04:50:07.022157+00:00",
+      "last_success_age_hours": 0.0,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -28,7 +28,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-08T23:57:29.358931+00:00"
+            "observed_at": "2026-08-09T04:50:07.631146+00:00"
           },
           "accounts": {
             "path": "/public/api/ver1/accounts",
@@ -37,7 +37,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 1,
-            "observed_at": "2026-08-08T23:57:30.016905+00:00"
+            "observed_at": "2026-08-09T04:50:08.043670+00:00"
           },
           "bots": {
             "path": "/public/api/ver1/bots",
@@ -46,7 +46,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 4,
-            "observed_at": "2026-08-08T23:57:30.452878+00:00"
+            "observed_at": "2026-08-09T04:50:08.349694+00:00"
           },
           "deals": {
             "path": "/public/api/ver1/deals",
@@ -55,7 +55,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 1,
-            "observed_at": "2026-08-08T23:57:30.751767+00:00"
+            "observed_at": "2026-08-09T04:50:08.667088+00:00"
           },
           "account_32632134_details": {
             "path": "/public/api/ver1/accounts/32632134",
@@ -64,7 +64,7 @@
             "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-08T23:57:30.751817+00:00"
+            "observed_at": "2026-08-09T04:50:08.667136+00:00"
           },
           "account_32632134_balances": {
             "path": "/public/api/ver1/accounts/32632134/account_table_data",
@@ -73,7 +73,7 @@
             "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-08T23:57:30.751824+00:00"
+            "observed_at": "2026-08-09T04:50:08.667140+00:00"
           }
         },
         "failure_count": 0,
@@ -83,11 +83,11 @@
     },
     "application": {
       "name": "Main market/application refresh",
-      "state": "failure",
-      "last_attempt_at": "2026-08-08T04:36:36.497194+00:00",
-      "last_attempt_age_hours": 23.84,
-      "last_success_at": "2026-08-08T04:36:40.869916+00:00",
-      "last_success_age_hours": 23.83,
+      "state": "healthy",
+      "last_attempt_at": "2026-08-09T04:50:08.764973+00:00",
+      "last_attempt_age_hours": 0.0,
+      "last_success_at": "2026-08-09T04:50:14.623469+00:00",
+      "last_success_age_hours": 0.0,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -98,11 +98,11 @@
   "sources": [
     {
       "name": "3Commas read-only sync",
-      "state": "warning",
-      "last_attempt_at": "2026-08-08T23:57:28.450356+00:00",
-      "last_attempt_age_hours": 4.49,
-      "last_success_at": "2026-08-08T23:57:28.450356+00:00",
-      "last_success_age_hours": 4.49,
+      "state": "healthy",
+      "last_attempt_at": "2026-08-09T04:50:07.022157+00:00",
+      "last_attempt_age_hours": 0.0,
+      "last_success_at": "2026-08-09T04:50:07.022157+00:00",
+      "last_success_age_hours": 0.0,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -119,7 +119,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-08T23:57:29.358931+00:00"
+            "observed_at": "2026-08-09T04:50:07.631146+00:00"
           },
           "accounts": {
             "path": "/public/api/ver1/accounts",
@@ -128,7 +128,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 1,
-            "observed_at": "2026-08-08T23:57:30.016905+00:00"
+            "observed_at": "2026-08-09T04:50:08.043670+00:00"
           },
           "bots": {
             "path": "/public/api/ver1/bots",
@@ -137,7 +137,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 4,
-            "observed_at": "2026-08-08T23:57:30.452878+00:00"
+            "observed_at": "2026-08-09T04:50:08.349694+00:00"
           },
           "deals": {
             "path": "/public/api/ver1/deals",
@@ -146,7 +146,7 @@
             "message": "Endpoint completed successfully.",
             "http_status": null,
             "records": 1,
-            "observed_at": "2026-08-08T23:57:30.751767+00:00"
+            "observed_at": "2026-08-09T04:50:08.667088+00:00"
           },
           "account_32632134_details": {
             "path": "/public/api/ver1/accounts/32632134",
@@ -155,7 +155,7 @@
             "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-08T23:57:30.751817+00:00"
+            "observed_at": "2026-08-09T04:50:08.667136+00:00"
           },
           "account_32632134_balances": {
             "path": "/public/api/ver1/accounts/32632134/account_table_data",
@@ -164,7 +164,7 @@
             "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured.",
             "http_status": null,
             "records": null,
-            "observed_at": "2026-08-08T23:57:30.751824+00:00"
+            "observed_at": "2026-08-09T04:50:08.667140+00:00"
           }
         },
         "failure_count": 0,
@@ -174,11 +174,11 @@
     },
     {
       "name": "Main market/application refresh",
-      "state": "failure",
-      "last_attempt_at": "2026-08-08T04:36:36.497194+00:00",
-      "last_attempt_age_hours": 23.84,
-      "last_success_at": "2026-08-08T04:36:40.869916+00:00",
-      "last_success_age_hours": 23.83,
+      "state": "healthy",
+      "last_attempt_at": "2026-08-09T04:50:08.764973+00:00",
+      "last_attempt_age_hours": 0.0,
+      "last_success_at": "2026-08-09T04:50:14.623469+00:00",
+      "last_success_age_hours": 0.0,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -194,7 +194,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-08T23:57:29.358931+00:00"
+      "observed_at": "2026-08-09T04:50:07.631146+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
@@ -203,7 +203,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-08T23:57:30.016905+00:00"
+      "observed_at": "2026-08-09T04:50:08.043670+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
@@ -212,7 +212,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 4,
-      "observed_at": "2026-08-08T23:57:30.452878+00:00"
+      "observed_at": "2026-08-09T04:50:08.349694+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
@@ -221,7 +221,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-08T23:57:30.751767+00:00"
+      "observed_at": "2026-08-09T04:50:08.667088+00:00"
     },
     "account_32632134_details": {
       "path": "/public/api/ver1/accounts/32632134",
@@ -230,7 +230,7 @@
       "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-08T23:57:30.751817+00:00"
+      "observed_at": "2026-08-09T04:50:08.667136+00:00"
     },
     "account_32632134_balances": {
       "path": "/public/api/ver1/accounts/32632134/account_table_data",
@@ -239,19 +239,19 @@
       "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-08T23:57:30.751824+00:00"
+      "observed_at": "2026-08-09T04:50:08.667140+00:00"
     }
   },
   "workflows": [
     {
-      "file": ".github\\workflows\\crm-data-refresh.yml",
+      "file": ".github/workflows/crm-data-refresh.yml",
       "status": "pass",
       "findings": [],
       "module_execution": "python -m scripts.threecommas_sync",
       "expected_cron": "37 * * * *"
     },
     {
-      "file": ".github\\workflows\\crm-health-self-heal.yml",
+      "file": ".github/workflows/crm-health-self-heal.yml",
       "status": "pass",
       "findings": [],
       "module_execution": "python -m scripts.engineering_scheduler",
@@ -259,9 +259,9 @@
     }
   ],
   "github": {
-    "repository": null,
-    "workflow_run_id": null,
-    "run_url": null
+    "repository": "aferguson227/Crypto-regime-manager",
+    "workflow_run_id": "31295389335",
+    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31295389335"
   },
   "automation_policy": {
     "routine_manual_runs_required": false,

@@ -1,19 +1,19 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T04:26:44.646225+00:00",
-  "snapshot_id": "b42662c41fb92ac735405f1e",
+  "generated_at": "2026-08-09T04:50:15.793485+00:00",
+  "snapshot_id": "d5b8e0e0e3d00165eb0d0e04",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
   "overall_status": "MAINTAIN",
   "market": {
-    "regime": "ACCUMULATION",
-    "confidence_pct": 56.0,
-    "risk_appetite": "BALANCED",
-    "recommended_exposure": "MODERATE",
-    "trend_score": 55,
-    "breadth_score": 60.0,
+    "regime": "MEAN_REVERTING",
+    "confidence_pct": 54.6,
+    "risk_appetite": "CAUTIOUS",
+    "recommended_exposure": "LOW_TO_MODERATE",
+    "trend_score": 47.5,
+    "breadth_score": 66.7,
     "volatility_score": 35,
     "stress_tests": [
       {
@@ -43,9 +43,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 70.7,
+    "health_score": 71.3,
     "diversification_score": 25,
-    "capital_efficiency_score": 87.0,
+    "capital_efficiency_score": 88.8,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -83,7 +83,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 91.8,
+        "efficiency_score": 93.7,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -96,7 +96,7 @@
         "allocated_capital": 117.69303624,
         "reserve_capital": 2629.5360000000005,
         "deployable_priority": 4,
-        "efficiency_score": 82.13,
+        "efficiency_score": 83.83,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -131,24 +131,23 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "e687fcb483a0121c1e49a0b0",
+      "recommendation_id": "8ed7a0af7314445eea212ebe",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
-      "confidence_pct": 91.8,
-      "static_confidence_pct": 91.8,
+      "confidence_pct": 93.7,
+      "static_confidence_pct": 93.7,
       "adaptive_active": false,
       "risk_level": "MODERATE",
-      "explanation": "Keep active deal TEL Low Volatility Bot. Confidence 91.8%; risk moderate. Current entry filters pass",
+      "explanation": "Keep active deal TEL Low Volatility Bot. Confidence 93.7%; risk moderate. Current entry filters pass",
       "supporting_evidence": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
         "Recent capital efficiency is positive"
       ],
       "risks": [
-        "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 30.7 days"
+        "Open replay position has lasted 31.7 days"
       ],
       "blockers": [],
       "production_comparison": {
@@ -293,15 +292,15 @@
       }
     },
     {
-      "recommendation_id": "f726f58e75d61e1d5569e523",
+      "recommendation_id": "dee5c28c1843ec79c6443f64",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence_pct": 22.2,
-      "static_confidence_pct": 22.2,
+      "confidence_pct": 21.7,
+      "static_confidence_pct": 21.7,
       "adaptive_active": false,
       "risk_level": "HIGH",
-      "explanation": "Wait TAO Low Pullback Bot. Confidence 22.2%; risk high. Strategy health is strong",
+      "explanation": "Wait TAO Low Pullback Bot. Confidence 21.7%; risk high. Strategy health is strong",
       "supporting_evidence": [
         "Strategy health is strong",
         "Recent realised P&L is positive",
@@ -471,7 +470,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
-      "confidence_pct": 91.8,
+      "confidence_pct": 93.7,
       "urgency": "MONITOR",
       "rationale": [
         "Current entry filters pass",
@@ -488,7 +487,7 @@
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence_pct": 22.2,
+      "confidence_pct": 21.7,
       "urgency": "WAIT",
       "rationale": [
         "Strategy health is strong",
@@ -505,9 +504,8 @@
     }
   ],
   "risks": [
-    "Strategy health requires review",
     "Recent drawdown is elevated",
-    "Open replay position has lasted 30.7 days",
+    "Open replay position has lasted 31.7 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -532,10 +530,10 @@
     }
   },
   "cloud": {
-    "overall_status": "FAILURE",
+    "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-08T23:57:28.450356+00:00",
+      "generated_at": "2026-08-09T04:50:07.022157+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -545,23 +543,22 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "FAILURE"
+    "cloud_status": "HEALTHY"
   },
   "source_snapshots": {
-    "market": "31019e1015d7330a09da",
-    "portfolio": "058c4aa0925e4278142c",
-    "capital": "3c35ed489e725f4e8b4b",
-    "deployment": "2f0f9134582dbf52934c",
-    "recommendations": "a13d33d543faca42e456",
-    "adaptive": "b29b1d5a685ae5e0f982",
-    "outcomes": "2026-08-08T12:39:00.841656+00:00",
-    "cloud": "8af0a3a7f1e70e8c214b",
-    "operating": "1ce4f0306d0a3673e776"
+    "market": "737b2a9bc3966fb108b9",
+    "portfolio": "483b4e1f6dd930f98376",
+    "capital": "0829d14d35ff986ab3ed",
+    "deployment": "d2a4c4be0a8baa71c1b9",
+    "recommendations": "c4e8237796051b610348",
+    "adaptive": "f8a5cbdd1f572ea93ed8",
+    "outcomes": "2026-08-09T04:50:14.602750+00:00",
+    "cloud": "115c61c0e7aa7a117f2c",
+    "operating": "cd0f5101f34501cc1dde"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
-    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
-    "One or more cloud data sources require attention."
+    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ]
 }
