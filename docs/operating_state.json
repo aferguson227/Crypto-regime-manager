@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "54.0.0",
-  "snapshot_id": "b4fc7aa7a381adfad8b8",
-  "generated_at": "2026-08-09T09:50:08.752099+00:00",
+  "snapshot_id": "df4133a1c7906a894058",
+  "generated_at": "2026-08-09T10:16:55.193576+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
@@ -13,11 +13,11 @@
       "asset": "TEL",
       "regime": "Low",
       "production_status": "production",
-      "action": "KEEP_ENABLED",
+      "action": "KEEP_ACTIVE_DEAL",
       "recommendation": "TEL Low Volatility Bot",
       "entry_allowed": true,
       "decision_score": 95.1,
-      "live_bot_state": "ENABLED_IDLE",
+      "live_bot_state": "ACTIVE_DEAL",
       "settings_state": "INCOMPLETE",
       "reasons": [
         "Current entry filters pass",
@@ -55,10 +55,10 @@
     "currency": "USDT",
     "exchange_total": 3615.53005894,
     "free_available": 3615.53005894,
-    "active_deal_capital": 0.0,
+    "active_deal_capital": 117.69379776,
     "placed_order_reserve": 0.0,
-    "enabled_bot_theoretical_reserve": 2729.5360000000005,
-    "available_after_reserve": 3615.53005894,
+    "enabled_bot_theoretical_reserve": 0.0,
+    "available_after_reserve": 985.9940589399994,
     "completeness": "complete",
     "warnings": []
   },
@@ -93,14 +93,14 @@
     {
       "name": "3Commas live state",
       "status": "ok",
-      "observed_at": "2026-08-09T08:05:44.884425+00:00",
-      "version": "51.0.0",
+      "observed_at": "2026-08-09T10:16:53.709888+00:00",
+      "version": "54.0.0",
       "warnings": []
     },
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-09T09:50:08.544101+00:00",
+      "observed_at": "2026-08-09T10:16:55.135523+00:00",
       "version": null,
       "warnings": []
     },

@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "application_version": "54.0.0",
-  "generated_at": "2026-08-09T09:50:17.718755+00:00",
+  "generated_at": "2026-08-09T10:16:55.534181+00:00",
   "overall": {
     "state": "HEALTHY",
-    "score_pct": 79.0,
+    "score_pct": 82.0,
     "active_issue_count": 0,
     "critical_count": 0,
     "warning_count": 0
@@ -13,14 +13,14 @@
     "system": 100,
     "data": 100,
     "trading": 70.0,
-    "deployment": 85.0,
+    "deployment": 100,
     "decision_readiness": 40.0
   },
   "threecommas": {
     "status": "ok",
-    "last_attempt_at": "2026-08-09T08:05:44.884425+00:00",
-    "last_success_at": "2026-08-09T08:05:44.884425+00:00",
-    "last_success_age_hours": 1.74,
+    "last_attempt_at": "2026-08-09T10:16:53.709888+00:00",
+    "last_success_at": "2026-08-09T10:16:53.709888+00:00",
+    "last_success_age_hours": 0.0,
     "endpoints": [
       {
         "name": "validate",
@@ -28,8 +28,8 @@
         "category": "ok",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-09T08:05:45.800360+00:00",
-        "age_hours": 1.74,
+        "observed_at": "2026-08-09T10:16:54.259770+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -39,8 +39,8 @@
         "category": "ok",
         "http_status": null,
         "records": 1,
-        "observed_at": "2026-08-09T08:05:46.271891+00:00",
-        "age_hours": 1.74,
+        "observed_at": "2026-08-09T10:16:54.552288+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -50,8 +50,8 @@
         "category": "ok",
         "http_status": null,
         "records": 4,
-        "observed_at": "2026-08-09T08:05:46.915698+00:00",
-        "age_hours": 1.74,
+        "observed_at": "2026-08-09T10:16:54.768671+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -60,9 +60,9 @@
         "status": "pass",
         "category": "ok",
         "http_status": null,
-        "records": 0,
-        "observed_at": "2026-08-09T08:05:47.631375+00:00",
-        "age_hours": 1.74,
+        "records": 1,
+        "observed_at": "2026-08-09T10:16:54.992483+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -72,8 +72,8 @@
         "category": "not_requested_quota_guard",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-09T08:05:47.631424+00:00",
-        "age_hours": 1.74,
+        "observed_at": "2026-08-09T10:16:54.992532+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -83,25 +83,37 @@
         "category": "not_requested_direct_capital",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-09T08:05:47.631431+00:00",
-        "age_hours": 1.74,
+        "observed_at": "2026-08-09T10:16:54.992538+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
     ],
     "accounts": 1,
     "bots": 4,
-    "deals": 0
+    "deals": 1
   },
   "application": {
     "cloud_state": "healthy",
     "last_success_at": "2026-08-09T08:05:53.641209+00:00",
-    "last_success_age_hours": 1.74,
+    "last_success_age_hours": 2.18,
     "diagnostics_score_pct": 100
   },
   "trading": {
-    "active_deals": [],
-    "deal_count": 0
+    "active_deals": [
+      {
+        "asset": "TEL",
+        "bot_name": "TEL DCA - Low Volatility",
+        "status": "bought",
+        "profit_pct": -0.38,
+        "duration_hours": 0.5,
+        "completed_safety_orders": 0,
+        "max_safety_orders": 6,
+        "capital_used": 117.69379776,
+        "quote_currency": "USDT"
+      }
+    ],
+    "deal_count": 1
   },
   "decision": {
     "primary_action": "KEEP_ENABLED",
