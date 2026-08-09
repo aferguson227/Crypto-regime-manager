@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "58.0.0",
-  "generated_at": "2026-08-09T08:05:53.650549+00:00",
+  "generated_at": "2026-08-09T16:01:24.422533+00:00",
   "snapshot_id": "737b2a9bc3966fb108b9",
   "mode": "read_only_market_context",
   "read_only": true,
@@ -38,8 +38,8 @@
     {
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
-      "action": "KEEP_ENABLED",
-      "effective_score": 92.0,
+      "action": "KEEP_ACTIVE_DEAL",
+      "effective_score": 93.6,
       "market_regime": "MEAN_REVERTING",
       "why_now": [
         "Current operating data allows entry."
@@ -65,24 +65,24 @@
     {
       "scenario": "BTC decline",
       "market_shock_pct": -10,
-      "estimated_capital_impact": 0.0,
-      "stressed_reserve_requirement": 0.0,
+      "estimated_capital_impact": 23.58,
+      "stressed_reserve_requirement": 3161.92,
       "status": "ESTIMATED",
       "automatic_action": false
     },
     {
       "scenario": "Volatility expansion",
       "market_shock_pct": -6,
-      "estimated_capital_impact": 0.0,
-      "stressed_reserve_requirement": 0.0,
+      "estimated_capital_impact": 14.15,
+      "stressed_reserve_requirement": 3794.3,
       "status": "ESTIMATED",
       "automatic_action": false
     },
     {
       "scenario": "Rapid recovery",
       "market_shock_pct": 8,
-      "estimated_capital_impact": 0.0,
-      "stressed_reserve_requirement": 0.0,
+      "estimated_capital_impact": 18.86,
+      "stressed_reserve_requirement": 2276.58,
       "status": "ESTIMATED",
       "automatic_action": false
     }

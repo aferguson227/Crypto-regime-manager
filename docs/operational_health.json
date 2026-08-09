@@ -1,26 +1,26 @@
 {
   "schema_version": "1.0",
   "application_version": "58.0.0",
-  "generated_at": "2026-08-09T15:00:53.974729+00:00",
+  "generated_at": "2026-08-09T16:01:25.425698+00:00",
   "overall": {
     "state": "HEALTHY",
-    "score_pct": 82.1,
+    "score_pct": 86.0,
     "active_issue_count": 0,
     "critical_count": 0,
     "warning_count": 0
   },
   "scores": {
     "system": 100,
-    "data": 95.4,
+    "data": 100,
     "trading": 70.0,
-    "deployment": 85.0,
+    "deployment": 100,
     "decision_readiness": 60.0
   },
   "threecommas": {
     "status": "ok",
-    "last_attempt_at": "2026-08-09T14:21:09.333246+00:00",
-    "last_success_at": "2026-08-09T14:21:09.333246+00:00",
-    "last_success_age_hours": 0.66,
+    "last_attempt_at": "2026-08-09T16:01:13.622886+00:00",
+    "last_success_at": "2026-08-09T16:01:13.622886+00:00",
+    "last_success_age_hours": 0.0,
     "endpoints": [
       {
         "name": "validate",
@@ -28,8 +28,8 @@
         "category": "ok",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-09T14:21:09.930560+00:00",
-        "age_hours": 0.66,
+        "observed_at": "2026-08-09T16:01:14.252458+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -39,8 +39,8 @@
         "category": "ok",
         "http_status": null,
         "records": 1,
-        "observed_at": "2026-08-09T14:21:10.535665+00:00",
-        "age_hours": 0.66,
+        "observed_at": "2026-08-09T16:01:14.623447+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -50,8 +50,8 @@
         "category": "ok",
         "http_status": null,
         "records": 4,
-        "observed_at": "2026-08-09T14:21:10.832451+00:00",
-        "age_hours": 0.66,
+        "observed_at": "2026-08-09T16:01:15.162845+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -61,8 +61,8 @@
         "category": "ok",
         "http_status": null,
         "records": 1,
-        "observed_at": "2026-08-09T14:21:11.087529+00:00",
-        "age_hours": 0.66,
+        "observed_at": "2026-08-09T16:01:15.476134+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -72,8 +72,8 @@
         "category": "not_requested_quota_guard",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-09T14:21:11.087575+00:00",
-        "age_hours": 0.66,
+        "observed_at": "2026-08-09T16:01:15.476177+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -83,8 +83,8 @@
         "category": "not_requested_direct_capital",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-09T14:21:11.087580+00:00",
-        "age_hours": 0.66,
+        "observed_at": "2026-08-09T16:01:15.476182+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
@@ -94,9 +94,9 @@
     "deals": 1
   },
   "application": {
-    "cloud_state": "warning",
-    "last_success_at": "2026-08-09T08:05:53.641209+00:00",
-    "last_success_age_hours": 6.92,
+    "cloud_state": "healthy",
+    "last_success_at": "2026-08-09T16:01:24.415317+00:00",
+    "last_success_age_hours": 0.0,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -105,11 +105,11 @@
         "asset": "TEL",
         "bot_name": "TEL DCA - Low Volatility",
         "status": "bought",
-        "profit_pct": -0.45,
-        "duration_hours": 3.0,
-        "completed_safety_orders": 0,
+        "profit_pct": -0.1,
+        "duration_hours": 4.0,
+        "completed_safety_orders": 1,
         "max_safety_orders": 6,
-        "capital_used": 142.498046238,
+        "capital_used": 235.807621896,
         "quote_currency": "USDT"
       }
     ],

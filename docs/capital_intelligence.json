@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "58.0.0",
-  "generated_at": "2026-08-09T15:00:52.394013+00:00",
-  "snapshot_id": "4fd8de9fbd4d7c21555f",
+  "generated_at": "2026-08-09T16:01:25.131552+00:00",
+  "snapshot_id": "132102048b6ca570bd91",
   "currency": "USDT",
   "accounts": [
     {
@@ -12,7 +12,7 @@
       "currency": "USDT",
       "total_equity": 3587.5538871179756,
       "free_available": 806.67111932,
-      "observed_at": "2026-08-09T14:21:09.333246+00:00"
+      "observed_at": "2026-08-09T16:01:13.622886+00:00"
     }
   ],
   "bots": [
@@ -69,26 +69,26 @@
       "bot_id": 16945272,
       "bot_name": "TEL DCA - Low Volatility",
       "enabled": true,
-      "active_deals": 0,
+      "active_deals": 1,
       "max_active_deals": 1,
       "per_deal_max_capital": 2729.5360000000005,
-      "active_deal_capital": 0.0,
+      "active_deal_capital": 235.807621896,
       "placed_order_reserve": 0.0,
-      "remaining_dca_reserve": 0,
-      "idle_capacity_reserve": 2729.5360000000005,
-      "next_deal_required_capital": 2729.5360000000005,
+      "remaining_dca_reserve": 2529.5360000000005,
+      "idle_capacity_reserve": 0.0,
+      "next_deal_required_capital": null,
       "completeness": "complete",
       "warnings": []
     }
   ],
   "exchange_total": 3587.5538871179756,
   "free_available": 806.67111932,
-  "active_deal_capital": 0.0,
+  "active_deal_capital": 235.807621896,
   "placed_order_reserve": 0.0,
-  "remaining_active_deal_dca_reserve": 0,
-  "enabled_idle_capacity_reserve": 2729.5360000000005,
-  "deployable_capital": 806.67111932,
-  "reserve_coverage_ratio": 1.0,
+  "remaining_active_deal_dca_reserve": 2529.5360000000005,
+  "enabled_idle_capacity_reserve": 0.0,
+  "deployable_capital": 0.0,
+  "reserve_coverage_ratio": 0.3189008258115322,
   "capital_status": "COMPLETE",
   "next_capital_priority": "TEL Low Volatility Bot",
   "next_capital_required": null,
@@ -103,11 +103,18 @@
   },
   "warnings": [],
   "read_only": true,
-  "asset_allocations": [],
+  "asset_allocations": [
+    {
+      "asset": "TEL",
+      "quantity": 145140.0,
+      "quote_currency": "USDT",
+      "quote_cost": 235.807621896
+    }
+  ],
   "capital_source": "3Commas read-only account snapshot",
   "kucoin_direct_status": "not_configured",
-  "reserved_capital": 0,
-  "idle_bot_potential_exposure": 2729.5360000000005,
+  "reserved_capital": 2529.5360000000005,
+  "idle_bot_potential_exposure": 0.0,
   "capital_policy": "Protect only reconciled active-deal remaining DCA ladders; provider-stale deals proven closed on KuCoin do not consume CRM capital. Idle theoretical exposure is not reserved until approved.",
-  "provider_stale_deals_excluded": 1
+  "provider_stale_deals_excluded": 0
 }
