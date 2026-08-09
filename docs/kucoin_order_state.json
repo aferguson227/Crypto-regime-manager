@@ -1,19 +1,285 @@
 {
-  "schema_version": "1.0",
-  "application_version": "56.0.0",
-  "generated_at": "2026-08-09T11:17:09.940562+00:00",
-  "status": "DEGRADED",
+  "schema_version": "2.0",
+  "application_version": "57.0.0",
+  "generated_at": "2026-08-09T11:53:51.455112+00:00",
+  "status": "NOT_CONFIGURED",
+  "scope_symbols": [
+    "TEL-USDT",
+    "XMR-USDT",
+    "UNI-USDT",
+    "BTC-USDT",
+    "ETH-USDT",
+    "AAVE-USDT",
+    "SOL-USDT",
+    "ZEC-USDT",
+    "NEAR-USDT",
+    "PIEVERSE-USDT",
+    "AEON-USDT",
+    "TUT-USDT",
+    "XRP-USDT",
+    "BLUAI-USDT",
+    "BNB-USDT",
+    "CYS-USDT",
+    "LINK-USDT",
+    "LTC-USDT",
+    "SHIB-USDT",
+    "SIREN-USDT",
+    "TAO-USDT",
+    "DOT-USDT"
+  ],
+  "symbols_checked": 22,
   "active_orders": [],
   "recent_closed_orders": [],
   "active_count": 0,
   "recent_closed_count": 0,
-  "active_endpoint": "/api/v1/hf/orders/active",
+  "per_symbol": [
+    {
+      "symbol": "TEL-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "XMR-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "UNI-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "BTC-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "ETH-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "AAVE-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "SOL-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "ZEC-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "NEAR-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "PIEVERSE-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "AEON-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "TUT-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "XRP-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "BLUAI-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "BNB-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "CYS-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "LINK-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "LTC-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "SHIB-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "SIREN-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "TAO-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    },
+    {
+      "symbol": "DOT-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "NOT_CONFIGURED",
+      "done_status": "NOT_CONFIGURED",
+      "messages": {
+        "active": "KuCoin read-only API credentials unavailable.",
+        "closed": "KuCoin read-only API credentials unavailable."
+      }
+    }
+  ],
+  "active_endpoint": "/api/v1/hf/orders/active/page",
   "closed_endpoint": "/api/v1/hf/orders/done",
   "api_permission": "General/read-only",
-  "messages": {
-    "active": "{\"endpoint\": \"/api/v1/hf/orders/active\", \"attempts\": [{\"base\": \"https://api.kucoin.com\", \"key_version\": \"3\", \"category\": \"RuntimeError\", \"detail\": \"Symbol can't be empty\"}, {\"base\": \"https://api.kucoin.com\", \"key_version\": \"2\", \"category\": \"RuntimeError\", \"detail\": \"Symbol can't be empty\"}, {\"base\": \"https://api.kucoin.eu\", \"key_version\": \"3\", \"category\": \"HTTPError\", \"detail\": \"HTTP Error 401: Unauthorized\"}, {\"base\": \"https://api.kucoin.eu\", \"key_version\": \"2\", \"category\": \"HTTPError\", \"detail\": \"HTTP Error 401: Unauthorized\"}], \"last_error\": \"HTTP Error 401: Unauthorized\"}",
-    "closed": "{\"endpoint\": \"/api/v1/hf/orders/done\", \"attempts\": [{\"base\": \"https://api.kucoin.com\", \"key_version\": \"3\", \"category\": \"RuntimeError\", \"detail\": \"Symbol code can't be empty\"}, {\"base\": \"https://api.kucoin.com\", \"key_version\": \"2\", \"category\": \"RuntimeError\", \"detail\": \"Symbol code can't be empty\"}, {\"base\": \"https://api.kucoin.eu\", \"key_version\": \"3\", \"category\": \"HTTPError\", \"detail\": \"HTTP Error 401: Unauthorized\"}, {\"base\": \"https://api.kucoin.eu\", \"key_version\": \"2\", \"category\": \"HTTPError\", \"detail\": \"HTTP Error 401: Unauthorized\"}], \"last_error\": \"HTTP Error 401: Unauthorized\"}"
-  },
+  "diagnosis": "One or more symbol-specific KuCoin order requests need attention.",
   "read_only": true,
   "write_endpoints_implemented": false
 }

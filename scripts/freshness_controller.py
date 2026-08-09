@@ -50,8 +50,8 @@ def main():
  try:cfg=(json.loads(POL.read_text(encoding='utf-8-sig')).get('freshness') or {})
  except:cfg={}
  critical=float(cfg.get('kucoin_private_critical_minutes',30));agent_limit=float(cfg.get('local_agent_critical_minutes',45));secondary=float(cfg.get('threecommas_secondary_minutes',180));publication=float(cfg.get('publication_delay_minutes',30))
- agent_age=age(agent.get('generated_at'));agent_status=str(agent.get('status') or '').upper()
- agent_ok=agent_status not in {'ERROR','FAILED','FAILURE'} and agent_age is not None and agent_age<=agent_limit
+ agent_age=age(agent.get('heartbeat_at') or agent.get('generated_at'));agent_status=str(agent.get('status') or '').upper()
+ agent_ok=agent_status not in {'ERROR','FAILED','FAILURE','BLOCKED'} and agent_age is not None and agent_age<=agent_limit
 
  rows=[]
  def source(name,obj,stamp,role,limit,reason):

@@ -31,6 +31,8 @@ def diagnose():
  present=load('presentation_quality.json');ui=load('ui_health.json');sync=load('synchronization_status.json')
  agent=load('local_agent_status.json');assure=load('execution_assurance.json');three=load('threecommas.json');schedule=load('local_agent_schedule_health.json')
  rows=[]
+ order_problem=str(orders.get('status') or '').upper() not in {'OK','HEALTHY'}
+ fill_problem=str(fills.get('status') or '').upper() not in {'OK','HEALTHY'}
  if schedule.get('status') in {'MISSING','DISABLED','ERROR'}:
   rows.append(item('LOCAL_AGENT_SCHEDULE','Background refresh schedule needs attention','Refresh','high','ATTENTION',
    str(schedule.get('explanation') or 'The Windows 15-minute Local Agent schedule is not healthy.'),False,None,
@@ -38,19 +40,21 @@ def diagnose():
  if str(ku.get('status') or '').upper() not in {'OK','HEALTHY'}:
   rows.append(item('KUCOIN_ACCOUNT_DATA','KuCoin account data needs attention','Trading data','high','ATTENTION',
    str(ku.get('message') or ku.get('api_message') or 'KuCoin balance/account refresh is not healthy.'),True,'scripts.kucoin_account_sync','Check the KuCoin API connection if automatic retry fails.'))
- if str(orders.get('status') or '').upper() not in {'OK','HEALTHY'}:
-  rows.append(item('KUCOIN_TRADING_DATA','KuCoin trading data needs attention','Trading data','high','ATTENTION',
-   str((orders.get('messages') or {}).get('active') or 'Open/completed order retrieval is not healthy.'),True,'scripts.kucoin_order_state','Check KuCoin API permissions/connection if retry fails.'))
+ if order_problem:
+  diag=str(orders.get('diagnosis') or 'One or more KuCoin order requests did not complete.')
+  rows.append(item('KUCOIN_TRADING_DATA','KuCoin order monitoring is recovering','Trading data','high','RECOVERING',
+   diag+' Dependent checks: trading safety and freshness confirmation.',True,'scripts.kucoin_order_state',
+   'No action is normally required while CRM is recovering. Review KuCoin API access only if repeated symbol-aware retries still fail.'))
  if str(fills.get('status') or '').upper() not in {'OK','HEALTHY'}:
-  rows.append(item('KUCOIN_FILL_HISTORY','KuCoin trade history needs attention','Profit & loss','medium','UPDATING',
+  rows.append(item('KUCOIN_FILL_HISTORY','KuCoin trade history is recovering','Profit & loss','medium','RECOVERING',
    str(fills.get('progress_explanation') or fills.get('api_message') or 'Fill-history retrieval has not completed.'),True,'scripts.kucoin_fill_ledger','No manual action unless repeated retries fail.'))
  elif account.get('realised_profit_quote') is None:
   rows.append(item('REALIZED_PNL_BUILDING','Realised P/L is still reconciling','Profit & loss','low','UPDATING',
    str(fills.get('progress_explanation') or 'Closed fills still need complete cost basis.'),True,'scripts.independent_trade_accounting_engine','CRM will retry automatically; no manual action is normally required.'))
- if fresh.get('overall') in {'ACTION_REQUIRED','SOURCE_OVERDUE'}:
+ if fresh.get('overall') in {'ACTION_REQUIRED','SOURCE_OVERDUE'} and not order_problem and schedule.get('status') not in {'MISSING','DISABLED','ERROR'}:
   rows.append(item('FRESHNESS_HEADLINE','Trading data freshness needs attention','Refresh','high','ATTENTION',
    str(fresh.get('overall_reason') or 'A decision-critical refresh condition is blocking the dashboard.'),True,'scripts.freshness_controller','Open details only if automatic recovery cannot restore current data.'))
- if str(assure.get('status') or '').upper() not in {'HEALTHY','OK'}:
+ if str(assure.get('status') or '').upper() not in {'HEALTHY','OK'} and not order_problem:
   rows.append(item('TRADING_SAFETY','Trading safety checks are incomplete','Trading safety','high','ATTENTION',
    f"{(assure.get('summary') or {}).get('failed',0)} failed and {(assure.get('summary') or {}).get('attention',0)} attention item(s).",True,'scripts.execution_assurance_engine','Review the affected live trade if protection remains unverified.'))
  if present.get('result') not in {None,'HEALTHY'} or (ui.get('overall') or {}).get('state') not in {None,'HEALTHY'}:
@@ -90,14 +94,15 @@ def main():
  ap=argparse.ArgumentParser();ap.add_argument('--repair',action='store_true');a=ap.parse_args()
  before=diagnose();repairs=repair(before) if a.repair else [];after=diagnose()
  blocking=[x for x in after if x['severity']=='high' and x['state']=='ATTENTION']
+ recovering=[x for x in after if x['state'] in {'RECOVERING','UPDATING','DELAYED'}]
  updating=[x for x in after if x['state'] in {'UPDATING','DELAYED'}]
- overall='ACTION_REQUIRED' if blocking else ('UPDATING' if updating or after else 'HEALTHY')
+ overall='ACTION_REQUIRED' if blocking else ('RECOVERING_AUTOMATICALLY' if recovering else ('UPDATING' if updating or after else 'HEALTHY'))
  payload={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),
   'overall':overall,'summary':{'issues_before':len(before),'issues_after':len(after),'automatic_repairs_attempted':len(repairs),'blocking_after':len(blocking)},
   'issues':after,'repair_log':repairs[-30:],
   'safe_repair_policy':['read-only API refresh','local generated-output regeneration','accounting/freshness recomputation'],
   'never_automatic':['place/cancel KuCoin orders','change API credentials','start/stop/edit 3Commas bots','Git push/force push','change capital allocation'],
-  'next_action':('Review the remaining blocking item(s).' if blocking else 'No manual action required; CRM will continue checking itself automatically.')}
+  'next_action':('Review the remaining blocking item(s).' if blocking else ('No manual action required. CRM is repairing/retrying the affected data path automatically.' if recovering else 'No manual action required; CRM will continue checking itself automatically.'))}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8')
  print(f'CRM Health & Recovery: {overall}; before={len(before)} after={len(after)} repairs={len(repairs)}')
  return 0 if not blocking else 1

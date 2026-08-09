@@ -97,16 +97,19 @@ def main():
         return 0
     os.environ['CRM_KUCOIN_HISTORY_SYNC']='1'
     ap=argparse.ArgumentParser(); ap.add_argument('--publish',action='store_true'); args=ap.parse_args(); started=now()
+    write_status('RUNNING','Local Agent refresh started.',started,{'phase':'STARTING','heartbeat_at':now()})
     try:
         clean_generated()
         if not git_clean():
             write_status('BLOCKED','Local repository has source changes; automatic data refresh skipped.',started)
             return 2
         _safe_align_to_remote()
-        for mod in MODULES: run([sys.executable,'-m',mod])
+        for mod in MODULES:
+            write_status('RUNNING',f'Refreshing {mod}.',started,{'phase':mod,'heartbeat_at':now()})
+            run([sys.executable,'-m',mod])
         ku=json.loads((DOCS/'kucoin_account.json').read_text(encoding='utf-8-sig'))
         status='HEALTHY' if ku.get('status')=='ok' else 'DEGRADED'
-        write_status(status,'Local private-data refresh completed.' if status=='HEALTHY' else 'Local agent ran but KuCoin remains degraded.',started,{'kucoin_status':ku.get('status'),'kucoin_diagnostic':(ku.get('diagnostic') or {}).get('category')})
+        write_status(status,'Local private-data refresh completed.' if status=='HEALTHY' else 'Local agent ran but KuCoin remains degraded.',started,{'phase':'COMPLETE','completed_at':now(),'heartbeat_at':now(),'kucoin_status':ku.get('status'),'kucoin_diagnostic':(ku.get('diagnostic') or {}).get('category')})
         run([sys.executable,'-m','scripts.validate_publish'])
         if args.publish: publish_material()
         return 0 if status=='HEALTHY' else 1

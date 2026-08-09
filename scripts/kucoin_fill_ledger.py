@@ -12,6 +12,7 @@ import base64,hashlib,hmac,json,os,sqlite3,time,urllib.error,urllib.parse,urllib
 from datetime import datetime,timezone,timedelta
 from pathlib import Path
 from app.release import application_version
+from scripts.kucoin_symbol_scope import symbols
 
 ROOT=Path(__file__).resolve().parents[1];DOCS=ROOT/'docs';OUT=DOCS/'kucoin_fill_ledger.json'
 GLOBAL='https://api.kucoin.com';EU='https://api.kucoin.eu'
@@ -46,26 +47,30 @@ def versions():
   if x and x not in out:out.append(x)
  return out
 def bases():
- cfg=os.getenv('KUCOIN_API_BASE_URL','').strip().rstrip('/');out=[]
- for x in [cfg,GLOBAL,EU]:
+ cfg=os.getenv('KUCOIN_API_BASE_URL','').strip().rstrip('/')
+ out=[]
+ for x in [cfg,GLOBAL]:
   if x and x not in out:out.append(x)
+ if os.getenv('CRM_KUCOIN_ALLOW_REGION_FALLBACK','').strip().lower() in {'1','true','yes'} and EU not in out:out.append(EU)
  return out or [GLOBAL]
-def fetch_recent():
+def fetch_symbol_recent(symbol):
  key=os.getenv('KUCOIN_API_KEY','').strip();secret=os.getenv('KUCOIN_API_SECRET','').strip();pp=os.getenv('KUCOIN_API_PASSPHRASE','').strip()
  if not(key and secret and pp):return None,'NOT_CONFIGURED','KuCoin read-only API credentials are not available.'
  end=int(time.time()*1000);start=int((datetime.now(timezone.utc)-timedelta(days=7)).timestamp()*1000)
- last_err=None;attempts=[]
+ attempts=[]
  for base in bases():
   for ver in versions():
    try:
     last_id=None;items=[];seen=set()
     for _ in range(100):
-     params={'startAt':start,'endAt':end,'limit':100}
+     params={'symbol':symbol,'startAt':start,'endAt':end,'limit':100}
      if last_id:params['lastId']=last_id
      query=urllib.parse.urlencode(params)
      req=urllib.request.Request(base+PATH+'?'+query,headers=sign_headers('GET',PATH,query,key,secret,pp,ver),method='GET')
      with urllib.request.urlopen(req,timeout=20) as resp:payload=json.loads(resp.read().decode('utf-8'))
-     if payload.get('code')!='200000' or not isinstance(payload.get('data'),dict):raise RuntimeError(str(payload.get('msg') or 'Unexpected KuCoin fill response'))
+     if payload.get('code')!='200000' or not isinstance(payload.get('data'),dict):
+      msg=str(payload.get('msg') or 'Unexpected KuCoin fill response')
+      return None,'REQUEST_ERROR',json.dumps({'base':base,'key_version':ver,'symbol':symbol,'detail':msg})
      data=payload['data'];page=data.get('items') or []
      for x in page:
       tid=str(x.get('tradeId') or x.get('id') or '')
@@ -75,8 +80,23 @@ def fetch_recent():
      last_id=nxt
     return items,'OK',f'{base} key-v{ver}'
    except Exception as exc:
-    last_err=exc;attempts.append({'base':base,'key_version':ver,'category':type(exc).__name__,'detail':str(exc)[:500]})
- return None,'ERROR',json.dumps({'endpoint':PATH,'attempts':attempts,'last_error':str(last_err or 'KuCoin fill request failed.')})
+    attempts.append({'base':base,'key_version':ver,'symbol':symbol,'category':type(exc).__name__,'detail':str(exc)[:500]})
+ return None,'ERROR',json.dumps({'endpoint':PATH,'symbol':symbol,'attempts':attempts,'last_error':attempts[-1]['detail'] if attempts else 'KuCoin fill request failed.'})
+
+def fetch_recent():
+ scope=symbols();all_items=[];per=[]
+ if not scope:return [],'NO_SYMBOL_SCOPE','No relevant USDT symbols are currently available for fill collection.'
+ for sym in scope:
+  rows,status,msg=fetch_symbol_recent(sym);per.append({'symbol':sym,'status':status,'message':msg,'fills':len(rows or [])})
+  if rows:all_items.extend(rows)
+ statuses=[x['status'] for x in per]
+ overall='OK' if statuses and all(x=='OK' for x in statuses) else ('NOT_CONFIGURED' if statuses and all(x=='NOT_CONFIGURED' for x in statuses) else 'DEGRADED')
+ # de-duplicate across scope defensively
+ dedup={}
+ for x in all_items:
+  tid=str(x.get('tradeId') or x.get('id') or '')
+  if tid:dedup[tid]=x
+ return list(dedup.values()),overall,json.dumps({'symbols_checked':len(scope),'per_symbol':per})
 
 def ingest(rows):
  inserted=0
@@ -125,18 +145,18 @@ def reconcile():
 def main():
  rows,status,msg=fetch_recent();inserted=ingest(rows) if rows is not None else 0;rec=reconcile()
  rp_status='COMPLETE' if rec['realised_profit_complete'] else ('PARTIAL_COST_BASIS' if rec['fill_count'] else 'NO_FILL_HISTORY_YET')
- if status!='OK':progress=0
+ if status not in {'OK','DEGRADED'}:progress=0
  elif rec['fill_count']==0:progress=25
  elif rec['unmatched_sell_count']>0:progress=70
  else:progress=100
- p={'schema_version':'1.1','application_version':application_version(),'generated_at':now(),'status':status,'source':'KuCoin private read-only GET /api/v1/hf/fills',
+ p={'schema_version':'1.1','application_version':application_version(),'generated_at':now(),'status':status,'source':'KuCoin private read-only GET /api/v1/hf/fills (symbol-aware)',
   'api_message':msg,'new_fills':inserted,'ledger_path':str(db_path()),'persistent_across_upgrades':True,
   'coverage_note':'KuCoin recent spot fill queries are time-limited; CRM persists each refresh so ledger coverage grows from V50 onward.',
   'realised_profit_quote':rec['matched_realised_profit_usdt'] if rec['realised_profit_complete'] else None,
   'partial_matched_realised_profit_quote':rec['matched_realised_profit_usdt'],'realised_profit_status':rp_status,
   'reconciliation_progress_pct':progress,
   'next_automatic_retry_minutes':15 if status!='OK' or not rec['realised_profit_complete'] else 0,
-  'progress_explanation':('Complete KuCoin cost basis is available.' if rec['realised_profit_complete'] else ('KuCoin fills are available, but one or more sells still need an earlier matching buy cost basis.' if rec['fill_count'] else ('KuCoin fill-history request failed; CRM will retry automatically.' if status!='OK' else 'No KuCoin fills are stored yet; CRM will retry on the next Local Agent cycle.'))),
+  'progress_explanation':('Complete KuCoin cost basis is available.' if rec['realised_profit_complete'] else ('KuCoin fills are available, but one or more sells still need an earlier matching buy cost basis.' if rec['fill_count'] else ('KuCoin fill-history collection is incomplete; CRM will retry automatically.' if status!='OK' else 'No KuCoin fills are stored yet; CRM will retry on the next Local Agent cycle.'))),
   'reconciliation':rec,'read_only':True,'write_endpoints_implemented':False}
  OUT.write_text(json.dumps(p,indent=2),encoding='utf-8')
  print(f"KuCoin fill ledger: {status}; new={inserted}; total={rec['fill_count']}; realised_status={p['realised_profit_status']}")

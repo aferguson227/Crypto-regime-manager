@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "56.0.0",
-  "generated_at": "2026-08-09T11:14:02.123479+00:00",
-  "snapshot_id": "44293ccab6c9755faf301945",
+  "application_version": "57.0.0",
+  "generated_at": "2026-08-09T11:53:55.213756+00:00",
+  "snapshot_id": "6707f6cde7af4e84cc94f702",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -114,10 +114,10 @@
   "capital": {
     "status": null,
     "currency": "USDT",
-    "total_equity": 3615.53005894,
+    "total_equity": 3587.5538871179756,
     "allocated": 117.69379776,
     "reserved": 2629.5360000000005,
-    "deployable": 985.9940589399994,
+    "deployable": 0.0,
     "next_required": null,
     "can_fund_next": null,
     "asset_allocations": [
@@ -131,7 +131,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "aed3b9072f448e675f68d135",
+      "recommendation_id": "6f2892023ecc1e4647aba204",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
@@ -272,7 +272,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 985.9940589399994,
+        "available": 0.0,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -292,7 +292,7 @@
       }
     },
     {
-      "recommendation_id": "3f41d71613de5a8761916f7e",
+      "recommendation_id": "a2fa95a052e07ac47f26b17a",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -443,7 +443,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 985.9940589399994,
+        "available": 0.0,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -530,7 +530,7 @@
     }
   },
   "cloud": {
-    "overall_status": "HEALTHY",
+    "overall_status": "WARNING",
     "threecommas": {
       "status": "ok",
       "generated_at": "2026-08-09T10:16:53.709888+00:00",
@@ -543,22 +543,23 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "HEALTHY"
+    "cloud_status": "WARNING"
   },
   "source_snapshots": {
     "market": "737b2a9bc3966fb108b9",
-    "portfolio": "203ea92eab7350fd4d3c",
-    "capital": "3350695b48319e927225",
-    "deployment": "0bef2cfc067c035e38b5",
-    "recommendations": "daf2aa6662a80495033f",
+    "portfolio": "76e11470234fca366f1a",
+    "capital": "7961b5899b281481414d",
+    "deployment": "51e791b078912217bcb5",
+    "recommendations": "900d8300c1b35d36c0e6",
     "adaptive": "bd6928f9b7af60f96109",
     "outcomes": "2026-08-09T08:05:53.611786+00:00",
     "cloud": "25f7e999658cb5c411db",
-    "operating": "42bc9162a9f04c01ba87"
+    "operating": "e4f51c3bcaf92cbf095b"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
-    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
+    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
+    "One or more cloud data sources require attention."
   ]
 }

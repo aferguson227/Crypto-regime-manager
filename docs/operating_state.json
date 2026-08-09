@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "56.0.0",
-  "snapshot_id": "42bc9162a9f04c01ba87",
-  "generated_at": "2026-08-09T11:13:58.766693+00:00",
+  "application_version": "57.0.0",
+  "snapshot_id": "e4f51c3bcaf92cbf095b",
+  "generated_at": "2026-08-09T11:53:52.686940+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
@@ -53,12 +53,12 @@
   "next_capital_priority": "TEL Low Volatility Bot",
   "capital": {
     "currency": "USDT",
-    "exchange_total": 3615.53005894,
-    "free_available": 3615.53005894,
+    "exchange_total": 3587.5538871179756,
+    "free_available": 806.67111932,
     "active_deal_capital": 117.69379776,
     "placed_order_reserve": 0.0,
     "enabled_bot_theoretical_reserve": 0.0,
-    "available_after_reserve": 985.9940589399994,
+    "available_after_reserve": 0.0,
     "completeness": "complete",
     "warnings": []
   },
@@ -100,14 +100,14 @@
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-09T11:13:58.535946+00:00",
+      "observed_at": "2026-08-09T11:53:52.473909+00:00",
       "version": null,
       "warnings": []
     },
     {
       "name": "Configuration reconciliation",
       "status": "fresh",
-      "observed_at": "2026-08-09T11:13:57.858359+00:00",
+      "observed_at": "2026-08-09T11:53:51.957820+00:00",
       "version": null,
       "warnings": []
     },
@@ -121,7 +121,7 @@
     {
       "name": "System integrity",
       "status": "fresh",
-      "observed_at": "2026-08-09T11:13:58.077447+00:00",
+      "observed_at": "2026-08-09T11:53:52.136656+00:00",
       "version": null,
       "warnings": []
     }
