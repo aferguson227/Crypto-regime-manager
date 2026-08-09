@@ -1,32 +1,50 @@
 {
   "schema_version": "1.1",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T11:53:51.156548+00:00",
-  "status": "NOT_CONFIGURED",
+  "generated_at": "2026-08-09T12:27:11.558579+00:00",
+  "status": "OK",
   "source": "KuCoin private read-only GET /api/v1/hf/fills (symbol-aware)",
-  "api_message": "{\"symbols_checked\": 22, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"XMR-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"UNI-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"BTC-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"ETH-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"AAVE-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"SOL-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"ZEC-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"NEAR-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"PIEVERSE-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"AEON-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"TUT-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"XRP-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"BLUAI-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"BNB-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"CYS-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"LINK-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"LTC-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"SHIB-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"SIREN-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"TAO-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"DOT-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}]}",
-  "new_fills": 0,
+  "api_message": "{\"symbols_checked\": 26, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 119}, {\"symbol\": \"DATA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"XMR-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"UNI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"BTC-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"ETH-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"AAVE-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SOL-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"ZEC-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"NEAR-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"PIEVERSE-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"AEON-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"TUT-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"XRP-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"BLUAI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"BNB-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"CYS-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LINK-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LTC-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SHIB-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SIREN-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"TAO-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"DOT-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}]}",
+  "new_fills": 119,
   "ledger_path": "C:\\Crypto\\CRM_Data\\Accounting\\kucoin_fills.db",
   "persistent_across_upgrades": true,
   "coverage_note": "KuCoin recent spot fill queries are time-limited; CRM persists each refresh so ledger coverage grows from V50 onward.",
   "realised_profit_quote": null,
-  "partial_matched_realised_profit_quote": 0.0,
-  "realised_profit_status": "NO_FILL_HISTORY_YET",
-  "reconciliation_progress_pct": 0,
+  "partial_matched_realised_profit_quote": 124.7022546,
+  "realised_profit_status": "PARTIAL_COST_BASIS",
+  "reconciliation_progress_pct": 70,
   "next_automatic_retry_minutes": 15,
-  "progress_explanation": "KuCoin fill-history collection is incomplete; CRM will retry automatically.",
+  "progress_explanation": "KuCoin fills are available, but one or more sells still need an earlier matching buy cost basis.",
   "reconciliation": {
-    "fill_count": 0,
-    "first_fill_at": null,
-    "last_fill_at": null,
-    "matched_sell_count": 0,
-    "unmatched_sell_count": 0,
-    "unmatched_sells": [],
-    "matched_realised_profit_usdt": 0.0,
+    "fill_count": 119,
+    "first_fill_at": "2026-08-02T13:55:09.362000+00:00",
+    "last_fill_at": "2026-08-09T12:12:54.460000+00:00",
+    "matched_sell_count": 19,
+    "unmatched_sell_count": 1,
+    "unmatched_sells": [
+      {
+        "asset": "TEL",
+        "created_at": 1785779770933,
+        "sell_size": 367333.0,
+        "known_inventory_before": 111581.0
+      }
+    ],
+    "matched_realised_profit_usdt": 124.7022546,
     "realised_profit_complete": false,
-    "fees_usdt_recorded": 0.0,
-    "assets": {},
-    "inventory_cost_basis": {}
+    "fees_usdt_recorded": 32.27977675,
+    "assets": {
+      "TEL": {
+        "matched_realised_pnl_usdt": 124.70225459976784,
+        "matched_sells": 19,
+        "unmatched_sells": 1
+      }
+    },
+    "inventory_cost_basis": {
+      "TEL": {
+        "qty": 123659.0,
+        "cost": 199.86812915176873
+      }
+    }
   },
   "read_only": true,
   "write_endpoints_implemented": false

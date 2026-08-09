@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T11:53:58.562194+00:00",
+  "generated_at": "2026-08-09T13:15:48.228245+00:00",
   "mode": "SHADOW_ONLY",
   "plans": [
     {
@@ -16,8 +16,29 @@
         "volume_scale": 1.3,
         "step_scale": 1.0
       },
-      "allocated_budget_usdt": 0.0,
-      "hypothetical_order_ladder": [],
+      "allocated_budget_usdt": 746.94,
+      "hypothetical_order_ladder": [
+        {
+          "role": "BASE_ORDER",
+          "notional_usdt": 103.93
+        },
+        {
+          "role": "SAFETY_ORDER_1",
+          "notional_usdt": 103.93
+        },
+        {
+          "role": "SAFETY_ORDER_2",
+          "notional_usdt": 135.11
+        },
+        {
+          "role": "SAFETY_ORDER_3",
+          "notional_usdt": 175.64
+        },
+        {
+          "role": "SAFETY_ORDER_4",
+          "notional_usdt": 228.33
+        }
+      ],
       "checks": [
         "candidate readiness = 100%",
         "portfolio slot/allocation available",

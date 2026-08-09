@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T11:53:58.909232+00:00",
+  "generated_at": "2026-08-09T13:15:48.422836+00:00",
   "mode": "LOCKED_SHADOW",
   "overall": "BUILDING",
   "checks": [
     {
       "label": "KuCoin private read access",
-      "state": "PENDING",
+      "state": "PASS",
       "detail": "Required for balances/account truth."
     },
     {
@@ -17,7 +17,7 @@
     },
     {
       "label": "Execution assurance",
-      "state": "PENDING",
+      "state": "PASS",
       "detail": "Order protection/provider reconciliation must be healthy."
     },
     {
@@ -46,9 +46,9 @@
       "asset": "ZEC",
       "pair": "ZEC-USDT",
       "shadow_status": "SHADOW_READY",
-      "client_oid_example": "crm52-zec-68b87eb8a8794838bd",
-      "planned_budget_usdt": 0.0,
-      "hypothetical_order_count": 0,
+      "client_oid_example": "crm52-zec-8e456cb6a89b438983",
+      "planned_budget_usdt": 746.94,
+      "hypothetical_order_count": 5,
       "idempotency_method": "Unique CRM clientOid per intended order; retries must query by clientOid before any future live submission."
     }
   ],

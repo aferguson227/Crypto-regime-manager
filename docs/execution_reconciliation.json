@@ -1,13 +1,33 @@
 {
   "schema_version": "1.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T08:31:52.074237+00:00",
+  "generated_at": "2026-08-09T12:27:26.773881+00:00",
   "authority": "KuCoin exchange order/fill evidence overrides stale execution-provider telemetry when closure is proven.",
-  "deals": [],
+  "deals": [
+    {
+      "asset": "TEL",
+      "bot_id": 16945272,
+      "bot_name": "TEL DCA - Low Volatility",
+      "provider": "3Commas",
+      "provider_deal_status": "bought",
+      "provider_reports_open": true,
+      "kucoin_recent_sell_orders": 1,
+      "kucoin_active_orders": 0,
+      "allocated_quantity": 72640.0,
+      "largest_recent_completed_sell_quantity": 72640.0,
+      "exchange_closed_evidence": true,
+      "exchange_close_evidence_time": "1786268705205",
+      "reconciliation_state": "PROVIDER_STALE_OPEN",
+      "blocked_next_entry_risk": true,
+      "crm_position_truth": "CLOSED",
+      "action": "Reconcile/cancel stale 3Commas deal before relying on provider for the next entry.",
+      "read_only": true
+    }
+  ],
   "summary": {
-    "provider_open_deals": 0,
-    "proven_stale_open_deals": 0,
-    "blocked_next_entry_risks": 0
+    "provider_open_deals": 1,
+    "proven_stale_open_deals": 1,
+    "blocked_next_entry_risks": 1
   },
   "write_actions": false
 }

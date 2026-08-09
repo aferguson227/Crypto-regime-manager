@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T11:54:00.035284+00:00",
+  "generated_at": "2026-08-09T13:15:48.997914+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -84,9 +84,36 @@
         "current_regime": "BULL",
         "research_continues_while_live": false
       }
+    },
+    {
+      "event_id": "3ec284b80441c681219ebe77",
+      "kind": "EXECUTION_PROVIDER_MISMATCH",
+      "title": "TEL closed on KuCoin but 3Commas still shows open",
+      "detail": "Reconcile/cancel stale 3Commas deal before relying on provider for the next entry.",
+      "severity": "warning",
+      "action": "REVIEW_EXECUTION_RECONCILIATION",
+      "payload": {
+        "asset": "TEL",
+        "bot_id": 16945272,
+        "bot_name": "TEL DCA - Low Volatility",
+        "provider": "3Commas",
+        "provider_deal_status": "bought",
+        "provider_reports_open": true,
+        "kucoin_recent_sell_orders": 1,
+        "kucoin_active_orders": 0,
+        "allocated_quantity": 72640.0,
+        "largest_recent_completed_sell_quantity": 72640.0,
+        "exchange_closed_evidence": true,
+        "exchange_close_evidence_time": "1786268705205",
+        "reconciliation_state": "PROVIDER_STALE_OPEN",
+        "blocked_next_entry_risk": true,
+        "crm_position_truth": "CLOSED",
+        "action": "Reconcile/cancel stale 3Commas deal before relying on provider for the next entry.",
+        "read_only": true
+      }
     }
   ],
-  "material_count": 4,
+  "material_count": 5,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -95,5 +122,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "1e58840c4638429f9d8d7e10"
+  "snapshot_id": "9e8e1dfd20544f9952cf61c7"
 }

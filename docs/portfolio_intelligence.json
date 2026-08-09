@@ -1,20 +1,20 @@
 {
   "schema_version": "1.1",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T11:57:40.274893+00:00",
-  "snapshot_id": "ead14f5e3f72f9874786",
+  "generated_at": "2026-08-09T12:27:27.457159+00:00",
+  "snapshot_id": "67280314aa724c56c0c5",
   "status": "COMPLETE",
   "currency": "USDT",
-  "portfolio_health_score": 71.3,
+  "portfolio_health_score": 72.9,
   "diversification_score": 25,
-  "capital_efficiency_score": 88.8,
-  "total_equity": 3587.5538871179756,
-  "allocated_capital": 117.69379776,
-  "reserved_capital": 2629.5360000000005,
-  "deployable_capital": 0.0,
-  "allocation_pct": 3.3,
-  "reserve_pct": 73.3,
-  "available_pct": 0.0,
+  "capital_efficiency_score": 93.7,
+  "total_equity": 3474.8095135,
+  "allocated_capital": 0.0,
+  "reserved_capital": 0.0,
+  "deployable_capital": 2929.17291349,
+  "allocation_pct": 0.0,
+  "reserve_pct": 0.0,
+  "available_pct": 84.3,
   "next_capital_priority": "TEL Low Volatility Bot",
   "positions": [
     {
@@ -59,13 +59,13 @@
     {
       "asset": "TEL",
       "bot_name": "TEL DCA - Low Volatility",
-      "action": "KEEP_ACTIVE_DEAL",
+      "action": "PAUSE_NEW_DEALS",
       "enabled": true,
-      "active_deals": 1,
-      "allocated_capital": 117.69379776,
-      "reserve_capital": 2629.5360000000005,
+      "active_deals": 0,
+      "allocated_capital": 0.0,
+      "reserve_capital": 0.0,
       "deployable_priority": 4,
-      "efficiency_score": 83.83,
+      "efficiency_score": 93.7,
       "overlap_group": "BTC-linked altcoin",
       "warnings": []
     }
@@ -82,11 +82,11 @@
   "warnings": [],
   "read_only": true,
   "manual_approval_required": true,
-  "idle_bot_potential_exposure": 0.0,
+  "idle_bot_potential_exposure": 2729.5360000000005,
   "reserved_capital_definition": "Remaining safety-order ladder capital protected for active deals only.",
   "position_state_counts": {
-    "active_deal": 1,
-    "enabled_idle": 0,
+    "active_deal": 0,
+    "enabled_idle": 1,
     "disabled": 3
   }
 }

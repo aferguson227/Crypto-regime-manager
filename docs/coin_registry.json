@@ -1,18 +1,20 @@
 {
   "schema_version": "2.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T11:53:57.905185+00:00",
+  "generated_at": "2026-08-09T13:15:47.788314+00:00",
   "coin_count": 22,
   "coins": [
     {
       "asset": "TEL",
       "lifecycle": "LIVE_PRODUCTION",
-      "execution_state": "ACTIVE_DEAL",
+      "execution_state": "EXCHANGE_CLOSED_PROVIDER_STALE",
       "research_state": "NOT_STARTED",
       "reasons": [
-        "Live execution-provider bot/deal evidence takes precedence over research labels."
+        "Live execution-provider bot/deal evidence takes precedence over research labels.",
+        "KuCoin proves the position closed while 3Commas still reports it open."
       ],
       "history_sources": [
+        "execution_reconciliation",
         "recommendation_intelligence",
         "threecommas"
       ],
@@ -338,5 +340,5 @@
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "73c9bacd1efd7286af868776"
+  "snapshot_id": "64f40441fca091387ecd57c3"
 }

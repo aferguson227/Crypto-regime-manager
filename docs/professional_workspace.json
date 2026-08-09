@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T11:57:40.959595+00:00",
+  "generated_at": "2026-08-09T12:27:28.692313+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Keep Active Deal TEL Low Volatility Bot.",
-    "Deployable capital: 0 USDT; exact allocation remains advisory.",
+    "Deployable capital: 2929.17 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Recent drawdown is elevated"
   ],
@@ -53,15 +53,8 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 0.0,
-    "asset_allocations": [
-      {
-        "asset": "TEL",
-        "quantity": 72640.0,
-        "quote_currency": "USDT",
-        "quote_cost": 117.69379776
-      }
-    ],
+    "deployable_quote": 2929.17291349,
+    "asset_allocations": [],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
   },
   "recommended_settings": {
@@ -289,9 +282,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 71.3,
+    "health_score": 72.9,
     "diversification_score": 25,
-    "capital_efficiency_score": 88.8,
+    "capital_efficiency_score": 93.7,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -336,13 +329,13 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Low Volatility",
-        "action": "KEEP_ACTIVE_DEAL",
+        "action": "PAUSE_NEW_DEALS",
         "enabled": true,
-        "active_deals": 1,
-        "allocated_capital": 117.69379776,
-        "reserve_capital": 2629.5360000000005,
+        "active_deals": 0,
+        "allocated_capital": 0.0,
+        "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 83.83,
+        "efficiency_score": 93.7,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -377,5 +370,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "7bfc21a96627470140915518"
+  "snapshot_id": "8e2731846c6af5fa2b7f31f4"
 }

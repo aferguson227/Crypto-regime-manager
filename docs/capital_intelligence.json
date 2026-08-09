@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T11:57:39.965256+00:00",
-  "snapshot_id": "a39ca7e62f125ecc13ec",
+  "generated_at": "2026-08-09T12:27:26.906470+00:00",
+  "snapshot_id": "0f8c20b42c7d76a208aa",
   "currency": "USDT",
   "accounts": [
     {
-      "account_id": 32632134,
-      "name": "My Kucoin",
-      "exchange": "Kucoin Spot",
+      "account_id": null,
+      "name": "KuCoin direct account",
+      "exchange": "KuCoin",
       "currency": "USDT",
-      "total_equity": 3587.5538871179756,
-      "free_available": 806.67111932,
-      "observed_at": "2026-08-09T11:57:37.804534+00:00"
+      "total_equity": 3474.8095135,
+      "free_available": 2929.17291349,
+      "observed_at": "2026-08-09T12:27:03.455450+00:00"
     }
   ],
   "bots": [
@@ -69,32 +69,32 @@
       "bot_id": 16945272,
       "bot_name": "TEL DCA - Low Volatility",
       "enabled": true,
-      "active_deals": 1,
+      "active_deals": 0,
       "max_active_deals": 1,
       "per_deal_max_capital": 2729.5360000000005,
-      "active_deal_capital": 117.69379776,
+      "active_deal_capital": 0.0,
       "placed_order_reserve": 0.0,
-      "remaining_dca_reserve": 2629.5360000000005,
-      "idle_capacity_reserve": 0.0,
-      "next_deal_required_capital": null,
+      "remaining_dca_reserve": 0,
+      "idle_capacity_reserve": 2729.5360000000005,
+      "next_deal_required_capital": 2729.5360000000005,
       "completeness": "complete",
       "warnings": []
     }
   ],
-  "exchange_total": 3587.5538871179756,
-  "free_available": 806.67111932,
-  "active_deal_capital": 117.69379776,
+  "exchange_total": 3474.8095135,
+  "free_available": 2929.17291349,
+  "active_deal_capital": 0.0,
   "placed_order_reserve": 0.0,
-  "remaining_active_deal_dca_reserve": 2629.5360000000005,
-  "enabled_idle_capacity_reserve": 0.0,
-  "deployable_capital": 0.0,
-  "reserve_coverage_ratio": 0.3067731794963065,
+  "remaining_active_deal_dca_reserve": 0,
+  "enabled_idle_capacity_reserve": 2729.5360000000005,
+  "deployable_capital": 2929.17291349,
+  "reserve_coverage_ratio": 1.0,
   "capital_status": "COMPLETE",
   "next_capital_priority": "TEL Low Volatility Bot",
   "next_capital_required": null,
   "can_fund_next_priority": null,
   "methodology": {
-    "free_available": "Read-only free USDT from 3Commas read-only account snapshot.",
+    "free_available": "Read-only free USDT from KuCoin direct read-only account API.",
     "active_deal_capital": "Sum of known cost basis for active deals.",
     "placed_order_reserve": "Shown separately; not subtracted from free USDT because exchange free balance normally already excludes open-order funds.",
     "remaining_active_deal_dca_reserve": "Unplaced remaining safety-order ladder requirement for active deals.",
@@ -103,18 +103,11 @@
   },
   "warnings": [],
   "read_only": true,
-  "asset_allocations": [
-    {
-      "asset": "TEL",
-      "quantity": 72640.0,
-      "quote_currency": "USDT",
-      "quote_cost": 117.69379776
-    }
-  ],
-  "capital_source": "3Commas read-only account snapshot",
-  "kucoin_direct_status": "not_configured",
-  "reserved_capital": 2629.5360000000005,
-  "idle_bot_potential_exposure": 0.0,
+  "asset_allocations": [],
+  "capital_source": "KuCoin direct read-only account API",
+  "kucoin_direct_status": "ok",
+  "reserved_capital": 0,
+  "idle_bot_potential_exposure": 2729.5360000000005,
   "capital_policy": "Protect only reconciled active-deal remaining DCA ladders; provider-stale deals proven closed on KuCoin do not consume CRM capital. Idle theoretical exposure is not reserved until approved.",
-  "provider_stale_deals_excluded": 0
+  "provider_stale_deals_excluded": 1
 }

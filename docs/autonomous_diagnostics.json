@@ -1,8 +1,8 @@
 {
   "schema_version": "1.1",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T11:17:01.693769+00:00",
-  "mode": "quick",
+  "generated_at": "2026-08-09T13:15:49.429678+00:00",
+  "mode": "hourly",
   "result": "HEALTHY",
   "steps": [
     {
@@ -19,10 +19,18 @@
     },
     {
       "module": "scripts.crm_health_recovery_engine",
-      "result": "fail"
+      "result": "pass"
+    },
+    {
+      "module": "scripts.engineering_scheduler",
+      "result": "pass"
+    },
+    {
+      "module": "scripts.ui_validation_manager",
+      "result": "pass"
     }
   ],
-  "last_hourly_at": "2026-08-09T11:15:02.319883+00:00",
+  "last_hourly_at": "2026-08-09T13:15:49.429678+00:00",
   "full_release_validation_required": false,
   "automatic": true,
   "background_research_status": "AVAILABLE",

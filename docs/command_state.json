@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T11:57:40.917896+00:00",
-  "snapshot_id": "cfa657ecd7ff4d14fbbf5ec8",
+  "generated_at": "2026-08-09T12:27:28.593140+00:00",
+  "snapshot_id": "d9efa15a31308b34b948012b",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -43,9 +43,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 71.3,
+    "health_score": 72.9,
     "diversification_score": 25,
-    "capital_efficiency_score": 88.8,
+    "capital_efficiency_score": 93.7,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -90,13 +90,13 @@
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Low Volatility",
-        "action": "KEEP_ACTIVE_DEAL",
+        "action": "PAUSE_NEW_DEALS",
         "enabled": true,
-        "active_deals": 1,
-        "allocated_capital": 117.69379776,
-        "reserve_capital": 2629.5360000000005,
+        "active_deals": 0,
+        "allocated_capital": 0.0,
+        "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 83.83,
+        "efficiency_score": 93.7,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -114,24 +114,17 @@
   "capital": {
     "status": null,
     "currency": "USDT",
-    "total_equity": 3587.5538871179756,
-    "allocated": 117.69379776,
-    "reserved": 2629.5360000000005,
-    "deployable": 0.0,
+    "total_equity": 3474.8095135,
+    "allocated": 0.0,
+    "reserved": 0,
+    "deployable": 2929.17291349,
     "next_required": null,
     "can_fund_next": null,
-    "asset_allocations": [
-      {
-        "asset": "TEL",
-        "quantity": 72640.0,
-        "quote_currency": "USDT",
-        "quote_cost": 117.69379776
-      }
-    ]
+    "asset_allocations": []
   },
   "recommendations": [
     {
-      "recommendation_id": "276a2e6e8af4cb8bfad47fe4",
+      "recommendation_id": "a13aa4b809a49e66de4834c3",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
@@ -272,7 +265,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 0.0,
+        "available": 2929.17291349,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -292,7 +285,7 @@
       }
     },
     {
-      "recommendation_id": "0bc536e6ab130d571ebc3469",
+      "recommendation_id": "af5627e6aa7e9c4ac62aee7f",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -443,7 +436,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 0.0,
+        "available": 2929.17291349,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -547,14 +540,14 @@
   },
   "source_snapshots": {
     "market": "737b2a9bc3966fb108b9",
-    "portfolio": "ead14f5e3f72f9874786",
-    "capital": "a39ca7e62f125ecc13ec",
-    "deployment": "538d763e50d7c7d2b326",
-    "recommendations": "e47259fa13e9637d340a",
+    "portfolio": "67280314aa724c56c0c5",
+    "capital": "0f8c20b42c7d76a208aa",
+    "deployment": "17d5c60adbc923e1da6f",
+    "recommendations": "f7c5452456e54168475e",
     "adaptive": "bd6928f9b7af60f96109",
     "outcomes": "2026-08-09T08:05:53.611786+00:00",
     "cloud": "234a10048d0bfd194dff",
-    "operating": "7b9f03fe25a6943aca7a"
+    "operating": "8ec6a7e66ac43d167d9d"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

@@ -1,26 +1,15 @@
 {
   "schema_version": "1.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T11:54:00.267159+00:00",
-  "overall": "ACTION_REQUIRED",
+  "generated_at": "2026-08-09T13:16:06.482634+00:00",
+  "overall": "RECOVERING_AUTOMATICALLY",
   "summary": {
-    "issues_before": 3,
-    "issues_after": 3,
-    "automatic_repairs_attempted": 0,
-    "blocking_after": 1
+    "issues_before": 2,
+    "issues_after": 2,
+    "automatic_repairs_attempted": 6,
+    "blocking_after": 0
   },
   "issues": [
-    {
-      "code": "KUCOIN_ACCOUNT_DATA",
-      "title": "KuCoin account data needs attention",
-      "area": "Trading data",
-      "severity": "high",
-      "state": "ATTENTION",
-      "detail": "Add read-only KUCOIN_API_KEY, KUCOIN_API_SECRET and KUCOIN_API_PASSPHRASE secrets.",
-      "automatic_repair_available": true,
-      "repair_module": "scripts.kucoin_account_sync",
-      "user_action": "Check the KuCoin API connection if automatic retry fails."
-    },
     {
       "code": "KUCOIN_TRADING_DATA",
       "title": "KuCoin order monitoring is recovering",
@@ -33,18 +22,55 @@
       "user_action": "No action is normally required while CRM is recovering. Review KuCoin API access only if repeated symbol-aware retries still fail."
     },
     {
-      "code": "KUCOIN_FILL_HISTORY",
-      "title": "KuCoin trade history is recovering",
+      "code": "REALIZED_PNL_BUILDING",
+      "title": "Realised P/L is still reconciling",
       "area": "Profit & loss",
-      "severity": "medium",
-      "state": "RECOVERING",
-      "detail": "KuCoin fill-history collection is incomplete; CRM will retry automatically.",
+      "severity": "low",
+      "state": "UPDATING",
+      "detail": "KuCoin fills are available, but one or more sells still need an earlier matching buy cost basis.",
       "automatic_repair_available": true,
-      "repair_module": "scripts.kucoin_fill_ledger",
-      "user_action": "No manual action unless repeated retries fail."
+      "repair_module": "scripts.independent_trade_accounting_engine",
+      "user_action": "CRM will retry automatically; no manual action is normally required."
     }
   ],
-  "repair_log": [],
+  "repair_log": [
+    {
+      "code": "KUCOIN_TRADING_DATA",
+      "module": "scripts.kucoin_order_state",
+      "result": "REPAIRED_OR_REFRESHED",
+      "detail": "KuCoin order state: DEGRADED; symbols=26 active=0 recent_closed=81\n"
+    },
+    {
+      "code": "REALIZED_PNL_BUILDING",
+      "module": "scripts.independent_trade_accounting_engine",
+      "result": "REPAIRED_OR_REFRESHED",
+      "detail": "Independent trade accounting written: C:\\Crypto\\Projects\\docs\\independent_trade_accounting.json\n"
+    },
+    {
+      "code": "DEPENDENT_REFRESH",
+      "module": "scripts.independent_trade_accounting_engine",
+      "result": "PASS",
+      "detail": "Independent trade accounting written: C:\\Crypto\\Projects\\docs\\independent_trade_accounting.json\n"
+    },
+    {
+      "code": "DEPENDENT_REFRESH",
+      "module": "scripts.live_portfolio_truth_engine",
+      "result": "PASS",
+      "detail": "Live portfolio truth written: C:\\Crypto\\Projects\\docs\\live_portfolio_truth.json; effective_open=0 stale=1\n"
+    },
+    {
+      "code": "DEPENDENT_REFRESH",
+      "module": "scripts.freshness_controller",
+      "result": "PASS",
+      "detail": "Freshness status: UPDATE_PENDING\n"
+    },
+    {
+      "code": "DEPENDENT_REFRESH",
+      "module": "scripts.source_health_engine",
+      "result": "PASS",
+      "detail": "Source health written: C:\\Crypto\\Projects\\docs\\source_health.json\n"
+    }
+  ],
   "safe_repair_policy": [
     "read-only API refresh",
     "local generated-output regeneration",
@@ -57,5 +83,5 @@
     "Git push/force push",
     "change capital allocation"
   ],
-  "next_action": "Review the remaining blocking item(s)."
+  "next_action": "No manual action required. CRM is repairing/retrying the affected data path automatically."
 }
