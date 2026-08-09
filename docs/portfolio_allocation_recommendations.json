@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "49.0.0",
-  "generated_at": "2026-08-09T05:56:20.214338+00:00",
+  "application_version": "50.0.0",
+  "generated_at": "2026-08-09T06:01:13.218482+00:00",
   "deployable_capital_usdt": 416.4831626499995,
   "usable_after_cash_buffer_usdt": 354.01,
   "recommendations": [
@@ -26,7 +26,7 @@
       "pair": "NEAR-USDT",
       "recommended_allocation_usdt": 100.0,
       "reason": "18% pilot share of deployable capital after 15% cash buffer.",
-      "confidence_pct": 69.9,
+      "confidence_pct": 70.1,
       "manual_approval_required": true
     },
     {
@@ -39,5 +39,7 @@
     }
   ],
   "automatic_deployment": false,
-  "next_phase": "V50 may score diversification/correlation before allocation; V49 remains advisory."
+  "capital_source": "KuCoin direct read-only account API",
+  "allocation_status": "KNOWN",
+  "next_phase": "Diversification/correlation weighting remains advisory groundwork; V50 never deploys automatically."
 }

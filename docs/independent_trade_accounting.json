@@ -1,18 +1,19 @@
 {
   "schema_version": "1.0",
-  "application_version": "49.0.0",
-  "generated_at": "2026-08-09T05:41:44.559455+00:00",
+  "application_version": "50.0.0",
+  "generated_at": "2026-08-09T06:01:12.687358+00:00",
   "capital_source": "local KuCoin private read-only account snapshot",
   "execution_telemetry_source": "3Commas until direct KuCoin fill ledger is enabled",
   "active_trade_count": 1,
   "deployed_quote": 117.693,
-  "open_pnl_quote": 9.5013,
+  "open_pnl_quote": 8.8003,
   "open_pnl_status": "KNOWN",
   "realised_profit_quote": null,
-  "realised_profit_status": "AWAITING_COMPLETE_CLOSED_FILL_COST_BASIS",
+  "realised_profit_status": "NO_FILL_HISTORY_YET",
+  "realised_profit_source": "KuCoin persistent fill ledger building",
   "portfolio_value_quote": null,
   "read_only": true,
   "execution_enabled": false,
   "reconciliation_status": "PARTIAL",
-  "migration_note": "V48 reconstructs open P/L from current KuCoin price plus active-deal cost basis when possible. Realised P/L remains unavailable unless a complete closed-fill cost basis is present; CRM will not fabricate it."
+  "migration_note": "V50 persists recent KuCoin spot fills locally so closed-fill cost basis grows across refreshes and upgrades. Realised P/L is published only when the ledger can match the relevant sell fills to known cost basis."
 }

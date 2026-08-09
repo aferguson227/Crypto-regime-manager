@@ -1,10 +1,10 @@
 {
   "schema_version": "2.0",
-  "application_version": "49.0.0",
-  "generated_at": "2026-08-09T05:41:56.950415+00:00",
+  "application_version": "50.0.0",
+  "generated_at": "2026-08-09T06:01:12.002217+00:00",
   "provider": "KuCoin public spot candles",
   "autonomous_discovery_source": "Full KuCoin USDT scan -> ranked shortlist -> bounded historical acquisition",
-  "mode": "bounded_incremental_acquisition",
+  "mode": "plan_only",
   "data_root": "C:\\Crypto\\CRM_Data",
   "target_timeframe": "4hour",
   "production_research": {
@@ -46,12 +46,12 @@
       "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-USDT_4H.csv",
       "bars": 11776,
       "new_bars": 0,
-      "pages_requested": 2,
+      "pages_requested": 0,
       "earliest": "2021-03-24T08:00:00+00:00",
       "latest": "2026-08-09T00:00:00+00:00",
-      "backfill_complete": true,
+      "backfill_complete": false,
       "errors": [],
-      "status": "OK"
+      "status": "CACHED"
     },
     {
       "symbol": "UNI-USDT",
@@ -98,12 +98,12 @@
       "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\PIEVERSE-USDT_4H.csv",
       "bars": 473,
       "new_bars": 0,
-      "pages_requested": 2,
+      "pages_requested": 0,
       "earliest": "2026-05-22T08:00:00+00:00",
       "latest": "2026-08-09T00:00:00+00:00",
-      "backfill_complete": true,
+      "backfill_complete": false,
       "errors": [],
-      "status": "OK"
+      "status": "CACHED"
     },
     {
       "symbol": "AAVE-USDT",
@@ -137,12 +137,12 @@
       "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\SOL-USDT_4H.csv",
       "bars": 10978,
       "new_bars": 0,
-      "pages_requested": 2,
+      "pages_requested": 0,
       "earliest": "2021-08-04T08:00:00+00:00",
       "latest": "2026-08-09T00:00:00+00:00",
-      "backfill_complete": true,
+      "backfill_complete": false,
       "errors": [],
-      "status": "OK"
+      "status": "CACHED"
     },
     {
       "symbol": "NEAR-USDT",
@@ -150,12 +150,12 @@
       "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
       "bars": 11134,
       "new_bars": 0,
-      "pages_requested": 2,
+      "pages_requested": 0,
       "earliest": "2021-07-09T08:00:00+00:00",
       "latest": "2026-08-09T00:00:00+00:00",
-      "backfill_complete": true,
+      "backfill_complete": false,
       "errors": [],
-      "status": "OK"
+      "status": "CACHED"
     },
     {
       "symbol": "AEON-USDT",
@@ -163,12 +163,12 @@
       "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AEON-USDT_4H.csv",
       "bars": 77,
       "new_bars": 0,
-      "pages_requested": 2,
+      "pages_requested": 0,
       "earliest": "2026-07-27T08:00:00+00:00",
       "latest": "2026-08-09T00:00:00+00:00",
-      "backfill_complete": true,
+      "backfill_complete": false,
       "errors": [],
-      "status": "OK"
+      "status": "CACHED"
     },
     {
       "symbol": "CYS-USDT",
@@ -176,12 +176,12 @@
       "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\CYS-USDT_4H.csv",
       "bars": 1445,
       "new_bars": 0,
-      "pages_requested": 2,
+      "pages_requested": 0,
       "earliest": "2025-12-11T08:00:00+00:00",
       "latest": "2026-08-09T00:00:00+00:00",
-      "backfill_complete": true,
+      "backfill_complete": false,
       "errors": [],
-      "status": "OK"
+      "status": "CACHED"
     },
     {
       "symbol": "XRP-USDT",
@@ -250,7 +250,7 @@
     }
   ],
   "progress_pct": 87.5,
-  "status": "ACTIVE",
+  "status": "READY",
   "continuity_policy": "append completed candles, backfill older history incrementally, deduplicate timestamps, keep raw research data outside Git",
   "note": "Local Agent downloads only a bounded number of pages per cycle. New candidates nominated by the hourly full KuCoin USDT scan enter this queue automatically. Full-history depth grows without blocking the 15-minute refresh."
 }

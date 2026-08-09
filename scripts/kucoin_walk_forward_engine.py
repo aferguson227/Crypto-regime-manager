@@ -20,19 +20,22 @@ def evaluate(rows,profile,allowed,policy):
  st=profile['settings'];r=replay(rows,profile['entry_trigger'],allowed,float(st['take_profit_pct'])/100,float(st['so_deviation_pct'])/100,int(st['safety_orders']),float(st['volume_scale']),float(st['step_scale']))
  sc,roc,dd,reject=score_result(r,policy)
  return {**r,'return_on_max_capital_pct':roc,'max_drawdown_pct':dd,'score':sc,'rejected_for_open_duration':reject}
-def train_best(rows,allowed,policy):
+def train_best(rows,allowed,policy,extensions=None):
  import itertools
- triggers=policy['entry_triggers'];g=policy['dca_search_space'];best=None;tested=0
+ extensions=extensions or {};g=policy['dca_search_space']
+ triggers=list(dict.fromkeys(list(policy['entry_triggers'])+list(extensions.get('entry_triggers') or [])))
+ def merged(k):return list(dict.fromkeys(list(g[k])+list(extensions.get(k) or [])))
+ best=None;tested=0
  for trig in triggers:
-  for tp,dev,n,vs,step in itertools.product(g['take_profit_pct'],g['so_deviation_pct'],g['safety_orders'],g['volume_scale'],g['step_scale']):
+  for tp,dev,n,vs,step in itertools.product(merged('take_profit_pct'),merged('so_deviation_pct'),merged('safety_orders'),merged('volume_scale'),merged('step_scale')):
    tested+=1;r=replay(rows,trig,allowed,tp/100,dev/100,int(n),float(vs),float(step));sc,roc,dd,reject=score_result(r,policy)
    c={'entry_trigger':trig,'settings':{'take_profit_pct':tp,'so_deviation_pct':dev,'safety_orders':n,'volume_scale':vs,'step_scale':step},'training_metrics':{**r,'return_on_max_capital_pct':roc,'max_drawdown_pct':dd},'score':sc}
    if reject:continue
    if best is None or sc>best['score']:best=c
  return best,tested
 def main():
- kp=load(POLICY);rp=load(RESEARCH);disc=load(DOCS/'coin_discovery.json');kraken=load(DOCS/'walk_forward_registry.json')
- kr={str(x.get('symbol') or '').replace('XBT','BTC').upper():x for x in kraken.get('coins') or [] if isinstance(x,dict)}
+ kp=load(POLICY);rp=load(RESEARCH);disc=load(DOCS/'coin_discovery.json');kraken=load(DOCS/'walk_forward_registry.json');adaptive=load(DOCS/'adaptive_research_queue.json')
+ kr={str(x.get('symbol') or '').replace('XBT','BTC').upper():x for x in kraken.get('coins') or [] if isinstance(x,dict)};adby={str(x.get('asset') or '').upper():x for x in adaptive.get('candidates') or [] if isinstance(x,dict)}
  assets=[]
  for x in (disc.get('researched_candidates') or [])+(disc.get('shortlist') or []):
   a=str(x.get('base_currency') or '').upper()
@@ -51,7 +54,7 @@ def main():
   train=raw[:a];val=raw[a:b];forward=raw[b:];profiles={}
   current=family(raw[-1].get('regime'))
   for fam,allowed in regimes.items():
-   best,tested=train_best(train,allowed,rp);total+=tested
+   best,tested=train_best(train,allowed,rp,(adby.get(asset) or {}).get('search_extensions'));total+=tested
    if not best:continue
    vm=evaluate(val,best,allowed,rp);fm=evaluate(forward,best,allowed,rp)
    pass_validation=bool(vm and vm['closed_deals']>=3 and vm['mark_to_market_pnl']>0 and vm['longest_hours']<=float(wp['maximum_validation_longest_hours']) and not vm['rejected_for_open_duration'])
@@ -63,7 +66,7 @@ def main():
     'split':{'training_bars':len(train),'validation_bars':len(val),'forward_bars':len(forward),'training_end':train[-1]['time'],'validation_end':val[-1]['time']},
     'current_regime_family':current,'current_regime_profile':cp,'regime_profiles':profiles,
     'kucoin_primary_validation_pass':kucoin_pass,'kraken_robustness_status':kstatus,'kraken_used_for_optimisation':False,
-    'deployment_gate':'PASS' if kucoin_pass else 'WAIT','manual_approval_required':True})
+    'deployment_gate':'PASS' if kucoin_pass else 'WAIT','adaptive_research_applied':bool(adby.get(asset)),'adaptive_experiments':(adby.get(asset) or {}).get('next_experiments') or [],'manual_approval_required':True})
  ready=sum(1 for x in rowsout if x.get('status')=='READY_FOR_MANUAL_REVIEW')
  payload={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),
   'mode':'kucoin_primary_frozen_walk_forward','data_source':'KuCoin public 4h candles','training_optimisation_only':True,'freeze_before_validation':True,

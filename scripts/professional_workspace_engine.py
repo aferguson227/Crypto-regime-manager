@@ -22,7 +22,7 @@ def setting_value(source,*names):
     return None
 
 def build():
-    c=load('command_state.json'); previous=load('professional_workspace.json')
+    c=load('command_state.json'); previous=load('professional_workspace.json'); advisory=load('portfolio_allocation_recommendations.json')
     queue=c.get('priority_queue') or []; recs=c.get('recommendations') or []
     top=queue[0] if queue else {}
     rec=next((r for r in recs if r.get('bot_name')==top.get('bot_name')),recs[0] if recs else {})
@@ -34,6 +34,10 @@ def build():
     cap=c.get('capital') or {}; cloud=c.get('cloud') or {}; health=c.get('health') or {}
     portfolio=c.get('portfolio') or {}; market=c.get('market') or {}
     required=first(top.get('capital_required'),cap.get('next_required'))
+    if required is None:
+        asset=str(top.get('asset') or '').upper()
+        ar=next((x for x in advisory.get('recommendations') or [] if str(x.get('asset') or '').upper()==asset),None)
+        if ar: required=ar.get('recommended_allocation_usdt')
     deployable=cap.get('deployable')
     settings_order=['base_order_volume','safety_order_volume','take_profit_pct','so_deviation_pct','safety_orders','volume_scale','step_scale','max_active_safety_orders','max_active_deals','start_condition','order_type','trailing_enabled','cooldown_seconds']
     # Canonical recommendation rule: never invent a missing setting. When the

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "application_version": "50.0.0",
+  "decision_gates": [
+    "history_complete",
+    "kucoin_walk_forward",
+    "trade_fluidity",
+    "current_regime_fit",
+    "capital_allocation"
+  ],
+  "monitoring": {
+    "minimum_forward_observation_days": 7,
+    "preferred_forward_observation_days": 14,
+    "minimum_forward_closed_deals": 5
+  },
+  "adaptive_research": {
+    "enabled": true,
+    "max_failed_candidates_per_cycle": 3,
+    "retry_after_hours": 24,
+    "failure_actions": {
+      "open_at_cutoff": [
+        "exclude_weak_regimes",
+        "widen_safety_ladder",
+        "tighten_entry_filter",
+        "penalise_long_holds"
+      ],
+      "excessive_drawdown": [
+        "reduce_volume_scale",
+        "widen_step_scale",
+        "restrict_regime"
+      ],
+      "longest_trade": [
+        "tighten_entry_filter",
+        "increase_step_scale",
+        "reject_regime"
+      ],
+      "kraken_robustness_fail": [
+        "lower_confidence",
+        "compare_cross_exchange_failure_reason",
+        "do_not_auto_veto_kucoin_pass"
+      ]
+    }
+  },
+  "allocation": {
+    "cash_buffer_pct": 15,
+    "pilot_pct_of_deployable": 18,
+    "max_single_bot_pct_of_deployable": 25,
+    "minimum_pilot_usdt": 100
+  },
+  "execution": {
+    "automatic_deployment": false,
+    "deployment_preparation_enabled": true,
+    "manual_confirmation_required": true
+  }
+}

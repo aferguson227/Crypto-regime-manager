@@ -153,3 +153,34 @@ button,.primary-action,.crm-actions a{border-radius:10px;min-height:2.25rem}
     font-size:clamp(.64rem,4.5cqi,.8rem)!important;
   }
 }
+
+/* V50 decision-workflow polish */
+.crm-staged-review{
+  border:1px solid var(--crm-border);
+  border-radius:14px;
+  padding:.8rem;
+  margin:.65rem 0;
+  background:rgba(255,255,255,.018);
+}
+.crm-review-panel{margin-top:.55rem}
+.crm-review-panel summary{
+  cursor:pointer;
+  font-weight:800;
+  padding:.55rem .7rem;
+  border-radius:10px;
+  background:rgba(101,169,255,.08);
+}
+.crm-review-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.6rem;
+  margin:.7rem 0;
+}
+.crm-review-panel .crm-list{padding-left:1.2rem}
+.crm-review-panel .crm-list li{margin:.4rem 0}
+.crm-review-panel .crm-actions-row{margin-top:.7rem}
+@media(max-width:700px){
+  .crm-review-grid{grid-template-columns:1fr}
+  .crm-staged-row{grid-template-columns:1fr!important}
+  .crm-staged-row button{width:100%}
+}

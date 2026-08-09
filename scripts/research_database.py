@@ -122,6 +122,8 @@ def main():
  ap=argparse.ArgumentParser();ap.add_argument('command',nargs='?',default='migrate',choices=['migrate','status','import'])
  a=ap.parse_args()
  migrate()
- if a.command=='import':record_assets();import_candidate_state()
+ # V50 reconciliation: seed persistent memory from already-published discovery/research state
+ # during every migration/status pass so upgrades never show an empty DB beside populated histories.
+ record_assets();import_candidate_state()
  p=write_status();print(f"Research database: {p['status']} · assets={p['known_assets']} · cache={p['cached_results']} · {p['database_path']}");return 0
 if __name__=='__main__':raise SystemExit(main())

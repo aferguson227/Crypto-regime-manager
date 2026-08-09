@@ -1,20 +1,22 @@
 {
   "schema_version": "2.0",
-  "application_version": "49.0.0",
-  "generated_at": "2026-08-09T04:50:15.754091+00:00",
+  "application_version": "50.0.0",
+  "generated_at": "2026-08-09T06:01:10.542488+00:00",
   "overall": {
     "state": "HEALTHY",
-    "score_pct": 92.7
+    "score_pct": 97.7
   },
   "scores": {
     "application": 100,
     "operations": 86.0,
     "interface": 100,
     "actions": 100,
-    "self_healing": 70,
+    "self_healing": 100,
     "repository": 100
   },
-  "action_queue": [
+  "action_queue": [],
+  "highest_value_improvements": [],
+  "recently_closed": [
     {
       "key": "54f9554d6425d74c",
       "source": "operational",
@@ -26,14 +28,9 @@
       "recommended_action": null,
       "first_detected_at": "2026-08-08T12:39:01.904026+00:00",
       "last_detected_at": "2026-08-09T04:48:58.004881+00:00",
-      "lifecycle": "OPEN",
+      "lifecycle": "CLOSED",
       "historical_occurrences": 4,
-      "user_benefit": 5,
-      "frequency": 4,
-      "confidence": 5,
-      "estimated_effort": 2,
-      "regression_risk": 2,
-      "roi_score": 25.0
+      "closed_at": "2026-08-09T06:01:09.582233+00:00"
     },
     {
       "key": "df0b590c64ba8e2f",
@@ -46,14 +43,9 @@
       "recommended_action": null,
       "first_detected_at": "2026-08-09T04:48:58.004881+00:00",
       "last_detected_at": "2026-08-09T04:48:58.004881+00:00",
-      "lifecycle": "DETECTED",
+      "lifecycle": "CLOSED",
       "historical_occurrences": 1,
-      "user_benefit": 4,
-      "frequency": 1,
-      "confidence": 5,
-      "estimated_effort": 2,
-      "regression_risk": 2,
-      "roi_score": 5.0
+      "closed_at": "2026-08-09T06:01:09.582233+00:00"
     },
     {
       "key": "a43930f4134bf7af",
@@ -66,82 +58,14 @@
       "recommended_action": "Trigger the read-only 3Commas workflow.",
       "first_detected_at": "2026-08-09T04:48:58.004881+00:00",
       "last_detected_at": "2026-08-09T04:48:58.004881+00:00",
-      "lifecycle": "DETECTED",
+      "lifecycle": "CLOSED",
       "historical_occurrences": 1,
-      "user_benefit": 2,
-      "frequency": 1,
-      "confidence": 5,
-      "estimated_effort": 2,
-      "regression_risk": 2,
-      "roi_score": 2.5
+      "closed_at": "2026-08-09T06:01:09.582233+00:00"
     }
   ],
-  "highest_value_improvements": [
-    {
-      "key": "54f9554d6425d74c",
-      "source": "operational",
-      "fingerprint": "Application publication needs attention",
-      "title": "Application publication needs attention",
-      "severity": "critical",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-08T12:39:01.904026+00:00",
-      "last_detected_at": "2026-08-09T04:48:58.004881+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 4,
-      "user_benefit": 5,
-      "frequency": 4,
-      "confidence": 5,
-      "estimated_effort": 2,
-      "regression_risk": 2,
-      "roi_score": 25.0
-    },
-    {
-      "key": "df0b590c64ba8e2f",
-      "source": "operational",
-      "fingerprint": "3Commas refresh needs attention",
-      "title": "3Commas refresh needs attention",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-09T04:48:58.004881+00:00",
-      "last_detected_at": "2026-08-09T04:48:58.004881+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
-      "user_benefit": 4,
-      "frequency": 1,
-      "confidence": 5,
-      "estimated_effort": 2,
-      "regression_risk": 2,
-      "roi_score": 5.0
-    },
-    {
-      "key": "a43930f4134bf7af",
-      "source": "self_healing",
-      "fingerprint": "STALE_THREECOMMAS",
-      "title": "3Commas data is stale",
-      "severity": "low",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Trigger the read-only 3Commas workflow.",
-      "first_detected_at": "2026-08-09T04:48:58.004881+00:00",
-      "last_detected_at": "2026-08-09T04:48:58.004881+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
-      "user_benefit": 2,
-      "frequency": 1,
-      "confidence": 5,
-      "estimated_effort": 2,
-      "regression_risk": 2,
-      "roi_score": 2.5
-    }
-  ],
-  "recently_closed": [],
   "technical_debt": {
     "state": "LOW",
-    "known_items": 3
+    "known_items": 0
   },
   "decision_quality_display": {
     "state": "LEARNING",
@@ -149,16 +73,14 @@
     "evidence_coverage_pct": 20.0
   },
   "release_predictor": {
-    "readiness_pct": 77.7,
-    "ready": false,
-    "recommendation": "HOLD",
-    "regression_risk": "LOW",
+    "readiness_pct": 97.7,
+    "ready": true,
+    "recommendation": "READY",
+    "regression_risk": "VERY_LOW",
     "expected_build_seconds": null,
     "expected_deployment_seconds": 26.0,
     "actions_success_rate_pct": 99.0,
-    "blockers": [
-      "Application publication needs attention"
-    ]
+    "blockers": []
   },
   "guardrails": {
     "no_trading_changes": true,

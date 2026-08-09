@@ -31,7 +31,7 @@ def history_root():
  raw=os.getenv('CRM_DATA_ROOT');base=Path(raw) if raw else (Path(r'C:\Crypto\CRM_Data') if os.name=='nt' else Path.home()/'.crypto_regime_manager_data')
  return base/'KuCoin'/'4h'
 def research_fingerprint():
- parts=[file_sig(POLICY),file_sig(KPOL),file_sig(RPOL)]
+ parts=[file_sig(POLICY),file_sig(KPOL),file_sig(RPOL),file_sig(DOCS/'adaptive_research_queue.json')]
  h=history_root()
  if h.exists():
   for p in sorted(h.glob('*_4H.csv')):parts.append(file_sig(p))
@@ -43,7 +43,7 @@ def due(key,minutes):
 def write(payload):
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8');return payload
 def status_only():
- db.migrate();p=load(POLICY);hist=load(DOCS/'historical_data_status.json');wf=load(DOCS/'kucoin_walk_forward.json');disc=load(DOCS/'coin_discovery.json')
+ db.migrate();db.record_assets();db.import_candidate_state();p=load(POLICY);hist=load(DOCS/'historical_data_status.json');wf=load(DOCS/'kucoin_walk_forward.json');disc=load(DOCS/'coin_discovery.json')
  payload={'schema_version':'1.0','application_version':application_version(),'generated_at':now(),'mode':'status_only',
   'market_scan':{'known_eligible':len(disc.get('shortlist') or []),'last_run':db.get_meta('last_market_scan'),'next_due_minutes':max(0,round(float(p.get('market_scan_minutes',60))-age_minutes(db.get_meta('last_market_scan')),1))},
   'history':{'ready':hist.get('research_ready_count',0),'total':hist.get('candidate_count',0),'progress_pct':hist.get('progress_pct',0),'last_run':db.get_meta('last_history_sync')},
@@ -54,6 +54,7 @@ def main():
  ap=argparse.ArgumentParser();ap.add_argument('--status-only',action='store_true');ap.add_argument('--force',action='store_true');args=ap.parse_args()
  if args.status_only:return 0 if status_only() else 0
  db.migrate();p=load(POLICY);started=time.monotonic();activity=[];backtests=0
+ run('scripts.adaptive_candidate_research_engine',check=False)
  # Full KuCoin USDT scan hourly. Failure does not destroy existing research.
  if args.force or due('last_market_scan',float(p.get('market_scan_minutes',60))):
   st=time.monotonic()
@@ -77,12 +78,12 @@ def main():
   if ok:
    db.set_meta('last_research_cycle',now());db.set_meta('last_research_fingerprint',fp)
    db.cache_put('latest_research_bundle',fp,{'regime':reg,'walk_forward':wf},duration)
-   db.import_candidate_state()
+   db.import_candidate_state();run('scripts.adaptive_candidate_research_engine',check=False)
  else:
   cached=db.cache_get('latest_research_bundle',fp)
   activity.append({'stage':'Cached optimisation + walk-forward','status':'CACHE_HIT','seconds':0,'backtests':0,'cache_reused':bool(cached)})
  # downstream lightweight decision outputs
- for mod in ['scripts.research_evidence_engine','scripts.research_pipeline_engine','scripts.candidate_optimisation_engine','scripts.recommended_bots_engine','scripts.coin_registry_engine','scripts.recommendation_timeline_engine','scripts.expansion_readiness_engine','scripts.research_activity_engine','scripts.portfolio_allocation_engine']:
+ for mod in ['scripts.research_evidence_engine','scripts.research_pipeline_engine','scripts.candidate_optimisation_engine','scripts.recommended_bots_engine','scripts.coin_registry_engine','scripts.recommendation_timeline_engine','scripts.expansion_readiness_engine','scripts.research_activity_engine','scripts.portfolio_allocation_engine','scripts.candidate_review_engine']:
   run(mod,check=False)
  hist=load(DOCS/'historical_data_status.json');wf=load(DOCS/'kucoin_walk_forward.json');disc=load(DOCS/'coin_discovery.json')
  elapsed=round(time.monotonic()-started,2)

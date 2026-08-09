@@ -24,6 +24,14 @@ def age_hours(value):
     x=dt(value)
     return None if not x else round((datetime.now(timezone.utc)-x).total_seconds()/3600,2)
 
+def human_hours(v):
+    if v is None:return 'unknown'
+    m=max(0,int(round(float(v)*60)))
+    if m<60:return f'{m}m'
+    h=m//60;mm=m%60
+    if h<24:return f'{h}h {mm}m'
+    return f'{h//24}d {h%24}h'
+
 def issue(severity, system, title, detail, action, metric=None):
     return {'severity':severity,'system':system,'title':title,'detail':detail,'recommended_action':action,'metric':metric,'first_detected_at':datetime.now(timezone.utc).isoformat(),'last_detected_at':datetime.now(timezone.utc).isoformat()}
 
@@ -42,9 +50,12 @@ def main()->int:
                 continue
             active.append(issue('warning' if row.get('category') in {'rate_limited','rate_limited_cached','permission_denied'} else 'critical','3Commas',f'{name} endpoint {row.get("category","failed").replace("_"," ")}',row.get('message') or 'Endpoint failed.','Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.',{'http_status':row.get('http_status'),'records':row.get('records')}))
     tc_age=age_hours(tc.get('last_success_at') or tc.get('generated_at'))
-    if tc_age is None or tc_age>3: active.append(issue('critical' if tc_age is None or tc_age>6 else 'warning','3Commas','3Commas refresh needs attention',f'Last successful sync was {tc_age if tc_age is not None else "unknown"} hours ago. Expected cadence is about 60 minutes.','The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.',{'age_hours':tc_age,'expected_cadence_hours':1}))
+    if tc_age is None or tc_age>3:
+        blocking=((cloud.get('pipelines') or {}).get('threecommas') or {}).get('decision_blocking',True)
+        if blocking: active.append(issue('critical' if tc_age is None or tc_age>6 else 'warning','3Commas','3Commas refresh needs attention',f'Last successful sync was {human_hours(tc_age)} ago. Expected cadence is about 1h.','The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.',{'age_hours':tc_age,'expected_cadence_hours':1}))
     app_pipe=(cloud.get('pipelines') or {}).get('application') or {}; app_age=app_pipe.get('last_success_age_hours')
-    if app_age is None or app_age>8: active.append(issue('critical' if app_age is None or app_age>12 else 'warning','Application','Application publication needs attention',f'Last successful publication was {app_age} hours ago.','Automatic refresh and publication are enabled; inspect the collector only if this persists.',{'age_hours':app_age,'unit':'hours'}))
+    if app_pipe.get('state') in {'failure','unknown'}:
+        active.append(issue('critical' if app_pipe.get('state')=='failure' else 'warning','Application','Application publication needs attention',f'Latest successful publication was {human_hours(app_age)} ago. {app_pipe.get("message") or ""}'.strip(),'Automatic publication is enabled; inspect the workflow only if live Pages is not synchronised.',{'age_hours':app_age,'unit':'hours'}))
     dscore=((diag.get('overall') or {}).get('score')) or 0
     system_score=clamp(dscore)
     data_score=100
@@ -52,8 +63,9 @@ def main()->int:
     elif tc.get('status')=='partial' and str(kucoin.get('status') or '').lower()!='ok': data_score-=8
     if tc_age is None:data_score-=40
     elif tc_age>2:data_score-=min(45,(tc_age-2)*8)
-    if app_age is None:data_score-=30
-    elif app_age>6:data_score-=min(35,(app_age-6)*5)
+    if app_pipe.get('state') not in {'healthy'}:
+        if app_age is None:data_score-=30
+        elif app_age>6:data_score-=min(35,(app_age-6)*5)
     decision=((ws.get('decision_readiness') or {}).get('score_pct')) or 0
     trading_score=70
     deals=[]
@@ -66,7 +78,7 @@ def main()->int:
     deployment_score=100
     for p in (cloud.get('pipelines') or {}).values():
         if p.get('state')=='failure':deployment_score-=35
-        elif p.get('state')=='warning':deployment_score-=15
+        elif p.get('state')=='warning' and p.get('decision_blocking',True):deployment_score-=15
     if active and not any(i['severity']=='critical' for i in active): overall='WARNING'
     elif any(i['severity']=='critical' for i in active): overall='CRITICAL'
     else: overall='HEALTHY'

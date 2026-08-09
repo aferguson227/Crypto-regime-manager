@@ -163,10 +163,23 @@ def build() -> dict[str, Any]:
     three = load(DOCS / "threecommas.json")
     kucoin = load(DOCS / "kucoin_account.json")
     cloud = load(DOCS / "cloud_status.json")
+    sync = load(DOCS / "synchronization_status.json")
+    agent = load(DOCS / "local_agent_status.json")
     pipelines = {
         "threecommas": threecommas_pipeline(three, kucoin),
         "application": application_pipeline(cloud),
     }
+    live_pages=((sync.get("components") or {}).get("live_pages") or {}).get("status")
+    if str(live_pages or "").upper()=="SYNCED" and str(cloud.get("state") or "").lower() not in {"error","fail","failure"}:
+        pipelines["application"]["state"]="healthy"
+        pipelines["application"]["message"]="Live Pages is synchronised; publication age alone is not a reliability fault."
+        pipelines["application"]["publication_age_informational"]=True
+    ku_age=age_hours(kucoin.get("generated_at"))
+    if pipelines["threecommas"]["state"]=="warning" and str(kucoin.get("status") or "").lower()=="ok" and ku_age is not None and ku_age<=1:
+        pipelines["threecommas"]["decision_blocking"]=False
+        pipelines["threecommas"]["message"]="3Commas telemetry is older than target, but fresh KuCoin private capital data remains available. Bot/deal telemetry may still lag."
+    else:
+        pipelines["threecommas"]["decision_blocking"]=pipelines["threecommas"]["state"] in {"warning","failure"}
     workflows = [
         workflow_check(
             ROOT / ".github/workflows/crm-data-refresh.yml",
@@ -181,7 +194,8 @@ def build() -> dict[str, Any]:
     ]
     states = [row["state"] for row in pipelines.values()]
     workflow_failure = any(row["status"] == "fail" for row in workflows)
-    status = "FAILURE" if workflow_failure or "failure" in states else "WARNING" if "warning" in states or "unknown" in states else "HEALTHY"
+    blocking_warning=any(row.get("state")=="warning" and row.get("decision_blocking",True) for row in pipelines.values())
+    status = "FAILURE" if workflow_failure or "failure" in states else "WARNING" if blocking_warning or "unknown" in states else "HEALTHY"
     repo = os.getenv("GITHUB_REPOSITORY")
     run = os.getenv("GITHUB_RUN_ID")
     payload = {
@@ -214,6 +228,13 @@ def build() -> dict[str, Any]:
             "threecommas_cadence": "hourly at minute 37 UTC",
             "main_refresh_cadence": "every four hours inside CRM Data Refresh",
             "capital_source": "KuCoin direct read-only when configured; 3Commas account balance is fallback only",
+        },
+        "explanation": {
+            "overall_reason": "Workflow/source failure is present." if status=="FAILURE" else ("A decision-blocking source is degraded." if status=="WARNING" else "Required automation is healthy; non-blocking age notices do not lower overall health."),
+            "application_publication": pipelines["application"].get("message"),
+            "threecommas": pipelines["threecommas"].get("message"),
+            "local_agent_status": agent.get("status"),
+            "kucoin_private_status": kucoin.get("status"),
         },
         "read_only": True,
     }

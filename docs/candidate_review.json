@@ -1,0 +1,1422 @@
+{
+  "schema_version": "1.0",
+  "application_version": "50.0.0",
+  "generated_at": "2026-08-09T06:01:13.460342+00:00",
+  "candidates": [
+    {
+      "asset": "XMR",
+      "pair": "XMR-USDT",
+      "readiness_pct": 20.0,
+      "gates": [
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PASS",
+          "detail": "13492 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PENDING",
+          "detail": "No current-regime frozen configuration has passed unseen KuCoin validation yet."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PENDING",
+          "detail": "Longest validation trade 1712h; open position True."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PENDING",
+          "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PENDING",
+          "detail": "Awaiting canonical deployable-capital calculation."
+        }
+      ],
+      "recommendation": "ADAPTIVE_RESEARCH",
+      "next_action": "Continue monitoring while CRM runs the queued failure-specific experiments on the next research cycle.",
+      "current_regime": "BULL",
+      "settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.5,
+        "step_scale": 1.0
+      },
+      "entry_trigger": "immediate",
+      "validation_metrics": {
+        "net_pnl": 1530.98,
+        "mark_to_market_pnl": 1531.79,
+        "open_pnl": 0.81,
+        "closed_deals": 630,
+        "average_hours": 5.3,
+        "median_hours": 0.0,
+        "p90_hours": 4,
+        "longest_hours": 1712,
+        "max_drawdown_dollars": -192.72,
+        "max_capital": 912.5,
+        "open_position": true,
+        "open_duration_hours": 0,
+        "average_safety_orders": 1.39,
+        "return_on_max_capital_pct": 167.87,
+        "max_drawdown_pct": 21.12,
+        "score": 95.739,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation": {
+        "net_pnl": 1980.62,
+        "mark_to_market_pnl": 1980.62,
+        "open_pnl": 0.0,
+        "closed_deals": 770,
+        "average_hours": 1.5,
+        "median_hours": 0.0,
+        "p90_hours": 4,
+        "longest_hours": 96,
+        "max_drawdown_dollars": -46.28,
+        "max_capital": 912.5,
+        "open_position": false,
+        "open_duration_hours": 0,
+        "average_safety_orders": 1.48,
+        "return_on_max_capital_pct": 217.05,
+        "max_drawdown_pct": 5.07,
+        "score": 239.53,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation_days": 392.8,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 100,
+      "suggested_allocation_usdt": null,
+      "allocation_reason": null,
+      "validation_cutoff": {
+        "state": "OPEN",
+        "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "PASS",
+        "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration."
+      },
+      "adaptive_research": {
+        "asset": "XMR",
+        "pair": "XMR-USDT",
+        "state": "ADAPTIVE_RESEARCH_QUEUED",
+        "failure_reasons": [
+          "Validation ended with unresolved exposure or current profile retained an open position.",
+          "Validation drawdown 21.1% exceeds preferred tolerance.",
+          "Longest validation trade 1712h exceeds the preferred 168h fluidity target."
+        ],
+        "next_experiments": [
+          "tighten_entry_filter",
+          "widen_safety_ladder",
+          "penalise_long_holds",
+          "reduce_volume_scale",
+          "increase_step_scale",
+          "restrict_regime"
+        ],
+        "search_extensions": {
+          "so_deviation_pct": [
+            3.0,
+            5.0,
+            6.0
+          ],
+          "safety_orders": [
+            8,
+            9
+          ],
+          "volume_scale": [
+            1.1,
+            1.2
+          ],
+          "step_scale": [
+            1.3,
+            1.5
+          ],
+          "entry_triggers": [
+            "trend_pullback",
+            "qfl_proxy_3",
+            "mean_reversion"
+          ]
+        },
+        "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
+      },
+      "deployment_preparation_available": false,
+      "automatic_deployment": false
+    },
+    {
+      "asset": "UNI",
+      "pair": "UNI-USDT",
+      "readiness_pct": 20.0,
+      "gates": [
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PASS",
+          "detail": "12898 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PENDING",
+          "detail": "No current-regime frozen configuration has passed unseen KuCoin validation yet."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PENDING",
+          "detail": "Longest validation trade 308h; open position True."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PENDING",
+          "detail": "Current regime family: BEAR."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PENDING",
+          "detail": "Awaiting canonical deployable-capital calculation."
+        }
+      ],
+      "recommendation": "ADAPTIVE_RESEARCH",
+      "next_action": "Continue monitoring while CRM runs the queued failure-specific experiments on the next research cycle.",
+      "current_regime": "BEAR",
+      "settings": {
+        "take_profit_pct": 1.5,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.5,
+        "step_scale": 1.0
+      },
+      "entry_trigger": "mean_reversion",
+      "validation_metrics": {
+        "net_pnl": 1246.02,
+        "mark_to_market_pnl": 800.07,
+        "open_pnl": -445.96,
+        "closed_deals": 200,
+        "average_hours": 4.5,
+        "median_hours": 0.0,
+        "p90_hours": 8,
+        "longest_hours": 308,
+        "max_drawdown_dollars": -588.48,
+        "max_capital": 912.5,
+        "open_position": true,
+        "open_duration_hours": 3172,
+        "average_safety_orders": 1.88,
+        "return_on_max_capital_pct": 87.68,
+        "max_drawdown_pct": 64.49,
+        "score": -245.703,
+        "rejected_for_open_duration": true
+      },
+      "forward_observation": {
+        "net_pnl": 1432.56,
+        "mark_to_market_pnl": 1432.56,
+        "open_pnl": 0.0,
+        "closed_deals": 267,
+        "average_hours": 5.7,
+        "median_hours": 0,
+        "p90_hours": 12,
+        "longest_hours": 280,
+        "max_drawdown_dollars": -242.03,
+        "max_capital": 912.5,
+        "open_position": false,
+        "open_duration_hours": 0,
+        "average_safety_orders": 1.57,
+        "return_on_max_capital_pct": 156.99,
+        "max_drawdown_pct": 26.52,
+        "score": 132.801,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation_days": 430.3,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 100,
+      "suggested_allocation_usdt": null,
+      "allocation_reason": null,
+      "validation_cutoff": {
+        "state": "OPEN",
+        "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "PASS",
+        "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration."
+      },
+      "adaptive_research": {
+        "asset": "UNI",
+        "pair": "UNI-USDT",
+        "state": "ADAPTIVE_RESEARCH_QUEUED",
+        "failure_reasons": [
+          "Validation ended with unresolved exposure or current profile retained an open position.",
+          "Validation drawdown 64.5% exceeds preferred tolerance.",
+          "Longest validation trade 308h exceeds the preferred 168h fluidity target."
+        ],
+        "next_experiments": [
+          "tighten_entry_filter",
+          "widen_safety_ladder",
+          "penalise_long_holds",
+          "reduce_volume_scale",
+          "increase_step_scale",
+          "restrict_regime"
+        ],
+        "search_extensions": {
+          "so_deviation_pct": [
+            3.0,
+            5.0,
+            6.0
+          ],
+          "safety_orders": [
+            8,
+            9
+          ],
+          "volume_scale": [
+            1.1,
+            1.2
+          ],
+          "step_scale": [
+            1.3,
+            1.5
+          ],
+          "entry_triggers": [
+            "trend_pullback",
+            "qfl_proxy_3",
+            "mean_reversion"
+          ]
+        },
+        "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
+      },
+      "deployment_preparation_available": false,
+      "automatic_deployment": false
+    },
+    {
+      "asset": "BTC",
+      "pair": "BTC-USDT",
+      "readiness_pct": 20.0,
+      "gates": [
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PASS",
+          "detail": "13491 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PENDING",
+          "detail": "No current-regime frozen configuration has passed unseen KuCoin validation yet."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PENDING",
+          "detail": "Longest validation trade 720h; open position True."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PENDING",
+          "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PENDING",
+          "detail": "Awaiting canonical deployable-capital calculation."
+        }
+      ],
+      "recommendation": "ADAPTIVE_RESEARCH",
+      "next_action": "Continue monitoring while CRM runs the queued failure-specific experiments on the next research cycle.",
+      "current_regime": "BULL",
+      "settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.3,
+        "step_scale": 1.0
+      },
+      "entry_trigger": "immediate",
+      "validation_metrics": {
+        "net_pnl": 895.35,
+        "mark_to_market_pnl": 890.8,
+        "open_pnl": -4.56,
+        "closed_deals": 422,
+        "average_hours": 12.8,
+        "median_hours": 4.0,
+        "p90_hours": 24,
+        "longest_hours": 720,
+        "max_drawdown_dollars": -106.77,
+        "max_capital": 718.7,
+        "open_position": true,
+        "open_duration_hours": 32,
+        "average_safety_orders": 1.3,
+        "return_on_max_capital_pct": 123.95,
+        "max_drawdown_pct": 14.86,
+        "score": 79.296,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation": {
+        "net_pnl": 225.7,
+        "mark_to_market_pnl": -0.29,
+        "open_pnl": -226.0,
+        "closed_deals": 108,
+        "average_hours": 35.9,
+        "median_hours": 8.0,
+        "p90_hours": 56,
+        "longest_hours": 1212,
+        "max_drawdown_dollars": -277.41,
+        "max_capital": 718.7,
+        "open_position": true,
+        "open_duration_hours": 4920,
+        "average_safety_orders": 1.28,
+        "return_on_max_capital_pct": -0.04,
+        "max_drawdown_pct": 38.6,
+        "score": -490.079,
+        "rejected_for_open_duration": true
+      },
+      "forward_observation_days": 450.0,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 100,
+      "suggested_allocation_usdt": null,
+      "allocation_reason": null,
+      "validation_cutoff": {
+        "state": null,
+        "post_validation_resolution": null,
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "MISSING",
+        "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset."
+      },
+      "adaptive_research": {
+        "asset": "BTC",
+        "pair": "BTC-USDT",
+        "state": "ADAPTIVE_RESEARCH_QUEUED",
+        "failure_reasons": [
+          "Validation ended with unresolved exposure or current profile retained an open position.",
+          "Longest validation trade 720h exceeds the preferred 168h fluidity target."
+        ],
+        "next_experiments": [
+          "tighten_entry_filter",
+          "widen_safety_ladder",
+          "penalise_long_holds",
+          "increase_step_scale",
+          "restrict_regime"
+        ],
+        "search_extensions": {
+          "so_deviation_pct": [
+            3.0,
+            5.0,
+            6.0
+          ],
+          "safety_orders": [
+            8,
+            9
+          ],
+          "volume_scale": [],
+          "step_scale": [
+            1.3,
+            1.5
+          ],
+          "entry_triggers": [
+            "trend_pullback",
+            "qfl_proxy_3",
+            "mean_reversion"
+          ]
+        },
+        "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
+      },
+      "deployment_preparation_available": false,
+      "automatic_deployment": false
+    },
+    {
+      "asset": "ETH",
+      "pair": "ETH-USDT",
+      "readiness_pct": 20.0,
+      "gates": [
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PASS",
+          "detail": "13492 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PENDING",
+          "detail": "No current-regime frozen configuration has passed unseen KuCoin validation yet."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PENDING",
+          "detail": "Longest validation trade 4356h; open position True."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PENDING",
+          "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PENDING",
+          "detail": "Awaiting canonical deployable-capital calculation."
+        }
+      ],
+      "recommendation": "ADAPTIVE_RESEARCH",
+      "next_action": "Continue monitoring while CRM runs the queued failure-specific experiments on the next research cycle.",
+      "current_regime": "BULL",
+      "settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.3,
+        "step_scale": 1.0
+      },
+      "entry_trigger": "immediate",
+      "validation_metrics": {
+        "net_pnl": 468.42,
+        "mark_to_market_pnl": 252.83,
+        "open_pnl": -215.59,
+        "closed_deals": 218,
+        "average_hours": 23.4,
+        "median_hours": 0.0,
+        "p90_hours": 8,
+        "longest_hours": 4356,
+        "max_drawdown_dollars": -436.65,
+        "max_capital": 718.7,
+        "open_position": true,
+        "open_duration_hours": 3076,
+        "average_safety_orders": 1.35,
+        "return_on_max_capital_pct": 35.18,
+        "max_drawdown_pct": 60.76,
+        "score": -428.121,
+        "rejected_for_open_duration": true
+      },
+      "forward_observation": {
+        "net_pnl": 503.52,
+        "mark_to_market_pnl": 119.53,
+        "open_pnl": -383.99,
+        "closed_deals": 229,
+        "average_hours": 6.0,
+        "median_hours": 0,
+        "p90_hours": 8,
+        "longest_hours": 568,
+        "max_drawdown_dollars": -448.66,
+        "max_capital": 718.7,
+        "open_position": true,
+        "open_duration_hours": 6824,
+        "average_safety_orders": 1.39,
+        "return_on_max_capital_pct": 16.63,
+        "max_drawdown_pct": 62.43,
+        "score": -614.993,
+        "rejected_for_open_duration": true
+      },
+      "forward_observation_days": 450.0,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 100,
+      "suggested_allocation_usdt": null,
+      "allocation_reason": null,
+      "validation_cutoff": {
+        "state": "OPEN",
+        "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "PASS",
+        "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration."
+      },
+      "adaptive_research": {
+        "asset": "ETH",
+        "pair": "ETH-USDT",
+        "state": "ADAPTIVE_RESEARCH_QUEUED",
+        "failure_reasons": [
+          "Validation ended with unresolved exposure or current profile retained an open position.",
+          "Validation drawdown 60.8% exceeds preferred tolerance.",
+          "Longest validation trade 4356h exceeds the preferred 168h fluidity target."
+        ],
+        "next_experiments": [
+          "tighten_entry_filter",
+          "widen_safety_ladder",
+          "penalise_long_holds",
+          "reduce_volume_scale",
+          "increase_step_scale",
+          "restrict_regime"
+        ],
+        "search_extensions": {
+          "so_deviation_pct": [
+            3.0,
+            5.0,
+            6.0
+          ],
+          "safety_orders": [
+            8,
+            9
+          ],
+          "volume_scale": [
+            1.1,
+            1.2
+          ],
+          "step_scale": [
+            1.3,
+            1.5
+          ],
+          "entry_triggers": [
+            "trend_pullback",
+            "qfl_proxy_3",
+            "mean_reversion"
+          ]
+        },
+        "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
+      },
+      "deployment_preparation_available": false,
+      "automatic_deployment": false
+    },
+    {
+      "asset": "PIEVERSE",
+      "pair": "PIEVERSE-USDT",
+      "readiness_pct": 0.0,
+      "gates": [
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PENDING",
+          "detail": "473 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PENDING",
+          "detail": "No current-regime frozen configuration has passed unseen KuCoin validation yet."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PENDING",
+          "detail": "Longest validation trade unknownh; open position unknown."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PENDING",
+          "detail": "Current regime family: unknown."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PENDING",
+          "detail": "Awaiting canonical deployable-capital calculation."
+        }
+      ],
+      "recommendation": "CONTINUE_RESEARCH",
+      "next_action": "Continue monitoring until the outstanding automatic evidence gates pass.",
+      "current_regime": null,
+      "settings": {},
+      "entry_trigger": null,
+      "validation_metrics": {},
+      "forward_observation": {},
+      "forward_observation_days": null,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 0.0,
+      "suggested_allocation_usdt": null,
+      "allocation_reason": null,
+      "validation_cutoff": {
+        "state": null,
+        "post_validation_resolution": null,
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "MISSING",
+        "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset."
+      },
+      "adaptive_research": null,
+      "deployment_preparation_available": false,
+      "automatic_deployment": false
+    },
+    {
+      "asset": "AAVE",
+      "pair": "AAVE-USDT",
+      "readiness_pct": 100.0,
+      "gates": [
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PASS",
+          "detail": "12692 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PASS",
+          "detail": "Frozen settings passed unseen KuCoin validation."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PASS",
+          "detail": "Longest validation trade 160h; open position False."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PASS",
+          "detail": "Current regime family: BEAR."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PASS",
+          "detail": "18% pilot share of deployable capital after 15% cash buffer."
+        }
+      ],
+      "recommendation": "READY_FOR_MANUAL_REVIEW",
+      "next_action": "Review the complete evidence/settings package and choose Prepare deployment, Continue monitoring or Remove.",
+      "current_regime": "BEAR",
+      "settings": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.5,
+        "step_scale": 1.0
+      },
+      "entry_trigger": "pullback_3pct",
+      "validation_metrics": {
+        "net_pnl": 3027.66,
+        "mark_to_market_pnl": 3027.66,
+        "open_pnl": 0.0,
+        "closed_deals": 650,
+        "average_hours": 1.8,
+        "median_hours": 0.0,
+        "p90_hours": 4,
+        "longest_hours": 160,
+        "max_drawdown_dollars": -191.76,
+        "max_capital": 912.5,
+        "open_position": false,
+        "open_duration_hours": 0,
+        "average_safety_orders": 1.76,
+        "return_on_max_capital_pct": 331.8,
+        "max_drawdown_pct": 21.01,
+        "score": 332.885,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation": {
+        "net_pnl": 2065.49,
+        "mark_to_market_pnl": 2065.49,
+        "open_pnl": 0.0,
+        "closed_deals": 503,
+        "average_hours": 6.9,
+        "median_hours": 0,
+        "p90_hours": 8,
+        "longest_hours": 1000,
+        "max_drawdown_dollars": -311.37,
+        "max_capital": 912.5,
+        "open_position": false,
+        "open_duration_hours": 0,
+        "average_safety_orders": 1.51,
+        "return_on_max_capital_pct": 226.36,
+        "max_drawdown_pct": 34.12,
+        "score": 179.965,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation_days": 423.5,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 100,
+      "suggested_allocation_usdt": 100.0,
+      "allocation_reason": "18% pilot share of deployable capital after 15% cash buffer.",
+      "validation_cutoff": {
+        "state": "OPEN",
+        "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "FAIL",
+        "explanation": "Independent Kraken evidence did not reproduce robustly: mark-to-market P/L -1255.9; open position True. This lowers confidence but does not automatically veto a KuCoin pass."
+      },
+      "adaptive_research": null,
+      "deployment_preparation_available": true,
+      "automatic_deployment": false
+    },
+    {
+      "asset": "ZEC",
+      "pair": "ZEC-USDT",
+      "readiness_pct": 100.0,
+      "gates": [
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PASS",
+          "detail": "13492 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PASS",
+          "detail": "Frozen settings passed unseen KuCoin validation."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PASS",
+          "detail": "Longest validation trade 160h; open position False."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PASS",
+          "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PASS",
+          "detail": "18% pilot share of deployable capital after 15% cash buffer."
+        }
+      ],
+      "recommendation": "READY_FOR_MANUAL_REVIEW",
+      "next_action": "Review the complete evidence/settings package and choose Prepare deployment, Continue monitoring or Remove.",
+      "current_regime": "BULL",
+      "settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.3,
+        "step_scale": 1.0
+      },
+      "entry_trigger": "immediate",
+      "validation_metrics": {
+        "net_pnl": 2617.61,
+        "mark_to_market_pnl": 2617.61,
+        "open_pnl": 0.0,
+        "closed_deals": 1036,
+        "average_hours": 0.9,
+        "median_hours": 0.0,
+        "p90_hours": 4,
+        "longest_hours": 160,
+        "max_drawdown_dollars": -54.69,
+        "max_capital": 718.7,
+        "open_position": false,
+        "open_duration_hours": 0,
+        "average_safety_orders": 1.64,
+        "return_on_max_capital_pct": 364.21,
+        "max_drawdown_pct": 7.61,
+        "score": 392.806,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation": {
+        "net_pnl": 3061.23,
+        "mark_to_market_pnl": 3059.42,
+        "open_pnl": -1.81,
+        "closed_deals": 1065,
+        "average_hours": 0.4,
+        "median_hours": 0,
+        "p90_hours": 0,
+        "longest_hours": 20,
+        "max_drawdown_dollars": -11.1,
+        "max_capital": 718.7,
+        "open_position": true,
+        "open_duration_hours": 8,
+        "average_safety_orders": 1.9,
+        "return_on_max_capital_pct": 425.69,
+        "max_drawdown_pct": 1.54,
+        "score": 447.558,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation_days": 450.0,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 100,
+      "suggested_allocation_usdt": 100.0,
+      "allocation_reason": "18% pilot share of deployable capital after 15% cash buffer.",
+      "validation_cutoff": {
+        "state": "OPEN",
+        "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "FAIL",
+        "explanation": "Independent Kraken evidence did not reproduce robustly: mark-to-market P/L -2603.9; open position True. This lowers confidence but does not automatically veto a KuCoin pass."
+      },
+      "adaptive_research": null,
+      "deployment_preparation_available": true,
+      "automatic_deployment": false
+    },
+    {
+      "asset": "SOL",
+      "pair": "SOL-USDT",
+      "readiness_pct": 20.0,
+      "gates": [
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PASS",
+          "detail": "10978 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PENDING",
+          "detail": "No current-regime frozen configuration has passed unseen KuCoin validation yet."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PENDING",
+          "detail": "Longest validation trade 992h; open position True."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PENDING",
+          "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PENDING",
+          "detail": "Awaiting canonical deployable-capital calculation."
+        }
+      ],
+      "recommendation": "ADAPTIVE_RESEARCH",
+      "next_action": "Continue monitoring while CRM runs the queued failure-specific experiments on the next research cycle.",
+      "current_regime": "BULL",
+      "settings": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.3,
+        "step_scale": 1.0
+      },
+      "entry_trigger": "immediate",
+      "validation_metrics": {
+        "net_pnl": 947.38,
+        "mark_to_market_pnl": 714.85,
+        "open_pnl": -232.52,
+        "closed_deals": 238,
+        "average_hours": 7.6,
+        "median_hours": 0.0,
+        "p90_hours": 8,
+        "longest_hours": 992,
+        "max_drawdown_dollars": -443.73,
+        "max_capital": 718.7,
+        "open_position": true,
+        "open_duration_hours": 4640,
+        "average_safety_orders": 1.77,
+        "return_on_max_capital_pct": 99.46,
+        "max_drawdown_pct": 61.74,
+        "score": -371.302,
+        "rejected_for_open_duration": true
+      },
+      "forward_observation": {
+        "net_pnl": 354.34,
+        "mark_to_market_pnl": -139.32,
+        "open_pnl": -493.66,
+        "closed_deals": 100,
+        "average_hours": 3.4,
+        "median_hours": 0.0,
+        "p90_hours": 8,
+        "longest_hours": 44,
+        "max_drawdown_dollars": -536.1,
+        "max_capital": 718.7,
+        "open_position": true,
+        "open_duration_hours": 7776,
+        "average_safety_orders": 1.53,
+        "return_on_max_capital_pct": -19.39,
+        "max_drawdown_pct": 74.59,
+        "score": -724.939,
+        "rejected_for_open_duration": true
+      },
+      "forward_observation_days": 366.3,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 100,
+      "suggested_allocation_usdt": null,
+      "allocation_reason": null,
+      "validation_cutoff": {
+        "state": "OPEN",
+        "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "FAIL",
+        "explanation": "Independent Kraken evidence did not reproduce robustly: mark-to-market P/L -1428.64; open position True. This lowers confidence but does not automatically veto a KuCoin pass."
+      },
+      "adaptive_research": {
+        "asset": "SOL",
+        "pair": "SOL-USDT",
+        "state": "ADAPTIVE_RESEARCH_QUEUED",
+        "failure_reasons": [
+          "Validation ended with unresolved exposure or current profile retained an open position.",
+          "Validation drawdown 61.7% exceeds preferred tolerance.",
+          "Longest validation trade 992h exceeds the preferred 168h fluidity target.",
+          "Kraken robustness failed: Q1 mark-to-market P/L -1428.64, open position True."
+        ],
+        "next_experiments": [
+          "tighten_entry_filter",
+          "widen_safety_ladder",
+          "penalise_long_holds",
+          "reduce_volume_scale",
+          "increase_step_scale",
+          "restrict_regime",
+          "compare_cross_exchange_failure_reason",
+          "lower_cross_exchange_confidence"
+        ],
+        "search_extensions": {
+          "so_deviation_pct": [
+            3.0,
+            5.0,
+            6.0
+          ],
+          "safety_orders": [
+            8,
+            9
+          ],
+          "volume_scale": [
+            1.1,
+            1.2
+          ],
+          "step_scale": [
+            1.3,
+            1.5
+          ],
+          "entry_triggers": [
+            "trend_pullback",
+            "qfl_proxy_3",
+            "mean_reversion"
+          ]
+        },
+        "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
+      },
+      "deployment_preparation_available": false,
+      "automatic_deployment": false
+    },
+    {
+      "asset": "NEAR",
+      "pair": "NEAR-USDT",
+      "readiness_pct": 100.0,
+      "gates": [
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PASS",
+          "detail": "11134 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PASS",
+          "detail": "Frozen settings passed unseen KuCoin validation."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PASS",
+          "detail": "Longest validation trade 140h; open position False."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PASS",
+          "detail": "Current regime family: BEAR."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PASS",
+          "detail": "18% pilot share of deployable capital after 15% cash buffer."
+        }
+      ],
+      "recommendation": "READY_FOR_MANUAL_REVIEW",
+      "next_action": "Review the complete evidence/settings package and choose Prepare deployment, Continue monitoring or Remove.",
+      "current_regime": "BEAR",
+      "settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 1.2,
+        "safety_orders": 4,
+        "volume_scale": 1.3,
+        "step_scale": 1.0
+      },
+      "entry_trigger": "immediate",
+      "validation_metrics": {
+        "net_pnl": 1485.46,
+        "mark_to_market_pnl": 1485.46,
+        "open_pnl": 0.0,
+        "closed_deals": 827,
+        "average_hours": 1.0,
+        "median_hours": 0,
+        "p90_hours": 4,
+        "longest_hours": 140,
+        "max_drawdown_dollars": -89.09,
+        "max_capital": 718.7,
+        "open_position": false,
+        "open_duration_hours": 0,
+        "average_safety_orders": 1.02,
+        "return_on_max_capital_pct": 206.69,
+        "max_drawdown_pct": 12.4,
+        "score": 223.311,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation": {
+        "net_pnl": 1067.0,
+        "mark_to_market_pnl": 992.4,
+        "open_pnl": -74.6,
+        "closed_deals": 629,
+        "average_hours": 3.3,
+        "median_hours": 0,
+        "p90_hours": 4,
+        "longest_hours": 732,
+        "max_drawdown_dollars": -188.78,
+        "max_capital": 718.7,
+        "open_position": true,
+        "open_duration_hours": 312,
+        "average_safety_orders": 0.91,
+        "return_on_max_capital_pct": 138.08,
+        "max_drawdown_pct": 26.27,
+        "score": 70.622,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation_days": 371.5,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 100,
+      "suggested_allocation_usdt": 100.0,
+      "allocation_reason": "18% pilot share of deployable capital after 15% cash buffer.",
+      "validation_cutoff": {
+        "state": "OPEN",
+        "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "PASS",
+        "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration."
+      },
+      "adaptive_research": null,
+      "deployment_preparation_available": true,
+      "automatic_deployment": false
+    },
+    {
+      "asset": "AEON",
+      "pair": "AEON-USDT",
+      "readiness_pct": 0.0,
+      "gates": [
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PENDING",
+          "detail": "77 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PENDING",
+          "detail": "No current-regime frozen configuration has passed unseen KuCoin validation yet."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PENDING",
+          "detail": "Longest validation trade unknownh; open position unknown."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PENDING",
+          "detail": "Current regime family: unknown."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PENDING",
+          "detail": "Awaiting canonical deployable-capital calculation."
+        }
+      ],
+      "recommendation": "CONTINUE_RESEARCH",
+      "next_action": "Continue monitoring until the outstanding automatic evidence gates pass.",
+      "current_regime": null,
+      "settings": {},
+      "entry_trigger": null,
+      "validation_metrics": {},
+      "forward_observation": {},
+      "forward_observation_days": null,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 0.0,
+      "suggested_allocation_usdt": null,
+      "allocation_reason": null,
+      "validation_cutoff": {
+        "state": null,
+        "post_validation_resolution": null,
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "MISSING",
+        "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset."
+      },
+      "adaptive_research": null,
+      "deployment_preparation_available": false,
+      "automatic_deployment": false
+    },
+    {
+      "asset": "CYS",
+      "pair": "CYS-USDT",
+      "readiness_pct": 80.0,
+      "gates": [
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PASS",
+          "detail": "1445 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PASS",
+          "detail": "Frozen settings passed unseen KuCoin validation."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PENDING",
+          "detail": "Longest validation trade 260h; open position True."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PASS",
+          "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PASS",
+          "detail": "18% pilot share of deployable capital after 15% cash buffer."
+        }
+      ],
+      "recommendation": "CONTINUE_RESEARCH",
+      "next_action": "Continue monitoring until the outstanding automatic evidence gates pass.",
+      "current_regime": "BULL",
+      "settings": {
+        "take_profit_pct": 2.0,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.3,
+        "step_scale": 1.0
+      },
+      "entry_trigger": "immediate",
+      "validation_metrics": {
+        "net_pnl": 273.56,
+        "mark_to_market_pnl": 167.77,
+        "open_pnl": -105.79,
+        "closed_deals": 35,
+        "average_hours": 15.4,
+        "median_hours": 0,
+        "p90_hours": 36,
+        "longest_hours": 260,
+        "max_drawdown_dollars": -156.57,
+        "max_capital": 718.7,
+        "open_position": true,
+        "open_duration_hours": 160,
+        "average_safety_orders": 2.11,
+        "return_on_max_capital_pct": 23.34,
+        "max_drawdown_pct": 21.79,
+        "score": -38.363,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation": {
+        "net_pnl": 539.26,
+        "mark_to_market_pnl": 539.26,
+        "open_pnl": 0.0,
+        "closed_deals": 42,
+        "average_hours": 9.0,
+        "median_hours": 0.0,
+        "p90_hours": 4,
+        "longest_hours": 228,
+        "max_drawdown_dollars": -61.06,
+        "max_capital": 718.7,
+        "open_position": false,
+        "open_duration_hours": 0,
+        "average_safety_orders": 3.57,
+        "return_on_max_capital_pct": 75.03,
+        "max_drawdown_pct": 8.5,
+        "score": 60.686,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation_days": 48.2,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 100,
+      "suggested_allocation_usdt": 100.0,
+      "allocation_reason": "18% pilot share of deployable capital after 15% cash buffer.",
+      "validation_cutoff": {
+        "state": null,
+        "post_validation_resolution": null,
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "MISSING",
+        "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset."
+      },
+      "adaptive_research": null,
+      "deployment_preparation_available": false,
+      "automatic_deployment": false
+    },
+    {
+      "asset": "XRP",
+      "pair": "XRP-USDT",
+      "readiness_pct": 20.0,
+      "gates": [
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PASS",
+          "detail": "13491 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PENDING",
+          "detail": "No current-regime frozen configuration has passed unseen KuCoin validation yet."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PENDING",
+          "detail": "Longest validation trade 204h; open position True."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PENDING",
+          "detail": "Current regime family: BEAR."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PENDING",
+          "detail": "Awaiting canonical deployable-capital calculation."
+        }
+      ],
+      "recommendation": "ADAPTIVE_RESEARCH",
+      "next_action": "Continue monitoring while CRM runs the queued failure-specific experiments on the next research cycle.",
+      "current_regime": "BEAR",
+      "settings": {
+        "take_profit_pct": 1.5,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.5,
+        "step_scale": 1.15
+      },
+      "entry_trigger": "pullback_3pct",
+      "validation_metrics": {
+        "net_pnl": 1144.7,
+        "mark_to_market_pnl": 990.0,
+        "open_pnl": -154.7,
+        "closed_deals": 175,
+        "average_hours": 12.8,
+        "median_hours": 0,
+        "p90_hours": 32,
+        "longest_hours": 204,
+        "max_drawdown_dollars": -396.59,
+        "max_capital": 912.5,
+        "open_position": true,
+        "open_duration_hours": 2472,
+        "average_safety_orders": 2.04,
+        "return_on_max_capital_pct": 108.49,
+        "max_drawdown_pct": 43.46,
+        "score": -149.723,
+        "rejected_for_open_duration": true
+      },
+      "forward_observation": {
+        "net_pnl": 310.52,
+        "mark_to_market_pnl": -265.62,
+        "open_pnl": -576.14,
+        "closed_deals": 61,
+        "average_hours": 23.1,
+        "median_hours": 4,
+        "p90_hours": 36,
+        "longest_hours": 324,
+        "max_drawdown_dollars": -580.62,
+        "max_capital": 912.5,
+        "open_position": true,
+        "open_duration_hours": 7276,
+        "average_safety_orders": 1.49,
+        "return_on_max_capital_pct": -29.11,
+        "max_drawdown_pct": 63.63,
+        "score": -698.956,
+        "rejected_for_open_duration": true
+      },
+      "forward_observation_days": 450.0,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 100,
+      "suggested_allocation_usdt": null,
+      "allocation_reason": null,
+      "validation_cutoff": {
+        "state": "OPEN",
+        "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "PASS",
+        "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration."
+      },
+      "adaptive_research": {
+        "asset": "XRP",
+        "pair": "XRP-USDT",
+        "state": "ADAPTIVE_RESEARCH_QUEUED",
+        "failure_reasons": [
+          "Validation ended with unresolved exposure or current profile retained an open position.",
+          "Validation drawdown 43.5% exceeds preferred tolerance.",
+          "Longest validation trade 204h exceeds the preferred 168h fluidity target."
+        ],
+        "next_experiments": [
+          "tighten_entry_filter",
+          "widen_safety_ladder",
+          "penalise_long_holds",
+          "reduce_volume_scale",
+          "increase_step_scale",
+          "restrict_regime"
+        ],
+        "search_extensions": {
+          "so_deviation_pct": [
+            3.0,
+            5.0,
+            6.0
+          ],
+          "safety_orders": [
+            8,
+            9
+          ],
+          "volume_scale": [
+            1.1,
+            1.2
+          ],
+          "step_scale": [
+            1.3,
+            1.5
+          ],
+          "entry_triggers": [
+            "trend_pullback",
+            "qfl_proxy_3",
+            "mean_reversion"
+          ]
+        },
+        "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
+      },
+      "deployment_preparation_available": false,
+      "automatic_deployment": false
+    }
+  ],
+  "summary": {
+    "candidates": 12,
+    "ready_for_manual_review": 3,
+    "adaptive_research": 6
+  },
+  "workflow": [
+    "Continue research",
+    "Ready for manual review",
+    "Prepare deployment",
+    "Manual confirmation",
+    "Deploy through execution provider (future gated capability)"
+  ],
+  "automatic_live_deployment": false
+}

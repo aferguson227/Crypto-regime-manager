@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "application_version": "49.0.0",
+  "application_version": "50.0.0",
   "volatile_keys": [
     "generated_at",
     "updated_at",
@@ -33,7 +33,9 @@
     },
     "local_agent": {
       "paths": [
+        "docs/adaptive_research_queue.json",
         "docs/autonomous_diagnostics.json",
+        "docs/candidate_review.json",
         "docs/capital_intelligence.json",
         "docs/cloud_reliability.json",
         "docs/coin_registry.json",
@@ -49,6 +51,7 @@
         "docs/historical_data_status.json",
         "docs/independent_trade_accounting.json",
         "docs/kucoin_account.json",
+        "docs/kucoin_fill_ledger.json",
         "docs/kucoin_walk_forward.json",
         "docs/local_agent_status.json",
         "docs/market_universe_status.json",

@@ -33,16 +33,20 @@ def classify(age,current,due,error=False):
 def row(name,age,expected,current,due,source,error=False,automatic=True):
  st,reason=classify(age,current,due,error);return {'name':name,'status':st,'age_minutes':age,'age_display':human(age),'expected_cadence_minutes':expected,'reason':reason,'source':source,'automatic':automatic}
 def main():
- tc=load('threecommas.json');agent=load('local_agent_status.json');ku=load('kucoin_account.json');cloud=load('cloud_reliability.json');diag=load('autonomous_diagnostics.json') or load('diagnostics_runtime.json') or load('diagnostics.json')
+ tc=load('threecommas.json');agent=load('local_agent_status.json');ku=load('kucoin_account.json');cloud=load('cloud_reliability.json');sync=load('synchronization_status.json');diag=load('autonomous_diagnostics.json') or load('diagnostics_runtime.json') or load('diagnostics.json')
  tc_age=mins(tc.get('last_success_at') or tc.get('generated_at'));local_age=mins(agent.get('generated_at') or ku.get('generated_at'))
  app=(cloud.get('pipelines') or {}).get('application') or {};app_age=None
  try:app_age=round(float(app.get('last_success_age_hours'))*60,1) if app.get('last_success_age_hours') is not None else None
  except:pass
  rows=[row('3Commas',tc_age,60,90,180,'GitHub CRM Data Refresh',str(tc.get('overall_status') or tc.get('status') or '').lower() in {'error','failed'}),row('Local private data',local_age,15,30,75,'Windows Local Agent / KuCoin',str(agent.get('status') or '').upper()=='ERROR')]
- approw=row('Website publication',app_age,60,120,480,'Validated Pages publication')
- pending=bool(app.get('pending_publication') or app.get('pending_push'))
- if not pending and approw['status'] in {'REFRESH_DUE','OVERDUE'}:
-  approw['status']='CURRENT';approw['reason']='Published application content is current; deployment age alone is not a fault.'
+ approw=row('Website publication',app_age,240,360,720,'Validated Pages publication')
+ syncpages=((sync.get('components') or {}).get('live_pages') or {}).get('status')
+ pending=bool(app.get('pending_publication') or app.get('pending_push')) or str(syncpages or '').upper() in {'PENDING','BEHIND','OUT_OF_SYNC'}
+ if str(syncpages or '').upper()=='SYNCED' and not pending:
+  approw['status']='CURRENT';approw['reason']='Live Pages is synchronised with the published CRM version. Deployment age is informational only.'
+ elif not pending and approw['status'] in {'REFRESH_DUE','OVERDUE'}:
+  approw['status']='CURRENT';approw['reason']='No newer application content is known to be awaiting publication.'
+ approw['content_pending']=pending;approw['synchronization_status']=syncpages
  rows += [approw,row('Diagnostics',mins(diag.get('generated_at')),15,60,360,'Autonomous diagnostics')]
  # Age alone is never generic ATTENTION. Action required is reserved for real collector errors.
  if any(x['status']=='ACTION_REQUIRED' for x in rows):overall='ACTION_REQUIRED'
