@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T11:53:54.544134+00:00",
+  "generated_at": "2026-08-09T11:57:40.355587+00:00",
   "overall": {
     "state": "HEALTHY",
-    "score_pct": 83.0,
+    "score_pct": 82.0,
     "active_issue_count": 0,
     "critical_count": 0,
     "warning_count": 0
@@ -13,14 +13,14 @@
     "system": 100,
     "data": 100,
     "trading": 70.0,
-    "deployment": 85.0,
-    "decision_readiness": 60.0
+    "deployment": 100,
+    "decision_readiness": 40.0
   },
   "threecommas": {
     "status": "ok",
-    "last_attempt_at": "2026-08-09T10:16:53.709888+00:00",
-    "last_success_at": "2026-08-09T10:16:53.709888+00:00",
-    "last_success_age_hours": 1.62,
+    "last_attempt_at": "2026-08-09T11:57:37.804534+00:00",
+    "last_success_at": "2026-08-09T11:57:37.804534+00:00",
+    "last_success_age_hours": 0.0,
     "endpoints": [
       {
         "name": "validate",
@@ -28,8 +28,8 @@
         "category": "ok",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-09T10:16:54.259770+00:00",
-        "age_hours": 1.62,
+        "observed_at": "2026-08-09T11:57:38.721233+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -39,8 +39,8 @@
         "category": "ok",
         "http_status": null,
         "records": 1,
-        "observed_at": "2026-08-09T10:16:54.552288+00:00",
-        "age_hours": 1.62,
+        "observed_at": "2026-08-09T11:57:39.127396+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -50,8 +50,8 @@
         "category": "ok",
         "http_status": null,
         "records": 4,
-        "observed_at": "2026-08-09T10:16:54.768671+00:00",
-        "age_hours": 1.62,
+        "observed_at": "2026-08-09T11:57:39.520074+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -61,8 +61,8 @@
         "category": "ok",
         "http_status": null,
         "records": 1,
-        "observed_at": "2026-08-09T10:16:54.992483+00:00",
-        "age_hours": 1.62,
+        "observed_at": "2026-08-09T11:57:39.829721+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -72,8 +72,8 @@
         "category": "not_requested_quota_guard",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-09T10:16:54.992532+00:00",
-        "age_hours": 1.62,
+        "observed_at": "2026-08-09T11:57:39.829761+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -83,8 +83,8 @@
         "category": "not_requested_direct_capital",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-09T10:16:54.992538+00:00",
-        "age_hours": 1.62,
+        "observed_at": "2026-08-09T11:57:39.829766+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
@@ -96,7 +96,7 @@
   "application": {
     "cloud_state": "healthy",
     "last_success_at": "2026-08-09T08:05:53.641209+00:00",
-    "last_success_age_hours": 3.8,
+    "last_success_age_hours": 3.86,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -105,8 +105,8 @@
         "asset": "TEL",
         "bot_name": "TEL DCA - Low Volatility",
         "status": "bought",
-        "profit_pct": -0.38,
-        "duration_hours": 2.1,
+        "profit_pct": -0.08,
+        "duration_hours": 2.2,
         "completed_safety_orders": 0,
         "max_safety_orders": 6,
         "capital_used": 117.69379776,
@@ -118,7 +118,7 @@
   "decision": {
     "primary_action": "KEEP_ACTIVE_DEAL",
     "bot_name": "TEL Low Volatility Bot",
-    "readiness_score_pct": 60.0,
+    "readiness_score_pct": 40.0,
     "ready_for_manual_action": false
   },
   "capital_source": "3Commas read-only account snapshot",
