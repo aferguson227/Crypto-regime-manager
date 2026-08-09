@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "50.0.0",
-  "generated_at": "2026-08-09T06:01:13.669835+00:00",
+  "generated_at": "2026-08-09T06:54:40.433679+00:00",
   "events": [
     {
       "event_id": "58f05bae44fe949aef1e2959",
@@ -3918,8 +3918,45 @@
         "realised_profit_pct": null,
         "notes": null
       }
+    },
+    {
+      "event_id": "0238db4d56c904e2a5903914",
+      "recorded_at": "2026-08-09T06:49:06.492565+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ACTIVE_DEAL",
+      "confidence_pct": 93.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "7fc223e4a34567b5cf993297",
+      "recorded_at": "2026-08-09T06:49:06.492565+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 21.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "a591295319df7ae004df2623",
+      "recorded_at": "2026-08-09T06:54:38.178466+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "BLUAI",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
     }
   ],
-  "event_count": 294,
+  "event_count": 297,
   "live_updating": true
 }
