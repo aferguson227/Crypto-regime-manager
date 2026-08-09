@@ -1,26 +1,26 @@
 {
   "schema_version": "1.0",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T07:31:51.177160+00:00",
+  "generated_at": "2026-08-09T08:05:54.865310+00:00",
   "overall": {
     "state": "HEALTHY",
-    "score_pct": 84.9,
+    "score_pct": 86.0,
     "active_issue_count": 0,
     "critical_count": 0,
     "warning_count": 0
   },
   "scores": {
     "system": 100,
-    "data": 94.4,
+    "data": 100,
     "trading": 70.0,
     "deployment": 100,
     "decision_readiness": 60.0
   },
   "threecommas": {
     "status": "ok",
-    "last_attempt_at": "2026-08-09T04:50:07.022157+00:00",
-    "last_success_at": "2026-08-09T04:50:07.022157+00:00",
-    "last_success_age_hours": 2.7,
+    "last_attempt_at": "2026-08-09T08:05:44.884425+00:00",
+    "last_success_at": "2026-08-09T08:05:44.884425+00:00",
+    "last_success_age_hours": 0.0,
     "endpoints": [
       {
         "name": "validate",
@@ -28,8 +28,8 @@
         "category": "ok",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-09T04:50:07.631146+00:00",
-        "age_hours": 2.7,
+        "observed_at": "2026-08-09T08:05:45.800360+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -39,8 +39,8 @@
         "category": "ok",
         "http_status": null,
         "records": 1,
-        "observed_at": "2026-08-09T04:50:08.043670+00:00",
-        "age_hours": 2.7,
+        "observed_at": "2026-08-09T08:05:46.271891+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -50,8 +50,8 @@
         "category": "ok",
         "http_status": null,
         "records": 4,
-        "observed_at": "2026-08-09T04:50:08.349694+00:00",
-        "age_hours": 2.7,
+        "observed_at": "2026-08-09T08:05:46.915698+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -60,9 +60,9 @@
         "status": "pass",
         "category": "ok",
         "http_status": null,
-        "records": 1,
-        "observed_at": "2026-08-09T04:50:08.667088+00:00",
-        "age_hours": 2.7,
+        "records": 0,
+        "observed_at": "2026-08-09T08:05:47.631375+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -72,8 +72,8 @@
         "category": "not_requested_quota_guard",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-09T04:50:08.667136+00:00",
-        "age_hours": 2.7,
+        "observed_at": "2026-08-09T08:05:47.631424+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -83,40 +83,28 @@
         "category": "not_requested_direct_capital",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-09T04:50:08.667140+00:00",
-        "age_hours": 2.7,
+        "observed_at": "2026-08-09T08:05:47.631431+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
     ],
     "accounts": 1,
     "bots": 4,
-    "deals": 1
+    "deals": 0
   },
   "application": {
     "cloud_state": "healthy",
-    "last_success_at": "2026-08-09T04:50:14.623469+00:00",
-    "last_success_age_hours": 2.69,
+    "last_success_at": "2026-08-09T08:05:53.641209+00:00",
+    "last_success_age_hours": 0.0,
     "diagnostics_score_pct": 100
   },
   "trading": {
-    "active_deals": [
-      {
-        "asset": "TEL",
-        "bot_name": "TEL DCA - Low Volatility",
-        "status": "bought",
-        "profit_pct": 7.74,
-        "duration_hours": 25.3,
-        "completed_safety_orders": 0,
-        "max_safety_orders": 6,
-        "capital_used": 117.69303624,
-        "quote_currency": "USDT"
-      }
-    ],
-    "deal_count": 1
+    "active_deals": [],
+    "deal_count": 0
   },
   "decision": {
-    "primary_action": "KEEP_ACTIVE_DEAL",
+    "primary_action": "KEEP_ENABLED",
     "bot_name": "TEL Low Volatility Bot",
     "readiness_score_pct": 60.0,
     "ready_for_manual_action": false

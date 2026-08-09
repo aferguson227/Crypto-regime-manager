@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T07:31:51.706775+00:00",
-  "snapshot_id": "d4aa27d37e52beedddd9700f",
+  "generated_at": "2026-08-09T08:05:55.427601+00:00",
+  "snapshot_id": "a3fed18983589f026a60b0c0",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -19,33 +19,33 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 11.77,
-        "stressed_reserve_requirement": 3286.92,
+        "estimated_capital_impact": 0.0,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 7.06,
-        "stressed_reserve_requirement": 3944.3,
+        "estimated_capital_impact": 0.0,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 9.42,
-        "stressed_reserve_requirement": 2366.58,
+        "estimated_capital_impact": 0.0,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       }
     ]
   },
   "portfolio": {
-    "health_score": 71.3,
+    "health_score": 72.3,
     "diversification_score": 25,
-    "capital_efficiency_score": 88.8,
+    "capital_efficiency_score": 92.0,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -83,20 +83,20 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 93.7,
+        "efficiency_score": 92.0,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Low Volatility",
-        "action": "KEEP_ACTIVE_DEAL",
+        "action": "KEEP_ENABLED",
         "enabled": true,
-        "active_deals": 1,
-        "allocated_capital": 117.69303624,
-        "reserve_capital": 2629.5360000000005,
+        "active_deals": 0,
+        "allocated_capital": 0.0,
+        "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 83.83,
+        "efficiency_score": 92.0,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -115,31 +115,24 @@
     "status": null,
     "currency": "USDT",
     "total_equity": 3615.53005894,
-    "allocated": 117.69303624,
-    "reserved": 2629.5360000000005,
-    "deployable": 416.4831626499995,
+    "allocated": 0.0,
+    "reserved": 0,
+    "deployable": 3046.01916265,
     "next_required": null,
     "can_fund_next": null,
-    "asset_allocations": [
-      {
-        "asset": "TEL",
-        "quantity": 77890.0,
-        "quote_currency": "USDT",
-        "quote_cost": 117.69303624
-      }
-    ]
+    "asset_allocations": []
   },
   "recommendations": [
     {
-      "recommendation_id": "9b2bc7cce855cc9b72b6c5fb",
+      "recommendation_id": "f7f326ddc69591d2c454b97b",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
-      "action": "KEEP_ACTIVE_DEAL",
-      "confidence_pct": 93.7,
-      "static_confidence_pct": 93.7,
+      "action": "KEEP_ENABLED",
+      "confidence_pct": 92.0,
+      "static_confidence_pct": 92.0,
       "adaptive_active": false,
       "risk_level": "MODERATE",
-      "explanation": "Keep active deal TEL Low Volatility Bot. Confidence 93.7%; risk moderate. Current entry filters pass",
+      "explanation": "Keep enabled TEL Low Volatility Bot. Confidence 92.0%; risk moderate. Current entry filters pass",
       "supporting_evidence": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
@@ -147,7 +140,7 @@
       ],
       "risks": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 31.7 days"
+        "Open replay position has lasted 31.8 days"
       ],
       "blockers": [],
       "production_comparison": {
@@ -272,7 +265,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 416.4831626499995,
+        "available": 3046.01916265,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -292,7 +285,7 @@
       }
     },
     {
-      "recommendation_id": "98d84220c05fc28a468f1d8a",
+      "recommendation_id": "ef1d94953aa4e624fa344491",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -443,7 +436,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 416.4831626499995,
+        "available": 3046.01916265,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -469,8 +462,8 @@
       "category": "deployment",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
-      "action": "KEEP_ACTIVE_DEAL",
-      "confidence_pct": 93.7,
+      "action": "KEEP_ENABLED",
+      "confidence_pct": 92.0,
       "urgency": "MONITOR",
       "rationale": [
         "Current entry filters pass",
@@ -505,7 +498,7 @@
   ],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 31.7 days",
+    "Open replay position has lasted 31.8 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -533,7 +526,7 @@
     "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-09T04:50:07.022157+00:00",
+      "generated_at": "2026-08-09T08:05:44.884425+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -547,14 +540,14 @@
   },
   "source_snapshots": {
     "market": "737b2a9bc3966fb108b9",
-    "portfolio": "27c9b4fe2dfbe1799e73",
-    "capital": "c31aa92c9617adb511a6",
-    "deployment": "fe47f52c56c462232c0e",
-    "recommendations": "15d5d8e2f8a8eba09fcc",
-    "adaptive": "f8a5cbdd1f572ea93ed8",
-    "outcomes": "2026-08-09T06:01:07.909130+00:00",
-    "cloud": "115c61c0e7aa7a117f2c",
-    "operating": "be5f46bd6f31fb4e469c"
+    "portfolio": "5596e62b730b7c189eed",
+    "capital": "f828b05f8c5de4bd60cb",
+    "deployment": "9285a039c3c4c6ecb5af",
+    "recommendations": "824e1e9c911f9e78e630",
+    "adaptive": "bd6928f9b7af60f96109",
+    "outcomes": "2026-08-09T08:05:53.611786+00:00",
+    "cloud": "00d387c8e608c29f6011",
+    "operating": "1575bf04e1e7fbfe305b"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

@@ -1,20 +1,20 @@
 {
   "schema_version": "1.1",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T07:31:50.318979+00:00",
-  "snapshot_id": "27c9b4fe2dfbe1799e73",
+  "generated_at": "2026-08-09T08:05:54.787363+00:00",
+  "snapshot_id": "5596e62b730b7c189eed",
   "status": "COMPLETE",
   "currency": "USDT",
-  "portfolio_health_score": 71.3,
+  "portfolio_health_score": 72.3,
   "diversification_score": 25,
-  "capital_efficiency_score": 88.8,
+  "capital_efficiency_score": 92.0,
   "total_equity": 3615.53005894,
-  "allocated_capital": 117.69303624,
-  "reserved_capital": 2629.5360000000005,
-  "deployable_capital": 416.4831626499995,
-  "allocation_pct": 3.3,
-  "reserve_pct": 72.7,
-  "available_pct": 11.5,
+  "allocated_capital": 0.0,
+  "reserved_capital": 0.0,
+  "deployable_capital": 3046.01916265,
+  "allocation_pct": 0.0,
+  "reserve_pct": 0.0,
+  "available_pct": 84.2,
   "next_capital_priority": "TEL Low Volatility Bot",
   "positions": [
     {
@@ -52,20 +52,20 @@
       "allocated_capital": 0.0,
       "reserve_capital": 0.0,
       "deployable_priority": 3,
-      "efficiency_score": 93.7,
+      "efficiency_score": 92.0,
       "overlap_group": "BTC-linked altcoin",
       "warnings": []
     },
     {
       "asset": "TEL",
       "bot_name": "TEL DCA - Low Volatility",
-      "action": "KEEP_ACTIVE_DEAL",
+      "action": "KEEP_ENABLED",
       "enabled": true,
-      "active_deals": 1,
-      "allocated_capital": 117.69303624,
-      "reserve_capital": 2629.5360000000005,
+      "active_deals": 0,
+      "allocated_capital": 0.0,
+      "reserve_capital": 0.0,
       "deployable_priority": 4,
-      "efficiency_score": 83.83,
+      "efficiency_score": 92.0,
       "overlap_group": "BTC-linked altcoin",
       "warnings": []
     }
@@ -82,11 +82,11 @@
   "warnings": [],
   "read_only": true,
   "manual_approval_required": true,
-  "idle_bot_potential_exposure": 0.0,
+  "idle_bot_potential_exposure": 2729.5360000000005,
   "reserved_capital_definition": "Remaining safety-order ladder capital protected for active deals only.",
   "position_state_counts": {
-    "active_deal": 1,
-    "enabled_idle": 0,
+    "active_deal": 0,
+    "enabled_idle": 1,
     "disabled": 3
   }
 }

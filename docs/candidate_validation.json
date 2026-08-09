@@ -1,6 +1,6 @@
 {
   "version": "27.0.0",
-  "generated_at": "2026-08-09T04:50:14.504269+00:00",
+  "generated_at": "2026-08-09T08:05:53.466411+00:00",
   "mode": "advisory_only_immutable_queue",
   "automatic_live_changes": false,
   "automatic_dca_changes": false,
@@ -9,7 +9,7 @@
     {
       "symbol": "XMR-USDT",
       "discovery_rank": 1,
-      "research_score": 81.9,
+      "research_score": 82.2,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -81,7 +81,7 @@
     {
       "symbol": "ETH-USDT",
       "discovery_rank": 4,
-      "research_score": 75.0,
+      "research_score": 75.2,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -103,19 +103,19 @@
       "next_action": "Run full fee-aware replay before any forward test or production consideration."
     },
     {
-      "symbol": "PIEVERSE-USDT",
+      "symbol": "AAVE-USDT",
       "discovery_rank": 5,
-      "research_score": 72.4,
+      "research_score": 72.5,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
       "walk_forward_required": true,
       "proposed_dca": {
-        "take_profit_pct": 1.7,
-        "safety_order_deviation_pct": 2.1,
+        "take_profit_pct": 0.8,
+        "safety_order_deviation_pct": 0.9,
         "safety_orders": 7,
         "volume_scale": 1.5,
-        "step_scale": 1.2
+        "step_scale": 1.1
       },
       "gates": {
         "fee_aware_replay": "pending",

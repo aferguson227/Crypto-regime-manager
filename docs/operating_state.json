@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "51.0.0",
-  "snapshot_id": "be5f46bd6f31fb4e469c",
-  "generated_at": "2026-08-09T07:31:49.724543+00:00",
+  "snapshot_id": "1575bf04e1e7fbfe305b",
+  "generated_at": "2026-08-09T08:05:54.557902+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
@@ -13,11 +13,11 @@
       "asset": "TEL",
       "regime": "Low",
       "production_status": "production",
-      "action": "KEEP_ACTIVE_DEAL",
+      "action": "KEEP_ENABLED",
       "recommendation": "TEL Low Volatility Bot",
       "entry_allowed": true,
-      "decision_score": 95.2,
-      "live_bot_state": "ACTIVE_DEAL",
+      "decision_score": 95.1,
+      "live_bot_state": "ENABLED_IDLE",
       "settings_state": "INCOMPLETE",
       "reasons": [
         "Current entry filters pass",
@@ -26,7 +26,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 31.7 days"
+        "Open replay position has lasted 31.8 days"
       ]
     },
     {
@@ -55,10 +55,10 @@
     "currency": "USDT",
     "exchange_total": 3615.53005894,
     "free_available": 3046.01916265,
-    "active_deal_capital": 117.69303624,
+    "active_deal_capital": 0.0,
     "placed_order_reserve": 0.0,
-    "enabled_bot_theoretical_reserve": 0.0,
-    "available_after_reserve": 416.4831626499995,
+    "enabled_bot_theoretical_reserve": 2729.5360000000005,
+    "available_after_reserve": 3046.01916265,
     "completeness": "complete",
     "warnings": []
   },
@@ -79,35 +79,35 @@
     {
       "name": "KuCoin strategy snapshot",
       "status": "ok",
-      "observed_at": "2026-08-09T04:50:09.651195+00:00",
-      "version": "49.0.0",
+      "observed_at": "2026-08-09T08:05:48.921237+00:00",
+      "version": "51.0.0",
       "warnings": []
     },
     {
       "name": "Unified decision intelligence",
       "status": "available",
-      "observed_at": "2026-08-09T04:50:14.508361+00:00",
+      "observed_at": "2026-08-09T08:05:53.471559+00:00",
       "version": "29.0.0",
       "warnings": []
     },
     {
       "name": "3Commas live state",
       "status": "ok",
-      "observed_at": "2026-08-09T04:50:07.022157+00:00",
-      "version": "49.0.0",
+      "observed_at": "2026-08-09T08:05:44.884425+00:00",
+      "version": "51.0.0",
       "warnings": []
     },
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-09T07:31:49.574606+00:00",
+      "observed_at": "2026-08-09T08:05:54.505000+00:00",
       "version": null,
       "warnings": []
     },
     {
       "name": "Configuration reconciliation",
       "status": "fresh",
-      "observed_at": "2026-08-09T07:13:40.117525+00:00",
+      "observed_at": "2026-08-09T08:05:53.482195+00:00",
       "version": null,
       "warnings": []
     },
@@ -121,7 +121,7 @@
     {
       "name": "System integrity",
       "status": "fresh",
-      "observed_at": "2026-08-09T07:13:40.270712+00:00",
+      "observed_at": "2026-08-09T08:05:53.483267+00:00",
       "version": null,
       "warnings": []
     }

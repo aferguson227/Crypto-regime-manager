@@ -1,20 +1,20 @@
 {
   "schema_version": "3.0",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T07:31:51.842371+00:00",
+  "generated_at": "2026-08-09T08:05:55.466423+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
-    "Primary action: Keep Active Deal TEL Low Volatility Bot.",
-    "Deployable capital: 416.483 USDT; exact allocation remains advisory.",
+    "Primary action: Keep Enabled TEL Low Volatility Bot.",
+    "Deployable capital: 3046.02 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Recent drawdown is elevated"
   ],
   "daily_decision": {
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
-    "action": "KEEP_ACTIVE_DEAL",
-    "confidence_pct": 93.7,
+    "action": "KEEP_ENABLED",
+    "confidence_pct": 92.0,
     "urgency": "MONITOR",
     "why": [
       "Current entry filters pass",
@@ -53,15 +53,8 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 416.4831626499995,
-    "asset_allocations": [
-      {
-        "asset": "TEL",
-        "quantity": 77890.0,
-        "quote_currency": "USDT",
-        "quote_cost": 117.69303624
-      }
-    ],
+    "deployable_quote": 3046.01916265,
+    "asset_allocations": [],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
   },
   "recommended_settings": {
@@ -247,7 +240,7 @@
   "what_changed": [],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 31.7 days",
+    "Open replay position has lasted 31.8 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -265,33 +258,33 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 11.77,
-        "stressed_reserve_requirement": 3286.92,
+        "estimated_capital_impact": 0.0,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 7.06,
-        "stressed_reserve_requirement": 3944.3,
+        "estimated_capital_impact": 0.0,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 9.42,
-        "stressed_reserve_requirement": 2366.58,
+        "estimated_capital_impact": 0.0,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       }
     ]
   },
   "portfolio": {
-    "health_score": 71.3,
+    "health_score": 72.3,
     "diversification_score": 25,
-    "capital_efficiency_score": 88.8,
+    "capital_efficiency_score": 92.0,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -329,20 +322,20 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 93.7,
+        "efficiency_score": 92.0,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Low Volatility",
-        "action": "KEEP_ACTIVE_DEAL",
+        "action": "KEEP_ENABLED",
         "enabled": true,
-        "active_deals": 1,
-        "allocated_capital": 117.69303624,
-        "reserve_capital": 2629.5360000000005,
+        "active_deals": 0,
+        "allocated_capital": 0.0,
+        "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 83.83,
+        "efficiency_score": 92.0,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -377,5 +370,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "75a8fde099a98fe2f40954a1"
+  "snapshot_id": "f5fa754805c84e062f6d6c22"
 }
