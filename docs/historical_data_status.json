@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T05:11:52.662742+00:00",
+  "generated_at": "2026-08-09T05:41:56.950415+00:00",
   "provider": "KuCoin public spot candles",
   "autonomous_discovery_source": "Full KuCoin USDT scan -> ranked shortlist -> bounded historical acquisition",
   "mode": "bounded_incremental_acquisition",
@@ -46,12 +46,12 @@
       "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-USDT_4H.csv",
       "bars": 11776,
       "new_bars": 0,
-      "pages_requested": 0,
+      "pages_requested": 2,
       "earliest": "2021-03-24T08:00:00+00:00",
       "latest": "2026-08-09T00:00:00+00:00",
-      "backfill_complete": false,
+      "backfill_complete": true,
       "errors": [],
-      "status": "CACHED"
+      "status": "OK"
     },
     {
       "symbol": "UNI-USDT",
@@ -240,13 +240,13 @@
       "quote": "BTC",
       "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ZEC-BTC_4H.csv",
       "bars": 13492,
-      "new_bars": 2998,
-      "pages_requested": 3,
+      "new_bars": 0,
+      "pages_requested": 0,
       "earliest": "2020-06-11T04:00:00+00:00",
       "latest": "2026-08-09T00:00:00+00:00",
-      "backfill_complete": true,
+      "backfill_complete": false,
       "errors": [],
-      "status": "OK"
+      "status": "CACHED"
     }
   ],
   "progress_pct": 87.5,

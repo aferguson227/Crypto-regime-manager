@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T05:26:16.668578+00:00",
+  "generated_at": "2026-08-09T05:56:20.615390+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -35,7 +35,7 @@
     "reject_open_duration_hours": 720,
     "explanation": "Optimise profit and capital fluidity together. Long closed trades are penalised; unresolved positions receive a stronger penalty and may reject a configuration."
   },
-  "last_full_research_at": "2026-08-09T05:20:11.841234+00:00",
+  "last_full_research_at": "2026-08-09T05:50:16.735235+00:00",
   "independent_walk_forward": {
     "status": "NOT_CONFIGURED",
     "training_dir": "C:\\Crypto\\Research\\Kraken\\training",
@@ -59,12 +59,12 @@
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-USDT_4H.csv",
         "bars": 11776,
         "new_bars": 0,
-        "pages_requested": 0,
+        "pages_requested": 2,
         "earliest": "2021-03-24T08:00:00+00:00",
         "latest": "2026-08-09T00:00:00+00:00",
-        "backfill_complete": false,
+        "backfill_complete": true,
         "errors": [],
-        "status": "CACHED"
+        "status": "OK"
       },
       {
         "symbol": "UNI-USDT",
@@ -253,13 +253,13 @@
         "quote": "BTC",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ZEC-BTC_4H.csv",
         "bars": 13492,
-        "new_bars": 2998,
-        "pages_requested": 3,
+        "new_bars": 0,
+        "pages_requested": 0,
         "earliest": "2020-06-11T04:00:00+00:00",
         "latest": "2026-08-09T00:00:00+00:00",
-        "backfill_complete": true,
+        "backfill_complete": false,
         "errors": [],
-        "status": "OK"
+        "status": "CACHED"
       }
     ]
   },
@@ -367,7 +367,7 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "SIREN",
+      "asset": "TUT",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -379,13 +379,13 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "SHIB",
+      "asset": "SIREN",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "TUT",
+      "asset": "SHIB",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -397,7 +397,7 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "ACE",
+      "asset": "ARC",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
