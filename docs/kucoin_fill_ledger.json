@@ -1,10 +1,10 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "application_version": "56.0.0",
-  "generated_at": "2026-08-09T06:49:05.488551+00:00",
+  "generated_at": "2026-08-09T11:17:12.789844+00:00",
   "status": "ERROR",
   "source": "KuCoin private read-only GET /api/v1/hf/fills",
-  "api_message": "HTTP Error 401: Unauthorized",
+  "api_message": "{\"endpoint\": \"/api/v1/hf/fills\", \"attempts\": [{\"base\": \"https://api.kucoin.com\", \"key_version\": \"3\", \"category\": \"RuntimeError\", \"detail\": \"Symbol code can't be empty\"}, {\"base\": \"https://api.kucoin.com\", \"key_version\": \"2\", \"category\": \"RuntimeError\", \"detail\": \"Symbol code can't be empty\"}, {\"base\": \"https://api.kucoin.eu\", \"key_version\": \"3\", \"category\": \"HTTPError\", \"detail\": \"HTTP Error 401: Unauthorized\"}, {\"base\": \"https://api.kucoin.eu\", \"key_version\": \"2\", \"category\": \"HTTPError\", \"detail\": \"HTTP Error 401: Unauthorized\"}], \"last_error\": \"HTTP Error 401: Unauthorized\"}",
   "new_fills": 0,
   "ledger_path": "C:\\Crypto\\CRM_Data\\Accounting\\kucoin_fills.db",
   "persistent_across_upgrades": true,
@@ -12,6 +12,9 @@
   "realised_profit_quote": null,
   "partial_matched_realised_profit_quote": 0.0,
   "realised_profit_status": "NO_FILL_HISTORY_YET",
+  "reconciliation_progress_pct": 0,
+  "next_automatic_retry_minutes": 15,
+  "progress_explanation": "KuCoin fill-history request failed; CRM will retry automatically.",
   "reconciliation": {
     "fill_count": 0,
     "first_fill_at": null,

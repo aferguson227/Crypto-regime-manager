@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "application_version": "56.0.0",
-  "generated_at": "2026-08-09T11:14:05.447492+00:00",
-  "status": "HEALTHY",
+  "generated_at": "2026-08-09T11:17:13.252567+00:00",
+  "status": "FAIL",
   "assets": [
     {
       "asset": "TEL",
-      "status": "HEALTHY",
-      "effective_open_position": false,
+      "status": "FAIL",
+      "effective_open_position": true,
       "provider_stale": false,
       "kucoin_active_orders": 0,
       "kucoin_active_buy_orders": 0,
@@ -21,13 +21,13 @@
         },
         {
           "check": "Take-profit protection present",
-          "state": "NOT_REQUIRED",
-          "detail": "No exchange-confirmed open position currently requires TP protection."
+          "state": "FAIL",
+          "detail": "0 active TEL/USDT sell order(s) found on KuCoin."
         },
         {
           "check": "Safety-order ladder present",
-          "state": "NOT_REQUIRED",
-          "detail": "No reconciled active position/expected safety-order ladder."
+          "state": "WARN",
+          "detail": "0 active buy order(s) found; live profile expects up to 6 safety orders."
         },
         {
           "check": "No orphan orders after closure",
@@ -35,17 +35,21 @@
           "detail": "No orphan-order contradiction detected."
         }
       ],
-      "issues": [],
-      "next_action": "Exchange protection is consistent with the current reconciled state.",
+      "issues": [
+        "MISSING_TAKE_PROFIT_PROTECTION",
+        "SAFETY_ORDER_LADDER_INCOMPLETE",
+        "OPEN_POSITION_WITH_NO_MANAGEMENT_ORDERS"
+      ],
+      "next_action": "Do not rely on 3Commas for protection until the missing KuCoin orders are restored or the position is manually reconciled.",
       "read_only": true
     }
   ],
   "summary": {
     "assets_checked": 1,
-    "failed": 0,
+    "failed": 1,
     "attention": 0,
     "orphan_order_assets": 0,
-    "missing_tp_assets": 0
+    "missing_tp_assets": 1
   },
   "authority": "KuCoin open/closed order state + CRM reconciled position truth. 3Commas is secondary provider telemetry.",
   "automatic_exchange_writes": false

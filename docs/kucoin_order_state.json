@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "56.0.0",
-  "generated_at": "2026-08-09T07:14:48.371647+00:00",
+  "generated_at": "2026-08-09T11:17:09.940562+00:00",
   "status": "DEGRADED",
   "active_orders": [],
   "recent_closed_orders": [],
@@ -11,8 +11,8 @@
   "closed_endpoint": "/api/v1/hf/orders/done",
   "api_permission": "General/read-only",
   "messages": {
-    "active": "HTTP Error 401: Unauthorized",
-    "closed": "HTTP Error 401: Unauthorized"
+    "active": "{\"endpoint\": \"/api/v1/hf/orders/active\", \"attempts\": [{\"base\": \"https://api.kucoin.com\", \"key_version\": \"3\", \"category\": \"RuntimeError\", \"detail\": \"Symbol can't be empty\"}, {\"base\": \"https://api.kucoin.com\", \"key_version\": \"2\", \"category\": \"RuntimeError\", \"detail\": \"Symbol can't be empty\"}, {\"base\": \"https://api.kucoin.eu\", \"key_version\": \"3\", \"category\": \"HTTPError\", \"detail\": \"HTTP Error 401: Unauthorized\"}, {\"base\": \"https://api.kucoin.eu\", \"key_version\": \"2\", \"category\": \"HTTPError\", \"detail\": \"HTTP Error 401: Unauthorized\"}], \"last_error\": \"HTTP Error 401: Unauthorized\"}",
+    "closed": "{\"endpoint\": \"/api/v1/hf/orders/done\", \"attempts\": [{\"base\": \"https://api.kucoin.com\", \"key_version\": \"3\", \"category\": \"RuntimeError\", \"detail\": \"Symbol code can't be empty\"}, {\"base\": \"https://api.kucoin.com\", \"key_version\": \"2\", \"category\": \"RuntimeError\", \"detail\": \"Symbol code can't be empty\"}, {\"base\": \"https://api.kucoin.eu\", \"key_version\": \"3\", \"category\": \"HTTPError\", \"detail\": \"HTTP Error 401: Unauthorized\"}, {\"base\": \"https://api.kucoin.eu\", \"key_version\": \"2\", \"category\": \"HTTPError\", \"detail\": \"HTTP Error 401: Unauthorized\"}], \"last_error\": \"HTTP Error 401: Unauthorized\"}"
   },
   "read_only": true,
   "write_endpoints_implemented": false

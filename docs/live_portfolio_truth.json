@@ -1,15 +1,30 @@
 {
   "schema_version": "1.0",
   "application_version": "56.0.0",
-  "generated_at": "2026-08-09T08:36:56.628169+00:00",
+  "generated_at": "2026-08-09T11:17:13.491649+00:00",
   "authority": "KuCoin closure evidence + CRM ledger; 3Commas is execution-provider telemetry.",
-  "effective_open_deal_count": 0,
-  "provider_reported_deal_count": 0,
+  "effective_open_deal_count": 1,
+  "provider_reported_deal_count": 1,
   "stale_provider_deal_count": 0,
-  "open_pnl_quote": 0,
+  "open_pnl_quote": -0.45283776,
   "realised_profit_quote": null,
   "realised_profit_status": "NO_FILL_HISTORY_YET",
-  "deployable_capital": 3615.53005894,
-  "deals": [],
+  "deployable_capital": 985.9940589399994,
+  "deals": [
+    {
+      "asset": "TEL",
+      "bot_id": 16945272,
+      "bot_name": "TEL DCA - Low Volatility",
+      "provider_status": "bought",
+      "effective_position_state": "OPEN",
+      "provider_stale": false,
+      "opened_at": "2026-08-09T09:45:03.427Z",
+      "open_pnl_quote": -0.45283776,
+      "profit_pct": -0.38,
+      "capital_used_quote": 117.69379776,
+      "distance_to_take_profit_pct": 1.892,
+      "action": "KEEP_ACTIVE_DEAL"
+    }
+  ],
   "read_only": true
 }

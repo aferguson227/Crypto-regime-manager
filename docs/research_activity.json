@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "56.0.0",
-  "generated_at": "2026-08-09T11:14:06.632261+00:00",
+  "generated_at": "2026-08-09T11:17:00.197590+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -25,7 +25,7 @@
     "database_status": "READY",
     "known_assets": 63,
     "cached_results": 2,
-    "scheduler_cache_hit": null
+    "scheduler_cache_hit": false
   },
   "data_acquisition": {
     "status": "ACTIVE",
@@ -245,7 +245,7 @@
   "kucoin_walk_forward": {
     "assets": 12,
     "ready_for_manual_review": 2,
-    "backtests_run": 621600
+    "backtests_run": 645120
   },
   "process": [
     "Scan KuCoin USDT universe",

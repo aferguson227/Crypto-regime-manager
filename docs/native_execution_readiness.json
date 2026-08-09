@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "56.0.0",
-  "generated_at": "2026-08-09T11:14:05.639787+00:00",
+  "generated_at": "2026-08-09T11:16:59.313597+00:00",
   "mode": "LOCKED_SHADOW",
   "overall": "BUILDING",
   "checks": [
@@ -17,7 +17,7 @@
     },
     {
       "label": "Execution assurance",
-      "state": "PASS",
+      "state": "PENDING",
       "detail": "Order protection/provider reconciliation must be healthy."
     },
     {
@@ -46,7 +46,7 @@
       "asset": "ZEC",
       "pair": "ZEC-USDT",
       "shadow_status": "SHADOW_READY",
-      "client_oid_example": "crm52-zec-21252e868c3d45e1b3",
+      "client_oid_example": "crm52-zec-60060089b87444d2a1",
       "planned_budget_usdt": 251.43,
       "hypothetical_order_count": 5,
       "idempotency_method": "Unique CRM clientOid per intended order; retries must query by clientOid before any future live submission."
