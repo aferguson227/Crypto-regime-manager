@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T04:26:16.245378+00:00",
+  "generated_at": "2026-08-09T04:43:38.886724+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,49 +26,49 @@
       }
     },
     {
-      "event_id": "52f8e023fe308d4f786b1d77",
+      "event_id": "70d23d1fca3c9e73b66f5bc0",
       "kind": "NEW_CANDIDATE",
-      "title": "AAVE/USDT ready for manual review",
-      "detail": "Review AAVE for a small manual pilot allocation; do not copy historical max-capital mechanically.",
+      "title": "NEAR/USDT ready for manual review",
+      "detail": "Review NEAR for a small manual pilot allocation; do not copy historical max-capital mechanically.",
       "severity": "opportunity",
       "action": "ADD_RECOMMENDED_BOT",
       "payload": {
-        "asset": "AAVE",
+        "asset": "NEAR",
         "candidate": {
-          "asset": "AAVE",
-          "pair": "AAVE-USDT",
+          "asset": "NEAR",
+          "pair": "NEAR-USDT",
           "discovery_rank": 5,
-          "current_research_score": 72.2,
+          "current_research_score": 69.9,
           "stage": "READY_FOR_MANUAL_REVIEW",
-          "walk_forward_status": "FAIL",
+          "walk_forward_status": "PASS",
           "kucoin_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
           "kucoin_primary_validation_pass": true,
           "frozen_settings": {
-            "take_profit_pct": 1.5,
-            "so_deviation_pct": 0.8,
+            "take_profit_pct": 0.8,
+            "so_deviation_pct": 1.2,
             "safety_orders": 4,
-            "volume_scale": 1.5,
-            "step_scale": 1.15
+            "volume_scale": 1.3,
+            "step_scale": 1.0
           },
           "training_metrics": {
-            "net_pnl": 32426.3,
-            "closed_deals": 1303,
-            "average_hours": 7.4,
-            "longest_hours": 904,
-            "max_drawdown_dollars": -3139.43,
+            "net_pnl": 28879.93,
+            "closed_deals": 2933,
+            "average_hours": 2.0,
+            "longest_hours": 436,
+            "max_drawdown_dollars": -1379.74,
             "max_capital": 5819.12,
-            "open_position": true,
-            "score": 30809.419499999996
+            "open_position": false,
+            "score": 28388.301
           },
           "q1_2026_metrics": {
-            "net_pnl": 834.64,
-            "realised_pnl": 834.64,
-            "open_pnl": -2090.54,
-            "mark_to_market_pnl": -1255.9,
-            "closed_deals": 39,
-            "average_hours": 12.9,
-            "longest_hours": 60,
-            "max_drawdown_dollars": -2330.4,
+            "net_pnl": 2456.01,
+            "realised_pnl": 2456.01,
+            "open_pnl": -284.73,
+            "mark_to_market_pnl": 2171.29,
+            "closed_deals": 284,
+            "average_hours": 3.0,
+            "longest_hours": 44,
+            "max_drawdown_dollars": -460.45,
             "max_capital": 5819.12,
             "open_position": true
           },
@@ -76,7 +76,7 @@
             "current_kucoin_screen": "PASS",
             "kucoin_history": "PASS",
             "kucoin_walk_forward": "PASS",
-            "kraken_robustness": "FAIL",
+            "kraken_robustness": "PASS",
             "drawdown_review": "REVIEW",
             "manual_approval": "REQUIRED"
           },
@@ -121,29 +121,6 @@
           "research_pipeline"
         ],
         "validated_return_pct": -21.6,
-        "global_regime": "ACCUMULATION"
-      }
-    },
-    {
-      "event_id": "6fb6a5d9c916c9bec3e90ce3",
-      "kind": "COIN_STATUS",
-      "title": "CYS is Ready For Review",
-      "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only.",
-      "severity": "opportunity",
-      "action": "REVIEW_COIN",
-      "payload": {
-        "asset": "CYS",
-        "status": "READY_FOR_REVIEW",
-        "reasons": [
-          "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
-        ],
-        "current_recommendation": null,
-        "research_stage": "READY_FOR_MANUAL_REVIEW",
-        "history_sources": [
-          "recommended_bots",
-          "research_pipeline"
-        ],
-        "validated_return_pct": null,
         "global_regime": "ACCUMULATION"
       }
     },
@@ -194,49 +171,49 @@
       }
     },
     {
-      "event_id": "e1f6e2c38bc7f0bf4eceab5f",
+      "event_id": "4194293a7ee6ab05dc74e466",
       "kind": "SYSTEM_ISSUE",
       "title": "3Commas refresh needs attention",
-      "detail": "Last successful sync was 4.24 hours ago. Expected cadence is about 60 minutes.",
+      "detail": "Last successful sync was 4.49 hours ago. Expected cadence is about 60 minutes.",
       "severity": "warning",
       "action": "REVIEW_SYSTEM",
       "payload": {
         "severity": "warning",
         "system": "3Commas",
         "title": "3Commas refresh needs attention",
-        "detail": "Last successful sync was 4.24 hours ago. Expected cadence is about 60 minutes.",
+        "detail": "Last successful sync was 4.49 hours ago. Expected cadence is about 60 minutes.",
         "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
         "metric": {
-          "age_hours": 4.24,
+          "age_hours": 4.49,
           "expected_cadence_hours": 1
         },
-        "first_detected_at": "2026-08-09T04:11:43.728674+00:00",
-        "last_detected_at": "2026-08-09T04:11:43.728680+00:00"
+        "first_detected_at": "2026-08-09T04:26:43.784176+00:00",
+        "last_detected_at": "2026-08-09T04:26:43.784182+00:00"
       }
     },
     {
-      "event_id": "0d712ec8353a6f60334ba426",
+      "event_id": "a54be582bab190c3daba6aec",
       "kind": "SYSTEM_ISSUE",
       "title": "Application publication needs attention",
-      "detail": "Last successful publication was 23.58 hours ago.",
+      "detail": "Last successful publication was 23.83 hours ago.",
       "severity": "critical",
       "action": "REVIEW_SYSTEM",
       "payload": {
         "severity": "critical",
         "system": "Application",
         "title": "Application publication needs attention",
-        "detail": "Last successful publication was 23.58 hours ago.",
+        "detail": "Last successful publication was 23.83 hours ago.",
         "recommended_action": "Automatic refresh and publication are enabled; inspect the collector only if this persists.",
         "metric": {
-          "age_hours": 23.58,
+          "age_hours": 23.83,
           "unit": "hours"
         },
-        "first_detected_at": "2026-08-09T04:11:43.728687+00:00",
-        "last_detected_at": "2026-08-09T04:11:43.728689+00:00"
+        "first_detected_at": "2026-08-09T04:26:43.784189+00:00",
+        "last_detected_at": "2026-08-09T04:26:43.784191+00:00"
       }
     }
   ],
-  "material_count": 9,
+  "material_count": 8,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -245,5 +222,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "350b16aeea434c69bc9611aa"
+  "snapshot_id": "09f306458e52bf469c1e452b"
 }
