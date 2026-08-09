@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "58.0.0",
-  "generated_at": "2026-08-09T18:02:12.111522+00:00",
-  "snapshot_id": "5263905d8c90612486ba28fa",
+  "generated_at": "2026-08-09T20:00:42.346453+00:00",
+  "snapshot_id": "861d8c56d01cb2acf8a30b4f",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -131,7 +131,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "3929f39670734203f7245238",
+      "recommendation_id": "59ea6b744a9eb71b5aff6808",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
@@ -147,7 +147,7 @@
       ],
       "risks": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 32.2 days"
+        "Open replay position has lasted 32.3 days"
       ],
       "blockers": [],
       "production_comparison": {
@@ -292,15 +292,15 @@
       }
     },
     {
-      "recommendation_id": "59f9215189eabca0d3c1377d",
+      "recommendation_id": "f439264aeca41fbcd50830d4",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence_pct": 21.7,
-      "static_confidence_pct": 21.7,
+      "confidence_pct": 21.9,
+      "static_confidence_pct": 21.9,
       "adaptive_active": false,
       "risk_level": "HIGH",
-      "explanation": "Wait TAO Low Pullback Bot. Confidence 21.7%; risk high. Strategy health is strong",
+      "explanation": "Wait TAO Low Pullback Bot. Confidence 21.9%; risk high. Strategy health is strong",
       "supporting_evidence": [
         "Strategy health is strong",
         "Recent realised P&L is positive",
@@ -487,7 +487,7 @@
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence_pct": 21.7,
+      "confidence_pct": 21.9,
       "urgency": "WAIT",
       "rationale": [
         "Strategy health is strong",
@@ -505,7 +505,7 @@
   ],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 32.2 days",
+    "Open replay position has lasted 32.3 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -533,7 +533,7 @@
     "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-09T18:02:09.091638+00:00",
+      "generated_at": "2026-08-09T20:00:32.260425+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -546,15 +546,15 @@
     "cloud_status": "HEALTHY"
   },
   "source_snapshots": {
-    "market": "737b2a9bc3966fb108b9",
-    "portfolio": "0c30472fed4f9130db83",
-    "capital": "46bfc4f6333dd9a9351f",
-    "deployment": "387797e5c1de1e0f0666",
-    "recommendations": "f5016bf1194229695d14",
-    "adaptive": "3e8cd2472ff00d999753",
-    "outcomes": "2026-08-09T16:01:24.141476+00:00",
-    "cloud": "09e7b2ea9364367dd434",
-    "operating": "a024ac51d22293e83308"
+    "market": "e802efd13e060059179c",
+    "portfolio": "9f19b9c877946bce0af4",
+    "capital": "42b16a58b1cefb871e75",
+    "deployment": "51b4776b61d87d937379",
+    "recommendations": "1b73aa13c660da8478dd",
+    "adaptive": "5fdc0e6ee2a87edb98fb",
+    "outcomes": "2026-08-09T20:00:40.621384+00:00",
+    "cloud": "e8102c834dc920b7b373",
+    "operating": "bd95eaf5fa73f697fd74"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
