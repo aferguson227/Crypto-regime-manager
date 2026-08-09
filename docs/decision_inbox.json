@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T01:58:39.246010+00:00",
+  "generated_at": "2026-08-09T02:28:40.951924+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -148,24 +148,24 @@
       }
     },
     {
-      "event_id": "df67db85fb927d5cb2fbda3e",
+      "event_id": "e9c2c7feb140d9c751074697",
       "kind": "SYSTEM_ISSUE",
       "title": "Application publication needs attention",
-      "detail": "Last successful publication was 21.08 hours ago.",
+      "detail": "Last successful publication was 21.58 hours ago.",
       "severity": "critical",
       "action": "REVIEW_SYSTEM",
       "payload": {
         "severity": "critical",
         "system": "Application",
         "title": "Application publication needs attention",
-        "detail": "Last successful publication was 21.08 hours ago.",
+        "detail": "Last successful publication was 21.58 hours ago.",
         "recommended_action": "Automatic refresh and publication are enabled; inspect the collector only if this persists.",
         "metric": {
-          "age_hours": 21.08,
+          "age_hours": 21.58,
           "unit": "hours"
         },
-        "first_detected_at": "2026-08-09T01:41:43.620028+00:00",
-        "last_detected_at": "2026-08-09T01:41:43.620034+00:00"
+        "first_detected_at": "2026-08-09T02:11:43.559769+00:00",
+        "last_detected_at": "2026-08-09T02:11:43.559775+00:00"
       }
     }
   ],
@@ -178,5 +178,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "4c0faa33bbd02ccb16f81732"
+  "snapshot_id": "2ef701177bf84b3e48cf4244"
 }
