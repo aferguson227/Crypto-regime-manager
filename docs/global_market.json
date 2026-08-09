@@ -1,37 +1,37 @@
 {
   "schema_version": "1.1",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T12:39:03.107497+00:00",
+  "generated_at": "2026-08-09T04:56:44.658572+00:00",
   "regime": "ACCUMULATION",
-  "score_pct": 59.1,
-  "explanation": "Accumulation because the weighted current-market score is 59.1%.",
+  "score_pct": 53.5,
+  "explanation": "Accumulation because the weighted current-market score is 53.5%.",
   "criteria": [
     {
       "criterion": "Market trend",
-      "value": 55.0,
+      "value": 47.5,
       "weight": 0.35,
-      "score_contribution": 1.75,
+      "score_contribution": -0.88,
       "source": "KuCoin/current CRM market intelligence"
     },
     {
       "criterion": "Market breadth",
-      "value": 60.0,
+      "value": 66.7,
       "weight": 0.25,
-      "score_contribution": 2.5,
+      "score_contribution": 4.18,
       "source": "Share of tracked candidates with positive medium-term trend"
     },
     {
       "criterion": "BTC 30-day trend",
-      "value": 3.6,
+      "value": 0.6,
       "weight": 1.0,
-      "score_contribution": 3.6,
+      "score_contribution": 0.6,
       "source": "KuCoin BTC public market evidence"
     },
     {
       "criterion": "BTC 24-hour move",
-      "value": 1.01,
+      "value": -0.33,
       "weight": 1.2,
-      "score_contribution": 1.21,
+      "score_contribution": -0.4,
       "source": "KuCoin BTC public market evidence"
     },
     {
@@ -43,16 +43,16 @@
     }
   ],
   "current_evidence": {
-    "btc_30d_trend_pct": 3.6,
-    "btc_24h_change_pct": 1.01,
-    "breadth_pct": 60.0,
-    "breadth_positive_count": 3,
-    "breadth_universe_count": 5,
-    "market_trend_pct": 55.0,
+    "btc_30d_trend_pct": 0.6,
+    "btc_24h_change_pct": -0.33,
+    "breadth_pct": 66.7,
+    "breadth_positive_count": 6,
+    "breadth_universe_count": 9,
+    "market_trend_pct": 47.5,
     "volatility_pct": 35.0,
     "source": "KuCoin current/public CRM market evidence"
   },
-  "breadth_explanation": "3 of 5 tracked candidates have positive medium-term trend.",
+  "breadth_explanation": "6 of 9 tracked candidates have positive medium-term trend.",
   "historical_btc_evidence": {
     "status": "KUCOIN_HISTORY_AVAILABLE",
     "registry_symbol": null,
@@ -68,5 +68,5 @@
     "automatic_bot_changes": false,
     "manual_approval_required": true
   },
-  "snapshot_id": "beea09e1458d8529068fb1aa"
+  "snapshot_id": "1cd2abfc65efda9f7bd395e2"
 }

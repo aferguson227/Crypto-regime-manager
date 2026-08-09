@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T04:43:38.583035+00:00",
+  "generated_at": "2026-08-09T05:11:06.391072+00:00",
   "events": [
     {
       "event_id": "58f05bae44fe949aef1e2959",
@@ -3741,8 +3741,101 @@
         "realised_profit_pct": null,
         "notes": null
       }
+    },
+    {
+      "event_id": "61f7ce4f8b14e79c30f4c023",
+      "recorded_at": "2026-08-09T04:50:14.547372+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ACTIVE_DEAL",
+      "confidence_pct": 93.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "ee4d452573c84369b667b459",
+      "recorded_at": "2026-08-09T04:50:14.547372+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 21.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "1b3b56b775e20af445bed182",
+      "recorded_at": "2026-08-09T04:50:15.351313+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ACTIVE_DEAL",
+      "confidence_pct": 93.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "777edc0f8c0afeb6f307a2fc",
+      "recorded_at": "2026-08-09T04:50:15.351313+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 21.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "6542806f64022b8101457382",
+      "recorded_at": "2026-08-09T04:56:43.096415+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ACTIVE_DEAL",
+      "confidence_pct": 93.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "aa320dbfddcf29faa1a822f5",
+      "recorded_at": "2026-08-09T04:56:43.096415+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 21.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "095e159cec3f71d2688711fc",
+      "recorded_at": "2026-08-09T05:11:05.227257+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "ACE",
+      "status": "WATCHLIST",
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
     }
   ],
-  "event_count": 281,
+  "event_count": 288,
   "live_updating": true
 }
