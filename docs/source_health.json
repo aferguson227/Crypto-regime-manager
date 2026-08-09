@@ -1,36 +1,36 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-08T23:28:45.174325+00:00",
+  "generated_at": "2026-08-09T00:16:05.282115+00:00",
   "overall": "REFRESH_DUE",
   "fault_count": 0,
   "overdue_count": 0,
   "components": [
     {
       "name": "3Commas",
-      "status": "REFRESH_DUE",
-      "age_minutes": 90.9,
-      "age_display": "1h 31m ago",
+      "status": "CURRENT",
+      "age_minutes": 18.6,
+      "age_display": "19 min ago",
       "expected_cadence_minutes": 60,
-      "reason": "Valid data remains available; the next automatic refresh is due.",
+      "reason": "Within the expected automatic refresh window.",
       "source": "GitHub CRM Data Refresh",
       "automatic": true
     },
     {
       "name": "Local private data",
-      "status": "CURRENT",
-      "age_minutes": 30.0,
-      "age_display": "30 min ago",
+      "status": "REFRESH_DUE",
+      "age_minutes": 47.3,
+      "age_display": "47 min ago",
       "expected_cadence_minutes": 15,
-      "reason": "Within the expected automatic refresh window.",
+      "reason": "Valid data remains available; the next automatic refresh is due.",
       "source": "Windows Local Agent / KuCoin",
       "automatic": true
     },
     {
       "name": "Website publication",
       "status": "CURRENT",
-      "age_minutes": 1114.8,
-      "age_display": "18h 35m ago",
+      "age_minutes": 1174.8,
+      "age_display": "19h 35m ago",
       "expected_cadence_minutes": 60,
       "reason": "Published application content is current; deployment age alone is not a fault.",
       "source": "Validated Pages publication",
@@ -38,11 +38,11 @@
     },
     {
       "name": "Diagnostics",
-      "status": "CURRENT",
-      "age_minutes": 30.0,
-      "age_display": "30 min ago",
+      "status": "REFRESH_DUE",
+      "age_minutes": 77.4,
+      "age_display": "1h 17m ago",
       "expected_cadence_minutes": 15,
-      "reason": "Within the expected automatic refresh window.",
+      "reason": "Valid data remains available; the next automatic refresh is due.",
       "source": "Autonomous diagnostics",
       "automatic": true
     }
