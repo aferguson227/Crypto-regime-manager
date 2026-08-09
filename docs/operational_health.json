@@ -1,17 +1,17 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T03:11:43.646900+00:00",
+  "generated_at": "2026-08-09T03:58:40.358460+00:00",
   "overall": {
     "state": "CRITICAL",
-    "score_pct": 63.0,
+    "score_pct": 61.8,
     "active_issue_count": 2,
     "critical_count": 1,
     "warning_count": 1
   },
   "scores": {
     "system": 100,
-    "data": 55.1,
+    "data": 48.8,
     "trading": 70.0,
     "deployment": 50.0,
     "decision_readiness": 40.0
@@ -20,7 +20,7 @@
     "status": "ok",
     "last_attempt_at": "2026-08-08T23:57:28.450356+00:00",
     "last_success_at": "2026-08-08T23:57:28.450356+00:00",
-    "last_success_age_hours": 3.24,
+    "last_success_age_hours": 4.02,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-08T23:57:29.358931+00:00",
-        "age_hours": 3.24,
+        "age_hours": 4.02,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-08T23:57:30.016905+00:00",
-        "age_hours": 3.24,
+        "age_hours": 4.02,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -51,7 +51,7 @@
         "http_status": null,
         "records": 4,
         "observed_at": "2026-08-08T23:57:30.452878+00:00",
-        "age_hours": 3.24,
+        "age_hours": 4.02,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -62,7 +62,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-08T23:57:30.751767+00:00",
-        "age_hours": 3.24,
+        "age_hours": 4.02,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -73,7 +73,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-08T23:57:30.751817+00:00",
-        "age_hours": 3.24,
+        "age_hours": 4.02,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -84,7 +84,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-08T23:57:30.751824+00:00",
-        "age_hours": 3.24,
+        "age_hours": 4.02,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
@@ -96,7 +96,7 @@
   "application": {
     "cloud_state": "failure",
     "last_success_at": "2026-08-08T04:36:40.869916+00:00",
-    "last_success_age_hours": 22.58,
+    "last_success_age_hours": 23.08,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -106,7 +106,7 @@
         "bot_name": "TEL DCA - Low Volatility",
         "status": "bought",
         "profit_pct": 13.7,
-        "duration_hours": 21.0,
+        "duration_hours": 21.7,
         "completed_safety_orders": 0,
         "max_safety_orders": 6,
         "capital_used": 117.69303624,
@@ -128,27 +128,27 @@
       "severity": "warning",
       "system": "3Commas",
       "title": "3Commas refresh needs attention",
-      "detail": "Last successful sync was 3.24 hours ago. Expected cadence is about 60 minutes.",
+      "detail": "Last successful sync was 4.02 hours ago. Expected cadence is about 60 minutes.",
       "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
       "metric": {
-        "age_hours": 3.24,
+        "age_hours": 4.02,
         "expected_cadence_hours": 1
       },
-      "first_detected_at": "2026-08-09T03:11:43.661183+00:00",
-      "last_detected_at": "2026-08-09T03:11:43.661189+00:00"
+      "first_detected_at": "2026-08-09T03:58:40.361178+00:00",
+      "last_detected_at": "2026-08-09T03:58:40.361184+00:00"
     },
     {
       "severity": "critical",
       "system": "Application",
       "title": "Application publication needs attention",
-      "detail": "Last successful publication was 22.58 hours ago.",
+      "detail": "Last successful publication was 23.08 hours ago.",
       "recommended_action": "Automatic refresh and publication are enabled; inspect the collector only if this persists.",
       "metric": {
-        "age_hours": 22.58,
+        "age_hours": 23.08,
         "unit": "hours"
       },
-      "first_detected_at": "2026-08-09T03:11:43.661196+00:00",
-      "last_detected_at": "2026-08-09T03:11:43.661198+00:00"
+      "first_detected_at": "2026-08-09T03:58:40.361190+00:00",
+      "last_detected_at": "2026-08-09T03:58:40.361193+00:00"
     }
   ],
   "safeguards": {

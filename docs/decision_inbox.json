@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T03:28:37.775650+00:00",
+  "generated_at": "2026-08-09T03:58:39.508037+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -148,45 +148,45 @@
       }
     },
     {
-      "event_id": "f4e606d81f13b9b9d61966fc",
+      "event_id": "f4b23a3f2cabc40d6440bedd",
       "kind": "SYSTEM_ISSUE",
       "title": "3Commas refresh needs attention",
-      "detail": "Last successful sync was 3.24 hours ago. Expected cadence is about 60 minutes.",
+      "detail": "Last successful sync was 3.74 hours ago. Expected cadence is about 60 minutes.",
       "severity": "warning",
       "action": "REVIEW_SYSTEM",
       "payload": {
         "severity": "warning",
         "system": "3Commas",
         "title": "3Commas refresh needs attention",
-        "detail": "Last successful sync was 3.24 hours ago. Expected cadence is about 60 minutes.",
+        "detail": "Last successful sync was 3.74 hours ago. Expected cadence is about 60 minutes.",
         "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
         "metric": {
-          "age_hours": 3.24,
+          "age_hours": 3.74,
           "expected_cadence_hours": 1
         },
-        "first_detected_at": "2026-08-09T03:11:43.661183+00:00",
-        "last_detected_at": "2026-08-09T03:11:43.661189+00:00"
+        "first_detected_at": "2026-08-09T03:41:43.655514+00:00",
+        "last_detected_at": "2026-08-09T03:41:43.655521+00:00"
       }
     },
     {
-      "event_id": "f11c1ac25e810495300009e6",
+      "event_id": "1af4b925726c19773b40d943",
       "kind": "SYSTEM_ISSUE",
       "title": "Application publication needs attention",
-      "detail": "Last successful publication was 22.58 hours ago.",
+      "detail": "Last successful publication was 23.08 hours ago.",
       "severity": "critical",
       "action": "REVIEW_SYSTEM",
       "payload": {
         "severity": "critical",
         "system": "Application",
         "title": "Application publication needs attention",
-        "detail": "Last successful publication was 22.58 hours ago.",
+        "detail": "Last successful publication was 23.08 hours ago.",
         "recommended_action": "Automatic refresh and publication are enabled; inspect the collector only if this persists.",
         "metric": {
-          "age_hours": 22.58,
+          "age_hours": 23.08,
           "unit": "hours"
         },
-        "first_detected_at": "2026-08-09T03:11:43.661196+00:00",
-        "last_detected_at": "2026-08-09T03:11:43.661198+00:00"
+        "first_detected_at": "2026-08-09T03:41:43.655527+00:00",
+        "last_detected_at": "2026-08-09T03:41:43.655530+00:00"
       }
     }
   ],
@@ -199,5 +199,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "360e3b58f935a93974041ef5"
+  "snapshot_id": "7f4ae7415f61aec082cc563a"
 }
