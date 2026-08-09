@@ -1,25 +1,25 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T05:11:05.642616+00:00",
+  "generated_at": "2026-08-09T05:26:15.724569+00:00",
   "mode": "autonomous_cached_background_research",
   "status": "HEALTHY",
   "activity": [
     {
       "stage": "KuCoin history",
       "status": "COMPLETE",
-      "seconds": 6.68
+      "seconds": 7.96
     },
     {
       "stage": "Cached optimisation + walk-forward",
       "status": "COMPLETE",
-      "seconds": 852.51,
+      "seconds": 862.02,
       "backtests": 211680,
       "cache_reason": "fingerprint changed"
     }
   ],
-  "elapsed_seconds": 860.19,
-  "typical_cycle_seconds": 936.2,
+  "elapsed_seconds": 870.96,
+  "typical_cycle_seconds": 865.6,
   "market_scan": {
     "markets_shortlisted": 50,
     "researched_this_scan": 10,
@@ -40,7 +40,7 @@
   "database": {
     "schema_version": "1.0",
     "application_version": "49.0.0",
-    "generated_at": "2026-08-09T05:11:05.645501+00:00",
+    "generated_at": "2026-08-09T05:26:15.727201+00:00",
     "database_path": "C:\\Crypto\\CRM_Data\\Research\\crm_research.db",
     "exists": true,
     "size_bytes": 307200,

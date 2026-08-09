@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T05:11:06.583470+00:00",
+  "generated_at": "2026-08-09T05:26:16.668578+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -35,7 +35,7 @@
     "reject_open_duration_hours": 720,
     "explanation": "Optimise profit and capital fluidity together. Long closed trades are penalised; unresolved positions receive a stronger penalty and may reject a configuration."
   },
-  "last_full_research_at": "2026-08-09T05:05:05.376099+00:00",
+  "last_full_research_at": "2026-08-09T05:20:11.841234+00:00",
   "independent_walk_forward": {
     "status": "NOT_CONFIGURED",
     "training_dir": "C:\\Crypto\\Research\\Kraken\\training",
@@ -252,10 +252,10 @@
         "symbol": "ZEC-BTC",
         "quote": "BTC",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ZEC-BTC_4H.csv",
-        "bars": 10494,
+        "bars": 13492,
         "new_bars": 2998,
         "pages_requested": 3,
-        "earliest": "2021-10-24T04:00:00+00:00",
+        "earliest": "2020-06-11T04:00:00+00:00",
         "latest": "2026-08-09T00:00:00+00:00",
         "backfill_complete": true,
         "errors": [],
