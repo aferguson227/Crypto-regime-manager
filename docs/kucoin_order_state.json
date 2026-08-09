@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T07:04:09.653159+00:00",
-  "status": "NOT_CONFIGURED",
+  "generated_at": "2026-08-09T07:14:48.371647+00:00",
+  "status": "DEGRADED",
   "active_orders": [],
   "recent_closed_orders": [],
   "active_count": 0,
@@ -11,8 +11,8 @@
   "closed_endpoint": "/api/v1/hf/orders/done",
   "api_permission": "General/read-only",
   "messages": {
-    "active": "KuCoin read-only API credentials unavailable.",
-    "closed": "KuCoin read-only API credentials unavailable."
+    "active": "HTTP Error 401: Unauthorized",
+    "closed": "HTTP Error 401: Unauthorized"
   },
   "read_only": true,
   "write_endpoints_implemented": false

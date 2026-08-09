@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T06:49:05.680731+00:00",
-  "snapshot_id": "db1c8c9ded40a7551404",
+  "generated_at": "2026-08-09T07:14:48.746118+00:00",
+  "snapshot_id": "775bcb5250a1738bebaa",
   "currency": "USDT",
   "accounts": [
     {
@@ -12,7 +12,7 @@
       "currency": "USDT",
       "total_equity": 3615.53005894,
       "free_available": 3046.01916265,
-      "observed_at": "2026-08-09T06:49:04.016891+00:00"
+      "observed_at": "2026-08-09T07:14:44.049207+00:00"
     }
   ],
   "bots": [
@@ -99,7 +99,7 @@
     "placed_order_reserve": "Shown separately; not subtracted from free USDT because exchange free balance normally already excludes open-order funds.",
     "remaining_active_deal_dca_reserve": "Unplaced remaining safety-order ladder requirement for active deals.",
     "enabled_idle_capacity_reserve": "Potential exposure only: maximum full-ladder capital for unused enabled-bot deal slots. It is not labelled reserved and is not subtracted from deployable capital.",
-    "deployable_capital": "free_available minus remaining_active_deal_dca_reserve. Idle enabled bots are shown as contingent exposure, not already-reserved capital."
+    "deployable_capital": "free_available minus remaining active-deal DCA reserve after KuCoin\u2194provider reconciliation. Provider-stale deals proven closed on KuCoin do not keep capital reserved."
   },
   "warnings": [],
   "read_only": true,
@@ -115,5 +115,6 @@
   "kucoin_direct_status": "ok",
   "reserved_capital": 2629.5360000000005,
   "idle_bot_potential_exposure": 0.0,
-  "capital_policy": "Protect active-deal remaining DCA ladders; do not reserve theoretical idle-bot exposure until a deal is active or explicitly approved."
+  "capital_policy": "Protect only reconciled active-deal remaining DCA ladders; provider-stale deals proven closed on KuCoin do not consume CRM capital. Idle theoretical exposure is not reserved until approved.",
+  "provider_stale_deals_excluded": 0
 }

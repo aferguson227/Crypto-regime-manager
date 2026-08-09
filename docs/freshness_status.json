@@ -1,15 +1,15 @@
 {
   "schema_version": "1.1",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T07:13:46.043319+00:00",
+  "generated_at": "2026-08-09T07:17:00.287413+00:00",
   "overall": "REFRESH_DUE",
   "overall_reason": "Valid data remains available; the next automatic refresh is due.",
   "components": [
     {
       "name": "3Commas",
       "status": "REFRESH_DUE",
-      "age_minutes": 143.7,
-      "age_display": "2h 24m ago",
+      "age_minutes": 146.9,
+      "age_display": "2h 27m ago",
       "expected_cadence_minutes": 60,
       "reason": "Valid data remains available; the next automatic refresh is due.",
       "source": "GitHub CRM Data Refresh",
@@ -18,8 +18,8 @@
     {
       "name": "Local private data",
       "status": "CURRENT",
-      "age_minutes": 19.0,
-      "age_display": "19 min ago",
+      "age_minutes": 22.3,
+      "age_display": "22 min ago",
       "expected_cadence_minutes": 15,
       "reason": "Within the expected automatic refresh window.",
       "source": "Windows Local Agent / KuCoin",
@@ -28,20 +28,20 @@
     {
       "name": "Website publication",
       "status": "CURRENT",
-      "age_minutes": 143.4,
-      "age_display": "2h 23m ago",
+      "age_minutes": 144.6,
+      "age_display": "2h 25m ago",
       "expected_cadence_minutes": 240,
-      "reason": "Within the expected automatic refresh window.",
+      "reason": "Live Pages is synchronised with the published CRM version. Deployment age is informational only.",
       "source": "Validated Pages publication",
       "automatic": true,
       "content_pending": false,
-      "synchronization_status": "PENDING_PUBLICATION"
+      "synchronization_status": "SYNCED"
     },
     {
       "name": "Diagnostics",
       "status": "CURRENT",
-      "age_minutes": 19.1,
-      "age_display": "19 min ago",
+      "age_minutes": 22.3,
+      "age_display": "22 min ago",
       "expected_cadence_minutes": 15,
       "reason": "Within the expected automatic refresh window.",
       "source": "Autonomous diagnostics",
