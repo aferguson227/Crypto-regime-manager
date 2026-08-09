@@ -48,13 +48,13 @@ def versions():
 def bases():
  cfg=os.getenv('KUCOIN_API_BASE_URL','').strip().rstrip('/');out=[]
  for x in [cfg,GLOBAL,EU]:
-  if x in {GLOBAL,EU} and x not in out:out.append(x)
+  if x and x not in out:out.append(x)
  return out or [GLOBAL]
 def fetch_recent():
  key=os.getenv('KUCOIN_API_KEY','').strip();secret=os.getenv('KUCOIN_API_SECRET','').strip();pp=os.getenv('KUCOIN_API_PASSPHRASE','').strip()
  if not(key and secret and pp):return None,'NOT_CONFIGURED','KuCoin read-only API credentials are not available.'
  end=int(time.time()*1000);start=int((datetime.now(timezone.utc)-timedelta(days=7)).timestamp()*1000)
- last_err=None
+ last_err=None;attempts=[]
  for base in bases():
   for ver in versions():
    try:
@@ -75,8 +75,8 @@ def fetch_recent():
      last_id=nxt
     return items,'OK',f'{base} key-v{ver}'
    except Exception as exc:
-    last_err=exc
- return None,'ERROR',str(last_err or 'KuCoin fill request failed.')
+    last_err=exc;attempts.append({'base':base,'key_version':ver,'category':type(exc).__name__,'detail':str(exc)[:500]})
+ return None,'ERROR',json.dumps({'endpoint':PATH,'attempts':attempts,'last_error':str(last_err or 'KuCoin fill request failed.')})
 
 def ingest(rows):
  inserted=0

@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_version():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='52.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='53.0.0'
 
 def test_kucoin_order_state_is_read_only():
     text=(ROOT/'scripts/kucoin_order_state.py').read_text(encoding='utf-8')

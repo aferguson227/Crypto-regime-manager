@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
-  "application_version": "52.0.0",
-  "generated_at": "2026-08-09T08:40:44.111854+00:00",
+  "application_version": "53.0.0",
+  "generated_at": "2026-08-09T09:11:32.439576+00:00",
   "overall": "SOURCE_OVERDUE",
   "overall_reason": "A decision-critical source is too old or unavailable for reliable execution/allocation decisions.",
   "decision_critical_current": false,
@@ -9,9 +9,9 @@
     {
       "name": "KuCoin account truth",
       "role": "DECISION_CRITICAL",
-      "status": "CURRENT",
-      "age_minutes": 8.9,
-      "age_display": "9m ago",
+      "status": "OVERDUE",
+      "age_minutes": 39.7,
+      "age_display": "40m ago",
       "decision_limit_minutes": 30.0,
       "reason": "Balances/capital are authoritative for allocation."
     },
@@ -19,8 +19,8 @@
       "name": "KuCoin order truth",
       "role": "DECISION_CRITICAL",
       "status": "OVERDUE",
-      "age_minutes": 85.9,
-      "age_display": "1h 26m ago",
+      "age_minutes": 116.7,
+      "age_display": "1h 57m ago",
       "decision_limit_minutes": 30.0,
       "reason": "Active/completed exchange order state is authoritative for execution."
     },
@@ -28,8 +28,8 @@
       "name": "Local Agent",
       "role": "DECISION_CRITICAL",
       "status": "CURRENT",
-      "age_minutes": 3.7,
-      "age_display": "4m ago",
+      "age_minutes": 34.5,
+      "age_display": "34m ago",
       "decision_limit_minutes": 45.0,
       "reason": "Publishes private KuCoin/account/research outputs."
     },
@@ -37,8 +37,8 @@
       "name": "3Commas telemetry",
       "role": "SECONDARY_PROVIDER",
       "status": "CURRENT",
-      "age_minutes": 35.0,
-      "age_display": "35m ago",
+      "age_minutes": 65.8,
+      "age_display": "1h 6m ago",
       "decision_limit_minutes": 180.0,
       "reason": "3Commas is secondary provider telemetry; stale state does not override current KuCoin truth."
     },
@@ -46,8 +46,8 @@
       "name": "Website publication",
       "role": "PRESENTATION",
       "status": "OVERDUE",
-      "age_minutes": 34.8,
-      "age_display": "35m ago",
+      "age_minutes": 65.4,
+      "age_display": "1h 5m ago",
       "decision_limit_minutes": 30.0,
       "reason": "Live Pages publication is presentation delivery, not exchange truth."
     },
@@ -55,8 +55,8 @@
       "name": "Diagnostics",
       "role": "ENGINEERING",
       "status": "CURRENT",
-      "age_minutes": 3.8,
-      "age_display": "4m ago",
+      "age_minutes": 34.6,
+      "age_display": "35m ago",
       "decision_limit_minutes": 360,
       "reason": "Diagnostics age is not trading-state freshness."
     }

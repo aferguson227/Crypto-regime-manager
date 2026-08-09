@@ -79,7 +79,22 @@ def publish_material():
         time.sleep(attempt*3)
     raise RuntimeError('Local agent could not publish after three rebuild-and-retry attempts.')
 
+def _single_instance():
+    lock=Path(os.getenv('TEMP') or '/tmp')/'crm_local_agent.lock'
+    fh=open(lock,'a+')
+    try:
+        if os.name=='nt':
+            import msvcrt; msvcrt.locking(fh.fileno(),msvcrt.LK_NBLCK,1)
+        else:
+            import fcntl; fcntl.flock(fh,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        return fh
+    except OSError:
+        fh.close(); return None
 def main():
+    guard=_single_instance()
+    if guard is None:
+        print('Local Agent already running; duplicate cycle skipped.')
+        return 0
     os.environ['CRM_KUCOIN_HISTORY_SYNC']='1'
     ap=argparse.ArgumentParser(); ap.add_argument('--publish',action='store_true'); args=ap.parse_args(); started=now()
     try:

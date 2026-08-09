@@ -1,4 +1,4 @@
-# Crypto Regime Manager V52.0.0 — Portfolio & Execution Intelligence
+# Crypto Regime Manager V53.0.0 — Portfolio & Execution Intelligence
 
 V51 moves exchange truth and multi-bot portfolio decisions ahead of execution-provider telemetry.
 

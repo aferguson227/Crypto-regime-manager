@@ -14,7 +14,7 @@ def creds():
 def fetch(path,params):
  key,secret,pp=creds()
  if not(key and secret and pp):return None,'NOT_CONFIGURED','KuCoin read-only API credentials unavailable.'
- last=None
+ last=None;attempts=[]
  for base in bases():
   for ver in versions():
    try:
@@ -25,8 +25,9 @@ def fetch(path,params):
     data=p.get('data')
     items=data.get('items') if isinstance(data,dict) else data
     return list(items or []),'OK',f'{base} key-v{ver}'
-   except Exception as exc:last=exc
- return None,'ERROR',str(last or 'request failed')
+   except Exception as exc:
+    last=exc;attempts.append({'base':base,'key_version':ver,'category':type(exc).__name__,'detail':str(exc)[:500]})
+ return None,'ERROR',json.dumps({'endpoint':path,'attempts':attempts,'last_error':str(last or 'request failed')})
 def main():
  end=int(time.time()*1000);start=int((datetime.now(timezone.utc)-timedelta(days=7)).timestamp()*1000)
  active,sa,ma=fetch(ACTIVE,{})
