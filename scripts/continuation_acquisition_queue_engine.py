@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""V52 priority acquisition queue for unresolved Kraken-cutoff candidates."""
+"""V56 priority acquisition and progress for unresolved Kraken-cutoff candidates."""
 from __future__ import annotations
 import json
 from datetime import datetime,timezone
@@ -10,14 +10,23 @@ def load(n):
  try:return json.loads((DOCS/n).read_text(encoding='utf-8-sig'))
  except:return {}
 def main():
- c=load('cross_exchange_continuation.json');hist=load('historical_data_status.json');hby={str(x.get('symbol') or '').split('-')[0].upper():x for x in hist.get('inventory') or []};rows=[]
+ c=load('cross_exchange_continuation.json');hist=load('historical_data_status.json')
+ hby={str(x.get('symbol') or '').split('-')[0].upper():x for x in hist.get('inventory') or []};rows=[]
  for x in c.get('assets') or []:
   if x.get('continuation_status')!='WAITING_FOR_COMPARABLE_DATA':continue
-  a=str(x.get('asset') or '').upper();h=hby.get(a) or {}
-  rows.append({'asset':a,'pair':f'{a}-USDT','priority':'HIGH','reason':'Frozen Kraken validation ended open and later KuCoin continuation cannot yet be resolved.',
-    'kucoin_bars_available':h.get('bars',0),'kucoin_history_status':h.get('status') or 'MISSING',
-    'required_action':'Prioritise KuCoin 4h history acquisition until the post-Kraken cutoff period is covered.'})
- p={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'priority_candidates':rows,
-    'count':len(rows),'automatic':True}
- OUT.write_text(json.dumps(p,indent=2),encoding='utf-8');print(f'Continuation acquisition queue: {len(rows)} priority asset(s)');return 0
+  a=str(x.get('asset') or '').upper();h=hby.get(a) or {};bars=int(h.get('bars') or 0)
+  pages=h.get('estimated_pages_remaining');cycles=None if pages is None else max(1,(int(pages)+4)//5)
+  reason=('Kraken validation source is missing.' if not x.get('validation_file') else
+          'KuCoin 4-hour continuation history is being acquired automatically.' if not x.get('kucoin_file_exists',False) else
+          'KuCoin history does not yet extend beyond the frozen Kraken cutoff.')
+  rows.append({'asset':a,'pair':f'{a}-USDT','priority':'HIGH','state':'DOWNLOADING_CONTINUATION_HISTORY',
+   'reason':reason,'kraken_cutoff':x.get('kraken_cutoff'),'kucoin_bars_available':bars,'kucoin_history_start':h.get('start'),
+   'kucoin_history_end':h.get('end'),'kucoin_history_status':h.get('status') or 'MISSING',
+   'estimated_pages_remaining':pages,'estimated_background_cycles_remaining':cycles,'expected_cycle_minutes':15,
+   'estimated_minutes_remaining':cycles*15 if cycles is not None else None,'automatic':True,
+   'required_action':'No manual action normally required. CRM prioritises this asset until post-cutoff KuCoin history is available.'})
+ payload={'schema_version':'2.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),
+          'priority_candidates':rows,'count':len(rows),'automatic':True,
+          'explanation':'Continuation history is acquired automatically in bounded background batches so dashboard refreshes are not blocked.'}
+ OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8');print(f'Continuation acquisition queue: {len(rows)} priority asset(s)');return 0
 if __name__=='__main__':raise SystemExit(main())

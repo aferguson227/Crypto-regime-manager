@@ -50,9 +50,10 @@ def main():
   if not q.get('open_position'):continue
   asset=str(coin.get('symbol') or '').replace('XBT','BTC').upper();vf=validation_file(asset);kf=kucoin_file(asset);settings=coin.get('frozen_settings') or {}
   rec={'asset':asset,'kraken_cutoff_status':coin.get('status'),'kraken_cutoff_mark_to_market_pnl':q.get('mark_to_market_pnl'),'original_validation_preserved':True,
-       'kucoin_continuation_file':str(kf),'validation_file':str(vf) if vf else None}
+       'kucoin_continuation_file':str(kf),'kucoin_file_exists':kf.exists(),'validation_file':str(vf) if vf else None,
+       'kraken_cutoff':(coin.get('validation_import') or {}).get('end')}
   if not vf or not kf.exists() or not settings:
-   rec.update({'continuation_status':'WAITING_FOR_COMPARABLE_DATA','reason':'Normalized Q1 validation data or later KuCoin 4h history is not available yet.'});rows.append(rec);continue
+   rec.update({'continuation_status':'WAITING_FOR_COMPARABLE_DATA','reason':('Normalized Kraken validation evidence is missing.' if not vf else 'KuCoin 4-hour continuation history is being acquired automatically; CRM will replay the frozen Kraken-open position as soon as post-cutoff candles are available.')});rows.append(rec);continue
   vr=replay(load(vf),float(settings['take_profit_pct'])/100,float(settings['so_deviation_pct'])/100,int(settings['safety_orders']),float(settings['volume_scale']),float(settings['step_scale']))
   state=vr.get('open_state')
   if not state:

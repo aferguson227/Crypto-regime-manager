@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "55.0.0",
-  "generated_at": "2026-08-09T10:32:08.014820+00:00",
+  "application_version": "56.0.0",
+  "generated_at": "2026-08-09T11:14:05.639787+00:00",
   "mode": "LOCKED_SHADOW",
   "overall": "BUILDING",
   "checks": [
@@ -46,7 +46,7 @@
       "asset": "ZEC",
       "pair": "ZEC-USDT",
       "shadow_status": "SHADOW_READY",
-      "client_oid_example": "crm52-zec-f2668d60f0db4cc6b4",
+      "client_oid_example": "crm52-zec-21252e868c3d45e1b3",
       "planned_budget_usdt": 251.43,
       "hypothetical_order_count": 5,
       "idempotency_method": "Unique CRM clientOid per intended order; retries must query by clientOid before any future live submission."

@@ -259,3 +259,6 @@ button,.primary-action,.crm-actions a{border-radius:10px;min-height:2.25rem}
  .crm-coin-fields .full{grid-column:1}
  .crm-stat{gap:.45rem}
 }
+
+/* V56 universal readable wrapping */
+.crm-shell,.crm-shell *{hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:break-word;}

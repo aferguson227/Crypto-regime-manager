@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 ROOT=Path(__file__).parents[1]
 def test_release_identity():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='55.0.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='56.0.0'
  release=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
  assert release['release_name']=='KuCoin Historical Research & Universal Responsive UI'
 def test_shared_design_and_navigation():

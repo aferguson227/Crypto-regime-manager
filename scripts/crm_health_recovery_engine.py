@@ -29,8 +29,12 @@ def diagnose():
  fresh=load('freshness_status.json');ku=load('kucoin_account.json');orders=load('kucoin_order_state.json')
  fills=load('kucoin_fill_ledger.json');account=load('independent_trade_accounting.json')
  present=load('presentation_quality.json');ui=load('ui_health.json');sync=load('synchronization_status.json')
- agent=load('local_agent_status.json');assure=load('execution_assurance.json');three=load('threecommas.json')
+ agent=load('local_agent_status.json');assure=load('execution_assurance.json');three=load('threecommas.json');schedule=load('local_agent_schedule_health.json')
  rows=[]
+ if schedule.get('status') in {'MISSING','DISABLED','ERROR'}:
+  rows.append(item('LOCAL_AGENT_SCHEDULE','Background refresh schedule needs attention','Refresh','high','ATTENTION',
+   str(schedule.get('explanation') or 'The Windows 15-minute Local Agent schedule is not healthy.'),False,None,
+   'Run UPDATE_LOCAL_AGENT_SCHEDULE.ps1 or review Windows Task Scheduler.'))
  if str(ku.get('status') or '').upper() not in {'OK','HEALTHY'}:
   rows.append(item('KUCOIN_ACCOUNT_DATA','KuCoin account data needs attention','Trading data','high','ATTENTION',
    str(ku.get('message') or ku.get('api_message') or 'KuCoin balance/account refresh is not healthy.'),True,'scripts.kucoin_account_sync','Check the KuCoin API connection if automatic retry fails.'))
