@@ -1,8 +1,8 @@
 {
   "schema_version": "1.1",
-  "application_version": "53.0.0",
-  "generated_at": "2026-08-09T09:11:32.012385+00:00",
-  "mode": "quick",
+  "application_version": "54.0.0",
+  "generated_at": "2026-08-09T09:50:16.757873+00:00",
+  "mode": "hourly",
   "result": "HEALTHY",
   "steps": [
     {
@@ -16,9 +16,17 @@
     {
       "module": "scripts.self_healing_engine",
       "result": "pass"
+    },
+    {
+      "module": "scripts.engineering_scheduler",
+      "result": "pass"
+    },
+    {
+      "module": "scripts.ui_validation_manager",
+      "result": "pass"
     }
   ],
-  "last_hourly_at": "2026-08-09T08:36:57.751461+00:00",
+  "last_hourly_at": "2026-08-09T09:50:16.757873+00:00",
   "full_release_validation_required": false,
   "automatic": true,
   "background_research_status": "AVAILABLE",

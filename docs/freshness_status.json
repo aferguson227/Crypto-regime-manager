@@ -1,70 +1,73 @@
 {
-  "schema_version": "2.0",
-  "application_version": "53.0.0",
-  "generated_at": "2026-08-09T09:11:32.439576+00:00",
-  "overall": "SOURCE_OVERDUE",
-  "overall_reason": "A decision-critical source is too old or unavailable for reliable execution/allocation decisions.",
+  "schema_version": "3.0",
+  "application_version": "54.0.0",
+  "generated_at": "2026-08-09T09:50:17.252749+00:00",
+  "overall": "ACTION_REQUIRED",
+  "overall_reason": "KuCoin trading data and the Local Agent heartbeat are both too old to verify a current trading decision.",
   "decision_critical_current": false,
   "components": [
     {
-      "name": "KuCoin account truth",
+      "name": "KuCoin account data",
       "role": "DECISION_CRITICAL",
       "status": "OVERDUE",
-      "age_minutes": 39.7,
-      "age_display": "40m ago",
-      "decision_limit_minutes": 30.0,
-      "reason": "Balances/capital are authoritative for allocation."
+      "age_minutes": 78.5,
+      "age_display": "1h 18m ago",
+      "expected_cadence_minutes": 30.0,
+      "reason": "Balances and available capital used by CRM.",
+      "collector_status": "OK"
     },
     {
-      "name": "KuCoin order truth",
+      "name": "KuCoin trading data",
       "role": "DECISION_CRITICAL",
       "status": "OVERDUE",
-      "age_minutes": 116.7,
-      "age_display": "1h 57m ago",
-      "decision_limit_minutes": 30.0,
-      "reason": "Active/completed exchange order state is authoritative for execution."
+      "age_minutes": 155.5,
+      "age_display": "2h 36m ago",
+      "expected_cadence_minutes": 30.0,
+      "reason": "Open and completed KuCoin orders used to verify live trading.",
+      "collector_status": "DEGRADED"
     },
     {
       "name": "Local Agent",
       "role": "DECISION_CRITICAL",
-      "status": "CURRENT",
-      "age_minutes": 34.5,
-      "age_display": "34m ago",
-      "decision_limit_minutes": 45.0,
-      "reason": "Publishes private KuCoin/account/research outputs."
+      "status": "OVERDUE",
+      "age_minutes": 73.3,
+      "age_display": "1h 13m ago",
+      "expected_cadence_minutes": 45.0,
+      "reason": "Runs private account, trading and research refreshes.",
+      "collector_status": "HEALTHY"
     },
     {
-      "name": "3Commas telemetry",
+      "name": "3Commas monitoring",
       "role": "SECONDARY_PROVIDER",
       "status": "CURRENT",
-      "age_minutes": 65.8,
-      "age_display": "1h 6m ago",
-      "decision_limit_minutes": 180.0,
-      "reason": "3Commas is secondary provider telemetry; stale state does not override current KuCoin truth."
+      "age_minutes": 104.5,
+      "age_display": "1h 44m ago",
+      "expected_cadence_minutes": 180.0,
+      "reason": "Temporary secondary provider monitoring; KuCoin remains authoritative.",
+      "collector_status": "OK"
     },
     {
-      "name": "Website publication",
+      "name": "Website update",
       "role": "PRESENTATION",
-      "status": "OVERDUE",
-      "age_minutes": 65.4,
-      "age_display": "1h 5m ago",
-      "decision_limit_minutes": 30.0,
-      "reason": "Live Pages publication is presentation delivery, not exchange truth."
+      "status": "CURRENT",
+      "age_minutes": 104.4,
+      "age_display": "1h 44m ago",
+      "expected_cadence_minutes": 30.0,
+      "reason": "Website publishing is separate from trading-data reliability. It never makes KuCoin trading data stale."
     },
     {
-      "name": "Diagnostics",
+      "name": "System checks",
       "role": "ENGINEERING",
       "status": "CURRENT",
-      "age_minutes": 34.6,
-      "age_display": "35m ago",
-      "decision_limit_minutes": 360,
-      "reason": "Diagnostics age is not trading-state freshness."
+      "age_minutes": 38.8,
+      "age_display": "39m ago",
+      "expected_cadence_minutes": 360,
+      "reason": "Automatic application checks; detailed mode is hidden unless troubleshooting."
     }
   ],
-  "headline_policy": "Only decision-critical KuCoin/local-agent failures can produce Source overdue. Secondary 3Commas age produces Partially degraded instead.",
+  "headline_policy": "Age alone is informational. A serious warning requires an actual collector failure or both stale trading data and a stale Local Agent heartbeat.",
   "automatic_refresh": {
     "local_agent_minutes": 15,
-    "threecommas_secondary_target_minutes": 60,
     "website_publication_async": true
   },
   "read_only": true

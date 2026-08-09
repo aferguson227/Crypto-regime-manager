@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "application_version": "54.0.0",
+  "generated_at": "2026-08-09T09:50:15.191461+00:00",
+  "mode": "MIGRATION_IN_PROGRESS",
+  "progress_pct": 57.1,
+  "completed_stages": 4,
+  "total_stages": 7,
+  "stages": [
+    {
+      "id": "ACCOUNT_READ",
+      "label": "KuCoin balances",
+      "complete": true,
+      "detail": "CRM can read KuCoin balances/capital directly."
+    },
+    {
+      "id": "ORDER_READ",
+      "label": "KuCoin orders",
+      "complete": false,
+      "detail": "CRM can independently see open and completed KuCoin orders."
+    },
+    {
+      "id": "FILL_LEDGER",
+      "label": "KuCoin trade history",
+      "complete": false,
+      "detail": "CRM can persist fills and reconstruct realised P/L independently."
+    },
+    {
+      "id": "PROTECTION_CHECKS",
+      "label": "Trade protection checks",
+      "complete": true,
+      "detail": "CRM verifies TP/safety-order integrity against KuCoin."
+    },
+    {
+      "id": "SHADOW_PLANS",
+      "label": "CRM test trading plans",
+      "complete": true,
+      "detail": "CRM can generate the intended DCA/order ladder without placing it."
+    },
+    {
+      "id": "RESTART_RECOVERY",
+      "label": "Restart-safe order identity",
+      "complete": true,
+      "detail": "Deterministic client order identity is available for future idempotent execution."
+    },
+    {
+      "id": "GUARDED_LIVE",
+      "label": "Guarded direct trading",
+      "complete": false,
+      "detail": "Deliberately locked in V54. Requires successful shadow parity and explicit later release approval."
+    }
+  ],
+  "threecommas_role": "SECONDARY_TRANSITION_PROVIDER",
+  "kucoin_role": "AUTHORITATIVE_ACCOUNT_ORDER_FILL_SOURCE",
+  "current_live_positions": 0,
+  "provider_mismatches": 0,
+  "next_required_stage": {
+    "id": "ORDER_READ",
+    "label": "KuCoin orders",
+    "complete": false,
+    "detail": "CRM can independently see open and completed KuCoin orders."
+  },
+  "live_order_submission_enabled": false,
+  "message": "CRM is progressively replacing 3Commas operational dependencies. Direct KuCoin trading remains locked until the read/reconciliation/shadow stages are proven reliable."
+}

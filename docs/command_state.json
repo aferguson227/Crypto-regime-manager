@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "53.0.0",
-  "generated_at": "2026-08-09T09:11:28.734331+00:00",
-  "snapshot_id": "06e453b50e7229d8fe309cdd",
+  "application_version": "54.0.0",
+  "generated_at": "2026-08-09T09:50:11.936583+00:00",
+  "snapshot_id": "64b55d816cd63f69c3212550",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -124,7 +124,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "cd261bed0bb2999e4b6d680e",
+      "recommendation_id": "cc3d59bb7ef95822631b1d0e",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ENABLED",
@@ -285,7 +285,7 @@
       }
     },
     {
-      "recommendation_id": "7cca9054d4a930a6e010064c",
+      "recommendation_id": "786e580ce4c3c03ed78e5f2f",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -523,7 +523,7 @@
     }
   },
   "cloud": {
-    "overall_status": "HEALTHY",
+    "overall_status": "WARNING",
     "threecommas": {
       "status": "ok",
       "generated_at": "2026-08-09T08:05:44.884425+00:00",
@@ -536,22 +536,23 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "HEALTHY"
+    "cloud_status": "WARNING"
   },
   "source_snapshots": {
     "market": "737b2a9bc3966fb108b9",
-    "portfolio": "bd91b757eba2cc561151",
-    "capital": "28a2c2fe3334e617d4dd",
-    "deployment": "fc0e4436e450bebe29e1",
-    "recommendations": "df6ebbe76b26cf9098c5",
+    "portfolio": "0145db17a017be1bb420",
+    "capital": "ac5f3a1c1ea67d21b80d",
+    "deployment": "634a2331419278a65e63",
+    "recommendations": "8c27f12bb25b8971eb57",
     "adaptive": "bd6928f9b7af60f96109",
     "outcomes": "2026-08-09T08:05:53.611786+00:00",
     "cloud": "00d387c8e608c29f6011",
-    "operating": "3039e765bf888f0d8190"
+    "operating": "b4fc7aa7a381adfad8b8"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
-    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
+    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
+    "One or more cloud data sources require attention."
   ]
 }
