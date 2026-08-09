@@ -10,7 +10,7 @@ def _asset(symbol, allowed, score, health, pnl, dd, capital, open_hours=0):
 
 def test_v26_release_and_safeguards():
     cfg=json.loads((ROOT/'config.json').read_text(encoding="utf-8"))
-    assert cfg['version']=='57.0.0'
+    assert cfg['version']=='58.0.0'
     assert cfg['portfolio_intelligence_v26']['automatic_live_changes'] is False
     assert cfg['portfolio_intelligence_v26']['manual_approval_required'] is True
     assert (ROOT/'docs/v26.js').exists()

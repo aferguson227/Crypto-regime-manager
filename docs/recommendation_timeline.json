@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "57.0.0",
-  "generated_at": "2026-08-09T14:10:48.774823+00:00",
+  "application_version": "58.0.0",
+  "generated_at": "2026-08-09T15:00:57.868430+00:00",
   "events": [
     {
       "event_id": "58f05bae44fe949aef1e2959",
@@ -4628,8 +4628,64 @@
       "status": null,
       "confidence_pct": null,
       "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "670ac7a3368cd97bdaefb6dd",
+      "recorded_at": "2026-08-09T14:21:11.343864+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ACTIVE_DEAL",
+      "confidence_pct": 93.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "7aaa727d48f4e7538e236804",
+      "recorded_at": "2026-08-09T14:21:11.343864+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 21.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "01bf5143031e8b0a00b2062d",
+      "recorded_at": "2026-08-09T15:00:52.990206+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ACTIVE_DEAL",
+      "confidence_pct": 93.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "8469762d9e19c6f5b8ca55cd",
+      "recorded_at": "2026-08-09T15:00:52.990206+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 21.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
     }
   ],
-  "event_count": 354,
+  "event_count": 358,
   "live_updating": true
 }

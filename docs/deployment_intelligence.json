@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "57.0.0",
-  "generated_at": "2026-08-09T14:21:11.296337+00:00",
-  "snapshot_id": "b047ecf2c344bf702cac",
+  "application_version": "58.0.0",
+  "generated_at": "2026-08-09T15:00:52.799391+00:00",
+  "snapshot_id": "37517b74970b915b6c0d",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -19,11 +19,11 @@
   "next_capital_priority": "TEL Low Volatility Bot",
   "capital_status": "COMPLETE",
   "capital_summary": {
-    "exchange_total": 3474.8095135,
-    "free_available": 2929.17291349,
+    "exchange_total": 3587.5538871179756,
+    "free_available": 806.67111932,
     "active_deal_capital": 0.0,
     "reserved_capital": 0,
-    "deployable_capital": 2929.17291349,
+    "deployable_capital": 806.67111932,
     "next_capital_required": null,
     "can_fund_next_priority": null
   },
@@ -48,7 +48,7 @@
       "live_state": "ACTIVE_DEAL",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 2929.17291349,
+      "capital_available": 806.67111932,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -226,7 +226,7 @@
       "live_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 2929.17291349,
+      "capital_available": 806.67111932,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -403,8 +403,8 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "c0fa3005f48069371156",
-    "capital_snapshot": "9a1d926fc02eec0eea29",
+    "operating_state_snapshot": "b92035938e42e3e1570d",
+    "capital_snapshot": "4fd8de9fbd4d7c21555f",
     "decision_generated_at": "2026-08-09T08:05:53.471559+00:00",
     "threecommas_generated_at": "2026-08-09T14:21:09.333246+00:00"
   },

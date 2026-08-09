@@ -11,7 +11,7 @@ from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; DOCS=ROOT/'docs'; STATUS=DOCS/'local_agent_status.json'
 # Compatibility markers retained for historical regression tests: scripts.regime_backtest_engine scripts.kucoin_walk_forward_engine
-MODULES=['scripts.kucoin_account_sync', 'scripts.kucoin_fill_ledger', 'scripts.kucoin_order_state', 'scripts.execution_reconciliation_engine', 'scripts.capital_intelligence_engine', 'scripts.operating_state_engine', 'scripts.deployment_intelligence_engine', 'scripts.recommendation_intelligence_engine', 'scripts.portfolio_intelligence_engine', 'scripts.synchronization_engine', 'scripts.cloud_reliability_engine', 'scripts.operational_intelligence_engine', 'scripts.decision_quality_engine', 'scripts.engineering_intelligence_engine', 'scripts.command_state_engine', 'scripts.professional_workspace_engine', 'scripts.execution_provider_manager', 'scripts.global_market_engine', 'scripts.market_universe_engine', 'scripts.trade_intelligence_engine', 'scripts.independent_trade_accounting_engine', 'scripts.live_portfolio_truth_engine', 'scripts.local_agent_schedule_health','scripts.cross_exchange_continuation_engine', 'scripts.continuation_acquisition_queue_engine', 'scripts.research_scheduler', 'scripts.candidate_evidence_grade_engine', 'scripts.adaptive_candidate_research_engine', 'scripts.validation_resolution_engine', 'scripts.research_evidence_engine', 'scripts.research_pipeline_engine', 'scripts.candidate_optimisation_engine', 'scripts.recommended_bots_engine', 'scripts.coin_registry_engine', 'scripts.portfolio_allocation_engine', 'scripts.candidate_review_engine', 'scripts.live_bot_profiles_engine', 'scripts.shadow_execution_engine', 'scripts.execution_assurance_engine', 'scripts.native_execution_readiness_engine', 'scripts.execution_migration_status_engine', 'scripts.live_portfolio_truth_engine', 'scripts.recommendation_timeline_engine', 'scripts.expansion_readiness_engine', 'scripts.research_activity_engine', 'scripts.decision_inbox_engine', 'scripts.freshness_controller', 'scripts.source_health_engine', 'scripts.crm_health_recovery_engine', 'scripts.autonomous_diagnostics']
+MODULES=['scripts.kucoin_account_sync', 'scripts.kucoin_fill_ledger', 'scripts.kucoin_order_state', 'scripts.execution_reconciliation_engine', 'scripts.capital_intelligence_engine', 'scripts.operating_state_engine', 'scripts.deployment_intelligence_engine', 'scripts.recommendation_intelligence_engine', 'scripts.portfolio_intelligence_engine', 'scripts.synchronization_engine', 'scripts.cloud_reliability_engine', 'scripts.operational_intelligence_engine', 'scripts.decision_quality_engine', 'scripts.engineering_intelligence_engine', 'scripts.command_state_engine', 'scripts.professional_workspace_engine', 'scripts.execution_provider_manager', 'scripts.global_market_engine', 'scripts.market_universe_engine', 'scripts.trade_intelligence_engine', 'scripts.independent_trade_accounting_engine', 'scripts.live_portfolio_truth_engine', 'scripts.local_agent_schedule_health','scripts.cross_exchange_continuation_engine', 'scripts.continuation_acquisition_queue_engine', 'scripts.research_scheduler', 'scripts.candidate_evidence_grade_engine', 'scripts.adaptive_candidate_research_engine', 'scripts.validation_resolution_engine', 'scripts.research_evidence_engine', 'scripts.research_pipeline_engine', 'scripts.candidate_optimisation_engine', 'scripts.recommended_bots_engine', 'scripts.coin_registry_engine', 'scripts.portfolio_allocation_engine', 'scripts.candidate_review_engine', 'scripts.deployment_lifecycle_engine', 'scripts.live_bot_profiles_engine', 'scripts.shadow_execution_engine', 'scripts.execution_assurance_engine', 'scripts.native_execution_readiness_engine', 'scripts.execution_migration_status_engine', 'scripts.live_portfolio_truth_engine', 'scripts.recommendation_timeline_engine', 'scripts.expansion_readiness_engine', 'scripts.research_activity_engine', 'scripts.decision_inbox_engine', 'scripts.freshness_controller', 'scripts.source_health_engine', 'scripts.autonomous_diagnostics']
 
 def now(): return datetime.now(timezone.utc).isoformat()
 def run(args,check=True):
@@ -79,6 +79,22 @@ def publish_material():
         time.sleep(attempt*3)
     raise RuntimeError('Local agent could not publish after three rebuild-and-retry attempts.')
 
+def run_module_with_heartbeat(mod,started,check=True):
+    """Run a potentially long module while keeping the Local Agent heartbeat fresh."""
+    proc=subprocess.Popen([sys.executable,'-m',mod],cwd=ROOT,text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    last=time.monotonic()
+    while proc.poll() is None:
+        if time.monotonic()-last>=20:
+            write_status('RUNNING',f'Refreshing {mod}.',started,{'phase':mod,'heartbeat_at':now(),'process_running':True})
+            last=time.monotonic()
+        time.sleep(2)
+    out,err=proc.communicate()
+    if out:print(out,end='')
+    if err:print(err,end='',file=sys.stderr)
+    if check and proc.returncode:
+        raise RuntimeError(f'Command failed: {sys.executable} -m {mod}')
+    return proc.returncode
+
 def _single_instance():
     lock=Path(os.getenv('TEMP') or '/tmp')/'crm_local_agent.lock'
     fh=open(lock,'a+')
@@ -106,7 +122,12 @@ def main():
         _safe_align_to_remote()
         for mod in MODULES:
             write_status('RUNNING',f'Refreshing {mod}.',started,{'phase':mod,'heartbeat_at':now()})
-            run([sys.executable,'-m',mod])
+            run_module_with_heartbeat(mod,started)
+            if mod=='scripts.kucoin_order_state':
+                # Account → orders → fills have now run. Execute one same-cycle recovery transaction
+                # before dependent portfolio/safety/freshness engines consume the state.
+                write_status('RUNNING','Running KuCoin recovery transaction.',started,{'phase':'RECOVERY_TRANSACTION','heartbeat_at':now()})
+                run_module_with_heartbeat('scripts.crm_health_recovery_engine',started,check=False)
         ku=json.loads((DOCS/'kucoin_account.json').read_text(encoding='utf-8-sig'))
         status='HEALTHY' if ku.get('status')=='ok' else 'DEGRADED'
         write_status(status,'Local private-data refresh completed.' if status=='HEALTHY' else 'Local agent ran but KuCoin remains degraded.',started,{'phase':'COMPLETE','completed_at':now(),'heartbeat_at':now(),'kucoin_status':ku.get('status'),'kucoin_diagnostic':(ku.get('diagnostic') or {}).get('category')})

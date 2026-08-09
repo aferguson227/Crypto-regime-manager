@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "application_version": "57.0.0",
+  "application_version": "58.0.0",
   "tracked_release_snapshots": [
     "docs/diagnostics.json",
     "docs/version.json"
@@ -26,6 +26,7 @@
     "docs/decision_inbox.json",
     "docs/decision_quality.json",
     "docs/deployment_intelligence.json",
+    "docs/deployment_lifecycle.json",
     "docs/diagnostics_runtime.json",
     "docs/engineering_health.json",
     "docs/engineering_schedule.json",
@@ -48,6 +49,7 @@
     "docs/kucoin_walk_forward.json",
     "docs/live_bot_profiles.json",
     "docs/live_portfolio_truth.json",
+    "docs/local_agent_schedule_health.json",
     "docs/local_agent_status.json",
     "docs/market_intelligence.json",
     "docs/market_universe_status.json",
@@ -84,8 +86,7 @@
     "docs/validation_resolution.json",
     "docs/visual_issues.json",
     "docs/workflow_doctor.json",
-    "docs/workflow_history.json",
-    "docs/local_agent_schedule_health.json"
+    "docs/workflow_history.json"
   ],
   "archive_exclusions": [
     ".update-backups/**",

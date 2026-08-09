@@ -1,2 +1,2 @@
-# V57.0.0 — Trading Briefing & Execution Reliability
+# V58.0.0 — Trading Briefing & Execution Reliability
 V53 repairs KuCoin order/fill diagnostics, prevents overlapping Local Agent cycles, simplifies Portfolio and Trading & Execution language, continues Kraken→KuCoin follow-up testing, and advances CRM direct-trading preparation. KuCoin remains execution truth; 3Commas is secondary telemetry. Native live order placement/cancellation remains HARD LOCKED.

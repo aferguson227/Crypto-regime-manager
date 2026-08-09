@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
-  "application_version": "57.0.0",
-  "generated_at": "2026-08-09T14:21:11.200647+00:00",
-  "snapshot_id": "9a1d926fc02eec0eea29",
+  "application_version": "58.0.0",
+  "generated_at": "2026-08-09T15:00:52.394013+00:00",
+  "snapshot_id": "4fd8de9fbd4d7c21555f",
   "currency": "USDT",
   "accounts": [
     {
-      "account_id": null,
-      "name": "KuCoin direct account",
-      "exchange": "KuCoin",
+      "account_id": 32632134,
+      "name": "My Kucoin",
+      "exchange": "Kucoin Spot",
       "currency": "USDT",
-      "total_equity": 3474.8095135,
-      "free_available": 2929.17291349,
-      "observed_at": "2026-08-09T13:27:02.907422+00:00"
+      "total_equity": 3587.5538871179756,
+      "free_available": 806.67111932,
+      "observed_at": "2026-08-09T14:21:09.333246+00:00"
     }
   ],
   "bots": [
@@ -81,20 +81,20 @@
       "warnings": []
     }
   ],
-  "exchange_total": 3474.8095135,
-  "free_available": 2929.17291349,
+  "exchange_total": 3587.5538871179756,
+  "free_available": 806.67111932,
   "active_deal_capital": 0.0,
   "placed_order_reserve": 0.0,
   "remaining_active_deal_dca_reserve": 0,
   "enabled_idle_capacity_reserve": 2729.5360000000005,
-  "deployable_capital": 2929.17291349,
+  "deployable_capital": 806.67111932,
   "reserve_coverage_ratio": 1.0,
   "capital_status": "COMPLETE",
   "next_capital_priority": "TEL Low Volatility Bot",
   "next_capital_required": null,
   "can_fund_next_priority": null,
   "methodology": {
-    "free_available": "Read-only free USDT from KuCoin direct read-only account API.",
+    "free_available": "Read-only free USDT from 3Commas read-only account snapshot.",
     "active_deal_capital": "Sum of known cost basis for active deals.",
     "placed_order_reserve": "Shown separately; not subtracted from free USDT because exchange free balance normally already excludes open-order funds.",
     "remaining_active_deal_dca_reserve": "Unplaced remaining safety-order ladder requirement for active deals.",
@@ -104,8 +104,8 @@
   "warnings": [],
   "read_only": true,
   "asset_allocations": [],
-  "capital_source": "KuCoin direct read-only account API",
-  "kucoin_direct_status": "ok",
+  "capital_source": "3Commas read-only account snapshot",
+  "kucoin_direct_status": "not_configured",
   "reserved_capital": 0,
   "idle_bot_potential_exposure": 2729.5360000000005,
   "capital_policy": "Protect only reconciled active-deal remaining DCA ladders; provider-stale deals proven closed on KuCoin do not consume CRM capital. Idle theoretical exposure is not reserved until approved.",

@@ -1,10 +1,10 @@
 {
   "schema_version": "2.0",
-  "application_version": "57.0.0",
-  "generated_at": "2026-08-09T13:15:47.932228+00:00",
-  "deployable_capital_usdt": 2929.17291349,
+  "application_version": "58.0.0",
+  "generated_at": "2026-08-09T15:00:56.817508+00:00",
+  "deployable_capital_usdt": 806.67111932,
   "cash_buffer_pct": 15.0,
-  "usable_after_cash_buffer_usdt": 2489.8,
+  "usable_after_cash_buffer_usdt": 685.67,
   "current_live_bots": [
     "TEL"
   ],
@@ -20,12 +20,12 @@
       "validation_drawdown_pct": 7.61,
       "longest_validation_trade_hours": 160.0,
       "max_abs_correlation_to_live_bots": 0,
-      "recommended_allocation_usdt": 746.94,
+      "recommended_allocation_usdt": 205.7,
       "reason": "Selected within available portfolio slot using return, drawdown, capital-lock and diversification penalties.",
       "manual_approval_required": true
     }
   ],
   "automatic_deployment": false,
-  "capital_source": "KuCoin direct read-only account API",
+  "capital_source": "3Commas read-only account snapshot",
   "allocation_status": "KNOWN"
 }

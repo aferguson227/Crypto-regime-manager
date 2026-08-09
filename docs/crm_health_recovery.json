@@ -1,87 +1,105 @@
 {
-  "schema_version": "1.0",
-  "application_version": "57.0.0",
-  "generated_at": "2026-08-09T14:11:06.251232+00:00",
+  "schema_version": "2.0",
+  "application_version": "58.0.0",
+  "generated_at": "2026-08-09T15:00:59.970032+00:00",
   "overall": "RECOVERING_AUTOMATICALLY",
   "summary": {
-    "issues_before": 2,
-    "issues_after": 2,
-    "automatic_repairs_attempted": 6,
+    "root_issues_before": 1,
+    "root_issues_after": 1,
+    "recovery_actions_attempted": 9,
+    "root_issues_resolved": 0,
     "blocking_after": 0
   },
+  "resolved_this_cycle": [],
   "issues": [
     {
-      "code": "KUCOIN_TRADING_DATA",
-      "title": "KuCoin order monitoring is recovering",
+      "code": "KUCOIN_ACCOUNT",
+      "title": "KuCoin account refresh",
       "area": "Trading data",
       "severity": "high",
       "state": "RECOVERING",
-      "detail": "One or more symbol-specific KuCoin order requests need attention. Dependent checks: trading safety and freshness confirmation.",
-      "automatic_repair_available": true,
-      "repair_module": "scripts.kucoin_order_state",
-      "user_action": "No action is normally required while CRM is recovering. Review KuCoin API access only if repeated symbol-aware retries still fail."
-    },
-    {
-      "code": "REALIZED_PNL_BUILDING",
-      "title": "Realised P/L is still reconciling",
-      "area": "Profit & loss",
-      "severity": "low",
-      "state": "UPDATING",
-      "detail": "KuCoin fills are available, but one or more sells still need an earlier matching buy cost basis.",
-      "automatic_repair_available": true,
-      "repair_module": "scripts.independent_trade_accounting_engine",
-      "user_action": "CRM will retry automatically; no manual action is normally required."
+      "detail": "CRM cannot see its local read-only KuCoin credentials in this Local Agent process.",
+      "user_action": "Run the Local Agent setup again only if the next automatic recovery still reports credentials unavailable.",
+      "automatic_recovery_attempted": true,
+      "consecutive_failed_cycles": 1,
+      "last_recovery_transaction_at": "2026-08-09T15:00:59.968767+00:00",
+      "escalated_to_user": false
     }
   ],
-  "repair_log": [
+  "recovery_transaction": [
     {
-      "code": "KUCOIN_TRADING_DATA",
+      "module": "scripts.kucoin_account_sync",
+      "returncode": 0,
+      "duration_seconds": 0.18,
+      "detail": "KuCoin account sync: not configured (optional read-only capital source).\n"
+    },
+    {
       "module": "scripts.kucoin_order_state",
-      "result": "REPAIRED_OR_REFRESHED",
-      "detail": "KuCoin order state: DEGRADED; symbols=26 active=0 recent_closed=80\n"
+      "returncode": 0,
+      "duration_seconds": 0.19,
+      "detail": "KuCoin order state: NOT_CONFIGURED; symbols=1 active=0 recent_closed=0\n"
     },
     {
-      "code": "REALIZED_PNL_BUILDING",
+      "module": "scripts.kucoin_fill_ledger",
+      "returncode": 0,
+      "duration_seconds": 0.2,
+      "detail": "KuCoin fill ledger: NOT_CONFIGURED; new=0; total=120; realised_status=PARTIAL_COST_BASIS\n"
+    },
+    {
+      "module": "scripts.execution_reconciliation_engine",
+      "returncode": 0,
+      "duration_seconds": 0.13,
+      "detail": "Execution reconciliation written: C:\\Crypto\\Projects\\docs\\execution_reconciliation.json; stale=0\n"
+    },
+    {
       "module": "scripts.independent_trade_accounting_engine",
-      "result": "REPAIRED_OR_REFRESHED",
+      "returncode": 0,
+      "duration_seconds": 0.1,
       "detail": "Independent trade accounting written: C:\\Crypto\\Projects\\docs\\independent_trade_accounting.json\n"
     },
     {
-      "code": "DEPENDENT_REFRESH",
-      "module": "scripts.independent_trade_accounting_engine",
-      "result": "PASS",
-      "detail": "Independent trade accounting written: C:\\Crypto\\Projects\\docs\\independent_trade_accounting.json\n"
-    },
-    {
-      "code": "DEPENDENT_REFRESH",
       "module": "scripts.live_portfolio_truth_engine",
-      "result": "PASS",
-      "detail": "Live portfolio truth written: C:\\Crypto\\Projects\\docs\\live_portfolio_truth.json; effective_open=0 stale=1\n"
+      "returncode": 0,
+      "duration_seconds": 0.11,
+      "detail": "Live portfolio truth written: C:\\Crypto\\Projects\\docs\\live_portfolio_truth.json; effective_open=1 stale=0\n"
     },
     {
-      "code": "DEPENDENT_REFRESH",
+      "module": "scripts.execution_assurance_engine",
+      "returncode": 0,
+      "duration_seconds": 0.17,
+      "detail": "Execution assurance: FAIL; assets=1 failures=1\n"
+    },
+    {
       "module": "scripts.freshness_controller",
-      "result": "PASS",
-      "detail": "Freshness status: UPDATE_PENDING\n"
+      "returncode": 0,
+      "duration_seconds": 0.11,
+      "detail": "Freshness status: ACTION_REQUIRED\n"
     },
     {
-      "code": "DEPENDENT_REFRESH",
       "module": "scripts.source_health_engine",
-      "result": "PASS",
+      "returncode": 0,
+      "duration_seconds": 0.11,
       "detail": "Source health written: C:\\Crypto\\Projects\\docs\\source_health.json\n"
     }
   ],
-  "safe_repair_policy": [
-    "read-only API refresh",
-    "local generated-output regeneration",
-    "accounting/freshness recomputation"
+  "dependency_order": [
+    "KuCoin account",
+    "KuCoin orders",
+    "KuCoin fills",
+    "execution reconciliation",
+    "P/L accounting",
+    "live portfolio",
+    "trading safety",
+    "freshness"
   ],
+  "cascade_policy": "Dependent freshness, P/L and safety symptoms are suppressed while an upstream KuCoin root incident is recovering.",
+  "truthful_retry_policy": "The dashboard says CRM retried only when recovery_transaction contains an executed action.",
   "never_automatic": [
     "place/cancel KuCoin orders",
     "change API credentials",
     "start/stop/edit 3Commas bots",
-    "Git push/force push",
-    "change capital allocation"
+    "change capital allocation",
+    "Git push/force push"
   ],
-  "next_action": "No manual action required. CRM is repairing/retrying the affected data path automatically."
+  "next_action": "No manual action required while CRM is recovering."
 }

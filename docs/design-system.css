@@ -262,3 +262,10 @@ button,.primary-action,.crm-actions a{border-radius:10px;min-height:2.25rem}
 
 /* V56 universal readable wrapping */
 .crm-shell,.crm-shell *{hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:break-word;}
+
+/* V58 deployment/setup modal */
+.crm-setup-dialog{max-width:min(920px,94vw)}
+.crm-setup-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem}
+.crm-setup-grid .crm-stat{min-width:0}
+@media(max-width:860px){.crm-setup-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.crm-setup-grid{grid-template-columns:1fr}}

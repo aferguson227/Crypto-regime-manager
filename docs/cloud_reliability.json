@@ -1,23 +1,23 @@
 {
   "schema_version": "2.0",
-  "application_version": "57.0.0",
-  "generated_at": "2026-08-09T14:21:11.489169+00:00",
+  "application_version": "58.0.0",
+  "generated_at": "2026-08-09T15:00:53.848872+00:00",
   "snapshot_id": "6dcc5b80a8acd4fab97c",
-  "status": "HEALTHY",
+  "status": "WARNING",
   "pipelines": {
     "threecommas": {
       "name": "3Commas read-only sync",
       "state": "healthy",
       "last_attempt_at": "2026-08-09T14:21:09.333246+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 0.66,
       "last_success_at": "2026-08-09T14:21:09.333246+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 0.66,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
       "source_status": "ok",
       "core_status": "ok",
-      "capital_fallback": "KuCoin direct read-only",
+      "capital_fallback": null,
       "message": "All read-only 3Commas endpoints updated successfully.",
       "endpoint_diagnostics": {
         "results": {
@@ -84,17 +84,16 @@
     },
     "application": {
       "name": "Main market/application refresh",
-      "state": "healthy",
+      "state": "warning",
       "last_attempt_at": "2026-08-09T08:05:47.894523+00:00",
-      "last_attempt_age_hours": 6.26,
+      "last_attempt_age_hours": 6.92,
       "last_success_at": "2026-08-09T08:05:53.641209+00:00",
-      "last_success_age_hours": 6.25,
+      "last_success_age_hours": 6.92,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
       "source_status": "healthy",
-      "message": "Live Pages is synchronised; publication age alone is not a reliability fault.",
-      "publication_age_informational": true
+      "message": null
     }
   },
   "sources": [
@@ -102,15 +101,15 @@
       "name": "3Commas read-only sync",
       "state": "healthy",
       "last_attempt_at": "2026-08-09T14:21:09.333246+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 0.66,
       "last_success_at": "2026-08-09T14:21:09.333246+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 0.66,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
       "source_status": "ok",
       "core_status": "ok",
-      "capital_fallback": "KuCoin direct read-only",
+      "capital_fallback": null,
       "message": "All read-only 3Commas endpoints updated successfully.",
       "endpoint_diagnostics": {
         "results": {
@@ -177,17 +176,16 @@
     },
     {
       "name": "Main market/application refresh",
-      "state": "healthy",
+      "state": "warning",
       "last_attempt_at": "2026-08-09T08:05:47.894523+00:00",
-      "last_attempt_age_hours": 6.26,
+      "last_attempt_age_hours": 6.92,
       "last_success_at": "2026-08-09T08:05:53.641209+00:00",
-      "last_success_age_hours": 6.25,
+      "last_success_age_hours": 6.92,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
       "source_status": "healthy",
-      "message": "Live Pages is synchronised; publication age alone is not a reliability fault.",
-      "publication_age_informational": true
+      "message": null
     }
   ],
   "threecommas_endpoints": {
@@ -248,14 +246,14 @@
   },
   "workflows": [
     {
-      "file": ".github/workflows/crm-data-refresh.yml",
+      "file": ".github\\workflows\\crm-data-refresh.yml",
       "status": "pass",
       "findings": [],
       "module_execution": "python -m scripts.threecommas_sync",
       "expected_cron": "37 * * * *"
     },
     {
-      "file": ".github/workflows/crm-health-self-heal.yml",
+      "file": ".github\\workflows\\crm-health-self-heal.yml",
       "status": "pass",
       "findings": [],
       "module_execution": "python -m scripts.engineering_scheduler",
@@ -263,9 +261,9 @@
     }
   ],
   "github": {
-    "repository": "aferguson227/Crypto-regime-manager",
-    "workflow_run_id": "31318203926",
-    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31318203926"
+    "repository": null,
+    "workflow_run_id": null,
+    "run_url": null
   },
   "automation_policy": {
     "routine_manual_runs_required": false,
@@ -275,11 +273,11 @@
     "capital_source": "KuCoin direct read-only when configured; 3Commas account balance is fallback only"
   },
   "explanation": {
-    "overall_reason": "Required automation is healthy; non-blocking age notices do not lower overall health.",
-    "application_publication": "Live Pages is synchronised; publication age alone is not a reliability fault.",
+    "overall_reason": "A decision-blocking source is degraded.",
+    "application_publication": null,
     "threecommas": "All read-only 3Commas endpoints updated successfully.",
     "local_agent_status": "HEALTHY",
-    "kucoin_private_status": "ok"
+    "kucoin_private_status": "not_configured"
   },
   "read_only": true
 }

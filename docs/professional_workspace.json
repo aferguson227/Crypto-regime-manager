@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
-  "application_version": "57.0.0",
-  "generated_at": "2026-08-09T14:21:12.120382+00:00",
+  "application_version": "58.0.0",
+  "generated_at": "2026-08-09T15:00:54.652429+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Keep Active Deal TEL Low Volatility Bot.",
-    "Deployable capital: 2929.17 USDT; exact allocation remains advisory.",
+    "Deployable capital: 806.671 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Recent drawdown is elevated"
   ],
@@ -24,7 +24,7 @@
     "blockers": []
   },
   "decision_readiness": {
-    "score_pct": 60.0,
+    "score_pct": 40.0,
     "checks": [
       {
         "label": "Bot selected",
@@ -44,7 +44,7 @@
       },
       {
         "label": "Cloud data current",
-        "state": "pass"
+        "state": "warn"
       }
     ],
     "ready_for_manual_action": false
@@ -53,7 +53,7 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 2929.17291349,
+    "deployable_quote": 806.67111932,
     "asset_allocations": [],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
   },
@@ -358,7 +358,7 @@
     "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
   },
   "deployment_health": {
-    "cloud": "HEALTHY",
+    "cloud": "WARNING",
     "threecommas": "ok",
     "main_app": null,
     "publication": null,
@@ -370,5 +370,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "24400fd72f96f8838ae15344"
+  "snapshot_id": "a60ff9026df94de3ce0ce788"
 }

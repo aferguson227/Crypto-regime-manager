@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
-  "application_version": "57.0.0",
-  "generated_at": "2026-08-09T14:10:47.869595+00:00",
+  "application_version": "58.0.0",
+  "generated_at": "2026-08-09T15:00:56.612497+00:00",
   "coin_count": 22,
   "coins": [
     {
@@ -76,6 +76,20 @@
     },
     {
       "asset": "AEON",
+      "lifecycle": "RESEARCHING",
+      "execution_state": "NOT_DEPLOYED",
+      "research_state": "NEEDS_HISTORICAL_VALIDATION",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "current_regime": "ACCUMULATION",
+      "research_continues_while_live": false
+    },
+    {
+      "asset": "BLUAI",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
       "research_state": "NEEDS_HISTORICAL_VALIDATION",
@@ -188,20 +202,6 @@
     },
     {
       "asset": "PIEVERSE",
-      "lifecycle": "RESEARCHING",
-      "execution_state": "NOT_DEPLOYED",
-      "research_state": "NEEDS_HISTORICAL_VALIDATION",
-      "reasons": [
-        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-      ],
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "current_regime": "ACCUMULATION",
-      "research_continues_while_live": false
-    },
-    {
-      "asset": "PUMP",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
       "research_state": "NEEDS_HISTORICAL_VALIDATION",
@@ -342,5 +342,5 @@
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "ac189de9542ea0493ab9673e"
+  "snapshot_id": "d170329083dae6b0af7691c7"
 }

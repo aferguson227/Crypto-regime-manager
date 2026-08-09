@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "57.0.0",
-  "generated_at": "2026-08-09T13:27:26.470701+00:00",
+  "application_version": "58.0.0",
+  "generated_at": "2026-08-09T15:00:59.349975+00:00",
   "authority": "KuCoin exchange order/fill evidence overrides stale execution-provider telemetry when closure is proven.",
   "deals": [
     {
@@ -11,23 +11,23 @@
       "provider": "3Commas",
       "provider_deal_status": "bought",
       "provider_reports_open": true,
-      "kucoin_recent_sell_orders": 2,
+      "kucoin_recent_sell_orders": 0,
       "kucoin_active_orders": 0,
-      "allocated_quantity": 72640.0,
-      "largest_recent_completed_sell_quantity": 72640.0,
-      "exchange_closed_evidence": true,
-      "exchange_close_evidence_time": "1786276957793",
-      "reconciliation_state": "PROVIDER_STALE_OPEN",
-      "blocked_next_entry_risk": true,
-      "crm_position_truth": "CLOSED",
-      "action": "Reconcile/cancel stale 3Commas deal before relying on provider for the next entry.",
+      "allocated_quantity": 87407.0,
+      "largest_recent_completed_sell_quantity": 0,
+      "exchange_closed_evidence": false,
+      "exchange_close_evidence_time": null,
+      "reconciliation_state": "PROVIDER_OPEN_EXCHANGE_UNCONFIRMED",
+      "blocked_next_entry_risk": false,
+      "crm_position_truth": "OPEN",
+      "action": "No stale-provider closure proven.",
       "read_only": true
     }
   ],
   "summary": {
     "provider_open_deals": 1,
-    "proven_stale_open_deals": 1,
-    "blocked_next_entry_risks": 1
+    "proven_stale_open_deals": 0,
+    "blocked_next_entry_risks": 0
   },
   "write_actions": false
 }

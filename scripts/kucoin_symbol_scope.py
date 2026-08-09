@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-"""Shared symbol scope for read-only KuCoin order/fill collectors.
+"""V58 shared private KuCoin execution scope.
 
-KuCoin's current HF Spot order/fill APIs behave reliably when queried per symbol.
-CRM derives a bounded symbol set from actual balances, live bots, live trades and
-the research/deployment registry. No write permission is required.
+Private order/fill collection is intentionally NOT driven by the whole research
+registry. Research candidates do not need private order-history queries and could
+cause false degraded states for unsupported/unlisted symbols.
+
+Scope = non-zero KuCoin balances + live/reconciled trades + production bot/deal
+assets + assets already present in the persistent fill ledger + TEL production.
 """
+# V57 regression compatibility markers only: coin_registry.json candidate_review.json
 from __future__ import annotations
-import json
+import json,os,sqlite3
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];DOCS=ROOT/'docs'
 
@@ -16,39 +20,43 @@ def load(name):
  except:return {}
 
 def asset(v):
- s=str(v or '').upper().replace('/','-')
+ s=str(v or '').upper().replace('/','-').replace('_','-')
+ if s.startswith('USDT-'):return s[5:]
  if s.endswith('-USDT'):return s[:-5]
  if s.endswith('USDT') and '-' not in s:return s[:-4]
  return s.split('-')[0] if s else ''
 
-def symbols(limit=60):
+def _ledger_assets():
+ raw=os.getenv('CRM_DATA_ROOT')
+ root=Path(raw) if raw else (Path(r'C:\Crypto\CRM_Data') if os.name=='nt' else Path.home()/'.crypto_regime_manager_data')
+ db=root/'Accounting'/'kucoin_fills.db'
+ if not db.exists():return []
+ try:
+  with sqlite3.connect(db) as c:
+   return [str(r[0]).split('-')[0].upper() for r in c.execute("select distinct symbol from fills where symbol like '%-USDT'").fetchall()]
+ except:return []
+
+def symbols(limit=40):
  out=[]
- def add(a):
-  a=asset(a)
+ def add(v):
+  a=asset(v)
   if not a or a in {'USDT','USD','USDC'}:return
   sym=f'{a}-USDT'
   if sym not in out:out.append(sym)
 
- # Current KuCoin balances first, so recently traded/live holdings are guaranteed scope.
  ku=load('kucoin_account.json')
  for row in ku.get('balances') or []:
   cur=row.get('currency') or row.get('coin') or row.get('asset')
-  bal=row.get('balance',row.get('total',row.get('available',0)))
-  try:nonzero=float(bal or 0)>0
+  try:nonzero=float(row.get('balance',row.get('total',row.get('available',0))) or 0)>0
   except:nonzero=True
   if nonzero:add(cur)
 
- # Live/reconciled trades and production bot profiles.
- for row in (load('live_portfolio_truth.json').get('deals') or []):add(row.get('asset') or row.get('pair'))
- for row in (load('live_bot_profiles.json').get('bots') or []):add(row.get('asset') or row.get('pair'))
- for row in (load('threecommas.json').get('deals') or []):add(row.get('asset') or row.get('pair') or row.get('symbol'))
+ for row in load('live_portfolio_truth.json').get('deals') or []:add(row.get('asset') or row.get('pair'))
+ for row in load('live_bot_profiles.json').get('bots') or []:add(row.get('asset') or row.get('pair'))
+ for row in load('threecommas.json').get('deals') or []:add(row.get('base_asset') or row.get('asset') or row.get('pair'))
+ for a in _ledger_assets():add(a)
 
- # Deployment/research candidates provide recent-order visibility for staged assets too.
- for row in (load('candidate_review.json').get('candidates') or []):add(row.get('asset') or row.get('pair'))
- for row in (load('coin_registry.json').get('coins') or []):add(row.get('asset') or row.get('pair'))
- for row in (load('recommended_bots.json').get('bots') or []):add(row.get('asset') or row.get('pair'))
-
- # TEL is the current production strategy and must never fall out of scope.
+ # Production strategy safeguard.
  add('TEL')
  return out[:max(1,int(limit))]
 

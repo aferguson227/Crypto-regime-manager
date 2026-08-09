@@ -24,9 +24,13 @@ def main():
    metrics=p.get('validation_metrics') or p.get('metrics') or {}
    profiles_out[name]={'entry_trigger':frozen.get('entry_trigger') or p.get('entry_trigger'),'settings':settings,'metrics':metrics,'validated':bool(p.get('validation_pass')) if 'validation_pass' in p else str(p.get('status'))=='EXPLORATORY_PASS'}
   for b in enabled or (bucket.get('bots') or [])[:1]:
-   live={'take_profit_pct':b.get('take_profit_pct'),'so_deviation_pct':b.get('so_deviation_pct'),'safety_orders':b.get('max_safety_orders'),
-    'volume_scale':b.get('volume_scale'),'step_scale':b.get('step_scale'),'base_order_volume':b.get('base_order_volume'),'safety_order_volume':b.get('safety_order_volume'),
-    'max_active_deals':b.get('max_active_deals'),'start_condition':b.get('start_condition'),'order_type':b.get('order_type'),'trailing_enabled':b.get('trailing_enabled'),'cooldown_seconds':b.get('cooldown_seconds')}
+   live={'take_profit_pct':b.get('take_profit_pct'),
+    'so_deviation_pct':b.get('so_deviation_pct') if b.get('so_deviation_pct') is not None else b.get('safety_order_deviation_pct'),
+    'safety_orders':b.get('max_safety_orders'),'volume_scale':b.get('volume_scale'),'step_scale':b.get('step_scale'),
+    'base_order_volume':b.get('base_order_volume'),'safety_order_volume':b.get('safety_order_volume'),
+    'max_active_safety_orders':b.get('max_active_safety_orders'),'max_active_deals':b.get('max_active_deals'),
+    'start_condition':b.get('start_condition'),'order_type':b.get('order_type') if b.get('order_type') is not None else b.get('start_order_type'),
+    'trailing_enabled':b.get('trailing_enabled'),'cooldown_seconds':b.get('cooldown_seconds')}
    current=profiles_out.get(reg) or {}
    rows.append({'asset':a,'bot_id':b.get('bot_id'),'bot_name':b.get('name'),'enabled':b.get('enabled'),'current_regime':reg,'live_settings':live,
     'recommended_current_regime':current,'regime_profiles':profiles_out,'recommendation':'Use the validated current-regime profile only after manual review; an unvalidated regime means do not start a new deal automatically.'})
