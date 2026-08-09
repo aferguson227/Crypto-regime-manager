@@ -54,6 +54,7 @@ def main():
  ap=argparse.ArgumentParser();ap.add_argument('--status-only',action='store_true');ap.add_argument('--force',action='store_true');args=ap.parse_args()
  if args.status_only:return 0 if status_only() else 0
  db.migrate();p=load(POLICY);started=time.monotonic();activity=[];backtests=0
+ run('scripts.cross_exchange_continuation_engine',check=False);run('scripts.continuation_acquisition_queue_engine',check=False)
  run('scripts.adaptive_candidate_research_engine',check=False)
  # Full KuCoin USDT scan hourly. Failure does not destroy existing research.
  if args.force or due('last_market_scan',float(p.get('market_scan_minutes',60))):
@@ -83,7 +84,7 @@ def main():
   cached=db.cache_get('latest_research_bundle',fp)
   activity.append({'stage':'Cached optimisation + walk-forward','status':'CACHE_HIT','seconds':0,'backtests':0,'cache_reused':bool(cached)})
  # downstream lightweight decision outputs
- for mod in ['scripts.research_evidence_engine','scripts.research_pipeline_engine','scripts.candidate_optimisation_engine','scripts.recommended_bots_engine','scripts.coin_registry_engine','scripts.recommendation_timeline_engine','scripts.expansion_readiness_engine','scripts.research_activity_engine','scripts.portfolio_allocation_engine','scripts.candidate_review_engine']:
+ for mod in ['scripts.candidate_evidence_grade_engine','scripts.research_evidence_engine','scripts.research_pipeline_engine','scripts.candidate_optimisation_engine','scripts.recommended_bots_engine','scripts.coin_registry_engine','scripts.recommendation_timeline_engine','scripts.expansion_readiness_engine','scripts.research_activity_engine','scripts.portfolio_allocation_engine','scripts.candidate_review_engine']:
   run(mod,check=False)
  hist=load(DOCS/'historical_data_status.json');wf=load(DOCS/'kucoin_walk_forward.json');disc=load(DOCS/'coin_discovery.json')
  elapsed=round(time.monotonic()-started,2)

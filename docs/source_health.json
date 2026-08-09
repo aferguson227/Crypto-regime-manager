@@ -1,52 +1,64 @@
 {
   "schema_version": "1.0",
-  "application_version": "51.0.0",
-  "generated_at": "2026-08-09T08:36:57.557894+00:00",
-  "overall": "REFRESH_DUE",
+  "application_version": "52.0.0",
+  "generated_at": "2026-08-09T08:40:44.256191+00:00",
+  "overall": "REFRESH_OVERDUE",
   "fault_count": 0,
-  "overdue_count": 0,
+  "overdue_count": 2,
   "components": [
     {
-      "name": "3Commas",
+      "name": "KuCoin account truth",
+      "role": "DECISION_CRITICAL",
       "status": "CURRENT",
-      "age_minutes": 31.2,
-      "age_display": "31 min ago",
-      "expected_cadence_minutes": 60,
-      "reason": "Within the expected automatic refresh window.",
-      "source": "GitHub CRM Data Refresh",
-      "automatic": true
+      "age_minutes": 8.9,
+      "age_display": "9m ago",
+      "decision_limit_minutes": 30.0,
+      "reason": "Balances/capital are authoritative for allocation."
     },
     {
-      "name": "Local private data",
-      "status": "REFRESH_DUE",
-      "age_minutes": 45.4,
-      "age_display": "45 min ago",
-      "expected_cadence_minutes": 15,
-      "reason": "Valid data remains available; the next automatic refresh is due.",
-      "source": "Windows Local Agent / KuCoin",
-      "automatic": true
+      "name": "KuCoin order truth",
+      "role": "DECISION_CRITICAL",
+      "status": "OVERDUE",
+      "age_minutes": 85.9,
+      "age_display": "1h 26m ago",
+      "decision_limit_minutes": 30.0,
+      "reason": "Active/completed exchange order state is authoritative for execution."
+    },
+    {
+      "name": "Local Agent",
+      "role": "DECISION_CRITICAL",
+      "status": "CURRENT",
+      "age_minutes": 3.7,
+      "age_display": "4m ago",
+      "decision_limit_minutes": 45.0,
+      "reason": "Publishes private KuCoin/account/research outputs."
+    },
+    {
+      "name": "3Commas telemetry",
+      "role": "SECONDARY_PROVIDER",
+      "status": "CURRENT",
+      "age_minutes": 35.0,
+      "age_display": "35m ago",
+      "decision_limit_minutes": 180.0,
+      "reason": "3Commas is secondary provider telemetry; stale state does not override current KuCoin truth."
     },
     {
       "name": "Website publication",
-      "status": "CURRENT",
-      "age_minutes": 25.8,
-      "age_display": "26 min ago",
-      "expected_cadence_minutes": 240,
-      "reason": "Live Pages is synchronised with the published CRM version. Deployment age is informational only.",
-      "source": "Validated Pages publication",
-      "automatic": true,
-      "content_pending": false,
-      "synchronization_status": "SYNCED"
+      "role": "PRESENTATION",
+      "status": "OVERDUE",
+      "age_minutes": 34.8,
+      "age_display": "35m ago",
+      "decision_limit_minutes": 30.0,
+      "reason": "Live Pages publication is presentation delivery, not exchange truth."
     },
     {
       "name": "Diagnostics",
-      "status": "REFRESH_DUE",
-      "age_minutes": 80.0,
-      "age_display": "1h 20m ago",
-      "expected_cadence_minutes": 15,
-      "reason": "Valid data remains available; the next automatic refresh is due.",
-      "source": "Autonomous diagnostics",
-      "automatic": true
+      "role": "ENGINEERING",
+      "status": "CURRENT",
+      "age_minutes": 3.8,
+      "age_display": "4m ago",
+      "decision_limit_minutes": 360,
+      "reason": "Diagnostics age is not trading-state freshness."
     }
   ],
   "interpretation": "Ageing data is a refresh condition, not a system warning, unless a collector error or decision-blocking dependency exists."

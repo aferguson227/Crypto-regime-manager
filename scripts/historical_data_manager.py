@@ -63,12 +63,16 @@ def fetch(symbol,start_at,end_at,policy):
  raise RuntimeError(str(last))
 
 def candidate_symbols():
- disc=load_json(DOCS/'coin_discovery.json');uni=load_json(DOCS/'coin_universe.json');p=load_json(POLICY_PATH)
+ disc=load_json(DOCS/'coin_discovery.json');uni=load_json(DOCS/'coin_universe.json');cont=load_json(DOCS/'continuation_acquisition_queue.json');p=load_json(POLICY_PATH)
  seen=[];usdt=[]
+ # Unresolved Kraken-cutoff continuation assets receive first priority.
+ for x in (cont.get('priority_candidates') or []):
+  sym=str(x.get('pair') or '').upper()
+  if sym.endswith('-USDT') and sym not in seen:seen.append(sym);usdt.append(sym)
  for x in (disc.get('researched_candidates') or [])+(disc.get('shortlist') or []):
-  s=str(x.get('symbol') or '').upper()
-  if s.endswith('-USDT') and s not in seen:seen.append(s);usdt.append(s)
- usdt=usdt[:int(p.get('deep_research_usdt_assets',8))]
+  sym=str(x.get('symbol') or '').upper()
+  if sym.endswith('-USDT') and sym not in seen:seen.append(sym);usdt.append(sym)
+ usdt=usdt[:int(p.get('deep_research_usdt_assets',12))]
  # Experimental BTC pairs only for bases already serious enough to be in the USDT research list.
  allrows=uni.get('candidates') or [];available={str(x.get('symbol') or '').upper() for x in allrows}
  btc=[]
@@ -118,8 +122,10 @@ def main():
  existing={x:file_for(x) for x in symbols};results=[]
  if do_sync:
   maxn=int(p.get('symbols_per_local_agent_cycle',5))
-  # Prioritise the shortest histories so backfill progresses fairly across assets.
-  ordered=sorted(symbols,key=lambda s:len(parse_rows(existing[s])))
+  # Prioritise unresolved continuation assets first, then the shortest histories.
+  cont=load_json(DOCS/'continuation_acquisition_queue.json')
+  priority={str(x.get('pair') or '').upper() for x in cont.get('priority_candidates') or []}
+  ordered=sorted(symbols,key=lambda sym:(0 if sym in priority else 1,len(parse_rows(existing[sym]))))
   for s in ordered[:maxn]:
    try:results.append(sync_symbol(s,p))
    except Exception as exc:results.append({'symbol':s,'status':'ERROR','errors':[str(exc)],'bars':len(parse_rows(existing[s]))})
@@ -139,7 +145,7 @@ def main():
   'minimum_backtest_bars':minbars,'candidate_count':len(symbols),'research_ready_count':ready,'inventory':inventory,
   'progress_pct':round(100*ready/len(symbols),1) if symbols else 0,
   'status':'ACTIVE' if do_sync else ('READY' if symbols else 'WAITING_FOR_DISCOVERY'),
-  'continuity_policy':'append completed candles, backfill older history incrementally, deduplicate timestamps, keep raw research data outside Git',
+  'continuity_policy':'append completed candles, prioritise unresolved Kraken-continuation assets, backfill older history incrementally, deduplicate timestamps, keep raw research data outside Git',
   'note':'Local Agent downloads only a bounded number of pages per cycle. New candidates nominated by the hourly full KuCoin USDT scan enter this queue automatically. Full-history depth grows without blocking the 15-minute refresh.'}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8');print(f'Historical data status written: {OUT}; mode={payload["mode"]}; ready={ready}/{len(symbols)}');return 0
 if __name__=='__main__':raise SystemExit(main())

@@ -1,13 +1,38 @@
 {
   "schema_version": "2.0",
-  "application_version": "51.0.0",
-  "generated_at": "2026-08-09T08:36:56.238757+00:00",
+  "application_version": "52.0.0",
+  "generated_at": "2026-08-09T08:40:42.442360+00:00",
   "candidates": [
     {
       "asset": "XMR",
       "pair": "XMR-USDT",
-      "readiness_pct": 20.0,
+      "evidence_grade": {
+        "asset": "XMR",
+        "pair": "XMR-USDT",
+        "evidence_grade": "HIGH_CONFIDENCE",
+        "bars_4h": 13492,
+        "history_days": 2249.8,
+        "history_start": "2020-06-10T12:00:00+00:00",
+        "history_end": "2026-08-08T08:00:00+00:00",
+        "history_years": 6.16,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": false,
+        "kraken_robustness_status": "PASS",
+        "kraken_role": "SECONDARY_ROBUSTNESS",
+        "deployment_history_gate": "PASS",
+        "deployment_evidence_gate": "BLOCKED",
+        "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
+        "current_global_regime": "ACCUMULATION"
+      },
+      "readiness_pct": 33.3,
       "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "PASS",
+          "detail": "HIGH_CONFIDENCE \u00b7 6.16 years \u00b7 13492 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
+        },
         {
           "id": "history_complete",
           "label": "Historical data",
@@ -401,8 +426,33 @@
     {
       "asset": "UNI",
       "pair": "UNI-USDT",
-      "readiness_pct": 20.0,
+      "evidence_grade": {
+        "asset": "UNI",
+        "pair": "UNI-USDT",
+        "evidence_grade": "HIGH_CONFIDENCE",
+        "bars_4h": 12898,
+        "history_days": 2150.8,
+        "history_start": "2020-09-17T08:00:00+00:00",
+        "history_end": "2026-08-08T04:00:00+00:00",
+        "history_years": 5.89,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": false,
+        "kraken_robustness_status": "PASS",
+        "kraken_role": "SECONDARY_ROBUSTNESS",
+        "deployment_history_gate": "PASS",
+        "deployment_evidence_gate": "BLOCKED",
+        "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
+        "current_global_regime": "ACCUMULATION"
+      },
+      "readiness_pct": 33.3,
       "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "PASS",
+          "detail": "HIGH_CONFIDENCE \u00b7 5.89 years \u00b7 12898 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
+        },
         {
           "id": "history_complete",
           "label": "Historical data",
@@ -796,8 +846,33 @@
     {
       "asset": "BTC",
       "pair": "BTC-USDT",
-      "readiness_pct": 20.0,
+      "evidence_grade": {
+        "asset": "BTC",
+        "pair": "BTC-USDT",
+        "evidence_grade": "HIGH_CONFIDENCE",
+        "bars_4h": 13491,
+        "history_days": 2249.7,
+        "history_start": "2020-06-10T12:00:00+00:00",
+        "history_end": "2026-08-08T04:00:00+00:00",
+        "history_years": 6.16,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": false,
+        "kraken_robustness_status": "MISSING",
+        "kraken_role": "NOT_AVAILABLE",
+        "deployment_history_gate": "PASS",
+        "deployment_evidence_gate": "BLOCKED",
+        "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
+        "current_global_regime": "ACCUMULATION"
+      },
+      "readiness_pct": 33.3,
       "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "PASS",
+          "detail": "HIGH_CONFIDENCE \u00b7 6.16 years \u00b7 13491 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
+        },
         {
           "id": "history_complete",
           "label": "Historical data",
@@ -1177,8 +1252,33 @@
     {
       "asset": "ETH",
       "pair": "ETH-USDT",
-      "readiness_pct": 20.0,
+      "evidence_grade": {
+        "asset": "ETH",
+        "pair": "ETH-USDT",
+        "evidence_grade": "HIGH_CONFIDENCE",
+        "bars_4h": 13492,
+        "history_days": 2249.8,
+        "history_start": "2020-06-10T12:00:00+00:00",
+        "history_end": "2026-08-08T08:00:00+00:00",
+        "history_years": 6.16,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": false,
+        "kraken_robustness_status": "PASS",
+        "kraken_role": "SECONDARY_ROBUSTNESS",
+        "deployment_history_gate": "PASS",
+        "deployment_evidence_gate": "BLOCKED",
+        "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
+        "current_global_regime": "ACCUMULATION"
+      },
+      "readiness_pct": 33.3,
       "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "PASS",
+          "detail": "HIGH_CONFIDENCE \u00b7 6.16 years \u00b7 13492 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
+        },
         {
           "id": "history_complete",
           "label": "Historical data",
@@ -1572,8 +1672,33 @@
     {
       "asset": "PIEVERSE",
       "pair": "PIEVERSE-USDT",
+      "evidence_grade": {
+        "asset": "PIEVERSE",
+        "pair": "PIEVERSE-USDT",
+        "evidence_grade": "SCREEN_ONLY",
+        "bars_4h": 474,
+        "history_days": 78.8,
+        "history_start": "2026-05-22T08:00:00+00:00",
+        "history_end": "2026-08-09T04:00:00+00:00",
+        "history_years": 0.22,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": false,
+        "kraken_robustness_status": "MISSING",
+        "kraken_role": "NOT_AVAILABLE",
+        "deployment_history_gate": "BLOCKED",
+        "deployment_evidence_gate": "BLOCKED",
+        "reason": "History is too short for deployment research; candidate may be screened/ranked only.",
+        "current_global_regime": "ACCUMULATION"
+      },
       "readiness_pct": 0.0,
       "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "BLOCKED",
+          "detail": "SCREEN_ONLY \u00b7 0.22 years \u00b7 474 4h bars. History is too short for deployment research; candidate may be screened/ranked only."
+        },
         {
           "id": "history_complete",
           "label": "Historical data",
@@ -1677,8 +1802,33 @@
     {
       "asset": "AAVE",
       "pair": "AAVE-USDT",
+      "evidence_grade": {
+        "asset": "AAVE",
+        "pair": "AAVE-USDT",
+        "evidence_grade": "HIGH_CONFIDENCE",
+        "bars_4h": 12692,
+        "history_days": 2116.5,
+        "history_start": "2020-10-22T08:00:00+00:00",
+        "history_end": "2026-08-08T20:00:00+00:00",
+        "history_years": 5.79,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": true,
+        "kraken_robustness_status": "FAIL",
+        "kraken_role": "SECONDARY_ROBUSTNESS",
+        "deployment_history_gate": "PASS",
+        "deployment_evidence_gate": "PASS",
+        "reason": "History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold.",
+        "current_global_regime": "ACCUMULATION"
+      },
       "readiness_pct": 100.0,
       "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "PASS",
+          "detail": "HIGH_CONFIDENCE \u00b7 5.79 years \u00b7 12692 4h bars. History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold."
+        },
         {
           "id": "history_complete",
           "label": "Historical data",
@@ -2030,8 +2180,33 @@
     {
       "asset": "ZEC",
       "pair": "ZEC-USDT",
+      "evidence_grade": {
+        "asset": "ZEC",
+        "pair": "ZEC-USDT",
+        "evidence_grade": "HIGH_CONFIDENCE",
+        "bars_4h": 13492,
+        "history_days": 2249.8,
+        "history_start": "2020-06-11T04:00:00+00:00",
+        "history_end": "2026-08-09T00:00:00+00:00",
+        "history_years": 6.16,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": true,
+        "kraken_robustness_status": "FAIL",
+        "kraken_role": "SECONDARY_ROBUSTNESS",
+        "deployment_history_gate": "PASS",
+        "deployment_evidence_gate": "PASS",
+        "reason": "History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold.",
+        "current_global_regime": "ACCUMULATION"
+      },
       "readiness_pct": 100.0,
       "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "PASS",
+          "detail": "HIGH_CONFIDENCE \u00b7 6.16 years \u00b7 13492 4h bars. History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold."
+        },
         {
           "id": "history_complete",
           "label": "Historical data",
@@ -2383,8 +2558,33 @@
     {
       "asset": "SOL",
       "pair": "SOL-USDT",
-      "readiness_pct": 20.0,
+      "evidence_grade": {
+        "asset": "SOL",
+        "pair": "SOL-USDT",
+        "evidence_grade": "HIGH_CONFIDENCE",
+        "bars_4h": 10979,
+        "history_days": 1830.8,
+        "history_start": "2021-08-04T08:00:00+00:00",
+        "history_end": "2026-08-09T04:00:00+00:00",
+        "history_years": 5.01,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": false,
+        "kraken_robustness_status": "FAIL",
+        "kraken_role": "SECONDARY_ROBUSTNESS",
+        "deployment_history_gate": "PASS",
+        "deployment_evidence_gate": "BLOCKED",
+        "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
+        "current_global_regime": "ACCUMULATION"
+      },
+      "readiness_pct": 33.3,
       "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "PASS",
+          "detail": "HIGH_CONFIDENCE \u00b7 5.01 years \u00b7 10979 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
+        },
         {
           "id": "history_complete",
           "label": "Historical data",
@@ -2781,8 +2981,33 @@
     {
       "asset": "NEAR",
       "pair": "NEAR-USDT",
-      "readiness_pct": 20.0,
+      "evidence_grade": {
+        "asset": "NEAR",
+        "pair": "NEAR-USDT",
+        "evidence_grade": "HIGH_CONFIDENCE",
+        "bars_4h": 11135,
+        "history_days": 1856.8,
+        "history_start": "2021-07-09T08:00:00+00:00",
+        "history_end": "2026-08-09T04:00:00+00:00",
+        "history_years": 5.08,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": false,
+        "kraken_robustness_status": "PASS",
+        "kraken_role": "SECONDARY_ROBUSTNESS",
+        "deployment_history_gate": "PASS",
+        "deployment_evidence_gate": "BLOCKED",
+        "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
+        "current_global_regime": "ACCUMULATION"
+      },
+      "readiness_pct": 33.3,
       "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "PASS",
+          "detail": "HIGH_CONFIDENCE \u00b7 5.08 years \u00b7 11135 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
+        },
         {
           "id": "history_complete",
           "label": "Historical data",
@@ -3176,8 +3401,33 @@
     {
       "asset": "AEON",
       "pair": "AEON-USDT",
+      "evidence_grade": {
+        "asset": "AEON",
+        "pair": "AEON-USDT",
+        "evidence_grade": "SCREEN_ONLY",
+        "bars_4h": 78,
+        "history_days": 12.8,
+        "history_start": "2026-07-27T08:00:00+00:00",
+        "history_end": "2026-08-09T04:00:00+00:00",
+        "history_years": 0.04,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": false,
+        "kraken_robustness_status": "MISSING",
+        "kraken_role": "NOT_AVAILABLE",
+        "deployment_history_gate": "BLOCKED",
+        "deployment_evidence_gate": "BLOCKED",
+        "reason": "History is too short for deployment research; candidate may be screened/ranked only.",
+        "current_global_regime": "ACCUMULATION"
+      },
       "readiness_pct": 0.0,
       "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "BLOCKED",
+          "detail": "SCREEN_ONLY \u00b7 0.04 years \u00b7 78 4h bars. History is too short for deployment research; candidate may be screened/ranked only."
+        },
         {
           "id": "history_complete",
           "label": "Historical data",
@@ -3281,8 +3531,33 @@
     {
       "asset": "CYS",
       "pair": "CYS-USDT",
-      "readiness_pct": 60.0,
+      "evidence_grade": {
+        "asset": "CYS",
+        "pair": "CYS-USDT",
+        "evidence_grade": "PRELIMINARY",
+        "bars_4h": 1445,
+        "history_days": 240.7,
+        "history_start": "2025-12-11T08:00:00+00:00",
+        "history_end": "2026-08-09T00:00:00+00:00",
+        "history_years": 0.66,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": true,
+        "kraken_robustness_status": "MISSING",
+        "kraken_role": "NOT_AVAILABLE",
+        "deployment_history_gate": "BLOCKED",
+        "deployment_evidence_gate": "BLOCKED",
+        "reason": "Enough data for preliminary research, but not enough history/regime depth for normal deployment approval.",
+        "current_global_regime": "ACCUMULATION"
+      },
+      "readiness_pct": 50.0,
       "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "BLOCKED",
+          "detail": "PRELIMINARY \u00b7 0.66 years \u00b7 1445 4h bars. Enough data for preliminary research, but not enough history/regime depth for normal deployment approval."
+        },
         {
           "id": "history_complete",
           "label": "Historical data",
@@ -3381,11 +3656,11 @@
       "monitoring_complete": true,
       "monitoring_explanation": "Preferred observation requirement complete: 48.2 days available versus 14 days preferred.",
       "research_progress": {
-        "progress_pct": 80.0,
+        "progress_pct": 60.0,
         "stages": [
           {
             "label": "History",
-            "complete": true
+            "complete": false
           },
           {
             "label": "Optimisation",
@@ -3397,15 +3672,15 @@
           },
           {
             "label": "Trade fluidity",
-            "complete": false
+            "complete": true
           },
           {
             "label": "Regime verification",
-            "complete": true
+            "complete": false
           }
         ],
-        "remaining_stages": 1,
-        "estimated_remaining_cycles": 1,
+        "remaining_stages": 2,
+        "estimated_remaining_cycles": 2,
         "typical_cycle_seconds": 3841.8
       },
       "suggested_allocation_usdt": null,
@@ -3625,8 +3900,33 @@
     {
       "asset": "XRP",
       "pair": "XRP-USDT",
-      "readiness_pct": 20.0,
+      "evidence_grade": {
+        "asset": "XRP",
+        "pair": "XRP-USDT",
+        "evidence_grade": "HIGH_CONFIDENCE",
+        "bars_4h": 13491,
+        "history_days": 2249.7,
+        "history_start": "2020-06-10T12:00:00+00:00",
+        "history_end": "2026-08-08T04:00:00+00:00",
+        "history_years": 6.16,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": false,
+        "kraken_robustness_status": "PASS",
+        "kraken_role": "SECONDARY_ROBUSTNESS",
+        "deployment_history_gate": "PASS",
+        "deployment_evidence_gate": "BLOCKED",
+        "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
+        "current_global_regime": "ACCUMULATION"
+      },
+      "readiness_pct": 33.3,
       "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "PASS",
+          "detail": "HIGH_CONFIDENCE \u00b7 6.16 years \u00b7 13491 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
+        },
         {
           "id": "history_complete",
           "label": "Historical data",

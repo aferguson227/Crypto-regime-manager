@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "application_version": "52.0.0",
+  "execution_assurance": {
+    "stale_provider_warning_minutes": 5,
+    "missing_protection_warning_minutes": 2,
+    "order_match_price_tolerance_pct": 0.15,
+    "order_match_size_tolerance_pct": 1.5,
+    "require_tp_for_open_position": true,
+    "require_expected_safety_orders": true
+  },
+  "native_execution": {
+    "mode": "LOCKED_SHADOW",
+    "direct_order_endpoint": "/api/v1/hf/orders",
+    "sync_order_endpoint": "/api/v1/hf/orders/sync",
+    "get_order_by_client_oid": "/api/v1/hf/orders/client-order/{clientOid}",
+    "cancel_by_client_oid": "/api/v1/hf/orders/client-order/{clientOid}",
+    "required_permission": "Spot",
+    "withdrawal_permission_required": false,
+    "automatic_live_orders": false,
+    "manual_live_orders": false,
+    "feature_flag": "CRM_NATIVE_EXECUTION_ENABLE",
+    "kill_switch_env": "CRM_EXECUTION_KILL_SWITCH",
+    "client_oid_prefix": "crm52"
+  },
+  "evidence_grades": {
+    "screen_only": {
+      "minimum_days": 0,
+      "minimum_bars": 0
+    },
+    "preliminary": {
+      "minimum_days": 180,
+      "minimum_bars": 1000
+    },
+    "deployment_research": {
+      "minimum_days": 730,
+      "minimum_bars": 4000
+    },
+    "high_confidence": {
+      "minimum_days": 1095,
+      "minimum_bars": 6000
+    }
+  },
+  "freshness": {
+    "kucoin_private_critical_minutes": 30,
+    "local_agent_critical_minutes": 45,
+    "threecommas_secondary_minutes": 180,
+    "publication_delay_minutes": 30
+  }
+}

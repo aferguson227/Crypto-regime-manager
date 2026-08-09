@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "application_version": "52.0.0",
+  "generated_at": "2026-08-09T08:40:42.958946+00:00",
+  "status": "HEALTHY",
+  "assets": [
+    {
+      "asset": "TEL",
+      "status": "HEALTHY",
+      "effective_open_position": false,
+      "provider_stale": false,
+      "kucoin_active_orders": 0,
+      "kucoin_active_buy_orders": 0,
+      "kucoin_active_sell_orders": 0,
+      "expected_safety_orders": 6,
+      "checks": [
+        {
+          "check": "Exchange/provider lifecycle reconciliation",
+          "state": "PASS",
+          "detail": "No proven stale-open lifecycle mismatch."
+        },
+        {
+          "check": "Take-profit protection present",
+          "state": "NOT_REQUIRED",
+          "detail": "No exchange-confirmed open position currently requires TP protection."
+        },
+        {
+          "check": "Safety-order ladder present",
+          "state": "NOT_REQUIRED",
+          "detail": "No reconciled active position/expected safety-order ladder."
+        },
+        {
+          "check": "No orphan orders after closure",
+          "state": "PASS",
+          "detail": "No orphan-order contradiction detected."
+        }
+      ],
+      "issues": [],
+      "next_action": "Exchange protection is consistent with the current reconciled state.",
+      "read_only": true
+    }
+  ],
+  "summary": {
+    "assets_checked": 1,
+    "failed": 0,
+    "attention": 0,
+    "orphan_order_assets": 0,
+    "missing_tp_assets": 0
+  },
+  "authority": "KuCoin open/closed order state + CRM reconciled position truth. 3Commas is secondary provider telemetry.",
+  "automatic_exchange_writes": false
+}

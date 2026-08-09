@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "51.0.0",
-  "generated_at": "2026-08-09T08:36:56.806779+00:00",
+  "application_version": "52.0.0",
+  "generated_at": "2026-08-09T08:40:43.453136+00:00",
   "events": [
     {
       "event_id": "58f05bae44fe949aef1e2959",
@@ -4339,8 +4339,36 @@
       "status": null,
       "confidence_pct": null,
       "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "63e9a543ba72f567dfcc48f7",
+      "recorded_at": "2026-08-09T08:40:36.789407+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ENABLED",
+      "confidence_pct": 92.0,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "2b674e650b8f2d557d2b7440",
+      "recorded_at": "2026-08-09T08:40:36.789407+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 21.7,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
     }
   ],
-  "event_count": 333,
+  "event_count": 335,
   "live_updating": true
 }

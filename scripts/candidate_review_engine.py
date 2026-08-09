@@ -20,12 +20,12 @@ def days_between(a,b):
  except:return None
 def main():
  wf=load('kucoin_walk_forward.json');bots=load('recommended_bots.json');alloc=load('portfolio_allocation_recommendations.json');adaptive=load('adaptive_research_queue.json')
- hist=load('historical_data_status.json');kr=load('walk_forward_registry.json');res=load('validation_resolution.json');cont=load('cross_exchange_continuation.json');sched=load('research_scheduler_status.json');p=loadp()
+ hist=load('historical_data_status.json');kr=load('walk_forward_registry.json');res=load('validation_resolution.json');cont=load('cross_exchange_continuation.json');sched=load('research_scheduler_status.json');grades=load('candidate_evidence_grades.json');p=loadp()
  bybot={str(x.get('asset') or '').upper():x for x in bots.get('candidates') or []};bya={str(x.get('asset') or '').upper():x for x in alloc.get('recommendations') or []};byad={str(x.get('asset') or '').upper():x for x in adaptive.get('candidates') or []}
- bykr={str(x.get('symbol') or '').replace('XBT','BTC').upper():x for x in kr.get('coins') or []};byres={str(x.get('asset') or '').upper():x for x in res.get('positions') or []};bycont={str(x.get('asset') or '').upper():x for x in cont.get('assets') or []};hinv={str(x.get('symbol') or '').split('-')[0].upper():x for x in hist.get('inventory') or []}
+ bykr={str(x.get('symbol') or '').replace('XBT','BTC').upper():x for x in kr.get('coins') or []};byres={str(x.get('asset') or '').upper():x for x in res.get('positions') or []};bycont={str(x.get('asset') or '').upper():x for x in cont.get('assets') or []};bygrade={str(x.get('asset') or '').upper():x for x in grades.get('assets') or []};hinv={str(x.get('symbol') or '').split('-')[0].upper():x for x in hist.get('inventory') or []}
  rows=[]
  for x in wf.get('assets') or []:
-  a=str(x.get('asset') or '').upper();cp=x.get('current_regime_profile') or {};vm=cp.get('validation_metrics') or {};fm=cp.get('forward_observation') or {};bot=bybot.get(a) or {};al=bya.get(a) or {};ad=byad.get(a) or {};k=bykr.get(a) or {};rr=byres.get(a) or {};co=bycont.get(a) or {};hi=hinv.get(a) or {}
+  a=str(x.get('asset') or '').upper();cp=x.get('current_regime_profile') or {};vm=cp.get('validation_metrics') or {};fm=cp.get('forward_observation') or {};bot=bybot.get(a) or {};al=bya.get(a) or {};ad=byad.get(a) or {};k=bykr.get(a) or {};rr=byres.get(a) or {};co=bycont.get(a) or {};eg=bygrade.get(a) or {};hi=hinv.get(a) or {}
   observation_days=days_between((x.get('split') or {}).get('validation_end'),(x.get('period') or {}).get('end'));maxcap=num(vm.get('max_capital')) or 0;ret=(100*(num(vm.get('mark_to_market_pnl')) or 0)/maxcap) if maxcap else None;dd=(100*abs(num(vm.get('max_drawdown_dollars')) or 0)/maxcap) if maxcap else None
   fcap=num(fm.get('max_capital')) or maxcap;fret=(100*(num(fm.get('mark_to_market_pnl')) or 0)/fcap) if fcap else None
   annual=None
@@ -33,6 +33,7 @@ def main():
    vdays=days_between((x.get('split') or {}).get('training_end'),(x.get('split') or {}).get('validation_end'))
    if vdays and vdays>=30:annual=round(ret*365/vdays,1)
   gates=[
+   {'id':'evidence_grade','label':'Evidence grade','state':'PASS' if eg.get('deployment_history_gate')=='PASS' else 'BLOCKED','detail':f"{eg.get('evidence_grade','Unknown')} · {eg.get('history_years',0)} years · {eg.get('bars_4h',0)} 4h bars. {eg.get('reason','')}"},
    {'id':'history_complete','label':'Historical data','state':'PASS' if (hi.get('bars') or x.get('bars') or 0)>=900 else 'PENDING','detail':f"{hi.get('bars') or x.get('bars') or 0} 4h bars available."},
    {'id':'kucoin_walk_forward','label':'KuCoin walk-forward','state':'PASS' if x.get('kucoin_primary_validation_pass') else 'PENDING','detail':'Frozen settings passed unseen KuCoin validation.' if x.get('kucoin_primary_validation_pass') else 'No current-regime frozen configuration has passed unseen KuCoin validation yet.'},
    {'id':'trade_fluidity','label':'Trade fluidity','state':'PASS' if vm and not vm.get('open_position') and float(vm.get('longest_hours') or 9999)<=168 else 'PENDING','detail':f"Longest validation trade {vm.get('longest_hours','unknown')}h; open position {vm.get('open_position','unknown')}."},
@@ -58,7 +59,7 @@ def main():
   regime_profiles={}
   for name,pr in (x.get('regime_profiles') or {}).items():
    frozen=(pr.get('frozen_training_winner') or {});regime_profiles[name]={'validated':bool(pr.get('validation_pass')),'entry_trigger':frozen.get('entry_trigger'),'settings':frozen.get('settings') or {},'validation_metrics':pr.get('validation_metrics') or {},'forward_observation':pr.get('forward_observation') or {}}
-  rows.append({'asset':a,'pair':x.get('pair') or f'{a}-USDT','readiness_pct':score,'gates':gates,'recommendation':recommendation,'next_action':next_action,'current_regime':x.get('current_regime_family'),
+  rows.append({'asset':a,'pair':x.get('pair') or f'{a}-USDT','evidence_grade':eg,'readiness_pct':score,'gates':gates,'recommendation':recommendation,'next_action':next_action,'current_regime':x.get('current_regime_family'),
    'settings':((cp.get('frozen_training_winner') or {}).get('settings') or bot.get('dca_settings') or {}),'entry_trigger':(cp.get('frozen_training_winner') or {}).get('entry_trigger') or bot.get('entry_trigger'),
    'kucoin_profitability':{'validation_return_on_max_capital_pct':round(ret,2) if ret is not None else None,'validation_mark_to_market_pnl':vm.get('mark_to_market_pnl'),'validation_closed_deals':vm.get('closed_deals'),
     'validation_average_hold_hours':vm.get('average_hours'),'validation_p90_hold_hours':vm.get('p90_hours'),'validation_longest_hold_hours':vm.get('longest_hours'),'validation_drawdown_pct':round(dd,2) if dd is not None else None,
