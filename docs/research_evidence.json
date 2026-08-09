@@ -1,21 +1,21 @@
 {
   "schema_version": "1.0",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T07:51:31.229345+00:00",
+  "generated_at": "2026-08-09T08:36:54.980442+00:00",
   "mode": "read_only_research_evidence_bridge",
   "automatic_forward_testing": false,
   "automatic_production_promotion": false,
   "manual_approval_required": true,
   "candidate_count": 5,
-  "kraken_registry_coverage_count": 3,
+  "kraken_registry_coverage_count": 4,
   "validated_pass_count": 3,
-  "coverage_pct": 60.0,
+  "coverage_pct": 80.0,
   "candidates": [
     {
       "asset": "XMR",
       "pair": "XMR-USDT",
       "discovery_rank": 1,
-      "research_score": 81.9,
+      "research_score": 82.2,
       "candidate_stage": "queued_for_fee_aware_replay",
       "kraken_validation_status": "VALIDATED_PASS",
       "walk_forward_status": "PASS",
@@ -112,7 +112,7 @@
       "asset": "ETH",
       "pair": "ETH-USDT",
       "discovery_rank": 4,
-      "research_score": 75.0,
+      "research_score": 75.2,
       "candidate_stage": "queued_for_fee_aware_replay",
       "kraken_validation_status": "VALIDATED_PASS",
       "walk_forward_status": "PASS",
@@ -150,21 +150,47 @@
       "next_action": "Current frozen Kraken/Q1 result may inform evidence scoring; manual approval remains required."
     },
     {
-      "asset": "PIEVERSE",
-      "pair": "PIEVERSE-USDT",
+      "asset": "AAVE",
+      "pair": "AAVE-USDT",
       "discovery_rank": 5,
-      "research_score": 72.4,
+      "research_score": 72.5,
       "candidate_stage": "queued_for_fee_aware_replay",
-      "kraken_validation_status": "NEEDS_KRAKEN_VALIDATION",
-      "walk_forward_status": null,
-      "training_metrics": null,
-      "q1_2026_metrics": null,
-      "frozen_settings": null,
+      "kraken_validation_status": "VALIDATED_FAIL",
+      "walk_forward_status": "FAIL",
+      "training_metrics": {
+        "net_pnl": 32426.3,
+        "closed_deals": 1303,
+        "average_hours": 7.4,
+        "longest_hours": 904,
+        "max_drawdown_dollars": -3139.43,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 30809.419499999996
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 834.64,
+        "realised_pnl": 834.64,
+        "open_pnl": -2090.54,
+        "mark_to_market_pnl": -1255.9,
+        "closed_deals": 39,
+        "average_hours": 12.9,
+        "longest_hours": 60,
+        "max_drawdown_dollars": -2330.4,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "frozen_settings": {
+        "take_profit_pct": 2.0,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
       "automatic_promotion": false,
       "manual_approval_required": true,
-      "next_action": "Acquire/import comparable historical and independent validation data before production consideration."
+      "next_action": "Keep as research/reject unless a new independent validation cycle is explicitly approved."
     }
   ],
   "next_phase": "Automate fee-aware replay and independent forward validation only when comparable local research archives are available.",
-  "snapshot_id": "80694017e7800b6a88fe"
+  "snapshot_id": "f5fb7aff9e3f5cb04669"
 }

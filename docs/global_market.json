@@ -1,10 +1,10 @@
 {
   "schema_version": "1.1",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T07:13:43.231344+00:00",
+  "generated_at": "2026-08-09T08:31:55.002861+00:00",
   "regime": "ACCUMULATION",
-  "score_pct": 53.5,
-  "explanation": "Accumulation because the weighted current-market score is 53.5%.",
+  "score_pct": 54.7,
+  "explanation": "Accumulation because the weighted current-market score is 54.7%.",
   "criteria": [
     {
       "criterion": "Market trend",
@@ -22,16 +22,16 @@
     },
     {
       "criterion": "BTC 30-day trend",
-      "value": 0.6,
+      "value": 1.4,
       "weight": 1.0,
-      "score_contribution": 0.6,
+      "score_contribution": 1.4,
       "source": "KuCoin BTC public market evidence"
     },
     {
       "criterion": "BTC 24-hour move",
-      "value": -0.33,
+      "value": -0.04,
       "weight": 1.2,
-      "score_contribution": -0.4,
+      "score_contribution": -0.05,
       "source": "KuCoin BTC public market evidence"
     },
     {
@@ -43,8 +43,8 @@
     }
   ],
   "current_evidence": {
-    "btc_30d_trend_pct": 0.6,
-    "btc_24h_change_pct": -0.33,
+    "btc_30d_trend_pct": 1.4,
+    "btc_24h_change_pct": -0.04,
     "breadth_pct": 66.7,
     "breadth_positive_count": 6,
     "breadth_universe_count": 9,
@@ -68,5 +68,5 @@
     "automatic_bot_changes": false,
     "manual_approval_required": true
   },
-  "snapshot_id": "1cd2abfc65efda9f7bd395e2"
+  "snapshot_id": "83e71d2755af9cba523b24d6"
 }

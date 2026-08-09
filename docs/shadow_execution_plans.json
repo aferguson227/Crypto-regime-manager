@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T07:13:45.519237+00:00",
+  "generated_at": "2026-08-09T08:36:56.505198+00:00",
   "mode": "SHADOW_ONLY",
   "plans": [
     {
@@ -16,27 +16,27 @@
         "volume_scale": 1.5,
         "step_scale": 1.0
       },
-      "allocated_budget_usdt": 106.2,
+      "allocated_budget_usdt": 921.96,
       "hypothetical_order_ladder": [
         {
           "role": "BASE_ORDER",
-          "notional_usdt": 11.64
+          "notional_usdt": 101.04
         },
         {
           "role": "SAFETY_ORDER_1",
-          "notional_usdt": 11.64
+          "notional_usdt": 101.04
         },
         {
           "role": "SAFETY_ORDER_2",
-          "notional_usdt": 17.46
+          "notional_usdt": 151.56
         },
         {
           "role": "SAFETY_ORDER_3",
-          "notional_usdt": 26.19
+          "notional_usdt": 227.33
         },
         {
           "role": "SAFETY_ORDER_4",
-          "notional_usdt": 39.28
+          "notional_usdt": 341.0
         }
       ],
       "checks": [
@@ -58,69 +58,27 @@
         "volume_scale": 1.3,
         "step_scale": 1.0
       },
-      "allocated_budget_usdt": 106.2,
+      "allocated_budget_usdt": 921.96,
       "hypothetical_order_ladder": [
         {
           "role": "BASE_ORDER",
-          "notional_usdt": 14.78
+          "notional_usdt": 128.28
         },
         {
           "role": "SAFETY_ORDER_1",
-          "notional_usdt": 14.78
+          "notional_usdt": 128.28
         },
         {
           "role": "SAFETY_ORDER_2",
-          "notional_usdt": 19.21
+          "notional_usdt": 166.77
         },
         {
           "role": "SAFETY_ORDER_3",
-          "notional_usdt": 24.97
+          "notional_usdt": 216.8
         },
         {
           "role": "SAFETY_ORDER_4",
-          "notional_usdt": 32.46
-        }
-      ],
-      "checks": [
-        "candidate readiness = 100%",
-        "portfolio slot/allocation available",
-        "manual confirmation required"
-      ],
-      "status": "SHADOW_READY"
-    },
-    {
-      "asset": "NEAR",
-      "pair": "NEAR-USDT",
-      "current_regime": "BEAR",
-      "entry_trigger": "immediate",
-      "settings": {
-        "take_profit_pct": 0.8,
-        "so_deviation_pct": 1.2,
-        "safety_orders": 4,
-        "volume_scale": 1.3,
-        "step_scale": 1.0
-      },
-      "allocated_budget_usdt": 83.74,
-      "hypothetical_order_ladder": [
-        {
-          "role": "BASE_ORDER",
-          "notional_usdt": 11.65
-        },
-        {
-          "role": "SAFETY_ORDER_1",
-          "notional_usdt": 11.65
-        },
-        {
-          "role": "SAFETY_ORDER_2",
-          "notional_usdt": 15.15
-        },
-        {
-          "role": "SAFETY_ORDER_3",
-          "notional_usdt": 19.69
-        },
-        {
-          "role": "SAFETY_ORDER_4",
-          "notional_usdt": 25.6
+          "notional_usdt": 281.83
         }
       ],
       "checks": [

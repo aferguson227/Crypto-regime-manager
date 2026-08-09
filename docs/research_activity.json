@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T07:51:32.736649+00:00",
+  "generated_at": "2026-08-09T08:36:57.111104+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -9,7 +9,7 @@
     "historical_symbols": 16,
     "historical_ready": 14,
     "history_progress_pct": 87.5,
-    "kucoin_walk_forward_ready": 4,
+    "kucoin_walk_forward_ready": 3,
     "candidates_under_review": 20,
     "regime_research_complete": 0,
     "optimisation_pending": 0,
@@ -35,7 +35,7 @@
     "reject_open_duration_hours": 720,
     "explanation": "Optimise profit and capital fluidity together. Long closed trades are penalised; unresolved positions receive a stronger penalty and may reject a configuration."
   },
-  "last_full_research_at": "2026-08-09T07:44:44.809692+00:00",
+  "last_full_research_at": "2026-08-09T08:31:51.210661+00:00",
   "independent_walk_forward": {
     "status": "NOT_CONFIGURED",
     "training_dir": "C:\\Crypto\\Research\\Kraken\\training",
@@ -44,7 +44,7 @@
   },
   "persistent_research": {
     "database_status": "READY",
-    "known_assets": 60,
+    "known_assets": 61,
     "cached_results": 2,
     "scheduler_cache_hit": false
   },
@@ -57,11 +57,11 @@
         "symbol": "XMR-USDT",
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-USDT_4H.csv",
-        "bars": 11776,
+        "bars": 11777,
         "new_bars": 0,
         "pages_requested": 2,
         "earliest": "2021-03-24T08:00:00+00:00",
-        "latest": "2026-08-09T00:00:00+00:00",
+        "latest": "2026-08-09T04:00:00+00:00",
         "backfill_complete": true,
         "errors": [],
         "status": "OK"
@@ -106,19 +106,6 @@
         "status": "CACHED"
       },
       {
-        "symbol": "PIEVERSE-USDT",
-        "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\PIEVERSE-USDT_4H.csv",
-        "bars": 473,
-        "new_bars": 0,
-        "pages_requested": 2,
-        "earliest": "2026-05-22T08:00:00+00:00",
-        "latest": "2026-08-09T00:00:00+00:00",
-        "backfill_complete": true,
-        "errors": [],
-        "status": "OK"
-      },
-      {
         "symbol": "AAVE-USDT",
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AAVE-USDT_4H.csv",
@@ -130,6 +117,19 @@
         "backfill_complete": false,
         "errors": [],
         "status": "CACHED"
+      },
+      {
+        "symbol": "SOL-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\SOL-USDT_4H.csv",
+        "bars": 10979,
+        "new_bars": 0,
+        "pages_requested": 2,
+        "earliest": "2021-08-04T08:00:00+00:00",
+        "latest": "2026-08-09T04:00:00+00:00",
+        "backfill_complete": true,
+        "errors": [],
+        "status": "OK"
       },
       {
         "symbol": "ZEC-USDT",
@@ -145,27 +145,27 @@
         "status": "CACHED"
       },
       {
-        "symbol": "SOL-USDT",
+        "symbol": "NEAR-USDT",
         "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\SOL-USDT_4H.csv",
-        "bars": 10978,
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
+        "bars": 11135,
         "new_bars": 0,
         "pages_requested": 2,
-        "earliest": "2021-08-04T08:00:00+00:00",
-        "latest": "2026-08-09T00:00:00+00:00",
+        "earliest": "2021-07-09T08:00:00+00:00",
+        "latest": "2026-08-09T04:00:00+00:00",
         "backfill_complete": true,
         "errors": [],
         "status": "OK"
       },
       {
-        "symbol": "NEAR-USDT",
+        "symbol": "PIEVERSE-USDT",
         "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
-        "bars": 11134,
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\PIEVERSE-USDT_4H.csv",
+        "bars": 474,
         "new_bars": 0,
         "pages_requested": 2,
-        "earliest": "2021-07-09T08:00:00+00:00",
-        "latest": "2026-08-09T00:00:00+00:00",
+        "earliest": "2026-05-22T08:00:00+00:00",
+        "latest": "2026-08-09T04:00:00+00:00",
         "backfill_complete": true,
         "errors": [],
         "status": "OK"
@@ -174,24 +174,24 @@
         "symbol": "AEON-USDT",
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AEON-USDT_4H.csv",
-        "bars": 77,
+        "bars": 78,
         "new_bars": 0,
         "pages_requested": 2,
         "earliest": "2026-07-27T08:00:00+00:00",
-        "latest": "2026-08-09T00:00:00+00:00",
+        "latest": "2026-08-09T04:00:00+00:00",
         "backfill_complete": true,
         "errors": [],
         "status": "OK"
       },
       {
-        "symbol": "CYS-USDT",
+        "symbol": "TUT-USDT",
         "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\CYS-USDT_4H.csv",
-        "bars": 1445,
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\TUT-USDT_4H.csv",
+        "bars": 3046,
         "new_bars": 0,
         "pages_requested": 2,
-        "earliest": "2025-12-11T08:00:00+00:00",
-        "latest": "2026-08-09T00:00:00+00:00",
+        "earliest": "2025-03-19T08:00:00+00:00",
+        "latest": "2026-08-09T04:00:00+00:00",
         "backfill_complete": true,
         "errors": [],
         "status": "OK"
@@ -265,7 +265,7 @@
   },
   "kucoin_walk_forward": {
     "assets": 12,
-    "ready_for_manual_review": 4,
+    "ready_for_manual_review": 3,
     "backtests_run": 542080
   },
   "process": [
@@ -307,19 +307,7 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "PIEVERSE",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
       "asset": "AAVE",
-      "status": "KUCOIN_WALK_FORWARD_COMPLETE",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
-    },
-    {
-      "asset": "ZEC",
       "status": "KUCOIN_WALK_FORWARD_COMPLETE",
       "current_regime": "ACCUMULATION",
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
@@ -331,13 +319,37 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "NEAR",
+      "asset": "ZEC",
       "status": "KUCOIN_WALK_FORWARD_COMPLETE",
       "current_regime": "ACCUMULATION",
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     },
     {
+      "asset": "NEAR",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "PIEVERSE",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
       "asset": "AEON",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "TUT",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "XRP",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -349,7 +361,7 @@
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     },
     {
-      "asset": "XRP",
+      "asset": "BNB",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -357,18 +369,6 @@
     {
       "asset": "DOT",
       "status": "REJECTED",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "BNB",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "SIREN",
-      "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     },
@@ -385,23 +385,23 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "TUT",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
       "asset": "LTC",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "ACE",
+      "asset": "SIREN",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "BLUAI",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     }
   ],
-  "snapshot_id": "f6aa10cb6b76117e5603ffc2"
+  "snapshot_id": "05e5d0764ce398ac3fcb2784"
 }

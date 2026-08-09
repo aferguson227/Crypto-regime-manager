@@ -1,31 +1,11 @@
 {
   "schema_version": "1.0",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T07:14:48.544738+00:00",
+  "generated_at": "2026-08-09T08:31:52.074237+00:00",
   "authority": "KuCoin exchange order/fill evidence overrides stale execution-provider telemetry when closure is proven.",
-  "deals": [
-    {
-      "asset": "TEL",
-      "bot_id": 16945272,
-      "bot_name": "TEL DCA - Low Volatility",
-      "provider": "3Commas",
-      "provider_deal_status": "bought",
-      "provider_reports_open": true,
-      "kucoin_recent_sell_orders": 0,
-      "kucoin_active_orders": 0,
-      "allocated_quantity": 77890.0,
-      "largest_recent_completed_sell_quantity": 0,
-      "exchange_closed_evidence": false,
-      "exchange_close_evidence_time": null,
-      "reconciliation_state": "PROVIDER_OPEN_EXCHANGE_UNCONFIRMED",
-      "blocked_next_entry_risk": false,
-      "crm_position_truth": "OPEN",
-      "action": "No stale-provider closure proven.",
-      "read_only": true
-    }
-  ],
+  "deals": [],
   "summary": {
-    "provider_open_deals": 1,
+    "provider_open_deals": 0,
     "proven_stale_open_deals": 0,
     "blocked_next_entry_risks": 0
   },

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T08:05:54.615130+00:00",
-  "snapshot_id": "9285a039c3c4c6ecb5af",
+  "generated_at": "2026-08-09T08:31:52.635197+00:00",
+  "snapshot_id": "7dc7953ed2c09c597e4f",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -20,10 +20,10 @@
   "capital_status": "COMPLETE",
   "capital_summary": {
     "exchange_total": 3615.53005894,
-    "free_available": 3046.01916265,
+    "free_available": 3615.53005894,
     "active_deal_capital": 0.0,
     "reserved_capital": 0,
-    "deployable_capital": 3046.01916265,
+    "deployable_capital": 3615.53005894,
     "next_capital_required": null,
     "can_fund_next_priority": null
   },
@@ -48,7 +48,7 @@
       "live_state": "ENABLED_IDLE",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 3046.01916265,
+      "capital_available": 3615.53005894,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -226,7 +226,7 @@
       "live_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 3046.01916265,
+      "capital_available": 3615.53005894,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -403,8 +403,8 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "1575bf04e1e7fbfe305b",
-    "capital_snapshot": "f828b05f8c5de4bd60cb",
+    "operating_state_snapshot": "c35563f982aeb6bb35e6",
+    "capital_snapshot": "ee541cc235da72177e71",
     "decision_generated_at": "2026-08-09T08:05:53.471559+00:00",
     "threecommas_generated_at": "2026-08-09T08:05:44.884425+00:00"
   },

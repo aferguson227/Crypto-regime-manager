@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T08:05:54.668022+00:00",
-  "snapshot_id": "824e1e9c911f9e78e630",
+  "generated_at": "2026-08-09T08:31:52.823609+00:00",
+  "snapshot_id": "8abcd83b7620c9a52e0c",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Low",
   "recommendations": [
     {
-      "recommendation_id": "f7f326ddc69591d2c454b97b",
+      "recommendation_id": "042cb50ee29a0b3853f7f82c",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ENABLED",
@@ -208,7 +208,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 3046.01916265,
+        "available": 3615.53005894,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -222,7 +222,7 @@
       "explanation": "Keep enabled TEL Low Volatility Bot. Confidence 92.0%; risk moderate. Current entry filters pass"
     },
     {
-      "recommendation_id": "ef1d94953aa4e624fa344491",
+      "recommendation_id": "d52702a4c5d48fc897b385ff",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -430,7 +430,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 3046.01916265,
+        "available": 3615.53005894,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -450,8 +450,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "9285a039c3c4c6ecb5af",
-    "deployment_generated_at": "2026-08-09T08:05:54.615130+00:00",
+    "deployment_snapshot": "7dc7953ed2c09c597e4f",
+    "deployment_generated_at": "2026-08-09T08:31:52.635197+00:00",
     "decision_generated_at": "2026-08-09T08:05:53.471559+00:00"
   }
 }

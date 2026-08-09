@@ -1,26 +1,26 @@
 {
   "schema_version": "1.0",
   "application_version": "51.0.0",
-  "generated_at": "2026-08-09T07:51:33.152647+00:00",
-  "overall": "REFRESH_OVERDUE",
+  "generated_at": "2026-08-09T08:36:57.557894+00:00",
+  "overall": "REFRESH_DUE",
   "fault_count": 0,
-  "overdue_count": 1,
+  "overdue_count": 0,
   "components": [
     {
       "name": "3Commas",
-      "status": "OVERDUE",
-      "age_minutes": 181.4,
-      "age_display": "3h 01m ago",
+      "status": "CURRENT",
+      "age_minutes": 31.2,
+      "age_display": "31 min ago",
       "expected_cadence_minutes": 60,
-      "reason": "Automatic refresh is overdue. If this persists, inspect the collector.",
+      "reason": "Within the expected automatic refresh window.",
       "source": "GitHub CRM Data Refresh",
       "automatic": true
     },
     {
       "name": "Local private data",
       "status": "REFRESH_DUE",
-      "age_minutes": 34.5,
-      "age_display": "34 min ago",
+      "age_minutes": 45.4,
+      "age_display": "45 min ago",
       "expected_cadence_minutes": 15,
       "reason": "Valid data remains available; the next automatic refresh is due.",
       "source": "Windows Local Agent / KuCoin",
@@ -29,8 +29,8 @@
     {
       "name": "Website publication",
       "status": "CURRENT",
-      "age_minutes": 161.4,
-      "age_display": "2h 41m ago",
+      "age_minutes": 25.8,
+      "age_display": "26 min ago",
       "expected_cadence_minutes": 240,
       "reason": "Live Pages is synchronised with the published CRM version. Deployment age is informational only.",
       "source": "Validated Pages publication",
@@ -40,11 +40,11 @@
     },
     {
       "name": "Diagnostics",
-      "status": "CURRENT",
-      "age_minutes": 34.6,
-      "age_display": "35 min ago",
+      "status": "REFRESH_DUE",
+      "age_minutes": 80.0,
+      "age_display": "1h 20m ago",
       "expected_cadence_minutes": 15,
-      "reason": "Within the expected automatic refresh window.",
+      "reason": "Valid data remains available; the next automatic refresh is due.",
       "source": "Autonomous diagnostics",
       "automatic": true
     }
