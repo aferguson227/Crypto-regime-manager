@@ -1,9 +1,9 @@
 {
   "version": "58.0.0",
   "authentication": "RSA self-generated",
-  "generated_at": "2026-08-09T16:01:13.622886+00:00",
-  "last_attempt_at": "2026-08-09T16:01:13.622886+00:00",
-  "last_success_at": "2026-08-09T16:01:13.622886+00:00",
+  "generated_at": "2026-08-09T18:02:09.091638+00:00",
+  "last_attempt_at": "2026-08-09T18:02:09.091638+00:00",
+  "last_success_at": "2026-08-09T18:02:09.091638+00:00",
   "status": "ok",
   "core_status": "ok",
   "core_failed": [],
@@ -18,7 +18,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-09T16:01:14.252458+00:00"
+      "observed_at": "2026-08-09T18:02:09.713100+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
@@ -27,7 +27,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-09T16:01:14.623447+00:00"
+      "observed_at": "2026-08-09T18:02:10.055262+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
@@ -36,7 +36,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 4,
-      "observed_at": "2026-08-09T16:01:15.162845+00:00"
+      "observed_at": "2026-08-09T18:02:10.407986+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
@@ -45,7 +45,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-09T16:01:15.476134+00:00"
+      "observed_at": "2026-08-09T18:02:11.007793+00:00"
     },
     "account_32632134_details": {
       "path": "/public/api/ver1/accounts/32632134",
@@ -54,7 +54,7 @@
       "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-09T16:01:15.476177+00:00"
+      "observed_at": "2026-08-09T18:02:11.007876+00:00"
     },
     "account_32632134_balances": {
       "path": "/public/api/ver1/accounts/32632134/account_table_data",
@@ -63,7 +63,7 @@
       "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-09T16:01:15.476182+00:00"
+      "observed_at": "2026-08-09T18:02:11.007882+00:00"
     }
   },
   "accounts": [
@@ -213,7 +213,7 @@
           "base_asset": "TEL",
           "status": "bought",
           "created_at": "2026-08-09T12:01:32.406Z",
-          "profit_pct": -0.1,
+          "profit_pct": -0.04,
           "completed_safety_orders": 1,
           "max_safety_orders": 6,
           "active_safety_orders": 3,
