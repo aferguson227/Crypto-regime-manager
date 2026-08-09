@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "54.0.0",
-  "generated_at": "2026-08-09T09:50:15.049578+00:00",
+  "generated_at": "2026-08-09T10:11:16.162452+00:00",
   "mode": "LOCKED_SHADOW",
   "overall": "BUILDING",
   "checks": [
@@ -23,7 +23,7 @@
     {
       "label": "Shadow plans available",
       "state": "PASS",
-      "detail": "2 candidate shadow plan(s) available."
+      "detail": "1 candidate shadow plan(s) available."
     },
     {
       "label": "Spot trading permission explicitly confirmed",
@@ -43,19 +43,10 @@
   ],
   "shadow_plans": [
     {
-      "asset": "AAVE",
-      "pair": "AAVE-USDT",
-      "shadow_status": "SHADOW_READY",
-      "client_oid_example": "crm52-aave-088f5196f1a84f959e",
-      "planned_budget_usdt": 921.96,
-      "hypothetical_order_count": 5,
-      "idempotency_method": "Unique CRM clientOid per intended order; retries must query by clientOid before any future live submission."
-    },
-    {
       "asset": "ZEC",
       "pair": "ZEC-USDT",
       "shadow_status": "SHADOW_READY",
-      "client_oid_example": "crm52-zec-d1635cdac9c1436a94",
+      "client_oid_example": "crm52-zec-335b1721cb2d4bf9a1",
       "planned_budget_usdt": 921.96,
       "hypothetical_order_count": 5,
       "idempotency_method": "Unique CRM clientOid per intended order; retries must query by clientOid before any future live submission."

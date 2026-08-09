@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "54.0.0",
-  "generated_at": "2026-08-09T09:50:12.924982+00:00",
+  "generated_at": "2026-08-09T10:11:13.878113+00:00",
   "assets": [
     {
       "asset": "AAVE",
@@ -77,25 +77,6 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "ACCUMULATION"
-    },
-    {
-      "asset": "CYS",
-      "pair": "CYS-USDT",
-      "evidence_grade": "PRELIMINARY",
-      "bars_4h": 1445,
-      "history_days": 240.7,
-      "history_start": "2025-12-11T08:00:00+00:00",
-      "history_end": "2026-08-09T00:00:00+00:00",
-      "history_years": 0.66,
-      "regime_profiles_observed": [],
-      "regime_profile_count": 0,
-      "kucoin_walk_forward_pass": true,
-      "kraken_robustness_status": "MISSING",
-      "kraken_role": "NOT_AVAILABLE",
-      "deployment_history_gate": "BLOCKED",
-      "deployment_evidence_gate": "BLOCKED",
-      "reason": "Enough data for preliminary research, but not enough history/regime depth for normal deployment approval.",
       "current_global_regime": "ACCUMULATION"
     },
     {
@@ -290,9 +271,9 @@
     }
   ],
   "summary": {
-    "assets": 15,
+    "assets": 14,
     "screen_only": 4,
-    "preliminary": 2,
+    "preliminary": 1,
     "deployment_research": 0,
     "high_confidence": 9
   },

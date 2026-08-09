@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
   "application_version": "54.0.0",
-  "generated_at": "2026-08-09T09:50:13.788459+00:00",
+  "generated_at": "2026-08-09T10:11:13.971957+00:00",
   "enabled": true,
-  "queued_count": 7,
+  "queued_count": 8,
   "candidates": [
     {
       "asset": "XMR",
@@ -224,8 +224,8 @@
       "state": "ADAPTIVE_RESEARCH_QUEUED",
       "failure_reasons": [
         "Validation ended with unresolved exposure or current profile retained an open position.",
-        "Validation drawdown 23.6% exceeds preferred tolerance.",
-        "Longest validation trade 440h exceeds the preferred 168h fluidity target."
+        "Validation drawdown 36.6% exceeds preferred tolerance.",
+        "Longest validation trade 612h exceeds the preferred 168h fluidity target."
       ],
       "next_experiments": [
         "tighten_entry_filter",
@@ -245,6 +245,39 @@
           8,
           9
         ],
+        "volume_scale": [
+          1.1,
+          1.2
+        ],
+        "step_scale": [
+          1.3,
+          1.5
+        ],
+        "entry_triggers": [
+          "trend_pullback",
+          "qfl_proxy_3",
+          "mean_reversion"
+        ]
+      },
+      "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
+    },
+    {
+      "asset": "TUT",
+      "pair": "TUT-USDT",
+      "state": "ADAPTIVE_RESEARCH_QUEUED",
+      "failure_reasons": [
+        "Validation drawdown 21.2% exceeds preferred tolerance.",
+        "Longest validation trade 652h exceeds the preferred 168h fluidity target."
+      ],
+      "next_experiments": [
+        "reduce_volume_scale",
+        "increase_step_scale",
+        "restrict_regime",
+        "tighten_entry_filter"
+      ],
+      "search_extensions": {
+        "so_deviation_pct": [],
+        "safety_orders": [],
         "volume_scale": [
           1.1,
           1.2

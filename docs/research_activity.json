@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "54.0.0",
-  "generated_at": "2026-08-09T09:50:15.631794+00:00",
+  "generated_at": "2026-08-09T10:11:16.583969+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -9,7 +9,7 @@
     "historical_symbols": 16,
     "historical_ready": 14,
     "history_progress_pct": 87.5,
-    "kucoin_walk_forward_ready": 3,
+    "kucoin_walk_forward_ready": 2,
     "candidates_under_review": 20,
     "regime_research_complete": 0,
     "optimisation_pending": 0,
@@ -23,9 +23,9 @@
   "independent_walk_forward": {},
   "persistent_research": {
     "database_status": "READY",
-    "known_assets": 61,
+    "known_assets": 62,
     "cached_results": 2,
-    "scheduler_cache_hit": null
+    "scheduler_cache_hit": false
   },
   "data_acquisition": {
     "status": "ACTIVE",
@@ -244,8 +244,8 @@
   },
   "kucoin_walk_forward": {
     "assets": 12,
-    "ready_for_manual_review": 3,
-    "backtests_run": 542080
+    "ready_for_manual_review": 2,
+    "backtests_run": 621600
   },
   "process": [
     "Scan KuCoin USDT universe",
@@ -335,9 +335,9 @@
     },
     {
       "asset": "CYS",
-      "status": "KUCOIN_WALK_FORWARD_COMPLETE",
+      "status": "WAIT",
       "current_regime": "ACCUMULATION",
-      "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
+      "next_action": "Remain in research queue."
     },
     {
       "asset": "BNB",
@@ -382,5 +382,5 @@
       "next_action": "Remain in research queue."
     }
   ],
-  "snapshot_id": "9d118ca9f6866cacc79c0aac"
+  "snapshot_id": "24bc5ddafc3cdccd59e5f720"
 }
