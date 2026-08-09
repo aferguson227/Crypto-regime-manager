@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T00:16:05.282115+00:00",
+  "generated_at": "2026-08-09T00:29:23.292719+00:00",
   "overall": "REFRESH_DUE",
   "fault_count": 0,
   "overdue_count": 0,
@@ -9,8 +9,8 @@
     {
       "name": "3Commas",
       "status": "CURRENT",
-      "age_minutes": 18.6,
-      "age_display": "19 min ago",
+      "age_minutes": 31.9,
+      "age_display": "32 min ago",
       "expected_cadence_minutes": 60,
       "reason": "Within the expected automatic refresh window.",
       "source": "GitHub CRM Data Refresh",
@@ -19,8 +19,8 @@
     {
       "name": "Local private data",
       "status": "REFRESH_DUE",
-      "age_minutes": 47.3,
-      "age_display": "47 min ago",
+      "age_minutes": 60.6,
+      "age_display": "1h 01m ago",
       "expected_cadence_minutes": 15,
       "reason": "Valid data remains available; the next automatic refresh is due.",
       "source": "Windows Local Agent / KuCoin",
@@ -38,11 +38,11 @@
     },
     {
       "name": "Diagnostics",
-      "status": "REFRESH_DUE",
-      "age_minutes": 77.4,
-      "age_display": "1h 17m ago",
+      "status": "CURRENT",
+      "age_minutes": 13.3,
+      "age_display": "13 min ago",
       "expected_cadence_minutes": 15,
-      "reason": "Valid data remains available; the next automatic refresh is due.",
+      "reason": "Within the expected automatic refresh window.",
       "source": "Autonomous diagnostics",
       "automatic": true
     }
