@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T13:15:48.997914+00:00",
+  "generated_at": "2026-08-09T14:10:49.062810+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -62,6 +62,30 @@
       }
     },
     {
+      "event_id": "354e73deb8900850e7278155",
+      "kind": "COIN_STATUS",
+      "title": "XRP is Ready For Review",
+      "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only.",
+      "severity": "opportunity",
+      "action": "REVIEW_COIN",
+      "payload": {
+        "asset": "XRP",
+        "lifecycle": "READY_FOR_REVIEW",
+        "execution_state": "NOT_DEPLOYED",
+        "research_state": "READY_FOR_MANUAL_REVIEW",
+        "reasons": [
+          "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
+        ],
+        "history_sources": [
+          "recommended_bots",
+          "research_pipeline"
+        ],
+        "validated_return_pct": 30.6,
+        "current_regime": "ACCUMULATION",
+        "research_continues_while_live": false
+      }
+    },
+    {
       "event_id": "fe0a6a74b2a85fdc20ce3a36",
       "kind": "COIN_STATUS",
       "title": "ZEC is Ready For Review",
@@ -86,7 +110,7 @@
       }
     },
     {
-      "event_id": "3ec284b80441c681219ebe77",
+      "event_id": "51e4eae8d59cf5d6241f7559",
       "kind": "EXECUTION_PROVIDER_MISMATCH",
       "title": "TEL closed on KuCoin but 3Commas still shows open",
       "detail": "Reconcile/cancel stale 3Commas deal before relying on provider for the next entry.",
@@ -99,12 +123,12 @@
         "provider": "3Commas",
         "provider_deal_status": "bought",
         "provider_reports_open": true,
-        "kucoin_recent_sell_orders": 1,
+        "kucoin_recent_sell_orders": 2,
         "kucoin_active_orders": 0,
         "allocated_quantity": 72640.0,
         "largest_recent_completed_sell_quantity": 72640.0,
         "exchange_closed_evidence": true,
-        "exchange_close_evidence_time": "1786268705205",
+        "exchange_close_evidence_time": "1786276957793",
         "reconciliation_state": "PROVIDER_STALE_OPEN",
         "blocked_next_entry_risk": true,
         "crm_position_truth": "CLOSED",
@@ -113,7 +137,7 @@
       }
     }
   ],
-  "material_count": 5,
+  "material_count": 6,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -122,5 +146,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "9e8e1dfd20544f9952cf61c7"
+  "snapshot_id": "42d4cd12372a785ffefabadb"
 }

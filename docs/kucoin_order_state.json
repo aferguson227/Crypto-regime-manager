@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T13:16:06.054655+00:00",
+  "generated_at": "2026-08-09T14:11:05.819322+00:00",
   "status": "DEGRADED",
   "scope_symbols": [
     "TEL-USDT",
@@ -17,15 +17,15 @@
     "SOL-USDT",
     "ZEC-USDT",
     "NEAR-USDT",
-    "PIEVERSE-USDT",
-    "AEON-USDT",
     "TUT-USDT",
-    "XRP-USDT",
-    "BLUAI-USDT",
+    "AEON-USDT",
+    "PIEVERSE-USDT",
     "BNB-USDT",
+    "XRP-USDT",
     "CYS-USDT",
     "LINK-USDT",
     "LTC-USDT",
+    "PUMP-USDT",
     "SHIB-USDT",
     "SIREN-USDT",
     "TAO-USDT",
@@ -2993,47 +2993,10 @@
       "tax": "0",
       "cancelReason": null,
       "active": false
-    },
-    {
-      "id": "6a6dccc625c0d700079f5c9f",
-      "symbol": "TEL-USDT",
-      "opType": "DEAL",
-      "type": "limit",
-      "side": "buy",
-      "price": "0.001648",
-      "size": "248544",
-      "funds": "409.600512",
-      "dealSize": "248544",
-      "dealFunds": "409.600512",
-      "fee": "0.819201024",
-      "feeCurrency": "USDT",
-      "stp": null,
-      "timeInForce": "GTC",
-      "postOnly": false,
-      "hidden": false,
-      "iceberg": false,
-      "visibleSize": "0",
-      "cancelAfter": 0,
-      "channel": "API",
-      "clientOid": "8e155d70-30c3-47af-ac2b-4fea1ce11cfd",
-      "remark": null,
-      "tags": "partner:3Commas",
-      "cancelExist": false,
-      "createdAt": 1785580742659,
-      "lastUpdatedAt": 1785678923509,
-      "tradeType": "TRADE",
-      "inOrderBook": false,
-      "cancelledSize": "0",
-      "cancelledFunds": "0",
-      "remainSize": "0",
-      "remainFunds": "0",
-      "tax": "0",
-      "cancelReason": null,
-      "active": false
     }
   ],
   "active_count": 0,
-  "recent_closed_count": 81,
+  "recent_closed_count": 80,
   "per_symbol": [
     {
       "symbol": "TEL-USDT",
@@ -5998,43 +5961,6 @@
           "tax": "0",
           "cancelReason": null,
           "active": false
-        },
-        {
-          "id": "6a6dccc625c0d700079f5c9f",
-          "symbol": "TEL-USDT",
-          "opType": "DEAL",
-          "type": "limit",
-          "side": "buy",
-          "price": "0.001648",
-          "size": "248544",
-          "funds": "409.600512",
-          "dealSize": "248544",
-          "dealFunds": "409.600512",
-          "fee": "0.819201024",
-          "feeCurrency": "USDT",
-          "stp": null,
-          "timeInForce": "GTC",
-          "postOnly": false,
-          "hidden": false,
-          "iceberg": false,
-          "visibleSize": "0",
-          "cancelAfter": 0,
-          "channel": "API",
-          "clientOid": "8e155d70-30c3-47af-ac2b-4fea1ce11cfd",
-          "remark": null,
-          "tags": "partner:3Commas",
-          "cancelExist": false,
-          "createdAt": 1785580742659,
-          "lastUpdatedAt": 1785678923509,
-          "tradeType": "TRADE",
-          "inOrderBook": false,
-          "cancelledSize": "0",
-          "cancelledFunds": "0",
-          "remainSize": "0",
-          "remainFunds": "0",
-          "tax": "0",
-          "cancelReason": null,
-          "active": false
         }
       ],
       "active_status": "REQUEST_ERROR",
@@ -6177,7 +6103,7 @@
       }
     },
     {
-      "symbol": "PIEVERSE-USDT",
+      "symbol": "TUT-USDT",
       "active": [],
       "done": [],
       "active_status": "REQUEST_ERROR",
@@ -6199,29 +6125,7 @@
       }
     },
     {
-      "symbol": "TUT-USDT",
-      "active": [],
-      "done": [],
-      "active_status": "REQUEST_ERROR",
-      "done_status": "OK",
-      "messages": {
-        "active": "{\"base\": \"https://api.kucoin.com\", \"key_version\": \"3\", \"endpoint\": \"/api/v1/hf/orders/active/page\", \"detail\": \"pageSize must be less or equals than 50\"}",
-        "closed": "https://api.kucoin.com key-v3"
-      }
-    },
-    {
-      "symbol": "XRP-USDT",
-      "active": [],
-      "done": [],
-      "active_status": "REQUEST_ERROR",
-      "done_status": "OK",
-      "messages": {
-        "active": "{\"base\": \"https://api.kucoin.com\", \"key_version\": \"3\", \"endpoint\": \"/api/v1/hf/orders/active/page\", \"detail\": \"pageSize must be less or equals than 50\"}",
-        "closed": "https://api.kucoin.com key-v3"
-      }
-    },
-    {
-      "symbol": "BLUAI-USDT",
+      "symbol": "PIEVERSE-USDT",
       "active": [],
       "done": [],
       "active_status": "REQUEST_ERROR",
@@ -6233,6 +6137,17 @@
     },
     {
       "symbol": "BNB-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "REQUEST_ERROR",
+      "done_status": "OK",
+      "messages": {
+        "active": "{\"base\": \"https://api.kucoin.com\", \"key_version\": \"3\", \"endpoint\": \"/api/v1/hf/orders/active/page\", \"detail\": \"pageSize must be less or equals than 50\"}",
+        "closed": "https://api.kucoin.com key-v3"
+      }
+    },
+    {
+      "symbol": "XRP-USDT",
       "active": [],
       "done": [],
       "active_status": "REQUEST_ERROR",
@@ -6266,6 +6181,17 @@
     },
     {
       "symbol": "LTC-USDT",
+      "active": [],
+      "done": [],
+      "active_status": "REQUEST_ERROR",
+      "done_status": "OK",
+      "messages": {
+        "active": "{\"base\": \"https://api.kucoin.com\", \"key_version\": \"3\", \"endpoint\": \"/api/v1/hf/orders/active/page\", \"detail\": \"pageSize must be less or equals than 50\"}",
+        "closed": "https://api.kucoin.com key-v3"
+      }
+    },
+    {
+      "symbol": "PUMP-USDT",
       "active": [],
       "done": [],
       "active_status": "REQUEST_ERROR",

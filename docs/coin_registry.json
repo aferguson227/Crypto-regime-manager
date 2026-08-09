@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T13:15:47.788314+00:00",
+  "generated_at": "2026-08-09T14:10:47.869595+00:00",
   "coin_count": 22,
   "coins": [
     {
@@ -43,6 +43,22 @@
       "research_continues_while_live": false
     },
     {
+      "asset": "XRP",
+      "lifecycle": "READY_FOR_REVIEW",
+      "execution_state": "NOT_DEPLOYED",
+      "research_state": "READY_FOR_MANUAL_REVIEW",
+      "reasons": [
+        "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
+      ],
+      "history_sources": [
+        "recommended_bots",
+        "research_pipeline"
+      ],
+      "validated_return_pct": 30.6,
+      "current_regime": "ACCUMULATION",
+      "research_continues_while_live": false
+    },
+    {
       "asset": "ZEC",
       "lifecycle": "READY_FOR_REVIEW",
       "execution_state": "NOT_DEPLOYED",
@@ -73,20 +89,6 @@
       "research_continues_while_live": false
     },
     {
-      "asset": "BLUAI",
-      "lifecycle": "RESEARCHING",
-      "execution_state": "NOT_DEPLOYED",
-      "research_state": "NEEDS_HISTORICAL_VALIDATION",
-      "reasons": [
-        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-      ],
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "current_regime": "ACCUMULATION",
-      "research_continues_while_live": false
-    },
-    {
       "asset": "BNB",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
@@ -97,7 +99,7 @@
       "history_sources": [
         "research_pipeline"
       ],
-      "current_regime": "ACCUMULATION",
+      "current_regime": "BULL",
       "research_continues_while_live": false
     },
     {
@@ -199,6 +201,20 @@
       "research_continues_while_live": false
     },
     {
+      "asset": "PUMP",
+      "lifecycle": "RESEARCHING",
+      "execution_state": "NOT_DEPLOYED",
+      "research_state": "NEEDS_HISTORICAL_VALIDATION",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "current_regime": "ACCUMULATION",
+      "research_continues_while_live": false
+    },
+    {
       "asset": "SHIB",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
@@ -283,20 +299,6 @@
       "research_continues_while_live": false
     },
     {
-      "asset": "XRP",
-      "lifecycle": "RESEARCHING",
-      "execution_state": "NOT_DEPLOYED",
-      "research_state": "NEEDS_HISTORICAL_VALIDATION",
-      "reasons": [
-        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-      ],
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "current_regime": "BEAR",
-      "research_continues_while_live": false
-    },
-    {
       "asset": "TAO",
       "lifecycle": "WATCHLIST",
       "execution_state": "NOT_DEPLOYED",
@@ -340,5 +342,5 @@
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "64f40441fca091387ecd57c3"
+  "snapshot_id": "ac189de9542ea0493ab9673e"
 }

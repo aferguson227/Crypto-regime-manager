@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T13:15:47.591171+00:00",
+  "generated_at": "2026-08-09T14:10:47.671613+00:00",
   "current_global_regime": "ACCUMULATION",
   "current_regime_family": "ACCUMULATION",
   "items": [
@@ -622,40 +622,6 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "PIEVERSE",
-      "pair": "PIEVERSE-USDT",
-      "status": "WAIT",
-      "current_global_regime": "ACCUMULATION",
-      "current_regime_family": "ACCUMULATION",
-      "validated_baseline": null,
-      "current_regime_profile": null,
-      "recommended_research_settings": null,
-      "independent_validation_status": null,
-      "deployment_candidate": false,
-      "manual_approval_required": true,
-      "automatic_live_changes": false,
-      "kucoin_walk_forward_status": "HISTORY_BUILDING",
-      "kucoin_validation": null,
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "AEON",
-      "pair": "AEON-USDT",
-      "status": "WAIT",
-      "current_global_regime": "ACCUMULATION",
-      "current_regime_family": "ACCUMULATION",
-      "validated_baseline": null,
-      "current_regime_profile": null,
-      "recommended_research_settings": null,
-      "independent_validation_status": null,
-      "deployment_candidate": false,
-      "manual_approval_required": true,
-      "automatic_live_changes": false,
-      "kucoin_walk_forward_status": "HISTORY_BUILDING",
-      "kucoin_validation": null,
-      "next_action": "Remain in research queue."
-    },
-    {
       "asset": "TUT",
       "pair": "TUT-USDT",
       "status": "WAIT",
@@ -703,55 +669,8 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "XRP",
-      "pair": "XRP-USDT",
-      "status": "WAIT",
-      "current_global_regime": "ACCUMULATION",
-      "current_regime_family": "ACCUMULATION",
-      "validated_baseline": {
-        "take_profit_pct": 1.5,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.5,
-        "step_scale": 1.15
-      },
-      "current_regime_profile": null,
-      "recommended_research_settings": {
-        "take_profit_pct": 1.5,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.5,
-        "step_scale": 1.15
-      },
-      "independent_validation_status": "PASS",
-      "deployment_candidate": false,
-      "manual_approval_required": true,
-      "automatic_live_changes": false,
-      "kucoin_walk_forward_status": "RESEARCH_PENDING",
-      "kucoin_validation": {
-        "net_pnl": 1144.7,
-        "mark_to_market_pnl": 990.0,
-        "open_pnl": -154.7,
-        "closed_deals": 175,
-        "average_hours": 12.8,
-        "median_hours": 0,
-        "p90_hours": 32,
-        "longest_hours": 204,
-        "max_drawdown_dollars": -396.59,
-        "max_capital": 912.5,
-        "open_position": true,
-        "open_duration_hours": 2472,
-        "average_safety_orders": 2.04,
-        "return_on_max_capital_pct": 108.49,
-        "max_drawdown_pct": 43.46,
-        "score": -149.723,
-        "rejected_for_open_duration": true
-      },
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "CYS",
-      "pair": "CYS-USDT",
+      "asset": "AEON",
+      "pair": "AEON-USDT",
       "status": "WAIT",
       "current_global_regime": "ACCUMULATION",
       "current_regime_family": "ACCUMULATION",
@@ -762,7 +681,24 @@
       "deployment_candidate": false,
       "manual_approval_required": true,
       "automatic_live_changes": false,
-      "kucoin_walk_forward_status": null,
+      "kucoin_walk_forward_status": "HISTORY_BUILDING",
+      "kucoin_validation": null,
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "PIEVERSE",
+      "pair": "PIEVERSE-USDT",
+      "status": "WAIT",
+      "current_global_regime": "ACCUMULATION",
+      "current_regime_family": "ACCUMULATION",
+      "validated_baseline": null,
+      "current_regime_profile": null,
+      "recommended_research_settings": null,
+      "independent_validation_status": null,
+      "deployment_candidate": false,
+      "manual_approval_required": true,
+      "automatic_live_changes": false,
+      "kucoin_walk_forward_status": "HISTORY_BUILDING",
       "kucoin_validation": null,
       "next_action": "Remain in research queue."
     },
@@ -772,16 +708,75 @@
       "status": "WAIT",
       "current_global_regime": "ACCUMULATION",
       "current_regime_family": "ACCUMULATION",
-      "validated_baseline": null,
+      "validated_baseline": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.5,
+        "step_scale": 1.15
+      },
       "current_regime_profile": null,
-      "recommended_research_settings": null,
+      "recommended_research_settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.5,
+        "step_scale": 1.15
+      },
       "independent_validation_status": null,
+      "deployment_candidate": false,
+      "manual_approval_required": true,
+      "automatic_live_changes": false,
+      "kucoin_walk_forward_status": "RESEARCH_PENDING",
+      "kucoin_validation": {
+        "net_pnl": 896.38,
+        "mark_to_market_pnl": 898.57,
+        "open_pnl": 2.19,
+        "closed_deals": 375,
+        "average_hours": 18.6,
+        "median_hours": 0,
+        "p90_hours": 12,
+        "longest_hours": 4024,
+        "max_drawdown_dollars": -324.05,
+        "max_capital": 912.5,
+        "open_position": true,
+        "open_duration_hours": 40,
+        "average_safety_orders": 1.36,
+        "return_on_max_capital_pct": 98.47,
+        "max_drawdown_pct": 35.51,
+        "score": -81.728,
+        "rejected_for_open_duration": false
+      },
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "XRP",
+      "pair": "XRP-USDT",
+      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
+      "current_global_regime": "ACCUMULATION",
+      "current_regime_family": "ACCUMULATION",
+      "validated_baseline": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "current_regime_profile": null,
+      "recommended_research_settings": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "independent_validation_status": "PASS",
       "deployment_candidate": false,
       "manual_approval_required": true,
       "automatic_live_changes": false,
       "kucoin_walk_forward_status": null,
       "kucoin_validation": null,
-      "next_action": "Remain in research queue."
+      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
     },
     {
       "asset": "DOT",
@@ -813,8 +808,8 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "LINK",
-      "pair": "LINK-USDT",
+      "asset": "CYS",
+      "pair": "CYS-USDT",
       "status": "WAIT",
       "current_global_regime": "ACCUMULATION",
       "current_regime_family": "ACCUMULATION",
@@ -832,6 +827,23 @@
     {
       "asset": "SHIB",
       "pair": "SHIB-USDT",
+      "status": "WAIT",
+      "current_global_regime": "ACCUMULATION",
+      "current_regime_family": "ACCUMULATION",
+      "validated_baseline": null,
+      "current_regime_profile": null,
+      "recommended_research_settings": null,
+      "independent_validation_status": null,
+      "deployment_candidate": false,
+      "manual_approval_required": true,
+      "automatic_live_changes": false,
+      "kucoin_walk_forward_status": null,
+      "kucoin_validation": null,
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "LINK",
+      "pair": "LINK-USDT",
       "status": "WAIT",
       "current_global_regime": "ACCUMULATION",
       "current_regime_family": "ACCUMULATION",
@@ -881,8 +893,8 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "BLUAI",
-      "pair": "BLUAI-USDT",
+      "asset": "PUMP",
+      "pair": "PUMP-USDT",
       "status": "WAIT",
       "current_global_regime": "ACCUMULATION",
       "current_regime_family": "ACCUMULATION",
@@ -912,5 +924,5 @@
   "automatic_backtesting": true,
   "automatic_live_deployment": false,
   "manual_approval_required": true,
-  "snapshot_id": "1826851552bc40c05be26743"
+  "snapshot_id": "ea5d09ee5cff702a2f8cef46"
 }

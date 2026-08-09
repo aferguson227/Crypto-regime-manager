@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T13:15:47.242394+00:00",
+  "generated_at": "2026-08-09T14:10:47.325066+00:00",
   "enabled": true,
   "queued_count": 8,
   "candidates": [
@@ -295,13 +295,13 @@
       "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
     },
     {
-      "asset": "XRP",
-      "pair": "XRP-USDT",
+      "asset": "BNB",
+      "pair": "BNB-USDT",
       "state": "ADAPTIVE_RESEARCH_QUEUED",
       "failure_reasons": [
         "Validation ended with unresolved exposure or current profile retained an open position.",
-        "Validation drawdown 43.5% exceeds preferred tolerance.",
-        "Longest validation trade 204h exceeds the preferred 168h fluidity target."
+        "Validation drawdown 35.5% exceeds preferred tolerance.",
+        "Longest validation trade 4024h exceeds the preferred 168h fluidity target."
       ],
       "next_experiments": [
         "tighten_entry_filter",

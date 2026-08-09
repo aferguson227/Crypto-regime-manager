@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "57.0.0",
-  "generated_at": "2026-08-09T13:15:47.162077+00:00",
+  "generated_at": "2026-08-09T14:10:47.243214+00:00",
   "assets": [
     {
       "asset": "AAVE",
@@ -58,6 +58,25 @@
       "deployment_history_gate": "BLOCKED",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History is too short for deployment research; candidate may be screened/ranked only.",
+      "current_global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "BNB",
+      "pair": "BNB-USDT",
+      "evidence_grade": "HIGH_CONFIDENCE",
+      "bars_4h": 13491,
+      "history_days": 2249.7,
+      "history_start": "2020-06-10T20:00:00+00:00",
+      "history_end": "2026-08-08T12:00:00+00:00",
+      "history_years": 6.16,
+      "regime_profiles_observed": [],
+      "regime_profile_count": 0,
+      "kucoin_walk_forward_pass": false,
+      "kraken_robustness_status": "MISSING",
+      "kraken_role": "NOT_AVAILABLE",
+      "deployment_history_gate": "PASS",
+      "deployment_evidence_gate": "BLOCKED",
+      "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
       "current_global_regime": "ACCUMULATION"
     },
     {
@@ -141,10 +160,10 @@
       "pair": "PIEVERSE-USDT",
       "evidence_grade": "SCREEN_ONLY",
       "bars_4h": 474,
-      "history_days": 78.8,
-      "history_start": "2026-05-22T08:00:00+00:00",
-      "history_end": "2026-08-09T04:00:00+00:00",
-      "history_years": 0.22,
+      "history_days": 0,
+      "history_start": null,
+      "history_end": null,
+      "history_years": 0,
       "regime_profiles_observed": [],
       "regime_profile_count": 0,
       "kucoin_walk_forward_pass": false,
@@ -271,11 +290,11 @@
     }
   ],
   "summary": {
-    "assets": 14,
+    "assets": 15,
     "screen_only": 4,
     "preliminary": 1,
     "deployment_research": 0,
-    "high_confidence": 9
+    "high_confidence": 10
   },
   "principle": "Young assets are never treated as equally reliable to multi-year candidates. Kraken comparison is optional; unseen KuCoin validation is primary."
 }
