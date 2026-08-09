@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "49.0.0",
-  "generated_at": "2026-08-09T02:28:40.951924+00:00",
+  "generated_at": "2026-08-09T02:57:57.615571+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,7 +26,7 @@
       }
     },
     {
-      "event_id": "c9d32bab5b357eea2d909015",
+      "event_id": "6c9fc4da5b093f0bf4328f09",
       "kind": "NEW_CANDIDATE",
       "title": "AAVE/USDT ready for manual review",
       "detail": "Review AAVE for a small manual pilot allocation; do not copy historical max-capital mechanically.",
@@ -37,8 +37,8 @@
         "candidate": {
           "asset": "AAVE",
           "pair": "AAVE-USDT",
-          "discovery_rank": null,
-          "current_research_score": null,
+          "discovery_rank": 5,
+          "current_research_score": 72.5,
           "stage": "READY_FOR_MANUAL_REVIEW",
           "walk_forward_status": "FAIL",
           "kucoin_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
@@ -148,24 +148,24 @@
       }
     },
     {
-      "event_id": "e9c2c7feb140d9c751074697",
+      "event_id": "4d514f5e7fe2d448338ea9f7",
       "kind": "SYSTEM_ISSUE",
       "title": "Application publication needs attention",
-      "detail": "Last successful publication was 21.58 hours ago.",
+      "detail": "Last successful publication was 22.08 hours ago.",
       "severity": "critical",
       "action": "REVIEW_SYSTEM",
       "payload": {
         "severity": "critical",
         "system": "Application",
         "title": "Application publication needs attention",
-        "detail": "Last successful publication was 21.58 hours ago.",
+        "detail": "Last successful publication was 22.08 hours ago.",
         "recommended_action": "Automatic refresh and publication are enabled; inspect the collector only if this persists.",
         "metric": {
-          "age_hours": 21.58,
+          "age_hours": 22.08,
           "unit": "hours"
         },
-        "first_detected_at": "2026-08-09T02:11:43.559769+00:00",
-        "last_detected_at": "2026-08-09T02:11:43.559775+00:00"
+        "first_detected_at": "2026-08-09T02:41:43.719873+00:00",
+        "last_detected_at": "2026-08-09T02:41:43.719879+00:00"
       }
     }
   ],
@@ -178,5 +178,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "2ef701177bf84b3e48cf4244"
+  "snapshot_id": "71ebcb34dceefd81aa8c8b2d"
 }
