@@ -11,20 +11,24 @@ def load(n):
  except:return {}
 def main():
  tc=load('threecommas.json');trade=load('trade_intelligence.json');recon=load('execution_reconciliation.json');acct=load('independent_trade_accounting.json');cap=load('capital_intelligence.json');prices=load('kucoin_live_prices.json')
- rby={(str(x.get('asset')).upper(),x.get('bot_id')):x for x in recon.get('deals') or []};tby={(str(x.get('asset')).upper(),x.get('bot_id')):x for x in trade.get('trades') or []};pby={str(x.get('symbol') or '').split('-')[0].upper():x for x in prices.get('prices') or []};aby={str(x.get('asset') or '').upper():x for x in cap.get('asset_allocations') or []}
+ rby={(str(x.get('asset')).upper(),x.get('bot_id')):x for x in recon.get('deals') or []};tby={(str(x.get('asset')).upper(),x.get('bot_id')):x for x in trade.get('trades') or []};pby={str(x.get('symbol') or '').split('-')[0].upper():x for x in prices.get('prices') or []};aby={str(x.get('asset') or '').upper():x for x in cap.get('asset_allocations') or []};cby={(str(x.get('asset') or '').upper(),x.get('bot_id')):x for x in cap.get('bots') or []}
  deals=[]
  for a,b in (tc.get('assets') or {}).items():
   for d in b.get('deals') or []:
    key=(str(a).upper(),d.get('bot_id'));r=rby.get(key) or {};t=tby.get(key) or {}
    effective=r.get('crm_position_truth') or 'OPEN';provider_stale=r.get('reconciliation_state')=='PROVIDER_STALE_OPEN'
-   asset=str(a).upper();pa=pby.get(asset) or {};aa=aby.get(asset) or {};qty=aa.get('quantity');cost=aa.get('quote_cost');px=pa.get('price')
+   asset=str(a).upper();pa=pby.get(asset) or {};aa=aby.get(asset) or {};cb=cby.get((asset,d.get('bot_id'))) or {};qty=aa.get('quantity');cost=aa.get('quote_cost');px=pa.get('price')
    live_pnl=(float(qty)*float(px)-float(cost)) if qty not in (None,0) and cost is not None and px is not None and pa.get('status')=='OK' else None
    live_pct=(100*live_pnl/float(cost)) if live_pnl is not None and float(cost)!=0 else None
    deals.append({'asset':asset,'bot_id':d.get('bot_id'),'bot_name':d.get('bot_name'),'provider_status':d.get('status'),
     'effective_position_state':effective,'provider_stale':provider_stale,'opened_at':d.get('created_at'),
     'open_pnl_quote':live_pnl if live_pnl is not None else t.get('profit_quote'),'open_pnl_source':'KUCOIN_LIVE_MARK_TO_MARKET' if live_pnl is not None else 'PROVIDER_FALLBACK',
     'open_pnl_price':px,'open_pnl_priced_at':prices.get('generated_at'),'profit_pct':live_pct if live_pct is not None else t.get('profit_pct'),
-    'position_quantity':qty,'position_cost_basis_quote':cost,'capital_used_quote':cost if cost is not None else d.get('capital_used_quote'),'distance_to_take_profit_pct':t.get('distance_to_take_profit_pct'),
+    'position_quantity':qty,'position_cost_basis_quote':cost,'capital_used_quote':cost if cost is not None else d.get('capital_used_quote'),
+    'completed_safety_orders':d.get('completed_safety_orders'),'max_safety_orders':d.get('max_safety_orders'),'active_safety_orders':d.get('active_safety_orders'),
+    'remaining_dca_reserve_quote':cb.get('remaining_dca_reserve'),'theoretical_max_capital_quote':cb.get('per_deal_max_capital'),
+    'average_entry':(float(cost)/float(qty)) if cost not in (None,0) and qty not in (None,0) else None,
+    'distance_to_take_profit_pct':t.get('distance_to_take_profit_pct'),
     'action':'Reconcile stale 3Commas deal; KuCoin position is already closed.' if provider_stale else t.get('crm_recommendation') or 'Monitor'})
  effective_open=[x for x in deals if x['effective_position_state']=='OPEN']
  p={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'authority':'KuCoin closure evidence + CRM ledger; 3Commas is execution-provider telemetry.',

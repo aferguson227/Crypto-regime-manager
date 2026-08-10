@@ -1,4 +1,4 @@
-# Crypto Regime Manager V66.0.0 — Decision Workflow, Adaptive Research & Live Accounting
+# Crypto Regime Manager V67.0.0 — Decision Workflow, Adaptive Research & Live Accounting
 
 V50 turns V49's autonomous research into an explainable decision workflow.
 

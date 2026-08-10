@@ -67,11 +67,11 @@ def snapshot():
 def root_incidents(s):
  rows=[]
  ku,o,f=s['ku'],s['orders'],s['fills'];canonical_ready=str((s.get('canonical') or {}).get('status') or '').upper()=='READY'
- svc=s.get('live_service') or {};svc_age=age_minutes(svc.get('generated_at'))
+ svc=s.get('live_service') or {};svc_age=age_minutes(svc.get('heartbeat_at') or svc.get('generated_at'))
  if not svc or str(svc.get('status') or '').upper() not in {'HEALTHY','DEGRADED'} or svc_age is None or svc_age>3:
   rows.append({'code':'LIVE_DATA_SERVICE','title':'KuCoin live data service','area':'Live trading data','severity':'high','state':'ACTION_REQUIRED',
-   'detail':'The resident KuCoin live-data service is not reporting a current heartbeat. Live P/L and order truth may fall back to older data.',
-   'user_action':'Restart the per-user KuCoin Live Data Service if automatic recovery does not restore it.'})
+   'detail':'The resident KuCoin live-data service heartbeat is stale. CRM will restart the per-user service automatically; live P/L and order truth may temporarily use the last known snapshot.',
+   'user_action':'No scheduled-task action is required. If automatic restart fails repeatedly, rerun the V67 background-service setup.'})
  # Account failure is a root incident only when the account collector itself currently fails.
  if account_problem(ku) and not canonical_ready:
   diag=ku.get('diagnostic') or {};cat=str(diag.get('category') or '').upper();usable=usable_account_snapshot(ku)
@@ -129,7 +129,7 @@ def restart_live_service():
 
 def recovery_transaction(before):
  actions=[]
- svc=before.get('live_service') or {};svc_age=age_minutes(svc.get('generated_at'))
+ svc=before.get('live_service') or {};svc_age=age_minutes(svc.get('heartbeat_at') or svc.get('generated_at'))
  if not svc or svc_age is None or svc_age>3:
   actions.append(restart_live_service())
  private_ready=all(os.getenv(x,'').strip() for x in ('KUCOIN_API_KEY','KUCOIN_API_SECRET','KUCOIN_API_PASSPHRASE'))

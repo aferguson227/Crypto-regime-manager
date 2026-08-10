@@ -1,51 +1,28 @@
 {
   "schema_version": "1.0",
-  "application_version": "66.0.0",
-  "generated_at": "2026-08-10T16:10:52.737371+00:00",
-  "mode": "autonomous_cached_background_research",
-  "status": "HEALTHY",
-  "activity": [
-    {
-      "stage": "Market scan",
-      "status": "COMPLETE",
-      "seconds": 7.17
-    },
-    {
-      "stage": "KuCoin history",
-      "status": "COMPLETE",
-      "seconds": 5.47
-    },
-    {
-      "stage": "Cached optimisation + walk-forward",
-      "status": "COMPLETE",
-      "seconds": 3174.41,
-      "backtests": 730240,
-      "cache_reason": "fingerprint changed"
-    }
-  ],
-  "elapsed_seconds": 3650.99,
-  "typical_cycle_seconds": 3668.8,
+  "application_version": "67.0.0",
+  "generated_at": "2026-08-10T16:40:52.020024+00:00",
+  "mode": "status_only",
   "market_scan": {
-    "markets_shortlisted": 50,
-    "researched_this_scan": 10,
-    "cadence_minutes": 60
+    "known_eligible": 50,
+    "last_run": "2026-08-10T15:17:46.619846+00:00",
+    "next_due_minutes": 0
   },
   "history": {
     "ready": 15,
     "total": 16,
-    "progress_pct": 93.8
+    "progress_pct": 93.8,
+    "last_run": "2026-08-10T15:17:52.141465+00:00"
   },
   "research": {
-    "fingerprint_changed": true,
-    "cache_hit": false,
-    "backtests_run_this_cycle": 730240,
-    "ready_for_manual_review": 3,
-    "next_full_revalidation_hours": 24
+    "last_run": "2026-08-10T16:10:46.893257+00:00",
+    "last_fingerprint": "59dc69394ebb1e6185ee8c93dd0ae73fab3c4daebee872945638c41a8cb74445",
+    "ready_for_review": 3
   },
   "database": {
     "schema_version": "1.0",
-    "application_version": "66.0.0",
-    "generated_at": "2026-08-10T16:10:52.741407+00:00",
+    "application_version": "67.0.0",
+    "generated_at": "2026-08-10T16:40:52.028853+00:00",
     "database_path": "C:\\Crypto\\CRM_Data\\Research\\crm_research.db",
     "exists": true,
     "size_bytes": 307200,
@@ -56,5 +33,6 @@
     "persistent_across_upgrades": true,
     "status": "READY"
   },
-  "principle": "Scan broadly, download selectively, cache aggressively, validate on unseen KuCoin data, surface only evidence-backed actions."
+  "status": "READY",
+  "installer_runs_expensive_backtests": false
 }

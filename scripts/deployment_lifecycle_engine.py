@@ -75,7 +75,9 @@ def main():
   elif c.get('adaptive_research'):state='VALIDATING'
   else:state='RESEARCHING'
   blockers=[]
-  if not mandatory_pass:blockers.append('One or more deployment evidence gates are incomplete.')
+  if not mandatory_pass:
+   pending=[str(g.get('label') or g.get('id') or 'Evidence gate') for g in gates if g.get('state')!='PASS']
+   if pending:blockers.append('Evidence still required: '+', '.join(pending)+'.')
   if not optimisation_complete:blockers.append('DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.')
   if not continuation_resolved:
    detail=str(cont.get('reason') or '')
@@ -93,7 +95,8 @@ def main():
    'button_label':'View deployment plan' if state!='READY_TO_DEPLOY' else 'View setup & deploy manually',
    'deployment_allowed':state=='READY_TO_DEPLOY','automatic_deployment':False,
    'explanation':('All mandatory evidence, exact settings and capital-allocation gates have passed. Manual deployment is permitted.' if state=='READY_TO_DEPLOY'
-                  else 'Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes.')})
+                  else ('Strategy validation is complete; live deployment is waiting only for safe portfolio capital.' if mandatory_pass and optimisation_complete and continuation_resolved and not capital_ready
+                        else 'Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes.'))})
 
  # Rank READY_TO_DEPLOY candidates; only the preferred eligible use of capital becomes RECOMMENDED_NOW.
  eligible=[x for x in rows if x['lifecycle_state']=='READY_TO_DEPLOY']

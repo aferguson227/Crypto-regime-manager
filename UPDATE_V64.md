@@ -1,4 +1,4 @@
-# CRM V66.0.0 — Evidence Resolution & Accounting Baseline
+# CRM V67.0.0 — Evidence Resolution & Accounting Baseline
 
 V64 is a consolidation release focused on permanently resolving repeated pipeline states.
 

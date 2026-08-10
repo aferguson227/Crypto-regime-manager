@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "application_version": "67.0.0",
+  "generated_at": "2026-08-10T16:40:39.977906+00:00",
+  "bots": [
+    {
+      "asset": "AAVE",
+      "mode": "PAPER",
+      "state": "OPEN",
+      "opened_at": "2026-08-10T16:26:34.666040+00:00",
+      "position_quote": 100.0,
+      "average_entry": 90.03103103103102,
+      "current_price": 89.992,
+      "safety_orders_filled": 0,
+      "max_safety_orders": 4,
+      "open_pnl_quote": -0.14330951179104545,
+      "open_pnl_pct": -0.14330951179104545,
+      "closed_deals": 0,
+      "realised_pnl_quote": 0.0,
+      "max_drawdown_quote": -0.19989999999999952,
+      "settings": {
+        "entry_trigger": "immediate",
+        "take_profit_pct": 1.5,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.5,
+        "step_scale": 1.15,
+        "base_order_volume": 100.0,
+        "safety_order_volume": 100.0,
+        "start_condition": "Immediate"
+      },
+      "updated_at": "2026-08-10T16:40:39.976909+00:00"
+    },
+    {
+      "asset": "DOT",
+      "mode": "PAPER",
+      "state": "OPEN",
+      "opened_at": "2026-08-10T16:26:34.666082+00:00",
+      "position_quote": 100.0,
+      "average_entry": 0.8057057057057055,
+      "current_price": 0.8042,
+      "safety_orders_filled": 0,
+      "max_safety_orders": 4,
+      "open_pnl_quote": -0.2866934774505978,
+      "open_pnl_pct": -0.2866934774505978,
+      "closed_deals": 0,
+      "realised_pnl_quote": 0.0,
+      "max_drawdown_quote": -0.2866934774505978,
+      "settings": {
+        "entry_trigger": "immediate",
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.5,
+        "step_scale": 1.0,
+        "base_order_volume": 100.0,
+        "safety_order_volume": 150.0,
+        "start_condition": "Immediate"
+      },
+      "updated_at": "2026-08-10T16:40:39.976931+00:00"
+    },
+    {
+      "asset": "ZEC",
+      "mode": "PAPER",
+      "state": "OPEN",
+      "opened_at": "2026-08-10T16:26:34.666112+00:00",
+      "position_quote": 50.0,
+      "average_entry": 502.22622622622623,
+      "current_price": 499.592,
+      "safety_orders_filled": 0,
+      "max_safety_orders": 4,
+      "open_pnl_quote": -0.31199269000486396,
+      "open_pnl_pct": -0.6239853800097279,
+      "closed_deals": 0,
+      "realised_pnl_quote": 0.0,
+      "max_drawdown_quote": -0.31199269000486396,
+      "settings": {
+        "entry_trigger": "immediate",
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.3,
+        "step_scale": 1.0,
+        "base_order_volume": 50.0,
+        "safety_order_volume": 50.0,
+        "start_condition": "Immediate"
+      },
+      "updated_at": "2026-08-10T16:40:39.976943+00:00"
+    }
+  ],
+  "summary": {
+    "paper_bots": 3,
+    "open": 3,
+    "closed_deals": 0,
+    "realised_pnl_quote": 0,
+    "open_pnl_quote": -0.74
+  },
+  "persistent_state": "C:\\Crypto\\CRM_Data\\state\\paper_portfolio.json",
+  "read_only_exchange": true,
+  "automatic_live_deployment": false,
+  "principle": "Paper bots use current KuCoin prices and the exact unseen-validated DCA setup. Results are forward evidence, not historical backtest results."
+}

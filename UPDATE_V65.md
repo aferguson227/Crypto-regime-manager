@@ -1,4 +1,4 @@
-# CRM V66.0.0 — Live Portfolio Truth & Pipeline Consistency
+# CRM V67.0.0 — Live Portfolio Truth & Pipeline Consistency
 
 - Open P/L is marked from the current public KuCoin level-1 price against the reconciled position quantity/cost basis and carries a pricing timestamp.
 - The operational Local Agent cadence moves from 15 minutes to 5 minutes; heavyweight research remains isolated.

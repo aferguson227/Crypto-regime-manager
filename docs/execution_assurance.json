@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "66.0.0",
-  "generated_at": "2026-08-10T15:14:39.091685+00:00",
+  "application_version": "67.0.0",
+  "generated_at": "2026-08-10T16:40:51.314426+00:00",
   "status": "HEALTHY",
   "assets": [
     {
@@ -9,9 +9,9 @@
       "status": "HEALTHY",
       "effective_open_position": true,
       "provider_stale": false,
-      "kucoin_active_orders": 4,
-      "kucoin_active_buy_orders": 3,
-      "kucoin_active_sell_orders": 1,
+      "kucoin_active_orders": 0,
+      "kucoin_active_buy_orders": 0,
+      "kucoin_active_sell_orders": 0,
       "expected_safety_orders": 6,
       "checks": [
         {
@@ -21,13 +21,13 @@
         },
         {
           "check": "Take-profit order verified",
-          "state": "PASS",
-          "detail": "1 active TEL/USDT sell order(s) found on KuCoin."
+          "state": "UNVERIFIED",
+          "detail": "Current KuCoin order collection is incomplete, so CRM cannot yet confirm or deny TP protection."
         },
         {
           "check": "DCA order protection",
-          "state": "PASS",
-          "detail": "3 live DCA buy order(s) visible on KuCoin. Bot profile allows up to 6 safety orders."
+          "state": "UNVERIFIED",
+          "detail": "KuCoin order collection is incomplete; DCA order presence cannot be fully verified yet."
         },
         {
           "check": "DCA capital reserve",

@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
 def text(p): return (ROOT/p).read_text(encoding='utf-8')
-def test_version(): assert text('VERSION').strip()=='66.0.0'
+def test_version(): assert text('VERSION').strip()=='67.0.0'
 def test_resident_service_is_read_only_and_frequent():
  s=text('scripts/kucoin_live_data_service.py')
  assert "'fast_interval_seconds':20" in s
@@ -32,7 +32,7 @@ def test_pnl_percentages_are_exposed():
  assert 'realisedPnlPct' in js and 'totalPnlPct' in js
 def test_dashboard_data_destructuring_matches_v2_outputs():
  s=text('docs/unified_dashboard.js')
- assert 'portfolioCapitalV2,integrityStatus,liveRevalidation,fastLiveTruth,canonicalKucoin,livePrices,liveService,ver' in s
+ assert 'portfolioCapitalV2,integrityStatus,liveRevalidation,fastLiveTruth,canonicalKucoin,livePrices,liveService,paperPortfolio,managedPortfolio,ver' in s
 def test_order_collector_has_all_open_hf_endpoint():
  s=text('scripts/kucoin_order_state.py')
  assert "HF_ACTIVE_ALL='/api/v1/hf/orders/active'" in s

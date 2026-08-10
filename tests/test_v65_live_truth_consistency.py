@@ -2,10 +2,10 @@ import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def text(p): return (ROOT/p).read_text(encoding='utf-8')
-def test_version(): assert text('VERSION').strip()=='66.0.0'
+def test_version(): assert text('VERSION').strip()=='67.0.0'
 def test_public_live_price_engine_is_read_only():
  s=text('scripts/kucoin_live_price_engine.py')
- assert '/api/v1/market/orderbook/level1' in s
+ assert '/api/v1/market/allTickers' in s
  assert "'credentials_required':False" in s
  assert "'write_endpoints_implemented':False" in s
 def test_live_portfolio_uses_kucoin_mark_to_market():
@@ -35,6 +35,6 @@ def test_fast_truth_uses_real_order_module():
  assert 'kucoin_order_state_engine' not in s
 def test_dashboard_shows_pnl_timestamp():
  s=text('docs/unified_dashboard.js')
- assert 'KuCoin mark-to-market · priced' in s
+ assert 'live price' in s and 'ageText(liveTruth.open_pnl_priced_at)' in s
 def test_native_execution_still_locked():
  assert 'LIVE ORDER LOCK' in text('scripts/native_execution_gateway.py')

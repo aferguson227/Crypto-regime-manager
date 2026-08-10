@@ -1,4 +1,4 @@
-# CRM V66.0.0 — KuCoin Live Trading Data Service & Multi-Bot Capital Control
+# CRM V67.0.0 — KuCoin Live Trading Data Service & Multi-Bot Capital Control
 
 V66 replaces the repeated short-lived private-data pattern with a resident, read-only KuCoin Live Trading Data Service.
 

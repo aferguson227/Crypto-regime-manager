@@ -1,17 +1,46 @@
 {
-  "schema_version": "1.0",
-  "application_version": "66.0.0",
-  "generated_at": "2026-08-10T16:29:03.961124+00:00",
-  "source": "KuCoin public level-1 ticker",
+  "schema_version": "2.0",
+  "application_version": "67.0.0",
+  "generated_at": "2026-08-10T16:40:39.134612+00:00",
+  "source": "KuCoin public all-tickers snapshot",
+  "target_assets": [
+    "AAVE",
+    "DOT",
+    "TEL",
+    "ZEC"
+  ],
   "prices": [
+    {
+      "symbol": "AAVE-USDT",
+      "status": "OK",
+      "price": 89.992,
+      "change_rate": "-0.0169",
+      "volume": "15917724.0867008"
+    },
+    {
+      "symbol": "DOT-USDT",
+      "status": "OK",
+      "price": 0.8042,
+      "change_rate": "-0.0088",
+      "volume": "14880862.88156754"
+    },
     {
       "symbol": "TEL-USDT",
       "status": "OK",
       "price": 0.001572,
-      "exchange_time_ms": 1786379333445
+      "change_rate": "-0.0314",
+      "volume": "187378.291358"
+    },
+    {
+      "symbol": "ZEC-USDT",
+      "status": "OK",
+      "price": 499.592,
+      "change_rate": "-0.0358",
+      "volume": "23096165.3405278"
     }
   ],
   "status": "OK",
+  "message": null,
   "read_only": true,
   "credentials_required": false,
   "write_endpoints_implemented": false

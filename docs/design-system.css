@@ -371,3 +371,20 @@ button,.primary-action,.crm-actions a{border-radius:10px;min-height:2.25rem}
   .crm-actions-row{align-items:flex-start}
   .crm-status,.crm-badge,.crm-pill,.crm-action-pill{inline-size:max-content!important;width:auto!important}
 }
+
+
+/* V67 Managed Bot Portfolio */
+.secondary-action{appearance:none;border:1px solid var(--crm-border,#34506f);background:transparent;color:inherit;border-radius:10px;padding:.72rem 1rem;font-weight:700;cursor:pointer}
+.secondary-action:hover{background:rgba(255,255,255,.05)}
+.crm-managed-table{display:grid;gap:1px;border:1px solid var(--crm-border,#29425f);border-radius:14px;overflow:hidden;background:var(--crm-border,#29425f)}
+.crm-managed-head,.crm-managed-row{display:grid;grid-template-columns:minmax(150px,1.5fr) minmax(120px,1fr) minmax(95px,.8fr) minmax(60px,.55fr) minmax(110px,.9fr) minmax(120px,1fr) minmax(140px,1.1fr);gap:12px;align-items:center;background:var(--crm-panel,#10243b);padding:14px 16px}
+.crm-managed-head{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--crm-muted,#91a9c4);font-weight:700}
+.crm-managed-row>div:first-child{display:flex;flex-direction:column;gap:3px}
+.crm-managed-row small{color:var(--crm-muted,#91a9c4)}
+.crm-managed-row .crm-actions-row{justify-content:flex-start;flex-wrap:wrap}
+@media(max-width:900px){
+ .crm-managed-head{display:none}
+ .crm-managed-row{grid-template-columns:1fr 1fr;gap:10px}
+ .crm-managed-row>div:first-child{grid-column:1/-1}
+ .crm-managed-row .crm-actions-row{grid-column:1/-1}
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "66.0.0",
-  "generated_at": "2026-08-10T15:09:13.682611+00:00",
+  "application_version": "67.0.0",
+  "generated_at": "2026-08-10T16:40:49.297146+00:00",
   "workflow": [
     "RESEARCHING",
     "VALIDATING",
@@ -124,14 +124,14 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
+        "Evidence still required: Trade fluidity.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes."
+      "explanation": "Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes."
     },
     {
       "asset": "BTC",
@@ -186,7 +186,7 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
+        "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
         "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
@@ -194,7 +194,7 @@
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes."
+      "explanation": "Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes."
     },
     {
       "asset": "DOT",
@@ -277,14 +277,14 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
+        "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes."
+      "explanation": "Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes."
     },
     {
       "asset": "ETH",
@@ -353,7 +353,7 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
+        "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
         "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
@@ -361,7 +361,7 @@
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes."
+      "explanation": "Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes."
     },
     {
       "asset": "NEAR",
@@ -430,7 +430,7 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
+        "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
         "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
@@ -438,7 +438,7 @@
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes."
+      "explanation": "Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes."
     },
     {
       "asset": "PIEVERSE",
@@ -479,7 +479,7 @@
         "annualised_label": null
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
+        "Evidence still required: Evidence grade, Historical data, KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
         "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
@@ -487,7 +487,7 @@
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes."
+      "explanation": "Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes."
     },
     {
       "asset": "SOL",
@@ -556,7 +556,7 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
+        "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
         "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
@@ -564,7 +564,7 @@
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes."
+      "explanation": "Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes."
     },
     {
       "asset": "TUT",
@@ -619,7 +619,7 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
+        "Evidence still required: Evidence grade, KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
         "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
@@ -627,7 +627,7 @@
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes."
+      "explanation": "Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes."
     },
     {
       "asset": "UNI",
@@ -696,7 +696,7 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
+        "Evidence still required: DCA settings optimisation.",
         "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
@@ -704,7 +704,7 @@
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes."
+      "explanation": "Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes."
     },
     {
       "asset": "XMR",
@@ -773,7 +773,7 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
+        "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
         "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
@@ -781,7 +781,7 @@
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes."
+      "explanation": "Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes."
     },
     {
       "asset": "XRP",
@@ -850,7 +850,7 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
+        "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
         "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
@@ -858,7 +858,7 @@
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes."
+      "explanation": "Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes."
     },
     {
       "asset": "ZEC",
@@ -947,7 +947,7 @@
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "Review the remaining blocker(s). CRM promotes this candidate automatically when every mandatory deployment gate passes."
+      "explanation": "Strategy validation is complete; live deployment is waiting only for safe portfolio capital."
     }
   ],
   "summary": {

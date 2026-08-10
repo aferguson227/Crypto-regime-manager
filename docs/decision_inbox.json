@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "66.0.0",
-  "generated_at": "2026-08-10T16:14:10.370249+00:00",
+  "application_version": "67.0.0",
+  "generated_at": "2026-08-10T16:40:50.660105+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,15 +26,15 @@
       }
     },
     {
-      "event_id": "0d5e84f894d0fdd249d25fb9",
+      "event_id": "87b25e6314a98848ddf7039c",
       "kind": "GLOBAL_REGIME",
-      "title": "Global market regime: Neutral",
-      "detail": "Universal market score 50.8%. BTC/current breadth evidence is included where available.",
+      "title": "Global market regime: Accumulation",
+      "detail": "Universal market score 52.5%. BTC/current breadth evidence is included where available.",
       "severity": "info",
       "action": "REVIEW_MARKET",
       "payload": {
-        "regime": "NEUTRAL",
-        "score_pct": 50.8
+        "regime": "ACCUMULATION",
+        "score_pct": 52.5
       }
     },
     {
@@ -108,9 +108,30 @@
         "current_regime": "BULL",
         "research_continues_while_live": false
       }
+    },
+    {
+      "event_id": "e5771be82e416f17d379e791",
+      "kind": "SYSTEM_ISSUE",
+      "title": "Application publication needs attention",
+      "detail": "Latest successful publication was 16h 39m ago.",
+      "severity": "critical",
+      "action": "REVIEW_SYSTEM",
+      "payload": {
+        "severity": "critical",
+        "system": "Application",
+        "title": "Application publication needs attention",
+        "detail": "Latest successful publication was 16h 39m ago.",
+        "recommended_action": "Automatic publication is enabled; inspect the workflow only if live Pages is not synchronised.",
+        "metric": {
+          "age_hours": 16.65,
+          "unit": "hours"
+        },
+        "first_detected_at": "2026-08-10T16:40:41.905103+00:00",
+        "last_detected_at": "2026-08-10T16:40:41.905109+00:00"
+      }
     }
   ],
-  "material_count": 5,
+  "material_count": 6,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -119,5 +140,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "8a80aab20debd8d1e37581f8"
+  "snapshot_id": "d899f7d41e8a44d2aa232ab5"
 }

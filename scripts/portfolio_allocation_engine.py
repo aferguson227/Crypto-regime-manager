@@ -28,7 +28,7 @@ def corr(a,b):
  if sa<=0 or sb<=0:return None
  return sum((x-ma)*(y-mb) for x,y in zip(ra,rb))/math.sqrt(sa*sb)
 def main():
- cap=load(DOCS/'capital_intelligence.json');cap2=load(DOCS/'portfolio_capital_v2.json');review=load(DOCS/'candidate_review.json');reg=load(DOCS/'coin_registry.json');p=load(POL);policy=p.get('portfolio') or {}
+ cap=load(DOCS/'capital_intelligence.json');cap2=load(DOCS/'portfolio_capital_v2.json');review=load(DOCS/'candidate_review.json');reg=load(DOCS/'coin_registry.json');paper=load(DOCS/'paper_portfolio.json');p=load(POL);policy=p.get('portfolio') or {};pby={str(x.get('asset') or '').upper():x for x in paper.get('bots') or []}
  deploy=num(cap2.get('safe_multi_bot_pool_usdt'));free=num(cap.get('free_available'))
  if deploy is None and free is not None:
   reserve=num(cap.get('remaining_active_deal_dca_reserve')) or num(cap.get('reserved_capital')) or 0;deploy=max(0,free-reserve)
@@ -39,11 +39,14 @@ def main():
  for x in candidates:
   vm=x.get('validation_metrics') or {};maxcap=num(vm.get('max_capital')) or 1;ret=100*(num(vm.get('mark_to_market_pnl')) or 0)/maxcap;dd=100*abs(num(vm.get('max_drawdown_dollars')) or 0)/maxcap;longh=num(vm.get('longest_hours')) or 0
   cs=closes(x['asset']);cors=[abs(corr(cs,v)) for v in live_series.values() if corr(cs,v) is not None];cpen=max(cors) if cors else 0
-  lock=min(1,longh/(24*14));base=max(0,ret);score=max(0,base*(1-float(policy.get('drawdown_penalty_weight',.35))*min(1,dd/40)-float(policy.get('capital_lock_penalty_weight',.30))*lock-float(policy.get('correlation_penalty_weight',.35))*cpen))
-  scored.append((score,x,ret,dd,longh,cpen))
+  lock=min(1,longh/(24*14));base=max(0,ret)
+  pp=pby.get(str(x.get('asset') or '').upper()) or {};paper_pct=num(pp.get('open_pnl_pct')) or 0;paper_closed=int(pp.get('closed_deals') or 0)
+  paper_weight=min(1,(paper_closed+1)/10);paper_adj=max(-20,min(20,paper_pct))*paper_weight
+  score=max(0,base*(1-float(policy.get('drawdown_penalty_weight',.35))*min(1,dd/40)-float(policy.get('capital_lock_penalty_weight',.30))*lock-float(policy.get('correlation_penalty_weight',.35))*cpen)+paper_adj)
+  scored.append((score,x,ret,dd,longh,cpen,paper_pct,paper_closed))
  scored.sort(key=lambda z:z[0],reverse=True);chosen=scored[:slots] if slots else []
  total=sum(x[0] for x in chosen) or 1;rows=[]
- for score,x,ret,dd,longh,cpen in scored:
+ for score,x,ret,dd,longh,cpen,paper_pct,paper_closed in scored:
   selected=any(y[1].get('asset')==x.get('asset') for y in chosen);amount=None
   if usable is not None and selected:
    weighted=usable*(score/total);cap_pct=usable*float(policy.get('max_single_bot_pct',30))/100;pilot=usable*float(policy.get('pilot_pct',15))/100
@@ -51,8 +54,8 @@ def main():
   if amount is None and deploy is not None and deploy<=0: amount=0.0
   rows.append({'asset':x.get('asset'),'pair':x.get('pair'),'selected_for_next_portfolio_slot':selected,'portfolio_score':round(score,2),
    'kucoin_validation_return_on_max_capital_pct':round(ret,2),'validation_drawdown_pct':round(dd,2),'longest_validation_trade_hours':longh,
-   'max_abs_correlation_to_live_bots':round(cpen,3) if cpen is not None else None,'recommended_allocation_usdt':amount,
-   'reason':('Selected within available portfolio slot using return, drawdown, capital-lock and diversification penalties.' if selected else 'Evidence passes deployment review, but current portfolio slots/relative score do not justify immediate allocation.'),
+   'max_abs_correlation_to_live_bots':round(cpen,3) if cpen is not None else None,'paper_forward_open_pnl_pct':round(paper_pct,2),'paper_forward_closed_deals':paper_closed,'recommended_allocation_usdt':amount,
+   'reason':('Selected within available portfolio slot using validation return, drawdown, capital-lock, diversification and live paper evidence.' if selected else 'Evidence passes deployment review, but current portfolio slots/relative score do not justify immediate allocation.'),
    'manual_approval_required':True})
  payload={'schema_version':'2.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'deployable_capital_usdt':deploy,
   'cash_buffer_pct':cash_pct,'usable_after_cash_buffer_usdt':round(usable,2) if usable is not None else None,'current_live_bots':[x['asset'] for x in live],
