@@ -16,8 +16,10 @@ def test_resident_service_uses_same_local_credentials():
 def test_schedule_starts_live_service_at_logon():
  s=text('UPDATE_LOCAL_AGENT_SCHEDULE.ps1')
  assert 'CryptoRegimeManager-LiveDataService' in s
- assert 'New-ScheduledTaskTrigger -AtLogOn' in s
- assert 'Start-ScheduledTask -TaskName $LiveTask' in s
+ assert r'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run' in s
+ assert "New-ItemProperty -Path $RunKey -Name $LiveName" in s
+ assert "Start-Process -FilePath 'powershell.exe'" in s
+
 def test_browser_updates_live_pnl_every_15_seconds():
  s=text('docs/unified_dashboard.js')
  assert 'refreshBrowserLivePnl' in s

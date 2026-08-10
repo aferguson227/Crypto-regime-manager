@@ -71,7 +71,7 @@ def root_incidents(s):
  if not svc or str(svc.get('status') or '').upper() not in {'HEALTHY','DEGRADED'} or svc_age is None or svc_age>3:
   rows.append({'code':'LIVE_DATA_SERVICE','title':'KuCoin live data service','area':'Live trading data','severity':'high','state':'ACTION_REQUIRED',
    'detail':'The resident KuCoin live-data service is not reporting a current heartbeat. Live P/L and order truth may fall back to older data.',
-   'user_action':'Restart the CryptoRegimeManager-LiveDataService scheduled task if automatic recovery does not restore it.'})
+   'user_action':'Restart the per-user KuCoin Live Data Service if automatic recovery does not restore it.'})
  # Account failure is a root incident only when the account collector itself currently fails.
  if account_problem(ku) and not canonical_ready:
   diag=ku.get('diagnostic') or {};cat=str(diag.get('category') or '').upper();usable=usable_account_snapshot(ku)
@@ -122,8 +122,9 @@ def root_incidents(s):
 def restart_live_service():
  if os.name!='nt':return {'module':'windows.live_data_service','returncode':0,'status':'NOT_APPLICABLE','detail':'Non-Windows environment.'}
  try:
-  r=subprocess.run(['schtasks.exe','/Run','/TN','CryptoRegimeManager-LiveDataService'],text=True,capture_output=True,timeout=20)
-  return {'module':'windows.live_data_service','returncode':r.returncode,'status':'OK' if r.returncode==0 else 'ERROR','detail':(r.stdout or r.stderr)[-500:]}
+  script=str(ROOT/'RUN_KUCOIN_LIVE_SERVICE.ps1');creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0)
+  proc=subprocess.Popen(['powershell.exe','-NoProfile','-NonInteractive','-WindowStyle','Hidden','-ExecutionPolicy','Bypass','-File',script],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,creationflags=creationflags)
+  return {'module':'windows.live_data_service','returncode':0,'status':'OK','detail':f'Per-user KuCoin Live Data Service launch requested (pid={proc.pid}).'}
  except Exception as exc:return {'module':'windows.live_data_service','returncode':1,'status':'ERROR','detail':f'{type(exc).__name__}: {exc}'}
 
 def recovery_transaction(before):
