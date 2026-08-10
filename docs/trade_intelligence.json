@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:22:13.893387+00:00",
+  "generated_at": "2026-08-10T10:37:13.083997+00:00",
   "mode": "read_only_active_trade_intelligence",
   "source": "3Commas active deal snapshots",
-  "snapshot_age_minutes": 264.4,
+  "snapshot_age_minutes": 279.3,
   "monitoring_cadence": "snapshot-based; freshness follows the latest successful 3Commas refresh",
   "real_time_streaming": false,
   "active_trade_count": 1,
@@ -16,17 +16,17 @@
       "pair": "USDT_TEL",
       "status": "bought",
       "opened_at": "2026-08-09T12:01:32.406Z",
-      "hold_hours": 22.34,
+      "hold_hours": 22.59,
       "profit_pct": -0.72,
-      "profit_quote": -3.8739019,
+      "profit_quote": -2.5676419,
       "capital_used_quote": 235.807621896,
       "average_entry": 0.0016246907943778422,
       "average_entry_source": "capital_used / allocated_quantity",
-      "current_price": 0.001598,
+      "current_price": 0.001607,
       "current_price_source": "KuCoin public level1",
       "take_profit_price": 0.0016490611562935097,
       "take_profit_price_source": "average entry + live bot TP%",
-      "distance_to_take_profit_pct": 3.1953,
+      "distance_to_take_profit_pct": 2.6174,
       "completed_safety_orders": 1,
       "max_safety_orders": 6,
       "remaining_safety_orders": 5,
@@ -49,5 +49,5 @@
     "deal_closure": false,
     "probability_claims_without_evidence": false
   },
-  "snapshot_id": "d7b86b1010fa991a26bffaa8"
+  "snapshot_id": "76ce9a6ada7d31a12320e0dc"
 }
