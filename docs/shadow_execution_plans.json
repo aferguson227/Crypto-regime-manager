@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "65.0.0",
-  "generated_at": "2026-08-10T13:57:03.936122+00:00",
+  "generated_at": "2026-08-10T13:59:37.649026+00:00",
   "mode": "SHADOW_ONLY",
   "plans": [
     {
@@ -16,14 +16,14 @@
         "volume_scale": 1.3,
         "step_scale": 1.0
       },
-      "allocated_budget_usdt": 0.0,
+      "allocated_budget_usdt": null,
       "hypothetical_order_ladder": [],
       "checks": [
         "candidate readiness = 100%",
-        "portfolio slot/allocation available",
+        "allocation unavailable",
         "manual confirmation required"
       ],
-      "status": "SHADOW_READY"
+      "status": "WAITING_FOR_ALLOCATION"
     }
   ],
   "live_order_endpoints_called": false,

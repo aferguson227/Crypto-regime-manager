@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "65.0.0",
-  "generated_at": "2026-08-10T13:57:04.558119+00:00",
+  "generated_at": "2026-08-10T13:59:51.717439+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -13,14 +13,35 @@
     "candidates_under_review": 20,
     "regime_research_complete": 0,
     "optimisation_pending": 0,
-    "rejected": 0,
-    "backtests_last_cycle": 0,
-    "datasets_last_cycle": 0
+    "rejected": 1,
+    "backtests_last_cycle": 110880,
+    "datasets_last_cycle": 11
   },
-  "entry_trigger_families": [],
-  "trade_duration_policy": {},
-  "last_full_research_at": null,
-  "independent_walk_forward": {},
+  "entry_trigger_families": [
+    "immediate",
+    "pullback_3pct",
+    "rsi_oversold",
+    "trend_pullback",
+    "breakout_20",
+    "qfl_proxy_3",
+    "mean_reversion"
+  ],
+  "trade_duration_policy": {
+    "typical_target_hours": 24,
+    "p90_target_hours": 72,
+    "preferred_longest_closed_hours": 168,
+    "warning_hours": 168,
+    "strong_penalty_hours": 336,
+    "reject_open_duration_hours": 720,
+    "explanation": "Optimise profit and capital fluidity together. Long closed trades are penalised; unresolved positions receive a stronger penalty and may reject a configuration."
+  },
+  "last_full_research_at": "2026-08-10T12:59:57.192565+00:00",
+  "independent_walk_forward": {
+    "status": "NOT_CONFIGURED",
+    "training_dir": "C:\\Crypto\\Research\\Kraken\\training",
+    "validation_dir": "C:\\Crypto\\Research\\Kraken\\validation",
+    "freeze_before_validation": true
+  },
   "persistent_research": {
     "database_status": "READY",
     "known_assets": 68,
@@ -310,31 +331,13 @@
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     },
     {
-      "asset": "TUT",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
       "asset": "NEAR",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "AEON",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "HYPE",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "BNB",
+      "asset": "TUT",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -352,13 +355,43 @@
       "next_action": "Remain in research queue."
     },
     {
+      "asset": "LINK",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "HYPE",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "BNB",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
       "asset": "SHIB",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "LINK",
+      "asset": "AEON",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "AVAX",
+      "status": "REJECTED",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "ASTER",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -368,19 +401,7 @@
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "SEI",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "CYS",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
     }
   ],
-  "snapshot_id": "2cd067f6698b480f7bcdb418"
+  "snapshot_id": "684eb5ef99ee6dafb2063460"
 }
