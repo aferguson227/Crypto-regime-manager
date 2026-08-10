@@ -5,11 +5,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_v22_version_files_are_consistent():
-    assert (ROOT / "VERSION").read_text(encoding="utf-8").strip() == "65.0.0"
+    assert (ROOT / "VERSION").read_text(encoding="utf-8").strip() == "66.0.0"
     version = json.loads((ROOT / "docs" / "version.json").read_text(encoding="utf-8"))
-    assert version["version"] == "65.0.0"
+    assert version["version"] == "66.0.0"
     config = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
-    assert config["version"] == "65.0.0"
+    assert config["version"] == "66.0.0"
 
 
 def test_research_queue_uses_v22_mobile_design_and_guardrails():

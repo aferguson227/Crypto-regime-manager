@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "65.0.0",
-  "generated_at": "2026-08-10T13:57:02.933992+00:00",
+  "application_version": "66.0.0",
+  "generated_at": "2026-08-10T15:09:12.763700+00:00",
   "live_bots": [
     {
       "asset": "TEL",
@@ -10,9 +10,11 @@
       "current_regime": null,
       "latest_optimisation_status": null,
       "latest_validated_settings": null,
+      "would_deploy_today": false,
+      "production_settings_comparison": "UNCHANGED_OR_CURRENT",
       "latest_unseen_validation": null,
       "recommendation": "KEEP_CURRENT_DEAL_FROZEN",
-      "next_deal_policy": "After this deal closes, compare production settings with the latest unseen-validated settings before the next deployment.",
+      "next_deal_policy": "After this deal closes, compare production settings with the latest unseen-validated settings and current regime before the next deployment. Do not change the active deal mid-trade.",
       "automatic_mid_trade_setting_change": false
     }
   ],

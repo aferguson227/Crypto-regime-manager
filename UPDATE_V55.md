@@ -1,4 +1,4 @@
-# CRM V65.0.0 — Autonomous Health & Dashboard Reliability
+# CRM V66.0.0 — Autonomous Health & Dashboard Reliability
 
 V55 turns recurring dashboard/refresh problems into conditions CRM diagnoses and, where safe, repairs automatically.
 

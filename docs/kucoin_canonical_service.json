@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "application_version": "66.0.0",
+  "generated_at": "2026-08-10T15:09:05.139460+00:00",
+  "credential_contract": "canonical environment aliases; secrets never written",
+  "credential_visibility": {
+    "api_key": false,
+    "api_secret": false,
+    "api_passphrase": false
+  },
+  "data_products": {
+    "account": true,
+    "orders": false,
+    "fills": false,
+    "live_prices": true
+  },
+  "status": "DEGRADED",
+  "principle": "KuCoin is authoritative. Local Agent, accounting, research diagnostics and future execution consume the same canonical data products instead of independently redefining account truth.",
+  "read_only": true,
+  "secrets_persisted": false
+}

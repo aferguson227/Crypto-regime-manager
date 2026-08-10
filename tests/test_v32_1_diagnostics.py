@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT=Path(__file__).parents[1]
 
 def test_v32_1_release_and_diagnostics_assets():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='65.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='66.0.0'
     release=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
     assert release['diagnostics_engine'] is True
     assert (ROOT/'scripts/diagnostics_engine.py').exists()
@@ -16,7 +16,7 @@ def test_v32_1_release_and_diagnostics_assets():
 
 def test_diagnostics_report_is_healthy_and_read_only():
     report=json.loads((ROOT/'docs/diagnostics.json').read_text(encoding='utf-8'))
-    assert report['application_version']=='65.0.0'
+    assert report['application_version']=='66.0.0'
     assert report['mode']=='read_only_observability'
     assert report['overall']['state'] in {'healthy','warning','fail'}
     assert report['privacy']['secrets_included'] is False

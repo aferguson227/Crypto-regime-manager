@@ -24,7 +24,7 @@ def main():
     'effective_position_state':effective,'provider_stale':provider_stale,'opened_at':d.get('created_at'),
     'open_pnl_quote':live_pnl if live_pnl is not None else t.get('profit_quote'),'open_pnl_source':'KUCOIN_LIVE_MARK_TO_MARKET' if live_pnl is not None else 'PROVIDER_FALLBACK',
     'open_pnl_price':px,'open_pnl_priced_at':prices.get('generated_at'),'profit_pct':live_pct if live_pct is not None else t.get('profit_pct'),
-    'capital_used_quote':cost if cost is not None else d.get('capital_used_quote'),'distance_to_take_profit_pct':t.get('distance_to_take_profit_pct'),
+    'position_quantity':qty,'position_cost_basis_quote':cost,'capital_used_quote':cost if cost is not None else d.get('capital_used_quote'),'distance_to_take_profit_pct':t.get('distance_to_take_profit_pct'),
     'action':'Reconcile stale 3Commas deal; KuCoin position is already closed.' if provider_stale else t.get('crm_recommendation') or 'Monitor'})
  effective_open=[x for x in deals if x['effective_position_state']=='OPEN']
  p={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'authority':'KuCoin closure evidence + CRM ledger; 3Commas is execution-provider telemetry.',
@@ -32,6 +32,8 @@ def main():
   'open_pnl_quote':(sum(float(x.get('open_pnl_quote')) for x in effective_open if x.get('open_pnl_quote') is not None) if effective_open and any(x.get('open_pnl_quote') is not None for x in effective_open) else (0.0 if not effective_open else None)),
   'open_pnl_status':('LIVE' if effective_open and all(x.get('open_pnl_source')=='KUCOIN_LIVE_MARK_TO_MARKET' for x in effective_open) else ('FALLBACK' if effective_open and any(x.get('open_pnl_quote') is not None for x in effective_open) else ('NO_OPEN_TRADES' if not effective_open else 'UPDATING'))),
   'open_pnl_priced_at':prices.get('generated_at'),'open_pnl_price_source':prices.get('source'),
+  'open_capital_quote':sum(float(x.get('position_cost_basis_quote') or x.get('capital_used_quote') or 0) for x in effective_open),
+  'open_pnl_pct':(100*sum(float(x.get('open_pnl_quote') or 0) for x in effective_open)/sum(float(x.get('position_cost_basis_quote') or x.get('capital_used_quote') or 0) for x in effective_open)) if effective_open and sum(float(x.get('position_cost_basis_quote') or x.get('capital_used_quote') or 0) for x in effective_open)>0 else None,
   'realised_profit_quote':acct.get('realised_profit_quote'),'realised_profit_status':acct.get('realised_profit_status'),'deployable_capital':cap.get('deployable_capital'),
   'deals':deals,'read_only':True}
  OUT.write_text(json.dumps(p,indent=2),encoding='utf-8');print(f'Live portfolio truth written: {OUT}; effective_open={len(effective_open)} stale={p["stale_provider_deal_count"]}');return 0

@@ -1,28 +1,28 @@
 {
   "schema_version": "1.0",
-  "application_version": "65.0.0",
-  "generated_at": "2026-08-10T13:59:43.708246+00:00",
+  "application_version": "66.0.0",
+  "generated_at": "2026-08-10T15:09:14.060433+00:00",
   "mode": "MIGRATION_IN_PROGRESS",
-  "progress_pct": 85.7,
-  "completed_stages": 6,
+  "progress_pct": 42.9,
+  "completed_stages": 3,
   "total_stages": 7,
   "stages": [
     {
       "id": "ACCOUNT_READ",
       "label": "KuCoin balances",
-      "complete": true,
+      "complete": false,
       "detail": "CRM can read KuCoin balances/capital directly."
     },
     {
       "id": "ORDER_READ",
       "label": "KuCoin orders",
-      "complete": true,
+      "complete": false,
       "detail": "CRM can independently see open and completed KuCoin orders."
     },
     {
       "id": "FILL_LEDGER",
       "label": "KuCoin trade history",
-      "complete": true,
+      "complete": false,
       "detail": "CRM can persist fills and reconstruct realised P/L independently."
     },
     {
@@ -55,10 +55,10 @@
   "current_live_positions": 1,
   "provider_mismatches": 0,
   "next_required_stage": {
-    "id": "GUARDED_LIVE",
-    "label": "Guarded direct trading",
+    "id": "ACCOUNT_READ",
+    "label": "KuCoin balances",
     "complete": false,
-    "detail": "Deliberately locked in V54. Requires successful shadow parity and explicit later release approval."
+    "detail": "CRM can read KuCoin balances/capital directly."
   },
   "live_order_submission_enabled": false,
   "message": "CRM is progressively replacing 3Commas operational dependencies. Direct KuCoin trading remains locked until the read/reconciliation/shadow stages are proven reliable."

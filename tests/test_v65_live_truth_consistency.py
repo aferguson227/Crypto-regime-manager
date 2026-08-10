@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def text(p): return (ROOT/p).read_text(encoding='utf-8')
-def test_version(): assert text('VERSION').strip()=='65.0.0'
+def test_version(): assert text('VERSION').strip()=='66.0.0'
 def test_public_live_price_engine_is_read_only():
  s=text('scripts/kucoin_live_price_engine.py')
  assert '/api/v1/market/orderbook/level1' in s

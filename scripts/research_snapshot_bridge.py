@@ -10,7 +10,7 @@ FILES=[
  'adaptive_research_queue.json','candidate_evidence_grades.json','research_evidence.json','research_pipeline.json',
  'optimisation_queue.json','recommended_bots.json','coin_registry.json','recommendation_timeline.json',
  'expansion_readiness.json','research_activity.json','portfolio_allocation_recommendations.json','candidate_review.json',
- 'research_scheduler_status.json','dca_optimisation_v2.json','kraken_validation_evidence_status.json'
+ 'research_scheduler_status.json','dca_optimisation_v2.json','dca_reoptimisation_queue.json','kraken_validation_evidence_status.json'
 ]
 def root():
  raw=os.getenv('CRM_DATA_ROOT')

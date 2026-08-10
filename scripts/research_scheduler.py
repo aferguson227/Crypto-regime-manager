@@ -86,7 +86,7 @@ def main():
   cached=db.cache_get('latest_research_bundle',fp)
   activity.append({'stage':'Cached optimisation + walk-forward','status':'CACHE_HIT','seconds':0,'backtests':0,'cache_reused':bool(cached)})
  # downstream lightweight decision outputs
- for mod in ['scripts.dca_optimisation_v2_engine','scripts.candidate_evidence_grade_engine','scripts.research_evidence_engine','scripts.research_pipeline_engine','scripts.candidate_optimisation_engine','scripts.recommended_bots_engine','scripts.coin_registry_engine','scripts.recommendation_timeline_engine','scripts.expansion_readiness_engine','scripts.research_activity_engine','scripts.portfolio_capital_manager_v2','scripts.portfolio_allocation_engine','scripts.candidate_review_engine','scripts.live_strategy_revalidation_engine','scripts.integrity_guard_engine']:
+ for mod in ['scripts.dca_optimisation_v2_engine','scripts.dca_reoptimisation_queue_engine','scripts.candidate_evidence_grade_engine','scripts.research_evidence_engine','scripts.research_pipeline_engine','scripts.candidate_optimisation_engine','scripts.recommended_bots_engine','scripts.coin_registry_engine','scripts.recommendation_timeline_engine','scripts.expansion_readiness_engine','scripts.research_activity_engine','scripts.portfolio_capital_manager_v2','scripts.portfolio_allocation_engine','scripts.candidate_review_engine','scripts.live_strategy_revalidation_engine','scripts.integrity_guard_engine']:
   run(mod,check=False)
  hist=load(DOCS/'historical_data_status.json');wf=load(DOCS/'kucoin_walk_forward.json');disc=load(DOCS/'coin_discovery.json')
  elapsed=round(time.monotonic()-started,2)

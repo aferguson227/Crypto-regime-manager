@@ -61,12 +61,17 @@ def snapshot():
   'accounting':load('independent_trade_accounting.json'),'fresh':load('freshness_status.json'),
   'assurance':load('execution_assurance.json'),'schedule':load('local_agent_schedule_health.json'),
   'present':load('presentation_quality.json'),'ui':load('ui_health.json'),'sync':load('synchronization_status.json'),
-  'three':load('threecommas.json'),'canonical':load('kucoin_canonical_service.json')
+  'three':load('threecommas.json'),'canonical':load('kucoin_canonical_service.json'),'live_service':load('kucoin_live_service_status.json')
  }
 
 def root_incidents(s):
  rows=[]
  ku,o,f=s['ku'],s['orders'],s['fills'];canonical_ready=str((s.get('canonical') or {}).get('status') or '').upper()=='READY'
+ svc=s.get('live_service') or {};svc_age=age_minutes(svc.get('generated_at'))
+ if not svc or str(svc.get('status') or '').upper() not in {'HEALTHY','DEGRADED'} or svc_age is None or svc_age>3:
+  rows.append({'code':'LIVE_DATA_SERVICE','title':'KuCoin live data service','area':'Live trading data','severity':'high','state':'ACTION_REQUIRED',
+   'detail':'The resident KuCoin live-data service is not reporting a current heartbeat. Live P/L and order truth may fall back to older data.',
+   'user_action':'Restart the CryptoRegimeManager-LiveDataService scheduled task if automatic recovery does not restore it.'})
  # Account failure is a root incident only when the account collector itself currently fails.
  if account_problem(ku) and not canonical_ready:
   diag=ku.get('diagnostic') or {};cat=str(diag.get('category') or '').upper();usable=usable_account_snapshot(ku)
@@ -114,8 +119,18 @@ def root_incidents(s):
    'detail':'One or more release/runtime presentation checks found a formatting inconsistency.','user_action':'Open technical details if it persists.'})
  return rows
 
+def restart_live_service():
+ if os.name!='nt':return {'module':'windows.live_data_service','returncode':0,'status':'NOT_APPLICABLE','detail':'Non-Windows environment.'}
+ try:
+  r=subprocess.run(['schtasks.exe','/Run','/TN','CryptoRegimeManager-LiveDataService'],text=True,capture_output=True,timeout=20)
+  return {'module':'windows.live_data_service','returncode':r.returncode,'status':'OK' if r.returncode==0 else 'ERROR','detail':(r.stdout or r.stderr)[-500:]}
+ except Exception as exc:return {'module':'windows.live_data_service','returncode':1,'status':'ERROR','detail':f'{type(exc).__name__}: {exc}'}
+
 def recovery_transaction(before):
  actions=[]
+ svc=before.get('live_service') or {};svc_age=age_minutes(svc.get('generated_at'))
+ if not svc or svc_age is None or svc_age>3:
+  actions.append(restart_live_service())
  private_ready=all(os.getenv(x,'').strip() for x in ('KUCOIN_API_KEY','KUCOIN_API_SECRET','KUCOIN_API_PASSPHRASE'))
  private=['scripts.kucoin_account_sync','scripts.kucoin_order_state','scripts.kucoin_fill_ledger'] if private_ready else []
  # A diagnostics/build process without local secrets must never overwrite private trading truth.

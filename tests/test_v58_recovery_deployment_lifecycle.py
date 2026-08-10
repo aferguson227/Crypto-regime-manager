@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_version():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='65.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='66.0.0'
 
 def test_private_symbol_scope_excludes_research_registry():
     s=(ROOT/'scripts/kucoin_symbol_scope.py').read_text(encoding='utf-8')

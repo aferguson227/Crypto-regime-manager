@@ -1,14 +1,17 @@
 {
   "schema_version": "1.0",
-  "application_version": "65.0.0",
-  "generated_at": "2026-08-10T15:06:20.262019+00:00",
+  "application_version": "66.0.0",
+  "generated_at": "2026-08-10T15:09:12.667045+00:00",
   "exchange_equity_usdt": null,
-  "free_usdt": 758.16664365,
+  "free_usdt": 806.67111932,
   "hard_exchange_commitments_usdt": 0,
   "theoretical_full_dca_reserve_usdt": 2113.54,
   "prudent_active_dca_contingency_usdt": 1373.8,
-  "portfolio_safety_buffer_usdt": 75.82,
+  "portfolio_safety_buffer_usdt": 80.67,
   "safe_multi_bot_pool_usdt": 0,
+  "conditional_multi_bot_capacity_usdt": 466.0,
+  "expected_active_dca_reserve_usdt": 260.0,
+  "conditional_capacity_is_advisory_only": true,
   "worst_case_headroom_usdt": 0,
   "candidates": [
     {
@@ -73,5 +76,5 @@
     }
   ],
   "read_only": true,
-  "explanation": "Hard exchange commitments remain fully reserved. A separate prudent contingency reserve supports advisory multi-bot planning while worst-case DCA headroom remains visible. CRM still cannot deploy automatically."
+  "explanation": "Safe allocation remains conservative. CRM also calculates a clearly labelled conditional multi-bot capacity from validated average DCA depth, but it is advisory only and never used to unlock live deployment automatically."
 }

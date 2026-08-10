@@ -5,14 +5,14 @@ from scripts.operating_state_engine import build
 ROOT=Path(__file__).parents[1]
 
 def test_v322_release_and_route():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='65.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='66.0.0'
     routes=json.loads((ROOT/'config/routes.json').read_text(encoding='utf-8'))['routes']
     assert any(x['path']=='operating_state.html' and x['primary'] for x in routes)
     assert (ROOT/'docs/operating_state.js').exists()
 
 def test_operating_state_is_read_only_and_canonical():
     state=build()
-    assert state['application_version']=='65.0.0'
+    assert state['application_version']=='66.0.0'
     assert state['schema_version']=='1.0'
     assert state['read_only'] is True
     assert state['governance']['automatic_live_changes'] is False

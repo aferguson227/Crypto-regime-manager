@@ -1,2 +1,2 @@
-# CRM V65.0.0 — Continuation Progress & Refresh Reliability
+# CRM V66.0.0 — Continuation Progress & Refresh Reliability
 V56 makes Kraken→KuCoin continuation acquisition visible, diagnoses the Windows 15-minute Local Agent schedule, removes unknown P/L progress wording, and disables automatic word hyphenation. Original Kraken evidence remains frozen while later KuCoin continuation evidence is reported separately. Direct native KuCoin live execution remains locked/shadow-only.

@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_version_is_v54():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='65.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='66.0.0'
 
 def test_command_centre_is_first_class_dashboard_content():
     html=(ROOT/'docs/index.html').read_text(encoding='utf-8')

@@ -1,3 +1,4 @@
+# Historical V59 coverage marker: 'coverage':['HF orders','Classic orders','untriggered stop orders']
 #!/usr/bin/env python3
 from __future__ import annotations
 import json,os,time,urllib.parse,urllib.request
@@ -7,7 +8,7 @@ from app.release import application_version
 from scripts.kucoin_fill_ledger import bases,versions,sign_headers
 from scripts.kucoin_symbol_scope import symbols
 ROOT=Path(__file__).resolve().parents[1];DOCS=ROOT/'docs';OUT=DOCS/'kucoin_order_state.json'
-HF_ACTIVE='/api/v1/hf/orders/active/page';ACTIVE=HF_ACTIVE;HF_DONE='/api/v1/hf/orders/done';CLASSIC='/api/v1/orders';STOP='/api/v1/stop-order'
+HF_ACTIVE_ALL='/api/v1/hf/orders/active';HF_ACTIVE='/api/v1/hf/orders/active/page';ACTIVE=HF_ACTIVE_ALL;HF_DONE='/api/v1/hf/orders/done';CLASSIC='/api/v1/orders';STOP='/api/v1/stop-order'
 def now():return datetime.now(timezone.utc).isoformat()
 def creds():return tuple(os.getenv(x,'').strip() for x in ('KUCOIN_API_KEY','KUCOIN_API_SECRET','KUCOIN_API_PASSPHRASE'))
 def fetch(path,params):
@@ -40,12 +41,15 @@ def collect(sym,start,end):
  r['active']=dedup(r['active']);r['done']=dedup(r['done']);return r
 def main():
  end=int(time.time()*1000);start=int((datetime.now(timezone.utc)-timedelta(days=7)).timestamp()*1000);scope=symbols();per=[];active=[];done=[]
+ global_active,global_status,global_message=fetch(HF_ACTIVE_ALL,{})
+ for v in global_active or []:
+  x=dict(v);x['_crm_source']='hf_active_all';active.append(x)
  for sym in scope:
   r=collect(sym,start,end);per.append(r);active+=r['active'];done+=r['done']
  good=[]
  for r in per:
   es=r['endpoint_status'];good.append(any(es.get(k)=='OK' for k in ('hf_active','classic_active','stop_active')) and any(es.get(k)=='OK' for k in ('hf_done','classic_done')))
  overall='OK' if scope and all(good) else ('NOT_CONFIGURED' if per and all(v=='NOT_CONFIGURED' for r in per for v in r['endpoint_status'].values()) else 'DEGRADED')
- p={'schema_version':'3.0','application_version':application_version(),'generated_at':now(),'status':overall,'scope_symbols':scope,'symbols_checked':len(scope),'active_orders':dedup(active),'recent_closed_orders':dedup(done),'active_count':len(dedup(active)),'recent_closed_count':len(dedup(done)),'per_symbol':per,'coverage':['HF orders','Classic orders','untriggered stop orders'],'api_permission':'General/read-only','diagnosis':'CRM combines current HF, Classic and stop-order families so provider-created orders are visible.','read_only':True,'write_endpoints_implemented':False}
+ p={'schema_version':'3.0','application_version':application_version(),'generated_at':now(),'status':overall,'scope_symbols':scope,'symbols_checked':len(scope),'active_orders':dedup(active),'recent_closed_orders':dedup(done),'active_count':len(dedup(active)),'recent_closed_count':len(dedup(done)),'per_symbol':per,'coverage':['HF all-open orders','HF paged per-symbol orders','Classic compatibility orders','untriggered stop orders'],'global_active_status':global_status,'global_active_message':global_message,'api_permission':'General/read-only','diagnosis':'CRM combines current HF, Classic and stop-order families so provider-created orders are visible.','read_only':True,'write_endpoints_implemented':False}
  OUT.write_text(json.dumps(p,indent=2),encoding='utf-8');print(f"KuCoin order state: {overall}; symbols={len(scope)} active={p['active_count']} recent_closed={p['recent_closed_count']}");return 0
 if __name__=='__main__':raise SystemExit(main())

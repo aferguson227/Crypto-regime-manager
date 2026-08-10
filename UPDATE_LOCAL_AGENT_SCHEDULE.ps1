@@ -1,27 +1,39 @@
 $ErrorActionPreference='Stop'
 $Project='C:\Crypto\Projects'
 
-# Fast operational Local Agent every 5 minutes.
+# Fast publication/decision Local Agent every 5 minutes.
 $LocalTask='CryptoRegimeManager-LocalAgent'
-$task=Get-ScheduledTask -TaskName $LocalTask -ErrorAction SilentlyContinue
-if ($task) {
+if (Get-ScheduledTask -TaskName $LocalTask -ErrorAction SilentlyContinue) {
   Stop-ScheduledTask -TaskName $LocalTask -ErrorAction SilentlyContinue
-  Start-Sleep -Seconds 2
-  $arg='-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File "'+(Join-Path $Project 'RUN_LOCAL_AGENT.ps1')+'"'
-  $action=New-ScheduledTaskAction -Execute 'powershell.exe' -Argument $arg
-  $trigger=New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(2) -RepetitionInterval (New-TimeSpan -Minutes 5)
-  $settings=New-ScheduledTaskSettingsSet -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Minutes 30)
-  Register-ScheduledTask -TaskName $LocalTask -Action $action -Trigger $trigger -Settings $settings -Description 'CRM fast private trading/accounting refresh every 5 minutes.' -Force | Out-Null
-  Write-Host 'Local Agent schedule updated: hidden/background, every 5 minutes.' -ForegroundColor Green
-} else {
-  Write-Host 'Local Agent scheduled task is not configured yet; SETUP_LOCAL_AGENT.cmd will create it.'
 }
+$localArg='-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File "'+(Join-Path $Project 'RUN_LOCAL_AGENT.ps1')+'"'
+$localAction=New-ScheduledTaskAction -Execute 'powershell.exe' -Argument $localArg
+$localTrigger=New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(2) -RepetitionInterval (New-TimeSpan -Minutes 5)
+$localSettings=New-ScheduledTaskSettingsSet -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Minutes 30)
+Register-ScheduledTask -TaskName $LocalTask -Action $localAction -Trigger $localTrigger -Settings $localSettings -Description 'CRM fast publication/decision refresh every 5 minutes.' -Force | Out-Null
 
-# Heavy research is independent so it cannot block trading/accounting freshness.
+# Resident private KuCoin truth service. It owns the credential context and stays alive.
+$LiveTask='CryptoRegimeManager-LiveDataService'
+if (Get-ScheduledTask -TaskName $LiveTask -ErrorAction SilentlyContinue) {
+  Stop-ScheduledTask -TaskName $LiveTask -ErrorAction SilentlyContinue
+}
+Remove-Item (Join-Path $env:LOCALAPPDATA 'CryptoRegimeManager\kucoin_live_service.lock') -Force -ErrorAction SilentlyContinue
+$liveArg='-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File "'+(Join-Path $Project 'RUN_KUCOIN_LIVE_SERVICE.ps1')+'"'
+$liveAction=New-ScheduledTaskAction -Execute 'powershell.exe' -Argument $liveArg
+$liveTrigger=New-ScheduledTaskTrigger -AtLogOn
+$liveSettings=New-ScheduledTaskSettingsSet -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit ([TimeSpan]::Zero)
+Register-ScheduledTask -TaskName $LiveTask -Action $liveAction -Trigger $liveTrigger -Settings $liveSettings -Description 'CRM resident read-only KuCoin live trading data service.' -Force | Out-Null
+Start-ScheduledTask -TaskName $LiveTask
+
+# Heavy research remains isolated every six hours.
 $ResearchTask='CryptoRegimeManager-ResearchWorker'
-$arg2='-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File "'+(Join-Path $Project 'RUN_RESEARCH_WORKER.ps1')+'"'
-$action2=New-ScheduledTaskAction -Execute 'powershell.exe' -Argument $arg2
-$trigger2=New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(5) -RepetitionInterval (New-TimeSpan -Hours 6)
-$settings2=New-ScheduledTaskSettingsSet -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Hours 8)
-Register-ScheduledTask -TaskName $ResearchTask -Action $action2 -Trigger $trigger2 -Settings $settings2 -Description 'CRM isolated heavy market research/backtesting every 6 hours.' -Force | Out-Null
-Write-Host 'Research Worker schedule updated: isolated/background, every 6 hours.' -ForegroundColor Green
+$researchArg='-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File "'+(Join-Path $Project 'RUN_RESEARCH_WORKER.ps1')+'"'
+$researchAction=New-ScheduledTaskAction -Execute 'powershell.exe' -Argument $researchArg
+$researchTrigger=New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(5) -RepetitionInterval (New-TimeSpan -Hours 6)
+$researchSettings=New-ScheduledTaskSettingsSet -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Hours 8)
+Register-ScheduledTask -TaskName $ResearchTask -Action $researchAction -Trigger $researchTrigger -Settings $researchSettings -Description 'CRM isolated heavy research/backtesting every 6 hours.' -Force | Out-Null
+
+Write-Host 'CRM schedules updated:' -ForegroundColor Green
+Write-Host ' - KuCoin Live Data Service: resident/background, starts at logon, prices/orders every ~20s, private refresh ~60s.'
+Write-Host ' - Local Agent: every 5 minutes for publication/decision state.'
+Write-Host ' - Research Worker: every 6 hours.'
