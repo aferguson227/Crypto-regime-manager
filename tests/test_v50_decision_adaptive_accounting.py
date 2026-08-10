@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_version():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='64.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='65.0.0'
 
 def test_fill_ledger_is_read_only_and_persistent():
     text=(ROOT/'scripts/kucoin_fill_ledger.py').read_text(encoding='utf-8')

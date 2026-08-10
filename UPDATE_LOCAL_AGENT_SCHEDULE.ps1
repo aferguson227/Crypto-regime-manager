@@ -1,7 +1,7 @@
 $ErrorActionPreference='Stop'
 $Project='C:\Crypto\Projects'
 
-# Fast operational Local Agent every 15 minutes.
+# Fast operational Local Agent every 5 minutes.
 $LocalTask='CryptoRegimeManager-LocalAgent'
 $task=Get-ScheduledTask -TaskName $LocalTask -ErrorAction SilentlyContinue
 if ($task) {
@@ -9,10 +9,10 @@ if ($task) {
   Start-Sleep -Seconds 2
   $arg='-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File "'+(Join-Path $Project 'RUN_LOCAL_AGENT.ps1')+'"'
   $action=New-ScheduledTaskAction -Execute 'powershell.exe' -Argument $arg
-  $trigger=New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(2) -RepetitionInterval (New-TimeSpan -Minutes 15)
+  $trigger=New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(2) -RepetitionInterval (New-TimeSpan -Minutes 5)
   $settings=New-ScheduledTaskSettingsSet -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Minutes 30)
-  Register-ScheduledTask -TaskName $LocalTask -Action $action -Trigger $trigger -Settings $settings -Description 'CRM fast private trading/accounting refresh every 15 minutes.' -Force | Out-Null
-  Write-Host 'Local Agent schedule updated: hidden/background, every 15 minutes.' -ForegroundColor Green
+  Register-ScheduledTask -TaskName $LocalTask -Action $action -Trigger $trigger -Settings $settings -Description 'CRM fast private trading/accounting refresh every 5 minutes.' -Force | Out-Null
+  Write-Host 'Local Agent schedule updated: hidden/background, every 5 minutes.' -ForegroundColor Green
 } else {
   Write-Host 'Local Agent scheduled task is not configured yet; SETUP_LOCAL_AGENT.cmd will create it.'
 }

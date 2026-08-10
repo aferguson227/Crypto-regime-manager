@@ -1,10 +1,10 @@
 {
-  "application_version": "64.0.0",
-  "generated_at": "2026-08-10T13:52:25.668221+00:00",
+  "application_version": "65.0.0",
+  "generated_at": "2026-08-10T13:56:54.877908+00:00",
   "last_success_at": "2026-08-10T13:52:25.668235+00:00",
-  "status": "ok",
-  "health": "HEALTHY",
-  "using_last_good_snapshot": false,
+  "status": "fallback_current",
+  "health": "RECOVERING",
+  "using_last_good_snapshot": true,
   "source": "KuCoin private spot account API",
   "read_only": true,
   "endpoint": "GET /api/v1/accounts",
@@ -319,13 +319,16 @@
   ],
   "record_count": 43,
   "diagnostic": {
-    "category": null,
-    "message": null
+    "category": "NOT_CONFIGURED",
+    "message": "This process could not access the local read-only KuCoin credentials.",
+    "attempts": []
   },
   "guardrails": {
     "write_endpoints_implemented": false,
     "orders_enabled": false,
     "transfers_enabled": false,
     "withdrawals_enabled": false
-  }
+  },
+  "refresh_status": "not_configured",
+  "message": "This process could not access the local read-only KuCoin credentials."
 }

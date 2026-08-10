@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_version():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='64.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='65.0.0'
 
 def test_health_recovery_engine_exists_and_has_hard_guardrails():
     text=(ROOT/'scripts/crm_health_recovery_engine.py').read_text(encoding='utf-8')

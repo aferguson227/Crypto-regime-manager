@@ -1,4 +1,4 @@
-# CRM V64.0.0 — KuCoin Trading Truth & Accounting Completion
+# CRM V65.0.0 — KuCoin Trading Truth & Accounting Completion
 
 V59 is the reliability clean-up before DCA Optimisation 2.0 and the next native-execution phase.
 

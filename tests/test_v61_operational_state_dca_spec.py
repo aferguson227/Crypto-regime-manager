@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_version():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='64.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='65.0.0'
 
 def test_fast_local_agent_does_not_run_heavy_research_scheduler():
     import ast
@@ -26,7 +26,7 @@ def test_windows_tasks_are_split():
     s=(ROOT/'UPDATE_LOCAL_AGENT_SCHEDULE.ps1').read_text(encoding='utf-8')
     assert 'CryptoRegimeManager-LocalAgent' in s
     assert 'CryptoRegimeManager-ResearchWorker' in s
-    assert 'New-TimeSpan -Minutes 15' in s
+    assert 'New-TimeSpan -Minutes 5' in s
     assert 'New-TimeSpan -Hours 6' in s
 
 def test_freshness_uses_heartbeat():

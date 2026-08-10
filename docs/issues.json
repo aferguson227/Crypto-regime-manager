@@ -1,19 +1,32 @@
 {
-  "application_version": "64.0.0",
-  "generated_at": "2026-08-10T12:34:17.573582+00:00",
+  "application_version": "65.0.0",
+  "generated_at": "2026-08-10T13:56:57.507121+00:00",
   "issues": [
+    {
+      "severity": "warning",
+      "system": "3Commas",
+      "title": "3Commas refresh needs attention",
+      "detail": "Last successful sync was 3h 10m ago. Expected cadence is about 1h.",
+      "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
+      "metric": {
+        "age_hours": 3.17,
+        "expected_cadence_hours": 1
+      },
+      "first_detected_at": "2026-08-10T13:56:57.524696+00:00",
+      "last_detected_at": "2026-08-10T13:56:57.524703+00:00"
+    },
     {
       "severity": "critical",
       "system": "Application",
       "title": "Application publication needs attention",
-      "detail": "Latest successful publication was 12h 32m ago.",
+      "detail": "Latest successful publication was 13h 55m ago.",
       "recommended_action": "Automatic publication is enabled; inspect the workflow only if live Pages is not synchronised.",
       "metric": {
-        "age_hours": 12.54,
+        "age_hours": 13.92,
         "unit": "hours"
       },
-      "first_detected_at": "2026-08-10T12:34:17.589795+00:00",
-      "last_detected_at": "2026-08-10T12:34:17.589802+00:00"
+      "first_detected_at": "2026-08-10T13:56:57.524716+00:00",
+      "last_detected_at": "2026-08-10T13:56:57.524719+00:00"
     }
   ]
 }

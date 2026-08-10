@@ -67,7 +67,7 @@ def main():
   cutoff=datetime.fromisoformat(str(cutoff_raw).replace('Z','+00:00'))
   if not vf:
    rec.update({'continuation_status':'UNAVAILABLE_KRAKEN_SOURCE','terminal':True,'diagnostic_stage':'asset file discovery',
-    'reason':'The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory.'});rows.append(rec);continue
+    'reason':'The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely.'});rows.append(rec);continue
   if not kf.exists():
    rec.update({'continuation_status':'UNAVAILABLE_KUCOIN_HISTORY','terminal':True,'diagnostic_stage':'candle coverage','reason':'No cached KuCoin 4-hour history exists for this asset. This is an explicit unavailable-evidence result, not an indefinite waiting state.'});rows.append(rec);continue
   if not settings:
@@ -82,7 +82,7 @@ def main():
   rec['kucoin_coverage']=cov
   if not future:
    rec.update({'continuation_status':'UNAVAILABLE_POST_CUTOFF_DATA','terminal':True,'diagnostic_stage':'candle coverage',
-    'reason':f"Cached KuCoin history ends at {cov.get('last')}; continuation requires candles after Kraken cutoff {cutoff.isoformat()}. Acquisition remains prioritised."});rows.append(rec);continue
+    'reason':f"Cached KuCoin history ends at {cov.get('last')}; continuation requires candles after Kraken cutoff {cutoff.isoformat()}. The resolver records this as a terminal evidence limitation."});rows.append(rec);continue
   # A gap of more than two 4-hour bars is reported explicitly instead of silently treating the streams as perfectly contiguous.
   if cov.get('gap_hours') is not None and cov['gap_hours']>8.5:
    rec.update({'continuation_status':'UNAVAILABLE_CONTINUATION_GAP','terminal':True,'diagnostic_stage':'candle coverage',

@@ -51,8 +51,8 @@ def usable_account_snapshot(ku):
  return bool(has_data and age is not None and age<=45)
 
 def account_problem(ku):return not status_ok(ku.get('status'))
-def order_problem(o):return not status_ok(o.get('status'))
-def fill_problem(f):return not status_ok(f.get('status'))
+def order_problem(o):return str(o.get('status') or '').upper() in {'ERROR','FAILED','NOT_CONFIGURED','REQUEST_ERROR'}
+def fill_problem(f):return str(f.get('status') or '').upper() in {'ERROR','FAILED','NOT_CONFIGURED','REQUEST_ERROR'}
 def schedule_problem(s):return str(s.get('status') or '').upper() in {'MISSING','DISABLED','ERROR'}
 
 def snapshot():
@@ -61,14 +61,14 @@ def snapshot():
   'accounting':load('independent_trade_accounting.json'),'fresh':load('freshness_status.json'),
   'assurance':load('execution_assurance.json'),'schedule':load('local_agent_schedule_health.json'),
   'present':load('presentation_quality.json'),'ui':load('ui_health.json'),'sync':load('synchronization_status.json'),
-  'three':load('threecommas.json')
+  'three':load('threecommas.json'),'canonical':load('kucoin_canonical_service.json')
  }
 
 def root_incidents(s):
  rows=[]
- ku,o,f=s['ku'],s['orders'],s['fills']
+ ku,o,f=s['ku'],s['orders'],s['fills'];canonical_ready=str((s.get('canonical') or {}).get('status') or '').upper()=='READY'
  # Account failure is a root incident only when the account collector itself currently fails.
- if account_problem(ku):
+ if account_problem(ku) and not canonical_ready:
   diag=ku.get('diagnostic') or {};cat=str(diag.get('category') or '').upper();usable=usable_account_snapshot(ku)
   if usable:
    detail='The newest KuCoin balance snapshot is still usable while CRM retries the background account refresh.'
@@ -85,7 +85,7 @@ def root_incidents(s):
   rows.append({'code':'KUCOIN_ACCOUNT','title':title,'area':'Background data refresh' if usable else 'Trading data','severity':severity,'state':'RECOVERING','detail':detail,'user_action':action,'trading_data_usable':usable})
 
  # Order/fill issues form one private-trading-data incident if account auth is healthy.
- if not account_problem(ku) and (order_problem(o) or fill_problem(f)):
+ if (canonical_ready or not account_problem(ku)) and (order_problem(o) or fill_problem(f)):
   failed=[]
   if order_problem(o):failed.append('orders')
   if fill_problem(f):failed.append('trade history')
@@ -95,11 +95,11 @@ def root_incidents(s):
 
  if schedule_problem(s['schedule']):
   rows.append({'code':'LOCAL_AGENT_SCHEDULE','title':'Background refresh schedule','area':'Refresh','severity':'high','state':'ATTENTION',
-   'detail':str(s['schedule'].get('explanation') or 'The Windows 15-minute Local Agent task is not healthy.'),
+   'detail':str(s['schedule'].get('explanation') or 'The Windows 5-minute Local Agent task is not healthy.'),
    'user_action':'Run UPDATE_LOCAL_AGENT_SCHEDULE.ps1 or review the CryptoRegimeManager-LocalAgent task.'})
 
  # Only surface dependent states when the upstream KuCoin path is healthy.
- upstream=(account_problem(ku) and not usable_account_snapshot(ku)) or order_problem(o) or fill_problem(f)
+ upstream=((account_problem(ku) and not canonical_ready) and not usable_account_snapshot(ku)) or order_problem(o) or fill_problem(f)
  if not upstream:
   if str(s['fresh'].get('overall') or '').upper() in {'ACTION_REQUIRED','SOURCE_OVERDUE'}:
    rows.append({'code':'FRESHNESS','title':'Trading-data freshness','area':'Refresh','severity':'medium','state':'RECOVERING',

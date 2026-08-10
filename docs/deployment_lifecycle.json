@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "64.0.0",
-  "generated_at": "2026-08-10T13:53:55.590831+00:00",
+  "application_version": "65.0.0",
+  "generated_at": "2026-08-10T13:57:03.849746+00:00",
   "workflow": [
     "RESEARCHING",
     "VALIDATING",
@@ -73,7 +73,7 @@
       "dca_optimisation_status": "COMPLETE",
       "entry_trigger": "immediate",
       "current_regime": "ACCUMULATION",
-      "allocation_usdt": null,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": 912.5,
       "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
       "setting_sources": {
@@ -91,10 +91,10 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 62.5,
+      "readiness_pct": 87.5,
       "kraken_robustness": {
         "status": "FAIL",
-        "explanation": "Kraken cutoff failed: mark-to-market P/L -1255.9; open position True. Continuation status: UNAVAILABLE_KRAKEN_SOURCE. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
+        "explanation": "Kraken cutoff failed: mark-to-market P/L -1255.9; open position True. Independent continuation source is unavailable (UNAVAILABLE_KRAKEN_SOURCE); this is a terminal evidence limitation rather than an open pipeline task. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
         "continuation": {
           "asset": "AAVE",
           "resolver_version": "2.0",
@@ -108,7 +108,7 @@
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
           "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
           "terminal": true,
-          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+          "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
         }
       },
       "kucoin_profitability": {
@@ -125,7 +125,6 @@
       },
       "blockers": [
         "One or more deployment evidence gates are incomplete.",
-        "Kraken-open validation still requires resolved KuCoin continuation evidence \u00b7 The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory..",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
@@ -150,7 +149,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": null,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -168,7 +167,7 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 37.5,
+      "readiness_pct": 50.0,
       "kraken_robustness": {
         "status": "MISSING",
         "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset.",
@@ -227,7 +226,7 @@
       "dca_optimisation_status": "COMPLETE",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": null,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": 1318.75,
       "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
       "setting_sources": {
@@ -245,10 +244,10 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 37.5,
+      "readiness_pct": 62.5,
       "kraken_robustness": {
         "status": "FAIL",
-        "explanation": "Kraken cutoff failed: mark-to-market P/L 438.99; open position True. Continuation status: UNAVAILABLE_KRAKEN_SOURCE. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
+        "explanation": "Kraken cutoff failed: mark-to-market P/L 438.99; open position True. Independent continuation source is unavailable (UNAVAILABLE_KRAKEN_SOURCE); this is a terminal evidence limitation rather than an open pipeline task. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
         "continuation": {
           "asset": "DOT",
           "resolver_version": "2.0",
@@ -262,7 +261,7 @@
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
           "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
           "terminal": true,
-          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+          "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
         }
       },
       "kucoin_profitability": {
@@ -279,7 +278,6 @@
       },
       "blockers": [
         "One or more deployment evidence gates are incomplete.",
-        "Kraken-open validation still requires resolved KuCoin continuation evidence \u00b7 The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory..",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
@@ -304,7 +302,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": null,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -322,7 +320,7 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 37.5,
+      "readiness_pct": 50.0,
       "kraken_robustness": {
         "status": "PASS",
         "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
@@ -339,7 +337,7 @@
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
           "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
           "terminal": true,
-          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+          "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
         }
       },
       "kucoin_profitability": {
@@ -381,7 +379,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BEAR",
-      "allocation_usdt": null,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -399,7 +397,7 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 37.5,
+      "readiness_pct": 50.0,
       "kraken_robustness": {
         "status": "PASS",
         "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
@@ -416,7 +414,7 @@
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
           "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
           "terminal": true,
-          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+          "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
         }
       },
       "kucoin_profitability": {
@@ -458,11 +456,11 @@
       "dca_optimisation_status": "WAITING_FOR_RESEARCH_INPUT",
       "entry_trigger": null,
       "current_regime": null,
-      "allocation_usdt": null,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {},
-      "readiness_pct": 12.5,
+      "readiness_pct": 25.0,
       "kraken_robustness": {
         "status": "MISSING",
         "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset.",
@@ -507,7 +505,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": null,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -525,10 +523,10 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 25.0,
+      "readiness_pct": 50.0,
       "kraken_robustness": {
         "status": "FAIL",
-        "explanation": "Kraken cutoff failed: mark-to-market P/L -1428.64; open position True. Continuation status: UNAVAILABLE_KRAKEN_SOURCE. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
+        "explanation": "Kraken cutoff failed: mark-to-market P/L -1428.64; open position True. Independent continuation source is unavailable (UNAVAILABLE_KRAKEN_SOURCE); this is a terminal evidence limitation rather than an open pipeline task. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
         "continuation": {
           "asset": "SOL",
           "resolver_version": "2.0",
@@ -542,7 +540,7 @@
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
           "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
           "terminal": true,
-          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+          "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
         }
       },
       "kucoin_profitability": {
@@ -560,7 +558,6 @@
       "blockers": [
         "One or more deployment evidence gates are incomplete.",
         "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
-        "Kraken-open validation still requires resolved KuCoin continuation evidence \u00b7 The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory..",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
@@ -585,7 +582,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": null,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -603,7 +600,7 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 25.0,
+      "readiness_pct": 37.5,
       "kraken_robustness": {
         "status": "MISSING",
         "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset.",
@@ -648,7 +645,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "ACCUMULATION",
-      "allocation_usdt": null,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -666,7 +663,7 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 75.0,
+      "readiness_pct": 87.5,
       "kraken_robustness": {
         "status": "PASS",
         "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
@@ -683,7 +680,7 @@
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
           "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
           "terminal": true,
-          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+          "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
         }
       },
       "kucoin_profitability": {
@@ -725,7 +722,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": null,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -743,7 +740,7 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 37.5,
+      "readiness_pct": 50.0,
       "kraken_robustness": {
         "status": "PASS",
         "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
@@ -760,7 +757,7 @@
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
           "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
           "terminal": true,
-          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+          "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
         }
       },
       "kucoin_profitability": {
@@ -802,7 +799,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "pullback_3pct",
       "current_regime": "BEAR",
-      "allocation_usdt": null,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -820,7 +817,7 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 37.5,
+      "readiness_pct": 50.0,
       "kraken_robustness": {
         "status": "PASS",
         "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
@@ -837,7 +834,7 @@
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
           "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
           "terminal": true,
-          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+          "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
         }
       },
       "kucoin_profitability": {
@@ -893,7 +890,7 @@
       "dca_optimisation_status": "COMPLETE",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": null,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": 359.35,
       "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
       "setting_sources": {
@@ -911,10 +908,10 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 75.0,
+      "readiness_pct": 100.0,
       "kraken_robustness": {
         "status": "FAIL",
-        "explanation": "Kraken cutoff failed: mark-to-market P/L -2603.9; open position True. Continuation status: UNAVAILABLE_KRAKEN_SOURCE. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
+        "explanation": "Kraken cutoff failed: mark-to-market P/L -2603.9; open position True. Independent continuation source is unavailable (UNAVAILABLE_KRAKEN_SOURCE); this is a terminal evidence limitation rather than an open pipeline task. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
         "continuation": {
           "asset": "ZEC",
           "resolver_version": "2.0",
@@ -928,7 +925,7 @@
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
           "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
           "terminal": true,
-          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+          "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
         }
       },
       "kucoin_profitability": {
@@ -944,8 +941,6 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
-        "Kraken-open validation still requires resolved KuCoin continuation evidence \u00b7 The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory..",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",

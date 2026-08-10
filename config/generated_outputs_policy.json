@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "application_version": "64.0.0",
+  "application_version": "65.0.0",
   "tracked_release_snapshots": [
     "docs/diagnostics.json",
     "docs/version.json"
@@ -49,7 +49,9 @@
     "docs/issues.json",
     "docs/kraken_validation_evidence_status.json",
     "docs/kucoin_account.json",
+    "docs/kucoin_canonical_service.json",
     "docs/kucoin_fill_ledger.json",
+    "docs/kucoin_live_prices.json",
     "docs/kucoin_order_state.json",
     "docs/kucoin_walk_forward.json",
     "docs/live_bot_profiles.json",
@@ -83,6 +85,7 @@
     "docs/research_evidence.json",
     "docs/research_pipeline.json",
     "docs/research_scheduler_status.json",
+    "docs/resolution_state_status.json",
     "docs/self_healing_status.json",
     "docs/shadow_execution_plans.json",
     "docs/source_health.json",
@@ -93,9 +96,7 @@
     "docs/validation_resolution.json",
     "docs/visual_issues.json",
     "docs/workflow_doctor.json",
-    "docs/workflow_history.json",
-    "docs/kucoin_canonical_service.json",
-    "docs/resolution_state_status.json"
+    "docs/workflow_history.json"
   ],
   "archive_exclusions": [
     ".update-backups/**",

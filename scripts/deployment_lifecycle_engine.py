@@ -63,8 +63,8 @@ def main():
   kr=(c.get('kraken_robustness') or {});kr_status=str(kr.get('status') or 'MISSING').upper()
   cont=(kr.get('continuation') or {})
   continuation_state=str(cont.get('continuation_status') or '').upper()
-  continuation_resolved=kr_status!='FAIL' or continuation_state in {'CLOSED_ON_KUCOIN_CONTINUATION','RESOLVED','PASS'}
-  al=alby.get(a) or {};allocation=al.get('recommended_allocation_usdt') if al else c.get('suggested_allocation_usdt')
+  continuation_resolved=kr_status!='FAIL' or bool(cont.get('terminal')) or continuation_state in {'CLOSED_ON_KUCOIN_CONTINUATION','STILL_OPEN','RESOLVED','PASS'}
+  al=alby.get(a) or {};allocation=al.get('recommended_allocation_usdt') if al.get('recommended_allocation_usdt') is not None else c.get('suggested_allocation_usdt')
   required=sp.get('capital_required_usdt')
   capital_ready=bool(allocation is not None and float(allocation or 0)>0 and (required is None or float(allocation)>=float(required)))
   ready_review=bool(c.get('readiness_pct')==100 or c.get('deployment_preparation_available') or optimisation_complete)
@@ -79,7 +79,7 @@ def main():
   if not optimisation_complete:blockers.append('DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.')
   if not continuation_resolved:
    detail=str(cont.get('reason') or '')
-   blockers.append('Kraken-open validation still requires resolved KuCoin continuation evidence'+(f' · {detail}' if detail else f' · current status {continuation_state or "unknown"}')+'.')
+   blockers.append('Independent continuation evidence has not reached a terminal result'+(f' · {detail}' if detail else f' · current status {continuation_state or "unknown"}')+'.')
   if allocation is None or float(allocation or 0)<=0:blockers.append('No portfolio capital is currently safe to allocate to a new bot.')
   elif required is not None and float(allocation)<float(required):blockers.append(f'Current safe allocation {float(allocation):.2f} USDT is below this setup\'s required capital {float(required):.2f} USDT.')
   rows.append({'asset':a,'pair':c.get('pair') or f'{a}-USDT','bot_name':f'{a} Regime DCA',

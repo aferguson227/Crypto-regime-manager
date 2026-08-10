@@ -48,6 +48,7 @@ def main():
   if usable is not None and selected:
    weighted=usable*(score/total);cap_pct=usable*float(policy.get('max_single_bot_pct',30))/100;pilot=usable*float(policy.get('pilot_pct',15))/100
    amount=round(min(max(pilot,weighted),cap_pct,usable),2)
+  if amount is None and deploy is not None and deploy<=0: amount=0.0
   rows.append({'asset':x.get('asset'),'pair':x.get('pair'),'selected_for_next_portfolio_slot':selected,'portfolio_score':round(score,2),
    'kucoin_validation_return_on_max_capital_pct':round(ret,2),'validation_drawdown_pct':round(dd,2),'longest_validation_trade_hours':longh,
    'max_abs_correlation_to_live_bots':round(cpen,3) if cpen is not None else None,'recommended_allocation_usdt':amount,

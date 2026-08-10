@@ -5,7 +5,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_v44_version():
-    assert (ROOT / 'VERSION').read_text(encoding='utf-8').strip() == '64.0.0'
+    assert (ROOT / 'VERSION').read_text(encoding='utf-8').strip() == '65.0.0'
 
 
 def test_autonomous_diagnostics_and_freshness_exist():
@@ -14,9 +14,9 @@ def test_autonomous_diagnostics_and_freshness_exist():
     assert (ROOT / 'CRM_CHECK.cmd').exists()
 
 
-def test_local_agent_target_is_15_minutes():
+def test_local_agent_target_is_5_minutes():
     text = (ROOT / 'SETUP_LOCAL_AGENT.ps1').read_text(encoding='utf-8')
-    assert 'New-TimeSpan -Minutes 15' in text
+    assert 'New-TimeSpan -Minutes 5' in text
 
 
 def test_global_market_does_not_fake_kraken_btc():
@@ -60,4 +60,4 @@ def test_dashboard_has_v44_operations_sections():
 
 def test_existing_local_agent_schedule_is_upgradable():
     text = (ROOT / 'UPDATE_LOCAL_AGENT_SCHEDULE.ps1').read_text(encoding='utf-8')
-    assert 'RepetitionInterval (New-TimeSpan -Minutes 15)' in text
+    assert 'RepetitionInterval (New-TimeSpan -Minutes 5)' in text

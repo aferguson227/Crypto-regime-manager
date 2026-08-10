@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "64.0.0",
-  "generated_at": "2026-08-10T12:34:18.777419+00:00",
+  "application_version": "65.0.0",
+  "generated_at": "2026-08-10T13:56:58.628697+00:00",
   "method": "Reconstruct frozen Kraken cutoff open position, then continue it using later KuCoin 4h candles only.",
   "assets": [
     {
@@ -17,7 +17,7 @@
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
       "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
       "terminal": true,
-      "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+      "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
     },
     {
       "asset": "AVAX",
@@ -32,7 +32,7 @@
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
       "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
       "terminal": true,
-      "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+      "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
     },
     {
       "asset": "DOT",
@@ -47,7 +47,7 @@
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
       "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
       "terminal": true,
-      "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+      "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
     },
     {
       "asset": "ETH",
@@ -62,7 +62,7 @@
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
       "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
       "terminal": true,
-      "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+      "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
     },
     {
       "asset": "NEAR",
@@ -77,7 +77,7 @@
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
       "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
       "terminal": true,
-      "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+      "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
     },
     {
       "asset": "SOL",
@@ -92,7 +92,7 @@
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
       "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
       "terminal": true,
-      "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+      "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
     },
     {
       "asset": "UNI",
@@ -107,7 +107,7 @@
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
       "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
       "terminal": true,
-      "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+      "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
     },
     {
       "asset": "XMR",
@@ -122,7 +122,7 @@
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
       "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
       "terminal": true,
-      "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+      "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
     },
     {
       "asset": "XRP",
@@ -137,7 +137,7 @@
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
       "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
       "terminal": true,
-      "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+      "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
     },
     {
       "asset": "ZEC",
@@ -152,7 +152,7 @@
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
       "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
       "terminal": true,
-      "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+      "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
     }
   ],
   "summary": {

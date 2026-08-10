@@ -1,9 +1,9 @@
 from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
-def test_v46_identity(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='64.0.0'
+def test_v46_identity(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='65.0.0'
 def test_silent_agent_task():
- t=(ROOT/'UPDATE_LOCAL_AGENT_SCHEDULE.ps1').read_text(encoding='utf-8'); assert '-WindowStyle Hidden' in t and '-Minutes 15' in t
+ t=(ROOT/'UPDATE_LOCAL_AGENT_SCHEDULE.ps1').read_text(encoding='utf-8'); assert '-WindowStyle Hidden' in t and '-Minutes 5' in t
 def test_v46_engines_present():
  for n in ['market_universe_engine.py','historical_data_manager.py','validation_resolution_engine.py','independent_trade_accounting_engine.py','source_health_engine.py']: assert (ROOT/'scripts'/n).exists()
 def test_btc_is_research_only():

@@ -9,7 +9,7 @@ from datetime import datetime,timezone
 from pathlib import Path
 from app.release import application_version
 ROOT=Path(__file__).resolve().parents[1];D=ROOT/'docs';OUT=D/'fast_live_truth_status.json'
-MODULES=['scripts.kucoin_account_sync','scripts.kucoin_fill_ledger','scripts.kucoin_order_state_engine','scripts.execution_reconciliation_engine','scripts.capital_intelligence_engine','scripts.trade_intelligence_engine','scripts.independent_trade_accounting_engine','scripts.live_portfolio_truth_engine','scripts.portfolio_capital_manager_v2','scripts.live_strategy_revalidation_engine','scripts.integrity_guard_engine']
+MODULES=['scripts.kucoin_account_sync','scripts.kucoin_live_price_engine','scripts.kucoin_fill_ledger','scripts.kucoin_order_state','scripts.execution_reconciliation_engine','scripts.capital_intelligence_engine','scripts.trade_intelligence_engine','scripts.independent_trade_accounting_engine','scripts.live_portfolio_truth_engine','scripts.portfolio_capital_manager_v2','scripts.live_strategy_revalidation_engine','scripts.integrity_guard_engine']
 def main():
  rows=[];start=time.monotonic()
  for m in MODULES:

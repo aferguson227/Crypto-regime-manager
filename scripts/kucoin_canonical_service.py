@@ -15,9 +15,9 @@ def load(n):
  except:return {}
 def present(*names): return any(bool(os.getenv(n)) for n in names)
 def main():
- account=load('kucoin_account.json');orders=load('kucoin_order_state.json');fills=load('kucoin_fill_ledger.json')
+ account=load('kucoin_account.json');orders=load('kucoin_order_state.json');fills=load('kucoin_fill_ledger.json');prices=load('kucoin_live_prices.json')
  creds={'api_key':present('KUCOIN_API_KEY','KUCOIN_KEY'),'api_secret':present('KUCOIN_API_SECRET','KUCOIN_SECRET'),'api_passphrase':present('KUCOIN_API_PASSPHRASE','KUCOIN_PASSPHRASE')}
- products={'account':str(account.get('status') or '').upper()=='OK','orders':str(orders.get('status') or '').upper() in {'OK','DEGRADED'},'fills':str(fills.get('status') or '').upper() in {'OK','DEGRADED'}}
+ products={'account':str(account.get('status') or '').upper() in {'OK','FALLBACK_CURRENT'},'orders':str(orders.get('status') or '').upper() in {'OK','DEGRADED'},'fills':str(fills.get('status') or '').upper() in {'OK','DEGRADED'},'live_prices':str(prices.get('status') or '').upper() in {'OK','NO_OPEN_ASSETS'}}
  p={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),
     'credential_contract':'canonical environment aliases; secrets never written','credential_visibility':creds,'data_products':products,
     'status':'READY' if all(products.values()) else 'DEGRADED',

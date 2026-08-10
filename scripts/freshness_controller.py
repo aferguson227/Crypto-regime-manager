@@ -68,7 +68,7 @@ def main():
 
  kurow=source('KuCoin account data',ku,ku.get('generated_at'),'DECISION_CRITICAL',critical,'Balances and available capital used by CRM.')
  orow=source('KuCoin trading data',orders,orders.get('generated_at'),'DECISION_CRITICAL',critical,'Open and completed KuCoin orders used to verify live trading.')
- arow=source('Local Agent',agent,agent.get('heartbeat_at') or agent.get('completed_at') or agent.get('generated_at'),'DECISION_CRITICAL',agent_limit,'Runs the fast private account/trading refresh every 15 minutes. Heavy research runs independently.')
+ arow=source('Local Agent',agent,agent.get('heartbeat_at') or agent.get('completed_at') or agent.get('generated_at'),'DECISION_CRITICAL',agent_limit,'Runs the fast private account/trading refresh every 5 minutes. Heavy research runs independently.')
  trow=source('3Commas monitoring',tc,tc.get('last_success_at') or tc.get('generated_at'),'SECONDARY_PROVIDER',secondary,'Temporary secondary provider monitoring; KuCoin remains authoritative.')
 
  app=(cloud.get('pipelines') or {}).get('application') or {}
