@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "application_version": "58.0.0",
-  "generated_at": "2026-08-09T15:00:59.722612+00:00",
-  "status": "FAIL",
+  "application_version": "59.0.0",
+  "generated_at": "2026-08-10T06:58:55.647531+00:00",
+  "status": "ATTENTION",
   "assets": [
     {
       "asset": "TEL",
-      "status": "FAIL",
+      "status": "ATTENTION",
       "effective_open_position": true,
       "provider_stale": false,
       "kucoin_active_orders": 0,
@@ -20,9 +20,9 @@
           "detail": "No proven stale-open lifecycle mismatch."
         },
         {
-          "check": "Take-profit protection present",
-          "state": "FAIL",
-          "detail": "0 active TEL/USDT sell order(s) found on KuCoin."
+          "check": "Take-profit order verified",
+          "state": "UNVERIFIED",
+          "detail": "Current KuCoin order collection is incomplete, so CRM cannot yet confirm or deny TP protection."
         },
         {
           "check": "Safety-order ladder present",
@@ -30,26 +30,24 @@
           "detail": "0 active buy order(s) found; live profile expects up to 6 safety orders."
         },
         {
-          "check": "No orphan orders after closure",
+          "check": "No leftover orders after a closed trade",
           "state": "PASS",
-          "detail": "No orphan-order contradiction detected."
+          "detail": "No leftover KuCoin orders were detected after a closed trade."
         }
       ],
       "issues": [
-        "MISSING_TAKE_PROFIT_PROTECTION",
-        "SAFETY_ORDER_LADDER_INCOMPLETE",
-        "OPEN_POSITION_WITH_NO_MANAGEMENT_ORDERS"
+        "SAFETY_ORDER_LADDER_INCOMPLETE"
       ],
-      "next_action": "Do not rely on 3Commas for protection until the missing KuCoin orders are restored or the position is manually reconciled.",
+      "next_action": "Review provider mismatch/orphan orders before the next entry.",
       "read_only": true
     }
   ],
   "summary": {
     "assets_checked": 1,
-    "failed": 1,
-    "attention": 0,
+    "failed": 0,
+    "attention": 1,
     "orphan_order_assets": 0,
-    "missing_tp_assets": 1
+    "missing_tp_assets": 0
   },
   "authority": "KuCoin open/closed order state + CRM reconciled position truth. 3Commas is secondary provider telemetry.",
   "automatic_exchange_writes": false

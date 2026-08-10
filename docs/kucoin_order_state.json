@@ -1,7 +1,7 @@
 {
-  "schema_version": "2.0",
-  "application_version": "58.0.0",
-  "generated_at": "2026-08-09T15:00:59.013753+00:00",
+  "schema_version": "3.0",
+  "application_version": "59.0.0",
+  "generated_at": "2026-08-10T06:58:55.120423+00:00",
   "status": "NOT_CONFIGURED",
   "scope_symbols": [
     "TEL-USDT"
@@ -16,18 +16,29 @@
       "symbol": "TEL-USDT",
       "active": [],
       "done": [],
-      "active_status": "NOT_CONFIGURED",
-      "done_status": "NOT_CONFIGURED",
+      "endpoint_status": {
+        "hf_active": "NOT_CONFIGURED",
+        "hf_done": "NOT_CONFIGURED",
+        "classic_active": "NOT_CONFIGURED",
+        "classic_done": "NOT_CONFIGURED",
+        "stop_active": "NOT_CONFIGURED"
+      },
       "messages": {
-        "active": "KuCoin read-only API credentials unavailable.",
-        "closed": "KuCoin read-only API credentials unavailable."
+        "hf_active": "KuCoin read-only API credentials unavailable.",
+        "hf_done": "KuCoin read-only API credentials unavailable.",
+        "classic_active": "KuCoin read-only API credentials unavailable.",
+        "classic_done": "KuCoin read-only API credentials unavailable.",
+        "stop_active": "KuCoin read-only API credentials unavailable."
       }
     }
   ],
-  "active_endpoint": "/api/v1/hf/orders/active/page",
-  "closed_endpoint": "/api/v1/hf/orders/done",
+  "coverage": [
+    "HF orders",
+    "Classic orders",
+    "untriggered stop orders"
+  ],
   "api_permission": "General/read-only",
-  "diagnosis": "One or more symbol-specific KuCoin order requests need attention.",
+  "diagnosis": "CRM combines current HF, Classic and stop-order families so provider-created orders are visible.",
   "read_only": true,
   "write_endpoints_implemented": false
 }

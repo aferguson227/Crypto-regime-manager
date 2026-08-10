@@ -1,4 +1,4 @@
-# Crypto Regime Manager V58.0.0 — KuCoin Historical Research & Universal Responsive UI
+# Crypto Regime Manager V59.0.0 — KuCoin Historical Research & Universal Responsive UI
 
 ## KuCoin-first autonomous research
 - Local Agent now incrementally downloads public KuCoin 4h candles for the strongest USDT research candidates.

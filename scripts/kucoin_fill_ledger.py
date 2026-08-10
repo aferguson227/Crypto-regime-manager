@@ -16,7 +16,7 @@ from scripts.kucoin_symbol_scope import symbols
 
 ROOT=Path(__file__).resolve().parents[1];DOCS=ROOT/'docs';OUT=DOCS/'kucoin_fill_ledger.json'
 GLOBAL='https://api.kucoin.com';EU='https://api.kucoin.eu'
-PATH='/api/v1/hf/fills'
+PATH='/api/v1/hf/fills';LEGACY_PATH='/api/v1/fills'
 
 def now():return datetime.now(timezone.utc).isoformat()
 def num(v):
@@ -142,8 +142,43 @@ def reconcile():
   'matched_sell_count':matched_sells,'unmatched_sell_count':len(unmatched),'unmatched_sells':unmatched[:20],
   'matched_realised_profit_usdt':round(realised,8),'realised_profit_complete':complete,'fees_usdt_recorded':round(fees_usdt,8),
   'assets':per_asset,'inventory_cost_basis':inv}
+def fetch_legacy_window(symbol,start,end):
+ key=os.getenv('KUCOIN_API_KEY','').strip();secret=os.getenv('KUCOIN_API_SECRET','').strip();pp=os.getenv('KUCOIN_API_PASSPHRASE','').strip()
+ if not(key and secret and pp):return [],'NOT_CONFIGURED'
+ for base in bases():
+  for ver in versions():
+   try:
+    out=[];page=1
+    while page<=20:
+     params={'symbol':symbol,'tradeType':'TRADE','startAt':start,'endAt':end,'currentPage':page,'pageSize':500}
+     q=urllib.parse.urlencode(params);req=urllib.request.Request(base+LEGACY_PATH+'?'+q,headers=sign_headers('GET',LEGACY_PATH,q,key,secret,pp,ver),method='GET')
+     with urllib.request.urlopen(req,timeout=20) as resp:p=json.loads(resp.read().decode('utf-8'))
+     if p.get('code')!='200000':break
+     d=p.get('data') or {};rows=d.get('items') or [];out+=rows
+     if page>=int(d.get('totalPage') or 1) or not rows:break
+     page+=1
+    return out,'OK'
+   except Exception:continue
+ return [],'ERROR'
+def bounded_cost_basis_backfill(rec,max_windows=4):
+ if not rec.get('unmatched_sells'):return {'attempted':False,'windows':0,'new_fills':0,'status':'NOT_NEEDED'}
+ targets=sorted({x.get('asset') for x in rec['unmatched_sells'] if x.get('asset')});earliest=min(int(x.get('created_at') or 0) for x in rec['unmatched_sells'] if x.get('created_at'))
+ floor=int((datetime.now(timezone.utc)-timedelta(days=180)).timestamp()*1000);week=7*24*3600*1000
+ with connect() as c:
+  row=c.execute("select value from meta where key='backfill_cursor'").fetchone();cursor=int(row['value']) if row and row['value'] else earliest
+ total=0;windows=0;states=[]
+ for _ in range(max_windows):
+  if cursor<=floor:break
+  end=cursor-1;start=max(floor,end-week+1)
+  for a in targets:
+   rows,st=fetch_legacy_window(f'{a}-USDT',start,end);states.append(st)
+   if rows:total+=ingest(rows)
+  windows+=1;cursor=start
+ with connect() as c:c.execute("insert into meta(key,value,updated_at) values('backfill_cursor',?,?) on conflict(key) do update set value=excluded.value,updated_at=excluded.updated_at",(str(cursor),now()))
+ return {'attempted':True,'windows':windows,'new_fills':total,'cursor':cursor,'status':'OK' if 'OK' in states else 'DEGRADED'}
+
 def main():
- rows,status,msg=fetch_recent();inserted=ingest(rows) if rows is not None else 0;rec=reconcile()
+ rows,status,msg=fetch_recent();inserted=ingest(rows) if rows is not None else 0;rec=reconcile();backfill=bounded_cost_basis_backfill(rec);rec=reconcile() if backfill.get('new_fills') else rec
  rp_status='COMPLETE' if rec['realised_profit_complete'] else ('PARTIAL_COST_BASIS' if rec['fill_count'] else 'NO_FILL_HISTORY_YET')
  if status not in {'OK','DEGRADED'}:progress=0
  elif rec['fill_count']==0:progress=25
@@ -156,8 +191,8 @@ def main():
   'partial_matched_realised_profit_quote':rec['matched_realised_profit_usdt'],'realised_profit_status':rp_status,
   'reconciliation_progress_pct':progress,
   'next_automatic_retry_minutes':15 if status!='OK' or not rec['realised_profit_complete'] else 0,
-  'progress_explanation':('Complete KuCoin cost basis is available.' if rec['realised_profit_complete'] else ('KuCoin fills are available, but one or more sells still need an earlier matching buy cost basis.' if rec['fill_count'] else ('KuCoin fill-history collection is incomplete; CRM will retry automatically.' if status!='OK' else 'No KuCoin fills are stored yet; CRM will retry on the next Local Agent cycle.'))),
-  'reconciliation':rec,'read_only':True,'write_endpoints_implemented':False}
+  'progress_explanation':('Complete KuCoin cost basis is available.' if rec['realised_profit_complete'] else ('Recent fills are available; CRM is automatically backfilling older KuCoin buys needed to complete historical sell cost basis.' if rec['fill_count'] else ('KuCoin fill-history collection is incomplete; CRM will retry automatically.' if status!='OK' else 'No KuCoin fills are stored yet; CRM will retry on the next Local Agent cycle.'))),
+  'backfill':backfill,'reconciliation':rec,'read_only':True,'write_endpoints_implemented':False}
  OUT.write_text(json.dumps(p,indent=2),encoding='utf-8')
  print(f"KuCoin fill ledger: {status}; new={inserted}; total={rec['fill_count']}; realised_status={p['realised_profit_status']}")
  return 0

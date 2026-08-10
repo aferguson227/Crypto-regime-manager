@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_version():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='58.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='59.0.0'
 
 def test_history_manager_is_real_incremental_acquisition():
     text=(ROOT/'scripts/historical_data_manager.py').read_text(encoding='utf-8')

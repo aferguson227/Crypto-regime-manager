@@ -25,7 +25,7 @@ def pctdiff(a,b):
 def main():
  orders=load('kucoin_order_state.json');recon=load('execution_reconciliation.json');truth=load('live_portfolio_truth.json')
  profiles=load('live_bot_profiles.json');shadow=load('shadow_execution_plans.json');tc=load('threecommas.json');p=loadp();cfg=p.get('execution_assurance') or {}
- active=orders.get('active_orders') or [];closed=orders.get('recent_closed_orders') or []
+ active=orders.get('active_orders') or [];closed=orders.get('recent_closed_orders') or [];orders_healthy=str(orders.get('status') or '').upper()=='OK'
  profby={str(x.get('asset') or '').upper():x for x in profiles.get('bots') or []};planby={str(x.get('asset') or '').upper():x for x in shadow.get('plans') or []}
  rows=[]
  assets=set([str(x.get('asset') or '').upper() for x in truth.get('deals') or []]+list((tc.get('assets') or {}).keys()))
@@ -41,8 +41,9 @@ def main():
   issues=[];checks=[]
   checks.append({'check':'Exchange/provider lifecycle reconciliation','state':'FAIL' if stale else 'PASS','detail':'Provider stale open deal is proven closed by KuCoin.' if stale else 'No proven stale-open lifecycle mismatch.'})
   if expected_tp:
-   state='PASS' if sells else 'FAIL';checks.append({'check':'Take-profit protection present','state':state,'detail':f'{len(sells)} active TEL/USDT sell order(s) found on KuCoin.'})
-   if not sells:issues.append('MISSING_TAKE_PROFIT_PROTECTION')
+   state='PASS' if sells else ('UNVERIFIED' if not orders_healthy else 'FAIL')
+   checks.append({'check':'Take-profit order verified','state':state,'detail':(f'{len(sells)} active {asset}/USDT sell order(s) found on KuCoin.' if sells else ('Current KuCoin order collection is incomplete, so CRM cannot yet confirm or deny TP protection.' if not orders_healthy else f'No active {asset}/USDT sell order was found after successful KuCoin order collection.'))})
+   if not sells and orders_healthy:issues.append('MISSING_TAKE_PROFIT_PROTECTION')
   else:checks.append({'check':'Take-profit protection present','state':'NOT_REQUIRED','detail':'No exchange-confirmed open position currently requires TP protection.'})
   if effective_open and expected_so:
    state='PASS' if len(buys)>=expected_so else 'WARN'
@@ -51,9 +52,9 @@ def main():
   else:checks.append({'check':'Safety-order ladder present','state':'NOT_REQUIRED','detail':'No reconciled active position/expected safety-order ladder.'})
   if not effective_open and open_orders:
    issues.append('ORPHAN_ORDERS_WITHOUT_OPEN_POSITION')
-   checks.append({'check':'No orphan orders after closure','state':'FAIL','detail':f'{len(open_orders)} open KuCoin order(s) remain while CRM has no effective open position.'})
-  else:checks.append({'check':'No orphan orders after closure','state':'PASS','detail':'No orphan-order contradiction detected.'})
-  if effective_open and not open_orders:
+   checks.append({'check':'No leftover orders after a closed trade','state':'FAIL','detail':f'{len(open_orders)} open KuCoin order(s) remain while CRM has no effective open position.'})
+  else:checks.append({'check':'No leftover orders after a closed trade','state':'PASS','detail':'No leftover KuCoin orders were detected after a closed trade.'})
+  if effective_open and not open_orders and orders_healthy:
    issues.append('OPEN_POSITION_WITH_NO_MANAGEMENT_ORDERS')
   health='FAIL' if any(x.startswith('MISSING_TAKE') or x.startswith('OPEN_POSITION') for x in issues) else ('ATTENTION' if issues else 'HEALTHY')
   rows.append({'asset':asset,'status':health,'effective_open_position':effective_open,'provider_stale':stale,

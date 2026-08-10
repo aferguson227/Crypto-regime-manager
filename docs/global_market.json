@@ -1,10 +1,10 @@
 {
   "schema_version": "1.1",
-  "application_version": "58.0.0",
-  "generated_at": "2026-08-09T15:00:54.894217+00:00",
+  "application_version": "59.0.0",
+  "generated_at": "2026-08-10T06:58:51.776094+00:00",
   "regime": "ACCUMULATION",
-  "score_pct": 54.7,
-  "explanation": "Accumulation because the weighted current-market score is 54.7%.",
+  "score_pct": 52.5,
+  "explanation": "Accumulation because the weighted current-market score is 52.5%.",
   "criteria": [
     {
       "criterion": "Market trend",
@@ -15,23 +15,23 @@
     },
     {
       "criterion": "Market breadth",
-      "value": 66.7,
+      "value": 60.0,
       "weight": 0.25,
-      "score_contribution": 4.18,
+      "score_contribution": 2.5,
       "source": "Share of tracked candidates with positive medium-term trend"
     },
     {
       "criterion": "BTC 30-day trend",
-      "value": 1.4,
+      "value": 1.1,
       "weight": 1.0,
-      "score_contribution": 1.4,
+      "score_contribution": 1.1,
       "source": "KuCoin BTC public market evidence"
     },
     {
       "criterion": "BTC 24-hour move",
-      "value": -0.04,
+      "value": -0.15,
       "weight": 1.2,
-      "score_contribution": -0.05,
+      "score_contribution": -0.18,
       "source": "KuCoin BTC public market evidence"
     },
     {
@@ -43,16 +43,16 @@
     }
   ],
   "current_evidence": {
-    "btc_30d_trend_pct": 1.4,
-    "btc_24h_change_pct": -0.04,
-    "breadth_pct": 66.7,
+    "btc_30d_trend_pct": 1.1,
+    "btc_24h_change_pct": -0.15,
+    "breadth_pct": 60.0,
     "breadth_positive_count": 6,
-    "breadth_universe_count": 9,
+    "breadth_universe_count": 10,
     "market_trend_pct": 47.5,
     "volatility_pct": 35.0,
     "source": "KuCoin current/public CRM market evidence"
   },
-  "breadth_explanation": "6 of 9 tracked candidates have positive medium-term trend.",
+  "breadth_explanation": "6 of 10 tracked candidates have positive medium-term trend.",
   "historical_btc_evidence": {
     "status": "KUCOIN_HISTORY_AVAILABLE",
     "registry_symbol": null,
@@ -68,5 +68,5 @@
     "automatic_bot_changes": false,
     "manual_approval_required": true
   },
-  "snapshot_id": "83e71d2755af9cba523b24d6"
+  "snapshot_id": "117e46c7d44ce34a7abb1e5d"
 }

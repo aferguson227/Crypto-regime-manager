@@ -1,4 +1,4 @@
-# CRM V58.0.0 — KuCoin Reliability & Unified Trading Briefing
+# CRM V59.0.0 — KuCoin Reliability & Unified Trading Briefing
 
 V57 addresses the root cause behind the recurring KuCoin/order/freshness/safety warning cascade.
 

@@ -24,7 +24,8 @@ def main():
  effective_open=[x for x in deals if x['effective_position_state']=='OPEN']
  p={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'authority':'KuCoin closure evidence + CRM ledger; 3Commas is execution-provider telemetry.',
   'effective_open_deal_count':len(effective_open),'provider_reported_deal_count':len(deals),'stale_provider_deal_count':sum(x['provider_stale'] for x in deals),
-  'open_pnl_quote':sum(float(x.get('open_pnl_quote') or 0) for x in effective_open) if effective_open else 0,
+  'open_pnl_quote':(sum(float(x.get('open_pnl_quote')) for x in effective_open if x.get('open_pnl_quote') is not None) if effective_open and any(x.get('open_pnl_quote') is not None for x in effective_open) else (0.0 if not effective_open else None)),
+  'open_pnl_status':('KNOWN' if effective_open and any(x.get('open_pnl_quote') is not None for x in effective_open) else ('NO_OPEN_TRADES' if not effective_open else 'UPDATING')),
   'realised_profit_quote':acct.get('realised_profit_quote'),'realised_profit_status':acct.get('realised_profit_status'),'deployable_capital':cap.get('deployable_capital'),
   'deals':deals,'read_only':True}
  OUT.write_text(json.dumps(p,indent=2),encoding='utf-8');print(f'Live portfolio truth written: {OUT}; effective_open={len(effective_open)} stale={p["stale_provider_deal_count"]}');return 0

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
-  "application_version": "58.0.0",
-  "generated_at": "2026-08-09T15:00:59.208624+00:00",
+  "application_version": "59.0.0",
+  "generated_at": "2026-08-10T06:58:55.276643+00:00",
   "status": "NOT_CONFIGURED",
   "source": "KuCoin private read-only GET /api/v1/hf/fills (symbol-aware)",
   "api_message": "{\"symbols_checked\": 1, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}]}",
@@ -14,7 +14,14 @@
   "realised_profit_status": "PARTIAL_COST_BASIS",
   "reconciliation_progress_pct": 0,
   "next_automatic_retry_minutes": 15,
-  "progress_explanation": "KuCoin fills are available, but one or more sells still need an earlier matching buy cost basis.",
+  "progress_explanation": "Recent fills are available; CRM is automatically backfilling older KuCoin buys needed to complete historical sell cost basis.",
+  "backfill": {
+    "attempted": true,
+    "windows": 4,
+    "new_fills": 0,
+    "cursor": 1780941370933,
+    "status": "DEGRADED"
+  },
   "reconciliation": {
     "fill_count": 120,
     "first_fill_at": "2026-08-02T13:55:09.362000+00:00",

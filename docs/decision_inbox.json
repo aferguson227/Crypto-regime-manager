@@ -1,21 +1,21 @@
 {
   "schema_version": "1.0",
-  "application_version": "58.0.0",
-  "generated_at": "2026-08-09T15:00:58.478480+00:00",
+  "application_version": "59.0.0",
+  "generated_at": "2026-08-10T06:58:54.675373+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
-      "event_id": "b8981dfd9a6c5d578afe03b2",
+      "event_id": "2da806ed46b7373cc182baa1",
       "kind": "PRIMARY_DECISION",
       "title": "Keep Active Deal: TEL Low Volatility Bot",
-      "detail": "Confidence 92.0%. Current entry filters pass; Recent realised P&L is positive; Recent capital efficiency is positive",
+      "detail": "Confidence 93.5%. Current entry filters pass; Recent realised P&L is positive; Recent capital efficiency is positive",
       "severity": "info",
       "action": "REVIEW_DECISION",
       "payload": {
         "bot_name": "TEL Low Volatility Bot",
         "asset": "TEL",
         "action": "KEEP_ACTIVE_DEAL",
-        "confidence_pct": 92.0,
+        "confidence_pct": 93.5,
         "urgency": "MONITOR",
         "why": [
           "Current entry filters pass",
@@ -26,79 +26,15 @@
       }
     },
     {
-      "event_id": "b1a31f0138767f395b8dbc66",
-      "kind": "NEW_CANDIDATE",
-      "title": "AAVE/USDT ready for manual review",
-      "detail": "Review AAVE for a small manual pilot allocation; do not copy historical max-capital mechanically.",
-      "severity": "opportunity",
-      "action": "ADD_RECOMMENDED_BOT",
-      "payload": {
-        "asset": "AAVE",
-        "candidate": {
-          "asset": "AAVE",
-          "pair": "AAVE-USDT",
-          "discovery_rank": 5,
-          "current_research_score": 72.5,
-          "stage": "READY_FOR_MANUAL_REVIEW",
-          "walk_forward_status": "FAIL",
-          "kucoin_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
-          "kucoin_primary_validation_pass": true,
-          "frozen_settings": {
-            "take_profit_pct": 1.5,
-            "so_deviation_pct": 0.8,
-            "safety_orders": 4,
-            "volume_scale": 1.5,
-            "step_scale": 1.15
-          },
-          "training_metrics": {
-            "net_pnl": 32426.3,
-            "closed_deals": 1303,
-            "average_hours": 7.4,
-            "longest_hours": 904,
-            "max_drawdown_dollars": -3139.43,
-            "max_capital": 5819.12,
-            "open_position": true,
-            "score": 30809.419499999996
-          },
-          "q1_2026_metrics": {
-            "net_pnl": 834.64,
-            "realised_pnl": 834.64,
-            "open_pnl": -2090.54,
-            "mark_to_market_pnl": -1255.9,
-            "closed_deals": 39,
-            "average_hours": 12.9,
-            "longest_hours": 60,
-            "max_drawdown_dollars": -2330.4,
-            "max_capital": 5819.12,
-            "open_position": true
-          },
-          "gates": {
-            "current_kucoin_screen": "PASS",
-            "kucoin_history": "PASS",
-            "kucoin_walk_forward": "PASS",
-            "kraken_robustness": "FAIL",
-            "drawdown_review": "REVIEW",
-            "manual_approval": "REQUIRED"
-          },
-          "production_eligible": false,
-          "manual_approval_required": true,
-          "automatic_promotion": false,
-          "next_action": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
-        },
-        "score_pct": 100.0,
-        "deployable_capital": 806.67111932
-      }
-    },
-    {
-      "event_id": "d1d2bee09b73e622ca58e4ab",
+      "event_id": "87b25e6314a98848ddf7039c",
       "kind": "GLOBAL_REGIME",
       "title": "Global market regime: Accumulation",
-      "detail": "Universal market score 54.7%. BTC/current breadth evidence is included where available.",
+      "detail": "Universal market score 52.5%. BTC/current breadth evidence is included where available.",
       "severity": "info",
       "action": "REVIEW_MARKET",
       "payload": {
         "regime": "ACCUMULATION",
-        "score_pct": 54.7
+        "score_pct": 52.5
       }
     },
     {
@@ -172,36 +108,9 @@
         "current_regime": "BULL",
         "research_continues_while_live": false
       }
-    },
-    {
-      "event_id": "51e4eae8d59cf5d6241f7559",
-      "kind": "EXECUTION_PROVIDER_MISMATCH",
-      "title": "TEL closed on KuCoin but 3Commas still shows open",
-      "detail": "Reconcile/cancel stale 3Commas deal before relying on provider for the next entry.",
-      "severity": "warning",
-      "action": "REVIEW_EXECUTION_RECONCILIATION",
-      "payload": {
-        "asset": "TEL",
-        "bot_id": 16945272,
-        "bot_name": "TEL DCA - Low Volatility",
-        "provider": "3Commas",
-        "provider_deal_status": "bought",
-        "provider_reports_open": true,
-        "kucoin_recent_sell_orders": 2,
-        "kucoin_active_orders": 0,
-        "allocated_quantity": 72640.0,
-        "largest_recent_completed_sell_quantity": 72640.0,
-        "exchange_closed_evidence": true,
-        "exchange_close_evidence_time": "1786276957793",
-        "reconciliation_state": "PROVIDER_STALE_OPEN",
-        "blocked_next_entry_risk": true,
-        "crm_position_truth": "CLOSED",
-        "action": "Reconcile/cancel stale 3Commas deal before relying on provider for the next entry.",
-        "read_only": true
-      }
     }
   ],
-  "material_count": 7,
+  "material_count": 5,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -210,5 +119,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "796ea6c55e5e5f32375083e3"
+  "snapshot_id": "8b778be919e6a3bfb2a66254"
 }

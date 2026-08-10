@@ -1,15 +1,16 @@
 {
   "schema_version": "1.0",
-  "application_version": "58.0.0",
-  "generated_at": "2026-08-09T15:00:59.561119+00:00",
+  "application_version": "59.0.0",
+  "generated_at": "2026-08-10T06:58:55.563743+00:00",
   "authority": "KuCoin closure evidence + CRM ledger; 3Commas is execution-provider telemetry.",
   "effective_open_deal_count": 1,
   "provider_reported_deal_count": 1,
   "stale_provider_deal_count": 0,
-  "open_pnl_quote": 0.0,
+  "open_pnl_quote": -1.6968019,
+  "open_pnl_status": "KNOWN",
   "realised_profit_quote": null,
   "realised_profit_status": "PARTIAL_COST_BASIS",
-  "deployable_capital": 806.67111932,
+  "deployable_capital": 0.0,
   "deals": [
     {
       "asset": "TEL",
@@ -19,11 +20,11 @@
       "effective_position_state": "OPEN",
       "provider_stale": false,
       "opened_at": "2026-08-09T12:01:32.406Z",
-      "open_pnl_quote": null,
-      "profit_pct": null,
-      "capital_used_quote": 142.498046238,
-      "distance_to_take_profit_pct": null,
-      "action": "Monitor"
+      "open_pnl_quote": -1.6968019,
+      "profit_pct": -0.72,
+      "capital_used_quote": 235.807621896,
+      "distance_to_take_profit_pct": 2.2357,
+      "action": "KEEP_ACTIVE_DEAL"
     }
   ],
   "read_only": true

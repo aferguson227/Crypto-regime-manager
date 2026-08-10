@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "58.0.0",
-  "generated_at": "2026-08-09T15:00:58.115926+00:00",
+  "application_version": "59.0.0",
+  "generated_at": "2026-08-10T06:58:54.360739+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -23,9 +23,9 @@
   "independent_walk_forward": {},
   "persistent_research": {
     "database_status": "READY",
-    "known_assets": 63,
+    "known_assets": 64,
     "cached_results": 2,
-    "scheduler_cache_hit": false
+    "scheduler_cache_hit": null
   },
   "data_acquisition": {
     "status": "ACTIVE",
@@ -286,10 +286,10 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "AAVE",
-      "status": "KUCOIN_WALK_FORWARD_COMPLETE",
+      "asset": "XRP",
+      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
       "current_regime": "ACCUMULATION",
-      "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
+      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
     },
     {
       "asset": "SOL",
@@ -298,19 +298,25 @@
       "next_action": "Remain in research queue."
     },
     {
+      "asset": "AAVE",
+      "status": "KUCOIN_WALK_FORWARD_COMPLETE",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
+    },
+    {
       "asset": "ZEC",
       "status": "KUCOIN_WALK_FORWARD_COMPLETE",
       "current_regime": "ACCUMULATION",
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     },
     {
-      "asset": "NEAR",
+      "asset": "TUT",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "PIEVERSE",
+      "asset": "NEAR",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -322,19 +328,7 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "TUT",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "XRP",
-      "status": "INDEPENDENT_BASELINE_PASS_REGIME_RESEARCH_PENDING",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Background regime research requires a comparable 4h dataset for this asset."
-    },
-    {
-      "asset": "CYS",
+      "asset": "HYPE",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -352,7 +346,7 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "LINK",
+      "asset": "PIEVERSE",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -364,19 +358,25 @@
       "next_action": "Remain in research queue."
     },
     {
+      "asset": "LINK",
+      "status": "WAIT",
+      "current_regime": "ACCUMULATION",
+      "next_action": "Remain in research queue."
+    },
+    {
       "asset": "LTC",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "SIREN",
+      "asset": "SEI",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "BLUAI",
+      "asset": "CYS",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."

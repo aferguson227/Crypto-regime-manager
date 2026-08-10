@@ -1,17 +1,16 @@
 {
   "schema_version": "2.0",
-  "application_version": "58.0.0",
-  "generated_at": "2026-08-09T15:00:56.612497+00:00",
+  "application_version": "59.0.0",
+  "generated_at": "2026-08-10T06:58:53.138468+00:00",
   "coin_count": 22,
   "coins": [
     {
       "asset": "TEL",
       "lifecycle": "LIVE_PRODUCTION",
-      "execution_state": "EXCHANGE_CLOSED_PROVIDER_STALE",
+      "execution_state": "ACTIVE_DEAL",
       "research_state": "NOT_STARTED",
       "reasons": [
-        "Live execution-provider bot/deal evidence takes precedence over research labels.",
-        "KuCoin proves the position closed while 3Commas still reports it open."
+        "Live execution-provider bot/deal evidence takes precedence over research labels."
       ],
       "history_sources": [
         "execution_reconciliation",
@@ -22,7 +21,7 @@
       "provider_bot_count": 4,
       "active_deal_count": 1,
       "current_recommendation": "KEEP_ACTIVE_DEAL",
-      "recommendation_confidence_pct": 93.7,
+      "recommendation_confidence_pct": 93.5,
       "current_regime": "ACCUMULATION",
       "research_continues_while_live": true
     },
@@ -76,20 +75,6 @@
     },
     {
       "asset": "AEON",
-      "lifecycle": "RESEARCHING",
-      "execution_state": "NOT_DEPLOYED",
-      "research_state": "NEEDS_HISTORICAL_VALIDATION",
-      "reasons": [
-        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-      ],
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "current_regime": "ACCUMULATION",
-      "research_continues_while_live": false
-    },
-    {
-      "asset": "BLUAI",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
       "research_state": "NEEDS_HISTORICAL_VALIDATION",
@@ -159,6 +144,20 @@
       "research_continues_while_live": false
     },
     {
+      "asset": "HYPE",
+      "lifecycle": "RESEARCHING",
+      "execution_state": "NOT_DEPLOYED",
+      "research_state": "NEEDS_HISTORICAL_VALIDATION",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "current_regime": "ACCUMULATION",
+      "research_continues_while_live": false
+    },
+    {
       "asset": "LINK",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
@@ -215,7 +214,7 @@
       "research_continues_while_live": false
     },
     {
-      "asset": "SHIB",
+      "asset": "SEI",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
       "research_state": "NEEDS_HISTORICAL_VALIDATION",
@@ -229,7 +228,7 @@
       "research_continues_while_live": false
     },
     {
-      "asset": "SIREN",
+      "asset": "SHIB",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
       "research_state": "NEEDS_HISTORICAL_VALIDATION",
@@ -308,7 +307,7 @@
         "recommendation_intelligence"
       ],
       "current_recommendation": "WAIT",
-      "recommendation_confidence_pct": 21.7,
+      "recommendation_confidence_pct": 22.2,
       "current_regime": "ACCUMULATION",
       "research_continues_while_live": false
     },
@@ -342,5 +341,5 @@
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "d170329083dae6b0af7691c7"
+  "snapshot_id": "47a1735eb909700634de4fc3"
 }
