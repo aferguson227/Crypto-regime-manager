@@ -222,3 +222,8 @@ def incoming_equivalent_change(project, incoming_root, rel):
   b=(Path(incoming_root)/rel).read_text(encoding='utf-8-sig').replace('\r\n','\n').replace('\r','\n')
   return a==b
  except:return False
+
+RELEASE_IDENTITY_SNAPSHOTS=['docs/version.json', 'docs/system_integrity.json', 'docs/diagnostics.json', 'docs/operating_state.json', 'docs/capital_intelligence.json', 'docs/deployment_intelligence.json', 'docs/recommendation_intelligence.json', 'docs/outcome_intelligence.json', 'docs/portfolio_intelligence.json', 'docs/adaptive_intelligence.json', 'docs/market_intelligence.json']
+
+def is_release_identity_snapshot(rel):
+ return str(rel).replace('\\','/') in set(RELEASE_IDENTITY_SNAPSHOTS)

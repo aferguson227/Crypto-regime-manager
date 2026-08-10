@@ -2,8 +2,17 @@
   "schema_version": "2.0",
   "application_version": "69.0.0",
   "tracked_release_snapshots": [
+    "docs/version.json",
+    "docs/system_integrity.json",
     "docs/diagnostics.json",
-    "docs/version.json"
+    "docs/operating_state.json",
+    "docs/capital_intelligence.json",
+    "docs/deployment_intelligence.json",
+    "docs/recommendation_intelligence.json",
+    "docs/outcome_intelligence.json",
+    "docs/portfolio_intelligence.json",
+    "docs/adaptive_intelligence.json",
+    "docs/market_intelligence.json"
   ],
   "runtime_generated_patterns": [
     "docs/account_intelligence.json",
@@ -115,6 +124,19 @@
   "never_restore_source_files": true,
   "runtime_state_separation": true,
   "runtime_root": "C:\\Crypto\\CRM_Data\\Runtime\\State",
-  "docs_json_policy": "PUBLICATION_SNAPSHOT",
-  "docs_json_are_never_source": true
+  "docs_json_policy": "PUBLICATION_SNAPSHOT_WITH_RELEASE_IDENTITY_ALLOWLIST",
+  "docs_json_are_never_source": true,
+  "release_identity_snapshots": [
+    "docs/version.json",
+    "docs/system_integrity.json",
+    "docs/diagnostics.json",
+    "docs/operating_state.json",
+    "docs/capital_intelligence.json",
+    "docs/deployment_intelligence.json",
+    "docs/recommendation_intelligence.json",
+    "docs/outcome_intelligence.json",
+    "docs/portfolio_intelligence.json",
+    "docs/adaptive_intelligence.json",
+    "docs/market_intelligence.json"
+  ]
 }

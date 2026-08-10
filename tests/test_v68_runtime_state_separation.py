@@ -31,7 +31,7 @@ def test_local_agent_is_controlled_publication_bridge():
 def test_all_docs_json_are_publication_not_source():
  p=json.loads(text('config/generated_outputs_policy.json'))
  assert p["runtime_state_separation"] is True
- assert p["docs_json_policy"]=="PUBLICATION_SNAPSHOT"
+ assert p["docs_json_policy"] in {"PUBLICATION_SNAPSHOT","PUBLICATION_SNAPSHOT_WITH_RELEASE_IDENTITY_ALLOWLIST"}
  assert p["docs_json_are_never_source"] is True
  s=text('scripts/generated_output_manager.py')
  assert "docs_json = rel.startswith('docs/')" in s
