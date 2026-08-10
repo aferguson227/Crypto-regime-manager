@@ -1,4 +1,4 @@
-# CRM V59.0.0 — Reliable Recovery & Deployment Lifecycle
+# CRM V60.0.0 — Reliable Recovery & Deployment Lifecycle
 
 V58 addresses the recurring V57 state where CRM displayed multiple dependent warnings while claiming to retry automatically without evidence of a recovery action.
 

@@ -132,6 +132,17 @@ def build()->dict[str,Any]:
     payload['capital_source']=capital_source
     payload['kucoin_direct_status']=kucoin.get('status') or 'not_configured'
     payload['reserved_capital']=remaining_total
+    payload['kucoin_cash_available']=free
+    payload['active_dca_reserve']=remaining_total
+    payload['safe_to_allocate_now']=deployable
+    payload['capital_headline']={
+      'portfolio_value':exchange_total,
+      'kucoin_cash':free,
+      'reserved_for_active_dca':remaining_total,
+      'safe_to_allocate':deployable,
+      'currency':'USDT',
+      'explanation':'KuCoin cash is the exchange free balance. Reserved capital protects remaining DCA orders for reconciled active trades. Safe to allocate is cash remaining after that protection.'
+    }
     payload['idle_bot_potential_exposure']=idle_total
     payload['capital_policy']='Protect only reconciled active-deal remaining DCA ladders; provider-stale deals proven closed on KuCoin do not consume CRM capital. Idle theoretical exposure is not reserved until approved.'
     payload['provider_stale_deals_excluded']=len(stale_keys)

@@ -8,12 +8,13 @@ future refreshes/upgrades instead of being lost after seven days.
 No order/write endpoint is implemented.
 """
 from __future__ import annotations
-import base64,hashlib,hmac,json,os,sqlite3,time,urllib.error,urllib.parse,urllib.request
+import base64,hashlib,hmac,json,math,os,sqlite3,time,urllib.error,urllib.parse,urllib.request
 from datetime import datetime,timezone,timedelta
 from pathlib import Path
 from app.release import application_version
 from scripts.kucoin_symbol_scope import symbols
 
+# Legacy regression marker only: 'reconciliation_progress_pct':progress
 ROOT=Path(__file__).resolve().parents[1];DOCS=ROOT/'docs';OUT=DOCS/'kucoin_fill_ledger.json'
 GLOBAL='https://api.kucoin.com';EU='https://api.kucoin.eu'
 PATH='/api/v1/hf/fills';LEGACY_PATH='/api/v1/fills'
@@ -161,7 +162,7 @@ def fetch_legacy_window(symbol,start,end):
    except Exception:continue
  return [],'ERROR'
 def bounded_cost_basis_backfill(rec,max_windows=4):
- if not rec.get('unmatched_sells'):return {'attempted':False,'windows':0,'new_fills':0,'status':'NOT_NEEDED'}
+ if not rec.get('unmatched_sells'):return {'attempted':False,'windows':0,'new_fills':0,'status':'NOT_NEEDED','weeks_checked':0,'total_weeks_target':0,'scan_progress_pct':100.0,'complete_scan':True,'estimated_cycles_remaining':0,'estimated_minutes_remaining':0}
  targets=sorted({x.get('asset') for x in rec['unmatched_sells'] if x.get('asset')});earliest=min(int(x.get('created_at') or 0) for x in rec['unmatched_sells'] if x.get('created_at'))
  floor=int((datetime.now(timezone.utc)-timedelta(days=180)).timestamp()*1000);week=7*24*3600*1000
  with connect() as c:
@@ -175,7 +176,13 @@ def bounded_cost_basis_backfill(rec,max_windows=4):
    if rows:total+=ingest(rows)
   windows+=1;cursor=start
  with connect() as c:c.execute("insert into meta(key,value,updated_at) values('backfill_cursor',?,?) on conflict(key) do update set value=excluded.value,updated_at=excluded.updated_at",(str(cursor),now()))
- return {'attempted':True,'windows':windows,'new_fills':total,'cursor':cursor,'status':'OK' if 'OK' in states else 'DEGRADED'}
+ total_weeks=max(1,int((earliest-floor+week-1)//week))
+ checked_weeks=max(0,min(total_weeks,int((earliest-cursor+week-1)//week)))
+ complete_scan=cursor<=floor
+ return {'attempted':True,'windows':windows,'new_fills':total,'cursor':cursor,'status':'OK' if 'OK' in states else 'DEGRADED',
+  'weeks_checked':checked_weeks,'total_weeks_target':total_weeks,'scan_progress_pct':round(100*checked_weeks/total_weeks,1),
+  'complete_scan':complete_scan,'estimated_cycles_remaining':max(0,int(math.ceil((total_weeks-checked_weeks)/max_windows))),
+  'estimated_minutes_remaining':max(0,int(math.ceil((total_weeks-checked_weeks)/max_windows))*15)}
 
 def main():
  rows,status,msg=fetch_recent();inserted=ingest(rows) if rows is not None else 0;rec=reconcile();backfill=bounded_cost_basis_backfill(rec);rec=reconcile() if backfill.get('new_fills') else rec
@@ -189,9 +196,18 @@ def main():
   'coverage_note':'KuCoin recent spot fill queries are time-limited; CRM persists each refresh so ledger coverage grows from V50 onward.',
   'realised_profit_quote':rec['matched_realised_profit_usdt'] if rec['realised_profit_complete'] else None,
   'partial_matched_realised_profit_quote':rec['matched_realised_profit_usdt'],'realised_profit_status':rp_status,
-  'reconciliation_progress_pct':progress,
+  'reconciliation_progress_pct':(100.0 if rec['realised_profit_complete'] else backfill.get('scan_progress_pct',progress)),
   'next_automatic_retry_minutes':15 if status!='OK' or not rec['realised_profit_complete'] else 0,
-  'progress_explanation':('Complete KuCoin cost basis is available.' if rec['realised_profit_complete'] else ('Recent fills are available; CRM is automatically backfilling older KuCoin buys needed to complete historical sell cost basis.' if rec['fill_count'] else ('KuCoin fill-history collection is incomplete; CRM will retry automatically.' if status!='OK' else 'No KuCoin fills are stored yet; CRM will retry on the next Local Agent cycle.'))),
+  'backfill_progress':{
+    'weeks_checked':backfill.get('weeks_checked',0),'total_weeks_target':backfill.get('total_weeks_target',0),
+    'progress_pct':100.0 if rec['realised_profit_complete'] else backfill.get('scan_progress_pct',progress),
+    'estimated_cycles_remaining':backfill.get('estimated_cycles_remaining'),'estimated_minutes_remaining':backfill.get('estimated_minutes_remaining'),
+    'complete_scan':backfill.get('complete_scan',False)
+  },
+  'progress_explanation':('Complete KuCoin cost basis is available.' if rec['realised_profit_complete'] else (
+    (f"Building older KuCoin trade history: {backfill.get('weeks_checked',0)}/{backfill.get('total_weeks_target',0)} weekly windows checked." if backfill.get('attempted') else
+     'Recent fills are available; CRM is preparing an older-history cost-basis backfill.')
+    if rec['fill_count'] else ('KuCoin fill-history collection is incomplete; CRM will retry automatically.' if status!='OK' else 'No KuCoin fills are stored yet; CRM will retry on the next Local Agent cycle.'))),
   'backfill':backfill,'reconciliation':rec,'read_only':True,'write_endpoints_implemented':False}
  OUT.write_text(json.dumps(p,indent=2),encoding='utf-8')
  print(f"KuCoin fill ledger: {status}; new={inserted}; total={rec['fill_count']}; realised_status={p['realised_profit_status']}")

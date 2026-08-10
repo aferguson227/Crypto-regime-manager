@@ -1,4 +1,4 @@
-# Crypto Regime Manager V59.0.0 — Persistent Recommendation Workflow & Live Trade Truth
+# Crypto Regime Manager V60.0.0 — Persistent Recommendation Workflow & Live Trade Truth
 
 - Local Agent no longer uses interactive rebase for generated JSON; remote changes trigger a regenerate-on-latest-main retry.
 - V47 historical research outputs are now included in Local Agent material publication, fixing 0-bars/queued dashboard snapshots that were being restored after each run.

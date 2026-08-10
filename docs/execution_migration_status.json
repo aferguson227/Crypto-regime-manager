@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "application_version": "59.0.0",
-  "generated_at": "2026-08-10T06:58:54.044498+00:00",
+  "application_version": "60.0.0",
+  "generated_at": "2026-08-10T07:57:31.561177+00:00",
   "mode": "MIGRATION_IN_PROGRESS",
-  "progress_pct": 28.6,
-  "completed_stages": 2,
+  "progress_pct": 42.9,
+  "completed_stages": 3,
   "total_stages": 7,
   "stages": [
     {
@@ -28,7 +28,7 @@
     {
       "id": "PROTECTION_CHECKS",
       "label": "Trade protection checks",
-      "complete": false,
+      "complete": true,
       "detail": "CRM verifies TP/safety-order integrity against KuCoin."
     },
     {

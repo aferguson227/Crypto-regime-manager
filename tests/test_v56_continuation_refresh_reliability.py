@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
-def test_version(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='59.0.0'
+def test_version(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='60.0.0'
 def test_progress():
  s=(ROOT/'scripts/continuation_acquisition_queue_engine.py').read_text(encoding='utf-8')
  assert 'DOWNLOADING_CONTINUATION_HISTORY' in s and 'estimated_background_cycles_remaining' in s and 'estimated_minutes_remaining' in s

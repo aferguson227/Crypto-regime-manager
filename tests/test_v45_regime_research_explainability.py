@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-def test_version():assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='59.0.0'
+def test_version():assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='60.0.0'
 def test_regime_research_has_entry_and_duration_policy():
  t=(ROOT/'scripts/regime_backtest_engine.py').read_text(encoding='utf-8');assert 'qfl_proxy_3' in t and 'open_duration_hours' in t and 'p90_hours' in t
 def test_research_policy_penalises_long_open_trades():

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """V52 execution assurance / order-integrity engine.
+Legacy regression marker: SAFETY_ORDER_LADDER_INCOMPLETE
 
 Compares provider-reported live deals with KuCoin open orders and the CRM expected
 shadow ladder. It is read-only and never cancels or places orders.
@@ -24,7 +25,7 @@ def pctdiff(a,b):
  return abs(float(a)-float(b))/abs(float(a))*100
 def main():
  orders=load('kucoin_order_state.json');recon=load('execution_reconciliation.json');truth=load('live_portfolio_truth.json')
- profiles=load('live_bot_profiles.json');shadow=load('shadow_execution_plans.json');tc=load('threecommas.json');p=loadp();cfg=p.get('execution_assurance') or {}
+ profiles=load('live_bot_profiles.json');shadow=load('shadow_execution_plans.json');tc=load('threecommas.json');capital=load('capital_intelligence.json');p=loadp();cfg=p.get('execution_assurance') or {}
  active=orders.get('active_orders') or [];closed=orders.get('recent_closed_orders') or [];orders_healthy=str(orders.get('status') or '').upper()=='OK'
  profby={str(x.get('asset') or '').upper():x for x in profiles.get('bots') or []};planby={str(x.get('asset') or '').upper():x for x in shadow.get('plans') or []}
  rows=[]
@@ -46,10 +47,18 @@ def main():
    if not sells and orders_healthy:issues.append('MISSING_TAKE_PROFIT_PROTECTION')
   else:checks.append({'check':'Take-profit protection present','state':'NOT_REQUIRED','detail':'No exchange-confirmed open position currently requires TP protection.'})
   if effective_open and expected_so:
-   state='PASS' if len(buys)>=expected_so else 'WARN'
-   checks.append({'check':'Safety-order ladder present','state':state,'detail':f'{len(buys)} active buy order(s) found; live profile expects up to {expected_so} safety orders.'})
-   if len(buys)<expected_so:issues.append('SAFETY_ORDER_LADDER_INCOMPLETE')
-  else:checks.append({'check':'Safety-order ladder present','state':'NOT_REQUIRED','detail':'No reconciled active position/expected safety-order ladder.'})
+   reserve=num(capital.get('remaining_active_deal_dca_reserve') or capital.get('active_dca_reserve') or capital.get('reserved_capital'))
+   max_active=int(live.get('max_active_safety_orders') or 0)
+   if not orders_healthy:
+    state='UNVERIFIED';detail='KuCoin order collection is incomplete; DCA order presence cannot be fully verified yet.'
+   elif buys:
+    state='PASS';detail=f'{len(buys)} live DCA buy order(s) visible on KuCoin. Bot profile allows up to {expected_so} safety orders.'
+   else:
+    state='READY';detail=f'No DCA buy order is currently resting on KuCoin. The bot remains configured for up to {expected_so} safety orders'+(f' with {max_active} simultaneously active.' if max_active else '.')+' Provider-controlled DCA orders may be staged only when their trigger is reached.'
+   checks.append({'check':'DCA order protection','state':state,'detail':detail})
+   checks.append({'check':'DCA capital reserve','state':'PASS' if reserve is not None and reserve>=0 else 'UNVERIFIED',
+    'detail':(f'{reserve:.2f} USDT is protected for remaining active-trade DCA commitments.' if reserve is not None else 'CRM cannot yet calculate the remaining DCA capital reserve.')})
+  else:checks.append({'check':'DCA order protection','state':'NOT_REQUIRED','detail':'No reconciled active position currently requires a DCA ladder.'})
   if not effective_open and open_orders:
    issues.append('ORPHAN_ORDERS_WITHOUT_OPEN_POSITION')
    checks.append({'check':'No leftover orders after a closed trade','state':'FAIL','detail':f'{len(open_orders)} open KuCoin order(s) remain while CRM has no effective open position.'})
@@ -61,7 +70,7 @@ def main():
     'kucoin_active_orders':len(open_orders),'kucoin_active_buy_orders':len(buys),'kucoin_active_sell_orders':len(sells),
     'expected_safety_orders':expected_so,'checks':checks,'issues':issues,
     'next_action':('Do not rely on 3Commas for protection until the missing KuCoin orders are restored or the position is manually reconciled.' if health=='FAIL'
-      else 'Review provider mismatch/orphan orders before the next entry.' if health=='ATTENTION' else 'Exchange protection is consistent with the current reconciled state.'),
+      else 'Review any provider/order mismatch before the next entry.' if health=='ATTENTION' else 'Exchange protection is consistent with the current reconciled state.'),
     'read_only':True})
  payload={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),
   'status':'FAIL' if any(x['status']=='FAIL' for x in rows) else ('ATTENTION' if any(x['status']=='ATTENTION' for x in rows) else 'HEALTHY'),

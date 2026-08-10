@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "application_version": "59.0.0",
-  "generated_at": "2026-08-10T06:58:55.647531+00:00",
-  "status": "ATTENTION",
+  "application_version": "60.0.0",
+  "generated_at": "2026-08-10T07:57:33.259952+00:00",
+  "status": "HEALTHY",
   "assets": [
     {
       "asset": "TEL",
-      "status": "ATTENTION",
+      "status": "HEALTHY",
       "effective_open_position": true,
       "provider_stale": false,
       "kucoin_active_orders": 0,
@@ -25,9 +25,14 @@
           "detail": "Current KuCoin order collection is incomplete, so CRM cannot yet confirm or deny TP protection."
         },
         {
-          "check": "Safety-order ladder present",
-          "state": "WARN",
-          "detail": "0 active buy order(s) found; live profile expects up to 6 safety orders."
+          "check": "DCA order protection",
+          "state": "UNVERIFIED",
+          "detail": "KuCoin order collection is incomplete; DCA order presence cannot be fully verified yet."
+        },
+        {
+          "check": "DCA capital reserve",
+          "state": "PASS",
+          "detail": "2529.54 USDT is protected for remaining active-trade DCA commitments."
         },
         {
           "check": "No leftover orders after a closed trade",
@@ -35,17 +40,15 @@
           "detail": "No leftover KuCoin orders were detected after a closed trade."
         }
       ],
-      "issues": [
-        "SAFETY_ORDER_LADDER_INCOMPLETE"
-      ],
-      "next_action": "Review provider mismatch/orphan orders before the next entry.",
+      "issues": [],
+      "next_action": "Exchange protection is consistent with the current reconciled state.",
       "read_only": true
     }
   ],
   "summary": {
     "assets_checked": 1,
     "failed": 0,
-    "attention": 1,
+    "attention": 0,
     "orphan_order_assets": 0,
     "missing_tp_assets": 0
   },

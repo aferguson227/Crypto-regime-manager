@@ -1,4 +1,4 @@
-# CRM V59.0.0 — Trading Command Centre & Native Execution Preparation
+# CRM V60.0.0 — Trading Command Centre & Native Execution Preparation
 
 V54 reorganises CRM around the decisions that matter immediately when the application opens.
 

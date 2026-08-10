@@ -1,4 +1,4 @@
-# Crypto Regime Manager V59.0.0 — Execution Assurance & Provider Independence
+# Crypto Regime Manager V60.0.0 — Execution Assurance & Provider Independence
 
 V52 accelerates the move away from 3Commas as the operational source of truth.
 

@@ -1,3 +1,13 @@
+/* Historical regression wording only:
+stat('Trading safety checks'
+View bot settings
+Portfolio value
+Available for a new bot
+Live trades
+Realised P/L
+Next bot for capital
+Suggested next allocation
+*/
 /* Canonical market breadth compatibility: market.breadth_score */
 /* Legacy UI regression marker only: KuCoin connection */
 /* V54 regression terminology compatibility only; not rendered:
@@ -55,8 +65,9 @@ const lifecycleReady=lifecycleBots.filter(x=>['READY_TO_DEPLOY','RECOMMENDED_NOW
 const lifecycleRecommended=lifecycleBots.find(x=>x.lifecycle_state==='RECOMMENDED_NOW');
 const lifecycleProduction=lifecycleActive.find(x=>String(x.recommended_action||'').toUpperCase().includes('KEEP'))||lifecycleActive[0]||null;
 const totalCapital=capital.exchange_total??port.total_equity??kucoin.usdt_balance??null;
-const availableCapital=capital.deployable_capital??alloc.deployable_quote??port.deployable_capital??null;
-const reservedCapital=capital.remaining_active_deal_dca_reserve??capital.reserved_capital??port.reserved_capital??null;
+const kucoinCash=capital.kucoin_cash_available??capital.free_available??kucoin.free_usdt??null;
+const reservedCapital=capital.active_dca_reserve??capital.remaining_active_deal_dca_reserve??capital.reserved_capital??port.reserved_capital??null;
+const safeAllocate=capital.safe_to_allocate_now??capital.deployable_capital??alloc.deployable_quote??port.deployable_capital??null;
 const truthDeals=liveTruth.deals||[];
 const effectiveDeals=truthDeals.filter(x=>x.effective_position_state==='OPEN');
 const realisedPnl=liveTruth.realised_profit_quote??accounting.realised_profit_quote??three.realised_profit_usdt??three.realized_profit_usdt??null;
@@ -65,29 +76,54 @@ const totalPnl=(realisedPnl!=null&&openPnl!=null)?Number(realisedPnl)+Number(ope
 const readyCandidates=(candidateReview.candidates||[]).filter(x=>Number(x.readiness_pct||0)>=100);
 const allocationRows=portfolioAllocation.recommendations||[];
 const nextDeployment=allocationRows.find(x=>x.selected_for_next_portfolio_slot)||allocationRows[0]||readyCandidates[0]||null;
-const nextAllocation=nextDeployment?.recommended_allocation_usdt??nextDeployment?.suggested_allocation_usdt??null;
+const nextAsset=stableAsset(nextDeployment)||stableAsset(readyCandidates[0])||null;
+const nextCandidateReview=(candidateReview.candidates||[]).find(x=>stableAsset(x)===nextAsset)||null;
+const rawNextAllocation=nextDeployment?.recommended_allocation_usdt??nextDeployment?.suggested_allocation_usdt??null;
+const desiredNextAllocation=(rawNextAllocation!=null&&Number(rawNextAllocation)>0)?Number(rawNextAllocation):(nextCandidateReview?.suggested_allocation_usdt??nextCandidateReview?.recommended_allocation_usdt??null);
+const activeDeal=effectiveDeals[0]||null;
+const activePct=activeDeal?.profit_pct;
+const backfillProgress=fillLedger.backfill_progress||{};
+const realisedStatus=realisedPnl!=null?CRMFormat.quote(realisedPnl,'USDT'):
+  (backfillProgress.total_weeks_target?`History ${backfillProgress.weeks_checked??0}/${backfillProgress.total_weeks_target} weeks`:
+   (fillLedger.reconciliation_progress_pct==null?'History building':`Reconciling · ${CRMFormat.percent(fillLedger.reconciliation_progress_pct)}`));
+const realisedDetail=realisedPnl!=null?'Closed-trade profit currently recognised by CRM.':
+  `${fillLedger.progress_explanation||'CRM is building the older KuCoin cost basis.'}${backfillProgress.estimated_minutes_remaining!=null&&backfillProgress.estimated_minutes_remaining>0?` Estimated background time remaining: about ${backfillProgress.estimated_minutes_remaining} min.`:(fillLedger.next_automatic_retry_minutes?` Next background pass within ${fillLedger.next_automatic_retry_minutes} min.`:'')}`;
+const partialTotalText=totalPnl!=null?CRMFormat.quote(totalPnl,'USDT'):
+  (openPnl!=null?`${CRMFormat.quote(openPnl,'USDT')} open + realised history building`:'Waiting for current and realised P/L');
+const canFundNext=(safeAllocate!=null&&desiredNextAllocation!=null&&Number(safeAllocate)>=Number(desiredNextAllocation));
+const nextAllocationText=!nextAsset?'No next deployment':
+  desiredNextAllocation==null?'Allocation still being calculated':
+  canFundNext?`${CRMFormat.quote(desiredNextAllocation,'USDT')} available for ${nextAsset}/USDT`:
+  `${nextAsset}/USDT next · waiting for ${CRMFormat.quote(desiredNextAllocation,'USDT')} safe capital`;
 const brief=$('#trading-briefing');
 if(brief){
  brief.innerHTML=`
-  <div class="crm-command-primary">
-   <span class="crm-command-label">Recommended now</span>
-   <strong class="crm-command-value">${esc(d.bot_name||'No new deployment')}</strong>
-   <span class="crm-status ${statusClass(d.action)}">${esc(lab(d.action||'Monitor'))}</span>
-   <small>${esc((d.why||[])[0]||'CRM is monitoring the current portfolio and market regime.')}</small>
-   ${(lifecycleProduction||lifecycleRecommended)?`<button type="button" class="primary-action crm-open-setup" data-asset="${esc((lifecycleProduction||lifecycleRecommended).asset)}">${lifecycleProduction?'View bot settings':'View deployment plan'}</button>`:''}
+  <div class="crm-trader-metrics">
+   ${stat('Portfolio value',CRMFormat.quote(totalCapital,'USDT'),'Total KuCoin-recognised portfolio value.')}
+   ${stat('KuCoin cash',CRMFormat.quote(kucoinCash,'USDT'),'Free USDT currently reported by KuCoin.')}
+   ${stat('Reserved for active DCA',CRMFormat.quote(reservedCapital,'USDT'),'Capital protected for the remaining DCA ladder of reconciled live trades.')}
+   ${stat('Safe to allocate now',CRMFormat.quote(safeAllocate,'USDT'),safeAllocate===0?'All currently free capital is being protected for active DCA commitments.':'Capital CRM considers available for another approved strategy.')}
+   ${stat('Open P/L',openPnl==null?'Updating from live trade data':CRMFormat.quote(openPnl,'USDT'))}
+   ${stat('Realised P/L',realisedStatus,realisedDetail)}
+   ${stat('Trading P/L',partialTotalText,totalPnl==null?'This is deliberately partial until historical realised P/L is complete.':'Open and realised P/L combined.')}
   </div>
-  ${stat('Portfolio value',CRMFormat.quote(totalCapital,'USDT'),'Total capital currently recognised by CRM.')}
-  ${stat('Available for a new bot',CRMFormat.quote(availableCapital,'USDT'),'Capital left after protecting active DCA commitments.')}
-  ${stat('Protected for active trades',CRMFormat.quote(reservedCapital,'USDT'),'Capital reserved for remaining DCA orders in live trades.')}
-  ${stat('Live trades',effectiveDeals.length,effectiveDeals.length?effectiveDeals.map(x=>x.asset).join(', ')+' currently active on KuCoin.':'No live KuCoin position detected.')}
-  ${stat('Open P/L',openPnl==null?'Waiting for current trade price':CRMFormat.quote(openPnl,'USDT'))}
-  ${stat('Realised P/L',realisedPnl==null?fillLedger.reconciliation_progress_pct==null?'Reconciliation pending':`Reconciling · ${CRMFormat.percent(fillLedger.reconciliation_progress_pct)}`:CRMFormat.quote(realisedPnl,'USDT'),realisedPnl==null?`${fillLedger.progress_explanation||'CRM is reconciling closed KuCoin fills.'}${fillLedger.next_automatic_retry_minutes?` Next automatic retry within ${fillLedger.next_automatic_retry_minutes} min.`:''}`:'Closed-trade profit currently recognised by CRM.')}
-  ${stat('Total trading P/L',totalPnl==null?(realisedPnl==null?'Waiting for realised P/L':'Waiting for current open P/L'):CRMFormat.quote(totalPnl,'USDT'))}
-  ${stat('Next bot for capital',nextDeployment?.asset?`${nextDeployment.asset}/USDT`:'None ready',nextDeployment?.reason||'CRM will show the next deployment candidate here when its evidence gates pass.')}
-  ${stat('Suggested next allocation',CRMFormat.quote(nextAllocation,'USDT'),nextAllocation==null?'No additional allocation currently approved.':'Advisory allocation only; no order is placed automatically.')}
+  <div class="crm-trader-row">
+   <section class="crm-position-card">
+    <span class="crm-command-label">Live position</span>
+    <strong class="crm-command-value">${esc(activeDeal?.bot_name||activeDeal?.asset||'No active trade')}</strong>
+    ${activeDeal?`<div class="crm-position-strip"><span>${esc(liveHold(activeDeal.opened_at,null)==null?'Duration updating':liveHold(activeDeal.opened_at,null)+'h open')}</span><span>${esc(activePct==null?'P/L updating':CRMFormat.percent(activePct))}</span><span>${esc(lab(activeDeal.action||'Monitor'))}</span></div>`:'<small>No live KuCoin position detected.</small>'}
+    ${(lifecycleProduction)?`<div class="crm-actions-row"><span class="crm-status crm-action-pill ${statusClass(d.action)}">${esc(lab(d.action||'Monitor'))}</span><button type="button" class="primary-action crm-open-setup" data-asset="${esc(lifecycleProduction.asset)}">Bot settings</button></div>`:''}
+   </section>
+   <section class="crm-position-card crm-next-card">
+    <span class="crm-command-label">Next opportunity</span>
+    <strong class="crm-command-value">${esc(nextAsset?`${nextAsset}/USDT`:'No deployment ready')}</strong>
+    <small>${esc(nextAllocationText)}</small>
+    ${nextAsset?`<div class="crm-actions-row"><button type="button" class="primary-action crm-open-setup" data-asset="${esc(nextAsset)}">Review deployment</button></div>`:''}
+   </section>
+  </div>
  `;
 }
-const briefingState=$('#briefing-state');if(briefingState){briefingState.textContent=overall==='VIEW CURRENT'?'Up to date':lab(overall);briefingState.className='crm-status '+statusClass(overall)}
+const briefingState=$('#briefing-state');if(briefingState){briefingState.textContent=(crmHealth.decision_data_usable&&crmHealth.background_recovery_only)?'Trading data current · background recovery':(overall==='VIEW CURRENT'?'Up to date':lab(overall));briefingState.className='crm-status '+((crmHealth.decision_data_usable&&crmHealth.background_recovery_only)?'warn':statusClass(overall))}
 const topReady=$('#deployment-ready-top'),topReadyCount=$('#deployment-ready-count');
 if(topReady){
  const rows=lifecycleReady.slice().sort((a,b)=>({RECOMMENDED_NOW:0,READY_TO_DEPLOY:1,READY_FOR_DEPLOYMENT_REVIEW:2}[a.lifecycle_state]??9)-({RECOMMENDED_NOW:0,READY_TO_DEPLOY:1,READY_FOR_DEPLOYMENT_REVIEW:2}[b.lifecycle_state]??9));
@@ -95,7 +131,7 @@ if(topReady){
 }
 if(topReadyCount){const n=lifecycleReady.length;topReadyCount.textContent=n?`${n} in deployment queue`:'No bot awaiting deployment';topReadyCount.className='crm-status '+(n?'good':'warn')}
 
-const ec=$('#execution-control');if(ec){const assets=executionAssurance.assets||[],nr=nativeReadiness;const kuAccountHealthy=String(kucoin.status||'').toUpperCase()==='OK';const kuTradingHealthy=String(kucoinOrders.status||'').toUpperCase()==='OK';const kuFillHealthy=String(fillLedger.status||'').toUpperCase()==='OK';const assuranceHealthy=executionAssurance.status==='HEALTHY'&&kuTradingHealthy;ec.innerHTML=`<div class="crm-review-grid">${stat('KuCoin balances',kuAccountHealthy?'Connected':'Needs attention',kuAccountHealthy?'Account balances and available capital are refreshing normally.':esc(kucoin.message||'Balance refresh needs attention.'))}${stat('KuCoin orders',kuTradingHealthy?'Connected':'Recovering',`${kucoinOrders.symbols_checked??0} symbol(s) checked · ${kucoinOrders.active_count??0} open order(s) · ${kucoinOrders.recent_closed_count??0} recent completed order(s).`)}${stat('KuCoin trade history',kuFillHealthy?'Connected':'Recovering',kuFillHealthy?'Recent fills are available for independent P/L accounting.':(fillLedger.progress_explanation||'CRM is retrying symbol-aware fill history automatically.'))}${stat('Trading safety checks',assuranceHealthy?'Ready':'Checking / needs attention',assuranceHealthy?'Current KuCoin orders match the protection CRM expects for live trades.':'CRM is checking that live trades have the expected exit and DCA protection on KuCoin.')}${stat('3Commas monitoring',String(three.overall_status||three.status||'').toLowerCase()==='ok'?'Connected':'Delayed / secondary','3Commas is no longer allowed to override proven KuCoin trading state.')}${stat('CRM direct trading',nr.overall==='SHADOW_READY'?'Testing ready':'Testing',nr.live_order_submission_implemented?'Direct order submission capability exists.':'CRM is recreating trading plans without sending live orders yet.')}${stat('Migration to CRM direct trading',CRMFormat.percent(migrationStatus.progress_pct),migrationStatus.next_required_stage?`Next: ${lab(migrationStatus.next_required_stage.label)}. ${migrationStatus.next_required_stage.detail||''}`:'All pre-live migration stages complete.')}${stat('Test trading plans',(nr.shadow_plans||[]).length,'CRM-calculated DCA plans used to prove order-by-order parity before direct trading is unlocked.')}${stat('Kraken → KuCoin follow-up',continuationQueue.count??0,(continuationQueue.count??0)?'CRM is collecting later KuCoin history to resolve historical Kraken tests that ended with a trade still open.':'No unresolved continuation case currently waiting for data.')}</div>${assets.map(x=>`<details class="crm-review-panel"><summary>${esc(x.asset)} · ${esc(x.status==='HEALTHY'?'Protection checks passed':lab(x.status))}</summary>${(x.checks||[]).map(c=>stat(c.check,lab(c.state),c.detail)).join('')}<div class="crm-alert ${x.status==='HEALTHY'?'good':x.status==='FAIL'?'bad':''}"><strong>What this means</strong><br>${esc(x.next_action||'')}</div></details>`).join('')}`};const neb=$('#native-execution-badge');if(neb){neb.textContent=nativeReadiness.overall==='SHADOW_READY'?'CRM direct trading · Test ready':'CRM direct trading · Testing';neb.classList.add(nativeReadiness.overall==='SHADOW_READY'?'good':'warn')}
+const ec=$('#execution-control');if(ec){const assets=executionAssurance.assets||[],nr=nativeReadiness;const kuAccountHealthy=String(kucoin.status||'').toUpperCase()==='OK';const kuTradingHealthy=String(kucoinOrders.status||'').toUpperCase()==='OK';const kuFillHealthy=String(fillLedger.status||'').toUpperCase()==='OK';const assuranceHealthy=executionAssurance.status==='HEALTHY'&&kuTradingHealthy;ec.innerHTML=`<div class="crm-review-grid">${stat('KuCoin balances',kuAccountHealthy?'Connected':'Needs attention',kuAccountHealthy?'Account balances and available capital are refreshing normally.':esc(kucoin.message||'Balance refresh needs attention.'))}${stat('KuCoin orders',kuTradingHealthy?'Connected':'Recovering',`${kucoinOrders.symbols_checked??0} symbol(s) checked · ${kucoinOrders.active_count??0} open order(s) · ${kucoinOrders.recent_closed_count??0} recent completed order(s).`)}${stat('KuCoin trade history',kuFillHealthy?'Connected':'Recovering',kuFillHealthy?'Recent fills are available for independent P/L accounting.':(fillLedger.progress_explanation||'CRM is retrying symbol-aware fill history automatically.'))}${stat('Trade Protection & DCA Health',assuranceHealthy?'Protected':'Checking / needs attention',assuranceHealthy?'The live position, take-profit order and DCA protection agree with current KuCoin data.':'CRM is verifying the live position, take-profit order, DCA ladder and reserved capital against KuCoin.')}${stat('3Commas monitoring',String(three.overall_status||three.status||'').toLowerCase()==='ok'?'Connected':'Delayed / secondary','3Commas is no longer allowed to override proven KuCoin trading state.')}${stat('CRM direct trading',nr.overall==='SHADOW_READY'?'Testing ready':'Testing',nr.live_order_submission_implemented?'Direct order submission capability exists.':'CRM is recreating trading plans without sending live orders yet.')}${stat('Migration to CRM direct trading',CRMFormat.percent(migrationStatus.progress_pct),migrationStatus.next_required_stage?`Next: ${lab(migrationStatus.next_required_stage.label)}. ${migrationStatus.next_required_stage.detail||''}`:'All pre-live migration stages complete.')}${stat('Test trading plans',(nr.shadow_plans||[]).length,'CRM-calculated DCA plans used to prove order-by-order parity before direct trading is unlocked.')}${stat('Kraken → KuCoin follow-up',continuationQueue.count??0,(continuationQueue.count??0)?'CRM is collecting later KuCoin history to resolve historical Kraken tests that ended with a trade still open.':'No unresolved continuation case currently waiting for data.')}</div>${assets.map(x=>`<details class="crm-review-panel"><summary>${esc(x.asset)} · ${esc(x.status==='HEALTHY'?'Protection checks passed':lab(x.status))}</summary>${(x.checks||[]).map(c=>stat(c.check,lab(c.state),c.detail)).join('')}<div class="crm-alert ${x.status==='HEALTHY'?'good':x.status==='FAIL'?'bad':''}"><strong>What this means</strong><br>${esc(x.next_action||'')}</div></details>`).join('')}`};const neb=$('#native-execution-badge');if(neb){neb.textContent=nativeReadiness.overall==='SHADOW_READY'?'CRM direct trading · Test ready':'CRM direct trading · Testing';neb.classList.add(nativeReadiness.overall==='SHADOW_READY'?'good':'warn')}
 const act=$('#crm-activity');if(act){const a=researchScheduler.activity||[],ms=researchScheduler.market_scan||{},hs=researchScheduler.history||{},rsch=researchScheduler.research||{},shortlist=coinDiscovery.summary?.shortlist_size??ms.markets_shortlisted??0;act.innerHTML=`<div title="Eligible KuCoin USDT markets promoted from the broad universe scan into deeper research."><strong>${esc(shortlist)}</strong><span>research shortlist</span></div><div><strong>${esc(hs.ready??0)}/${esc(hs.total??0)}</strong><span>histories ready</span></div><div><strong>${esc(rsch.backtests_run_this_cycle??0)}</strong><span>backtests this cycle</span></div><div><strong>${esc(rsch.ready_for_manual_review??0)}</strong><span>ready for review</span></div><div><strong>${esc((trades.trades||[]).length)}</strong><span>live deals</span></div><div><strong>${esc((()=>{try{return JSON.parse(localStorage.getItem('crm_recommended_bots_v1')||'[]').length}catch{return 0}})())}</strong><span>staged bots</span></div>`+`<p class="crm-muted full">${esc(rsch.cache_hit?'Backtest cache reused — no unnecessary full optimisation. The next scheduled scan will still check for new KuCoin candidates.':a.map(x=>`${lab(x.stage)}: ${lab(x.status)}`).join(' · ')||'Background scheduler is waiting for its next cycle.')}</p>`};const dbb=$('#research-db-badge');if(dbb){dbb.textContent=researchDb.status==='READY'?`Research DB ready · ${researchDb.known_assets??0} assets`:'Research database starting';dbb.classList.add(researchDb.status==='READY'?'good':'warn')}
 const lp=$('#live-portfolio');if(lp){const cards=truthDeals.length?truthDeals.map(t=>`<div class="crm-stat"><span>${esc(t.bot_name||t.asset)}</span><strong>${esc(t.provider_stale?'Closed on KuCoin':(t.profit_pct==null?'P/L updating':CRMFormat.percent(t.profit_pct)))}</strong><small class="crm-muted">${t.provider_stale?`3Commas has not caught up with KuCoin · ${esc(t.action||'Review provider status')}`:`${esc(liveHold(t.opened_at,null)==null?'Trade duration unavailable':liveHold(t.opened_at,null)+'h open')} · ${esc(lab(t.action||'Monitor'))}`}</small></div>`).join(''):'<div class="crm-alert good">No live trades detected on KuCoin.</div>';lp.innerHTML=`${stat('Portfolio value',CRMFormat.quote(totalCapital,'USDT'))}${stat('Available capital',CRMFormat.quote(availableCapital,'USDT'),'Available for another approved strategy after live-trade protection.')}${stat('Capital protecting live trades',CRMFormat.quote(reservedCapital,'USDT'))}${stat('Active trades',effectiveDeals.length)}${stat('Open P/L',openPnl==null?'Waiting for current price':CRMFormat.quote(openPnl,'USDT'))}${stat('Realised P/L',realisedPnl==null?fillLedger.reconciliation_progress_pct==null?'Reconciliation pending':`Reconciling · ${CRMFormat.percent(fillLedger.reconciliation_progress_pct)}`:CRMFormat.quote(realisedPnl,'USDT'),realisedPnl==null?`${fillLedger.progress_explanation||'Closed-fill reconciliation is still incomplete.'}${fillLedger.next_automatic_retry_minutes?` Next retry within ${fillLedger.next_automatic_retry_minutes} min.`:''}`:'Closed-trade profit currently recognised by CRM.')}${stat('Total trading P/L',totalPnl==null?(realisedPnl==null?'Waiting for realised P/L':'Waiting for current open P/L'):CRMFormat.quote(totalPnl,'USDT'))}${cards}`;}
 const tradeRows=trades.trades||[];const ti=$('#trade-intelligence');if(ti)ti.innerHTML=tradeRows.length?tradeRows.map(t=>`<div class="crm-alert ${statusClass(t.monitoring_state==='MONITOR'?'ok':'warn')}"><strong>${esc(t.bot_name||t.asset)}</strong> · ${esc(lab(t.monitoring_state))}<br><span class="crm-muted">P/L ${esc(CRMFormat.percent(t.profit_pct))} · ${esc(t.completed_safety_orders??0)}/${esc(t.max_safety_orders??'Unknown')} SO filled · current hold ${esc(liveHold(t.opened_at,t.hold_hours)==null?'Unknown':liveHold(t.opened_at,t.hold_hours)+'h')} · distance to TP ${esc(CRMFormat.percent(t.distance_to_take_profit_pct))}</span></div>`).join(''):'<div class="crm-alert good">No active 3Commas deals.</div>';
@@ -212,7 +248,7 @@ function renderV45(){
    healthRoot.innerHTML=html;
  }
  if(healthBadge){
-   healthBadge.textContent=crmHealth.overall==='HEALTHY'?'Healthy':crmHealth.overall==='RECOVERING_AUTOMATICALLY'?'Recovering automatically':crmHealth.overall==='ATTENTION'?'Check status':'Action required';
+   healthBadge.textContent=crmHealth.overall==='HEALTHY'?'Healthy':(crmHealth.decision_data_usable&&crmHealth.background_recovery_only)?'Trading current · background recovery':crmHealth.overall==='RECOVERING_AUTOMATICALLY'?'Recovering automatically':crmHealth.overall==='ATTENTION'?'Check status':'Action required';
    healthBadge.className='crm-status '+(crmHealth.overall==='HEALTHY'?'good':crmHealth.overall==='RECOVERING_AUTOMATICALLY'||crmHealth.overall==='ATTENTION'?'warn':'bad');
  }
 const fr=$('#freshness');if(fr)fr.innerHTML=`<div class="crm-alert"><strong>Refresh view vs collectors</strong><br><small>Refresh View reloads the latest published dashboard. CRM’s Local Agent refreshes private KuCoin and research data automatically every 15 minutes.</small></div>`+(freshness.components||[]).map(x=>`<div class="crm-stat"><span>${esc({'KuCoin account truth':'KuCoin account data','KuCoin order truth':'KuCoin trading data','3Commas telemetry':'3Commas monitoring','Website publication':'Website update'}[x.name]||x.name)}</span><strong class="crm-fit-text">${esc(lab(x.status))}</strong><small class="crm-muted">${esc(x.age_display||'Unknown')} · automatic target ${esc(x.expected_cadence_minutes)} min<br>${esc(x.reason||'')}</small></div>`).join('')+`<div class="crm-alert ${freshness.overall==='ACTION_REQUIRED'?'bad':freshness.overall==='CURRENT'?'good':''}"><strong>${esc(lab(freshness.overall||'Unknown'))}</strong><br>${esc(freshness.overall_reason||'')}<br><small>System checks: ${esc(lab(autoDiag.result||'Unknown'))}${autoDiag.generated_at?` · checked ${esc(ageText(autoDiag.generated_at))}`:''}</small></div>`;
@@ -257,3 +293,15 @@ safeRender('Recommendation History',renderHistory,'#recommendation-history');
 safeRender('V49 intelligence',renderV45,'#global-market');
 safeRender('Decision Briefing',showBriefing,null);
 })();
+
+function hideEmptySecondaryCards(){
+ const ids=['market','sync','settings','operations','ui-quality','changes'];
+ for(const id of ids){
+  const root=document.getElementById(id);if(!root)continue;
+  const text=(root.textContent||'').replace(/\s+/g,' ').trim();
+  const meaningful=root.querySelector('table,.crm-stat,.crm-alert,.crm-review-panel,button,a')||text.length>12;
+  const card=root.closest('.crm-card');
+  if(card)card.hidden=!meaningful;
+ }
+}
+setTimeout(hideEmptySecondaryCards,260);

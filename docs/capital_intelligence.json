@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "application_version": "59.0.0",
-  "generated_at": "2026-08-10T06:58:49.653072+00:00",
-  "snapshot_id": "cd9b5dfa189893cec3cc",
+  "application_version": "60.0.0",
+  "generated_at": "2026-08-10T07:57:26.273005+00:00",
+  "snapshot_id": "752b80fe739ac1714a98",
   "currency": "USDT",
   "accounts": [
     {
@@ -114,6 +114,17 @@
   "capital_source": "3Commas read-only account snapshot",
   "kucoin_direct_status": "not_configured",
   "reserved_capital": 2529.5360000000005,
+  "kucoin_cash_available": 806.67111932,
+  "active_dca_reserve": 2529.5360000000005,
+  "safe_to_allocate_now": 0.0,
+  "capital_headline": {
+    "portfolio_value": 3587.5538871179756,
+    "kucoin_cash": 806.67111932,
+    "reserved_for_active_dca": 2529.5360000000005,
+    "safe_to_allocate": 0.0,
+    "currency": "USDT",
+    "explanation": "KuCoin cash is the exchange free balance. Reserved capital protects remaining DCA orders for reconciled active trades. Safe to allocate is cash remaining after that protection."
+  },
   "idle_bot_potential_exposure": 0.0,
   "capital_policy": "Protect only reconciled active-deal remaining DCA ladders; provider-stale deals proven closed on KuCoin do not consume CRM capital. Idle theoretical exposure is not reserved until approved.",
   "provider_stale_deals_excluded": 0

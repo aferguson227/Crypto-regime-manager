@@ -1,42 +1,43 @@
 {
   "schema_version": "2.0",
-  "application_version": "59.0.0",
-  "generated_at": "2026-08-10T06:58:55.826843+00:00",
-  "overall": "RECOVERING_AUTOMATICALLY",
+  "application_version": "60.0.0",
+  "generated_at": "2026-08-10T07:57:33.439782+00:00",
+  "overall": "ACTION_REQUIRED",
   "summary": {
     "root_issues_before": 1,
     "root_issues_after": 1,
     "recovery_actions_attempted": 9,
     "root_issues_resolved": 0,
-    "blocking_after": 0
+    "blocking_after": 1
   },
   "resolved_this_cycle": [],
   "issues": [
     {
       "code": "KUCOIN_ACCOUNT",
-      "title": "KuCoin account refresh",
+      "title": "KuCoin account data unavailable",
       "area": "Trading data",
       "severity": "high",
-      "state": "RECOVERING",
-      "detail": "CRM cannot see its local read-only KuCoin credentials in this Local Agent process.",
-      "user_action": "Run the Local Agent setup again only if the next automatic recovery still reports credentials unavailable.",
+      "state": "ACTION_REQUIRED",
+      "detail": "The current Local Agent process cannot access its read-only KuCoin credentials and no sufficiently fresh fallback snapshot is available.",
+      "user_action": "Run Local Agent setup only if the next recovery cycle still reports credentials unavailable.",
+      "trading_data_usable": false,
       "automatic_recovery_attempted": true,
-      "consecutive_failed_cycles": 1,
-      "last_recovery_transaction_at": "2026-08-10T06:58:55.825967+00:00",
-      "escalated_to_user": false
+      "consecutive_failed_cycles": 4,
+      "last_recovery_transaction_at": "2026-08-10T07:57:33.438893+00:00",
+      "escalated_to_user": true
     }
   ],
   "recovery_transaction": [
     {
       "module": "scripts.kucoin_account_sync",
       "returncode": 0,
-      "duration_seconds": 0.15,
+      "duration_seconds": 0.14,
       "detail": "KuCoin account sync: not configured (optional read-only capital source).\n"
     },
     {
       "module": "scripts.kucoin_order_state",
       "returncode": 0,
-      "duration_seconds": 0.16,
+      "duration_seconds": 0.15,
       "detail": "KuCoin order state: NOT_CONFIGURED; symbols=1 active=0 recent_closed=0\n"
     },
     {
@@ -54,20 +55,20 @@
     {
       "module": "scripts.independent_trade_accounting_engine",
       "returncode": 0,
-      "duration_seconds": 0.07,
+      "duration_seconds": 0.08,
       "detail": "Independent trade accounting written: C:\\Crypto\\Projects\\docs\\independent_trade_accounting.json\n"
     },
     {
       "module": "scripts.live_portfolio_truth_engine",
       "returncode": 0,
-      "duration_seconds": 0.09,
+      "duration_seconds": 0.1,
       "detail": "Live portfolio truth written: C:\\Crypto\\Projects\\docs\\live_portfolio_truth.json; effective_open=1 stale=0\n"
     },
     {
       "module": "scripts.execution_assurance_engine",
       "returncode": 0,
-      "duration_seconds": 0.08,
-      "detail": "Execution assurance: ATTENTION; assets=1 failures=0\n"
+      "duration_seconds": 0.09,
+      "detail": "Execution assurance: HEALTHY; assets=1 failures=0\n"
     },
     {
       "module": "scripts.freshness_controller",
@@ -101,5 +102,7 @@
     "change capital allocation",
     "Git push/force push"
   ],
-  "next_action": "No manual action required while CRM is recovering."
+  "decision_data_usable": false,
+  "background_recovery_only": false,
+  "next_action": "Review the escalated root cause."
 }

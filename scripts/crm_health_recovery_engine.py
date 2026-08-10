@@ -42,6 +42,14 @@ def runmod(name,*args):
  started=time.monotonic();r=subprocess.run([sys.executable,'-m',name,*args],cwd=ROOT,text=True,capture_output=True)
  return {'module':name,'returncode':r.returncode,'duration_seconds':round(time.monotonic()-started,2),'detail':(r.stdout+r.stderr)[-1400:]}
 def status_ok(value):return str(value or '').upper() in {'OK','HEALTHY','CURRENT','PASS','SYNCHRONIZED'}
+def age_minutes(value):
+ try:return max(0,(datetime.now(timezone.utc)-datetime.fromisoformat(str(value).replace('Z','+00:00')).astimezone(timezone.utc)).total_seconds()/60)
+ except:return None
+def usable_account_snapshot(ku):
+ age=age_minutes(ku.get('generated_at'))
+ has_data=ku.get('usdt_balance') is not None or ku.get('free_usdt') is not None or bool(ku.get('balances'))
+ return bool(has_data and age is not None and age<=45)
+
 def account_problem(ku):return not status_ok(ku.get('status'))
 def order_problem(o):return not status_ok(o.get('status'))
 def fill_problem(f):return not status_ok(f.get('status'))
@@ -61,16 +69,20 @@ def root_incidents(s):
  ku,o,f=s['ku'],s['orders'],s['fills']
  # Account failure is a root incident only when the account collector itself currently fails.
  if account_problem(ku):
-  diag=ku.get('diagnostic') or {}
-  cat=str(diag.get('category') or '').upper()
-  # Don't tell the user to add credentials unless the collector specifically proved they are absent.
-  if cat=='NOT_CONFIGURED' or str(ku.get('status')).lower()=='not_configured':
-   detail='CRM cannot see its local read-only KuCoin credentials in this Local Agent process.'
-   action='Run the Local Agent setup again only if the next automatic recovery still reports credentials unavailable.'
+  diag=ku.get('diagnostic') or {};cat=str(diag.get('category') or '').upper();usable=usable_account_snapshot(ku)
+  if usable:
+   detail='The newest KuCoin balance snapshot is still usable while CRM retries the background account refresh.'
+   action='No action required while the current snapshot remains within the trading-data freshness window.'
+   severity='low';title='Background KuCoin account refresh'
+  elif cat=='NOT_CONFIGURED' or str(ku.get('status')).lower()=='not_configured':
+   detail='The current Local Agent process cannot access its read-only KuCoin credentials and no sufficiently fresh fallback snapshot is available.'
+   action='Run Local Agent setup only if the next recovery cycle still reports credentials unavailable.'
+   severity='high';title='KuCoin account data unavailable'
   else:
    detail=f"KuCoin account refresh failed: {cat or 'unknown category'}. {str(ku.get('message') or '')[:280]}"
-   action='No credential change is recommended unless the diagnostic specifically reports authentication/permission failure.'
-  rows.append({'code':'KUCOIN_ACCOUNT','title':'KuCoin account refresh','area':'Trading data','severity':'high','state':'RECOVERING','detail':detail,'user_action':action})
+   action='No credential change is recommended unless authentication or permission failure is explicitly confirmed.'
+   severity='high';title='KuCoin account data unavailable'
+  rows.append({'code':'KUCOIN_ACCOUNT','title':title,'area':'Background data refresh' if usable else 'Trading data','severity':severity,'state':'RECOVERING','detail':detail,'user_action':action,'trading_data_usable':usable})
 
  # Order/fill issues form one private-trading-data incident if account auth is healthy.
  if not account_problem(ku) and (order_problem(o) or fill_problem(f)):
@@ -87,7 +99,7 @@ def root_incidents(s):
    'user_action':'Run UPDATE_LOCAL_AGENT_SCHEDULE.ps1 or review the CryptoRegimeManager-LocalAgent task.'})
 
  # Only surface dependent states when the upstream KuCoin path is healthy.
- upstream=account_problem(ku) or order_problem(o) or fill_problem(f)
+ upstream=(account_problem(ku) and not usable_account_snapshot(ku)) or order_problem(o) or fill_problem(f)
  if not upstream:
   if s['accounting'].get('realised_profit_quote') is None:
    rows.append({'code':'PNL_RECONCILIATION','title':'Realised P/L reconciliation','area':'Profit & loss','severity':'low','state':'UPDATING',
@@ -96,7 +108,7 @@ def root_incidents(s):
    rows.append({'code':'FRESHNESS','title':'Trading-data freshness','area':'Refresh','severity':'medium','state':'RECOVERING',
     'detail':str(s['fresh'].get('overall_reason') or 'Freshness is being recomputed.'),'user_action':'No manual action unless the Local Agent schedule is also unhealthy.'})
   if not status_ok(s['assurance'].get('status')):
-   rows.append({'code':'SAFETY','title':'Trading safety verification','area':'Trading safety','severity':'high','state':'ATTENTION',
+   rows.append({'code':'SAFETY','title':'Trade Protection & DCA Health','area':'Live trade protection','severity':'high','state':'ATTENTION',
     'detail':'KuCoin data is current but one or more expected live-trade protection checks still failed.',
     'user_action':'Review the affected live trade if this remains after the recovery transaction.'})
 
@@ -154,7 +166,9 @@ def main():
   'cascade_policy':'Dependent freshness, P/L and safety symptoms are suppressed while an upstream KuCoin root incident is recovering.',
   'truthful_retry_policy':'The dashboard says CRM retried only when recovery_transaction contains an executed action.',
   'never_automatic':['place/cancel KuCoin orders','change API credentials','start/stop/edit 3Commas bots','change capital allocation','Git push/force push'],
-  'next_action':('Review the escalated root cause.' if blocking else 'No manual action required while CRM is recovering.' if recovering else 'No manual action required.')}
+  'decision_data_usable':not any(x.get('severity')=='high' and x.get('state') in {'ACTION_REQUIRED','ATTENTION'} for x in issues_after),
+  'background_recovery_only':bool(recovering) and not blocking,
+  'next_action':('Review the escalated root cause.' if blocking else 'Trading data remains usable while CRM completes background recovery.' if recovering else 'No manual action required.')}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8')
  print(f"CRM Recovery Controller: {overall}; actions={len(actions)} resolved={len(resolved)} remaining={len(issues_after)}")
  return 1 if blocking else 0
