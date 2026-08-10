@@ -1,10 +1,10 @@
 {
   "schema_version": "1.1",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:03:17.851187+00:00",
-  "status": "NOT_CONFIGURED",
+  "generated_at": "2026-08-10T10:04:29.464520+00:00",
+  "status": "OK",
   "source": "KuCoin private read-only GET /api/v1/hf/fills (symbol-aware)",
-  "api_message": "{\"symbols_checked\": 5, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"DATA-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}]}",
+  "api_message": "{\"symbols_checked\": 5, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 120}, {\"symbol\": \"DATA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}]}",
   "new_fills": 0,
   "ledger_path": "C:\\Crypto\\CRM_Data\\Accounting\\kucoin_fills.db",
   "persistent_across_upgrades": true,
@@ -12,7 +12,7 @@
   "realised_profit_quote": null,
   "partial_matched_realised_profit_quote": 124.7022546,
   "realised_profit_status": "DEEP_COST_BASIS_SEARCH",
-  "reconciliation_progress_pct": 15.2,
+  "reconciliation_progress_pct": 31.6,
   "next_automatic_retry_minutes": 15,
   "backfill_progress": {
     "weeks_checked": 25,
@@ -22,7 +22,7 @@
     "estimated_minutes_remaining": 0,
     "complete_scan": true
   },
-  "progress_explanation": "Normal 180-day scan complete; CRM is now searching only the affected asset further back for the missing acquisition. Estimated 90 min remaining.",
+  "progress_explanation": "Normal 180-day scan complete; CRM is now searching only the affected asset further back for the missing acquisition. Estimated 75 min remaining.",
   "backfill": {
     "attempted": true,
     "windows": 0,
@@ -38,21 +38,21 @@
   },
   "deep_cost_basis_search": {
     "attempted": true,
-    "status": "DEGRADED",
+    "status": "OK",
     "assets": [
       {
         "asset": "TEL",
         "windows_checked_this_cycle": 12,
         "new_fills": 0,
-        "cursor": 1763546597843,
+        "cursor": 1756288997843,
         "search_floor_days": 730,
-        "weeks_checked": 12,
+        "weeks_checked": 25,
         "total_weeks_target": 79,
-        "progress_pct": 15.2,
+        "progress_pct": 31.6,
         "complete": false,
-        "estimated_cycles_remaining": 6,
-        "estimated_minutes_remaining": 90,
-        "status": "NOT_CONFIGURED"
+        "estimated_cycles_remaining": 5,
+        "estimated_minutes_remaining": 75,
+        "status": "OK"
       }
     ],
     "new_fills": 0,

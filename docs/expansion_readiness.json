@@ -1,52 +1,52 @@
 {
   "schema_version": "1.0",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:03:26.705997+00:00",
+  "generated_at": "2026-08-10T10:06:02.212557+00:00",
   "state": "WAIT",
-  "score_pct": 83.3,
-  "recommended_next_candidate": "XRP",
+  "score_pct": 66.7,
+  "recommended_next_candidate": "UNI",
   "candidate": {
-    "asset": "XRP",
-    "pair": "XRP-USDT",
-    "discovery_rank": 5,
-    "current_research_score": 74.7,
+    "asset": "UNI",
+    "pair": "UNI-USDT",
+    "discovery_rank": 2,
+    "current_research_score": 79.5,
     "stage": "READY_FOR_MANUAL_REVIEW",
     "walk_forward_status": "PASS",
-    "kucoin_walk_forward_status": null,
-    "kucoin_primary_validation_pass": false,
+    "kucoin_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
+    "kucoin_primary_validation_pass": true,
     "frozen_settings": {
-      "take_profit_pct": 1.2,
+      "take_profit_pct": 0.8,
       "so_deviation_pct": 0.8,
-      "safety_orders": 7,
-      "volume_scale": 1.7,
+      "safety_orders": 4,
+      "volume_scale": 1.1,
       "step_scale": 1.0
     },
     "training_metrics": {
-      "net_pnl": 17771.34,
-      "closed_deals": 1596,
-      "average_hours": 6.9,
-      "longest_hours": 1096,
-      "max_drawdown_dollars": -1909.44,
+      "net_pnl": 24512.2,
+      "closed_deals": 1703,
+      "average_hours": 6.3,
+      "longest_hours": 3400,
+      "max_drawdown_dollars": -2986.73,
       "max_capital": 5819.12,
       "open_position": true,
-      "score": 16581.116
+      "score": 22898.8445
     },
     "q1_2026_metrics": {
-      "net_pnl": 1855.42,
-      "realised_pnl": 1855.42,
-      "open_pnl": -72.74,
-      "mark_to_market_pnl": 1782.68,
-      "closed_deals": 212,
-      "average_hours": 5.4,
-      "longest_hours": 56,
-      "max_drawdown_dollars": -392.83,
+      "net_pnl": 2116.48,
+      "realised_pnl": 2116.48,
+      "open_pnl": -628.5,
+      "mark_to_market_pnl": 1487.98,
+      "closed_deals": 157,
+      "average_hours": 7.4,
+      "longest_hours": 280,
+      "max_drawdown_dollars": -1457.48,
       "max_capital": 5819.12,
       "open_position": true
     },
     "gates": {
       "current_kucoin_screen": "PASS",
-      "kucoin_history": "BUILDING",
-      "kucoin_walk_forward": "PENDING",
+      "kucoin_history": "PASS",
+      "kucoin_walk_forward": "PASS",
       "kraken_robustness": "PASS",
       "drawdown_review": "REVIEW",
       "manual_approval": "REQUIRED"
@@ -61,8 +61,8 @@
   "gates": [
     {
       "label": "Local capital current",
-      "state": "PASS",
-      "detail": "Local agent: HEALTHY",
+      "state": "WAIT",
+      "detail": "Local agent: RUNNING",
       "blocking": true
     },
     {
@@ -80,7 +80,7 @@
     {
       "label": "Independent candidate evidence",
       "state": "PASS",
-      "detail": "XRP has frozen Kraken/Q1 evidence.",
+      "detail": "UNI has frozen Kraken/Q1 evidence.",
       "blocking": true
     },
     {
@@ -103,5 +103,5 @@
     "principle": "Add a new asset only when capital, current TEL trade state, current market conditions and independent Kraken/Q1 evidence all support manual review."
   },
   "next_action": "Keep TEL as the only production asset until all expansion gates pass.",
-  "snapshot_id": "343fbc58f48b7ce8c0b61760"
+  "snapshot_id": "080fe3a1f7847055bc295012"
 }

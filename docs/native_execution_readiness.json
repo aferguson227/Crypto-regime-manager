@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:03:26.397568+00:00",
+  "generated_at": "2026-08-10T10:05:54.210148+00:00",
   "mode": "LOCKED_SHADOW",
   "overall": "BUILDING",
   "checks": [
     {
       "label": "KuCoin private read access",
-      "state": "PENDING",
+      "state": "PASS",
       "detail": "Required for balances/account truth."
     },
     {
       "label": "KuCoin order-state visibility",
-      "state": "PENDING",
+      "state": "PASS",
       "detail": "Required to confirm active/done order state."
     },
     {
