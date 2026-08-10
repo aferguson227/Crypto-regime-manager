@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:53:02.074418+00:00",
+  "generated_at": "2026-08-10T11:07:58.148892+00:00",
   "events": [
     {
       "event_id": "58f05bae44fe949aef1e2959",
@@ -5068,24 +5068,6 @@
       }
     },
     {
-      "event_id": "090cc4208acc24120d17557a",
-      "recorded_at": "2026-08-10T09:57:55.614831+00:00",
-      "kind": "COIN_STATUS",
-      "asset": "ASTER",
-      "status": null,
-      "confidence_pct": null,
-      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-    },
-    {
-      "event_id": "cbf5abe0f7ce7d4c17b93081",
-      "recorded_at": "2026-08-10T09:57:55.614831+00:00",
-      "kind": "COIN_STATUS",
-      "asset": "AVAX",
-      "status": null,
-      "confidence_pct": null,
-      "detail": "Retain as research-only; historical validation failed."
-    },
-    {
       "event_id": "5a140fc440d9b754192ee1a2",
       "recorded_at": "2026-08-10T09:23:27.840344+00:00",
       "kind": "BOT_RECOMMENDATION",
@@ -5196,6 +5178,24 @@
         "realised_profit_pct": null,
         "notes": null
       }
+    },
+    {
+      "event_id": "090cc4208acc24120d17557a",
+      "recorded_at": "2026-08-10T10:57:02.925988+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "ASTER",
+      "status": null,
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
+      "event_id": "cbf5abe0f7ce7d4c17b93081",
+      "recorded_at": "2026-08-10T10:57:02.925988+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "AVAX",
+      "status": null,
+      "confidence_pct": null,
+      "detail": "Retain as research-only; historical validation failed."
     },
     {
       "event_id": "2b9b4f3f0da32f771e61ee2f",
@@ -5336,8 +5336,36 @@
         "realised_profit_pct": null,
         "notes": null
       }
+    },
+    {
+      "event_id": "8bf772a8d4e0528895fa4ff6",
+      "recorded_at": "2026-08-10T11:06:45.816786+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ACTIVE_DEAL",
+      "confidence_pct": 93.5,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "af8942b972e405958bd8fb18",
+      "recorded_at": "2026-08-10T11:06:45.816786+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 22.2,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
     }
   ],
-  "event_count": 406,
+  "event_count": 408,
   "live_updating": true
 }

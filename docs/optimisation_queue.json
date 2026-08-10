@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:05:34.100907+00:00",
+  "generated_at": "2026-08-10T11:07:32.013215+00:00",
   "current_global_regime": "ACCUMULATION",
   "current_regime_family": "ACCUMULATION",
   "items": [
@@ -160,83 +160,6 @@
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     },
     {
-      "asset": "ETH",
-      "pair": "ETH-USDT",
-      "status": "WAIT",
-      "current_global_regime": "ACCUMULATION",
-      "current_regime_family": "ACCUMULATION",
-      "validated_baseline": {
-        "take_profit_pct": 0.8,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.1,
-        "step_scale": 1.0
-      },
-      "current_regime_profile": {
-        "entry_trigger": "immediate",
-        "settings": {
-          "take_profit_pct": 0.8,
-          "so_deviation_pct": 0.8,
-          "safety_orders": 4,
-          "volume_scale": 1.5,
-          "step_scale": 1.0
-        },
-        "metrics": {
-          "net_pnl": 1817.92,
-          "mark_to_market_pnl": 1817.92,
-          "open_pnl": 0.0,
-          "closed_deals": 808,
-          "average_hours": 7.9,
-          "median_hours": 0.0,
-          "p90_hours": 16,
-          "longest_hours": 1824,
-          "max_drawdown_dollars": -144.1,
-          "max_capital": 912.5,
-          "open_position": false,
-          "open_duration_hours": 0,
-          "average_safety_orders": 1.26,
-          "return_on_max_capital_pct": 199.22,
-          "max_drawdown_pct": 15.79
-        },
-        "fluidity_score": 151.892,
-        "rejected_for_open_duration": false,
-        "status": "EXPLORATORY_PASS",
-        "trade_fluidity": "POOR"
-      },
-      "recommended_research_settings": {
-        "take_profit_pct": 0.8,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.1,
-        "step_scale": 1.0
-      },
-      "independent_validation_status": "PASS",
-      "deployment_candidate": false,
-      "manual_approval_required": true,
-      "automatic_live_changes": false,
-      "kucoin_walk_forward_status": "RESEARCH_PENDING",
-      "kucoin_validation": {
-        "net_pnl": 266.24,
-        "mark_to_market_pnl": 96.15,
-        "open_pnl": -170.08,
-        "closed_deals": 134,
-        "average_hours": 48.7,
-        "median_hours": 0.0,
-        "p90_hours": 8,
-        "longest_hours": 4356,
-        "max_drawdown_dollars": -343.21,
-        "max_capital": 564.1,
-        "open_position": true,
-        "open_duration_hours": 3076,
-        "average_safety_orders": 1.38,
-        "return_on_max_capital_pct": 17.04,
-        "max_drawdown_pct": 60.84,
-        "score": -449.693,
-        "rejected_for_open_duration": true
-      },
-      "next_action": "Remain in research queue."
-    },
-    {
       "asset": "BTC",
       "pair": "BTC-USDT",
       "status": "WAIT",
@@ -310,6 +233,83 @@
         "max_drawdown_pct": 14.86,
         "score": 79.296,
         "rejected_for_open_duration": false
+      },
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "ETH",
+      "pair": "ETH-USDT",
+      "status": "WAIT",
+      "current_global_regime": "ACCUMULATION",
+      "current_regime_family": "ACCUMULATION",
+      "validated_baseline": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.1,
+        "step_scale": 1.0
+      },
+      "current_regime_profile": {
+        "entry_trigger": "immediate",
+        "settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.5,
+          "step_scale": 1.0
+        },
+        "metrics": {
+          "net_pnl": 1817.92,
+          "mark_to_market_pnl": 1817.92,
+          "open_pnl": 0.0,
+          "closed_deals": 808,
+          "average_hours": 7.9,
+          "median_hours": 0.0,
+          "p90_hours": 16,
+          "longest_hours": 1824,
+          "max_drawdown_dollars": -144.1,
+          "max_capital": 912.5,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 1.26,
+          "return_on_max_capital_pct": 199.22,
+          "max_drawdown_pct": 15.79
+        },
+        "fluidity_score": 151.892,
+        "rejected_for_open_duration": false,
+        "status": "EXPLORATORY_PASS",
+        "trade_fluidity": "POOR"
+      },
+      "recommended_research_settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.1,
+        "step_scale": 1.0
+      },
+      "independent_validation_status": "PASS",
+      "deployment_candidate": false,
+      "manual_approval_required": true,
+      "automatic_live_changes": false,
+      "kucoin_walk_forward_status": "RESEARCH_PENDING",
+      "kucoin_validation": {
+        "net_pnl": 266.24,
+        "mark_to_market_pnl": 96.15,
+        "open_pnl": -170.08,
+        "closed_deals": 134,
+        "average_hours": 48.7,
+        "median_hours": 0.0,
+        "p90_hours": 8,
+        "longest_hours": 4356,
+        "max_drawdown_dollars": -343.21,
+        "max_capital": 564.1,
+        "open_position": true,
+        "open_duration_hours": 3076,
+        "average_safety_orders": 1.38,
+        "return_on_max_capital_pct": 17.04,
+        "max_drawdown_pct": 60.84,
+        "score": -449.693,
+        "rejected_for_open_duration": true
       },
       "next_action": "Remain in research queue."
     },
@@ -827,8 +827,8 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "BNB",
-      "pair": "BNB-USDT",
+      "asset": "LINK",
+      "pair": "LINK-USDT",
       "status": "WAIT",
       "current_global_regime": "ACCUMULATION",
       "current_regime_family": "ACCUMULATION",
@@ -844,8 +844,8 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "LINK",
-      "pair": "LINK-USDT",
+      "asset": "BNB",
+      "pair": "BNB-USDT",
       "status": "WAIT",
       "current_global_regime": "ACCUMULATION",
       "current_regime_family": "ACCUMULATION",
@@ -972,5 +972,5 @@
   "automatic_backtesting": true,
   "automatic_live_deployment": false,
   "manual_approval_required": true,
-  "snapshot_id": "b45f995a13cbd1e61b1894de"
+  "snapshot_id": "f673ade441b60649108cfdbe"
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:05:46.157061+00:00",
+  "generated_at": "2026-08-10T11:07:44.066525+00:00",
   "workflow": [
     "RESEARCHING",
     "VALIDATING",
@@ -197,23 +197,50 @@
       "asset": "DOT",
       "pair": "DOT-USDT",
       "bot_name": "DOT Regime DCA",
-      "lifecycle_state": "DCA_OPTIMISATION_IN_PROGRESS",
+      "lifecycle_state": "READY_FOR_DEPLOYMENT_REVIEW",
       "priority": 3,
-      "recommended_action": "CONTINUE_OPTIMISATION",
-      "settings": {},
-      "governed_execution_controls": {},
-      "settings_completeness_pct": 0.0,
-      "missing_settings": [
-        "DCA optimisation is still in progress; exact Recommended DCA Settings are deliberately withheld."
-      ],
-      "dca_optimisation_status": "WAITING_FOR_RESEARCH_INPUT",
+      "recommended_action": "REVIEW",
+      "settings": {
+        "entry_trigger": "immediate",
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.5,
+        "step_scale": 1.0,
+        "base_order_volume": 100.0,
+        "safety_order_volume": 150.0
+      },
+      "governed_execution_controls": {
+        "max_active_safety_orders": 3,
+        "max_active_deals": 1,
+        "order_type": "market base order / limit DCA orders",
+        "trailing_enabled": false,
+        "cooldown_seconds": 0
+      },
+      "settings_completeness_pct": 100.0,
+      "missing_settings": [],
+      "dca_optimisation_status": "COMPLETE",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
       "allocation_usdt": null,
-      "capital_required_usdt": null,
-      "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
-      "setting_sources": {},
-      "readiness_pct": 25.0,
+      "capital_required_usdt": 1318.75,
+      "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
+      "setting_sources": {
+        "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+      },
+      "readiness_pct": 37.5,
       "kraken_robustness": {
         "status": "FAIL",
         "explanation": "Kraken cutoff failed: mark-to-market P/L 438.99; open position True. Continuation status: KRAKEN_EVIDENCE_MATERIALISING. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
@@ -244,7 +271,6 @@
       },
       "blockers": [
         "One or more deployment evidence gates are incomplete.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
         "Kraken-open validation still requires resolved KuCoin continuation evidence \u00b7 The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory..",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
@@ -593,21 +619,34 @@
       "asset": "UNI",
       "pair": "UNI-USDT",
       "bot_name": "UNI Regime DCA",
-      "lifecycle_state": "DCA_OPTIMISATION_IN_PROGRESS",
+      "lifecycle_state": "READY_FOR_DEPLOYMENT_REVIEW",
       "priority": 3,
-      "recommended_action": "CONTINUE_OPTIMISATION",
-      "settings": {},
-      "governed_execution_controls": {},
+      "recommended_action": "REVIEW",
+      "settings": {
+        "entry_trigger": "immediate",
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.1,
+        "step_scale": 1.0,
+        "base_order_volume": 50.0,
+        "safety_order_volume": 50.0
+      },
+      "governed_execution_controls": {
+        "max_active_safety_orders": 3,
+        "max_active_deals": 1,
+        "order_type": "market base order / limit DCA orders",
+        "trailing_enabled": false,
+        "cooldown_seconds": 0
+      },
       "settings_completeness_pct": 100.0,
-      "missing_settings": [
-        "DCA optimisation is still in progress; exact Recommended DCA Settings are deliberately withheld."
-      ],
-      "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
+      "missing_settings": [],
+      "dca_optimisation_status": "COMPLETE",
       "entry_trigger": "immediate",
       "current_regime": "ACCUMULATION",
       "allocation_usdt": 0.0,
-      "capital_required_usdt": null,
-      "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
+      "capital_required_usdt": 282.05,
+      "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
       "setting_sources": {
         "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
         "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
@@ -623,7 +662,7 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 87.5,
+      "readiness_pct": 100.0,
       "kraken_robustness": {
         "status": "PASS",
         "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
@@ -653,8 +692,6 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "One or more deployment evidence gates are incomplete.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
@@ -746,17 +783,31 @@
       "recommended_action": "CONTINUE_OPTIMISATION",
       "settings": {},
       "governed_execution_controls": {},
-      "settings_completeness_pct": 0.0,
+      "settings_completeness_pct": 100.0,
       "missing_settings": [
         "DCA optimisation is still in progress; exact Recommended DCA Settings are deliberately withheld."
       ],
-      "dca_optimisation_status": "WAITING_FOR_RESEARCH_INPUT",
+      "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "pullback_3pct",
       "current_regime": "BEAR",
       "allocation_usdt": null,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
-      "setting_sources": {},
+      "setting_sources": {
+        "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+      },
       "readiness_pct": 37.5,
       "kraken_robustness": {
         "status": "PASS",
@@ -826,7 +877,7 @@
       "dca_optimisation_status": "COMPLETE",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": 0.0,
+      "allocation_usdt": null,
       "capital_required_usdt": 359.35,
       "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
       "setting_sources": {
@@ -844,7 +895,7 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 87.5,
+      "readiness_pct": 75.0,
       "kraken_robustness": {
         "status": "FAIL",
         "explanation": "Kraken cutoff failed: mark-to-market P/L -2603.9; open position True. Continuation status: KRAKEN_EVIDENCE_MATERIALISING. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
@@ -887,7 +938,7 @@
   ],
   "summary": {
     "active": 1,
-    "ready_for_review": 2,
+    "ready_for_review": 4,
     "ready_to_deploy": 0,
     "recommended_now": 0
   },

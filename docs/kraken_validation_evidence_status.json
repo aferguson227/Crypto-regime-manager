@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.0",
+  "application_version": "62.0.0",
+  "generated_at": "2026-08-10T10:11:59.120792+00:00",
+  "persistent_output_dir": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h",
+  "source_locations": [
+    "C:\\Crypto\\Kraken Data\\Q1_2026.zip"
+  ],
+  "assets": [
+    {
+      "asset": "AAVE",
+      "status": "MATERIALISED",
+      "file": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\AAVEETH_4H.csv",
+      "source": "C:\\Crypto\\Kraken Data\\Q1_2026.zip",
+      "source_file": "AAVEETH.csv",
+      "import": {
+        "exchange": "Kraken",
+        "symbol": "AAVEETH",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 1114,
+        "rows_out": 281,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 127,
+        "start": "2026-01-01T04:00:00+00:00",
+        "end": "2026-03-31T16:00:00+00:00",
+        "output_path": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\AAVEETH_4H.csv",
+        "warnings": [
+          "127 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      }
+    },
+    {
+      "asset": "AVAX",
+      "status": "MATERIALISED",
+      "file": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\AVAXEUR_4H.csv",
+      "source": "C:\\Crypto\\Kraken Data\\Q1_2026.zip",
+      "source_file": "AVAXEUR.csv",
+      "import": {
+        "exchange": "Kraken",
+        "symbol": "AVAX-EUR",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 81201,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\AVAXEUR_4H.csv",
+        "warnings": []
+      }
+    },
+    {
+      "asset": "DOT",
+      "status": "MATERIALISED",
+      "file": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\DOTETH_4H.csv",
+      "source": "C:\\Crypto\\Kraken Data\\Q1_2026.zip",
+      "source_file": "DOTETH.csv",
+      "import": {
+        "exchange": "Kraken",
+        "symbol": "DOTETH",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 2341,
+        "rows_out": 462,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 60,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\DOTETH_4H.csv",
+        "warnings": [
+          "60 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      }
+    },
+    {
+      "asset": "ETH",
+      "status": "MATERIALISED",
+      "file": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\ETHEUR_4H.csv",
+      "source": "C:\\Crypto\\Kraken Data\\Q1_2026.zip",
+      "source_file": "ETHEUR.csv",
+      "import": {
+        "exchange": "Kraken",
+        "symbol": "ETH-EUR",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 1408925,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\ETHEUR_4H.csv",
+        "warnings": []
+      }
+    },
+    {
+      "asset": "NEAR",
+      "status": "MATERIALISED",
+      "file": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\NEAREUR_4H.csv",
+      "source": "C:\\Crypto\\Kraken Data\\Q1_2026.zip",
+      "source_file": "NEAREUR.csv",
+      "import": {
+        "exchange": "Kraken",
+        "symbol": "NEAR-EUR",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 78526,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\NEAREUR_4H.csv",
+        "warnings": []
+      }
+    },
+    {
+      "asset": "SOL",
+      "status": "MATERIALISED",
+      "file": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\SOLETH_4H.csv",
+      "source": "C:\\Crypto\\Kraken Data\\Q1_2026.zip",
+      "source_file": "SOLETH.csv",
+      "import": {
+        "exchange": "Kraken",
+        "symbol": "SOLETH",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 65156,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\SOLETH_4H.csv",
+        "warnings": []
+      }
+    },
+    {
+      "asset": "UNI",
+      "status": "MATERIALISED",
+      "file": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\UNIETH_4H.csv",
+      "source": "C:\\Crypto\\Kraken Data\\Q1_2026.zip",
+      "source_file": "UNIETH.csv",
+      "import": {
+        "exchange": "Kraken",
+        "symbol": "UNIETH",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 974,
+        "rows_out": 277,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 115,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\UNIETH_4H.csv",
+        "warnings": [
+          "115 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      }
+    },
+    {
+      "asset": "XMR",
+      "status": "MATERIALISED",
+      "file": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\XMREUR_4H.csv",
+      "source": "C:\\Crypto\\Kraken Data\\Q1_2026.zip",
+      "source_file": "XMREUR.csv",
+      "import": {
+        "exchange": "Kraken",
+        "symbol": "XMR-EUR",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 131423,
+        "rows_out": 539,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 1,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\XMREUR_4H.csv",
+        "warnings": [
+          "1 missing 4h intervals detected; gaps are not forward-filled"
+        ]
+      }
+    },
+    {
+      "asset": "XRP",
+      "status": "MATERIALISED",
+      "file": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\XRPETH_4H.csv",
+      "source": "C:\\Crypto\\Kraken Data\\Q1_2026.zip",
+      "source_file": "XRPETH.csv",
+      "import": {
+        "exchange": "Kraken",
+        "symbol": "XRPETH",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 56054,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\XRPETH_4H.csv",
+        "warnings": []
+      }
+    },
+    {
+      "asset": "ZEC",
+      "status": "MATERIALISED",
+      "file": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\ZECEUR_4H.csv",
+      "source": "C:\\Crypto\\Kraken Data\\Q1_2026.zip",
+      "source_file": "ZECEUR.csv",
+      "import": {
+        "exchange": "Kraken",
+        "symbol": "ZEC-EUR",
+        "source_kind": "trades",
+        "source_timeframe_minutes": 0,
+        "target_timeframe_minutes": 240,
+        "rows_in": 267065,
+        "rows_out": 540,
+        "dropped_rows": 0,
+        "duplicate_rows": 0,
+        "missing_source_intervals": 0,
+        "start": "2026-01-01T00:00:00+00:00",
+        "end": "2026-03-31T20:00:00+00:00",
+        "output_path": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h\\ZECEUR_4H.csv",
+        "warnings": []
+      }
+    }
+  ],
+  "summary": {
+    "required": 10,
+    "ready": 10,
+    "missing": 0
+  },
+  "principle": "Materialise only the evidence needed to reconstruct unresolved Kraken-open validations; never rewrite the original Kraken result."
+}

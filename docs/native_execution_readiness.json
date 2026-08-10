@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:05:54.210148+00:00",
+  "generated_at": "2026-08-10T11:07:52.092820+00:00",
   "mode": "LOCKED_SHADOW",
-  "overall": "BUILDING",
+  "overall": "SHADOW_READY",
   "checks": [
     {
       "label": "KuCoin private read access",
@@ -22,8 +22,8 @@
     },
     {
       "label": "Shadow plans available",
-      "state": "PENDING",
-      "detail": "0 candidate shadow plan(s) available."
+      "state": "PASS",
+      "detail": "1 candidate shadow plan(s) available."
     },
     {
       "label": "Spot trading permission explicitly confirmed",
@@ -41,7 +41,17 @@
       "detail": "Kill switch must remain ON in V52."
     }
   ],
-  "shadow_plans": [],
+  "shadow_plans": [
+    {
+      "asset": "UNI",
+      "pair": "UNI-USDT",
+      "shadow_status": "SHADOW_READY",
+      "client_oid_example": "crm52-uni-b57e91ba0f3240c8a9",
+      "planned_budget_usdt": 0.0,
+      "hypothetical_order_count": 0,
+      "idempotency_method": "Unique CRM clientOid per intended order; retries must query by clientOid before any future live submission."
+    }
+  ],
   "verified_api_contract": {
     "place_order": "/api/v1/hf/orders",
     "place_order_sync": "/api/v1/hf/orders/sync",

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:05:26.027835+00:00",
+  "generated_at": "2026-08-10T11:07:23.950436+00:00",
   "enabled": true,
   "queued_count": 8,
   "candidates": [
@@ -13,49 +13,6 @@
         "Validation ended with unresolved exposure or current profile retained an open position.",
         "Validation drawdown 21.1% exceeds preferred tolerance.",
         "Longest validation trade 1712h exceeds the preferred 168h fluidity target."
-      ],
-      "next_experiments": [
-        "tighten_entry_filter",
-        "widen_safety_ladder",
-        "penalise_long_holds",
-        "reduce_volume_scale",
-        "increase_step_scale",
-        "restrict_regime"
-      ],
-      "search_extensions": {
-        "so_deviation_pct": [
-          3.0,
-          5.0,
-          6.0
-        ],
-        "safety_orders": [
-          8,
-          9
-        ],
-        "volume_scale": [
-          1.1,
-          1.2
-        ],
-        "step_scale": [
-          1.3,
-          1.5
-        ],
-        "entry_triggers": [
-          "trend_pullback",
-          "qfl_proxy_3",
-          "mean_reversion"
-        ]
-      },
-      "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
-    },
-    {
-      "asset": "ETH",
-      "pair": "ETH-USDT",
-      "state": "ADAPTIVE_RESEARCH_QUEUED",
-      "failure_reasons": [
-        "Validation ended with unresolved exposure or current profile retained an open position.",
-        "Validation drawdown 60.8% exceeds preferred tolerance.",
-        "Longest validation trade 4356h exceeds the preferred 168h fluidity target."
       ],
       "next_experiments": [
         "tighten_entry_filter",
@@ -117,6 +74,49 @@
           9
         ],
         "volume_scale": [],
+        "step_scale": [
+          1.3,
+          1.5
+        ],
+        "entry_triggers": [
+          "trend_pullback",
+          "qfl_proxy_3",
+          "mean_reversion"
+        ]
+      },
+      "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
+    },
+    {
+      "asset": "ETH",
+      "pair": "ETH-USDT",
+      "state": "ADAPTIVE_RESEARCH_QUEUED",
+      "failure_reasons": [
+        "Validation ended with unresolved exposure or current profile retained an open position.",
+        "Validation drawdown 60.8% exceeds preferred tolerance.",
+        "Longest validation trade 4356h exceeds the preferred 168h fluidity target."
+      ],
+      "next_experiments": [
+        "tighten_entry_filter",
+        "widen_safety_ladder",
+        "penalise_long_holds",
+        "reduce_volume_scale",
+        "increase_step_scale",
+        "restrict_regime"
+      ],
+      "search_extensions": {
+        "so_deviation_pct": [
+          3.0,
+          5.0,
+          6.0
+        ],
+        "safety_orders": [
+          8,
+          9
+        ],
+        "volume_scale": [
+          1.1,
+          1.2
+        ],
         "step_scale": [
           1.3,
           1.5

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:06:04.216541+00:00",
+  "generated_at": "2026-08-10T11:08:02.130391+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -35,7 +35,7 @@
     "reject_open_duration_hours": 720,
     "explanation": "Optimise profit and capital fluidity together. Long closed trades are penalised; unresolved positions receive a stronger penalty and may reject a configuration."
   },
-  "last_full_research_at": "2026-08-10T09:19:53.618435+00:00",
+  "last_full_research_at": "2026-08-10T10:21:00.807755+00:00",
   "independent_walk_forward": {
     "status": "NOT_CONFIGURED",
     "training_dir": "C:\\Crypto\\Research\\Kraken\\training",
@@ -58,7 +58,7 @@
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AAVE-USDT_4H.csv",
         "bars": 12700,
-        "new_bars": 3,
+        "new_bars": 0,
         "pages_requested": 2,
         "earliest": "2020-10-22T08:00:00+00:00",
         "latest": "2026-08-10T04:00:00+00:00",
@@ -71,7 +71,7 @@
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AVAX-USDT_4H.csv",
         "bars": 11897,
-        "new_bars": 3,
+        "new_bars": 0,
         "pages_requested": 2,
         "earliest": "2021-03-05T08:00:00+00:00",
         "latest": "2026-08-10T04:00:00+00:00",
@@ -110,7 +110,7 @@
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
         "bars": 11141,
-        "new_bars": 3,
+        "new_bars": 0,
         "pages_requested": 2,
         "earliest": "2021-07-09T08:00:00+00:00",
         "latest": "2026-08-10T04:00:00+00:00",
@@ -123,7 +123,7 @@
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\SOL-USDT_4H.csv",
         "bars": 10985,
-        "new_bars": 3,
+        "new_bars": 0,
         "pages_requested": 2,
         "earliest": "2021-08-04T08:00:00+00:00",
         "latest": "2026-08-10T04:00:00+00:00",
@@ -136,7 +136,7 @@
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\UNI-USDT_4H.csv",
         "bars": 12910,
-        "new_bars": 3,
+        "new_bars": 0,
         "pages_requested": 2,
         "earliest": "2020-09-17T08:00:00+00:00",
         "latest": "2026-08-10T04:00:00+00:00",
@@ -149,7 +149,7 @@
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-USDT_4H.csv",
         "bars": 11783,
-        "new_bars": 3,
+        "new_bars": 0,
         "pages_requested": 2,
         "earliest": "2021-03-24T08:00:00+00:00",
         "latest": "2026-08-10T04:00:00+00:00",
@@ -295,13 +295,13 @@
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     },
     {
-      "asset": "ETH",
+      "asset": "BTC",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "BTC",
+      "asset": "ETH",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -361,13 +361,13 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "BNB",
+      "asset": "LINK",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "LINK",
+      "asset": "BNB",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
