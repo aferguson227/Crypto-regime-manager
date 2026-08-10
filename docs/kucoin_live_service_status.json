@@ -1,25 +1,20 @@
 {
   "schema_version": "2.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T18:16:11.051283+00:00",
-  "heartbeat_at": "2026-08-10T18:16:11.051294+00:00",
+  "generated_at": "2026-08-10T18:21:15.884184+00:00",
+  "heartbeat_at": "2026-08-10T18:21:15.884209+00:00",
   "status": "REFRESHING",
-  "cycle": 34,
+  "cycle": 44,
   "pid": 27104,
   "fast_interval_seconds": 20,
   "private_refresh_interval_seconds": 60,
-  "last_full_private_refresh_at": "2026-08-10T18:14:50.942180+00:00",
-  "current_module": "scripts.kucoin_order_state",
+  "last_full_private_refresh_at": "2026-08-10T18:20:55.882682+00:00",
+  "current_module": "scripts.kucoin_live_price_engine",
   "message": null,
-  "modules": [
-    {
-      "module": "scripts.kucoin_live_price_engine",
-      "status": "OK",
-      "seconds": 0.89,
-      "detail": "KuCoin live prices: OK; assets=4\n"
-    }
-  ],
+  "modules": [],
   "startup_mechanism": "HKCU per-user startup",
   "read_only": true,
   "write_endpoints_implemented": false,
-  "log_path": "C:\\Users\\aferg\\AppDa
+  "log_path": "C:\\Users\\aferg\\AppData\\Local\\CryptoRegimeManager\\kucoin_live_service.log",
+  "principle": "One resident process owns frequent KuCoin operational truth; research remains isolated."
+}

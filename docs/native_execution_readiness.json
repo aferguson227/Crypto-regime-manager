@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T18:15:44.339375+00:00",
+  "generated_at": "2026-08-10T18:20:48.317350+00:00",
   "mode": "LOCKED_SHADOW",
   "overall": "SHADOW_READY",
   "checks": [
@@ -46,7 +46,7 @@
       "asset": "AAVE",
       "pair": "AAVE-USDT",
       "shadow_status": "SHADOW_READY",
-      "client_oid_example": "crm52-aave-322fa044337d404fb1",
+      "client_oid_example": "crm52-aave-7a84af2d64d74b218f",
       "planned_budget_usdt": 0.0,
       "hypothetical_order_count": 0,
       "idempotency_method": "Unique CRM clientOid per intended order; retries must query by clientOid before any future live submission."
@@ -55,7 +55,7 @@
       "asset": "ZEC",
       "pair": "ZEC-USDT",
       "shadow_status": "SHADOW_READY",
-      "client_oid_example": "crm52-zec-1a2e0409e1a64ad6af",
+      "client_oid_example": "crm52-zec-683101ce2db743719b",
       "planned_budget_usdt": 0.0,
       "hypothetical_order_count": 0,
       "idempotency_method": "Unique CRM clientOid per intended order; retries must query by clientOid before any future live submission."
