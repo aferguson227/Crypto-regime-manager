@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T16:40:39.977906+00:00",
+  "generated_at": "2026-08-10T17:00:48.498982+00:00",
   "bots": [
     {
       "asset": "AAVE",
       "mode": "PAPER",
       "state": "OPEN",
       "opened_at": "2026-08-10T16:26:34.666040+00:00",
-      "position_quote": 100.0,
-      "average_entry": 90.03103103103102,
-      "current_price": 89.992,
-      "safety_orders_filled": 0,
+      "position_quote": 200.0,
+      "average_entry": 89.63944533356549,
+      "current_price": 89.257,
+      "safety_orders_filled": 1,
       "max_safety_orders": 4,
-      "open_pnl_quote": -0.14330951179104545,
-      "open_pnl_pct": -0.14330951179104545,
+      "open_pnl_quote": -1.0524436687670118,
+      "open_pnl_pct": -0.5262218343835059,
       "closed_deals": 0,
       "realised_pnl_quote": 0.0,
-      "max_drawdown_quote": -0.19989999999999952,
+      "max_drawdown_quote": -1.2641919669561332,
       "settings": {
         "entry_trigger": "immediate",
         "take_profit_pct": 1.5,
@@ -29,7 +29,7 @@
         "safety_order_volume": 100.0,
         "start_condition": "Immediate"
       },
-      "updated_at": "2026-08-10T16:40:39.976909+00:00"
+      "updated_at": "2026-08-10T17:00:48.497742+00:00"
     },
     {
       "asset": "DOT",
@@ -38,14 +38,14 @@
       "opened_at": "2026-08-10T16:26:34.666082+00:00",
       "position_quote": 100.0,
       "average_entry": 0.8057057057057055,
-      "current_price": 0.8042,
+      "current_price": 0.8009,
       "safety_orders_filled": 0,
       "max_safety_orders": 4,
-      "open_pnl_quote": -0.2866934774505978,
-      "open_pnl_pct": -0.2866934774505978,
+      "open_pnl_quote": -0.6958627282892138,
+      "open_pnl_pct": -0.6958627282892138,
       "closed_deals": 0,
       "realised_pnl_quote": 0.0,
-      "max_drawdown_quote": -0.2866934774505978,
+      "max_drawdown_quote": -0.8818487513976692,
       "settings": {
         "entry_trigger": "immediate",
         "take_profit_pct": 0.8,
@@ -57,23 +57,23 @@
         "safety_order_volume": 150.0,
         "start_condition": "Immediate"
       },
-      "updated_at": "2026-08-10T16:40:39.976931+00:00"
+      "updated_at": "2026-08-10T17:00:48.497764+00:00"
     },
     {
       "asset": "ZEC",
       "mode": "PAPER",
       "state": "OPEN",
       "opened_at": "2026-08-10T16:26:34.666112+00:00",
-      "position_quote": 50.0,
-      "average_entry": 502.22622622622623,
-      "current_price": 499.592,
-      "safety_orders_filled": 0,
+      "position_quote": 100.0,
+      "average_entry": 499.69905884988054,
+      "current_price": 497.508,
+      "safety_orders_filled": 1,
       "max_safety_orders": 4,
-      "open_pnl_quote": -0.31199269000486396,
-      "open_pnl_pct": -0.6239853800097279,
+      "open_pnl_quote": -0.5380372050467059,
+      "open_pnl_pct": -0.5380372050467059,
       "closed_deals": 0,
       "realised_pnl_quote": 0.0,
-      "max_drawdown_quote": -0.31199269000486396,
+      "max_drawdown_quote": -0.6995728304805056,
       "settings": {
         "entry_trigger": "immediate",
         "take_profit_pct": 0.8,
@@ -85,7 +85,7 @@
         "safety_order_volume": 50.0,
         "start_condition": "Immediate"
       },
-      "updated_at": "2026-08-10T16:40:39.976943+00:00"
+      "updated_at": "2026-08-10T17:00:48.497779+00:00"
     }
   ],
   "summary": {
@@ -93,7 +93,7 @@
     "open": 3,
     "closed_deals": 0,
     "realised_pnl_quote": 0,
-    "open_pnl_quote": -0.74
+    "open_pnl_quote": -2.29
   },
   "persistent_state": "C:\\Crypto\\CRM_Data\\state\\paper_portfolio.json",
   "read_only_exchange": true,

@@ -1,10 +1,10 @@
 {
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T16:40:38.366343+00:00",
-  "last_success_at": "2026-08-10T16:39:00.121357+00:00",
-  "status": "fallback_current",
-  "health": "RECOVERING",
-  "using_last_good_snapshot": true,
+  "generated_at": "2026-08-10T16:59:49.057607+00:00",
+  "last_success_at": "2026-08-10T16:59:49.057622+00:00",
+  "status": "ok",
+  "health": "HEALTHY",
+  "using_last_good_snapshot": false,
   "source": "KuCoin private spot account API",
   "read_only": true,
   "endpoint": "GET /api/v1/accounts",
@@ -13,21 +13,21 @@
   "api_key_version_used": "3",
   "currency": "USDT",
   "free_usdt": 758.16664365,
-  "usdt_balance": 2929.17291349,
+  "usdt_balance": 2501.00558409,
   "balances": [
     {
       "currency": "USDT",
       "account_type": "trade",
-      "balance": 2929.17291349,
+      "balance": 2501.00558409,
       "available": 758.16664365,
-      "holds": 2171.00626984
+      "holds": 1742.83894044
     },
     {
       "currency": "TEL",
       "account_type": "trade",
-      "balance": 463754.0,
+      "balance": 738730.0,
       "available": 33230.0,
-      "holds": 430524.0
+      "holds": 705500.0
     },
     {
       "currency": "DATA",
@@ -319,16 +319,13 @@
   ],
   "record_count": 43,
   "diagnostic": {
-    "category": "NOT_CONFIGURED",
-    "message": "This process could not access the local read-only KuCoin credentials.",
-    "attempts": []
+    "category": null,
+    "message": null
   },
   "guardrails": {
     "write_endpoints_implemented": false,
     "orders_enabled": false,
     "transfers_enabled": false,
     "withdrawals_enabled": false
-  },
-  "refresh_status": "not_configured",
-  "message": "This process could not access the local read-only KuCoin credentials."
+  }
 }

@@ -1,10 +1,10 @@
 {
   "schema_version": "1.1",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T16:40:39.361399+00:00",
-  "status": "NOT_CONFIGURED",
+  "generated_at": "2026-08-10T16:59:51.050928+00:00",
+  "status": "OK",
   "source": "KuCoin private read-only GET /api/v1/hf/fills (symbol-aware)",
-  "api_message": "{\"symbols_checked\": 5, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"DATA-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"NOT_CONFIGURED\", \"message\": \"KuCoin read-only API credentials are not available.\", \"fills\": 0}]}",
+  "api_message": "{\"symbols_checked\": 5, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 132}, {\"symbol\": \"DATA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}]}",
   "new_fills": 0,
   "ledger_path": "C:\\Crypto\\CRM_Data\\Accounting\\kucoin_fills.db",
   "persistent_across_upgrades": true,
@@ -73,9 +73,9 @@
     "explanation": "Historical search is complete. The original purchase for this older sale could not be proven within 730 days, so CRM has established an accounting baseline. The affected pre-baseline profit is excluded rather than estimated; matched and future trading P/L continues normally."
   },
   "reconciliation": {
-    "fill_count": 122,
+    "fill_count": 137,
     "first_fill_at": "2026-08-02T13:55:09.362000+00:00",
-    "last_fill_at": "2026-08-10T07:27:24.467000+00:00",
+    "last_fill_at": "2026-08-10T16:51:54.379000+00:00",
     "matched_sell_count": 19,
     "unmatched_sell_count": 1,
     "unmatched_sells": [
@@ -88,7 +88,7 @@
     ],
     "matched_realised_profit_usdt": 124.7022546,
     "realised_profit_complete": false,
-    "fees_usdt_recorded": 33.36887176,
+    "fees_usdt_recorded": 34.22349717,
     "assets": {
       "TEL": {
         "matched_realised_pnl_usdt": 124.70225459976784,
@@ -98,8 +98,8 @@
     },
     "inventory_cost_basis": {
       "TEL": {
-        "qty": 466776.0,
-        "cost": 745.5047291617688
+        "qty": 741752.0,
+        "cost": 1173.6720585697688
       }
     }
   },
