@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
-  "application_version": "63.0.0",
-  "generated_at": "2026-08-10T12:09:13.845285+00:00",
+  "application_version": "64.0.0",
+  "generated_at": "2026-08-10T12:34:24.032886+00:00",
   "candidates": [
     {
       "asset": "XMR",
@@ -168,7 +168,7 @@
         ],
         "remaining_stages": 2,
         "estimated_remaining_cycles": 2,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": null
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -182,6 +182,8 @@
         "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
         "continuation": {
           "asset": "XMR",
+          "resolver_version": "2.0",
+          "diagnostic_stage": "asset file discovery",
           "kraken_cutoff_status": "PASS",
           "kraken_cutoff_mark_to_market_pnl": 4867.08,
           "original_validation_preserved": true,
@@ -189,7 +191,8 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+          "terminal": true,
           "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
       },
@@ -715,7 +718,7 @@
         ],
         "remaining_stages": 0,
         "estimated_remaining_cycles": 0,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": null
       },
       "suggested_allocation_usdt": 0.0,
       "allocation_reason": "Selected within available portfolio slot using return, drawdown, capital-lock and diversification penalties.",
@@ -729,6 +732,8 @@
         "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
         "continuation": {
           "asset": "UNI",
+          "resolver_version": "2.0",
+          "diagnostic_stage": "asset file discovery",
           "kraken_cutoff_status": "PASS",
           "kraken_cutoff_mark_to_market_pnl": 1487.98,
           "original_validation_preserved": true,
@@ -736,7 +741,8 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+          "terminal": true,
           "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
       },
@@ -1220,7 +1226,7 @@
         ],
         "remaining_stages": 2,
         "estimated_remaining_cycles": 2,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": null
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -1751,7 +1757,7 @@
         ],
         "remaining_stages": 2,
         "estimated_remaining_cycles": 2,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": null
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -1765,6 +1771,8 @@
         "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
         "continuation": {
           "asset": "ETH",
+          "resolver_version": "2.0",
+          "diagnostic_stage": "asset file discovery",
           "kraken_cutoff_status": "PASS",
           "kraken_cutoff_mark_to_market_pnl": 1291.47,
           "original_validation_preserved": true,
@@ -1772,7 +1780,8 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+          "terminal": true,
           "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
       },
@@ -2298,7 +2307,7 @@
         ],
         "remaining_stages": 3,
         "estimated_remaining_cycles": 3,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": null
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -2312,6 +2321,8 @@
         "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
         "continuation": {
           "asset": "XRP",
+          "resolver_version": "2.0",
+          "diagnostic_stage": "asset file discovery",
           "kraken_cutoff_status": "PASS",
           "kraken_cutoff_mark_to_market_pnl": 1782.68,
           "original_validation_preserved": true,
@@ -2319,7 +2330,8 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+          "terminal": true,
           "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
       },
@@ -2744,7 +2756,7 @@
           "id": "continuation_resolution",
           "label": "Kraken \u2192 KuCoin continuation",
           "state": "PENDING",
-          "detail": "Continuation status: KRAKEN_EVIDENCE_MATERIALISING."
+          "detail": "Continuation status: UNAVAILABLE_KRAKEN_SOURCE."
         },
         {
           "id": "capital_allocation",
@@ -2845,7 +2857,7 @@
         ],
         "remaining_stages": 2,
         "estimated_remaining_cycles": 2,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": null
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -2856,9 +2868,11 @@
       },
       "kraken_robustness": {
         "status": "FAIL",
-        "explanation": "Kraken cutoff failed: mark-to-market P/L -1428.64; open position True. Continuation status: KRAKEN_EVIDENCE_MATERIALISING. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
+        "explanation": "Kraken cutoff failed: mark-to-market P/L -1428.64; open position True. Continuation status: UNAVAILABLE_KRAKEN_SOURCE. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
         "continuation": {
           "asset": "SOL",
+          "resolver_version": "2.0",
+          "diagnostic_stage": "asset file discovery",
           "kraken_cutoff_status": "FAIL",
           "kraken_cutoff_mark_to_market_pnl": -1428.64,
           "original_validation_preserved": true,
@@ -2866,7 +2880,8 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+          "terminal": true,
           "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
       },
@@ -3294,7 +3309,7 @@
           "id": "continuation_resolution",
           "label": "Kraken \u2192 KuCoin continuation",
           "state": "PENDING",
-          "detail": "Continuation status: KRAKEN_EVIDENCE_MATERIALISING."
+          "detail": "Continuation status: UNAVAILABLE_KRAKEN_SOURCE."
         },
         {
           "id": "capital_allocation",
@@ -3395,7 +3410,7 @@
         ],
         "remaining_stages": 1,
         "estimated_remaining_cycles": 1,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": null
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -3406,9 +3421,11 @@
       },
       "kraken_robustness": {
         "status": "FAIL",
-        "explanation": "Kraken cutoff failed: mark-to-market P/L -1255.9; open position True. Continuation status: KRAKEN_EVIDENCE_MATERIALISING. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
+        "explanation": "Kraken cutoff failed: mark-to-market P/L -1255.9; open position True. Continuation status: UNAVAILABLE_KRAKEN_SOURCE. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
         "continuation": {
           "asset": "AAVE",
+          "resolver_version": "2.0",
+          "diagnostic_stage": "asset file discovery",
           "kraken_cutoff_status": "FAIL",
           "kraken_cutoff_mark_to_market_pnl": -1255.9,
           "original_validation_preserved": true,
@@ -3416,7 +3433,8 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+          "terminal": true,
           "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
       },
@@ -3900,7 +3918,7 @@
         ],
         "remaining_stages": 2,
         "estimated_remaining_cycles": 2,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": null
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -4426,7 +4444,7 @@
         ],
         "remaining_stages": 2,
         "estimated_remaining_cycles": 2,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": null
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -4440,6 +4458,8 @@
         "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
         "continuation": {
           "asset": "NEAR",
+          "resolver_version": "2.0",
+          "diagnostic_stage": "asset file discovery",
           "kraken_cutoff_status": "PASS",
           "kraken_cutoff_mark_to_market_pnl": 2171.29,
           "original_validation_preserved": true,
@@ -4447,7 +4467,8 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+          "terminal": true,
           "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
       },
@@ -4872,7 +4893,7 @@
           "id": "continuation_resolution",
           "label": "Kraken \u2192 KuCoin continuation",
           "state": "PENDING",
-          "detail": "Continuation status: KRAKEN_EVIDENCE_MATERIALISING."
+          "detail": "Continuation status: UNAVAILABLE_KRAKEN_SOURCE."
         },
         {
           "id": "capital_allocation",
@@ -4973,7 +4994,7 @@
         ],
         "remaining_stages": 0,
         "estimated_remaining_cycles": 0,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": null
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -4984,9 +5005,11 @@
       },
       "kraken_robustness": {
         "status": "FAIL",
-        "explanation": "Kraken cutoff failed: mark-to-market P/L -2603.9; open position True. Continuation status: KRAKEN_EVIDENCE_MATERIALISING. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
+        "explanation": "Kraken cutoff failed: mark-to-market P/L -2603.9; open position True. Continuation status: UNAVAILABLE_KRAKEN_SOURCE. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
         "continuation": {
           "asset": "ZEC",
+          "resolver_version": "2.0",
+          "diagnostic_stage": "asset file discovery",
           "kraken_cutoff_status": "FAIL",
           "kraken_cutoff_mark_to_market_pnl": -2603.9,
           "original_validation_preserved": true,
@@ -4994,7 +5017,8 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+          "terminal": true,
           "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
       },
@@ -5377,7 +5401,7 @@
           "id": "continuation_resolution",
           "label": "Kraken \u2192 KuCoin continuation",
           "state": "PENDING",
-          "detail": "Continuation status: KRAKEN_EVIDENCE_MATERIALISING."
+          "detail": "Continuation status: UNAVAILABLE_KRAKEN_SOURCE."
         },
         {
           "id": "capital_allocation",
@@ -5478,7 +5502,7 @@
         ],
         "remaining_stages": 3,
         "estimated_remaining_cycles": 3,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": null
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -5489,9 +5513,11 @@
       },
       "kraken_robustness": {
         "status": "FAIL",
-        "explanation": "Kraken cutoff failed: mark-to-market P/L 438.99; open position True. Continuation status: KRAKEN_EVIDENCE_MATERIALISING. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
+        "explanation": "Kraken cutoff failed: mark-to-market P/L 438.99; open position True. Continuation status: UNAVAILABLE_KRAKEN_SOURCE. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
         "continuation": {
           "asset": "DOT",
+          "resolver_version": "2.0",
+          "diagnostic_stage": "asset file discovery",
           "kraken_cutoff_status": "FAIL",
           "kraken_cutoff_mark_to_market_pnl": 438.99,
           "original_validation_preserved": true,
@@ -5499,7 +5525,8 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+          "terminal": true,
           "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
       },
@@ -5981,7 +6008,7 @@
         ],
         "remaining_stages": 5,
         "estimated_remaining_cycles": 3,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": null
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,

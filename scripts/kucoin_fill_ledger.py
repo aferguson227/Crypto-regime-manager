@@ -266,7 +266,7 @@ def main():
     'complete_scan':backfill.get('complete_scan',False)
   },
   'progress_explanation':('Complete KuCoin cost basis is available.' if rec['realised_profit_complete'] else (
-    (('Targeted deep cost-basis search complete, but '+str(rec.get('unmatched_sell_count',0))+' sell lot(s) still lack a provable earlier KuCoin buy within 730 days.')
+    (('Historical search complete. '+str(rec.get('unmatched_sell_count',0))+' older sale(s) predate the provable KuCoin purchase history; CRM has established an accounting baseline and will exclude only those older transactions rather than keep searching.')
       if deep.get('attempted') and deep.get('complete') else
      ('Normal 180-day scan complete; CRM is now searching only the affected asset further back for the missing acquisition. '+(
        ('Estimated '+str((deep.get('assets') or [{}])[0].get('estimated_minutes_remaining'))+' min remaining.') if deep.get('assets') else 'Deep search queued.')
@@ -278,7 +278,7 @@ def main():
   'accounting_limitation':(
     {'state':'UNRESOLVED_LEGACY_COST_BASIS','unmatched_sell_count':rec.get('unmatched_sell_count',0),
      'unmatched_sells':rec.get('unmatched_sells',[]),
-     'explanation':'CRM searched up to 730 days for the missing acquisition and still could not prove the cost basis. The affected realised P/L remains excluded rather than estimated.'}
+     'explanation':'Historical search is complete. The original purchase for this older sale could not be proven within 730 days, so CRM has established an accounting baseline. The affected pre-baseline profit is excluded rather than estimated; matched and future trading P/L continues normally.'}
     if rp_status=='HISTORICAL_COST_BASIS_UNAVAILABLE' else None),
   'reconciliation':rec,'read_only':True,'write_endpoints_implemented':False}
  OUT.write_text(json.dumps(p,indent=2),encoding='utf-8')

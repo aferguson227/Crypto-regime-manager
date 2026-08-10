@@ -1,26 +1,16 @@
 {
   "schema_version": "1.0",
-  "application_version": "63.0.0",
-  "generated_at": "2026-08-10T12:09:13.301233+00:00",
+  "application_version": "64.0.0",
+  "generated_at": "2026-08-10T12:34:23.474018+00:00",
   "research_integrity": {
-    "status": "ATTENTION",
-    "unresolved_assets": [
-      "AAVE",
-      "AVAX",
-      "DOT",
-      "ETH",
-      "NEAR",
-      "SOL",
-      "UNI",
-      "XMR",
-      "XRP",
-      "ZEC"
-    ],
-    "detail": "10 candidate(s) still have unresolved Kraken \u2192 KuCoin continuation evidence."
+    "status": "GOOD",
+    "pipeline_contradictions": [],
+    "unresolved_assets": [],
+    "detail": "All required continuation evidence has a terminal result."
   },
   "accounting_integrity": {
-    "status": "LIMITED",
-    "detail": "Targeted deep cost-basis search complete, but 1 sell lot(s) still lack a provable earlier KuCoin buy within 730 days."
+    "status": "BASELINED",
+    "detail": "Historical search complete. 1 older sale(s) predate the provable KuCoin purchase history; CRM has established an accounting baseline and will exclude only those older transactions rather than keep searching."
   },
   "execution_readiness": {
     "status": "WAITING_FOR_CAPITAL",

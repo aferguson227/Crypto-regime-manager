@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
-  "application_version": "63.0.0",
-  "generated_at": "2026-08-10T12:09:16.064099+00:00",
+  "application_version": "64.0.0",
+  "generated_at": "2026-08-10T12:34:26.259328+00:00",
   "overall": "ACTION_REQUIRED",
   "summary": {
     "root_issues_before": 1,
@@ -21,8 +21,8 @@
       "detail": "CRM is refreshing orders and trade history. Dependent freshness, P/L and trading-safety warnings are suppressed while this root recovery is running.",
       "user_action": "No action is normally required during automatic recovery. Review API access only after repeated failed recovery transactions.",
       "automatic_recovery_attempted": true,
-      "consecutive_failed_cycles": 7,
-      "last_recovery_transaction_at": "2026-08-10T12:09:16.063197+00:00",
+      "consecutive_failed_cycles": 10,
+      "last_recovery_transaction_at": "2026-08-10T12:34:26.258397+00:00",
       "escalated_to_user": true
     }
   ],
@@ -31,7 +31,7 @@
       "code": "REALIZED_PNL_HISTORY",
       "area": "Accounting",
       "state": "HISTORICAL_COST_BASIS_UNAVAILABLE",
-      "detail": "Targeted deep cost-basis search complete, but 1 sell lot(s) still lack a provable earlier KuCoin buy within 730 days.",
+      "detail": "Historical search complete. 1 older sale(s) predate the provable KuCoin purchase history; CRM has established an accounting baseline and will exclude only those older transactions rather than keep searching.",
       "system_fault": false
     }
   ],
@@ -39,7 +39,7 @@
     {
       "module": "scripts.execution_reconciliation_engine",
       "returncode": 0,
-      "duration_seconds": 0.1,
+      "duration_seconds": 0.09,
       "detail": "Execution reconciliation written: C:\\Crypto\\Projects\\docs\\execution_reconciliation.json; stale=0\n"
     },
     {
@@ -57,14 +57,14 @@
     {
       "module": "scripts.execution_assurance_engine",
       "returncode": 0,
-      "duration_seconds": 0.09,
+      "duration_seconds": 0.1,
       "detail": "Execution assurance: HEALTHY; assets=1 failures=0\n"
     },
     {
       "module": "scripts.freshness_controller",
       "returncode": 0,
       "duration_seconds": 0.08,
-      "detail": "Freshness status: CURRENT\n"
+      "detail": "Freshness status: ACTION_REQUIRED\n"
     },
     {
       "module": "scripts.source_health_engine",

@@ -6,7 +6,7 @@ def load(name):
     return json.loads((ROOT/'docs'/name).read_text(encoding='utf-8'))
 
 def test_v42_version():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='63.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='64.0.0'
 
 def test_portfolio_does_not_copy_asset_keep_active_to_idle_bots():
     text=(ROOT/'scripts/portfolio_intelligence_engine.py').read_text(encoding='utf-8')

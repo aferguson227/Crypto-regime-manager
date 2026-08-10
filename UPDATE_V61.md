@@ -1,4 +1,4 @@
-# CRM V63.0.0 — Operational State Repair & DCA Specification
+# CRM V64.0.0 — Operational State Repair & DCA Specification
 
 V61 fixes the stalled V60 state where KuCoin account/order collectors could be current while the Local Agent heartbeat remained many hours overdue, realised-P/L backfill stayed at 24/25 weeks, and System Health preserved a stale credential incident.
 

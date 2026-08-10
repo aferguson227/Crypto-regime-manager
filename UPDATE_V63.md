@@ -1,4 +1,4 @@
-# CRM V63.0.0 — Portfolio Capital & Live Execution Architecture
+# CRM V64.0.0 — Portfolio Capital & Live Execution Architecture
 
 V63 moves CRM from single-bot conservative allocation toward a read-only multi-bot portfolio architecture while preserving the native execution hard lock.
 

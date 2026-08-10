@@ -1,17 +1,17 @@
 {
   "schema_version": "2.0",
-  "application_version": "63.0.0",
-  "generated_at": "2026-08-10T12:09:07.423423+00:00",
+  "application_version": "64.0.0",
+  "generated_at": "2026-08-10T12:34:17.456509+00:00",
   "snapshot_id": "09a00ea02d0c048c0634",
   "status": "FAILURE",
   "pipelines": {
     "threecommas": {
       "name": "3Commas read-only sync",
-      "state": "healthy",
+      "state": "warning",
       "last_attempt_at": "2026-08-10T10:46:30.236307+00:00",
-      "last_attempt_age_hours": 1.38,
+      "last_attempt_age_hours": 1.8,
       "last_success_at": "2026-08-10T10:46:30.236307+00:00",
-      "last_success_age_hours": 1.38,
+      "last_success_age_hours": 1.8,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -80,15 +80,15 @@
         "failures": [],
         "primary_failure_category": null
       },
-      "decision_blocking": false
+      "decision_blocking": true
     },
     "application": {
       "name": "Main market/application refresh",
       "state": "failure",
       "last_attempt_at": "2026-08-10T00:01:42.854001+00:00",
-      "last_attempt_age_hours": 12.12,
+      "last_attempt_age_hours": 12.54,
       "last_success_at": "2026-08-10T00:01:49.316423+00:00",
-      "last_success_age_hours": 12.12,
+      "last_success_age_hours": 12.54,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -99,11 +99,11 @@
   "sources": [
     {
       "name": "3Commas read-only sync",
-      "state": "healthy",
+      "state": "warning",
       "last_attempt_at": "2026-08-10T10:46:30.236307+00:00",
-      "last_attempt_age_hours": 1.38,
+      "last_attempt_age_hours": 1.8,
       "last_success_at": "2026-08-10T10:46:30.236307+00:00",
-      "last_success_age_hours": 1.38,
+      "last_success_age_hours": 1.8,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -172,15 +172,15 @@
         "failures": [],
         "primary_failure_category": null
       },
-      "decision_blocking": false
+      "decision_blocking": true
     },
     {
       "name": "Main market/application refresh",
       "state": "failure",
       "last_attempt_at": "2026-08-10T00:01:42.854001+00:00",
-      "last_attempt_age_hours": 12.12,
+      "last_attempt_age_hours": 12.54,
       "last_success_at": "2026-08-10T00:01:49.316423+00:00",
-      "last_success_age_hours": 12.12,
+      "last_success_age_hours": 12.54,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,

@@ -1,10 +1,10 @@
 {
   "schema_version": "3.0",
-  "application_version": "63.0.0",
-  "generated_at": "2026-08-10T12:09:15.941793+00:00",
-  "overall": "CURRENT",
-  "overall_reason": "Current trading data is available.",
-  "decision_critical_current": true,
+  "application_version": "64.0.0",
+  "generated_at": "2026-08-10T12:34:26.141949+00:00",
+  "overall": "ACTION_REQUIRED",
+  "overall_reason": "KuCoin trading data and the Local Agent heartbeat are both too old to verify a current trading decision.",
+  "decision_critical_current": false,
   "components": [
     {
       "name": "KuCoin account data",
@@ -29,9 +29,9 @@
     {
       "name": "Local Agent",
       "role": "DECISION_CRITICAL",
-      "status": "CURRENT",
-      "age_minutes": 31.1,
-      "age_display": "31m ago",
+      "status": "OVERDUE",
+      "age_minutes": 56.2,
+      "age_display": "56m ago",
       "expected_cadence_minutes": 45.0,
       "reason": "Runs the fast private account/trading refresh every 15 minutes. Heavy research runs independently.",
       "collector_status": "HEALTHY"
@@ -40,8 +40,8 @@
       "name": "3Commas monitoring",
       "role": "SECONDARY_PROVIDER",
       "status": "CURRENT",
-      "age_minutes": 82.8,
-      "age_display": "1h 23m ago",
+      "age_minutes": 107.9,
+      "age_display": "1h 48m ago",
       "expected_cadence_minutes": 180.0,
       "reason": "Temporary secondary provider monitoring; KuCoin remains authoritative.",
       "collector_status": "OK"
@@ -50,8 +50,8 @@
       "name": "Website update",
       "role": "PRESENTATION",
       "status": "CURRENT",
-      "age_minutes": 727.1999999999999,
-      "age_display": "12h 7m ago",
+      "age_minutes": 752.4,
+      "age_display": "12h 32m ago",
       "expected_cadence_minutes": 30.0,
       "reason": "Website publishing is separate from trading-data reliability. It never makes KuCoin trading data stale."
     },
@@ -59,8 +59,8 @@
       "name": "System checks",
       "role": "ENGINEERING",
       "status": "CURRENT",
-      "age_minutes": 31.1,
-      "age_display": "31m ago",
+      "age_minutes": 56.3,
+      "age_display": "56m ago",
       "expected_cadence_minutes": 360,
       "reason": "Automatic application checks; detailed mode is hidden unless troubleshooting."
     }

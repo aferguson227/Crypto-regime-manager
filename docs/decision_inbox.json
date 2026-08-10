@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "63.0.0",
-  "generated_at": "2026-08-10T12:09:15.316202+00:00",
+  "application_version": "64.0.0",
+  "generated_at": "2026-08-10T12:34:25.517514+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -110,24 +110,24 @@
       }
     },
     {
-      "event_id": "d1f96ad44d333fd127736a17",
+      "event_id": "22427a273c80760a4d2c96e7",
       "kind": "SYSTEM_ISSUE",
       "title": "Application publication needs attention",
-      "detail": "Latest successful publication was 12h 7m ago.",
+      "detail": "Latest successful publication was 12h 32m ago.",
       "severity": "critical",
       "action": "REVIEW_SYSTEM",
       "payload": {
         "severity": "critical",
         "system": "Application",
         "title": "Application publication needs attention",
-        "detail": "Latest successful publication was 12h 7m ago.",
+        "detail": "Latest successful publication was 12h 32m ago.",
         "recommended_action": "Automatic publication is enabled; inspect the workflow only if live Pages is not synchronised.",
         "metric": {
-          "age_hours": 12.12,
+          "age_hours": 12.54,
           "unit": "hours"
         },
-        "first_detected_at": "2026-08-10T12:09:07.556498+00:00",
-        "last_detected_at": "2026-08-10T12:09:07.556504+00:00"
+        "first_detected_at": "2026-08-10T12:34:17.589795+00:00",
+        "last_detected_at": "2026-08-10T12:34:17.589802+00:00"
       }
     }
   ],
@@ -140,5 +140,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "16de23eb8c9b83a05d375106"
+  "snapshot_id": "15ebf09590d1b61e97f236e9"
 }

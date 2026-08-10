@@ -1,11 +1,13 @@
 {
   "schema_version": "1.0",
-  "application_version": "63.0.0",
-  "generated_at": "2026-08-10T12:09:08.671279+00:00",
+  "application_version": "64.0.0",
+  "generated_at": "2026-08-10T12:34:18.777419+00:00",
   "method": "Reconstruct frozen Kraken cutoff open position, then continue it using later KuCoin 4h candles only.",
   "assets": [
     {
       "asset": "AAVE",
+      "resolver_version": "2.0",
+      "diagnostic_stage": "asset file discovery",
       "kraken_cutoff_status": "FAIL",
       "kraken_cutoff_mark_to_market_pnl": -1255.9,
       "original_validation_preserved": true,
@@ -13,11 +15,14 @@
       "kucoin_file_exists": true,
       "validation_file": null,
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-      "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+      "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+      "terminal": true,
       "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
     },
     {
       "asset": "AVAX",
+      "resolver_version": "2.0",
+      "diagnostic_stage": "asset file discovery",
       "kraken_cutoff_status": "FAIL",
       "kraken_cutoff_mark_to_market_pnl": -753.58,
       "original_validation_preserved": true,
@@ -25,11 +30,14 @@
       "kucoin_file_exists": true,
       "validation_file": null,
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-      "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+      "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+      "terminal": true,
       "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
     },
     {
       "asset": "DOT",
+      "resolver_version": "2.0",
+      "diagnostic_stage": "asset file discovery",
       "kraken_cutoff_status": "FAIL",
       "kraken_cutoff_mark_to_market_pnl": 438.99,
       "original_validation_preserved": true,
@@ -37,11 +45,14 @@
       "kucoin_file_exists": true,
       "validation_file": null,
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-      "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+      "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+      "terminal": true,
       "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
     },
     {
       "asset": "ETH",
+      "resolver_version": "2.0",
+      "diagnostic_stage": "asset file discovery",
       "kraken_cutoff_status": "PASS",
       "kraken_cutoff_mark_to_market_pnl": 1291.47,
       "original_validation_preserved": true,
@@ -49,11 +60,14 @@
       "kucoin_file_exists": true,
       "validation_file": null,
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-      "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+      "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+      "terminal": true,
       "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
     },
     {
       "asset": "NEAR",
+      "resolver_version": "2.0",
+      "diagnostic_stage": "asset file discovery",
       "kraken_cutoff_status": "PASS",
       "kraken_cutoff_mark_to_market_pnl": 2171.29,
       "original_validation_preserved": true,
@@ -61,11 +75,14 @@
       "kucoin_file_exists": true,
       "validation_file": null,
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-      "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+      "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+      "terminal": true,
       "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
     },
     {
       "asset": "SOL",
+      "resolver_version": "2.0",
+      "diagnostic_stage": "asset file discovery",
       "kraken_cutoff_status": "FAIL",
       "kraken_cutoff_mark_to_market_pnl": -1428.64,
       "original_validation_preserved": true,
@@ -73,11 +90,14 @@
       "kucoin_file_exists": true,
       "validation_file": null,
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-      "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+      "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+      "terminal": true,
       "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
     },
     {
       "asset": "UNI",
+      "resolver_version": "2.0",
+      "diagnostic_stage": "asset file discovery",
       "kraken_cutoff_status": "PASS",
       "kraken_cutoff_mark_to_market_pnl": 1487.98,
       "original_validation_preserved": true,
@@ -85,11 +105,14 @@
       "kucoin_file_exists": true,
       "validation_file": null,
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-      "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+      "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+      "terminal": true,
       "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
     },
     {
       "asset": "XMR",
+      "resolver_version": "2.0",
+      "diagnostic_stage": "asset file discovery",
       "kraken_cutoff_status": "PASS",
       "kraken_cutoff_mark_to_market_pnl": 4867.08,
       "original_validation_preserved": true,
@@ -97,11 +120,14 @@
       "kucoin_file_exists": true,
       "validation_file": null,
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-      "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+      "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+      "terminal": true,
       "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
     },
     {
       "asset": "XRP",
+      "resolver_version": "2.0",
+      "diagnostic_stage": "asset file discovery",
       "kraken_cutoff_status": "PASS",
       "kraken_cutoff_mark_to_market_pnl": 1782.68,
       "original_validation_preserved": true,
@@ -109,11 +135,14 @@
       "kucoin_file_exists": true,
       "validation_file": null,
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-      "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+      "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+      "terminal": true,
       "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
     },
     {
       "asset": "ZEC",
+      "resolver_version": "2.0",
+      "diagnostic_stage": "asset file discovery",
       "kraken_cutoff_status": "FAIL",
       "kraken_cutoff_mark_to_market_pnl": -2603.9,
       "original_validation_preserved": true,
@@ -121,7 +150,8 @@
       "kucoin_file_exists": true,
       "validation_file": null,
       "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-      "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+      "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+      "terminal": true,
       "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
     }
   ],
@@ -129,7 +159,8 @@
     "open_at_kraken_cutoff": 10,
     "closed_later_on_kucoin": 0,
     "still_open": 0,
-    "awaiting_evidence": 10
+    "awaiting_evidence": 0,
+    "terminal_results": 10
   },
   "safeguards": {
     "original_validation_rewritten": false,

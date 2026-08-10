@@ -10,10 +10,12 @@ def load(n):
  except:return {}
 def main():
  cont=load('cross_exchange_continuation.json');fills=load('kucoin_fill_ledger.json');cap=load('portfolio_capital_v2.json');life=load('deployment_lifecycle.json')
- unresolved=[x.get('asset') for x in cont.get('assets') or [] if str(x.get('continuation_status') or '') not in {'CLOSED_ON_KUCOIN_CONTINUATION','RESOLVED','PASS','NOT_REQUIRED'}]
+ terminal_ok={'CLOSED_ON_KUCOIN_CONTINUATION','STILL_OPEN','RESOLVED','PASS','NOT_REQUIRED'}
+ unresolved=[x.get('asset') for x in cont.get('assets') or [] if str(x.get('continuation_status') or '') not in terminal_ok and not x.get('terminal')]
+ contradictions=[x.get('asset') for x in cont.get('assets') or [] if str(x.get('continuation_status') or '') in {'KRAKEN_EVIDENCE_MATERIALISING','KUCOIN_HISTORY_ACQUIRING'} and ((x.get('kucoin_coverage') or {}).get('post_cutoff_bars') or 0)>0]
  fs=str(fills.get('realised_profit_status') or 'UNKNOWN')
- research={'status':'GOOD' if not unresolved else 'ATTENTION','unresolved_assets':unresolved,'detail':('All required continuation evidence is resolved.' if not unresolved else f'{len(unresolved)} candidate(s) still have unresolved Kraken → KuCoin continuation evidence.')}
- accounting={'status':'GOOD' if fs in {'COMPLETE','NO_CLOSED_TRADES'} else ('LIMITED' if fs=='HISTORICAL_COST_BASIS_UNAVAILABLE' else 'UPDATING'),'detail':fills.get('progress_explanation') or fs}
+ research={'status':'GOOD' if not unresolved and not contradictions else 'ATTENTION','pipeline_contradictions':contradictions,'unresolved_assets':unresolved,'detail':('All required continuation evidence has a terminal result.' if not unresolved and not contradictions else (f'Research pipeline contradiction detected for {contradictions}.' if contradictions else f'{len(unresolved)} candidate(s) still have unresolved Kraken → KuCoin continuation evidence.'))}
+ accounting={'status':'GOOD' if fs in {'COMPLETE','NO_CLOSED_TRADES'} else ('BASELINED' if fs=='HISTORICAL_COST_BASIS_UNAVAILABLE' else 'UPDATING'),'detail':fills.get('progress_explanation') or fs}
  pool=cap.get('safe_multi_bot_pool_usdt')
  execution={'status':'READY' if pool is not None and pool>0 else 'WAITING_FOR_CAPITAL','safe_multi_bot_pool_usdt':pool,'detail':'Safe multi-bot capital is available.' if pool and pool>0 else 'No capital is currently available under the portfolio safety policy.'}
  p={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'research_integrity':research,'accounting_integrity':accounting,'execution_readiness':execution,'system_health_scope':'Application/collector/safety health remains separate from research and accounting limitations.'}
