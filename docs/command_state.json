@@ -1,19 +1,19 @@
 {
   "schema_version": "1.0",
   "application_version": "58.0.0",
-  "generated_at": "2026-08-09T22:01:21.767036+00:00",
-  "snapshot_id": "13985ae83455963d3b920414",
+  "generated_at": "2026-08-10T00:01:50.973403+00:00",
+  "snapshot_id": "7b6d08d17de79d4eb4be0c7a",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
   "overall_status": "MAINTAIN",
   "market": {
     "regime": "MEAN_REVERTING",
-    "confidence_pct": 54.6,
+    "confidence_pct": 52.6,
     "risk_appetite": "CAUTIOUS",
     "recommended_exposure": "LOW_TO_MODERATE",
     "trend_score": 47.5,
-    "breadth_score": 66.7,
+    "breadth_score": 60.0,
     "volatility_score": 35,
     "stress_tests": [
       {
@@ -45,7 +45,7 @@
   "portfolio": {
     "health_score": 69.9,
     "diversification_score": 25,
-    "capital_efficiency_score": 84.7,
+    "capital_efficiency_score": 84.6,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -83,7 +83,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 93.6,
+        "efficiency_score": 93.5,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -96,7 +96,7 @@
         "allocated_capital": 235.807621896,
         "reserve_capital": 2529.5360000000005,
         "deployable_priority": 4,
-        "efficiency_score": 75.74,
+        "efficiency_score": 75.66,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -131,15 +131,15 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "f89effc036f107fbc42cb362",
+      "recommendation_id": "1bb676d97468e0f4f6974e63",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
-      "confidence_pct": 93.6,
-      "static_confidence_pct": 93.6,
+      "confidence_pct": 93.5,
+      "static_confidence_pct": 93.5,
       "adaptive_active": false,
       "risk_level": "MODERATE",
-      "explanation": "Keep active deal TEL Low Volatility Bot. Confidence 93.6%; risk moderate. Current entry filters pass",
+      "explanation": "Keep active deal TEL Low Volatility Bot. Confidence 93.5%; risk moderate. Current entry filters pass",
       "supporting_evidence": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
@@ -147,7 +147,7 @@
       ],
       "risks": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 32.3 days"
+        "Open replay position has lasted 32.5 days"
       ],
       "blockers": [],
       "production_comparison": {
@@ -292,15 +292,15 @@
       }
     },
     {
-      "recommendation_id": "2fa9e9782fefd12cb3de1818",
+      "recommendation_id": "0911616ee109847609363f17",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence_pct": 21.9,
-      "static_confidence_pct": 21.9,
+      "confidence_pct": 22.2,
+      "static_confidence_pct": 22.2,
       "adaptive_active": false,
       "risk_level": "HIGH",
-      "explanation": "Wait TAO Low Pullback Bot. Confidence 21.9%; risk high. Strategy health is strong",
+      "explanation": "Wait TAO Low Pullback Bot. Confidence 22.2%; risk high. Strategy health is strong",
       "supporting_evidence": [
         "Strategy health is strong",
         "Recent realised P&L is positive",
@@ -470,7 +470,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
-      "confidence_pct": 93.6,
+      "confidence_pct": 93.5,
       "urgency": "MONITOR",
       "rationale": [
         "Current entry filters pass",
@@ -487,7 +487,7 @@
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence_pct": 21.9,
+      "confidence_pct": 22.2,
       "urgency": "WAIT",
       "rationale": [
         "Strategy health is strong",
@@ -505,7 +505,7 @@
   ],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 32.3 days",
+    "Open replay position has lasted 32.5 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -533,7 +533,7 @@
     "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-09T22:01:19.245845+00:00",
+      "generated_at": "2026-08-10T00:01:41.534425+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -546,15 +546,15 @@
     "cloud_status": "HEALTHY"
   },
   "source_snapshots": {
-    "market": "e802efd13e060059179c",
-    "portfolio": "fcadb81b8d8011d3ec0a",
-    "capital": "774f3aad328b4f2374b3",
-    "deployment": "2ed01ca436c2edbf2e03",
-    "recommendations": "5e6ee589408d87b44632",
-    "adaptive": "5fdc0e6ee2a87edb98fb",
-    "outcomes": "2026-08-09T20:00:40.621384+00:00",
-    "cloud": "1c4bed95aa8131701235",
-    "operating": "c5c59bd90c7cc79e6b76"
+    "market": "736af7d0031738f93d40",
+    "portfolio": "dc308fb2fff3aef991f0",
+    "capital": "247179589cbe16772485",
+    "deployment": "633243dd01b83aaaa119",
+    "recommendations": "2e14af324061f7fb5bdc",
+    "adaptive": "e8f9335940cb567ca75e",
+    "outcomes": "2026-08-10T00:01:49.274628+00:00",
+    "cloud": "7d95128199d90c6ee3dd",
+    "operating": "156679bc098ea0d8ba88"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
