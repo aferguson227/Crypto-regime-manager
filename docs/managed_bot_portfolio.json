@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T17:00:48.611935+00:00",
+  "generated_at": "2026-08-10T17:05:45.280573+00:00",
   "bots": [
     {
       "asset": "TEL",
       "state": "LIVE",
       "bot_name": "TEL DCA - Low Volatility",
       "position_quote": 688.134646248,
-      "open_pnl_quote": -21.683494247999988,
-      "open_pnl_pct": -3.151053993027024,
+      "open_pnl_quote": -18.239302247999944,
+      "open_pnl_pct": -2.6505426441537723,
       "safety_orders_filled": 3,
       "max_safety_orders": 6,
       "active_safety_orders": 3,
       "average_entry": 0.0015983653553530116,
-      "current_price": 0.001548,
+      "current_price": 0.001556,
       "reserved_quote": 2113.5360000000005,
       "current_regime": "NEUTRAL",
       "latest_validated": true,
@@ -42,13 +42,13 @@
       "state": "PAPER",
       "bot_name": "AAVE DCA",
       "position_quote": 200.0,
-      "open_pnl_quote": -1.0524436687670118,
-      "open_pnl_pct": -0.5262218343835059,
+      "open_pnl_quote": -1.384554157505761,
+      "open_pnl_pct": -0.6922770787528805,
       "safety_orders_filled": 1,
       "max_safety_orders": 4,
       "active_safety_orders": null,
       "average_entry": 89.63944533356549,
-      "current_price": 89.257,
+      "current_price": 89.108,
       "reserved_quote": 912.5,
       "current_regime": "ACCUMULATION",
       "latest_validated": true,
@@ -70,7 +70,7 @@
         "start_condition": "Immediate"
       },
       "source": "Forward paper trading + deployment lifecycle",
-      "portfolio_priority_score": 49.42,
+      "portfolio_priority_score": 49.37,
       "portfolio_rank": 3
     },
     {
@@ -102,13 +102,13 @@
       "state": "PAPER",
       "bot_name": "DOT DCA",
       "position_quote": 100.0,
-      "open_pnl_quote": -0.6958627282892138,
-      "open_pnl_pct": -0.6958627282892138,
+      "open_pnl_quote": -0.8322524785687619,
+      "open_pnl_pct": -0.8322524785687619,
       "safety_orders_filled": 0,
       "max_safety_orders": 4,
       "active_safety_orders": null,
       "average_entry": 0.8057057057057055,
-      "current_price": 0.8009,
+      "current_price": 0.7998,
       "reserved_quote": 1318.75,
       "current_regime": "BULL",
       "latest_validated": true,
@@ -130,7 +130,7 @@
         "start_condition": "Immediate"
       },
       "source": "Forward paper trading + deployment lifecycle",
-      "portfolio_priority_score": 53.94,
+      "portfolio_priority_score": 53.9,
       "portfolio_rank": 2
     },
     {
@@ -330,13 +330,13 @@
       "state": "PAPER",
       "bot_name": "ZEC DCA",
       "position_quote": 100.0,
-      "open_pnl_quote": -0.5380372050467059,
-      "open_pnl_pct": -0.5380372050467059,
+      "open_pnl_quote": -1.1907770776226698,
+      "open_pnl_pct": -1.1907770776226698,
       "safety_orders_filled": 1,
       "max_safety_orders": 4,
       "active_safety_orders": null,
       "average_entry": 499.69905884988054,
-      "current_price": 497.508,
+      "current_price": 494.243,
       "reserved_quote": 359.35,
       "current_regime": "BULL",
       "latest_validated": true,
@@ -358,7 +358,7 @@
         "start_condition": "Immediate"
       },
       "source": "Forward paper trading + deployment lifecycle",
-      "portfolio_priority_score": 85.84,
+      "portfolio_priority_score": 85.64,
       "portfolio_rank": 1
     }
   ],
@@ -371,7 +371,7 @@
   },
   "capital": {
     "conservative_safe_usdt": 0,
-    "conditional_capacity_usdt": 682.35,
+    "conditional_capacity_usdt": 422.35,
     "worst_case_headroom_usdt": 0
   },
   "principle": "My Bots combines live, forward-paper and validated strategies. Ranking is advisory and cannot deploy capital automatically.",
