@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T17:40:01.614122+00:00",
+  "generated_at": "2026-08-10T17:46:11.017096+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,15 +26,15 @@
       }
     },
     {
-      "event_id": "0d5e84f894d0fdd249d25fb9",
+      "event_id": "87b25e6314a98848ddf7039c",
       "kind": "GLOBAL_REGIME",
-      "title": "Global market regime: Neutral",
-      "detail": "Universal market score 50.8%. BTC/current breadth evidence is included where available.",
+      "title": "Global market regime: Accumulation",
+      "detail": "Universal market score 52.5%. BTC/current breadth evidence is included where available.",
       "severity": "info",
       "action": "REVIEW_MARKET",
       "payload": {
-        "regime": "NEUTRAL",
-        "score_pct": 50.8
+        "regime": "ACCUMULATION",
+        "score_pct": 52.5
       }
     },
     {
@@ -119,5 +119,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "8a80aab20debd8d1e37581f8"
+  "snapshot_id": "0f1c9d4a182ee10889243764"
 }
