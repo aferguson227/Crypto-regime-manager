@@ -22,9 +22,18 @@ def data_root():
  return Path(r'C:\Crypto\CRM_Data') if os.name=='nt' else Path.home()/'.crypto_regime_manager_data'
 def kucoin_file(asset):return data_root()/'KuCoin'/'4h'/f'{asset}-USDT_4H.csv'
 def validation_file(asset):
- for p in [ROOT/'data'/'research'/'validation_4h'/f'{asset}USD_4H.csv',ROOT/'data'/'research'/'validation_4h'/f'{asset}USDT_4H.csv']:
+ persistent=data_root()/'Kraken'/'validation_4h'
+ for p in [persistent/f'{asset}USD_4H.csv',persistent/f'{asset}USDT_4H.csv',
+           ROOT/'data'/'research'/'validation_4h'/f'{asset}USD_4H.csv',ROOT/'data'/'research'/'validation_4h'/f'{asset}USDT_4H.csv']:
   if p.exists():return p
  return None
+def coverage(rows,cutoff):
+ if not rows:return {'bars':0,'first':None,'last':None,'post_cutoff_bars':0,'first_post_cutoff':None,'gap_hours':None}
+ ordered=sorted(rows,key=lambda x:x['time']);future=[x for x in ordered if x['time']>cutoff]
+ first_future=future[0]['time'] if future else None
+ return {'bars':len(ordered),'first':ordered[0]['time'].isoformat(),'last':ordered[-1]['time'].isoformat(),
+  'post_cutoff_bars':len(future),'first_post_cutoff':first_future.isoformat() if first_future else None,
+  'gap_hours':round((first_future-cutoff).total_seconds()/3600,1) if first_future else None}
 def continue_position(state,rows,settings,fee=.001):
  if not state:return {'status':'UNRECONSTRUCTABLE'}
  cost=float(state['cost']);qty=float(state['qty']);nextp=float(state['next_safety_price']);used=int(state['safety_orders_used'])
@@ -52,20 +61,41 @@ def main():
   rec={'asset':asset,'kraken_cutoff_status':coin.get('status'),'kraken_cutoff_mark_to_market_pnl':q.get('mark_to_market_pnl'),'original_validation_preserved':True,
        'kucoin_continuation_file':str(kf),'kucoin_file_exists':kf.exists(),'validation_file':str(vf) if vf else None,
        'kraken_cutoff':(coin.get('validation_import') or {}).get('end')}
-  if not vf or not kf.exists() or not settings:
-   rec.update({'continuation_status':'WAITING_FOR_COMPARABLE_DATA','reason':('Normalized Kraken validation evidence is missing.' if not vf else 'KuCoin 4-hour continuation history is being acquired automatically; CRM will replay the frozen Kraken-open position as soon as post-cutoff candles are available.')});rows.append(rec);continue
+  cutoff_raw=(coin.get('validation_import') or {}).get('end')
+  if not cutoff_raw:
+   rec.update({'continuation_status':'MISSING_KRAKEN_CUTOFF','reason':'The preserved Kraken registry does not contain a validation cutoff timestamp.'});rows.append(rec);continue
+  cutoff=datetime.fromisoformat(str(cutoff_raw).replace('Z','+00:00'))
+  if not vf:
+   rec.update({'continuation_status':'KRAKEN_EVIDENCE_MATERIALISING',
+    'reason':'The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory.'});rows.append(rec);continue
+  if not kf.exists():
+   rec.update({'continuation_status':'KUCOIN_HISTORY_ACQUIRING','reason':'KuCoin 4-hour continuation history is not cached yet. Historical acquisition is prioritising this asset automatically.'});rows.append(rec);continue
+  if not settings:
+   rec.update({'continuation_status':'FROZEN_SETTINGS_MISSING','reason':'The original Kraken registry does not contain the frozen DCA settings required to reconstruct the position.'});rows.append(rec);continue
+
   vr=replay(load(vf),float(settings['take_profit_pct'])/100,float(settings['so_deviation_pct'])/100,int(settings['safety_orders']),float(settings['volume_scale']),float(settings['step_scale']))
   state=vr.get('open_state')
   if not state:
-   rec.update({'continuation_status':'REPLAY_DID_NOT_END_OPEN','reason':'Current deterministic replay no longer reconstructs the historical open state; original registry remains authoritative.'});rows.append(rec);continue
-  cutoff=datetime.fromisoformat(str((coin.get('validation_import') or {}).get('end')).replace('Z','+00:00'))
-  future=[x for x in load(kf) if x['time']>cutoff]
+   rec.update({'continuation_status':'REPLAY_DID_NOT_END_OPEN','reason':'Current deterministic replay no longer reconstructs the historical open state; original registry remains authoritative and this discrepancy requires research review.'});rows.append(rec);continue
+
+  kurows=load(kf);cov=coverage(kurows,cutoff);future=[x for x in kurows if x['time']>cutoff]
+  rec['kucoin_coverage']=cov
+  if not future:
+   rec.update({'continuation_status':'KUCOIN_HISTORY_DOES_NOT_REACH_CUTOFF',
+    'reason':f"Cached KuCoin history ends at {cov.get('last')}; continuation requires candles after Kraken cutoff {cutoff.isoformat()}. Acquisition remains prioritised."});rows.append(rec);continue
+  # A gap of more than two 4-hour bars is reported explicitly instead of silently treating the streams as perfectly contiguous.
+  if cov.get('gap_hours') is not None and cov['gap_hours']>8.5:
+   rec.update({'continuation_status':'KUCOIN_CONTINUATION_GAP',
+    'reason':f"First available KuCoin candle after the Kraken cutoff is {cov['gap_hours']}h later. CRM will not call this directly comparable until the historical gap is filled.",
+    'future_bars_available':len(future)});rows.append(rec);continue
+
   result=continue_position(state,future,settings)
   rec.update({'continuation_status':result.get('status'),'reconstructed_open_state':state,'continuation':result,
-              'interpretation':'Continuation evidence describes what happened after the frozen Kraken cutoff. It never upgrades the original Kraken validation to PASS.'})
+              'interpretation':'Continuation evidence describes what happened after the frozen Kraken cutoff. The original Kraken result stays preserved; a resolved KuCoin continuation removes a deployment-data blocker but is not itself a trading signal.'})
   rows.append(rec)
  payload={'schema_version':'1.0','application_version':application_version(),'generated_at':now(),'method':'Reconstruct frozen Kraken cutoff open position, then continue it using later KuCoin 4h candles only.',
   'assets':rows,'summary':{'open_at_kraken_cutoff':len(rows),'closed_later_on_kucoin':sum(x.get('continuation_status')=='CLOSED_ON_KUCOIN_CONTINUATION' for x in rows),
-  'still_open':sum(x.get('continuation_status')=='STILL_OPEN' for x in rows)},'safeguards':{'original_validation_rewritten':False,'research_only':True}}
+  'still_open':sum(x.get('continuation_status')=='STILL_OPEN' for x in rows),
+  'awaiting_evidence':sum(x.get('continuation_status') in {'KRAKEN_EVIDENCE_MATERIALISING','KUCOIN_HISTORY_ACQUIRING','KUCOIN_HISTORY_DOES_NOT_REACH_CUTOFF','KUCOIN_CONTINUATION_GAP'} for x in rows)}, 'safeguards':{'original_validation_rewritten':False,'research_only':True}}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8');print(f'Cross-exchange continuation written: {OUT}; assets={len(rows)}');return 0
 if __name__=='__main__':raise SystemExit(main())

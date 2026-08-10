@@ -184,9 +184,65 @@ def bounded_cost_basis_backfill(rec,max_windows=4):
   'complete_scan':complete_scan,'estimated_cycles_remaining':max(0,int(math.ceil((total_weeks-checked_weeks)/max_windows))),
   'estimated_minutes_remaining':max(0,int(math.ceil((total_weeks-checked_weeks)/max_windows))*15)}
 
+def targeted_deep_cost_basis_backfill(rec,max_windows=12,max_days=730):
+ """Search only assets with unmatched sells beyond the normal 180-day scan.
+
+ This deliberately avoids rescanning the whole account. Each unmatched asset gets
+ its own persistent cursor. The search continues backwards in <=7-day windows to
+ `max_days`; if still unresolved, CRM reports the exact accounting limitation
+ instead of blocking forever.
+ """
+ if not rec.get('unmatched_sells'):
+  return {'attempted':False,'status':'NOT_NEEDED','assets':[],'new_fills':0,'complete':True}
+ now_ms=int(datetime.now(timezone.utc).timestamp()*1000);week=7*24*3600*1000
+ deep_floor=int((datetime.now(timezone.utc)-timedelta(days=max_days)).timestamp()*1000)
+ normal_floor=int((datetime.now(timezone.utc)-timedelta(days=180)).timestamp()*1000)
+ assets=sorted({str(x.get('asset') or '').upper() for x in rec.get('unmatched_sells') or [] if x.get('asset')})
+ results=[];total_new=0
+ for asset in assets:
+  relevant=[x for x in rec.get('unmatched_sells') or [] if str(x.get('asset') or '').upper()==asset and x.get('created_at')]
+  if not relevant:continue
+  first_sell=min(int(x['created_at']) for x in relevant)
+  meta_key=f'deep_backfill_cursor_{asset}'
+  with connect() as c:
+   row=c.execute("select value from meta where key=?",(meta_key,)).fetchone()
+  cursor=int(row['value']) if row and row['value'] else min(first_sell,normal_floor)
+  windows=0;added=0;states=[];empty_windows=0
+  for _ in range(max_windows):
+   if cursor<=deep_floor:break
+   end=cursor-1;start=max(deep_floor,end-week+1)
+   rows,st=fetch_legacy_window(f'{asset}-USDT',start,end);states.append(st)
+   if rows:
+    n=ingest(rows);added+=n;total_new+=n;empty_windows=0
+   else:empty_windows+=1
+   windows+=1;cursor=start
+   # Do not stop on empty windows: an older acquisition may be separated by months.
+  with connect() as c:
+   c.execute("insert into meta(key,value,updated_at) values(?,?,?) on conflict(key) do update set value=excluded.value,updated_at=excluded.updated_at",(meta_key,str(cursor),now()))
+  total_weeks=max(1,int((min(first_sell,normal_floor)-deep_floor+week-1)//week))
+  checked=max(0,min(total_weeks,int((min(first_sell,normal_floor)-cursor+week-1)//week)))
+  results.append({'asset':asset,'windows_checked_this_cycle':windows,'new_fills':added,'cursor':cursor,
+   'search_floor_days':max_days,'weeks_checked':checked,'total_weeks_target':total_weeks,
+   'progress_pct':round(100*checked/total_weeks,1),'complete':cursor<=deep_floor,
+   'estimated_cycles_remaining':max(0,int(math.ceil((total_weeks-checked)/max_windows))),
+   'estimated_minutes_remaining':max(0,int(math.ceil((total_weeks-checked)/max_windows))*15),
+   'status':'OK' if 'OK' in states else ('NOT_CONFIGURED' if states and all(x=='NOT_CONFIGURED' for x in states) else 'DEGRADED')})
+ return {'attempted':True,'status':'OK' if results and all(x['status']=='OK' for x in results) else 'DEGRADED',
+  'assets':results,'new_fills':total_new,'complete':bool(results) and all(x['complete'] for x in results),
+  'policy':'Targeted unmatched-asset search only; up to 730 days, 12 weekly windows per 15-minute cycle.'}
+
 def main():
- rows,status,msg=fetch_recent();inserted=ingest(rows) if rows is not None else 0;rec=reconcile();backfill=bounded_cost_basis_backfill(rec);rec=reconcile() if backfill.get('new_fills') else rec
- rp_status='COMPLETE' if rec['realised_profit_complete'] else ('PARTIAL_COST_BASIS' if rec['fill_count'] else 'NO_FILL_HISTORY_YET')
+ rows,status,msg=fetch_recent();inserted=ingest(rows) if rows is not None else 0
+ rec=reconcile();backfill=bounded_cost_basis_backfill(rec)
+ if backfill.get('new_fills'):rec=reconcile()
+ deep={'attempted':False,'status':'NOT_DUE','assets':[],'new_fills':0,'complete':False}
+ if rec.get('unmatched_sell_count') and backfill.get('complete_scan'):
+  deep=targeted_deep_cost_basis_backfill(rec)
+  if deep.get('new_fills'):rec=reconcile()
+ rp_status='COMPLETE' if rec['realised_profit_complete'] else (
+  'DEEP_COST_BASIS_SEARCH' if rec['fill_count'] and deep.get('attempted') and not deep.get('complete') else
+  'HISTORICAL_COST_BASIS_UNAVAILABLE' if rec['fill_count'] and deep.get('attempted') and deep.get('complete') else
+  'PARTIAL_COST_BASIS' if rec['fill_count'] else 'NO_FILL_HISTORY_YET')
  if status not in {'OK','DEGRADED'}:progress=0
  elif rec['fill_count']==0:progress=25
  elif rec['unmatched_sell_count']>0:progress=70
@@ -196,8 +252,13 @@ def main():
   'coverage_note':'KuCoin recent spot fill queries are time-limited; CRM persists each refresh so ledger coverage grows from V50 onward.',
   'realised_profit_quote':rec['matched_realised_profit_usdt'] if rec['realised_profit_complete'] else None,
   'partial_matched_realised_profit_quote':rec['matched_realised_profit_usdt'],'realised_profit_status':rp_status,
-  'reconciliation_progress_pct':(100.0 if rec['realised_profit_complete'] else backfill.get('scan_progress_pct',progress)),
-  'next_automatic_retry_minutes':(0 if backfill.get('complete_scan') else (15 if status!='OK' or not rec['realised_profit_complete'] else 0)),
+  'reconciliation_progress_pct':(100.0 if rec['realised_profit_complete'] else
+    ((deep.get('assets') or [{}])[0].get('progress_pct') if deep.get('attempted') and deep.get('assets') else backfill.get('scan_progress_pct',progress))),
+  'next_automatic_retry_minutes':(
+    15 if deep.get('attempted') and not deep.get('complete') else
+    0 if deep.get('attempted') and deep.get('complete') else
+    0 if backfill.get('complete_scan') and not rec.get('unmatched_sell_count') else
+    (15 if status!='OK' or not rec['realised_profit_complete'] else 0)),
   'backfill_progress':{
     'weeks_checked':backfill.get('weeks_checked',0),'total_weeks_target':backfill.get('total_weeks_target',0),
     'progress_pct':100.0 if rec['realised_profit_complete'] else backfill.get('scan_progress_pct',progress),
@@ -205,12 +266,21 @@ def main():
     'complete_scan':backfill.get('complete_scan',False)
   },
   'progress_explanation':('Complete KuCoin cost basis is available.' if rec['realised_profit_complete'] else (
-    (f"Historical backfill scan complete, but {rec.get('unmatched_sell_count',0)} sell lot(s) still lack a matching earlier KuCoin buy within the current 180-day search window. CRM will preserve this as an explicit accounting limitation rather than remain stuck at an ETA."
+    (('Targeted deep cost-basis search complete, but '+str(rec.get('unmatched_sell_count',0))+' sell lot(s) still lack a provable earlier KuCoin buy within 730 days.')
+      if deep.get('attempted') and deep.get('complete') else
+     ('Normal 180-day scan complete; CRM is now searching only the affected asset further back for the missing acquisition. '+(
+       ('Estimated '+str((deep.get('assets') or [{}])[0].get('estimated_minutes_remaining'))+' min remaining.') if deep.get('assets') else 'Deep search queued.')
       if backfill.get('complete_scan') else
       (f"Building older KuCoin trade history: {backfill.get('weeks_checked',0)}/{backfill.get('total_weeks_target',0)} weekly windows checked." if backfill.get('attempted') else
-       'Recent fills are available; CRM is preparing an older-history cost-basis backfill.'))
+       'Recent fills are available; CRM is preparing an older-history cost-basis backfill.')))
     if rec['fill_count'] else ('KuCoin fill-history collection is incomplete; CRM will retry automatically.' if status!='OK' else 'No KuCoin fills are stored yet; CRM will retry on the next Local Agent cycle.'))),
-  'backfill':backfill,'reconciliation':rec,'read_only':True,'write_endpoints_implemented':False}
+  'backfill':backfill,'deep_cost_basis_search':deep,
+  'accounting_limitation':(
+    {'state':'UNRESOLVED_LEGACY_COST_BASIS','unmatched_sell_count':rec.get('unmatched_sell_count',0),
+     'unmatched_sells':rec.get('unmatched_sells',[]),
+     'explanation':'CRM searched up to 730 days for the missing acquisition and still could not prove the cost basis. The affected realised P/L remains excluded rather than estimated.'}
+    if rp_status=='HISTORICAL_COST_BASIS_UNAVAILABLE' else None),
+  'reconciliation':rec,'read_only':True,'write_endpoints_implemented':False}
  OUT.write_text(json.dumps(p,indent=2),encoding='utf-8')
  print(f"KuCoin fill ledger: {status}; new={inserted}; total={rec['fill_count']}; realised_status={p['realised_profit_status']}")
  return 0

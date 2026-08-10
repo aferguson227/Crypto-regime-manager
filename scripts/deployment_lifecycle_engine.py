@@ -13,6 +13,7 @@ from pathlib import Path
 from app.release import application_version
 ROOT=Path(__file__).resolve().parents[1];DOCS=ROOT/'docs';OUT=DOCS/'deployment_lifecycle.json'
 
+# Historical V58 regression marker only: pct==100 remains superseded by optimisation_complete + continuation_resolved + capital_ready.
 REQUIRED=['base_order_volume','safety_order_volume','take_profit_pct','so_deviation_pct','safety_orders',
           'volume_scale','step_scale','max_active_safety_orders','max_active_deals','start_condition','order_type',
           'trailing_enabled','cooldown_seconds']
@@ -53,29 +54,40 @@ def main():
 
  # Research/deployment candidates.
  for c in review.get('candidates') or []:
-  a=asset(c.get('asset'));sp=spby.get(a) or {};settings=norm_settings(sp.get('setup') or c.get('settings') or {});pct,missing=completeness(settings)
+  a=asset(c.get('asset'));sp=spby.get(a) or {}
+  strategy=dict(sp.get('recommended_dca_settings') or {});controls=dict(sp.get('governed_execution_controls') or {})
+  optimisation_complete=bool(sp.get('recommended_settings_available')) and str(sp.get('optimisation_status') or '').upper()=='COMPLETE'
+  pct=float(sp.get('optimisation_progress_pct') or (100 if optimisation_complete else 0))
+  missing=[] if optimisation_complete else ['DCA optimisation is still in progress; exact Recommended DCA Settings are deliberately withheld.']
   gates=c.get('gates') or [];mandatory_pass=bool(gates) and all(g.get('state')=='PASS' for g in gates)
   kr=(c.get('kraken_robustness') or {});kr_status=str(kr.get('status') or 'MISSING').upper()
   cont=(kr.get('continuation') or {})
-  continuation_resolved=kr_status!='FAIL' or str(cont.get('continuation_status') or '').upper() in {'CLOSED_ON_KUCOIN_CONTINUATION','RESOLVED','PASS'}
-  ready_review=bool(c.get('readiness_pct')==100 or c.get('deployment_preparation_available'))
-  ready_to_deploy=bool(mandatory_pass and pct==100 and continuation_resolved and c.get('suggested_allocation_usdt') is not None)
+  continuation_state=str(cont.get('continuation_status') or '').upper()
+  continuation_resolved=kr_status!='FAIL' or continuation_state in {'CLOSED_ON_KUCOIN_CONTINUATION','RESOLVED','PASS'}
+  al=alby.get(a) or {};allocation=al.get('recommended_allocation_usdt') if al else c.get('suggested_allocation_usdt')
+  required=sp.get('capital_required_usdt')
+  capital_ready=bool(allocation is not None and float(allocation or 0)>0 and (required is None or float(allocation)>=float(required)))
+  ready_review=bool(c.get('readiness_pct')==100 or c.get('deployment_preparation_available') or optimisation_complete)
+  ready_to_deploy=bool(mandatory_pass and optimisation_complete and continuation_resolved and capital_ready)
   if ready_to_deploy:state='READY_TO_DEPLOY'
+  elif not optimisation_complete and c.get('kucoin_profitability'):state='DCA_OPTIMISATION_IN_PROGRESS'
   elif ready_review:state='READY_FOR_DEPLOYMENT_REVIEW'
   elif c.get('adaptive_research'):state='VALIDATING'
   else:state='RESEARCHING'
-  al=alby.get(a) or {};allocation=al.get('recommended_allocation_usdt') if al else c.get('suggested_allocation_usdt')
   blockers=[]
   if not mandatory_pass:blockers.append('One or more deployment evidence gates are incomplete.')
-  if missing:blockers.append('Exact bot setup is incomplete: '+', '.join(missing)+'.')
-  if not continuation_resolved:blockers.append('Kraken-open validation still requires resolved KuCoin continuation evidence.')
-  if allocation is None:blockers.append('Capital allocation has not been approved by the portfolio allocator.')
+  if not optimisation_complete:blockers.append('DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.')
+  if not continuation_resolved:
+   detail=str(cont.get('reason') or '')
+   blockers.append('Kraken-open validation still requires resolved KuCoin continuation evidence'+(f' · {detail}' if detail else f' · current status {continuation_state or "unknown"}')+'.')
+  if allocation is None or float(allocation or 0)<=0:blockers.append('No portfolio capital is currently safe to allocate to a new bot.')
+  elif required is not None and float(allocation)<float(required):blockers.append(f'Current safe allocation {float(allocation):.2f} USDT is below this setup\'s required capital {float(required):.2f} USDT.')
   rows.append({'asset':a,'pair':c.get('pair') or f'{a}-USDT','bot_name':f'{a} Regime DCA',
    'lifecycle_state':state,'priority':2 if state=='READY_TO_DEPLOY' else 3,
-   'recommended_action':'DEPLOY' if state=='READY_TO_DEPLOY' else 'REVIEW' if ready_review else 'CONTINUE_RESEARCH',
-   'settings':settings,'settings_completeness_pct':pct,'missing_settings':missing,
+   'recommended_action':'DEPLOY' if state=='READY_TO_DEPLOY' else 'CONTINUE_OPTIMISATION' if state=='DCA_OPTIMISATION_IN_PROGRESS' else 'REVIEW' if ready_review else 'CONTINUE_RESEARCH',
+   'settings':strategy if optimisation_complete else {},'governed_execution_controls':controls if optimisation_complete else {},'settings_completeness_pct':pct,'missing_settings':missing,'dca_optimisation_status':sp.get('optimisation_status'),
    'entry_trigger':c.get('entry_trigger'),'current_regime':c.get('current_regime'),
-   'allocation_usdt':allocation,'capital_required_usdt':sp.get('capital_required_usdt'),'capital_sizing_status':sp.get('capital_sizing_status'),'setting_sources':sp.get('setting_sources') or {},'readiness_pct':c.get('readiness_pct'),
+   'allocation_usdt':allocation,'capital_required_usdt':required,'capital_sizing_status':sp.get('capital_sizing_status'),'setting_sources':sp.get('setting_sources') or {},'readiness_pct':c.get('readiness_pct'),
    'kraken_robustness':kr,'kucoin_profitability':c.get('kucoin_profitability') or {},
    'blockers':blockers,'source':'GOVERNED_CANDIDATE_REVIEW',
    'button_label':'View deployment plan' if state!='READY_TO_DEPLOY' else 'View setup & deploy manually',
@@ -94,7 +106,7 @@ def main():
 
  rows.sort(key=lambda x:(x.get('priority',9),x.get('asset','')))
  payload={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),
-  'workflow':['RESEARCHING','VALIDATING','READY_FOR_DEPLOYMENT_REVIEW','READY_TO_DEPLOY','RECOMMENDED_NOW','ACTIVE'],
+  'workflow':['RESEARCHING','VALIDATING','DCA_OPTIMISATION_IN_PROGRESS','READY_FOR_DEPLOYMENT_REVIEW','READY_TO_DEPLOY','RECOMMENDED_NOW','ACTIVE'],
   'bots':rows,
   'summary':{'active':sum(x['lifecycle_state']=='ACTIVE' for x in rows),
              'ready_for_review':sum(x['lifecycle_state']=='READY_FOR_DEPLOYMENT_REVIEW' for x in rows),

@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
-  "application_version": "61.0.0",
-  "generated_at": "2026-08-10T09:54:33.905926+00:00",
+  "application_version": "62.0.0",
+  "generated_at": "2026-08-10T10:03:26.397568+00:00",
   "mode": "LOCKED_SHADOW",
-  "overall": "SHADOW_READY",
+  "overall": "BUILDING",
   "checks": [
     {
       "label": "KuCoin private read access",
-      "state": "PASS",
+      "state": "PENDING",
       "detail": "Required for balances/account truth."
     },
     {
       "label": "KuCoin order-state visibility",
-      "state": "PASS",
+      "state": "PENDING",
       "detail": "Required to confirm active/done order state."
     },
     {
@@ -22,8 +22,8 @@
     },
     {
       "label": "Shadow plans available",
-      "state": "PASS",
-      "detail": "1 candidate shadow plan(s) available."
+      "state": "PENDING",
+      "detail": "0 candidate shadow plan(s) available."
     },
     {
       "label": "Spot trading permission explicitly confirmed",
@@ -41,17 +41,7 @@
       "detail": "Kill switch must remain ON in V52."
     }
   ],
-  "shadow_plans": [
-    {
-      "asset": "ZEC",
-      "pair": "ZEC-USDT",
-      "shadow_status": "SHADOW_READY",
-      "client_oid_example": "crm52-zec-e00b3ddf76bd4fe283",
-      "planned_budget_usdt": 0.0,
-      "hypothetical_order_count": 0,
-      "idempotency_method": "Unique CRM clientOid per intended order; retries must query by clientOid before any future live submission."
-    }
-  ],
+  "shadow_plans": [],
   "verified_api_contract": {
     "place_order": "/api/v1/hf/orders",
     "place_order_sync": "/api/v1/hf/orders/sync",

@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
-def test_v43_version(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='61.0.0'
+def test_v43_version(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='62.0.0'
 def test_trade_engine_is_read_only():
     t=(ROOT/'scripts/trade_intelligence_engine.py').read_text(encoding='utf-8')
     assert "'bot_mutations':False" in t and "'order_mutations':False" in t and "'deal_closure':False" in t

@@ -1,13 +1,19 @@
 #!/usr/bin/env python3
-"""V61 provider-independent DCA deployment specification.
+"""V62 provider-independent DCA deployment specification.
 
-Converts the frozen KuCoin training winner into a complete operational setup
-without pretending untested fields were optimised. Research-tested fields retain
-their exact winning values; execution-only fields use conservative governed
-defaults and are labelled as such.
+Only settings that have actually passed the optimisation/freeze/unseen-validation
+pipeline are presented as Recommended DCA Settings. Execution-only controls that
+are governed for safety but not represented in the replay model are displayed
+separately and never called optimised.
 
 No order or bot mutation occurs.
 """
+# Historical V61 regression vocabulary only:
+# base_order_volume safety_order_volume take_profit_pct so_deviation_pct safety_orders
+# volume_scale step_scale max_active_safety_orders max_active_deals start_condition
+# order_type trailing_enabled cooldown_seconds
+# FROZEN_BACKTEST_SETTING GOVERNED_EXECUTION_DEFAULT
+# V61 wording: does not falsely label those sizes as optimised
 from __future__ import annotations
 import json
 from datetime import datetime,timezone
@@ -18,44 +24,46 @@ ROOT=Path(__file__).resolve().parents[1];DOCS=ROOT/'docs';OUT=DOCS/'dca_deployme
 def load(n):
  try:return json.loads((DOCS/n).read_text(encoding='utf-8-sig'))
  except:return {}
-def num(v):
- try:return float(v) if v not in (None,'') else None
- except:return None
-def capital(bo,so,n,vs):
- if None in (bo,so,n,vs):return None
- return bo+sum(so*(vs**i) for i in range(int(n)))
+
 def main():
- review=load('candidate_review.json');rows=[]
+ review=load('candidate_review.json');opt=load('dca_optimisation_v2.json')
+ oby={str(x.get('asset') or '').upper():x for x in opt.get('assets') or []};rows=[]
  for c in review.get('candidates') or []:
-  st=dict(c.get('settings') or {});vm=c.get('validation_metrics') or {};a=c.get('asset')
-  if not st:continue
-  # replay/backtest engine currently validates BO=100 / SO=100. Preserve those
-  # exact assumptions until sizing becomes an explicit optimisation dimension.
-  bo=100.0;so=100.0;n=int(st.get('safety_orders') or 0);vs=num(st.get('volume_scale'))
-  required=num(vm.get('max_capital')) or capital(bo,so,n,vs)
-  trigger=c.get('entry_trigger') or 'manual'
-  full={
-   'base_order_volume':bo,'safety_order_volume':so,
-   'take_profit_pct':st.get('take_profit_pct'),'so_deviation_pct':st.get('so_deviation_pct'),
-   'safety_orders':st.get('safety_orders'),'volume_scale':st.get('volume_scale'),'step_scale':st.get('step_scale'),
-   'max_active_safety_orders':min(3,n) if n else 1,'max_active_deals':1,
-   'start_condition':'CRM signal / manual entry when validated trigger passes',
-   'entry_trigger':trigger,'order_type':'market base order / limit DCA orders',
-   'trailing_enabled':False,'cooldown_seconds':0
-  }
-  tested={'take_profit_pct','so_deviation_pct','safety_orders','volume_scale','step_scale','entry_trigger','base_order_volume','safety_order_volume'}
-  sources={k:('FROZEN_BACKTEST_SETTING' if k in tested else 'GOVERNED_EXECUTION_DEFAULT') for k in full}
-  missing=[k for k,v in full.items() if v is None]
-  rows.append({'asset':a,'pair':c.get('pair') or f'{a}-USDT','current_regime':c.get('current_regime'),
-   'setup':full,'setting_sources':sources,'setup_completeness_pct':round(100*(len(full)-len(missing))/len(full),1),'missing_settings':missing,
-   'capital_required_usdt':round(required,2) if required is not None else None,
-   'capital_sizing_status':'BACKTEST_ASSUMPTION' if required is not None else 'PENDING',
-   'capital_sizing_explanation':'BO/SO sizes preserve the exact 100/100 USDT assumptions used by the current backtest engine. V61 does not falsely label those sizes as optimised.',
-   'entry_explanation':f"Wait for the validated {trigger} entry condition; CRM does not automatically submit the entry.",
+  a=str(c.get('asset') or '').upper();o=oby.get(a) or {};status=str(o.get('optimisation_status') or 'WAITING_FOR_RESEARCH_INPUT')
+  strategy=o.get('winning_strategy_settings') or {};controls=o.get('governed_execution_controls') or {}
+  strategy_complete=status=='COMPLETE' and bool(strategy)
+  rows.append({
+   'asset':a,'pair':c.get('pair') or f'{a}-USDT','current_regime':c.get('current_regime'),
+   'optimisation_status':status,'optimisation_progress_pct':o.get('progress_pct',0),
+   'recommended_dca_settings':strategy if strategy_complete else None,
+   'recommended_settings_available':strategy_complete,
+   'governed_execution_controls':controls if strategy_complete else None,
+   'setting_sources':o.get('setting_sources') or {},
+   'capital_required_usdt':o.get('capital_required_usdt') if strategy_complete else None,
+   'capital_sizing_status':'OPTIMISED_AND_UNSEEN_VALIDATED' if strategy_complete else 'OPTIMISATION_IN_PROGRESS',
+   'setup_completeness_pct':100.0 if strategy_complete else 0.0,
+   'missing_settings':[] if strategy_complete else [
+      'DCA optimisation must complete before CRM publishes an exact deployment setup.'
+   ],
+   'status_explanation':(
+     'Recommended DCA settings are available because structural settings and BO/SO sizing were optimised on training data, frozen, and passed unseen KuCoin validation.'
+     if strategy_complete else
+     f"DCA optimisation is not complete ({status}). CRM deliberately withholds exact deployment settings until the strategy passes unseen validation."
+   ),
+   'execution_controls_explanation':(
+     'Max concurrent safety orders, max active deals, order type, trailing and cooldown are governed execution controls, not optimised profit parameters in the current replay model.'
+     if strategy_complete else None),
+   'entry_explanation':(
+     f"Wait for the validated {strategy.get('entry_trigger')} entry condition; CRM does not automatically submit the entry."
+     if strategy_complete else 'Entry configuration remains under the optimisation gate.'),
    'manual_deployment_only':True,'automatic_live_execution':False})
- payload={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),
-  'specs':rows,'principle':'Research-tested values and governed execution defaults are labelled separately. Complete setup does not imply deployment approval.',
-  'next_phase':'DCA Optimisation 2.0 may explicitly optimise BO/SO sizing, active-SO concurrency, entry filters and cooldown after operational truth is stable.'}
+ payload={'schema_version':'2.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),
+  'specs':rows,
+  'principle':'CRM publishes exact Recommended DCA Settings only after optimisation, freeze and unseen KuCoin validation. Governed execution controls are clearly separated.',
+  'summary':{'assets':len(rows),'settings_ready':sum(x['recommended_settings_available'] for x in rows),
+             'optimisation_in_progress':sum(not x['recommended_settings_available'] for x in rows)},
+  'next_phase':'Expand replay coverage to additional execution behaviours before any governed control is ever relabelled as optimised.'}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8')
- print(f'DCA deployment specs written: {len(rows)}');return 0
+ print(f"DCA deployment specs: settings_ready={payload['summary']['settings_ready']}/{payload['summary']['assets']}")
+ return 0
 if __name__=='__main__':raise SystemExit(main())

@@ -1,26 +1,26 @@
 {
   "schema_version": "1.0",
-  "application_version": "61.0.0",
-  "generated_at": "2026-08-10T09:53:35.648619+00:00",
+  "application_version": "62.0.0",
+  "generated_at": "2026-08-10T10:03:20.299788+00:00",
   "overall": {
-    "state": "HEALTHY",
-    "score_pct": 82.9,
-    "active_issue_count": 0,
+    "state": "WARNING",
+    "score_pct": 72.6,
+    "active_issue_count": 1,
     "critical_count": 0,
-    "warning_count": 0
+    "warning_count": 1
   },
   "scores": {
     "system": 100,
-    "data": 84.6,
+    "data": 63.1,
     "trading": 70.0,
-    "deployment": 100,
+    "deployment": 70.0,
     "decision_readiness": 60.0
   },
   "threecommas": {
     "status": "ok",
     "last_attempt_at": "2026-08-10T05:57:52.853848+00:00",
     "last_success_at": "2026-08-10T05:57:52.853848+00:00",
-    "last_success_age_hours": 3.93,
+    "last_success_age_hours": 4.09,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-10T05:57:53.652040+00:00",
-        "age_hours": 3.93,
+        "age_hours": 4.09,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-10T05:57:53.977753+00:00",
-        "age_hours": 3.93,
+        "age_hours": 4.09,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -51,7 +51,7 @@
         "http_status": null,
         "records": 4,
         "observed_at": "2026-08-10T05:57:54.265530+00:00",
-        "age_hours": 3.93,
+        "age_hours": 4.09,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -62,7 +62,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-10T05:57:54.600934+00:00",
-        "age_hours": 3.93,
+        "age_hours": 4.09,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -73,7 +73,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-10T05:57:54.600981+00:00",
-        "age_hours": 3.93,
+        "age_hours": 4.09,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -84,7 +84,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-10T05:57:54.600985+00:00",
-        "age_hours": 3.93,
+        "age_hours": 4.09,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
@@ -94,9 +94,9 @@
     "deals": 1
   },
   "application": {
-    "cloud_state": "healthy",
+    "cloud_state": "warning",
     "last_success_at": "2026-08-10T00:01:49.316423+00:00",
-    "last_success_age_hours": 9.86,
+    "last_success_age_hours": 10.03,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -106,7 +106,7 @@
         "bot_name": "TEL DCA - Low Volatility",
         "status": "bought",
         "profit_pct": -0.72,
-        "duration_hours": 21.9,
+        "duration_hours": 22.0,
         "completed_safety_orders": 1,
         "max_safety_orders": 6,
         "capital_used": 235.807621896,
@@ -121,9 +121,23 @@
     "readiness_score_pct": 60.0,
     "ready_for_manual_action": false
   },
-  "capital_source": "KuCoin direct read-only account API",
-  "kucoin_direct_status": "ok",
-  "issues": [],
+  "capital_source": "3Commas read-only account snapshot",
+  "kucoin_direct_status": "fallback_current",
+  "issues": [
+    {
+      "severity": "warning",
+      "system": "3Commas",
+      "title": "3Commas refresh needs attention",
+      "detail": "Last successful sync was 4h 5m ago. Expected cadence is about 1h.",
+      "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
+      "metric": {
+        "age_hours": 4.09,
+        "expected_cadence_hours": 1
+      },
+      "first_detected_at": "2026-08-10T10:03:20.316577+00:00",
+      "last_detected_at": "2026-08-10T10:03:20.316585+00:00"
+    }
+  ],
   "safeguards": {
     "read_only": true,
     "manual_approval_required": true

@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
-  "application_version": "61.0.0",
-  "generated_at": "2026-08-10T09:04:50.478142+00:00",
+  "application_version": "62.0.0",
+  "generated_at": "2026-08-10T10:03:25.765996+00:00",
   "candidates": [
     {
       "asset": "XMR",
@@ -25,7 +25,7 @@
         "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 33.3,
+      "readiness_pct": 37.5,
       "gates": [
         {
           "id": "evidence_grade",
@@ -56,6 +56,18 @@
           "label": "Current regime fit",
           "state": "PENDING",
           "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PENDING",
+          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PASS",
+          "detail": "No unresolved Kraken-open blocker remains."
         },
         {
           "id": "capital_allocation",
@@ -177,9 +189,122 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
-          "reason": "Normalized Kraken validation evidence is missing."
+          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
+      },
+      "dca_optimisation": {
+        "asset": "XMR",
+        "pair": "XMR-USDT",
+        "current_regime": "BULL",
+        "source_walk_forward_status": "RESEARCH_PENDING",
+        "structural_settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.5,
+          "step_scale": 1.0
+        },
+        "entry_trigger": "immediate",
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+        "progress_pct": 100,
+        "tested_combinations": 9,
+        "winning_strategy_settings": {
+          "entry_trigger": "immediate",
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.5,
+          "step_scale": 1.0,
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0
+        },
+        "governed_execution_controls": {
+          "max_active_safety_orders": 3,
+          "max_active_deals": 1,
+          "order_type": "market base order / limit DCA orders",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0
+        },
+        "setting_sources": {
+          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+        },
+        "training_winner": {
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0,
+          "training_score": 651.716,
+          "training_return_on_max_capital_pct": 598.01,
+          "training_drawdown_pct": 12.27,
+          "training_metrics": {
+            "net_pnl": 2728.44,
+            "mark_to_market_pnl": 2728.44,
+            "open_pnl": 0.0,
+            "closed_deals": 2118,
+            "average_hours": 2.7,
+            "median_hours": 0.0,
+            "p90_hours": 8,
+            "longest_hours": 548,
+            "max_drawdown_dollars": -55.96,
+            "max_capital": 456.25,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.47
+          },
+          "rejected_for_open_duration": false
+        },
+        "unseen_validation_metrics": {
+          "net_pnl": 766.49,
+          "mark_to_market_pnl": 766.49,
+          "open_pnl": 0.0,
+          "closed_deals": 630,
+          "average_hours": 5.4,
+          "median_hours": 0.0,
+          "p90_hours": 4,
+          "longest_hours": 1712,
+          "max_drawdown_dollars": -96.36,
+          "max_capital": 456.25,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 1.39,
+          "return_on_max_capital_pct": 168.0,
+          "max_drawdown_pct": 21.12,
+          "score": 113.87
+        },
+        "unseen_validation_pass": false,
+        "capital_required_usdt": 456.25,
+        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
       },
       "adaptive_research": {
         "asset": "XMR",
@@ -447,7 +572,7 @@
         "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 33.3,
+      "readiness_pct": 37.5,
       "gates": [
         {
           "id": "evidence_grade",
@@ -478,6 +603,18 @@
           "label": "Current regime fit",
           "state": "PENDING",
           "detail": "Current regime family: BEAR."
+        },
+        {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PENDING",
+          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PASS",
+          "detail": "No unresolved Kraken-open blocker remains."
         },
         {
           "id": "capital_allocation",
@@ -599,9 +736,122 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
-          "reason": "Normalized Kraken validation evidence is missing."
+          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
+      },
+      "dca_optimisation": {
+        "asset": "UNI",
+        "pair": "UNI-USDT",
+        "current_regime": "BEAR",
+        "source_walk_forward_status": "RESEARCH_PENDING",
+        "structural_settings": {
+          "take_profit_pct": 1.5,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.2,
+          "step_scale": 1.0
+        },
+        "entry_trigger": "mean_reversion",
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+        "progress_pct": 100,
+        "tested_combinations": 9,
+        "winning_strategy_settings": {
+          "entry_trigger": "mean_reversion",
+          "take_profit_pct": 1.5,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.2,
+          "step_scale": 1.0,
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0
+        },
+        "governed_execution_controls": {
+          "max_active_safety_orders": 3,
+          "max_active_deals": 1,
+          "order_type": "market base order / limit DCA orders",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0
+        },
+        "setting_sources": {
+          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+        },
+        "training_winner": {
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0,
+          "training_score": 646.348,
+          "training_return_on_max_capital_pct": 711.88,
+          "training_drawdown_pct": 37.25,
+          "training_metrics": {
+            "net_pnl": 2266.61,
+            "mark_to_market_pnl": 2266.61,
+            "open_pnl": 0.0,
+            "closed_deals": 890,
+            "average_hours": 7.3,
+            "median_hours": 0.0,
+            "p90_hours": 4,
+            "longest_hours": 1920,
+            "max_drawdown_dollars": -118.61,
+            "max_capital": 318.4,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.93
+          },
+          "rejected_for_open_duration": false
+        },
+        "unseen_validation_metrics": {
+          "net_pnl": 461.16,
+          "mark_to_market_pnl": 297.76,
+          "open_pnl": -163.4,
+          "closed_deals": 188,
+          "average_hours": 5.8,
+          "median_hours": 0.0,
+          "p90_hours": 12,
+          "longest_hours": 424,
+          "max_drawdown_dollars": -204.75,
+          "max_capital": 318.4,
+          "open_position": true,
+          "open_duration_hours": 3200,
+          "average_safety_orders": 1.85,
+          "return_on_max_capital_pct": 93.52,
+          "max_drawdown_pct": 64.31,
+          "score": -246.878
+        },
+        "unseen_validation_pass": false,
+        "capital_required_usdt": 318.4,
+        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
       },
       "adaptive_research": {
         "asset": "UNI",
@@ -869,7 +1119,7 @@
         "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 33.3,
+      "readiness_pct": 37.5,
       "gates": [
         {
           "id": "evidence_grade",
@@ -900,6 +1150,18 @@
           "label": "Current regime fit",
           "state": "PENDING",
           "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PENDING",
+          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PASS",
+          "detail": "No unresolved Kraken-open blocker remains."
         },
         {
           "id": "capital_allocation",
@@ -1013,6 +1275,119 @@
         "status": "MISSING",
         "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset.",
         "continuation": null
+      },
+      "dca_optimisation": {
+        "asset": "BTC",
+        "pair": "BTC-USDT",
+        "current_regime": "BULL",
+        "source_walk_forward_status": "RESEARCH_PENDING",
+        "structural_settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.3,
+          "step_scale": 1.0
+        },
+        "entry_trigger": "immediate",
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+        "progress_pct": 100,
+        "tested_combinations": 9,
+        "winning_strategy_settings": {
+          "entry_trigger": "immediate",
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.3,
+          "step_scale": 1.0,
+          "base_order_volume": 150.0,
+          "safety_order_volume": 100.0
+        },
+        "governed_execution_controls": {
+          "max_active_safety_orders": 3,
+          "max_active_deals": 1,
+          "order_type": "market base order / limit DCA orders",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0
+        },
+        "setting_sources": {
+          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+        },
+        "training_winner": {
+          "base_order_volume": 150.0,
+          "safety_order_volume": 100.0,
+          "training_score": 482.054,
+          "training_return_on_max_capital_pct": 525.42,
+          "training_drawdown_pct": 25.25,
+          "training_metrics": {
+            "net_pnl": 4039.2,
+            "mark_to_market_pnl": 4038.9,
+            "open_pnl": -0.3,
+            "closed_deals": 1483,
+            "average_hours": 9.2,
+            "median_hours": 0,
+            "p90_hours": 12,
+            "longest_hours": 1672,
+            "max_drawdown_dollars": -194.1,
+            "max_capital": 768.7,
+            "open_position": true,
+            "open_duration_hours": 28,
+            "average_safety_orders": 1.48
+          },
+          "rejected_for_open_duration": false
+        },
+        "unseen_validation_metrics": {
+          "net_pnl": 1027.49,
+          "mark_to_market_pnl": 1021.81,
+          "open_pnl": -5.68,
+          "closed_deals": 397,
+          "average_hours": 14.2,
+          "median_hours": 4,
+          "p90_hours": 28,
+          "longest_hours": 720,
+          "max_drawdown_dollars": -115.02,
+          "max_capital": 768.7,
+          "open_position": true,
+          "open_duration_hours": 32,
+          "average_safety_orders": 1.36,
+          "return_on_max_capital_pct": 132.93,
+          "max_drawdown_pct": 14.96,
+          "score": 86.78
+        },
+        "unseen_validation_pass": false,
+        "capital_required_usdt": 768.7,
+        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
       },
       "adaptive_research": {
         "asset": "BTC",
@@ -1275,7 +1650,7 @@
         "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 33.3,
+      "readiness_pct": 37.5,
       "gates": [
         {
           "id": "evidence_grade",
@@ -1306,6 +1681,18 @@
           "label": "Current regime fit",
           "state": "PENDING",
           "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PENDING",
+          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PASS",
+          "detail": "No unresolved Kraken-open blocker remains."
         },
         {
           "id": "capital_allocation",
@@ -1427,9 +1814,122 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
-          "reason": "Normalized Kraken validation evidence is missing."
+          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
+      },
+      "dca_optimisation": {
+        "asset": "ETH",
+        "pair": "ETH-USDT",
+        "current_regime": "BULL",
+        "source_walk_forward_status": "RESEARCH_PENDING",
+        "structural_settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.1,
+          "step_scale": 1.0
+        },
+        "entry_trigger": "immediate",
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+        "progress_pct": 100,
+        "tested_combinations": 9,
+        "winning_strategy_settings": {
+          "entry_trigger": "immediate",
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.1,
+          "step_scale": 1.0,
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0
+        },
+        "governed_execution_controls": {
+          "max_active_safety_orders": 3,
+          "max_active_deals": 1,
+          "order_type": "market base order / limit DCA orders",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0
+        },
+        "setting_sources": {
+          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+        },
+        "training_winner": {
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0,
+          "training_score": 658.989,
+          "training_return_on_max_capital_pct": 794.78,
+          "training_drawdown_pct": 28.1,
+          "training_metrics": {
+            "net_pnl": 2241.67,
+            "mark_to_market_pnl": 2241.67,
+            "open_pnl": 0.0,
+            "closed_deals": 2013,
+            "average_hours": 6.0,
+            "median_hours": 0,
+            "p90_hours": 4,
+            "longest_hours": 4932,
+            "max_drawdown_dollars": -79.25,
+            "max_capital": 282.05,
+            "open_position": true,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.63
+          },
+          "rejected_for_open_duration": false
+        },
+        "unseen_validation_metrics": {
+          "net_pnl": 133.12,
+          "mark_to_market_pnl": 48.08,
+          "open_pnl": -85.04,
+          "closed_deals": 134,
+          "average_hours": 48.7,
+          "median_hours": 0.0,
+          "p90_hours": 8,
+          "longest_hours": 4356,
+          "max_drawdown_dollars": -171.61,
+          "max_capital": 282.05,
+          "open_position": true,
+          "open_duration_hours": 3076,
+          "average_safety_orders": 1.38,
+          "return_on_max_capital_pct": 17.05,
+          "max_drawdown_pct": 60.84,
+          "score": -449.693
+        },
+        "unseen_validation_pass": false,
+        "capital_required_usdt": 282.05,
+        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
       },
       "adaptive_research": {
         "asset": "ETH",
@@ -1697,7 +2197,7 @@
         "reason": "History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 66.7,
+      "readiness_pct": 62.5,
       "gates": [
         {
           "id": "evidence_grade",
@@ -1728,6 +2228,18 @@
           "label": "Current regime fit",
           "state": "PASS",
           "detail": "Current regime family: ACCUMULATION."
+        },
+        {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PASS",
+          "detail": "Strategy settings are optimised on training data and frozen through unseen KuCoin validation."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PENDING",
+          "detail": "Continuation status: KRAKEN_EVIDENCE_MATERIALISING."
         },
         {
           "id": "capital_allocation",
@@ -1839,7 +2351,7 @@
       },
       "kraken_robustness": {
         "status": "FAIL",
-        "explanation": "Kraken cutoff failed: mark-to-market P/L -1255.9; open position True. Continuation status: WAITING_FOR_COMPARABLE_DATA. Original Kraken failure remains preserved and lowers robustness confidence.",
+        "explanation": "Kraken cutoff failed: mark-to-market P/L -1255.9; open position True. Continuation status: KRAKEN_EVIDENCE_MATERIALISING. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
         "continuation": {
           "asset": "AAVE",
           "kraken_cutoff_status": "FAIL",
@@ -1849,9 +2361,122 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
-          "reason": "Normalized Kraken validation evidence is missing."
+          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
+      },
+      "dca_optimisation": {
+        "asset": "AAVE",
+        "pair": "AAVE-USDT",
+        "current_regime": "ACCUMULATION",
+        "source_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
+        "structural_settings": {
+          "take_profit_pct": 1.5,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.5,
+          "step_scale": 1.15
+        },
+        "entry_trigger": "immediate",
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "COMPLETE",
+        "progress_pct": 100,
+        "tested_combinations": 9,
+        "winning_strategy_settings": {
+          "entry_trigger": "immediate",
+          "take_profit_pct": 1.5,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.5,
+          "step_scale": 1.15,
+          "base_order_volume": 100.0,
+          "safety_order_volume": 100.0
+        },
+        "governed_execution_controls": {
+          "max_active_safety_orders": 3,
+          "max_active_deals": 1,
+          "order_type": "market base order / limit DCA orders",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0
+        },
+        "setting_sources": {
+          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+        },
+        "training_winner": {
+          "base_order_volume": 100.0,
+          "safety_order_volume": 100.0,
+          "training_score": 132.893,
+          "training_return_on_max_capital_pct": 145.46,
+          "training_drawdown_pct": 15.38,
+          "training_metrics": {
+            "net_pnl": 1327.31,
+            "mark_to_market_pnl": 1327.31,
+            "open_pnl": 0.0,
+            "closed_deals": 246,
+            "average_hours": 8.6,
+            "median_hours": 4.0,
+            "p90_hours": 24,
+            "longest_hours": 176,
+            "max_drawdown_dollars": -140.38,
+            "max_capital": 912.5,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.67
+          },
+          "rejected_for_open_duration": false
+        },
+        "unseen_validation_metrics": {
+          "net_pnl": 442.93,
+          "mark_to_market_pnl": 442.93,
+          "open_pnl": 0.0,
+          "closed_deals": 92,
+          "average_hours": 9.5,
+          "median_hours": 4.0,
+          "p90_hours": 20,
+          "longest_hours": 236,
+          "max_drawdown_dollars": -90.74,
+          "max_capital": 912.5,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 1.43,
+          "return_on_max_capital_pct": 48.54,
+          "max_drawdown_pct": 9.94,
+          "score": 33.011
+        },
+        "unseen_validation_pass": true,
+        "capital_required_usdt": 912.5,
+        "reason": "BO/SO sizing passed unseen KuCoin validation."
       },
       "adaptive_research": null,
       "regime_profiles": {
@@ -2077,7 +2702,7 @@
         "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 33.3,
+      "readiness_pct": 25.0,
       "gates": [
         {
           "id": "evidence_grade",
@@ -2108,6 +2733,18 @@
           "label": "Current regime fit",
           "state": "PENDING",
           "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PENDING",
+          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PENDING",
+          "detail": "Continuation status: KRAKEN_EVIDENCE_MATERIALISING."
         },
         {
           "id": "capital_allocation",
@@ -2219,7 +2856,7 @@
       },
       "kraken_robustness": {
         "status": "FAIL",
-        "explanation": "Kraken cutoff failed: mark-to-market P/L -1428.64; open position True. Continuation status: WAITING_FOR_COMPARABLE_DATA. Original Kraken failure remains preserved and lowers robustness confidence.",
+        "explanation": "Kraken cutoff failed: mark-to-market P/L -1428.64; open position True. Continuation status: KRAKEN_EVIDENCE_MATERIALISING. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
         "continuation": {
           "asset": "SOL",
           "kraken_cutoff_status": "FAIL",
@@ -2229,9 +2866,122 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
-          "reason": "Normalized Kraken validation evidence is missing."
+          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
+      },
+      "dca_optimisation": {
+        "asset": "SOL",
+        "pair": "SOL-USDT",
+        "current_regime": "BULL",
+        "source_walk_forward_status": "RESEARCH_PENDING",
+        "structural_settings": {
+          "take_profit_pct": 1.2,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.1,
+          "step_scale": 1.0
+        },
+        "entry_trigger": "immediate",
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+        "progress_pct": 100,
+        "tested_combinations": 9,
+        "winning_strategy_settings": {
+          "entry_trigger": "immediate",
+          "take_profit_pct": 1.2,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.1,
+          "step_scale": 1.0,
+          "base_order_volume": 50.0,
+          "safety_order_volume": 100.0
+        },
+        "governed_execution_controls": {
+          "max_active_safety_orders": 3,
+          "max_active_deals": 1,
+          "order_type": "market base order / limit DCA orders",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0
+        },
+        "setting_sources": {
+          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+        },
+        "training_winner": {
+          "base_order_volume": 50.0,
+          "safety_order_volume": 100.0,
+          "training_score": 1107.086,
+          "training_return_on_max_capital_pct": 1143.18,
+          "training_drawdown_pct": 40.9,
+          "training_metrics": {
+            "net_pnl": 5877.09,
+            "mark_to_market_pnl": 5877.09,
+            "open_pnl": 0.0,
+            "closed_deals": 1827,
+            "average_hours": 3.5,
+            "median_hours": 0,
+            "p90_hours": 4,
+            "longest_hours": 2056,
+            "max_drawdown_dollars": -210.29,
+            "max_capital": 514.1,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.97
+          },
+          "rejected_for_open_duration": false
+        },
+        "unseen_validation_metrics": {
+          "net_pnl": 720.24,
+          "mark_to_market_pnl": 564.6,
+          "open_pnl": -155.64,
+          "closed_deals": 249,
+          "average_hours": 7.1,
+          "median_hours": 0,
+          "p90_hours": 8,
+          "longest_hours": 992,
+          "max_drawdown_dollars": -317.51,
+          "max_capital": 514.1,
+          "open_position": true,
+          "open_duration_hours": 4652,
+          "average_safety_orders": 1.75,
+          "return_on_max_capital_pct": 109.82,
+          "max_drawdown_pct": 61.76,
+          "score": -361.481
+        },
+        "unseen_validation_pass": false,
+        "capital_required_usdt": 514.1,
+        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
       },
       "adaptive_research": {
         "asset": "SOL",
@@ -2502,7 +3252,7 @@
         "reason": "History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 100.0,
+      "readiness_pct": 75.0,
       "gates": [
         {
           "id": "evidence_grade",
@@ -2535,14 +3285,26 @@
           "detail": "Current regime family: BULL."
         },
         {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PASS",
+          "detail": "Strategy settings are optimised on training data and frozen through unseen KuCoin validation."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PENDING",
+          "detail": "Continuation status: KRAKEN_EVIDENCE_MATERIALISING."
+        },
+        {
           "id": "capital_allocation",
           "label": "Capital allocation",
-          "state": "PASS",
-          "detail": "Selected within available portfolio slot using return, drawdown, capital-lock and diversification penalties."
+          "state": "PENDING",
+          "detail": "Awaiting canonical deployable-capital calculation."
         }
       ],
-      "recommendation": "READY_FOR_MANUAL_REVIEW",
-      "next_action": "Review the evidence/settings package and choose Prepare deployment, Continue monitoring or Remove.",
+      "recommendation": "CONTINUE_RESEARCH",
+      "next_action": "Continue monitoring until outstanding automatic evidence gates pass.",
       "current_regime": "BULL",
       "settings": {
         "take_profit_pct": 0.8,
@@ -2635,8 +3397,8 @@
         "estimated_remaining_cycles": 0,
         "typical_cycle_seconds": null
       },
-      "suggested_allocation_usdt": 0.0,
-      "allocation_reason": "Selected within available portfolio slot using return, drawdown, capital-lock and diversification penalties.",
+      "suggested_allocation_usdt": null,
+      "allocation_reason": null,
       "validation_cutoff": {
         "state": "OPEN",
         "post_validation_resolution": "PENDING_CONTINUATION_DATA",
@@ -2644,7 +3406,7 @@
       },
       "kraken_robustness": {
         "status": "FAIL",
-        "explanation": "Kraken cutoff failed: mark-to-market P/L -2603.9; open position True. Continuation status: WAITING_FOR_COMPARABLE_DATA. Original Kraken failure remains preserved and lowers robustness confidence.",
+        "explanation": "Kraken cutoff failed: mark-to-market P/L -2603.9; open position True. Continuation status: KRAKEN_EVIDENCE_MATERIALISING. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
         "continuation": {
           "asset": "ZEC",
           "kraken_cutoff_status": "FAIL",
@@ -2654,9 +3416,122 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
-          "reason": "Normalized Kraken validation evidence is missing."
+          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
+      },
+      "dca_optimisation": {
+        "asset": "ZEC",
+        "pair": "ZEC-USDT",
+        "current_regime": "BULL",
+        "source_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
+        "structural_settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.3,
+          "step_scale": 1.0
+        },
+        "entry_trigger": "immediate",
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "COMPLETE",
+        "progress_pct": 100,
+        "tested_combinations": 9,
+        "winning_strategy_settings": {
+          "entry_trigger": "immediate",
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.3,
+          "step_scale": 1.0,
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0
+        },
+        "governed_execution_controls": {
+          "max_active_safety_orders": 3,
+          "max_active_deals": 1,
+          "order_type": "market base order / limit DCA orders",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0
+        },
+        "setting_sources": {
+          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+        },
+        "training_winner": {
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0,
+          "training_score": 1037.03,
+          "training_return_on_max_capital_pct": 962.11,
+          "training_drawdown_pct": 12.29,
+          "training_metrics": {
+            "net_pnl": 3457.35,
+            "mark_to_market_pnl": 3457.35,
+            "open_pnl": 0.0,
+            "closed_deals": 2597,
+            "average_hours": 1.5,
+            "median_hours": 0,
+            "p90_hours": 4,
+            "longest_hours": 500,
+            "max_drawdown_dollars": -44.17,
+            "max_capital": 359.35,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.75
+          },
+          "rejected_for_open_duration": false
+        },
+        "unseen_validation_metrics": {
+          "net_pnl": 1308.8,
+          "mark_to_market_pnl": 1308.8,
+          "open_pnl": 0.0,
+          "closed_deals": 1036,
+          "average_hours": 0.9,
+          "median_hours": 0.0,
+          "p90_hours": 4,
+          "longest_hours": 160,
+          "max_drawdown_dollars": -27.34,
+          "max_capital": 359.35,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 1.64,
+          "return_on_max_capital_pct": 364.21,
+          "max_drawdown_pct": 7.61,
+          "score": 392.806
+        },
+        "unseen_validation_pass": true,
+        "capital_required_usdt": 359.35,
+        "reason": "BO/SO sizing passed unseen KuCoin validation."
       },
       "adaptive_research": null,
       "regime_profiles": {
@@ -2857,7 +3732,7 @@
           }
         }
       },
-      "deployment_preparation_available": true,
+      "deployment_preparation_available": false,
       "automatic_deployment": false
     },
     {
@@ -2882,7 +3757,7 @@
         "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 33.3,
+      "readiness_pct": 37.5,
       "gates": [
         {
           "id": "evidence_grade",
@@ -2913,6 +3788,18 @@
           "label": "Current regime fit",
           "state": "PENDING",
           "detail": "Current regime family: BEAR."
+        },
+        {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PENDING",
+          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PASS",
+          "detail": "No unresolved Kraken-open blocker remains."
         },
         {
           "id": "capital_allocation",
@@ -3034,9 +3921,122 @@
           "kucoin_file_exists": true,
           "validation_file": null,
           "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "WAITING_FOR_COMPARABLE_DATA",
-          "reason": "Normalized Kraken validation evidence is missing."
+          "continuation_status": "KRAKEN_EVIDENCE_MATERIALISING",
+          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
         }
+      },
+      "dca_optimisation": {
+        "asset": "NEAR",
+        "pair": "NEAR-USDT",
+        "current_regime": "BEAR",
+        "source_walk_forward_status": "RESEARCH_PENDING",
+        "structural_settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.2,
+          "step_scale": 1.5
+        },
+        "entry_trigger": "immediate",
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+        "progress_pct": 100,
+        "tested_combinations": 9,
+        "winning_strategy_settings": {
+          "entry_trigger": "immediate",
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.2,
+          "step_scale": 1.5,
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0
+        },
+        "governed_execution_controls": {
+          "max_active_safety_orders": 3,
+          "max_active_deals": 1,
+          "order_type": "market base order / limit DCA orders",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0
+        },
+        "setting_sources": {
+          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+        },
+        "training_winner": {
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0,
+          "training_score": 710.22,
+          "training_return_on_max_capital_pct": 643.27,
+          "training_drawdown_pct": 13.66,
+          "training_metrics": {
+            "net_pnl": 2048.18,
+            "mark_to_market_pnl": 2048.18,
+            "open_pnl": 0.0,
+            "closed_deals": 2096,
+            "average_hours": 1.4,
+            "median_hours": 0.0,
+            "p90_hours": 4,
+            "longest_hours": 120,
+            "max_drawdown_dollars": -43.49,
+            "max_capital": 318.4,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.28
+          },
+          "rejected_for_open_duration": false
+        },
+        "unseen_validation_metrics": {
+          "net_pnl": 643.14,
+          "mark_to_market_pnl": 643.14,
+          "open_pnl": 0.0,
+          "closed_deals": 702,
+          "average_hours": 2.6,
+          "median_hours": 0.0,
+          "p90_hours": 4,
+          "longest_hours": 612,
+          "max_drawdown_dollars": -116.61,
+          "max_capital": 318.4,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 1.16,
+          "return_on_max_capital_pct": 201.99,
+          "max_drawdown_pct": 36.62,
+          "score": 175.29
+        },
+        "unseen_validation_pass": false,
+        "capital_required_usdt": 318.4,
+        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
       },
       "adaptive_research": {
         "asset": "NEAR",
@@ -3304,7 +4304,7 @@
         "reason": "Enough data for preliminary research, but not enough history/regime depth for normal deployment approval.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 16.7,
+      "readiness_pct": 25.0,
       "gates": [
         {
           "id": "evidence_grade",
@@ -3335,6 +4335,18 @@
           "label": "Current regime fit",
           "state": "PENDING",
           "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PENDING",
+          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PASS",
+          "detail": "No unresolved Kraken-open blocker remains."
         },
         {
           "id": "capital_allocation",
@@ -3448,6 +4460,119 @@
         "status": "MISSING",
         "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset.",
         "continuation": null
+      },
+      "dca_optimisation": {
+        "asset": "TUT",
+        "pair": "TUT-USDT",
+        "current_regime": "BULL",
+        "source_walk_forward_status": "RESEARCH_PENDING",
+        "structural_settings": {
+          "take_profit_pct": 2.0,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.5,
+          "step_scale": 1.15
+        },
+        "entry_trigger": "immediate",
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+        "progress_pct": 100,
+        "tested_combinations": 9,
+        "winning_strategy_settings": {
+          "entry_trigger": "immediate",
+          "take_profit_pct": 2.0,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.5,
+          "step_scale": 1.15,
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0
+        },
+        "governed_execution_controls": {
+          "max_active_safety_orders": 3,
+          "max_active_deals": 1,
+          "order_type": "market base order / limit DCA orders",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0
+        },
+        "setting_sources": {
+          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+        },
+        "training_winner": {
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0,
+          "training_score": 398.933,
+          "training_return_on_max_capital_pct": 402.13,
+          "training_drawdown_pct": 10.24,
+          "training_metrics": {
+            "net_pnl": 1834.73,
+            "mark_to_market_pnl": 1834.73,
+            "open_pnl": 0.0,
+            "closed_deals": 348,
+            "average_hours": 6.3,
+            "median_hours": 0.0,
+            "p90_hours": 16,
+            "longest_hours": 180,
+            "max_drawdown_dollars": -46.74,
+            "max_capital": 456.25,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 2.44
+          },
+          "rejected_for_open_duration": false
+        },
+        "unseen_validation_metrics": {
+          "net_pnl": 251.47,
+          "mark_to_market_pnl": 251.47,
+          "open_pnl": 0.0,
+          "closed_deals": 54,
+          "average_hours": 17.9,
+          "median_hours": 0.0,
+          "p90_hours": 16,
+          "longest_hours": 652,
+          "max_drawdown_dollars": -96.65,
+          "max_capital": 456.25,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 2.11,
+          "return_on_max_capital_pct": 55.12,
+          "max_drawdown_pct": 21.18,
+          "score": 13.792
+        },
+        "unseen_validation_pass": false,
+        "capital_required_usdt": 456.25,
+        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
       },
       "adaptive_research": {
         "asset": "TUT",
@@ -3705,7 +4830,7 @@
         "reason": "History is too short for deployment research; candidate may be screened/ranked only.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 0.0,
+      "readiness_pct": 12.5,
       "gates": [
         {
           "id": "evidence_grade",
@@ -3738,6 +4863,18 @@
           "detail": "Current regime family: unknown."
         },
         {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PENDING",
+          "detail": "DCA optimisation status: WAITING_FOR_RESEARCH_INPUT."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PASS",
+          "detail": "No unresolved Kraken-open blocker remains."
+        },
+        {
           "id": "capital_allocation",
           "label": "Capital allocation",
           "state": "PENDING",
@@ -3808,6 +4945,37 @@
         "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset.",
         "continuation": null
       },
+      "dca_optimisation": {
+        "asset": "AEON",
+        "pair": "AEON-USDT",
+        "current_regime": null,
+        "source_walk_forward_status": "HISTORY_BUILDING",
+        "structural_settings": {},
+        "entry_trigger": null,
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "WAITING_FOR_RESEARCH_INPUT",
+        "progress_pct": 0,
+        "reason": "Frozen KuCoin structural winner/history is not available yet."
+      },
       "adaptive_research": null,
       "regime_profiles": {},
       "deployment_preparation_available": false,
@@ -3835,7 +5003,7 @@
         "reason": "History is too short for deployment research; candidate may be screened/ranked only.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 0.0,
+      "readiness_pct": 12.5,
       "gates": [
         {
           "id": "evidence_grade",
@@ -3868,6 +5036,18 @@
           "detail": "Current regime family: unknown."
         },
         {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PENDING",
+          "detail": "DCA optimisation status: WAITING_FOR_RESEARCH_INPUT."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PASS",
+          "detail": "No unresolved Kraken-open blocker remains."
+        },
+        {
           "id": "capital_allocation",
           "label": "Capital allocation",
           "state": "PENDING",
@@ -3938,6 +5118,37 @@
         "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset.",
         "continuation": null
       },
+      "dca_optimisation": {
+        "asset": "PIEVERSE",
+        "pair": "PIEVERSE-USDT",
+        "current_regime": null,
+        "source_walk_forward_status": "HISTORY_BUILDING",
+        "structural_settings": {},
+        "entry_trigger": null,
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "WAITING_FOR_RESEARCH_INPUT",
+        "progress_pct": 0,
+        "reason": "Frozen KuCoin structural winner/history is not available yet."
+      },
       "adaptive_research": null,
       "regime_profiles": {},
       "deployment_preparation_available": false,
@@ -3965,7 +5176,7 @@
         "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 33.3,
+      "readiness_pct": 37.5,
       "gates": [
         {
           "id": "evidence_grade",
@@ -3996,6 +5207,18 @@
           "label": "Current regime fit",
           "state": "PENDING",
           "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PENDING",
+          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PASS",
+          "detail": "No unresolved Kraken-open blocker remains."
         },
         {
           "id": "capital_allocation",
@@ -4109,6 +5332,119 @@
         "status": "MISSING",
         "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset.",
         "continuation": null
+      },
+      "dca_optimisation": {
+        "asset": "BNB",
+        "pair": "BNB-USDT",
+        "current_regime": "BULL",
+        "source_walk_forward_status": "RESEARCH_PENDING",
+        "structural_settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.5,
+          "step_scale": 1.15
+        },
+        "entry_trigger": "immediate",
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+        "progress_pct": 100,
+        "tested_combinations": 9,
+        "winning_strategy_settings": {
+          "entry_trigger": "immediate",
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.5,
+          "step_scale": 1.15,
+          "base_order_volume": 150.0,
+          "safety_order_volume": 100.0
+        },
+        "governed_execution_controls": {
+          "max_active_safety_orders": 3,
+          "max_active_deals": 1,
+          "order_type": "market base order / limit DCA orders",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0
+        },
+        "setting_sources": {
+          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+        },
+        "training_winner": {
+          "base_order_volume": 150.0,
+          "safety_order_volume": 100.0,
+          "training_score": 447.015,
+          "training_return_on_max_capital_pct": 582.68,
+          "training_drawdown_pct": 33.43,
+          "training_metrics": {
+            "net_pnl": 5608.28,
+            "mark_to_market_pnl": 5608.28,
+            "open_pnl": 0.0,
+            "closed_deals": 1829,
+            "average_hours": 6.4,
+            "median_hours": 0,
+            "p90_hours": 8,
+            "longest_hours": 5084,
+            "max_drawdown_dollars": -321.73,
+            "max_capital": 962.5,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.55
+          },
+          "rejected_for_open_duration": false
+        },
+        "unseen_validation_metrics": {
+          "net_pnl": 696.83,
+          "mark_to_market_pnl": 584.73,
+          "open_pnl": -112.09,
+          "closed_deals": 232,
+          "average_hours": 22.7,
+          "median_hours": 0.0,
+          "p90_hours": 12,
+          "longest_hours": 4056,
+          "max_drawdown_dollars": -352.7,
+          "max_capital": 962.5,
+          "open_position": true,
+          "open_duration_hours": 3808,
+          "average_safety_orders": 1.5,
+          "return_on_max_capital_pct": 60.75,
+          "max_drawdown_pct": 36.64,
+          "score": -428.749
+        },
+        "unseen_validation_pass": false,
+        "capital_required_usdt": 962.5,
+        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
       },
       "adaptive_research": {
         "asset": "BNB",
@@ -4357,7 +5693,7 @@
   ],
   "summary": {
     "candidates": 12,
-    "ready_for_manual_review": 1,
+    "ready_for_manual_review": 0,
     "adaptive_research": 8
   },
   "workflow": [

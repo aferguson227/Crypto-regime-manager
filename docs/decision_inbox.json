@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "61.0.0",
-  "generated_at": "2026-08-10T09:07:41.838611+00:00",
+  "application_version": "62.0.0",
+  "generated_at": "2026-08-10T10:03:27.099480+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -108,9 +108,30 @@
         "current_regime": "BULL",
         "research_continues_while_live": false
       }
+    },
+    {
+      "event_id": "c0ca20f32230139a7dde0c52",
+      "kind": "SYSTEM_ISSUE",
+      "title": "3Commas refresh needs attention",
+      "detail": "Last successful sync was 4h 5m ago. Expected cadence is about 1h.",
+      "severity": "warning",
+      "action": "REVIEW_SYSTEM",
+      "payload": {
+        "severity": "warning",
+        "system": "3Commas",
+        "title": "3Commas refresh needs attention",
+        "detail": "Last successful sync was 4h 5m ago. Expected cadence is about 1h.",
+        "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
+        "metric": {
+          "age_hours": 4.09,
+          "expected_cadence_hours": 1
+        },
+        "first_detected_at": "2026-08-10T10:03:20.316577+00:00",
+        "last_detected_at": "2026-08-10T10:03:20.316585+00:00"
+      }
     }
   ],
-  "material_count": 5,
+  "material_count": 6,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -119,5 +140,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "8b778be919e6a3bfb2a66254"
+  "snapshot_id": "a56f8dde276b7e08a036defa"
 }

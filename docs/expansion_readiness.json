@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "application_version": "61.0.0",
-  "generated_at": "2026-08-10T09:54:41.932362+00:00",
+  "application_version": "62.0.0",
+  "generated_at": "2026-08-10T10:03:26.705997+00:00",
   "state": "WAIT",
-  "score_pct": 66.7,
+  "score_pct": 83.3,
   "recommended_next_candidate": "XRP",
   "candidate": {
     "asset": "XRP",
@@ -61,8 +61,8 @@
   "gates": [
     {
       "label": "Local capital current",
-      "state": "WAIT",
-      "detail": "Local agent: RUNNING",
+      "state": "PASS",
+      "detail": "Local agent: HEALTHY",
       "blocking": true
     },
     {
@@ -103,5 +103,5 @@
     "principle": "Add a new asset only when capital, current TEL trade state, current market conditions and independent Kraken/Q1 evidence all support manual review."
   },
   "next_action": "Keep TEL as the only production asset until all expansion gates pass.",
-  "snapshot_id": "ef4fce479c9a6266f6be6a80"
+  "snapshot_id": "343fbc58f48b7ce8c0b61760"
 }

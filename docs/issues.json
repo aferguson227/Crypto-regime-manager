@@ -1,19 +1,19 @@
 {
-  "application_version": "61.0.0",
-  "generated_at": "2026-08-10T09:04:47.687323+00:00",
+  "application_version": "62.0.0",
+  "generated_at": "2026-08-10T10:03:20.299788+00:00",
   "issues": [
     {
       "severity": "warning",
       "system": "3Commas",
       "title": "3Commas refresh needs attention",
-      "detail": "Last successful sync was 3h 7m ago. Expected cadence is about 1h.",
+      "detail": "Last successful sync was 4h 5m ago. Expected cadence is about 1h.",
       "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
       "metric": {
-        "age_hours": 3.12,
+        "age_hours": 4.09,
         "expected_cadence_hours": 1
       },
-      "first_detected_at": "2026-08-10T09:04:47.737682+00:00",
-      "last_detected_at": "2026-08-10T09:04:47.737689+00:00"
+      "first_detected_at": "2026-08-10T10:03:20.316577+00:00",
+      "last_detected_at": "2026-08-10T10:03:20.316585+00:00"
     }
   ]
 }

@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).parents[1]
 
 def test_v34_release_and_unified_routes():
-    assert (ROOT/'VERSION').read_text(encoding="utf-8").strip()=='61.0.0'
+    assert (ROOT/'VERSION').read_text(encoding="utf-8").strip()=='62.0.0'
     release=json.loads((ROOT/'app/release.json').read_text(encoding="utf-8"))
     assert release['release_name']=='KuCoin Historical Research & Universal Responsive UI'
     routes=json.loads((ROOT/'config/routes.json').read_text(encoding="utf-8"))['routes']

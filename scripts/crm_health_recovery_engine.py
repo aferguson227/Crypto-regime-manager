@@ -101,9 +101,6 @@ def root_incidents(s):
  # Only surface dependent states when the upstream KuCoin path is healthy.
  upstream=(account_problem(ku) and not usable_account_snapshot(ku)) or order_problem(o) or fill_problem(f)
  if not upstream:
-  if s['accounting'].get('realised_profit_quote') is None:
-   rows.append({'code':'PNL_RECONCILIATION','title':'Realised P/L reconciliation','area':'Profit & loss','severity':'low','state':'UPDATING',
-    'detail':str(f.get('progress_explanation') or 'CRM is reconciling closed KuCoin fills.'),'user_action':'No manual action required.'})
   if str(s['fresh'].get('overall') or '').upper() in {'ACTION_REQUIRED','SOURCE_OVERDUE'}:
    rows.append({'code':'FRESHNESS','title':'Trading-data freshness','area':'Refresh','severity':'medium','state':'RECOVERING',
     'detail':str(s['fresh'].get('overall_reason') or 'Freshness is being recomputed.'),'user_action':'No manual action unless the Local Agent schedule is also unhealthy.'})
@@ -159,17 +156,24 @@ def main():
  elif recovering:overall='RECOVERING_AUTOMATICALLY'
  elif issues_after:overall='ATTENTION'
  else:overall='HEALTHY'
- payload={'schema_version':'2.0','application_version':application_version(),'generated_at':now(),'overall':overall,
+ limitations=[]
+ fill_status=str(after.get('fills',{}).get('realised_profit_status') or '')
+ if fill_status in {'PARTIAL_COST_BASIS','DEEP_COST_BASIS_SEARCH','HISTORICAL_COST_BASIS_UNAVAILABLE'}:
+  limitations.append({'code':'REALIZED_PNL_HISTORY','area':'Accounting','state':fill_status,
+   'detail':str(after.get('fills',{}).get('progress_explanation') or 'Historical cost-basis evidence is incomplete.'),
+   'system_fault':False})
+ payload={'schema_version':'3.0','application_version':application_version(),'generated_at':now(),'overall':overall,
   'summary':{'root_issues_before':len(issues_before),'root_issues_after':len(issues_after),'recovery_actions_attempted':len(actions),
              'root_issues_resolved':len(resolved),'blocking_after':len(blocking)},
-  'resolved_this_cycle':resolved,'issues':issues_after,'recovery_transaction':actions,
+  'resolved_this_cycle':resolved,'issues':issues_after,'informational_limitations':limitations,'recovery_transaction':actions,
   'dependency_order':['KuCoin account','KuCoin orders','KuCoin fills','execution reconciliation','P/L accounting','live portfolio','trading safety','freshness'],
   'cascade_policy':'Dependent freshness, P/L and safety symptoms are suppressed while an upstream KuCoin root incident is recovering.',
   'truthful_retry_policy':'The dashboard says CRM retried only when recovery_transaction contains an executed action.',
   'never_automatic':['place/cancel KuCoin orders','change API credentials','start/stop/edit 3Commas bots','change capital allocation','Git push/force push'],
   'decision_data_usable':not any(x.get('severity')=='high' and x.get('state') in {'ACTION_REQUIRED','ATTENTION'} for x in issues_after),
   'background_recovery_only':bool(recovering) and not blocking,
-  'next_action':('Review the escalated root cause.' if blocking else 'Trading data remains usable while CRM completes background recovery.' if recovering else 'No manual action required.')}
+  'next_action':('Review the escalated root cause.' if blocking else 'Trading data remains usable while CRM completes background recovery.' if recovering else 'No system action required.'),
+  'health_model':'System Health counts application/collector/safety faults only. Accounting limitations and research/deployment uncertainty are reported in their own sections.'}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8')
  print(f"CRM Recovery Controller: {overall}; actions={len(actions)} resolved={len(resolved)} remaining={len(issues_after)}")
  return 1 if blocking else 0
