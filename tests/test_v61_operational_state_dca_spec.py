@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_version():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='62.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='63.0.0'
 
 def test_fast_local_agent_does_not_run_heavy_research_scheduler():
     import ast

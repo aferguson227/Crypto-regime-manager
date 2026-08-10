@@ -1,4 +1,4 @@
-# CRM V62.0.0 — Accounting Completion, Continuation Resolution & DCA Optimisation Gate
+# CRM V63.0.0 — Accounting Completion, Continuation Resolution & DCA Optimisation Gate
 
 V62 addresses the remaining V61 limitations around legacy realised-P/L cost basis, unresolved Kraken-open continuation evidence, deployment readiness and the distinction between optimised DCA settings and governed execution defaults.
 

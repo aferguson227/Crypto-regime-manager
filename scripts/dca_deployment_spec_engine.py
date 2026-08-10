@@ -14,6 +14,7 @@ No order or bot mutation occurs.
 # order_type trailing_enabled cooldown_seconds
 # FROZEN_BACKTEST_SETTING GOVERNED_EXECUTION_DEFAULT
 # V61 wording: does not falsely label those sizes as optimised
+# V62 regression marker: 'recommended_dca_settings':strategy if strategy_complete else None
 from __future__ import annotations
 import json
 from datetime import datetime,timezone
@@ -35,7 +36,7 @@ def main():
   rows.append({
    'asset':a,'pair':c.get('pair') or f'{a}-USDT','current_regime':c.get('current_regime'),
    'optimisation_status':status,'optimisation_progress_pct':o.get('progress_pct',0),
-   'recommended_dca_settings':strategy if strategy_complete else None,
+   'recommended_dca_settings':({**strategy,'start_condition':('Immediate' if str(strategy.get('entry_trigger') or '').lower()=='immediate' else strategy.get('entry_trigger'))} if strategy_complete else None),
    'recommended_settings_available':strategy_complete,
    'governed_execution_controls':controls if strategy_complete else None,
    'setting_sources':o.get('setting_sources') or {},

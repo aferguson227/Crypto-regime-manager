@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "application_version": "63.0.0",
+  "generated_at": "2026-08-10T12:09:13.172481+00:00",
+  "live_bots": [
+    {
+      "asset": "TEL",
+      "bot_name": "TEL DCA - Low Volatility",
+      "deal_open": true,
+      "current_regime": null,
+      "latest_optimisation_status": null,
+      "latest_validated_settings": null,
+      "latest_unseen_validation": null,
+      "recommendation": "KEEP_CURRENT_DEAL_FROZEN",
+      "next_deal_policy": "After this deal closes, compare production settings with the latest unseen-validated settings before the next deployment.",
+      "automatic_mid_trade_setting_change": false
+    }
+  ],
+  "principle": "Would CRM deploy this strategy today? Revalidate continuously, but never mutate an active deal mid-trade.",
+  "read_only": true
+}

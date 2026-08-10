@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "62.0.0",
-  "generated_at": "2026-08-10T11:08:04.160847+00:00",
+  "application_version": "63.0.0",
+  "generated_at": "2026-08-10T12:09:15.316202+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,15 +26,15 @@
       }
     },
     {
-      "event_id": "4231e5f9ba040f732c81a1be",
+      "event_id": "87b25e6314a98848ddf7039c",
       "kind": "GLOBAL_REGIME",
       "title": "Global market regime: Accumulation",
-      "detail": "Universal market score 53.2%. BTC/current breadth evidence is included where available.",
+      "detail": "Universal market score 52.5%. BTC/current breadth evidence is included where available.",
       "severity": "info",
       "action": "REVIEW_MARKET",
       "payload": {
         "regime": "ACCUMULATION",
-        "score_pct": 53.2
+        "score_pct": 52.5
       }
     },
     {
@@ -108,9 +108,30 @@
         "current_regime": "BULL",
         "research_continues_while_live": false
       }
+    },
+    {
+      "event_id": "d1f96ad44d333fd127736a17",
+      "kind": "SYSTEM_ISSUE",
+      "title": "Application publication needs attention",
+      "detail": "Latest successful publication was 12h 7m ago.",
+      "severity": "critical",
+      "action": "REVIEW_SYSTEM",
+      "payload": {
+        "severity": "critical",
+        "system": "Application",
+        "title": "Application publication needs attention",
+        "detail": "Latest successful publication was 12h 7m ago.",
+        "recommended_action": "Automatic publication is enabled; inspect the workflow only if live Pages is not synchronised.",
+        "metric": {
+          "age_hours": 12.12,
+          "unit": "hours"
+        },
+        "first_detected_at": "2026-08-10T12:09:07.556498+00:00",
+        "last_detected_at": "2026-08-10T12:09:07.556504+00:00"
+      }
     }
   ],
-  "material_count": 5,
+  "material_count": 6,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -119,5 +140,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "3a45411acecca0154117cb98"
+  "snapshot_id": "16de23eb8c9b83a05d375106"
 }

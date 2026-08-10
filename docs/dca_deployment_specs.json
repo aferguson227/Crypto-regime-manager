@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
-  "application_version": "62.0.0",
-  "generated_at": "2026-08-10T11:07:42.043614+00:00",
+  "application_version": "63.0.0",
+  "generated_at": "2026-08-10T12:09:13.965993+00:00",
   "specs": [
     {
       "asset": "XMR",
@@ -53,7 +53,8 @@
         "volume_scale": 1.1,
         "step_scale": 1.0,
         "base_order_volume": 50.0,
-        "safety_order_volume": 50.0
+        "safety_order_volume": 50.0,
+        "start_condition": "Immediate"
       },
       "recommended_settings_available": true,
       "governed_execution_controls": {
@@ -246,7 +247,8 @@
         "volume_scale": 1.5,
         "step_scale": 1.15,
         "base_order_volume": 100.0,
-        "safety_order_volume": 100.0
+        "safety_order_volume": 100.0,
+        "start_condition": "Immediate"
       },
       "recommended_settings_available": true,
       "governed_execution_controls": {
@@ -367,7 +369,8 @@
         "volume_scale": 1.3,
         "step_scale": 1.0,
         "base_order_volume": 50.0,
-        "safety_order_volume": 50.0
+        "safety_order_volume": 50.0,
+        "start_condition": "Immediate"
       },
       "recommended_settings_available": true,
       "governed_execution_controls": {
@@ -416,7 +419,8 @@
         "volume_scale": 1.5,
         "step_scale": 1.0,
         "base_order_volume": 100.0,
-        "safety_order_volume": 150.0
+        "safety_order_volume": 150.0,
+        "start_condition": "Immediate"
       },
       "recommended_settings_available": true,
       "governed_execution_controls": {

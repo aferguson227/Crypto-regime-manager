@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "application_version": "63.0.0",
+  "generated_at": "2026-08-10T12:09:13.060399+00:00",
+  "exchange_equity_usdt": null,
+  "free_usdt": 806.67111932,
+  "hard_exchange_commitments_usdt": 0,
+  "theoretical_full_dca_reserve_usdt": 2113.54,
+  "prudent_active_dca_contingency_usdt": 1373.8,
+  "portfolio_safety_buffer_usdt": 80.67,
+  "safe_multi_bot_pool_usdt": 0,
+  "worst_case_headroom_usdt": 0,
+  "candidates": [
+    {
+      "asset": "XMR",
+      "capital_required_usdt": null,
+      "fits_prudent_pool": false
+    },
+    {
+      "asset": "UNI",
+      "capital_required_usdt": 282.05,
+      "fits_prudent_pool": false
+    },
+    {
+      "asset": "BTC",
+      "capital_required_usdt": null,
+      "fits_prudent_pool": false
+    },
+    {
+      "asset": "ETH",
+      "capital_required_usdt": null,
+      "fits_prudent_pool": false
+    },
+    {
+      "asset": "XRP",
+      "capital_required_usdt": null,
+      "fits_prudent_pool": false
+    },
+    {
+      "asset": "SOL",
+      "capital_required_usdt": null,
+      "fits_prudent_pool": false
+    },
+    {
+      "asset": "AAVE",
+      "capital_required_usdt": 912.5,
+      "fits_prudent_pool": false
+    },
+    {
+      "asset": "TUT",
+      "capital_required_usdt": null,
+      "fits_prudent_pool": false
+    },
+    {
+      "asset": "NEAR",
+      "capital_required_usdt": null,
+      "fits_prudent_pool": false
+    },
+    {
+      "asset": "ZEC",
+      "capital_required_usdt": 359.35,
+      "fits_prudent_pool": false
+    },
+    {
+      "asset": "DOT",
+      "capital_required_usdt": 1318.75,
+      "fits_prudent_pool": false
+    },
+    {
+      "asset": "PIEVERSE",
+      "capital_required_usdt": null,
+      "fits_prudent_pool": false
+    }
+  ],
+  "read_only": true,
+  "explanation": "Hard exchange commitments remain fully reserved. A separate prudent contingency reserve supports advisory multi-bot planning while worst-case DCA headroom remains visible. CRM still cannot deploy automatically."
+}

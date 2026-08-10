@@ -76,7 +76,7 @@ def main():
                 'explanation':'CRM could not locate comparable Q1 Kraken source data for this asset. Configure CRM_KRAKEN_VALIDATION_DIR or keep Q1_2026.zip at C:\\Crypto\\Kraken Data.'})
  payload={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),
           'persistent_output_dir':str(out_dir()),'source_locations':[str(x) for x in srcs],
-          'assets':rows,'summary':{'required':len(needed),'ready':sum(x['status'] in {'READY','MATERIALISED'} for x in rows),
+          'diagnostic_stages':['archive discovery','asset file discovery','format recognition','4h normalisation','persistent write','continuation detection'],'assets':rows,'summary':{'required':len(needed),'ready':sum(x['status'] in {'READY','MATERIALISED'} for x in rows),
                                    'missing':sum(x['status']=='MISSING_SOURCE' for x in rows)},
           'principle':'Materialise only the evidence needed to reconstruct unresolved Kraken-open validations; never rewrite the original Kraken result.'}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8')

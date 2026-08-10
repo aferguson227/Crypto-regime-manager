@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
-  "application_version": "62.0.0",
-  "generated_at": "2026-08-10T11:36:39.104698+00:00",
-  "snapshot_id": "91537224883ca9f8622a",
+  "application_version": "63.0.0",
+  "generated_at": "2026-08-10T12:09:05.898377+00:00",
+  "snapshot_id": "568d845c51ebe75f912e",
   "currency": "USDT",
   "accounts": [
     {
-      "account_id": null,
-      "name": "KuCoin direct account",
-      "exchange": "KuCoin",
+      "account_id": 32632134,
+      "name": "My Kucoin",
+      "exchange": "Kucoin Spot",
       "currency": "USDT",
-      "total_equity": 2929.17291349,
-      "free_available": 758.16664365,
-      "observed_at": "2026-08-10T11:36:21.477296+00:00"
+      "total_equity": 3587.5538871179756,
+      "free_available": 806.67111932,
+      "observed_at": "2026-08-10T10:46:30.236307+00:00"
     }
   ],
   "bots": [
@@ -81,20 +81,20 @@
       "warnings": []
     }
   ],
-  "exchange_total": 2929.17291349,
-  "free_available": 758.16664365,
+  "exchange_total": 3587.5538871179756,
+  "free_available": 806.67111932,
   "active_deal_capital": 688.134646248,
   "placed_order_reserve": 0.0,
   "remaining_active_deal_dca_reserve": 2113.5360000000005,
   "enabled_idle_capacity_reserve": 0.0,
   "deployable_capital": 0.0,
-  "reserve_coverage_ratio": 0.35871953146291324,
+  "reserve_coverage_ratio": 0.38166897527177196,
   "capital_status": "COMPLETE",
   "next_capital_priority": "TEL Low Volatility Bot",
   "next_capital_required": null,
   "can_fund_next_priority": null,
   "methodology": {
-    "free_available": "Read-only free USDT from KuCoin direct read-only account API.",
+    "free_available": "Read-only free USDT from 3Commas read-only account snapshot.",
     "active_deal_capital": "Sum of known cost basis for active deals.",
     "placed_order_reserve": "Shown separately; not subtracted from free USDT because exchange free balance normally already excludes open-order funds.",
     "remaining_active_deal_dca_reserve": "Unplaced remaining safety-order ladder requirement for active deals.",
@@ -111,15 +111,15 @@
       "quote_cost": 688.134646248
     }
   ],
-  "capital_source": "KuCoin direct read-only account API",
-  "kucoin_direct_status": "ok",
+  "capital_source": "3Commas read-only account snapshot",
+  "kucoin_direct_status": "fallback_current",
   "reserved_capital": 2113.5360000000005,
-  "kucoin_cash_available": 758.16664365,
+  "kucoin_cash_available": 806.67111932,
   "active_dca_reserve": 2113.5360000000005,
   "safe_to_allocate_now": 0.0,
   "capital_headline": {
-    "portfolio_value": 2929.17291349,
-    "kucoin_cash": 758.16664365,
+    "portfolio_value": 3587.5538871179756,
+    "kucoin_cash": 806.67111932,
     "reserved_for_active_dca": 2113.5360000000005,
     "safe_to_allocate": 0.0,
     "currency": "USDT",

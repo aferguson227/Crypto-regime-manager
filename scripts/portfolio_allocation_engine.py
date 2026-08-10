@@ -28,8 +28,8 @@ def corr(a,b):
  if sa<=0 or sb<=0:return None
  return sum((x-ma)*(y-mb) for x,y in zip(ra,rb))/math.sqrt(sa*sb)
 def main():
- cap=load(DOCS/'capital_intelligence.json');review=load(DOCS/'candidate_review.json');reg=load(DOCS/'coin_registry.json');p=load(POL);policy=p.get('portfolio') or {}
- deploy=num(cap.get('deployable_capital'));free=num(cap.get('free_available'))
+ cap=load(DOCS/'capital_intelligence.json');cap2=load(DOCS/'portfolio_capital_v2.json');review=load(DOCS/'candidate_review.json');reg=load(DOCS/'coin_registry.json');p=load(POL);policy=p.get('portfolio') or {}
+ deploy=num(cap2.get('safe_multi_bot_pool_usdt'));free=num(cap.get('free_available'))
  if deploy is None and free is not None:
   reserve=num(cap.get('remaining_active_deal_dca_reserve')) or num(cap.get('reserved_capital')) or 0;deploy=max(0,free-reserve)
  cash_pct=float(policy.get('cash_buffer_pct',15));usable=max(0,deploy*(1-cash_pct/100)) if deploy is not None else None
@@ -56,6 +56,6 @@ def main():
  payload={'schema_version':'2.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),'deployable_capital_usdt':deploy,
   'cash_buffer_pct':cash_pct,'usable_after_cash_buffer_usdt':round(usable,2) if usable is not None else None,'current_live_bots':[x['asset'] for x in live],
   'maximum_live_bots':int(policy.get('max_live_bots',4)),'available_new_bot_slots':slots,'recommendations':rows,'automatic_deployment':False,
-  'capital_source':cap.get('capital_source'),'allocation_status':'KNOWN' if deploy is not None else 'WAITING_FOR_CAPITAL_TRUTH'}
+  'capital_source':'Portfolio Capital Manager 2.0 prudent multi-bot pool','allocation_status':'KNOWN' if deploy is not None else 'WAITING_FOR_CAPITAL_TRUTH'}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8');print(f'Portfolio allocation written: {OUT}; live={len(live)} slots={slots} candidates={len(rows)}');return 0
 if __name__=='__main__':raise SystemExit(main())
