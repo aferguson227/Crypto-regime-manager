@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
-  "application_version": "65.0.0",
-  "generated_at": "2026-08-10T14:05:39.300803+00:00",
+  "application_version": "66.0.0",
+  "generated_at": "2026-08-10T15:17:52.113068+00:00",
   "provider": "KuCoin public spot candles",
   "autonomous_discovery_source": "Full KuCoin USDT scan -> ranked shortlist -> bounded historical acquisition",
   "mode": "bounded_incremental_acquisition",
@@ -17,8 +17,8 @@
       "XRP-USDT",
       "SOL-USDT",
       "AAVE-USDT",
-      "NEAR-USDT",
       "ZEC-USDT",
+      "NEAR-USDT",
       "TUT-USDT",
       "DOT-USDT",
       "PIEVERSE-USDT"
@@ -123,22 +123,9 @@
       "quote": "USDT",
       "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AAVE-USDT_4H.csv",
       "bars": 12701,
-      "new_bars": 1,
-      "pages_requested": 2,
-      "earliest": "2020-10-22T08:00:00+00:00",
-      "latest": "2026-08-10T08:00:00+00:00",
-      "backfill_complete": true,
-      "errors": [],
-      "status": "OK"
-    },
-    {
-      "symbol": "NEAR-USDT",
-      "quote": "USDT",
-      "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
-      "bars": 11142,
       "new_bars": 0,
       "pages_requested": 2,
-      "earliest": "2021-07-09T08:00:00+00:00",
+      "earliest": "2020-10-22T08:00:00+00:00",
       "latest": "2026-08-10T08:00:00+00:00",
       "backfill_complete": true,
       "errors": [],
@@ -156,6 +143,19 @@
       "backfill_complete": false,
       "errors": [],
       "status": "CACHED"
+    },
+    {
+      "symbol": "NEAR-USDT",
+      "quote": "USDT",
+      "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
+      "bars": 11142,
+      "new_bars": 0,
+      "pages_requested": 2,
+      "earliest": "2021-07-09T08:00:00+00:00",
+      "latest": "2026-08-10T08:00:00+00:00",
+      "backfill_complete": true,
+      "errors": [],
+      "status": "OK"
     },
     {
       "symbol": "TUT-USDT",

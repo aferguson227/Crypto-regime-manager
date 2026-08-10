@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "66.0.0",
-  "generated_at": "2026-08-10T15:13:49.923253+00:00",
+  "generated_at": "2026-08-10T16:13:40.220350+00:00",
   "coin_count": 22,
   "coins": [
     {
@@ -74,20 +74,6 @@
       "research_continues_while_live": false
     },
     {
-      "asset": "AEON",
-      "lifecycle": "RESEARCHING",
-      "execution_state": "NOT_DEPLOYED",
-      "research_state": "NEEDS_HISTORICAL_VALIDATION",
-      "reasons": [
-        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-      ],
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "current_regime": "NEUTRAL",
-      "research_continues_while_live": false
-    },
-    {
       "asset": "ASTER",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
@@ -127,6 +113,20 @@
         "research_pipeline"
       ],
       "current_regime": "BULL",
+      "research_continues_while_live": false
+    },
+    {
+      "asset": "CYS",
+      "lifecycle": "RESEARCHING",
+      "execution_state": "NOT_DEPLOYED",
+      "research_state": "NEEDS_HISTORICAL_VALIDATION",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "current_regime": "NEUTRAL",
       "research_continues_while_live": false
     },
     {
@@ -341,5 +341,5 @@
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "9ebdb4adfbfa0848a5c8fbc0"
+  "snapshot_id": "f458e9b8413eb90a09384b44"
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "66.0.0",
-  "generated_at": "2026-08-10T15:14:18.056131+00:00",
+  "generated_at": "2026-08-10T16:14:08.340500+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -35,7 +35,7 @@
     "reject_open_duration_hours": 720,
     "explanation": "Optimise profit and capital fluidity together. Long closed trades are penalised; unresolved positions receive a stronger penalty and may reject a configuration."
   },
-  "last_full_research_at": "2026-08-10T14:15:52.972788+00:00",
+  "last_full_research_at": "2026-08-10T15:28:13.079482+00:00",
   "independent_walk_forward": {
     "status": "NOT_CONFIGURED",
     "training_dir": "C:\\Crypto\\Research\\Kraken\\training",
@@ -136,22 +136,9 @@
         "quote": "USDT",
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AAVE-USDT_4H.csv",
         "bars": 12701,
-        "new_bars": 1,
-        "pages_requested": 2,
-        "earliest": "2020-10-22T08:00:00+00:00",
-        "latest": "2026-08-10T08:00:00+00:00",
-        "backfill_complete": true,
-        "errors": [],
-        "status": "OK"
-      },
-      {
-        "symbol": "NEAR-USDT",
-        "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
-        "bars": 11142,
         "new_bars": 0,
         "pages_requested": 2,
-        "earliest": "2021-07-09T08:00:00+00:00",
+        "earliest": "2020-10-22T08:00:00+00:00",
         "latest": "2026-08-10T08:00:00+00:00",
         "backfill_complete": true,
         "errors": [],
@@ -169,6 +156,19 @@
         "backfill_complete": false,
         "errors": [],
         "status": "CACHED"
+      },
+      {
+        "symbol": "NEAR-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
+        "bars": 11142,
+        "new_bars": 0,
+        "pages_requested": 2,
+        "earliest": "2021-07-09T08:00:00+00:00",
+        "latest": "2026-08-10T08:00:00+00:00",
+        "backfill_complete": true,
+        "errors": [],
+        "status": "OK"
       },
       {
         "symbol": "TUT-USDT",
@@ -325,16 +325,16 @@
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     },
     {
-      "asset": "NEAR",
-      "status": "WAIT",
-      "current_regime": "NEUTRAL",
-      "next_action": "Remain in research queue."
-    },
-    {
       "asset": "ZEC",
       "status": "KUCOIN_WALK_FORWARD_COMPLETE",
       "current_regime": "NEUTRAL",
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
+    },
+    {
+      "asset": "NEAR",
+      "status": "WAIT",
+      "current_regime": "NEUTRAL",
+      "next_action": "Remain in research queue."
     },
     {
       "asset": "TUT",
@@ -373,13 +373,13 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "SHIB",
+      "asset": "ASTER",
       "status": "WAIT",
       "current_regime": "NEUTRAL",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "ASTER",
+      "asset": "SHIB",
       "status": "WAIT",
       "current_regime": "NEUTRAL",
       "next_action": "Remain in research queue."
@@ -397,7 +397,7 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "AEON",
+      "asset": "CYS",
       "status": "WAIT",
       "current_regime": "NEUTRAL",
       "next_action": "Remain in research queue."
