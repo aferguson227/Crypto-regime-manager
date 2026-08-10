@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0",
-  "application_version": "60.0.0",
-  "generated_at": "2026-08-10T07:57:33.419228+00:00",
-  "overall": "REFRESH_OVERDUE",
+  "application_version": "61.0.0",
+  "generated_at": "2026-08-10T09:04:52.943312+00:00",
+  "overall": "PARTIALLY_DEGRADED",
   "fault_count": 0,
-  "overdue_count": 1,
+  "overdue_count": 0,
   "components": [
     {
       "name": "KuCoin account data",
       "role": "DECISION_CRITICAL",
       "status": "CURRENT",
-      "age_minutes": 0,
+      "age_minutes": 0.1,
       "age_display": "Just now",
       "expected_cadence_minutes": 30.0,
       "reason": "Balances and available capital used by CRM.",
@@ -20,7 +20,7 @@
       "name": "KuCoin trading data",
       "role": "DECISION_CRITICAL",
       "status": "CURRENT",
-      "age_minutes": 0,
+      "age_minutes": 0.1,
       "age_display": "Just now",
       "expected_cadence_minutes": 30.0,
       "reason": "Open and completed KuCoin orders used to verify live trading.",
@@ -29,19 +29,19 @@
     {
       "name": "Local Agent",
       "role": "DECISION_CRITICAL",
-      "status": "OVERDUE",
-      "age_minutes": 1066.5,
-      "age_display": "17h 46m ago",
+      "status": "CURRENT",
+      "age_minutes": 0.1,
+      "age_display": "Just now",
       "expected_cadence_minutes": 45.0,
-      "reason": "Runs private account, trading and research refreshes.",
-      "collector_status": "HEALTHY"
+      "reason": "Runs the fast private account/trading refresh every 15 minutes. Heavy research runs independently.",
+      "collector_status": "BLOCKED"
     },
     {
       "name": "3Commas monitoring",
       "role": "SECONDARY_PROVIDER",
-      "status": "CURRENT",
-      "age_minutes": 119.7,
-      "age_display": "2h 0m ago",
+      "status": "DELAYED",
+      "age_minutes": 187.0,
+      "age_display": "3h 7m ago",
       "expected_cadence_minutes": 180.0,
       "reason": "Temporary secondary provider monitoring; KuCoin remains authoritative.",
       "collector_status": "OK"
@@ -50,8 +50,8 @@
       "name": "Website update",
       "role": "PRESENTATION",
       "status": "CURRENT",
-      "age_minutes": 475.79999999999995,
-      "age_display": "7h 56m ago",
+      "age_minutes": 543.0,
+      "age_display": "9h 3m ago",
       "expected_cadence_minutes": 30.0,
       "reason": "Website publishing is separate from trading-data reliability. It never makes KuCoin trading data stale."
     },
@@ -59,8 +59,8 @@
       "name": "System checks",
       "role": "ENGINEERING",
       "status": "CURRENT",
-      "age_minutes": 1066.7,
-      "age_display": "17h 47m ago",
+      "age_minutes": 1134.1,
+      "age_display": "18h 54m ago",
       "expected_cadence_minutes": 360,
       "reason": "Automatic application checks; detailed mode is hidden unless troubleshooting."
     }

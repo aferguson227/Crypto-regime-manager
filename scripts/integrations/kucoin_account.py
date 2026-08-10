@@ -20,6 +20,33 @@ EU_BASE='https://api.kucoin.eu'
 
 # Legacy V41.1 regression compatibility markers:
 # ALLOWED={('GET','/api/v1/accounts')}
+
+def data_root():
+    raw=os.getenv('CRM_DATA_ROOT')
+    return Path(raw) if raw else (Path(r'C:\Crypto\CRM_Data') if os.name=='nt' else Path.home()/'.crypto_regime_manager_data')
+def last_good_path():
+    return data_root()/'TradingTruth'/'kucoin_account_last_good.json'
+def save_last_good(payload):
+    p=last_good_path();p.parent.mkdir(parents=True,exist_ok=True)
+    p.write_text(json.dumps(payload,indent=2),encoding='utf-8')
+def load_last_good():
+    try:
+        x=json.loads(last_good_path().read_text(encoding='utf-8'))
+        return x if isinstance(x,dict) else {}
+    except:return {}
+def fallback_payload(status,message,category=None,attempts=None):
+    last=load_last_good()
+    if last and last.get('status')=='ok':
+        out=dict(last)
+        out.update({
+          'application_version':application_version(),'generated_at':now_iso(),
+          'status':'fallback_current','health':'RECOVERING','refresh_status':status,
+          'message':message,'diagnostic':{'category':category,'message':message,'attempts':attempts or []},
+          'last_success_at':last.get('last_success_at') or last.get('generated_at'),
+          'using_last_good_snapshot':True
+        })
+        return out
+    return empty(status,message,category,attempts)
 # 'orders_enabled':False
 # 'withdrawals_enabled':False
 ALLOWED={('GET','/api/v1/accounts')}
@@ -124,7 +151,7 @@ def normalise(rows,base_url,key_version):
         })
     usdt=[x for x in balances if x['currency']=='USDT']
     return {
-      'application_version':application_version(),'generated_at':now_iso(),'status':'ok','health':'HEALTHY',
+      'application_version':application_version(),'generated_at':now_iso(),'last_success_at':now_iso(),'status':'ok','health':'HEALTHY','using_last_good_snapshot':False,
       'source':'KuCoin private spot account API','read_only':True,'endpoint':'GET /api/v1/accounts',
       'permission_required':'General','api_base':base_url,'api_key_version_used':key_version,
       'currency':'USDT','free_usdt':sum(x['available'] for x in usdt) if usdt else None,
@@ -165,7 +192,7 @@ def main():
     configured_version=os.getenv('KUCOIN_API_KEY_VERSION','').strip()
     configured_base=os.getenv('KUCOIN_API_BASE_URL','').strip()
     if not (key and secret and passphrase):
-        payload=empty('not_configured','Add read-only KUCOIN_API_KEY, KUCOIN_API_SECRET and KUCOIN_API_PASSPHRASE secrets.','NOT_CONFIGURED')
+        payload=fallback_payload('not_configured','This process could not access the local read-only KuCoin credentials.','NOT_CONFIGURED')
         OUTPUT.write_text(json.dumps(payload,indent=2),encoding='utf-8')
         print('KuCoin account sync: not configured (optional read-only capital source).')
         return 0
@@ -188,15 +215,18 @@ def main():
 
     if payload is None:
         final=attempts[-1] if attempts else {}
-        payload=empty('error',
+        payload=fallback_payload('error',
                       str(final.get('message') or 'KuCoin read-only account request failed.'),
                       str(final.get('category') or 'UNKNOWN_ERROR'),
                       attempts)
 
+    if payload.get('status')=='ok': save_last_good(payload)
     OUTPUT.write_text(json.dumps(payload,indent=2),encoding='utf-8')
     diagnostic=payload.get('diagnostic') or {}
-    if payload['status']=='ok':
+    if payload.get('status')=='ok':
         print(f"KuCoin account sync: ok; records={payload.get('record_count',0)}; base={payload.get('api_base')}; key_version={payload.get('api_key_version_used')}")
+    elif payload.get('status')=='fallback_current':
+        print(f"KuCoin account sync: fallback current; last_success_at={payload.get('last_success_at')}; category={diagnostic.get('category')}")
     else:
         print(f"KuCoin account sync: degraded; category={diagnostic.get('category') or 'UNKNOWN_ERROR'}; message={str(payload.get('message') or '')[:180]}")
     return 0

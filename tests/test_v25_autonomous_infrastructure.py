@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def test_v25_cloud_foundation():
     cfg=json.loads((ROOT/'config.json').read_text(encoding="utf-8"))
-    assert cfg['version']=='60.0.0'
+    assert cfg['version']=='61.0.0'
     assert cfg['historical_data_manager']['automatic_refresh'] is True
     assert cfg['historical_data_manager']['laptop_required'] is False
     assert cfg['autonomous_infrastructure']['scheduler']=='GitHub Actions'

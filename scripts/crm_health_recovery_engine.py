@@ -41,13 +41,13 @@ def save_state(x):
 def runmod(name,*args):
  started=time.monotonic();r=subprocess.run([sys.executable,'-m',name,*args],cwd=ROOT,text=True,capture_output=True)
  return {'module':name,'returncode':r.returncode,'duration_seconds':round(time.monotonic()-started,2),'detail':(r.stdout+r.stderr)[-1400:]}
-def status_ok(value):return str(value or '').upper() in {'OK','HEALTHY','CURRENT','PASS','SYNCHRONIZED'}
+def status_ok(value):return str(value or '').upper() in {'OK','HEALTHY','CURRENT','PASS','SYNCHRONIZED','FALLBACK_CURRENT'}
 def age_minutes(value):
  try:return max(0,(datetime.now(timezone.utc)-datetime.fromisoformat(str(value).replace('Z','+00:00')).astimezone(timezone.utc)).total_seconds()/60)
  except:return None
 def usable_account_snapshot(ku):
  age=age_minutes(ku.get('generated_at'))
- has_data=ku.get('usdt_balance') is not None or ku.get('free_usdt') is not None or bool(ku.get('balances'))
+ has_data=ku.get('usdt_balance') is not None or ku.get('free_usdt') is not None or bool(ku.get('balances')) or bool(ku.get('using_last_good_snapshot'))
  return bool(has_data and age is not None and age<=45)
 
 def account_problem(ku):return not status_ok(ku.get('status'))
@@ -119,9 +119,10 @@ def root_incidents(s):
 
 def recovery_transaction(before):
  actions=[]
- # Dependency order is intentional.
- mods=['scripts.kucoin_account_sync','scripts.kucoin_order_state','scripts.kucoin_fill_ledger',
-       'scripts.execution_reconciliation_engine','scripts.independent_trade_accounting_engine',
+ private_ready=all(os.getenv(x,'').strip() for x in ('KUCOIN_API_KEY','KUCOIN_API_SECRET','KUCOIN_API_PASSPHRASE'))
+ private=['scripts.kucoin_account_sync','scripts.kucoin_order_state','scripts.kucoin_fill_ledger'] if private_ready else []
+ # A diagnostics/build process without local secrets must never overwrite private trading truth.
+ mods=private+['scripts.execution_reconciliation_engine','scripts.independent_trade_accounting_engine',
        'scripts.live_portfolio_truth_engine','scripts.execution_assurance_engine',
        'scripts.freshness_controller','scripts.source_health_engine']
  for mod in mods:

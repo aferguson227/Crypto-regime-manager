@@ -197,7 +197,7 @@ def main():
   'realised_profit_quote':rec['matched_realised_profit_usdt'] if rec['realised_profit_complete'] else None,
   'partial_matched_realised_profit_quote':rec['matched_realised_profit_usdt'],'realised_profit_status':rp_status,
   'reconciliation_progress_pct':(100.0 if rec['realised_profit_complete'] else backfill.get('scan_progress_pct',progress)),
-  'next_automatic_retry_minutes':15 if status!='OK' or not rec['realised_profit_complete'] else 0,
+  'next_automatic_retry_minutes':(0 if backfill.get('complete_scan') else (15 if status!='OK' or not rec['realised_profit_complete'] else 0)),
   'backfill_progress':{
     'weeks_checked':backfill.get('weeks_checked',0),'total_weeks_target':backfill.get('total_weeks_target',0),
     'progress_pct':100.0 if rec['realised_profit_complete'] else backfill.get('scan_progress_pct',progress),
@@ -205,8 +205,10 @@ def main():
     'complete_scan':backfill.get('complete_scan',False)
   },
   'progress_explanation':('Complete KuCoin cost basis is available.' if rec['realised_profit_complete'] else (
-    (f"Building older KuCoin trade history: {backfill.get('weeks_checked',0)}/{backfill.get('total_weeks_target',0)} weekly windows checked." if backfill.get('attempted') else
-     'Recent fills are available; CRM is preparing an older-history cost-basis backfill.')
+    (f"Historical backfill scan complete, but {rec.get('unmatched_sell_count',0)} sell lot(s) still lack a matching earlier KuCoin buy within the current 180-day search window. CRM will preserve this as an explicit accounting limitation rather than remain stuck at an ETA."
+      if backfill.get('complete_scan') else
+      (f"Building older KuCoin trade history: {backfill.get('weeks_checked',0)}/{backfill.get('total_weeks_target',0)} weekly windows checked." if backfill.get('attempted') else
+       'Recent fills are available; CRM is preparing an older-history cost-basis backfill.'))
     if rec['fill_count'] else ('KuCoin fill-history collection is incomplete; CRM will retry automatically.' if status!='OK' else 'No KuCoin fills are stored yet; CRM will retry on the next Local Agent cycle.'))),
   'backfill':backfill,'reconciliation':rec,'read_only':True,'write_endpoints_implemented':False}
  OUT.write_text(json.dumps(p,indent=2),encoding='utf-8')

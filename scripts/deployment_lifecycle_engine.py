@@ -32,9 +32,9 @@ def completeness(s):
  missing=[k for k,v in s.items() if v is None]
  return round(100*(len(s)-len(missing))/len(s),1),missing
 def main():
- review=load('candidate_review.json');profiles=load('live_bot_profiles.json');alloc=load('portfolio_allocation_recommendations.json')
+ review=load('candidate_review.json');profiles=load('live_bot_profiles.json');alloc=load('portfolio_allocation_recommendations.json');specs=load('dca_deployment_specs.json')
  workspace=load('professional_workspace.json');three=load('threecommas.json')
- alby={asset(x.get('asset')):x for x in alloc.get('recommendations') or []}
+ alby={asset(x.get('asset')):x for x in alloc.get('recommendations') or []};spby={asset(x.get('asset')):x for x in specs.get('specs') or []}
  rows=[]
 
  # Active production bots first.
@@ -53,7 +53,7 @@ def main():
 
  # Research/deployment candidates.
  for c in review.get('candidates') or []:
-  a=asset(c.get('asset'));settings=norm_settings(c.get('settings') or {});pct,missing=completeness(settings)
+  a=asset(c.get('asset'));sp=spby.get(a) or {};settings=norm_settings(sp.get('setup') or c.get('settings') or {});pct,missing=completeness(settings)
   gates=c.get('gates') or [];mandatory_pass=bool(gates) and all(g.get('state')=='PASS' for g in gates)
   kr=(c.get('kraken_robustness') or {});kr_status=str(kr.get('status') or 'MISSING').upper()
   cont=(kr.get('continuation') or {})
@@ -75,7 +75,7 @@ def main():
    'recommended_action':'DEPLOY' if state=='READY_TO_DEPLOY' else 'REVIEW' if ready_review else 'CONTINUE_RESEARCH',
    'settings':settings,'settings_completeness_pct':pct,'missing_settings':missing,
    'entry_trigger':c.get('entry_trigger'),'current_regime':c.get('current_regime'),
-   'allocation_usdt':allocation,'readiness_pct':c.get('readiness_pct'),
+   'allocation_usdt':allocation,'capital_required_usdt':sp.get('capital_required_usdt'),'capital_sizing_status':sp.get('capital_sizing_status'),'setting_sources':sp.get('setting_sources') or {},'readiness_pct':c.get('readiness_pct'),
    'kraken_robustness':kr,'kucoin_profitability':c.get('kucoin_profitability') or {},
    'blockers':blockers,'source':'GOVERNED_CANDIDATE_REVIEW',
    'button_label':'View deployment plan' if state!='READY_TO_DEPLOY' else 'View setup & deploy manually',

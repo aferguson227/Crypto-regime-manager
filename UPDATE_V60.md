@@ -1,4 +1,4 @@
-# CRM V60.0.0 — Trader Portfolio Command Centre
+# CRM V61.0.0 — Trader Portfolio Command Centre
 
 V60 finishes the reliability/UI clean-up before DCA Optimisation 2.0 and the next native-execution phase.
 

@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
-def test_v46_identity(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='60.0.0'
+def test_v46_identity(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='61.0.0'
 def test_silent_agent_task():
  t=(ROOT/'UPDATE_LOCAL_AGENT_SCHEDULE.ps1').read_text(encoding='utf-8'); assert '-WindowStyle Hidden' in t and '-Minutes 15' in t
 def test_v46_engines_present():

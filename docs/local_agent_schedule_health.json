@@ -1,14 +1,36 @@
 {
-  "schema_version": "1.0",
-  "application_version": "60.0.0",
-  "generated_at": "2026-08-10T07:57:29.220317+00:00",
-  "task_name": "CryptoRegimeManager-LocalAgent",
-  "platform": "nt",
+  "schema_version": "2.0",
+  "application_version": "61.0.0",
+  "generated_at": "2026-08-10T09:04:48.860584+00:00",
   "status": "HEALTHY",
+  "task_name": "CryptoRegimeManager-LocalAgent",
   "exists": true,
   "enabled": true,
-  "last_run": "10/08/2026 07:59:32",
-  "next_run": "10/08/2026 09:01:31",
-  "last_result": "0",
-  "explanation": "The 15-minute Local Agent task exists and is enabled."
+  "last_run": "10/08/2026 10:04:14",
+  "next_run": "10/08/2026 10:15:12",
+  "last_result": "2",
+  "tasks": [
+    {
+      "task_name": "CryptoRegimeManager-LocalAgent",
+      "exists": true,
+      "enabled": true,
+      "last_run": "10/08/2026 10:04:14",
+      "next_run": "10/08/2026 10:15:12",
+      "last_result": "2",
+      "status": "HEALTHY",
+      "role": "15-minute trading/accounting refresh"
+    },
+    {
+      "task_name": "CryptoRegimeManager-ResearchWorker",
+      "exists": false,
+      "enabled": null,
+      "last_run": null,
+      "next_run": null,
+      "last_result": null,
+      "status": "MISSING",
+      "role": "isolated heavy research/backtesting"
+    }
+  ],
+  "research_worker_status": "MISSING",
+  "explanation": "The fast 15-minute Local Agent is enabled; heavy research runs independently."
 }

@@ -1,16 +1,11 @@
 {
-  "application_version": "60.0.0",
-  "generated_at": "2026-08-09T14:11:06.280236+00:00",
-  "started_at": "2026-08-09T13:26:51.074506+00:00",
-  "status": "HEALTHY",
-  "message": "Local private-data refresh completed.",
+  "application_version": "61.0.0",
+  "generated_at": "2026-08-10T09:04:45.810632+00:00",
+  "started_at": "2026-08-10T09:04:24.807142+00:00",
+  "status": "BLOCKED",
+  "message": "Local repository has source changes; automatic data refresh skipped.",
   "mode": "local_read_only_agent",
   "pc_required_for_private_refresh": true,
   "execution_enabled": false,
-  "write_trading_enabled": false,
-  "phase": "COMPLETE",
-  "completed_at": "2026-08-09T14:11:06.279993+00:00",
-  "heartbeat_at": "2026-08-09T14:11:06.280023+00:00",
-  "kucoin_status": "ok",
-  "kucoin_diagnostic": null
+  "write_trading_enabled": false
 }

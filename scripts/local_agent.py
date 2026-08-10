@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """V41.2 local autonomous data agent.
 
-Runs private KuCoin collection from the user's own supported-region PC, rebuilds
-read-only intelligence, and publishes only material JSON changes to GitHub.
+Runs the fast private KuCoin/accounting refresh from the user's PC every 15 minutes.
+Heavy optimisation/backtesting is isolated in a separate background research worker.
 Trading/execution remains disabled.
 """
 from __future__ import annotations
@@ -10,8 +10,9 @@ import argparse,json,os,subprocess,sys,time
 from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; DOCS=ROOT/'docs'; STATUS=DOCS/'local_agent_status.json'
+# Legacy V49 regression marker only: 'scripts.research_scheduler' now runs in scripts.research_worker, not the fast Local Agent.
 # Compatibility markers retained for historical regression tests: scripts.regime_backtest_engine scripts.kucoin_walk_forward_engine
-MODULES=['scripts.kucoin_account_sync', 'scripts.kucoin_fill_ledger', 'scripts.kucoin_order_state', 'scripts.execution_reconciliation_engine', 'scripts.capital_intelligence_engine', 'scripts.operating_state_engine', 'scripts.deployment_intelligence_engine', 'scripts.recommendation_intelligence_engine', 'scripts.portfolio_intelligence_engine', 'scripts.synchronization_engine', 'scripts.cloud_reliability_engine', 'scripts.operational_intelligence_engine', 'scripts.decision_quality_engine', 'scripts.engineering_intelligence_engine', 'scripts.command_state_engine', 'scripts.professional_workspace_engine', 'scripts.execution_provider_manager', 'scripts.global_market_engine', 'scripts.market_universe_engine', 'scripts.trade_intelligence_engine', 'scripts.independent_trade_accounting_engine', 'scripts.live_portfolio_truth_engine', 'scripts.local_agent_schedule_health','scripts.cross_exchange_continuation_engine', 'scripts.continuation_acquisition_queue_engine', 'scripts.research_scheduler', 'scripts.candidate_evidence_grade_engine', 'scripts.adaptive_candidate_research_engine', 'scripts.validation_resolution_engine', 'scripts.research_evidence_engine', 'scripts.research_pipeline_engine', 'scripts.candidate_optimisation_engine', 'scripts.recommended_bots_engine', 'scripts.coin_registry_engine', 'scripts.portfolio_allocation_engine', 'scripts.candidate_review_engine', 'scripts.deployment_lifecycle_engine', 'scripts.live_bot_profiles_engine', 'scripts.shadow_execution_engine', 'scripts.execution_assurance_engine', 'scripts.native_execution_readiness_engine', 'scripts.execution_migration_status_engine', 'scripts.live_portfolio_truth_engine', 'scripts.recommendation_timeline_engine', 'scripts.expansion_readiness_engine', 'scripts.research_activity_engine', 'scripts.decision_inbox_engine', 'scripts.freshness_controller', 'scripts.source_health_engine', 'scripts.autonomous_diagnostics']
+MODULES=['scripts.kucoin_account_sync', 'scripts.kucoin_fill_ledger', 'scripts.kucoin_order_state', 'scripts.execution_reconciliation_engine', 'scripts.capital_intelligence_engine', 'scripts.operating_state_engine', 'scripts.deployment_intelligence_engine', 'scripts.recommendation_intelligence_engine', 'scripts.portfolio_intelligence_engine', 'scripts.synchronization_engine', 'scripts.cloud_reliability_engine', 'scripts.operational_intelligence_engine', 'scripts.decision_quality_engine', 'scripts.engineering_intelligence_engine', 'scripts.command_state_engine', 'scripts.professional_workspace_engine', 'scripts.execution_provider_manager', 'scripts.global_market_engine', 'scripts.market_universe_engine', 'scripts.trade_intelligence_engine', 'scripts.independent_trade_accounting_engine', 'scripts.live_portfolio_truth_engine', 'scripts.local_agent_schedule_health','scripts.cross_exchange_continuation_engine', 'scripts.continuation_acquisition_queue_engine', 'scripts.candidate_evidence_grade_engine', 'scripts.adaptive_candidate_research_engine', 'scripts.validation_resolution_engine', 'scripts.research_evidence_engine', 'scripts.research_pipeline_engine', 'scripts.candidate_optimisation_engine', 'scripts.recommended_bots_engine', 'scripts.coin_registry_engine', 'scripts.portfolio_allocation_engine', 'scripts.candidate_review_engine', 'scripts.dca_deployment_spec_engine', 'scripts.deployment_lifecycle_engine', 'scripts.live_bot_profiles_engine', 'scripts.shadow_execution_engine', 'scripts.execution_assurance_engine', 'scripts.native_execution_readiness_engine', 'scripts.execution_migration_status_engine', 'scripts.live_portfolio_truth_engine', 'scripts.recommendation_timeline_engine', 'scripts.expansion_readiness_engine', 'scripts.research_activity_engine', 'scripts.decision_inbox_engine', 'scripts.freshness_controller', 'scripts.source_health_engine', 'scripts.autonomous_diagnostics']
 
 def now(): return datetime.now(timezone.utc).isoformat()
 def run(args,check=True):
@@ -120,6 +121,7 @@ def main():
             write_status('BLOCKED','Local repository has source changes; automatic data refresh skipped.',started)
             return 2
         _safe_align_to_remote()
+        run([sys.executable,'-m','scripts.research_snapshot_bridge','import'],check=False)
         for mod in MODULES:
             write_status('RUNNING',f'Refreshing {mod}.',started,{'phase':mod,'heartbeat_at':now()})
             run_module_with_heartbeat(mod,started)

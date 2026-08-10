@@ -3,7 +3,7 @@ import json
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_v401_identity():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='60.0.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='61.0.0'
  rel=json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))
  assert rel['release_name']=='KuCoin Historical Research & Universal Responsive UI'
 

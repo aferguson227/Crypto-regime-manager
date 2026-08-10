@@ -1,12 +1,12 @@
 {
   "schema_version": "2.0",
-  "application_version": "60.0.0",
-  "generated_at": "2026-08-10T07:57:33.439782+00:00",
+  "application_version": "61.0.0",
+  "generated_at": "2026-08-10T09:04:52.969564+00:00",
   "overall": "ACTION_REQUIRED",
   "summary": {
     "root_issues_before": 1,
     "root_issues_after": 1,
-    "recovery_actions_attempted": 9,
+    "recovery_actions_attempted": 6,
     "root_issues_resolved": 0,
     "blocking_after": 1
   },
@@ -22,64 +22,46 @@
       "user_action": "Run Local Agent setup only if the next recovery cycle still reports credentials unavailable.",
       "trading_data_usable": false,
       "automatic_recovery_attempted": true,
-      "consecutive_failed_cycles": 4,
-      "last_recovery_transaction_at": "2026-08-10T07:57:33.438893+00:00",
+      "consecutive_failed_cycles": 7,
+      "last_recovery_transaction_at": "2026-08-10T09:04:52.967899+00:00",
       "escalated_to_user": true
     }
   ],
   "recovery_transaction": [
     {
-      "module": "scripts.kucoin_account_sync",
-      "returncode": 0,
-      "duration_seconds": 0.14,
-      "detail": "KuCoin account sync: not configured (optional read-only capital source).\n"
-    },
-    {
-      "module": "scripts.kucoin_order_state",
-      "returncode": 0,
-      "duration_seconds": 0.15,
-      "detail": "KuCoin order state: NOT_CONFIGURED; symbols=1 active=0 recent_closed=0\n"
-    },
-    {
-      "module": "scripts.kucoin_fill_ledger",
-      "returncode": 0,
-      "duration_seconds": 0.16,
-      "detail": "KuCoin fill ledger: NOT_CONFIGURED; new=0; total=120; realised_status=PARTIAL_COST_BASIS\n"
-    },
-    {
       "module": "scripts.execution_reconciliation_engine",
       "returncode": 0,
-      "duration_seconds": 0.11,
+      "duration_seconds": 0.15,
       "detail": "Execution reconciliation written: C:\\Crypto\\Projects\\docs\\execution_reconciliation.json; stale=0\n"
     },
     {
       "module": "scripts.independent_trade_accounting_engine",
       "returncode": 0,
-      "duration_seconds": 0.08,
+      "duration_seconds": 0.16,
       "detail": "Independent trade accounting written: C:\\Crypto\\Projects\\docs\\independent_trade_accounting.json\n"
     },
     {
       "module": "scripts.live_portfolio_truth_engine",
       "returncode": 0,
-      "duration_seconds": 0.1,
+      "duration_seconds": 0.14,
       "detail": "Live portfolio truth written: C:\\Crypto\\Projects\\docs\\live_portfolio_truth.json; effective_open=1 stale=0\n"
     },
     {
       "module": "scripts.execution_assurance_engine",
       "returncode": 0,
-      "duration_seconds": 0.09,
+      "duration_seconds": 0.1,
       "detail": "Execution assurance: HEALTHY; assets=1 failures=0\n"
     },
     {
       "module": "scripts.freshness_controller",
       "returncode": 0,
-      "duration_seconds": 0.08,
-      "detail": "Freshness status: ACTION_REQUIRED\n"
+      "duration_seconds": 0.1,
+      "detail": "Freshness status: PARTIALLY_DEGRADED\n"
     },
     {
       "module": "scripts.source_health_engine",
       "returncode": 0,
-      "duration_seconds": 0.08,
+      "duration_seconds": 0.1,
       "detail": "Source health written: C:\\Crypto\\Projects\\docs\\source_health.json\n"
     }
   ],
