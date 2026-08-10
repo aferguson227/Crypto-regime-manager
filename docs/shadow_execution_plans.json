@@ -1,9 +1,30 @@
 {
   "schema_version": "1.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T16:40:49.417716+00:00",
+  "generated_at": "2026-08-10T18:15:40.358251+00:00",
   "mode": "SHADOW_ONLY",
   "plans": [
+    {
+      "asset": "AAVE",
+      "pair": "AAVE-USDT",
+      "current_regime": "BEAR",
+      "entry_trigger": "pullback_3pct",
+      "settings": {
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.5,
+        "step_scale": 1.0
+      },
+      "allocated_budget_usdt": 0.0,
+      "hypothetical_order_ladder": [],
+      "checks": [
+        "candidate readiness = 100%",
+        "portfolio slot/allocation available",
+        "manual confirmation required"
+      ],
+      "status": "SHADOW_READY"
+    },
     {
       "asset": "ZEC",
       "pair": "ZEC-USDT",

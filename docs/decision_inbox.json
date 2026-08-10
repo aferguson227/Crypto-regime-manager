@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T17:46:11.017096+00:00",
+  "generated_at": "2026-08-10T18:15:56.430173+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,19 +26,19 @@
       }
     },
     {
-      "event_id": "87b25e6314a98848ddf7039c",
+      "event_id": "6cc94109479c7970c3fedfa4",
       "kind": "GLOBAL_REGIME",
-      "title": "Global market regime: Accumulation",
-      "detail": "Universal market score 52.5%. BTC/current breadth evidence is included where available.",
+      "title": "Global market regime: Neutral",
+      "detail": "Universal market score 49.4%. BTC/current breadth evidence is included where available.",
       "severity": "info",
       "action": "REVIEW_MARKET",
       "payload": {
-        "regime": "ACCUMULATION",
-        "score_pct": 52.5
+        "regime": "NEUTRAL",
+        "score_pct": 49.4
       }
     },
     {
-      "event_id": "573d0cd173150c21540cfabe",
+      "event_id": "ff676ef724eda0f70bf7d93b",
       "kind": "COIN_STATUS",
       "title": "AAVE is Ready For Review",
       "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only.",
@@ -57,7 +57,7 @@
           "research_pipeline"
         ],
         "validated_return_pct": -21.6,
-        "current_regime": "ACCUMULATION",
+        "current_regime": "BEAR",
         "research_continues_while_live": false
       }
     },
@@ -119,5 +119,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "0f1c9d4a182ee10889243764"
+  "snapshot_id": "4eedda8edbfe38412276f3ce"
 }

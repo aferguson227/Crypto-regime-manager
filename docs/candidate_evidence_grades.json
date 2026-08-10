@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T17:45:24.631221+00:00",
+  "generated_at": "2026-08-10T18:15:10.001948+00:00",
   "assets": [
     {
       "asset": "AAVE",
@@ -20,7 +20,7 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "PASS",
       "reason": "History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     },
     {
       "asset": "AVAX",
@@ -39,7 +39,7 @@
       "deployment_history_gate": "BLOCKED",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History is too short for deployment research; candidate may be screened/ranked only.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     },
     {
       "asset": "BTC",
@@ -58,7 +58,7 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     },
     {
       "asset": "DOT",
@@ -77,7 +77,7 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     },
     {
       "asset": "ETH",
@@ -96,16 +96,16 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     },
     {
       "asset": "NEAR",
       "pair": "NEAR-USDT",
       "evidence_grade": "HIGH_CONFIDENCE",
-      "bars_4h": 11142,
-      "history_days": 1858.0,
+      "bars_4h": 11143,
+      "history_days": 1858.2,
       "history_start": "2021-07-09T08:00:00+00:00",
-      "history_end": "2026-08-10T08:00:00+00:00",
+      "history_end": "2026-08-10T12:00:00+00:00",
       "history_years": 5.09,
       "regime_profiles_observed": [],
       "regime_profile_count": 0,
@@ -115,16 +115,16 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     },
     {
       "asset": "PIEVERSE",
       "pair": "PIEVERSE-USDT",
       "evidence_grade": "SCREEN_ONLY",
-      "bars_4h": 481,
-      "history_days": 80.0,
+      "bars_4h": 482,
+      "history_days": 80.2,
       "history_start": "2026-05-22T08:00:00+00:00",
-      "history_end": "2026-08-10T08:00:00+00:00",
+      "history_end": "2026-08-10T12:00:00+00:00",
       "history_years": 0.22,
       "regime_profiles_observed": [],
       "regime_profile_count": 0,
@@ -134,16 +134,16 @@
       "deployment_history_gate": "BLOCKED",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History is too short for deployment research; candidate may be screened/ranked only.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     },
     {
       "asset": "SOL",
       "pair": "SOL-USDT",
       "evidence_grade": "HIGH_CONFIDENCE",
-      "bars_4h": 10986,
-      "history_days": 1832.0,
+      "bars_4h": 10987,
+      "history_days": 1832.2,
       "history_start": "2021-08-04T08:00:00+00:00",
-      "history_end": "2026-08-10T08:00:00+00:00",
+      "history_end": "2026-08-10T12:00:00+00:00",
       "history_years": 5.02,
       "regime_profiles_observed": [],
       "regime_profile_count": 0,
@@ -153,16 +153,16 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     },
     {
       "asset": "TUT",
       "pair": "TUT-USDT",
       "evidence_grade": "PRELIMINARY",
-      "bars_4h": 3053,
-      "history_days": 509.0,
+      "bars_4h": 3054,
+      "history_days": 509.2,
       "history_start": "2025-03-19T08:00:00+00:00",
-      "history_end": "2026-08-10T08:00:00+00:00",
+      "history_end": "2026-08-10T12:00:00+00:00",
       "history_years": 1.39,
       "regime_profiles_observed": [],
       "regime_profile_count": 0,
@@ -172,7 +172,7 @@
       "deployment_history_gate": "BLOCKED",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "Enough data for preliminary research, but not enough history/regime depth for normal deployment approval.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     },
     {
       "asset": "UNI",
@@ -191,7 +191,7 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "PASS",
       "reason": "History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     },
     {
       "asset": "XMR",
@@ -210,7 +210,7 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     },
     {
       "asset": "XRP",
@@ -229,7 +229,7 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     },
     {
       "asset": "ZEC",
@@ -248,7 +248,7 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "PASS",
       "reason": "History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold.",
-      "current_global_regime": "ACCUMULATION"
+      "current_global_regime": "NEUTRAL"
     }
   ],
   "summary": {
