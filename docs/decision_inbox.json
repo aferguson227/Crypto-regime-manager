@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "66.0.0",
-  "generated_at": "2026-08-10T15:09:14.670493+00:00",
+  "generated_at": "2026-08-10T15:14:20.134197+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,15 +26,15 @@
       }
     },
     {
-      "event_id": "87b25e6314a98848ddf7039c",
+      "event_id": "7ba5768c668b0eb5d9d460e2",
       "kind": "GLOBAL_REGIME",
-      "title": "Global market regime: Accumulation",
-      "detail": "Universal market score 52.5%. BTC/current breadth evidence is included where available.",
+      "title": "Global market regime: Neutral",
+      "detail": "Universal market score 51.4%. BTC/current breadth evidence is included where available.",
       "severity": "info",
       "action": "REVIEW_MARKET",
       "payload": {
-        "regime": "ACCUMULATION",
-        "score_pct": 52.5
+        "regime": "NEUTRAL",
+        "score_pct": 51.4
       }
     },
     {
@@ -108,51 +108,9 @@
         "current_regime": "BULL",
         "research_continues_while_live": false
       }
-    },
-    {
-      "event_id": "fd640d51ce6d868e93341213",
-      "kind": "SYSTEM_ISSUE",
-      "title": "3Commas refresh needs attention",
-      "detail": "Last successful sync was 4h 23m ago. Expected cadence is about 1h.",
-      "severity": "warning",
-      "action": "REVIEW_SYSTEM",
-      "payload": {
-        "severity": "warning",
-        "system": "3Commas",
-        "title": "3Commas refresh needs attention",
-        "detail": "Last successful sync was 4h 23m ago. Expected cadence is about 1h.",
-        "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
-        "metric": {
-          "age_hours": 4.38,
-          "expected_cadence_hours": 1
-        },
-        "first_detected_at": "2026-08-10T15:09:07.089662+00:00",
-        "last_detected_at": "2026-08-10T15:09:07.089669+00:00"
-      }
-    },
-    {
-      "event_id": "f942551990ebe85c4db8c78b",
-      "kind": "SYSTEM_ISSUE",
-      "title": "Application publication needs attention",
-      "detail": "Latest successful publication was 15h 7m ago.",
-      "severity": "critical",
-      "action": "REVIEW_SYSTEM",
-      "payload": {
-        "severity": "critical",
-        "system": "Application",
-        "title": "Application publication needs attention",
-        "detail": "Latest successful publication was 15h 7m ago.",
-        "recommended_action": "Automatic publication is enabled; inspect the workflow only if live Pages is not synchronised.",
-        "metric": {
-          "age_hours": 15.12,
-          "unit": "hours"
-        },
-        "first_detected_at": "2026-08-10T15:09:07.089683+00:00",
-        "last_detected_at": "2026-08-10T15:09:07.089686+00:00"
-      }
     }
   ],
-  "material_count": 7,
+  "material_count": 5,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -161,5 +119,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "d041ed47f144f37806a40e64"
+  "snapshot_id": "c02cab9b4f4f63fd7f7f3091"
 }

@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
   "application_version": "66.0.0",
-  "generated_at": "2026-08-10T15:09:15.373041+00:00",
+  "generated_at": "2026-08-10T15:14:39.367221+00:00",
   "overall": "ACTION_REQUIRED",
   "summary": {
-    "root_issues_before": 3,
-    "root_issues_after": 3,
-    "recovery_actions_attempted": 7,
+    "root_issues_before": 2,
+    "root_issues_after": 2,
+    "recovery_actions_attempted": 10,
     "root_issues_resolved": 0,
     "blocking_after": 2
   },
@@ -21,21 +21,8 @@
       "detail": "The resident KuCoin live-data service is not reporting a current heartbeat. Live P/L and order truth may fall back to older data.",
       "user_action": "Restart the CryptoRegimeManager-LiveDataService scheduled task if automatic recovery does not restore it.",
       "automatic_recovery_attempted": true,
-      "consecutive_failed_cycles": 1,
-      "last_recovery_transaction_at": "2026-08-10T15:09:15.372186+00:00",
-      "escalated_to_user": false
-    },
-    {
-      "code": "KUCOIN_PRIVATE_TRADING",
-      "title": "KuCoin trading data refresh",
-      "area": "Trading data",
-      "severity": "high",
-      "state": "ACTION_REQUIRED",
-      "detail": "CRM is refreshing orders and trade history. Dependent freshness, P/L and trading-safety warnings are suppressed while this root recovery is running.",
-      "user_action": "No action is normally required during automatic recovery. Review API access only after repeated failed recovery transactions.",
-      "automatic_recovery_attempted": true,
-      "consecutive_failed_cycles": 16,
-      "last_recovery_transaction_at": "2026-08-10T15:09:15.372186+00:00",
+      "consecutive_failed_cycles": 5,
+      "last_recovery_transaction_at": "2026-08-10T15:14:39.366368+00:00",
       "escalated_to_user": true
     },
     {
@@ -43,13 +30,13 @@
       "title": "Background refresh schedule",
       "area": "Refresh",
       "severity": "high",
-      "state": "ATTENTION",
+      "state": "ACTION_REQUIRED",
       "detail": "The Local Agent or resident KuCoin Live Data Service schedule needs attention.",
       "user_action": "Run UPDATE_LOCAL_AGENT_SCHEDULE.ps1 or review the CryptoRegimeManager-LocalAgent task.",
       "automatic_recovery_attempted": true,
-      "consecutive_failed_cycles": 1,
-      "last_recovery_transaction_at": "2026-08-10T15:09:15.372186+00:00",
-      "escalated_to_user": false
+      "consecutive_failed_cycles": 5,
+      "last_recovery_transaction_at": "2026-08-10T15:14:39.366368+00:00",
+      "escalated_to_user": true
     }
   ],
   "informational_limitations": [
@@ -69,39 +56,57 @@
       "detail": "ERROR: The system cannot find the file specified.\n\n"
     },
     {
+      "module": "scripts.kucoin_account_sync",
+      "returncode": 0,
+      "duration_seconds": 0.5,
+      "detail": "KuCoin account sync: ok; records=43; base=https://api.kucoin.com; key_version=3\n"
+    },
+    {
+      "module": "scripts.kucoin_order_state",
+      "returncode": 0,
+      "duration_seconds": 8.77,
+      "detail": "KuCoin order state: OK; symbols=5 active=4 recent_closed=107\n"
+    },
+    {
+      "module": "scripts.kucoin_fill_ledger",
+      "returncode": 0,
+      "duration_seconds": 2.41,
+      "detail": "KuCoin fill ledger: OK; new=0; total=122; realised_status=HISTORICAL_COST_BASIS_UNAVAILABLE\n"
+    },
+    {
       "module": "scripts.execution_reconciliation_engine",
       "returncode": 0,
-      "duration_seconds": 0.08,
+      "duration_seconds": 0.12,
       "detail": "Execution reconciliation written: C:\\Crypto\\Projects\\docs\\execution_reconciliation.json; stale=0\n"
     },
     {
       "module": "scripts.independent_trade_accounting_engine",
       "returncode": 0,
-      "duration_seconds": 0.07,
+      "duration_seconds": 0.1,
       "detail": "Independent trade accounting written: C:\\Crypto\\Projects\\docs\\independent_trade_accounting.json\n"
     },
     {
       "module": "scripts.live_portfolio_truth_engine",
       "returncode": 0,
-      "duration_seconds": 0.09,
+      "duration_seconds": 0.13,
       "detail": "Live portfolio truth written: C:\\Crypto\\Projects\\docs\\live_portfolio_truth.json; effective_open=1 stale=0\n"
     },
     {
       "module": "scripts.execution_assurance_engine",
       "returncode": 0,
-      "duration_seconds": 0.08,
+      "duration_seconds": 0.1,
       "detail": "Execution assurance: HEALTHY; assets=1 failures=0\n"
     },
     {
       "module": "scripts.freshness_controller",
       "returncode": 0,
-      "duration_seconds": 0.07,
+      "duration_seconds": 0.15,
       "detail": "Freshness status: PARTIALLY_DEGRADED\n"
     },
     {
       "module": "scripts.source_health_engine",
       "returncode": 0,
-      "duration_seconds": 0.08,
+      "duration_seconds": 0.1,
       "detail": "Source health written: C:\\Crypto\\Projects\\docs\\source_health.json\n"
     }
   ],
