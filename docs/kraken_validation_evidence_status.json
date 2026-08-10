@@ -1,10 +1,18 @@
 {
   "schema_version": "1.0",
-  "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:11:59.120792+00:00",
+  "application_version": "64.0.0",
+  "generated_at": "2026-08-10T12:49:31.889907+00:00",
   "persistent_output_dir": "C:\\Crypto\\CRM_Data\\Kraken\\validation_4h",
   "source_locations": [
     "C:\\Crypto\\Kraken Data\\Q1_2026.zip"
+  ],
+  "diagnostic_stages": [
+    "archive discovery",
+    "asset file discovery",
+    "format recognition",
+    "4h normalisation",
+    "persistent write",
+    "continuation detection"
   ],
   "assets": [
     {

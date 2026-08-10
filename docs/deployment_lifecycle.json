@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "64.0.0",
-  "generated_at": "2026-08-10T12:34:24.417346+00:00",
+  "generated_at": "2026-08-10T13:53:55.590831+00:00",
   "workflow": [
     "RESEARCHING",
     "VALIDATING",
@@ -420,15 +420,15 @@
         }
       },
       "kucoin_profitability": {
-        "validation_return_on_max_capital_pct": 201.99,
-        "validation_mark_to_market_pnl": 1286.3,
-        "validation_closed_deals": 701,
+        "validation_return_on_max_capital_pct": 202.22,
+        "validation_mark_to_market_pnl": 1287.73,
+        "validation_closed_deals": 704,
         "validation_average_hold_hours": 2.6,
         "validation_p90_hold_hours": 4,
         "validation_longest_hold_hours": 612,
         "validation_drawdown_pct": 36.62,
-        "forward_return_on_max_capital_pct": 193.65,
-        "historical_annualised_equivalent_pct": 198.5,
+        "forward_return_on_max_capital_pct": 193.58,
+        "historical_annualised_equivalent_pct": 198.7,
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
@@ -553,7 +553,7 @@
         "validation_p90_hold_hours": 8,
         "validation_longest_hold_hours": 992,
         "validation_drawdown_pct": 61.74,
-        "forward_return_on_max_capital_pct": -20.63,
+        "forward_return_on_max_capital_pct": -20.6,
         "historical_annualised_equivalent_pct": 101.1,
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
@@ -610,15 +610,15 @@
         "continuation": null
       },
       "kucoin_profitability": {
-        "validation_return_on_max_capital_pct": 55.12,
-        "validation_mark_to_market_pnl": 502.95,
-        "validation_closed_deals": 54,
-        "validation_average_hold_hours": 17.9,
-        "validation_p90_hold_hours": 16,
+        "validation_return_on_max_capital_pct": 60.4,
+        "validation_mark_to_market_pnl": 694.79,
+        "validation_closed_deals": 60,
+        "validation_average_hold_hours": 15.7,
+        "validation_p90_hold_hours": 12,
         "validation_longest_hold_hours": 652,
-        "validation_drawdown_pct": 21.18,
-        "forward_return_on_max_capital_pct": 101.18,
-        "historical_annualised_equivalent_pct": 198.2,
+        "validation_drawdown_pct": 21.94,
+        "forward_return_on_max_capital_pct": 127.07,
+        "historical_annualised_equivalent_pct": 216.8,
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
@@ -636,35 +636,21 @@
       "asset": "UNI",
       "pair": "UNI-USDT",
       "bot_name": "UNI Regime DCA",
-      "lifecycle_state": "READY_FOR_DEPLOYMENT_REVIEW",
+      "lifecycle_state": "DCA_OPTIMISATION_IN_PROGRESS",
       "priority": 3,
-      "recommended_action": "REVIEW",
-      "settings": {
-        "entry_trigger": "immediate",
-        "take_profit_pct": 0.8,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.1,
-        "step_scale": 1.0,
-        "base_order_volume": 50.0,
-        "safety_order_volume": 50.0,
-        "start_condition": "Immediate"
-      },
-      "governed_execution_controls": {
-        "max_active_safety_orders": 3,
-        "max_active_deals": 1,
-        "order_type": "market base order / limit DCA orders",
-        "trailing_enabled": false,
-        "cooldown_seconds": 0
-      },
+      "recommended_action": "CONTINUE_OPTIMISATION",
+      "settings": {},
+      "governed_execution_controls": {},
       "settings_completeness_pct": 100.0,
-      "missing_settings": [],
-      "dca_optimisation_status": "COMPLETE",
+      "missing_settings": [
+        "DCA optimisation is still in progress; exact Recommended DCA Settings are deliberately withheld."
+      ],
+      "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "ACCUMULATION",
-      "allocation_usdt": 0.0,
-      "capital_required_usdt": 282.05,
-      "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
+      "allocation_usdt": null,
+      "capital_required_usdt": null,
+      "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
         "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
         "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
@@ -680,7 +666,7 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "readiness_pct": 100.0,
+      "readiness_pct": 75.0,
       "kraken_robustness": {
         "status": "PASS",
         "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
@@ -701,18 +687,20 @@
         }
       },
       "kucoin_profitability": {
-        "validation_return_on_max_capital_pct": 51.75,
-        "validation_mark_to_market_pnl": 291.93,
-        "validation_closed_deals": 153,
-        "validation_average_hold_hours": 1.3,
+        "validation_return_on_max_capital_pct": 43.89,
+        "validation_mark_to_market_pnl": 315.46,
+        "validation_closed_deals": 154,
+        "validation_average_hold_hours": 1.1,
         "validation_p90_hold_hours": 4,
-        "validation_longest_hold_hours": 28,
-        "validation_drawdown_pct": 1.9,
-        "forward_return_on_max_capital_pct": 44.47,
-        "historical_annualised_equivalent_pct": 43.9,
+        "validation_longest_hold_hours": 8,
+        "validation_drawdown_pct": 0.31,
+        "forward_return_on_max_capital_pct": 37.92,
+        "historical_annualised_equivalent_pct": 37.2,
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
+        "One or more deployment evidence gates are incomplete.",
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
         "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
@@ -776,15 +764,15 @@
         }
       },
       "kucoin_profitability": {
-        "validation_return_on_max_capital_pct": 168.34,
-        "validation_mark_to_market_pnl": 1536.1,
-        "validation_closed_deals": 632,
+        "validation_return_on_max_capital_pct": 168.44,
+        "validation_mark_to_market_pnl": 1536.98,
+        "validation_closed_deals": 633,
         "validation_average_hold_hours": 5.3,
         "validation_p90_hold_hours": 4,
         "validation_longest_hold_hours": 1712,
         "validation_drawdown_pct": 21.12,
-        "forward_return_on_max_capital_pct": 217.58,
-        "historical_annualised_equivalent_pct": 156.3,
+        "forward_return_on_max_capital_pct": 217.36,
+        "historical_annualised_equivalent_pct": 156.4,
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
@@ -969,7 +957,7 @@
   ],
   "summary": {
     "active": 1,
-    "ready_for_review": 4,
+    "ready_for_review": 3,
     "ready_to_deploy": 0,
     "recommended_now": 0
   },

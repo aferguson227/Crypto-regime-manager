@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0",
   "application_version": "64.0.0",
-  "generated_at": "2026-08-10T12:43:55.559005+00:00",
+  "generated_at": "2026-08-10T13:54:13.648902+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
   "summary": {
     "historical_symbols": 16,
-    "historical_ready": 14,
-    "history_progress_pct": 87.5,
+    "historical_ready": 15,
+    "history_progress_pct": 93.8,
     "kucoin_walk_forward_ready": 3,
     "candidates_under_review": 20,
     "regime_research_complete": 0,
@@ -35,7 +35,7 @@
     "reject_open_duration_hours": 720,
     "explanation": "Optimise profit and capital fluidity together. Long closed trades are penalised; unresolved positions receive a stronger penalty and may reject a configuration."
   },
-  "last_full_research_at": "2026-08-10T10:21:00.807755+00:00",
+  "last_full_research_at": "2026-08-10T12:59:57.192565+00:00",
   "independent_walk_forward": {
     "status": "NOT_CONFIGURED",
     "training_dir": "C:\\Crypto\\Research\\Kraken\\training",
@@ -51,82 +51,17 @@
   "data_acquisition": {
     "status": "ACTIVE",
     "mode": "bounded_incremental_acquisition",
-    "progress_pct": 87.5,
+    "progress_pct": 93.8,
     "inventory": [
       {
-        "symbol": "AAVE-USDT",
+        "symbol": "XMR-USDT",
         "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AAVE-USDT_4H.csv",
-        "bars": 12700,
-        "new_bars": 0,
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-USDT_4H.csv",
+        "bars": 11784,
+        "new_bars": 1,
         "pages_requested": 2,
-        "earliest": "2020-10-22T08:00:00+00:00",
-        "latest": "2026-08-10T04:00:00+00:00",
-        "backfill_complete": true,
-        "errors": [],
-        "status": "OK"
-      },
-      {
-        "symbol": "AVAX-USDT",
-        "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AVAX-USDT_4H.csv",
-        "bars": 11897,
-        "new_bars": 0,
-        "pages_requested": 2,
-        "earliest": "2021-03-05T08:00:00+00:00",
-        "latest": "2026-08-10T04:00:00+00:00",
-        "backfill_complete": true,
-        "errors": [],
-        "status": "OK"
-      },
-      {
-        "symbol": "DOT-USDT",
-        "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\DOT-USDT_4H.csv",
-        "bars": 13059,
-        "new_bars": 0,
-        "pages_requested": 0,
-        "earliest": "2020-08-21T16:00:00+00:00",
-        "latest": "2026-08-08T08:00:00+00:00",
-        "backfill_complete": false,
-        "errors": [],
-        "status": "CACHED"
-      },
-      {
-        "symbol": "ETH-USDT",
-        "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ETH-USDT_4H.csv",
-        "bars": 13491,
-        "new_bars": 0,
-        "pages_requested": 0,
-        "earliest": "2020-06-10T12:00:00+00:00",
-        "latest": "2026-08-08T04:00:00+00:00",
-        "backfill_complete": false,
-        "errors": [],
-        "status": "CACHED"
-      },
-      {
-        "symbol": "NEAR-USDT",
-        "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
-        "bars": 11141,
-        "new_bars": 0,
-        "pages_requested": 2,
-        "earliest": "2021-07-09T08:00:00+00:00",
-        "latest": "2026-08-10T04:00:00+00:00",
-        "backfill_complete": true,
-        "errors": [],
-        "status": "OK"
-      },
-      {
-        "symbol": "SOL-USDT",
-        "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\SOL-USDT_4H.csv",
-        "bars": 10985,
-        "new_bars": 0,
-        "pages_requested": 2,
-        "earliest": "2021-08-04T08:00:00+00:00",
-        "latest": "2026-08-10T04:00:00+00:00",
+        "earliest": "2021-03-24T08:00:00+00:00",
+        "latest": "2026-08-10T08:00:00+00:00",
         "backfill_complete": true,
         "errors": [],
         "status": "OK"
@@ -137,48 +72,9 @@
         "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\UNI-USDT_4H.csv",
         "bars": 12910,
         "new_bars": 0,
-        "pages_requested": 2,
+        "pages_requested": 0,
         "earliest": "2020-09-17T08:00:00+00:00",
         "latest": "2026-08-10T04:00:00+00:00",
-        "backfill_complete": true,
-        "errors": [],
-        "status": "OK"
-      },
-      {
-        "symbol": "XMR-USDT",
-        "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-USDT_4H.csv",
-        "bars": 11783,
-        "new_bars": 0,
-        "pages_requested": 2,
-        "earliest": "2021-03-24T08:00:00+00:00",
-        "latest": "2026-08-10T04:00:00+00:00",
-        "backfill_complete": true,
-        "errors": [],
-        "status": "OK"
-      },
-      {
-        "symbol": "XRP-USDT",
-        "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XRP-USDT_4H.csv",
-        "bars": 13491,
-        "new_bars": 0,
-        "pages_requested": 0,
-        "earliest": "2020-06-10T12:00:00+00:00",
-        "latest": "2026-08-08T04:00:00+00:00",
-        "backfill_complete": false,
-        "errors": [],
-        "status": "CACHED"
-      },
-      {
-        "symbol": "ZEC-USDT",
-        "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ZEC-USDT_4H.csv",
-        "bars": 13491,
-        "new_bars": 0,
-        "pages_requested": 0,
-        "earliest": "2020-06-10T12:00:00+00:00",
-        "latest": "2026-08-08T04:00:00+00:00",
         "backfill_complete": false,
         "errors": [],
         "status": "CACHED"
@@ -197,56 +93,134 @@
         "status": "CACHED"
       },
       {
-        "symbol": "TUT-USDT",
+        "symbol": "ETH-USDT",
         "quote": "USDT",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\TUT-USDT_4H.csv",
-        "bars": 3046,
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ETH-USDT_4H.csv",
+        "bars": 13491,
         "new_bars": 0,
         "pages_requested": 0,
-        "earliest": "2025-03-19T08:00:00+00:00",
-        "latest": "2026-08-09T04:00:00+00:00",
+        "earliest": "2020-06-10T12:00:00+00:00",
+        "latest": "2026-08-08T04:00:00+00:00",
         "backfill_complete": false,
         "errors": [],
         "status": "CACHED"
       },
       {
-        "symbol": "AAVE-BTC",
-        "quote": "BTC",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AAVE-BTC_4H.csv",
-        "bars": 12692,
+        "symbol": "XRP-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XRP-USDT_4H.csv",
+        "bars": 13491,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": "2020-06-10T12:00:00+00:00",
+        "latest": "2026-08-08T04:00:00+00:00",
+        "backfill_complete": false,
+        "errors": [],
+        "status": "CACHED"
+      },
+      {
+        "symbol": "SOL-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\SOL-USDT_4H.csv",
+        "bars": 10986,
+        "new_bars": 1,
+        "pages_requested": 2,
+        "earliest": "2021-08-04T08:00:00+00:00",
+        "latest": "2026-08-10T08:00:00+00:00",
+        "backfill_complete": true,
+        "errors": [],
+        "status": "OK"
+      },
+      {
+        "symbol": "AAVE-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AAVE-USDT_4H.csv",
+        "bars": 12700,
         "new_bars": 0,
         "pages_requested": 0,
         "earliest": "2020-10-22T08:00:00+00:00",
-        "latest": "2026-08-08T20:00:00+00:00",
+        "latest": "2026-08-10T04:00:00+00:00",
         "backfill_complete": false,
         "errors": [],
         "status": "CACHED"
       },
       {
-        "symbol": "AVAX-BTC",
-        "quote": "BTC",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AVAX-BTC_4H.csv",
-        "bars": 0,
+        "symbol": "ZEC-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ZEC-USDT_4H.csv",
+        "bars": 13491,
         "new_bars": 0,
         "pages_requested": 0,
-        "earliest": null,
-        "latest": null,
+        "earliest": "2020-06-10T12:00:00+00:00",
+        "latest": "2026-08-08T04:00:00+00:00",
         "backfill_complete": false,
         "errors": [],
-        "status": "QUEUED"
+        "status": "CACHED"
       },
       {
-        "symbol": "DOT-BTC",
-        "quote": "BTC",
-        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\DOT-BTC_4H.csv",
-        "bars": 0,
+        "symbol": "NEAR-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
+        "bars": 11142,
+        "new_bars": 1,
+        "pages_requested": 2,
+        "earliest": "2021-07-09T08:00:00+00:00",
+        "latest": "2026-08-10T08:00:00+00:00",
+        "backfill_complete": true,
+        "errors": [],
+        "status": "OK"
+      },
+      {
+        "symbol": "TUT-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\TUT-USDT_4H.csv",
+        "bars": 3053,
+        "new_bars": 7,
+        "pages_requested": 2,
+        "earliest": "2025-03-19T08:00:00+00:00",
+        "latest": "2026-08-10T08:00:00+00:00",
+        "backfill_complete": true,
+        "errors": [],
+        "status": "OK"
+      },
+      {
+        "symbol": "DOT-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\DOT-USDT_4H.csv",
+        "bars": 13059,
         "new_bars": 0,
         "pages_requested": 0,
-        "earliest": null,
-        "latest": null,
+        "earliest": "2020-08-21T16:00:00+00:00",
+        "latest": "2026-08-08T08:00:00+00:00",
         "backfill_complete": false,
         "errors": [],
-        "status": "QUEUED"
+        "status": "CACHED"
+      },
+      {
+        "symbol": "PIEVERSE-USDT",
+        "quote": "USDT",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\PIEVERSE-USDT_4H.csv",
+        "bars": 481,
+        "new_bars": 7,
+        "pages_requested": 2,
+        "earliest": "2026-05-22T08:00:00+00:00",
+        "latest": "2026-08-10T08:00:00+00:00",
+        "backfill_complete": true,
+        "errors": [],
+        "status": "OK"
+      },
+      {
+        "symbol": "XMR-BTC",
+        "quote": "BTC",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XMR-BTC_4H.csv",
+        "bars": 13492,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": "2020-06-10T12:00:00+00:00",
+        "latest": "2026-08-08T08:00:00+00:00",
+        "backfill_complete": false,
+        "errors": [],
+        "status": "CACHED"
       },
       {
         "symbol": "ETH-BTC",
@@ -260,13 +234,39 @@
         "backfill_complete": false,
         "errors": [],
         "status": "CACHED"
+      },
+      {
+        "symbol": "XRP-BTC",
+        "quote": "BTC",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\XRP-BTC_4H.csv",
+        "bars": 13492,
+        "new_bars": 0,
+        "pages_requested": 0,
+        "earliest": "2020-06-10T12:00:00+00:00",
+        "latest": "2026-08-08T08:00:00+00:00",
+        "backfill_complete": false,
+        "errors": [],
+        "status": "CACHED"
+      },
+      {
+        "symbol": "AAVE-BTC",
+        "quote": "BTC",
+        "file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\AAVE-BTC_4H.csv",
+        "bars": 12701,
+        "new_bars": 9,
+        "pages_requested": 2,
+        "earliest": "2020-10-22T08:00:00+00:00",
+        "latest": "2026-08-10T08:00:00+00:00",
+        "backfill_complete": true,
+        "errors": [],
+        "status": "OK"
       }
     ]
   },
   "kucoin_walk_forward": {
     "assets": 12,
     "ready_for_manual_review": 3,
-    "backtests_run": 575680
+    "backtests_run": 619360
   },
   "process": [
     "Scan KuCoin USDT universe",
@@ -325,10 +325,10 @@
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     },
     {
-      "asset": "TUT",
-      "status": "WAIT",
+      "asset": "ZEC",
+      "status": "KUCOIN_WALK_FORWARD_COMPLETE",
       "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
+      "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
     },
     {
       "asset": "NEAR",
@@ -337,10 +337,10 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "ZEC",
-      "status": "KUCOIN_WALK_FORWARD_COMPLETE",
+      "asset": "TUT",
+      "status": "WAIT",
       "current_regime": "ACCUMULATION",
-      "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
+      "next_action": "Remain in research queue."
     },
     {
       "asset": "DOT",
@@ -355,13 +355,13 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "HYPE",
+      "asset": "LINK",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "LINK",
+      "asset": "HYPE",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -373,13 +373,13 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "AEON",
+      "asset": "SHIB",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "SHIB",
+      "asset": "AEON",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
@@ -397,11 +397,11 @@
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "SEI",
+      "asset": "LTC",
       "status": "WAIT",
       "current_regime": "ACCUMULATION",
       "next_action": "Remain in research queue."
     }
   ],
-  "snapshot_id": "05e5d0764ce398ac3fcb2784"
+  "snapshot_id": "684eb5ef99ee6dafb2063460"
 }

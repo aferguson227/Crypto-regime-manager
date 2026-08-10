@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:57:02.268891+00:00",
+  "application_version": "64.0.0",
+  "generated_at": "2026-08-10T13:37:50.274727+00:00",
   "mode": "training-only BO/SO sizing optimisation -> freeze -> unseen KuCoin validation",
   "assets": [
     {
@@ -96,22 +96,22 @@
         "rejected_for_open_duration": false
       },
       "unseen_validation_metrics": {
-        "net_pnl": 767.69,
-        "mark_to_market_pnl": 768.05,
-        "open_pnl": 0.36,
-        "closed_deals": 632,
+        "net_pnl": 768.49,
+        "mark_to_market_pnl": 768.49,
+        "open_pnl": 0.0,
+        "closed_deals": 633,
         "average_hours": 5.3,
-        "median_hours": 0.0,
+        "median_hours": 0,
         "p90_hours": 4,
         "longest_hours": 1712,
         "max_drawdown_dollars": -96.36,
         "max_capital": 456.25,
-        "open_position": true,
-        "open_duration_hours": 4,
+        "open_position": false,
+        "open_duration_hours": 0,
         "average_safety_orders": 1.39,
-        "return_on_max_capital_pct": 168.34,
+        "return_on_max_capital_pct": 168.44,
         "max_drawdown_pct": 21.12,
-        "score": 95.972
+        "score": 114.428
       },
       "unseen_validation_pass": false,
       "capital_required_usdt": 456.25,
@@ -126,7 +126,7 @@
         "take_profit_pct": 0.8,
         "so_deviation_pct": 0.8,
         "safety_orders": 4,
-        "volume_scale": 1.1,
+        "volume_scale": 1.3,
         "step_scale": 1.0
       },
       "entry_trigger": "immediate",
@@ -150,7 +150,7 @@
         "cooldown_seconds"
       ],
       "automatic_live_changes": false,
-      "optimisation_status": "COMPLETE",
+      "optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "progress_pct": 100,
       "tested_combinations": 9,
       "winning_strategy_settings": {
@@ -158,9 +158,9 @@
         "take_profit_pct": 0.8,
         "so_deviation_pct": 0.8,
         "safety_orders": 4,
-        "volume_scale": 1.1,
+        "volume_scale": 1.3,
         "step_scale": 1.0,
-        "base_order_volume": 50.0,
+        "base_order_volume": 100.0,
         "safety_order_volume": 50.0
       },
       "governed_execution_controls": {
@@ -186,49 +186,49 @@
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
       "training_winner": {
-        "base_order_volume": 50.0,
+        "base_order_volume": 100.0,
         "safety_order_volume": 50.0,
-        "training_score": 106.61,
-        "training_return_on_max_capital_pct": 125.57,
-        "training_drawdown_pct": 20.84,
+        "training_score": 109.426,
+        "training_return_on_max_capital_pct": 128.75,
+        "training_drawdown_pct": 20.85,
         "training_metrics": {
-          "net_pnl": 354.16,
-          "mark_to_market_pnl": 354.16,
+          "net_pnl": 527.05,
+          "mark_to_market_pnl": 527.05,
           "open_pnl": 0.0,
-          "closed_deals": 375,
-          "average_hours": 5.1,
-          "median_hours": 0,
+          "closed_deals": 366,
+          "average_hours": 5.6,
+          "median_hours": 0.0,
           "p90_hours": 12,
           "longest_hours": 400,
-          "max_drawdown_dollars": -58.78,
-          "max_capital": 282.05,
+          "max_drawdown_dollars": -85.36,
+          "max_capital": 409.35,
           "open_position": false,
           "open_duration_hours": 0,
-          "average_safety_orders": 1.27
+          "average_safety_orders": 1.28
         },
         "rejected_for_open_duration": false
       },
       "unseen_validation_metrics": {
-        "net_pnl": 145.97,
-        "mark_to_market_pnl": 145.97,
+        "net_pnl": 188.73,
+        "mark_to_market_pnl": 188.73,
         "open_pnl": 0.0,
-        "closed_deals": 153,
-        "average_hours": 1.3,
+        "closed_deals": 127,
+        "average_hours": 10.8,
         "median_hours": 0,
         "p90_hours": 4,
-        "longest_hours": 28,
-        "max_drawdown_dollars": -5.34,
-        "max_capital": 282.05,
+        "longest_hours": 1140,
+        "max_drawdown_dollars": -170.61,
+        "max_capital": 409.35,
         "open_position": false,
         "open_duration_hours": 0,
-        "average_safety_orders": 1.29,
-        "return_on_max_capital_pct": 51.75,
-        "max_drawdown_pct": 1.89,
-        "score": 54.789
+        "average_safety_orders": 1.37,
+        "return_on_max_capital_pct": 46.1,
+        "max_drawdown_pct": 41.68,
+        "score": -26.626
       },
-      "unseen_validation_pass": true,
-      "capital_required_usdt": 282.05,
-      "reason": "BO/SO sizing passed unseen KuCoin validation."
+      "unseen_validation_pass": false,
+      "capital_required_usdt": 409.35,
+      "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
     },
     {
       "asset": "BTC",
@@ -796,232 +796,6 @@
       "reason": "BO/SO sizing passed unseen KuCoin validation."
     },
     {
-      "asset": "TUT",
-      "pair": "TUT-USDT",
-      "current_regime": "BULL",
-      "source_walk_forward_status": "RESEARCH_PENDING",
-      "structural_settings": {
-        "take_profit_pct": 2.0,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.5,
-        "step_scale": 1.15
-      },
-      "entry_trigger": "immediate",
-      "optimisation_dimensions": [
-        "base_order_volume",
-        "safety_order_volume"
-      ],
-      "already_optimised_dimensions": [
-        "entry_trigger",
-        "take_profit_pct",
-        "so_deviation_pct",
-        "safety_orders",
-        "volume_scale",
-        "step_scale"
-      ],
-      "governed_not_optimised": [
-        "max_active_safety_orders",
-        "max_active_deals",
-        "order_type",
-        "trailing_enabled",
-        "cooldown_seconds"
-      ],
-      "automatic_live_changes": false,
-      "optimisation_status": "UNSEEN_VALIDATION_FAILED",
-      "progress_pct": 100,
-      "tested_combinations": 9,
-      "winning_strategy_settings": {
-        "entry_trigger": "immediate",
-        "take_profit_pct": 2.0,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.5,
-        "step_scale": 1.15,
-        "base_order_volume": 50.0,
-        "safety_order_volume": 50.0
-      },
-      "governed_execution_controls": {
-        "max_active_safety_orders": 3,
-        "max_active_deals": 1,
-        "order_type": "market base order / limit DCA orders",
-        "trailing_enabled": false,
-        "cooldown_seconds": 0
-      },
-      "setting_sources": {
-        "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
-      },
-      "training_winner": {
-        "base_order_volume": 50.0,
-        "safety_order_volume": 50.0,
-        "training_score": 398.933,
-        "training_return_on_max_capital_pct": 402.13,
-        "training_drawdown_pct": 10.24,
-        "training_metrics": {
-          "net_pnl": 1834.73,
-          "mark_to_market_pnl": 1834.73,
-          "open_pnl": 0.0,
-          "closed_deals": 348,
-          "average_hours": 6.3,
-          "median_hours": 0.0,
-          "p90_hours": 16,
-          "longest_hours": 180,
-          "max_drawdown_dollars": -46.74,
-          "max_capital": 456.25,
-          "open_position": false,
-          "open_duration_hours": 0,
-          "average_safety_orders": 2.44
-        },
-        "rejected_for_open_duration": false
-      },
-      "unseen_validation_metrics": {
-        "net_pnl": 251.47,
-        "mark_to_market_pnl": 251.47,
-        "open_pnl": 0.0,
-        "closed_deals": 54,
-        "average_hours": 17.9,
-        "median_hours": 0.0,
-        "p90_hours": 16,
-        "longest_hours": 652,
-        "max_drawdown_dollars": -96.65,
-        "max_capital": 456.25,
-        "open_position": false,
-        "open_duration_hours": 0,
-        "average_safety_orders": 2.11,
-        "return_on_max_capital_pct": 55.12,
-        "max_drawdown_pct": 21.18,
-        "score": 13.792
-      },
-      "unseen_validation_pass": false,
-      "capital_required_usdt": 456.25,
-      "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
-    },
-    {
-      "asset": "NEAR",
-      "pair": "NEAR-USDT",
-      "current_regime": "BEAR",
-      "source_walk_forward_status": "RESEARCH_PENDING",
-      "structural_settings": {
-        "take_profit_pct": 0.8,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.2,
-        "step_scale": 1.5
-      },
-      "entry_trigger": "immediate",
-      "optimisation_dimensions": [
-        "base_order_volume",
-        "safety_order_volume"
-      ],
-      "already_optimised_dimensions": [
-        "entry_trigger",
-        "take_profit_pct",
-        "so_deviation_pct",
-        "safety_orders",
-        "volume_scale",
-        "step_scale"
-      ],
-      "governed_not_optimised": [
-        "max_active_safety_orders",
-        "max_active_deals",
-        "order_type",
-        "trailing_enabled",
-        "cooldown_seconds"
-      ],
-      "automatic_live_changes": false,
-      "optimisation_status": "UNSEEN_VALIDATION_FAILED",
-      "progress_pct": 100,
-      "tested_combinations": 9,
-      "winning_strategy_settings": {
-        "entry_trigger": "immediate",
-        "take_profit_pct": 0.8,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.2,
-        "step_scale": 1.5,
-        "base_order_volume": 50.0,
-        "safety_order_volume": 50.0
-      },
-      "governed_execution_controls": {
-        "max_active_safety_orders": 3,
-        "max_active_deals": 1,
-        "order_type": "market base order / limit DCA orders",
-        "trailing_enabled": false,
-        "cooldown_seconds": 0
-      },
-      "setting_sources": {
-        "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
-      },
-      "training_winner": {
-        "base_order_volume": 50.0,
-        "safety_order_volume": 50.0,
-        "training_score": 711.118,
-        "training_return_on_max_capital_pct": 644.05,
-        "training_drawdown_pct": 13.66,
-        "training_metrics": {
-          "net_pnl": 2050.66,
-          "mark_to_market_pnl": 2050.66,
-          "open_pnl": 0.0,
-          "closed_deals": 2099,
-          "average_hours": 1.4,
-          "median_hours": 0,
-          "p90_hours": 4,
-          "longest_hours": 120,
-          "max_drawdown_dollars": -43.49,
-          "max_capital": 318.4,
-          "open_position": false,
-          "open_duration_hours": 0,
-          "average_safety_orders": 1.28
-        },
-        "rejected_for_open_duration": false
-      },
-      "unseen_validation_metrics": {
-        "net_pnl": 642.74,
-        "mark_to_market_pnl": 643.15,
-        "open_pnl": 0.4,
-        "closed_deals": 701,
-        "average_hours": 2.6,
-        "median_hours": 0,
-        "p90_hours": 4,
-        "longest_hours": 612,
-        "max_drawdown_dollars": -116.61,
-        "max_capital": 318.4,
-        "open_position": true,
-        "open_duration_hours": 0,
-        "average_safety_orders": 1.16,
-        "return_on_max_capital_pct": 201.99,
-        "max_drawdown_pct": 36.62,
-        "score": 157.253
-      },
-      "unseen_validation_pass": false,
-      "capital_required_usdt": 318.4,
-      "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
-    },
-    {
       "asset": "ZEC",
       "pair": "ZEC-USDT",
       "current_regime": "BULL",
@@ -1133,6 +907,232 @@
       "unseen_validation_pass": true,
       "capital_required_usdt": 359.35,
       "reason": "BO/SO sizing passed unseen KuCoin validation."
+    },
+    {
+      "asset": "NEAR",
+      "pair": "NEAR-USDT",
+      "current_regime": "BEAR",
+      "source_walk_forward_status": "RESEARCH_PENDING",
+      "structural_settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.2,
+        "step_scale": 1.5
+      },
+      "entry_trigger": "immediate",
+      "optimisation_dimensions": [
+        "base_order_volume",
+        "safety_order_volume"
+      ],
+      "already_optimised_dimensions": [
+        "entry_trigger",
+        "take_profit_pct",
+        "so_deviation_pct",
+        "safety_orders",
+        "volume_scale",
+        "step_scale"
+      ],
+      "governed_not_optimised": [
+        "max_active_safety_orders",
+        "max_active_deals",
+        "order_type",
+        "trailing_enabled",
+        "cooldown_seconds"
+      ],
+      "automatic_live_changes": false,
+      "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+      "progress_pct": 100,
+      "tested_combinations": 9,
+      "winning_strategy_settings": {
+        "entry_trigger": "immediate",
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.2,
+        "step_scale": 1.5,
+        "base_order_volume": 50.0,
+        "safety_order_volume": 50.0
+      },
+      "governed_execution_controls": {
+        "max_active_safety_orders": 3,
+        "max_active_deals": 1,
+        "order_type": "market base order / limit DCA orders",
+        "trailing_enabled": false,
+        "cooldown_seconds": 0
+      },
+      "setting_sources": {
+        "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+      },
+      "training_winner": {
+        "base_order_volume": 50.0,
+        "safety_order_volume": 50.0,
+        "training_score": 693.244,
+        "training_return_on_max_capital_pct": 644.18,
+        "training_drawdown_pct": 13.66,
+        "training_metrics": {
+          "net_pnl": 2050.66,
+          "mark_to_market_pnl": 2051.06,
+          "open_pnl": 0.4,
+          "closed_deals": 2099,
+          "average_hours": 1.4,
+          "median_hours": 0,
+          "p90_hours": 4,
+          "longest_hours": 120,
+          "max_drawdown_dollars": -43.49,
+          "max_capital": 318.4,
+          "open_position": true,
+          "open_duration_hours": 0,
+          "average_safety_orders": 1.28
+        },
+        "rejected_for_open_duration": false
+      },
+      "unseen_validation_metrics": {
+        "net_pnl": 643.86,
+        "mark_to_market_pnl": 643.86,
+        "open_pnl": 0.0,
+        "closed_deals": 704,
+        "average_hours": 2.6,
+        "median_hours": 0.0,
+        "p90_hours": 4,
+        "longest_hours": 612,
+        "max_drawdown_dollars": -116.61,
+        "max_capital": 318.4,
+        "open_position": false,
+        "open_duration_hours": 0,
+        "average_safety_orders": 1.16,
+        "return_on_max_capital_pct": 202.22,
+        "max_drawdown_pct": 36.62,
+        "score": 175.596
+      },
+      "unseen_validation_pass": false,
+      "capital_required_usdt": 318.4,
+      "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
+    },
+    {
+      "asset": "TUT",
+      "pair": "TUT-USDT",
+      "current_regime": "BULL",
+      "source_walk_forward_status": "RESEARCH_PENDING",
+      "structural_settings": {
+        "take_profit_pct": 2.0,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "entry_trigger": "immediate",
+      "optimisation_dimensions": [
+        "base_order_volume",
+        "safety_order_volume"
+      ],
+      "already_optimised_dimensions": [
+        "entry_trigger",
+        "take_profit_pct",
+        "so_deviation_pct",
+        "safety_orders",
+        "volume_scale",
+        "step_scale"
+      ],
+      "governed_not_optimised": [
+        "max_active_safety_orders",
+        "max_active_deals",
+        "order_type",
+        "trailing_enabled",
+        "cooldown_seconds"
+      ],
+      "automatic_live_changes": false,
+      "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+      "progress_pct": 100,
+      "tested_combinations": 9,
+      "winning_strategy_settings": {
+        "entry_trigger": "immediate",
+        "take_profit_pct": 2.0,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.7,
+        "step_scale": 1.0,
+        "base_order_volume": 150.0,
+        "safety_order_volume": 100.0
+      },
+      "governed_execution_controls": {
+        "max_active_safety_orders": 3,
+        "max_active_deals": 1,
+        "order_type": "market base order / limit DCA orders",
+        "trailing_enabled": false,
+        "cooldown_seconds": 0
+      },
+      "setting_sources": {
+        "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+      },
+      "training_winner": {
+        "base_order_volume": 150.0,
+        "safety_order_volume": 100.0,
+        "training_score": 435.033,
+        "training_return_on_max_capital_pct": 438.3,
+        "training_drawdown_pct": 10.55,
+        "training_metrics": {
+          "net_pnl": 5260.97,
+          "mark_to_market_pnl": 5260.97,
+          "open_pnl": 0.0,
+          "closed_deals": 353,
+          "average_hours": 6.4,
+          "median_hours": 0,
+          "p90_hours": 16,
+          "longest_hours": 180,
+          "max_drawdown_dollars": -126.59,
+          "max_capital": 1200.3,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 2.6
+        },
+        "rejected_for_open_duration": false
+      },
+      "unseen_validation_metrics": {
+        "net_pnl": 751.73,
+        "mark_to_market_pnl": 751.73,
+        "open_pnl": 0.0,
+        "closed_deals": 59,
+        "average_hours": 16.0,
+        "median_hours": 0,
+        "p90_hours": 16,
+        "longest_hours": 652,
+        "max_drawdown_dollars": -263.13,
+        "max_capital": 1200.3,
+        "open_position": false,
+        "open_duration_hours": 0,
+        "average_safety_orders": 2.2,
+        "return_on_max_capital_pct": 62.63,
+        "max_drawdown_pct": 21.92,
+        "score": 20.839
+      },
+      "unseen_validation_pass": false,
+      "capital_required_usdt": 1200.3,
+      "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
     },
     {
       "asset": "DOT",
@@ -1281,8 +1281,8 @@
   ],
   "summary": {
     "assets": 12,
-    "complete": 4,
-    "incomplete": 8,
+    "complete": 3,
+    "incomplete": 9,
     "backtests_run": 99
   },
   "truthfulness_policy": "Only replay-tested/frozen/validated strategy settings are called optimised. Execution-only controls are labelled governed and not optimised.",

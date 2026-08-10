@@ -1,31 +1,9 @@
 {
   "schema_version": "1.0",
   "application_version": "64.0.0",
-  "generated_at": "2026-08-10T12:34:24.513465+00:00",
+  "generated_at": "2026-08-10T13:53:59.583925+00:00",
   "mode": "SHADOW_ONLY",
-  "plans": [
-    {
-      "asset": "UNI",
-      "pair": "UNI-USDT",
-      "current_regime": "ACCUMULATION",
-      "entry_trigger": "immediate",
-      "settings": {
-        "take_profit_pct": 0.8,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.1,
-        "step_scale": 1.0
-      },
-      "allocated_budget_usdt": 0.0,
-      "hypothetical_order_ladder": [],
-      "checks": [
-        "candidate readiness = 100%",
-        "portfolio slot/allocation available",
-        "manual confirmation required"
-      ],
-      "status": "SHADOW_READY"
-    }
-  ],
+  "plans": [],
   "live_order_endpoints_called": false,
   "automatic_execution": false,
   "purpose": "Compare CRM intended DCA/order behaviour with 3Commas before enabling any future direct execution."

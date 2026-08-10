@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "64.0.0",
-  "generated_at": "2026-08-10T12:43:33.505496+00:00",
+  "generated_at": "2026-08-10T13:53:51.617299+00:00",
   "candidates": [
     {
       "asset": "XMR",
@@ -10,11 +10,11 @@
         "asset": "XMR",
         "pair": "XMR-USDT",
         "evidence_grade": "HIGH_CONFIDENCE",
-        "bars_4h": 11783,
-        "history_days": 1964.8,
-        "history_start": "2021-03-24T08:00:00+00:00",
-        "history_end": "2026-08-10T04:00:00+00:00",
-        "history_years": 5.38,
+        "bars_4h": 13492,
+        "history_days": 2249.8,
+        "history_start": "2020-06-10T12:00:00+00:00",
+        "history_end": "2026-08-08T08:00:00+00:00",
+        "history_years": 6.16,
         "regime_profiles_observed": [],
         "regime_profile_count": 0,
         "kucoin_walk_forward_pass": false,
@@ -31,13 +31,13 @@
           "id": "evidence_grade",
           "label": "Evidence grade",
           "state": "PASS",
-          "detail": "HIGH_CONFIDENCE \u00b7 5.38 years \u00b7 11783 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
+          "detail": "HIGH_CONFIDENCE \u00b7 6.16 years \u00b7 13492 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
         },
         {
           "id": "history_complete",
           "label": "Historical data",
           "state": "PASS",
-          "detail": "11783 4h bars available."
+          "detail": "13492 4h bars available."
         },
         {
           "id": "kucoin_walk_forward",
@@ -49,7 +49,7 @@
           "id": "trade_fluidity",
           "label": "Trade fluidity",
           "state": "PENDING",
-          "detail": "Longest validation trade 1712h; open position True."
+          "detail": "Longest validation trade 1712h; open position False."
         },
         {
           "id": "current_regime_fit",
@@ -88,53 +88,53 @@
       },
       "entry_trigger": "immediate",
       "kucoin_profitability": {
-        "validation_return_on_max_capital_pct": 168.34,
-        "validation_mark_to_market_pnl": 1536.1,
-        "validation_closed_deals": 632,
+        "validation_return_on_max_capital_pct": 168.44,
+        "validation_mark_to_market_pnl": 1536.98,
+        "validation_closed_deals": 633,
         "validation_average_hold_hours": 5.3,
         "validation_p90_hold_hours": 4,
         "validation_longest_hold_hours": 1712,
         "validation_drawdown_pct": 21.12,
-        "forward_return_on_max_capital_pct": 217.58,
-        "historical_annualised_equivalent_pct": 156.3,
+        "forward_return_on_max_capital_pct": 217.36,
+        "historical_annualised_equivalent_pct": 156.4,
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "validation_metrics": {
-        "net_pnl": 1535.38,
-        "mark_to_market_pnl": 1536.1,
-        "open_pnl": 0.72,
-        "closed_deals": 632,
+        "net_pnl": 1536.98,
+        "mark_to_market_pnl": 1536.98,
+        "open_pnl": 0.0,
+        "closed_deals": 633,
         "average_hours": 5.3,
-        "median_hours": 0.0,
+        "median_hours": 0,
         "p90_hours": 4,
         "longest_hours": 1712,
         "max_drawdown_dollars": -192.72,
         "max_capital": 912.5,
-        "open_position": true,
-        "open_duration_hours": 4,
+        "open_position": false,
+        "open_duration_hours": 0,
         "average_safety_orders": 1.39,
-        "return_on_max_capital_pct": 168.34,
+        "return_on_max_capital_pct": 168.44,
         "max_drawdown_pct": 21.12,
-        "score": 95.972,
+        "score": 114.428,
         "rejected_for_open_duration": false
       },
       "forward_observation": {
-        "net_pnl": 1985.42,
-        "mark_to_market_pnl": 1985.42,
-        "open_pnl": 0.0,
-        "closed_deals": 772,
+        "net_pnl": 1982.62,
+        "mark_to_market_pnl": 1983.43,
+        "open_pnl": 0.81,
+        "closed_deals": 771,
         "average_hours": 1.5,
-        "median_hours": 0.0,
+        "median_hours": 0,
         "p90_hours": 4,
         "longest_hours": 96,
         "max_drawdown_dollars": -46.28,
         "max_capital": 912.5,
-        "open_position": false,
+        "open_position": true,
         "open_duration_hours": 0,
         "average_safety_orders": 1.48,
-        "return_on_max_capital_pct": 217.58,
+        "return_on_max_capital_pct": 217.36,
         "max_drawdown_pct": 5.07,
-        "score": 240.136,
+        "score": 221.878,
         "rejected_for_open_duration": false
       },
       "forward_observation_days": 393.2,
@@ -168,7 +168,7 @@
         ],
         "remaining_stages": 2,
         "estimated_remaining_cycles": 2,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": 3271.2
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -288,22 +288,22 @@
           "rejected_for_open_duration": false
         },
         "unseen_validation_metrics": {
-          "net_pnl": 767.69,
-          "mark_to_market_pnl": 768.05,
-          "open_pnl": 0.36,
-          "closed_deals": 632,
+          "net_pnl": 768.49,
+          "mark_to_market_pnl": 768.49,
+          "open_pnl": 0.0,
+          "closed_deals": 633,
           "average_hours": 5.3,
-          "median_hours": 0.0,
+          "median_hours": 0,
           "p90_hours": 4,
           "longest_hours": 1712,
           "max_drawdown_dollars": -96.36,
           "max_capital": 456.25,
-          "open_position": true,
-          "open_duration_hours": 4,
+          "open_position": false,
+          "open_duration_hours": 0,
           "average_safety_orders": 1.39,
-          "return_on_max_capital_pct": 168.34,
+          "return_on_max_capital_pct": 168.44,
           "max_drawdown_pct": 21.12,
-          "score": 95.972
+          "score": 114.428
         },
         "unseen_validation_pass": false,
         "capital_required_usdt": 456.25,
@@ -364,41 +364,41 @@
             "step_scale": 1.0
           },
           "validation_metrics": {
-            "net_pnl": 1535.38,
-            "mark_to_market_pnl": 1536.1,
-            "open_pnl": 0.72,
-            "closed_deals": 632,
+            "net_pnl": 1536.98,
+            "mark_to_market_pnl": 1536.98,
+            "open_pnl": 0.0,
+            "closed_deals": 633,
             "average_hours": 5.3,
-            "median_hours": 0.0,
+            "median_hours": 0,
             "p90_hours": 4,
             "longest_hours": 1712,
             "max_drawdown_dollars": -192.72,
             "max_capital": 912.5,
-            "open_position": true,
-            "open_duration_hours": 4,
+            "open_position": false,
+            "open_duration_hours": 0,
             "average_safety_orders": 1.39,
-            "return_on_max_capital_pct": 168.34,
+            "return_on_max_capital_pct": 168.44,
             "max_drawdown_pct": 21.12,
-            "score": 95.972,
+            "score": 114.428,
             "rejected_for_open_duration": false
           },
           "forward_observation": {
-            "net_pnl": 1985.42,
-            "mark_to_market_pnl": 1985.42,
-            "open_pnl": 0.0,
-            "closed_deals": 772,
+            "net_pnl": 1982.62,
+            "mark_to_market_pnl": 1983.43,
+            "open_pnl": 0.81,
+            "closed_deals": 771,
             "average_hours": 1.5,
-            "median_hours": 0.0,
+            "median_hours": 0,
             "p90_hours": 4,
             "longest_hours": 96,
             "max_drawdown_dollars": -46.28,
             "max_capital": 912.5,
-            "open_position": false,
+            "open_position": true,
             "open_duration_hours": 0,
             "average_safety_orders": 1.48,
-            "return_on_max_capital_pct": 217.58,
+            "return_on_max_capital_pct": 217.36,
             "max_drawdown_pct": 5.07,
-            "score": 240.136,
+            "score": 221.878,
             "rejected_for_open_duration": false
           }
         },
@@ -413,12 +413,12 @@
             "step_scale": 1.0
           },
           "validation_metrics": {
-            "net_pnl": 490.48,
-            "mark_to_market_pnl": 490.48,
+            "net_pnl": 489.68,
+            "mark_to_market_pnl": 489.68,
             "open_pnl": 0.0,
-            "closed_deals": 269,
+            "closed_deals": 268,
             "average_hours": 2.2,
-            "median_hours": 0,
+            "median_hours": 0.0,
             "p90_hours": 8,
             "longest_hours": 56,
             "max_drawdown_dollars": -16.9,
@@ -426,9 +426,9 @@
             "open_position": false,
             "open_duration_hours": 0,
             "average_safety_orders": 1.14,
-            "return_on_max_capital_pct": 77.02,
+            "return_on_max_capital_pct": 76.9,
             "max_drawdown_pct": 2.65,
-            "score": 82.634,
+            "score": 82.468,
             "rejected_for_open_duration": false
           },
           "forward_observation": {
@@ -463,8 +463,8 @@
           },
           "validation_metrics": {
             "net_pnl": 671.36,
-            "mark_to_market_pnl": 597.1,
-            "open_pnl": -74.26,
+            "mark_to_market_pnl": 608.35,
+            "open_pnl": -63.01,
             "closed_deals": 94,
             "average_hours": 30.8,
             "median_hours": 0.0,
@@ -473,11 +473,11 @@
             "max_drawdown_dollars": -140.46,
             "max_capital": 636.8,
             "open_position": true,
-            "open_duration_hours": 1112,
+            "open_duration_hours": 1116,
             "average_safety_orders": 2.07,
-            "return_on_max_capital_pct": 93.77,
+            "return_on_max_capital_pct": 95.53,
             "max_drawdown_pct": 22.06,
-            "score": -89.546,
+            "score": -88.099,
             "rejected_for_open_duration": true
           },
           "forward_observation": {
@@ -575,7 +575,7 @@
         "reason": "History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold.",
         "current_global_regime": "ACCUMULATION"
       },
-      "readiness_pct": 100.0,
+      "readiness_pct": 75.0,
       "gates": [
         {
           "id": "evidence_grade",
@@ -599,7 +599,7 @@
           "id": "trade_fluidity",
           "label": "Trade fluidity",
           "state": "PASS",
-          "detail": "Longest validation trade 28h; open position False."
+          "detail": "Longest validation trade 8h; open position False."
         },
         {
           "id": "current_regime_fit",
@@ -610,8 +610,8 @@
         {
           "id": "dca_optimisation",
           "label": "DCA settings optimisation",
-          "state": "PASS",
-          "detail": "Strategy settings are optimised on training data and frozen through unseen KuCoin validation."
+          "state": "PENDING",
+          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
         },
         {
           "id": "continuation_resolution",
@@ -622,69 +622,69 @@
         {
           "id": "capital_allocation",
           "label": "Capital allocation",
-          "state": "PASS",
-          "detail": "Selected within available portfolio slot using return, drawdown, capital-lock and diversification penalties."
+          "state": "PENDING",
+          "detail": "Awaiting canonical deployable-capital calculation."
         }
       ],
-      "recommendation": "READY_FOR_MANUAL_REVIEW",
-      "next_action": "Review the evidence/settings package and choose Prepare deployment, Continue monitoring or Remove.",
+      "recommendation": "CONTINUE_RESEARCH",
+      "next_action": "Continue monitoring until outstanding automatic evidence gates pass.",
       "current_regime": "ACCUMULATION",
       "settings": {
         "take_profit_pct": 0.8,
         "so_deviation_pct": 0.8,
         "safety_orders": 4,
-        "volume_scale": 1.1,
+        "volume_scale": 1.3,
         "step_scale": 1.0
       },
       "entry_trigger": "immediate",
       "kucoin_profitability": {
-        "validation_return_on_max_capital_pct": 51.75,
-        "validation_mark_to_market_pnl": 291.93,
-        "validation_closed_deals": 153,
-        "validation_average_hold_hours": 1.3,
+        "validation_return_on_max_capital_pct": 43.89,
+        "validation_mark_to_market_pnl": 315.46,
+        "validation_closed_deals": 154,
+        "validation_average_hold_hours": 1.1,
         "validation_p90_hold_hours": 4,
-        "validation_longest_hold_hours": 28,
-        "validation_drawdown_pct": 1.9,
-        "forward_return_on_max_capital_pct": 44.47,
-        "historical_annualised_equivalent_pct": 43.9,
+        "validation_longest_hold_hours": 8,
+        "validation_drawdown_pct": 0.31,
+        "forward_return_on_max_capital_pct": 37.92,
+        "historical_annualised_equivalent_pct": 37.2,
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "validation_metrics": {
-        "net_pnl": 291.93,
-        "mark_to_market_pnl": 291.93,
+        "net_pnl": 315.46,
+        "mark_to_market_pnl": 315.46,
         "open_pnl": 0.0,
-        "closed_deals": 153,
-        "average_hours": 1.3,
-        "median_hours": 0,
+        "closed_deals": 154,
+        "average_hours": 1.1,
+        "median_hours": 0.0,
         "p90_hours": 4,
-        "longest_hours": 28,
-        "max_drawdown_dollars": -10.69,
-        "max_capital": 564.1,
+        "longest_hours": 8,
+        "max_drawdown_dollars": -2.2,
+        "max_capital": 718.7,
         "open_position": false,
         "open_duration_hours": 0,
-        "average_safety_orders": 1.29,
-        "return_on_max_capital_pct": 51.75,
-        "max_drawdown_pct": 1.9,
-        "score": 54.786,
+        "average_safety_orders": 1.27,
+        "return_on_max_capital_pct": 43.89,
+        "max_drawdown_pct": 0.31,
+        "score": 49.098,
         "rejected_for_open_duration": false
       },
       "forward_observation": {
-        "net_pnl": 250.88,
-        "mark_to_market_pnl": 250.88,
+        "net_pnl": 272.51,
+        "mark_to_market_pnl": 272.51,
         "open_pnl": 0.0,
         "closed_deals": 134,
         "average_hours": 9.6,
         "median_hours": 0.0,
         "p90_hours": 4,
         "longest_hours": 1052,
-        "max_drawdown_dollars": -97.96,
-        "max_capital": 564.1,
+        "max_drawdown_dollars": -123.27,
+        "max_capital": 718.7,
         "open_position": false,
         "open_duration_hours": 0,
         "average_safety_orders": 1.25,
-        "return_on_max_capital_pct": 44.47,
-        "max_drawdown_pct": 17.37,
-        "score": -3.015,
+        "return_on_max_capital_pct": 37.92,
+        "max_drawdown_pct": 17.15,
+        "score": -9.38,
         "rejected_for_open_duration": false
       },
       "forward_observation_days": 430.5,
@@ -718,10 +718,10 @@
         ],
         "remaining_stages": 0,
         "estimated_remaining_cycles": 0,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": 3271.2
       },
-      "suggested_allocation_usdt": 0.0,
-      "allocation_reason": "Selected within available portfolio slot using return, drawdown, capital-lock and diversification penalties.",
+      "suggested_allocation_usdt": null,
+      "allocation_reason": null,
       "validation_cutoff": {
         "state": "OPEN",
         "post_validation_resolution": "PENDING_CONTINUATION_DATA",
@@ -755,7 +755,7 @@
           "take_profit_pct": 0.8,
           "so_deviation_pct": 0.8,
           "safety_orders": 4,
-          "volume_scale": 1.1,
+          "volume_scale": 1.3,
           "step_scale": 1.0
         },
         "entry_trigger": "immediate",
@@ -779,7 +779,7 @@
           "cooldown_seconds"
         ],
         "automatic_live_changes": false,
-        "optimisation_status": "COMPLETE",
+        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
         "progress_pct": 100,
         "tested_combinations": 9,
         "winning_strategy_settings": {
@@ -787,9 +787,9 @@
           "take_profit_pct": 0.8,
           "so_deviation_pct": 0.8,
           "safety_orders": 4,
-          "volume_scale": 1.1,
+          "volume_scale": 1.3,
           "step_scale": 1.0,
-          "base_order_volume": 50.0,
+          "base_order_volume": 100.0,
           "safety_order_volume": 50.0
         },
         "governed_execution_controls": {
@@ -815,49 +815,49 @@
           "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
         },
         "training_winner": {
-          "base_order_volume": 50.0,
+          "base_order_volume": 100.0,
           "safety_order_volume": 50.0,
-          "training_score": 106.61,
-          "training_return_on_max_capital_pct": 125.57,
-          "training_drawdown_pct": 20.84,
+          "training_score": 109.426,
+          "training_return_on_max_capital_pct": 128.75,
+          "training_drawdown_pct": 20.85,
           "training_metrics": {
-            "net_pnl": 354.16,
-            "mark_to_market_pnl": 354.16,
+            "net_pnl": 527.05,
+            "mark_to_market_pnl": 527.05,
             "open_pnl": 0.0,
-            "closed_deals": 375,
-            "average_hours": 5.1,
-            "median_hours": 0,
+            "closed_deals": 366,
+            "average_hours": 5.6,
+            "median_hours": 0.0,
             "p90_hours": 12,
             "longest_hours": 400,
-            "max_drawdown_dollars": -58.78,
-            "max_capital": 282.05,
+            "max_drawdown_dollars": -85.36,
+            "max_capital": 409.35,
             "open_position": false,
             "open_duration_hours": 0,
-            "average_safety_orders": 1.27
+            "average_safety_orders": 1.28
           },
           "rejected_for_open_duration": false
         },
         "unseen_validation_metrics": {
-          "net_pnl": 145.97,
-          "mark_to_market_pnl": 145.97,
+          "net_pnl": 188.73,
+          "mark_to_market_pnl": 188.73,
           "open_pnl": 0.0,
-          "closed_deals": 153,
-          "average_hours": 1.3,
+          "closed_deals": 127,
+          "average_hours": 10.8,
           "median_hours": 0,
           "p90_hours": 4,
-          "longest_hours": 28,
-          "max_drawdown_dollars": -5.34,
-          "max_capital": 282.05,
+          "longest_hours": 1140,
+          "max_drawdown_dollars": -170.61,
+          "max_capital": 409.35,
           "open_position": false,
           "open_duration_hours": 0,
-          "average_safety_orders": 1.29,
-          "return_on_max_capital_pct": 51.75,
-          "max_drawdown_pct": 1.89,
-          "score": 54.789
+          "average_safety_orders": 1.37,
+          "return_on_max_capital_pct": 46.1,
+          "max_drawdown_pct": 41.68,
+          "score": -26.626
         },
-        "unseen_validation_pass": true,
-        "capital_required_usdt": 282.05,
-        "reason": "BO/SO sizing passed unseen KuCoin validation."
+        "unseen_validation_pass": false,
+        "capital_required_usdt": 409.35,
+        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
       },
       "adaptive_research": null,
       "regime_profiles": {
@@ -917,45 +917,45 @@
             "take_profit_pct": 0.8,
             "so_deviation_pct": 0.8,
             "safety_orders": 4,
-            "volume_scale": 1.1,
+            "volume_scale": 1.3,
             "step_scale": 1.0
           },
           "validation_metrics": {
-            "net_pnl": 291.93,
-            "mark_to_market_pnl": 291.93,
+            "net_pnl": 315.46,
+            "mark_to_market_pnl": 315.46,
             "open_pnl": 0.0,
-            "closed_deals": 153,
-            "average_hours": 1.3,
-            "median_hours": 0,
+            "closed_deals": 154,
+            "average_hours": 1.1,
+            "median_hours": 0.0,
             "p90_hours": 4,
-            "longest_hours": 28,
-            "max_drawdown_dollars": -10.69,
-            "max_capital": 564.1,
+            "longest_hours": 8,
+            "max_drawdown_dollars": -2.2,
+            "max_capital": 718.7,
             "open_position": false,
             "open_duration_hours": 0,
-            "average_safety_orders": 1.29,
-            "return_on_max_capital_pct": 51.75,
-            "max_drawdown_pct": 1.9,
-            "score": 54.786,
+            "average_safety_orders": 1.27,
+            "return_on_max_capital_pct": 43.89,
+            "max_drawdown_pct": 0.31,
+            "score": 49.098,
             "rejected_for_open_duration": false
           },
           "forward_observation": {
-            "net_pnl": 250.88,
-            "mark_to_market_pnl": 250.88,
+            "net_pnl": 272.51,
+            "mark_to_market_pnl": 272.51,
             "open_pnl": 0.0,
             "closed_deals": 134,
             "average_hours": 9.6,
             "median_hours": 0.0,
             "p90_hours": 4,
             "longest_hours": 1052,
-            "max_drawdown_dollars": -97.96,
-            "max_capital": 564.1,
+            "max_drawdown_dollars": -123.27,
+            "max_capital": 718.7,
             "open_position": false,
             "open_duration_hours": 0,
             "average_safety_orders": 1.25,
-            "return_on_max_capital_pct": 44.47,
-            "max_drawdown_pct": 17.37,
-            "score": -3.015,
+            "return_on_max_capital_pct": 37.92,
+            "max_drawdown_pct": 17.15,
+            "score": -9.38,
             "rejected_for_open_duration": false
           }
         },
@@ -1015,50 +1015,50 @@
             "take_profit_pct": 1.5,
             "so_deviation_pct": 0.8,
             "safety_orders": 4,
-            "volume_scale": 1.2,
+            "volume_scale": 1.5,
             "step_scale": 1.0
           },
           "validation_metrics": {
-            "net_pnl": 922.33,
-            "mark_to_market_pnl": 583.78,
-            "open_pnl": -338.55,
-            "closed_deals": 188,
-            "average_hours": 5.8,
+            "net_pnl": 1246.02,
+            "mark_to_market_pnl": 762.13,
+            "open_pnl": -483.89,
+            "closed_deals": 200,
+            "average_hours": 4.5,
             "median_hours": 0.0,
-            "p90_hours": 12,
-            "longest_hours": 424,
-            "max_drawdown_dollars": -409.5,
-            "max_capital": 636.8,
+            "p90_hours": 8,
+            "longest_hours": 308,
+            "max_drawdown_dollars": -588.48,
+            "max_capital": 912.5,
             "open_position": true,
             "open_duration_hours": 3216,
-            "average_safety_orders": 1.85,
-            "return_on_max_capital_pct": 91.67,
-            "max_drawdown_pct": 64.31,
-            "score": -250.001,
+            "average_safety_orders": 1.88,
+            "return_on_max_capital_pct": 83.52,
+            "max_drawdown_pct": 64.49,
+            "score": -253.381,
             "rejected_for_open_duration": true
           },
           "forward_observation": {
-            "net_pnl": 1020.29,
-            "mark_to_market_pnl": 1020.29,
+            "net_pnl": 1428.07,
+            "mark_to_market_pnl": 1428.07,
             "open_pnl": 0.0,
-            "closed_deals": 225,
-            "average_hours": 10.2,
+            "closed_deals": 265,
+            "average_hours": 5.8,
             "median_hours": 0,
             "p90_hours": 12,
-            "longest_hours": 872,
-            "max_drawdown_dollars": -170.49,
-            "max_capital": 636.8,
+            "longest_hours": 280,
+            "max_drawdown_dollars": -242.03,
+            "max_capital": 912.5,
             "open_position": false,
             "open_duration_hours": 0,
-            "average_safety_orders": 1.65,
-            "return_on_max_capital_pct": 160.22,
-            "max_drawdown_pct": 26.77,
-            "score": 113.406,
+            "average_safety_orders": 1.58,
+            "return_on_max_capital_pct": 156.5,
+            "max_drawdown_pct": 26.52,
+            "score": 132.229,
             "rejected_for_open_duration": false
           }
         }
       },
-      "deployment_preparation_available": true,
+      "deployment_preparation_available": false,
       "automatic_deployment": false
     },
     {
@@ -1226,7 +1226,7 @@
         ],
         "remaining_stages": 2,
         "estimated_remaining_cycles": 2,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": 3271.2
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -1757,7 +1757,7 @@
         ],
         "remaining_stages": 2,
         "estimated_remaining_cycles": 2,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": 3271.2
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -2149,10 +2149,10 @@
         "asset": "XRP",
         "pair": "XRP-USDT",
         "evidence_grade": "HIGH_CONFIDENCE",
-        "bars_4h": 13491,
-        "history_days": 2249.7,
+        "bars_4h": 13492,
+        "history_days": 2249.8,
         "history_start": "2020-06-10T12:00:00+00:00",
-        "history_end": "2026-08-08T04:00:00+00:00",
+        "history_end": "2026-08-08T08:00:00+00:00",
         "history_years": 6.16,
         "regime_profiles_observed": [],
         "regime_profile_count": 0,
@@ -2170,13 +2170,13 @@
           "id": "evidence_grade",
           "label": "Evidence grade",
           "state": "PASS",
-          "detail": "HIGH_CONFIDENCE \u00b7 6.16 years \u00b7 13491 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
+          "detail": "HIGH_CONFIDENCE \u00b7 6.16 years \u00b7 13492 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
         },
         {
           "id": "history_complete",
           "label": "Historical data",
           "state": "PASS",
-          "detail": "13491 4h bars available."
+          "detail": "13492 4h bars available."
         },
         {
           "id": "kucoin_walk_forward",
@@ -2282,7 +2282,7 @@
       "monitoring_complete": true,
       "monitoring_explanation": "Preferred observation requirement complete: 450.0 days available versus 14 days preferred.",
       "research_progress": {
-        "progress_pct": 40.0,
+        "progress_pct": 60.0,
         "stages": [
           {
             "label": "Diagnosis",
@@ -2294,7 +2294,7 @@
           },
           {
             "label": "Optimisation",
-            "complete": false
+            "complete": true
           },
           {
             "label": "Unseen validation",
@@ -2305,9 +2305,9 @@
             "complete": false
           }
         ],
-        "remaining_stages": 3,
-        "estimated_remaining_cycles": 3,
-        "typical_cycle_seconds": 3007.3
+        "remaining_stages": 2,
+        "estimated_remaining_cycles": 2,
+        "typical_cycle_seconds": 3271.2
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -2548,45 +2548,45 @@
             "take_profit_pct": 0.8,
             "so_deviation_pct": 0.8,
             "safety_orders": 4,
-            "volume_scale": 1.3,
+            "volume_scale": 1.1,
             "step_scale": 1.0
           },
           "validation_metrics": {
-            "net_pnl": 108.26,
-            "mark_to_market_pnl": 108.26,
+            "net_pnl": 99.65,
+            "mark_to_market_pnl": 99.65,
             "open_pnl": 0.0,
             "closed_deals": 59,
             "average_hours": 20.0,
             "median_hours": 0,
             "p90_hours": 12,
             "longest_hours": 776,
-            "max_drawdown_dollars": -201.91,
-            "max_capital": 718.7,
+            "max_drawdown_dollars": -159.55,
+            "max_capital": 564.1,
             "open_position": false,
             "open_duration_hours": 0,
             "average_safety_orders": 1.03,
-            "return_on_max_capital_pct": 15.06,
-            "max_drawdown_pct": 28.09,
-            "score": -36.221,
+            "return_on_max_capital_pct": 17.67,
+            "max_drawdown_pct": 28.28,
+            "score": -33.79,
             "rejected_for_open_duration": false
           },
           "forward_observation": {
-            "net_pnl": 118.2,
-            "mark_to_market_pnl": 118.2,
+            "net_pnl": 112.87,
+            "mark_to_market_pnl": 112.87,
             "open_pnl": 0.0,
-            "closed_deals": 73,
+            "closed_deals": 72,
             "average_hours": 6.8,
-            "median_hours": 4,
+            "median_hours": 4.0,
             "p90_hours": 16,
             "longest_hours": 40,
-            "max_drawdown_dollars": -6.7,
-            "max_capital": 718.7,
+            "max_drawdown_dollars": -6.67,
+            "max_capital": 564.1,
             "open_position": false,
             "open_duration_hours": 0,
-            "average_safety_orders": 0.86,
-            "return_on_max_capital_pct": 16.45,
-            "max_drawdown_pct": 0.93,
-            "score": 15.527,
+            "average_safety_orders": 0.9,
+            "return_on_max_capital_pct": 20.01,
+            "max_drawdown_pct": 1.18,
+            "score": 18.825,
             "rejected_for_open_duration": false
           }
         },
@@ -2597,45 +2597,45 @@
             "take_profit_pct": 1.5,
             "so_deviation_pct": 0.8,
             "safety_orders": 4,
-            "volume_scale": 1.3,
+            "volume_scale": 1.1,
             "step_scale": 1.0
           },
           "validation_metrics": {
-            "net_pnl": 801.14,
-            "mark_to_market_pnl": 801.14,
+            "net_pnl": 693.32,
+            "mark_to_market_pnl": 693.32,
             "open_pnl": 0.0,
             "closed_deals": 143,
-            "average_hours": 6.8,
+            "average_hours": 6.9,
             "median_hours": 0,
             "p90_hours": 8,
             "longest_hours": 176,
-            "max_drawdown_dollars": -149.96,
-            "max_capital": 718.7,
+            "max_drawdown_dollars": -118.86,
+            "max_capital": 564.1,
             "open_position": false,
             "open_duration_hours": 0,
             "average_safety_orders": 2.02,
-            "return_on_max_capital_pct": 111.47,
-            "max_drawdown_pct": 20.87,
-            "score": 91.452,
+            "return_on_max_capital_pct": 122.91,
+            "max_drawdown_pct": 21.07,
+            "score": 102.704,
             "rejected_for_open_duration": false
           },
           "forward_observation": {
-            "net_pnl": 212.78,
-            "mark_to_market_pnl": -264.16,
-            "open_pnl": -476.94,
+            "net_pnl": 180.13,
+            "mark_to_market_pnl": -194.64,
+            "open_pnl": -374.77,
             "closed_deals": 34,
-            "average_hours": 18.0,
+            "average_hours": 19.3,
             "median_hours": 4.0,
-            "p90_hours": 20,
+            "p90_hours": 24,
             "longest_hours": 328,
-            "max_drawdown_dollars": -483.54,
-            "max_capital": 718.7,
+            "max_drawdown_dollars": -378.69,
+            "max_capital": 564.1,
             "open_position": true,
             "open_duration_hours": 7768,
             "average_safety_orders": 2.26,
-            "return_on_max_capital_pct": -36.76,
-            "max_drawdown_pct": 67.28,
-            "score": -748.867,
+            "return_on_max_capital_pct": -34.5,
+            "max_drawdown_pct": 67.13,
+            "score": -746.883,
             "rejected_for_open_duration": true
           }
         },
@@ -2699,10 +2699,10 @@
         "asset": "SOL",
         "pair": "SOL-USDT",
         "evidence_grade": "HIGH_CONFIDENCE",
-        "bars_4h": 10985,
-        "history_days": 1831.8,
+        "bars_4h": 10986,
+        "history_days": 1832.0,
         "history_start": "2021-08-04T08:00:00+00:00",
-        "history_end": "2026-08-10T04:00:00+00:00",
+        "history_end": "2026-08-10T08:00:00+00:00",
         "history_years": 5.02,
         "regime_profiles_observed": [],
         "regime_profile_count": 0,
@@ -2720,13 +2720,13 @@
           "id": "evidence_grade",
           "label": "Evidence grade",
           "state": "PASS",
-          "detail": "HIGH_CONFIDENCE \u00b7 5.02 years \u00b7 10985 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
+          "detail": "HIGH_CONFIDENCE \u00b7 5.02 years \u00b7 10986 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
         },
         {
           "id": "history_complete",
           "label": "Historical data",
           "state": "PASS",
-          "detail": "10985 4h bars available."
+          "detail": "10986 4h bars available."
         },
         {
           "id": "kucoin_walk_forward",
@@ -2784,7 +2784,7 @@
         "validation_p90_hold_hours": 8,
         "validation_longest_hold_hours": 992,
         "validation_drawdown_pct": 61.74,
-        "forward_return_on_max_capital_pct": -20.63,
+        "forward_return_on_max_capital_pct": -20.6,
         "historical_annualised_equivalent_pct": 101.1,
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
@@ -2809,8 +2809,8 @@
       },
       "forward_observation": {
         "net_pnl": 342.48,
-        "mark_to_market_pnl": -148.25,
-        "open_pnl": -490.73,
+        "mark_to_market_pnl": -148.07,
+        "open_pnl": -490.55,
         "closed_deals": 97,
         "average_hours": 3.3,
         "median_hours": 0,
@@ -2819,18 +2819,18 @@
         "max_drawdown_dollars": -536.1,
         "max_capital": 718.7,
         "open_position": true,
-        "open_duration_hours": 7804,
+        "open_duration_hours": 7808,
         "average_safety_orders": 1.52,
-        "return_on_max_capital_pct": -20.63,
+        "return_on_max_capital_pct": -20.6,
         "max_drawdown_pct": 74.59,
-        "score": -728.941,
+        "score": -729.236,
         "rejected_for_open_duration": true
       },
-      "forward_observation_days": 366.3,
+      "forward_observation_days": 366.5,
       "monitoring_target_days": 14.0,
       "monitoring_progress_pct": 100,
       "monitoring_complete": true,
-      "monitoring_explanation": "Preferred observation requirement complete: 366.3 days available versus 14 days preferred.",
+      "monitoring_explanation": "Preferred observation requirement complete: 366.5 days available versus 14 days preferred.",
       "research_progress": {
         "progress_pct": 60.0,
         "stages": [
@@ -2857,7 +2857,7 @@
         ],
         "remaining_stages": 2,
         "estimated_remaining_cycles": 2,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": 3271.2
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -3076,8 +3076,8 @@
           },
           "forward_observation": {
             "net_pnl": 342.48,
-            "mark_to_market_pnl": -148.25,
-            "open_pnl": -490.73,
+            "mark_to_market_pnl": -148.07,
+            "open_pnl": -490.55,
             "closed_deals": 97,
             "average_hours": 3.3,
             "median_hours": 0,
@@ -3086,11 +3086,11 @@
             "max_drawdown_dollars": -536.1,
             "max_capital": 718.7,
             "open_position": true,
-            "open_duration_hours": 7804,
+            "open_duration_hours": 7808,
             "average_safety_orders": 1.52,
-            "return_on_max_capital_pct": -20.63,
+            "return_on_max_capital_pct": -20.6,
             "max_drawdown_pct": 74.59,
-            "score": -728.941,
+            "score": -729.236,
             "rejected_for_open_duration": true
           }
         },
@@ -3125,8 +3125,8 @@
           },
           "forward_observation": {
             "net_pnl": 37.98,
-            "mark_to_market_pnl": -390.66,
-            "open_pnl": -428.64,
+            "mark_to_market_pnl": -390.5,
+            "open_pnl": -428.48,
             "closed_deals": 10,
             "average_hours": 13.6,
             "median_hours": 8.0,
@@ -3135,11 +3135,11 @@
             "max_drawdown_dollars": -472.94,
             "max_capital": 636.8,
             "open_position": true,
-            "open_duration_hours": 7748,
+            "open_duration_hours": 7752,
             "average_safety_orders": 1.8,
-            "return_on_max_capital_pct": -61.35,
+            "return_on_max_capital_pct": -61.32,
             "max_drawdown_pct": 74.27,
-            "score": -771.169,
+            "score": -771.464,
             "rejected_for_open_duration": true
           }
         },
@@ -3174,8 +3174,8 @@
           },
           "forward_observation": {
             "net_pnl": 99.39,
-            "mark_to_market_pnl": -494.45,
-            "open_pnl": -593.84,
+            "mark_to_market_pnl": -494.2,
+            "open_pnl": -593.59,
             "closed_deals": 17,
             "average_hours": 26.6,
             "median_hours": 4,
@@ -3184,11 +3184,11 @@
             "max_drawdown_dollars": -662.24,
             "max_capital": 912.5,
             "open_position": true,
-            "open_duration_hours": 7320,
+            "open_duration_hours": 7324,
             "average_safety_orders": 1.29,
-            "return_on_max_capital_pct": -54.19,
+            "return_on_max_capital_pct": -54.16,
             "max_drawdown_pct": 72.57,
-            "score": -736.723,
+            "score": -737.016,
             "rejected_for_open_duration": true
           }
         },
@@ -3223,8 +3223,8 @@
           },
           "forward_observation": {
             "net_pnl": 633.31,
-            "mark_to_market_pnl": 392.68,
-            "open_pnl": -240.63,
+            "mark_to_market_pnl": 392.99,
+            "open_pnl": -240.32,
             "closed_deals": 296,
             "average_hours": 2.2,
             "median_hours": 0.0,
@@ -3233,11 +3233,11 @@
             "max_drawdown_dollars": -319.47,
             "max_capital": 636.8,
             "open_position": true,
-            "open_duration_hours": 4644,
+            "open_duration_hours": 4648,
             "average_safety_orders": 1.42,
-            "return_on_max_capital_pct": 61.66,
+            "return_on_max_capital_pct": 61.71,
             "max_drawdown_pct": 50.17,
-            "score": -364.787,
+            "score": -365.058,
             "rejected_for_open_duration": true
           }
         }
@@ -3252,11 +3252,11 @@
         "asset": "AAVE",
         "pair": "AAVE-USDT",
         "evidence_grade": "HIGH_CONFIDENCE",
-        "bars_4h": 12692,
-        "history_days": 2116.5,
+        "bars_4h": 12701,
+        "history_days": 2118.0,
         "history_start": "2020-10-22T08:00:00+00:00",
-        "history_end": "2026-08-08T20:00:00+00:00",
-        "history_years": 5.79,
+        "history_end": "2026-08-10T08:00:00+00:00",
+        "history_years": 5.8,
         "regime_profiles_observed": [],
         "regime_profile_count": 0,
         "kucoin_walk_forward_pass": true,
@@ -3273,13 +3273,13 @@
           "id": "evidence_grade",
           "label": "Evidence grade",
           "state": "PASS",
-          "detail": "HIGH_CONFIDENCE \u00b7 5.79 years \u00b7 12692 4h bars. History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold."
+          "detail": "HIGH_CONFIDENCE \u00b7 5.8 years \u00b7 12701 4h bars. History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold."
         },
         {
           "id": "history_complete",
           "label": "Historical data",
           "state": "PASS",
-          "detail": "12692 4h bars available."
+          "detail": "12701 4h bars available."
         },
         {
           "id": "kucoin_walk_forward",
@@ -3410,7 +3410,7 @@
         ],
         "remaining_stages": 1,
         "estimated_remaining_cycles": 1,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": 3271.2
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -3754,1082 +3754,6 @@
       "automatic_deployment": false
     },
     {
-      "asset": "TUT",
-      "pair": "TUT-USDT",
-      "evidence_grade": {
-        "asset": "TUT",
-        "pair": "TUT-USDT",
-        "evidence_grade": "PRELIMINARY",
-        "bars_4h": 3046,
-        "history_days": 507.8,
-        "history_start": "2025-03-19T08:00:00+00:00",
-        "history_end": "2026-08-09T04:00:00+00:00",
-        "history_years": 1.39,
-        "regime_profiles_observed": [],
-        "regime_profile_count": 0,
-        "kucoin_walk_forward_pass": false,
-        "kraken_robustness_status": "MISSING",
-        "kraken_role": "NOT_AVAILABLE",
-        "deployment_history_gate": "BLOCKED",
-        "deployment_evidence_gate": "BLOCKED",
-        "reason": "Enough data for preliminary research, but not enough history/regime depth for normal deployment approval.",
-        "current_global_regime": "ACCUMULATION"
-      },
-      "readiness_pct": 25.0,
-      "gates": [
-        {
-          "id": "evidence_grade",
-          "label": "Evidence grade",
-          "state": "BLOCKED",
-          "detail": "PRELIMINARY \u00b7 1.39 years \u00b7 3046 4h bars. Enough data for preliminary research, but not enough history/regime depth for normal deployment approval."
-        },
-        {
-          "id": "history_complete",
-          "label": "Historical data",
-          "state": "PASS",
-          "detail": "3046 4h bars available."
-        },
-        {
-          "id": "kucoin_walk_forward",
-          "label": "KuCoin walk-forward",
-          "state": "PENDING",
-          "detail": "No current-regime frozen configuration has passed unseen KuCoin validation yet."
-        },
-        {
-          "id": "trade_fluidity",
-          "label": "Trade fluidity",
-          "state": "PENDING",
-          "detail": "Longest validation trade 652h; open position False."
-        },
-        {
-          "id": "current_regime_fit",
-          "label": "Current regime fit",
-          "state": "PENDING",
-          "detail": "Current regime family: BULL."
-        },
-        {
-          "id": "dca_optimisation",
-          "label": "DCA settings optimisation",
-          "state": "PENDING",
-          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
-        },
-        {
-          "id": "continuation_resolution",
-          "label": "Kraken \u2192 KuCoin continuation",
-          "state": "PASS",
-          "detail": "No unresolved Kraken-open blocker remains."
-        },
-        {
-          "id": "capital_allocation",
-          "label": "Capital allocation",
-          "state": "PENDING",
-          "detail": "Awaiting canonical deployable-capital calculation."
-        }
-      ],
-      "recommendation": "ADAPTIVE_RESEARCH",
-      "next_action": "Continue monitoring while CRM runs failure-specific experiments and re-validates on unseen KuCoin data.",
-      "current_regime": "BULL",
-      "settings": {
-        "take_profit_pct": 2.0,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.5,
-        "step_scale": 1.15
-      },
-      "entry_trigger": "immediate",
-      "kucoin_profitability": {
-        "validation_return_on_max_capital_pct": 55.12,
-        "validation_mark_to_market_pnl": 502.95,
-        "validation_closed_deals": 54,
-        "validation_average_hold_hours": 17.9,
-        "validation_p90_hold_hours": 16,
-        "validation_longest_hold_hours": 652,
-        "validation_drawdown_pct": 21.18,
-        "forward_return_on_max_capital_pct": 101.18,
-        "historical_annualised_equivalent_pct": 198.2,
-        "annualised_label": "Historical annualised equivalent; not a forecast."
-      },
-      "validation_metrics": {
-        "net_pnl": 502.95,
-        "mark_to_market_pnl": 502.95,
-        "open_pnl": 0.0,
-        "closed_deals": 54,
-        "average_hours": 17.9,
-        "median_hours": 0.0,
-        "p90_hours": 16,
-        "longest_hours": 652,
-        "max_drawdown_dollars": -193.3,
-        "max_capital": 912.5,
-        "open_position": false,
-        "open_duration_hours": 0,
-        "average_safety_orders": 2.11,
-        "return_on_max_capital_pct": 55.12,
-        "max_drawdown_pct": 21.18,
-        "score": 13.793,
-        "rejected_for_open_duration": false
-      },
-      "forward_observation": {
-        "net_pnl": 923.23,
-        "mark_to_market_pnl": 923.23,
-        "open_pnl": 0.0,
-        "closed_deals": 86,
-        "average_hours": 23.1,
-        "median_hours": 0.0,
-        "p90_hours": 12,
-        "longest_hours": 1676,
-        "max_drawdown_dollars": -313.47,
-        "max_capital": 912.5,
-        "open_position": false,
-        "open_duration_hours": 0,
-        "average_safety_orders": 2.43,
-        "return_on_max_capital_pct": 101.18,
-        "max_drawdown_pct": 34.35,
-        "score": 13.838,
-        "rejected_for_open_duration": false
-      },
-      "forward_observation_days": 101.7,
-      "monitoring_target_days": 14.0,
-      "monitoring_progress_pct": 100,
-      "monitoring_complete": true,
-      "monitoring_explanation": "Preferred observation requirement complete: 101.7 days available versus 14 days preferred.",
-      "research_progress": {
-        "progress_pct": 60.0,
-        "stages": [
-          {
-            "label": "Diagnosis",
-            "complete": true
-          },
-          {
-            "label": "Experiment design",
-            "complete": true
-          },
-          {
-            "label": "Optimisation",
-            "complete": true
-          },
-          {
-            "label": "Unseen validation",
-            "complete": false
-          },
-          {
-            "label": "Regime verification",
-            "complete": false
-          }
-        ],
-        "remaining_stages": 2,
-        "estimated_remaining_cycles": 2,
-        "typical_cycle_seconds": 3007.3
-      },
-      "suggested_allocation_usdt": null,
-      "allocation_reason": null,
-      "validation_cutoff": {
-        "state": null,
-        "post_validation_resolution": null,
-        "original_validation_preserved": true
-      },
-      "kraken_robustness": {
-        "status": "MISSING",
-        "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset.",
-        "continuation": null
-      },
-      "dca_optimisation": {
-        "asset": "TUT",
-        "pair": "TUT-USDT",
-        "current_regime": "BULL",
-        "source_walk_forward_status": "RESEARCH_PENDING",
-        "structural_settings": {
-          "take_profit_pct": 2.0,
-          "so_deviation_pct": 0.8,
-          "safety_orders": 4,
-          "volume_scale": 1.5,
-          "step_scale": 1.15
-        },
-        "entry_trigger": "immediate",
-        "optimisation_dimensions": [
-          "base_order_volume",
-          "safety_order_volume"
-        ],
-        "already_optimised_dimensions": [
-          "entry_trigger",
-          "take_profit_pct",
-          "so_deviation_pct",
-          "safety_orders",
-          "volume_scale",
-          "step_scale"
-        ],
-        "governed_not_optimised": [
-          "max_active_safety_orders",
-          "max_active_deals",
-          "order_type",
-          "trailing_enabled",
-          "cooldown_seconds"
-        ],
-        "automatic_live_changes": false,
-        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
-        "progress_pct": 100,
-        "tested_combinations": 9,
-        "winning_strategy_settings": {
-          "entry_trigger": "immediate",
-          "take_profit_pct": 2.0,
-          "so_deviation_pct": 0.8,
-          "safety_orders": 4,
-          "volume_scale": 1.5,
-          "step_scale": 1.15,
-          "base_order_volume": 50.0,
-          "safety_order_volume": 50.0
-        },
-        "governed_execution_controls": {
-          "max_active_safety_orders": 3,
-          "max_active_deals": 1,
-          "order_type": "market base order / limit DCA orders",
-          "trailing_enabled": false,
-          "cooldown_seconds": 0
-        },
-        "setting_sources": {
-          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
-          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
-          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
-          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
-          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
-        },
-        "training_winner": {
-          "base_order_volume": 50.0,
-          "safety_order_volume": 50.0,
-          "training_score": 398.933,
-          "training_return_on_max_capital_pct": 402.13,
-          "training_drawdown_pct": 10.24,
-          "training_metrics": {
-            "net_pnl": 1834.73,
-            "mark_to_market_pnl": 1834.73,
-            "open_pnl": 0.0,
-            "closed_deals": 348,
-            "average_hours": 6.3,
-            "median_hours": 0.0,
-            "p90_hours": 16,
-            "longest_hours": 180,
-            "max_drawdown_dollars": -46.74,
-            "max_capital": 456.25,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 2.44
-          },
-          "rejected_for_open_duration": false
-        },
-        "unseen_validation_metrics": {
-          "net_pnl": 251.47,
-          "mark_to_market_pnl": 251.47,
-          "open_pnl": 0.0,
-          "closed_deals": 54,
-          "average_hours": 17.9,
-          "median_hours": 0.0,
-          "p90_hours": 16,
-          "longest_hours": 652,
-          "max_drawdown_dollars": -96.65,
-          "max_capital": 456.25,
-          "open_position": false,
-          "open_duration_hours": 0,
-          "average_safety_orders": 2.11,
-          "return_on_max_capital_pct": 55.12,
-          "max_drawdown_pct": 21.18,
-          "score": 13.792
-        },
-        "unseen_validation_pass": false,
-        "capital_required_usdt": 456.25,
-        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
-      },
-      "adaptive_research": {
-        "asset": "TUT",
-        "pair": "TUT-USDT",
-        "state": "ADAPTIVE_RESEARCH_QUEUED",
-        "failure_reasons": [
-          "Validation drawdown 21.2% exceeds preferred tolerance.",
-          "Longest validation trade 652h exceeds the preferred 168h fluidity target."
-        ],
-        "next_experiments": [
-          "reduce_volume_scale",
-          "increase_step_scale",
-          "restrict_regime",
-          "tighten_entry_filter"
-        ],
-        "search_extensions": {
-          "so_deviation_pct": [],
-          "safety_orders": [],
-          "volume_scale": [
-            1.1,
-            1.2
-          ],
-          "step_scale": [
-            1.3,
-            1.5
-          ],
-          "entry_triggers": [
-            "trend_pullback",
-            "qfl_proxy_3",
-            "mean_reversion"
-          ]
-        },
-        "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
-      },
-      "regime_profiles": {
-        "BULL": {
-          "validated": false,
-          "entry_trigger": "immediate",
-          "settings": {
-            "take_profit_pct": 2.0,
-            "so_deviation_pct": 0.8,
-            "safety_orders": 4,
-            "volume_scale": 1.5,
-            "step_scale": 1.15
-          },
-          "validation_metrics": {
-            "net_pnl": 502.95,
-            "mark_to_market_pnl": 502.95,
-            "open_pnl": 0.0,
-            "closed_deals": 54,
-            "average_hours": 17.9,
-            "median_hours": 0.0,
-            "p90_hours": 16,
-            "longest_hours": 652,
-            "max_drawdown_dollars": -193.3,
-            "max_capital": 912.5,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 2.11,
-            "return_on_max_capital_pct": 55.12,
-            "max_drawdown_pct": 21.18,
-            "score": 13.793,
-            "rejected_for_open_duration": false
-          },
-          "forward_observation": {
-            "net_pnl": 923.23,
-            "mark_to_market_pnl": 923.23,
-            "open_pnl": 0.0,
-            "closed_deals": 86,
-            "average_hours": 23.1,
-            "median_hours": 0.0,
-            "p90_hours": 12,
-            "longest_hours": 1676,
-            "max_drawdown_dollars": -313.47,
-            "max_capital": 912.5,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 2.43,
-            "return_on_max_capital_pct": 101.18,
-            "max_drawdown_pct": 34.35,
-            "score": 13.838,
-            "rejected_for_open_duration": false
-          }
-        },
-        "ACCUMULATION": {
-          "validated": true,
-          "entry_trigger": "immediate",
-          "settings": {
-            "take_profit_pct": 1.2,
-            "so_deviation_pct": 0.8,
-            "safety_orders": 4,
-            "volume_scale": 1.7,
-            "step_scale": 1.0
-          },
-          "validation_metrics": {
-            "net_pnl": 113.51,
-            "mark_to_market_pnl": 96.56,
-            "open_pnl": -16.94,
-            "closed_deals": 31,
-            "average_hours": 5.0,
-            "median_hours": 4,
-            "p90_hours": 12,
-            "longest_hours": 16,
-            "max_drawdown_dollars": -17.75,
-            "max_capital": 1150.3,
-            "open_position": true,
-            "open_duration_hours": 4,
-            "average_safety_orders": 1.16,
-            "return_on_max_capital_pct": 8.39,
-            "max_drawdown_pct": 1.54,
-            "score": -11.834,
-            "rejected_for_open_duration": false
-          },
-          "forward_observation": {
-            "net_pnl": 144.36,
-            "mark_to_market_pnl": 144.36,
-            "open_pnl": 0.0,
-            "closed_deals": 33,
-            "average_hours": 15.2,
-            "median_hours": 0,
-            "p90_hours": 12,
-            "longest_hours": 384,
-            "max_drawdown_dollars": -262.74,
-            "max_capital": 1150.3,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 1.42,
-            "return_on_max_capital_pct": 12.55,
-            "max_drawdown_pct": 22.84,
-            "score": -21.327,
-            "rejected_for_open_duration": false
-          }
-        },
-        "NEUTRAL": {
-          "validated": true,
-          "entry_trigger": "immediate",
-          "settings": {
-            "take_profit_pct": 2.0,
-            "so_deviation_pct": 0.8,
-            "safety_orders": 4,
-            "volume_scale": 1.2,
-            "step_scale": 1.0
-          },
-          "validation_metrics": {
-            "net_pnl": 283.8,
-            "mark_to_market_pnl": 235.53,
-            "open_pnl": -48.27,
-            "closed_deals": 41,
-            "average_hours": 8.0,
-            "median_hours": 4,
-            "p90_hours": 24,
-            "longest_hours": 52,
-            "max_drawdown_dollars": -49.08,
-            "max_capital": 636.8,
-            "open_position": true,
-            "open_duration_hours": 16,
-            "average_safety_orders": 1.95,
-            "return_on_max_capital_pct": 36.99,
-            "max_drawdown_pct": 7.71,
-            "score": 8.19,
-            "rejected_for_open_duration": false
-          },
-          "forward_observation": {
-            "net_pnl": 128.27,
-            "mark_to_market_pnl": 128.27,
-            "open_pnl": 0.0,
-            "closed_deals": 18,
-            "average_hours": 71.1,
-            "median_hours": 0.0,
-            "p90_hours": 20,
-            "longest_hours": 1216,
-            "max_drawdown_dollars": -147.96,
-            "max_capital": 636.8,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 2.06,
-            "return_on_max_capital_pct": 20.14,
-            "max_drawdown_pct": 23.23,
-            "score": -44.609,
-            "rejected_for_open_duration": false
-          }
-        },
-        "BEAR": {
-          "validated": false,
-          "entry_trigger": "pullback_3pct",
-          "settings": {
-            "take_profit_pct": 1.2,
-            "so_deviation_pct": 0.8,
-            "safety_orders": 4,
-            "volume_scale": 1.1,
-            "step_scale": 1.15
-          },
-          "validation_metrics": {
-            "net_pnl": 36.39,
-            "mark_to_market_pnl": -149.35,
-            "open_pnl": -185.74,
-            "closed_deals": 12,
-            "average_hours": 2.7,
-            "median_hours": 0.0,
-            "p90_hours": 12,
-            "longest_hours": 12,
-            "max_drawdown_dollars": -271.48,
-            "max_capital": 564.1,
-            "open_position": true,
-            "open_duration_hours": 2340,
-            "average_safety_orders": 1.42,
-            "return_on_max_capital_pct": -26.48,
-            "max_drawdown_pct": 48.13,
-            "score": -276.129,
-            "rejected_for_open_duration": true
-          },
-          "forward_observation": {
-            "net_pnl": 128.81,
-            "mark_to_market_pnl": 128.81,
-            "open_pnl": 0.0,
-            "closed_deals": 44,
-            "average_hours": 14.3,
-            "median_hours": 4.0,
-            "p90_hours": 20,
-            "longest_hours": 256,
-            "max_drawdown_dollars": -86.49,
-            "max_capital": 564.1,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 1.32,
-            "return_on_max_capital_pct": 22.83,
-            "max_drawdown_pct": 15.33,
-            "score": -0.165,
-            "rejected_for_open_duration": false
-          }
-        }
-      },
-      "deployment_preparation_available": false,
-      "automatic_deployment": false
-    },
-    {
-      "asset": "NEAR",
-      "pair": "NEAR-USDT",
-      "evidence_grade": {
-        "asset": "NEAR",
-        "pair": "NEAR-USDT",
-        "evidence_grade": "HIGH_CONFIDENCE",
-        "bars_4h": 11141,
-        "history_days": 1857.8,
-        "history_start": "2021-07-09T08:00:00+00:00",
-        "history_end": "2026-08-10T04:00:00+00:00",
-        "history_years": 5.09,
-        "regime_profiles_observed": [],
-        "regime_profile_count": 0,
-        "kucoin_walk_forward_pass": false,
-        "kraken_robustness_status": "PASS",
-        "kraken_role": "SECONDARY_ROBUSTNESS",
-        "deployment_history_gate": "PASS",
-        "deployment_evidence_gate": "BLOCKED",
-        "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-        "current_global_regime": "ACCUMULATION"
-      },
-      "readiness_pct": 37.5,
-      "gates": [
-        {
-          "id": "evidence_grade",
-          "label": "Evidence grade",
-          "state": "PASS",
-          "detail": "HIGH_CONFIDENCE \u00b7 5.09 years \u00b7 11141 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
-        },
-        {
-          "id": "history_complete",
-          "label": "Historical data",
-          "state": "PASS",
-          "detail": "11141 4h bars available."
-        },
-        {
-          "id": "kucoin_walk_forward",
-          "label": "KuCoin walk-forward",
-          "state": "PENDING",
-          "detail": "No current-regime frozen configuration has passed unseen KuCoin validation yet."
-        },
-        {
-          "id": "trade_fluidity",
-          "label": "Trade fluidity",
-          "state": "PENDING",
-          "detail": "Longest validation trade 612h; open position True."
-        },
-        {
-          "id": "current_regime_fit",
-          "label": "Current regime fit",
-          "state": "PENDING",
-          "detail": "Current regime family: BEAR."
-        },
-        {
-          "id": "dca_optimisation",
-          "label": "DCA settings optimisation",
-          "state": "PENDING",
-          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
-        },
-        {
-          "id": "continuation_resolution",
-          "label": "Kraken \u2192 KuCoin continuation",
-          "state": "PASS",
-          "detail": "No unresolved Kraken-open blocker remains."
-        },
-        {
-          "id": "capital_allocation",
-          "label": "Capital allocation",
-          "state": "PENDING",
-          "detail": "Awaiting canonical deployable-capital calculation."
-        }
-      ],
-      "recommendation": "ADAPTIVE_RESEARCH",
-      "next_action": "Continue monitoring while CRM runs failure-specific experiments and re-validates on unseen KuCoin data.",
-      "current_regime": "BEAR",
-      "settings": {
-        "take_profit_pct": 0.8,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.2,
-        "step_scale": 1.5
-      },
-      "entry_trigger": "immediate",
-      "kucoin_profitability": {
-        "validation_return_on_max_capital_pct": 201.99,
-        "validation_mark_to_market_pnl": 1286.3,
-        "validation_closed_deals": 701,
-        "validation_average_hold_hours": 2.6,
-        "validation_p90_hold_hours": 4,
-        "validation_longest_hold_hours": 612,
-        "validation_drawdown_pct": 36.62,
-        "forward_return_on_max_capital_pct": 193.65,
-        "historical_annualised_equivalent_pct": 198.5,
-        "annualised_label": "Historical annualised equivalent; not a forecast."
-      },
-      "validation_metrics": {
-        "net_pnl": 1285.49,
-        "mark_to_market_pnl": 1286.3,
-        "open_pnl": 0.81,
-        "closed_deals": 701,
-        "average_hours": 2.6,
-        "median_hours": 0,
-        "p90_hours": 4,
-        "longest_hours": 612,
-        "max_drawdown_dollars": -233.22,
-        "max_capital": 636.8,
-        "open_position": true,
-        "open_duration_hours": 0,
-        "average_safety_orders": 1.16,
-        "return_on_max_capital_pct": 201.99,
-        "max_drawdown_pct": 36.62,
-        "score": 157.253,
-        "rejected_for_open_duration": false
-      },
-      "forward_observation": {
-        "net_pnl": 1285.02,
-        "mark_to_market_pnl": 1233.18,
-        "open_pnl": -51.85,
-        "closed_deals": 720,
-        "average_hours": 1.9,
-        "median_hours": 0.0,
-        "p90_hours": 4,
-        "longest_hours": 232,
-        "max_drawdown_dollars": -78.38,
-        "max_capital": 636.8,
-        "open_position": true,
-        "open_duration_hours": 340,
-        "average_safety_orders": 1.11,
-        "return_on_max_capital_pct": 193.65,
-        "max_drawdown_pct": 12.31,
-        "score": 157.655,
-        "rejected_for_open_duration": false
-      },
-      "forward_observation_days": 371.7,
-      "monitoring_target_days": 14.0,
-      "monitoring_progress_pct": 100,
-      "monitoring_complete": true,
-      "monitoring_explanation": "Preferred observation requirement complete: 371.7 days available versus 14 days preferred.",
-      "research_progress": {
-        "progress_pct": 60.0,
-        "stages": [
-          {
-            "label": "Diagnosis",
-            "complete": true
-          },
-          {
-            "label": "Experiment design",
-            "complete": true
-          },
-          {
-            "label": "Optimisation",
-            "complete": true
-          },
-          {
-            "label": "Unseen validation",
-            "complete": false
-          },
-          {
-            "label": "Regime verification",
-            "complete": false
-          }
-        ],
-        "remaining_stages": 2,
-        "estimated_remaining_cycles": 2,
-        "typical_cycle_seconds": 3007.3
-      },
-      "suggested_allocation_usdt": null,
-      "allocation_reason": null,
-      "validation_cutoff": {
-        "state": "OPEN",
-        "post_validation_resolution": "PENDING_CONTINUATION_DATA",
-        "original_validation_preserved": true
-      },
-      "kraken_robustness": {
-        "status": "PASS",
-        "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
-        "continuation": {
-          "asset": "NEAR",
-          "resolver_version": "2.0",
-          "diagnostic_stage": "asset file discovery",
-          "kraken_cutoff_status": "PASS",
-          "kraken_cutoff_mark_to_market_pnl": 2171.29,
-          "original_validation_preserved": true,
-          "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
-          "kucoin_file_exists": true,
-          "validation_file": null,
-          "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
-          "terminal": true,
-          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
-        }
-      },
-      "dca_optimisation": {
-        "asset": "NEAR",
-        "pair": "NEAR-USDT",
-        "current_regime": "BEAR",
-        "source_walk_forward_status": "RESEARCH_PENDING",
-        "structural_settings": {
-          "take_profit_pct": 0.8,
-          "so_deviation_pct": 0.8,
-          "safety_orders": 4,
-          "volume_scale": 1.2,
-          "step_scale": 1.5
-        },
-        "entry_trigger": "immediate",
-        "optimisation_dimensions": [
-          "base_order_volume",
-          "safety_order_volume"
-        ],
-        "already_optimised_dimensions": [
-          "entry_trigger",
-          "take_profit_pct",
-          "so_deviation_pct",
-          "safety_orders",
-          "volume_scale",
-          "step_scale"
-        ],
-        "governed_not_optimised": [
-          "max_active_safety_orders",
-          "max_active_deals",
-          "order_type",
-          "trailing_enabled",
-          "cooldown_seconds"
-        ],
-        "automatic_live_changes": false,
-        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
-        "progress_pct": 100,
-        "tested_combinations": 9,
-        "winning_strategy_settings": {
-          "entry_trigger": "immediate",
-          "take_profit_pct": 0.8,
-          "so_deviation_pct": 0.8,
-          "safety_orders": 4,
-          "volume_scale": 1.2,
-          "step_scale": 1.5,
-          "base_order_volume": 50.0,
-          "safety_order_volume": 50.0
-        },
-        "governed_execution_controls": {
-          "max_active_safety_orders": 3,
-          "max_active_deals": 1,
-          "order_type": "market base order / limit DCA orders",
-          "trailing_enabled": false,
-          "cooldown_seconds": 0
-        },
-        "setting_sources": {
-          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
-          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
-          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
-          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
-          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
-        },
-        "training_winner": {
-          "base_order_volume": 50.0,
-          "safety_order_volume": 50.0,
-          "training_score": 711.118,
-          "training_return_on_max_capital_pct": 644.05,
-          "training_drawdown_pct": 13.66,
-          "training_metrics": {
-            "net_pnl": 2050.66,
-            "mark_to_market_pnl": 2050.66,
-            "open_pnl": 0.0,
-            "closed_deals": 2099,
-            "average_hours": 1.4,
-            "median_hours": 0,
-            "p90_hours": 4,
-            "longest_hours": 120,
-            "max_drawdown_dollars": -43.49,
-            "max_capital": 318.4,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 1.28
-          },
-          "rejected_for_open_duration": false
-        },
-        "unseen_validation_metrics": {
-          "net_pnl": 642.74,
-          "mark_to_market_pnl": 643.15,
-          "open_pnl": 0.4,
-          "closed_deals": 701,
-          "average_hours": 2.6,
-          "median_hours": 0,
-          "p90_hours": 4,
-          "longest_hours": 612,
-          "max_drawdown_dollars": -116.61,
-          "max_capital": 318.4,
-          "open_position": true,
-          "open_duration_hours": 0,
-          "average_safety_orders": 1.16,
-          "return_on_max_capital_pct": 201.99,
-          "max_drawdown_pct": 36.62,
-          "score": 157.253
-        },
-        "unseen_validation_pass": false,
-        "capital_required_usdt": 318.4,
-        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
-      },
-      "adaptive_research": {
-        "asset": "NEAR",
-        "pair": "NEAR-USDT",
-        "state": "ADAPTIVE_RESEARCH_QUEUED",
-        "failure_reasons": [
-          "Validation ended with unresolved exposure or current profile retained an open position.",
-          "Validation drawdown 36.6% exceeds preferred tolerance.",
-          "Longest validation trade 612h exceeds the preferred 168h fluidity target."
-        ],
-        "next_experiments": [
-          "tighten_entry_filter",
-          "widen_safety_ladder",
-          "penalise_long_holds",
-          "reduce_volume_scale",
-          "increase_step_scale",
-          "restrict_regime"
-        ],
-        "search_extensions": {
-          "so_deviation_pct": [
-            3.0,
-            5.0,
-            6.0
-          ],
-          "safety_orders": [
-            8,
-            9
-          ],
-          "volume_scale": [
-            1.1,
-            1.2
-          ],
-          "step_scale": [
-            1.3,
-            1.5
-          ],
-          "entry_triggers": [
-            "trend_pullback",
-            "qfl_proxy_3",
-            "mean_reversion"
-          ]
-        },
-        "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
-      },
-      "regime_profiles": {
-        "BULL": {
-          "validated": true,
-          "entry_trigger": "immediate",
-          "settings": {
-            "take_profit_pct": 0.8,
-            "so_deviation_pct": 0.8,
-            "safety_orders": 4,
-            "volume_scale": 1.5,
-            "step_scale": 1.15
-          },
-          "validation_metrics": {
-            "net_pnl": 1774.98,
-            "mark_to_market_pnl": 1774.98,
-            "open_pnl": 0.0,
-            "closed_deals": 680,
-            "average_hours": 0.5,
-            "median_hours": 0.0,
-            "p90_hours": 0,
-            "longest_hours": 56,
-            "max_drawdown_dollars": -54.93,
-            "max_capital": 912.5,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 1.53,
-            "return_on_max_capital_pct": 194.52,
-            "max_drawdown_pct": 6.02,
-            "score": 214.341,
-            "rejected_for_open_duration": false
-          },
-          "forward_observation": {
-            "net_pnl": 1381.17,
-            "mark_to_market_pnl": 1381.17,
-            "open_pnl": 0.0,
-            "closed_deals": 595,
-            "average_hours": 1.1,
-            "median_hours": 0,
-            "p90_hours": 4,
-            "longest_hours": 104,
-            "max_drawdown_dollars": -42.87,
-            "max_capital": 912.5,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 1.32,
-            "return_on_max_capital_pct": 151.36,
-            "max_drawdown_pct": 4.7,
-            "score": 166.893,
-            "rejected_for_open_duration": false
-          }
-        },
-        "ACCUMULATION": {
-          "validated": true,
-          "entry_trigger": "immediate",
-          "settings": {
-            "take_profit_pct": 0.8,
-            "so_deviation_pct": 0.8,
-            "safety_orders": 4,
-            "volume_scale": 1.5,
-            "step_scale": 1.3
-          },
-          "validation_metrics": {
-            "net_pnl": 228.41,
-            "mark_to_market_pnl": 228.41,
-            "open_pnl": 0.0,
-            "closed_deals": 121,
-            "average_hours": 1.0,
-            "median_hours": 0,
-            "p90_hours": 4,
-            "longest_hours": 24,
-            "max_drawdown_dollars": -4.39,
-            "max_capital": 912.5,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 1.07,
-            "return_on_max_capital_pct": 25.03,
-            "max_drawdown_pct": 0.48,
-            "score": 28.198,
-            "rejected_for_open_duration": false
-          },
-          "forward_observation": {
-            "net_pnl": 248.29,
-            "mark_to_market_pnl": 248.29,
-            "open_pnl": 0.0,
-            "closed_deals": 137,
-            "average_hours": 2.6,
-            "median_hours": 0,
-            "p90_hours": 8,
-            "longest_hours": 40,
-            "max_drawdown_dollars": -13.57,
-            "max_capital": 912.5,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 1.02,
-            "return_on_max_capital_pct": 27.21,
-            "max_drawdown_pct": 1.49,
-            "score": 29.151,
-            "rejected_for_open_duration": false
-          }
-        },
-        "NEUTRAL": {
-          "validated": false,
-          "entry_trigger": "immediate",
-          "settings": {
-            "take_profit_pct": 1.5,
-            "so_deviation_pct": 1.2,
-            "safety_orders": 6,
-            "volume_scale": 1.1,
-            "step_scale": 1.0
-          },
-          "validation_metrics": {
-            "net_pnl": 909.49,
-            "mark_to_market_pnl": 909.49,
-            "open_pnl": 0.0,
-            "closed_deals": 224,
-            "average_hours": 5.9,
-            "median_hours": 0.0,
-            "p90_hours": 12,
-            "longest_hours": 488,
-            "max_drawdown_dollars": -212.45,
-            "max_capital": 871.56,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 1.53,
-            "return_on_max_capital_pct": 104.35,
-            "max_drawdown_pct": 24.38,
-            "score": 73.094,
-            "rejected_for_open_duration": false
-          },
-          "forward_observation": {
-            "net_pnl": 677.86,
-            "mark_to_market_pnl": 677.86,
-            "open_pnl": 0.0,
-            "closed_deals": 166,
-            "average_hours": 5.8,
-            "median_hours": 0.0,
-            "p90_hours": 16,
-            "longest_hours": 212,
-            "max_drawdown_dollars": -103.93,
-            "max_capital": 871.56,
-            "open_position": false,
-            "open_duration_hours": 0,
-            "average_safety_orders": 1.52,
-            "return_on_max_capital_pct": 77.78,
-            "max_drawdown_pct": 11.92,
-            "score": 64.663,
-            "rejected_for_open_duration": false
-          }
-        },
-        "BEAR": {
-          "validated": false,
-          "entry_trigger": "immediate",
-          "settings": {
-            "take_profit_pct": 0.8,
-            "so_deviation_pct": 0.8,
-            "safety_orders": 4,
-            "volume_scale": 1.2,
-            "step_scale": 1.5
-          },
-          "validation_metrics": {
-            "net_pnl": 1285.49,
-            "mark_to_market_pnl": 1286.3,
-            "open_pnl": 0.81,
-            "closed_deals": 701,
-            "average_hours": 2.6,
-            "median_hours": 0,
-            "p90_hours": 4,
-            "longest_hours": 612,
-            "max_drawdown_dollars": -233.22,
-            "max_capital": 636.8,
-            "open_position": true,
-            "open_duration_hours": 0,
-            "average_safety_orders": 1.16,
-            "return_on_max_capital_pct": 201.99,
-            "max_drawdown_pct": 36.62,
-            "score": 157.253,
-            "rejected_for_open_duration": false
-          },
-          "forward_observation": {
-            "net_pnl": 1285.02,
-            "mark_to_market_pnl": 1233.18,
-            "open_pnl": -51.85,
-            "closed_deals": 720,
-            "average_hours": 1.9,
-            "median_hours": 0.0,
-            "p90_hours": 4,
-            "longest_hours": 232,
-            "max_drawdown_dollars": -78.38,
-            "max_capital": 636.8,
-            "open_position": true,
-            "open_duration_hours": 340,
-            "average_safety_orders": 1.11,
-            "return_on_max_capital_pct": 193.65,
-            "max_drawdown_pct": 12.31,
-            "score": 157.655,
-            "rejected_for_open_duration": false
-          }
-        }
-      },
-      "deployment_preparation_available": false,
-      "automatic_deployment": false
-    },
-    {
       "asset": "ZEC",
       "pair": "ZEC-USDT",
       "evidence_grade": {
@@ -4994,7 +3918,7 @@
         ],
         "remaining_stages": 0,
         "estimated_remaining_cycles": 0,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": 3271.2
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -5338,6 +4262,1082 @@
       "automatic_deployment": false
     },
     {
+      "asset": "NEAR",
+      "pair": "NEAR-USDT",
+      "evidence_grade": {
+        "asset": "NEAR",
+        "pair": "NEAR-USDT",
+        "evidence_grade": "HIGH_CONFIDENCE",
+        "bars_4h": 11142,
+        "history_days": 1858.0,
+        "history_start": "2021-07-09T08:00:00+00:00",
+        "history_end": "2026-08-10T08:00:00+00:00",
+        "history_years": 5.09,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": false,
+        "kraken_robustness_status": "PASS",
+        "kraken_role": "SECONDARY_ROBUSTNESS",
+        "deployment_history_gate": "PASS",
+        "deployment_evidence_gate": "BLOCKED",
+        "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
+        "current_global_regime": "ACCUMULATION"
+      },
+      "readiness_pct": 37.5,
+      "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "PASS",
+          "detail": "HIGH_CONFIDENCE \u00b7 5.09 years \u00b7 11142 4h bars. History depth is adequate, but unseen KuCoin walk-forward has not passed."
+        },
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PASS",
+          "detail": "11142 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PENDING",
+          "detail": "No current-regime frozen configuration has passed unseen KuCoin validation yet."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PENDING",
+          "detail": "Longest validation trade 612h; open position False."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PENDING",
+          "detail": "Current regime family: BEAR."
+        },
+        {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PENDING",
+          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PASS",
+          "detail": "No unresolved Kraken-open blocker remains."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PENDING",
+          "detail": "Awaiting canonical deployable-capital calculation."
+        }
+      ],
+      "recommendation": "ADAPTIVE_RESEARCH",
+      "next_action": "Continue monitoring while CRM runs failure-specific experiments and re-validates on unseen KuCoin data.",
+      "current_regime": "BEAR",
+      "settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.2,
+        "step_scale": 1.5
+      },
+      "entry_trigger": "immediate",
+      "kucoin_profitability": {
+        "validation_return_on_max_capital_pct": 202.22,
+        "validation_mark_to_market_pnl": 1287.73,
+        "validation_closed_deals": 704,
+        "validation_average_hold_hours": 2.6,
+        "validation_p90_hold_hours": 4,
+        "validation_longest_hold_hours": 612,
+        "validation_drawdown_pct": 36.62,
+        "forward_return_on_max_capital_pct": 193.58,
+        "historical_annualised_equivalent_pct": 198.7,
+        "annualised_label": "Historical annualised equivalent; not a forecast."
+      },
+      "validation_metrics": {
+        "net_pnl": 1287.73,
+        "mark_to_market_pnl": 1287.73,
+        "open_pnl": 0.0,
+        "closed_deals": 704,
+        "average_hours": 2.6,
+        "median_hours": 0.0,
+        "p90_hours": 4,
+        "longest_hours": 612,
+        "max_drawdown_dollars": -233.22,
+        "max_capital": 636.8,
+        "open_position": false,
+        "open_duration_hours": 0,
+        "average_safety_orders": 1.16,
+        "return_on_max_capital_pct": 202.22,
+        "max_drawdown_pct": 36.62,
+        "score": 175.598,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation": {
+        "net_pnl": 1283.42,
+        "mark_to_market_pnl": 1232.71,
+        "open_pnl": -50.71,
+        "closed_deals": 719,
+        "average_hours": 1.9,
+        "median_hours": 0,
+        "p90_hours": 4,
+        "longest_hours": 232,
+        "max_drawdown_dollars": -78.38,
+        "max_capital": 636.8,
+        "open_position": true,
+        "open_duration_hours": 344,
+        "average_safety_orders": 1.11,
+        "return_on_max_capital_pct": 193.58,
+        "max_drawdown_pct": 12.31,
+        "score": 157.221,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation_days": 371.7,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 100,
+      "monitoring_complete": true,
+      "monitoring_explanation": "Preferred observation requirement complete: 371.7 days available versus 14 days preferred.",
+      "research_progress": {
+        "progress_pct": 60.0,
+        "stages": [
+          {
+            "label": "Diagnosis",
+            "complete": true
+          },
+          {
+            "label": "Experiment design",
+            "complete": true
+          },
+          {
+            "label": "Optimisation",
+            "complete": true
+          },
+          {
+            "label": "Unseen validation",
+            "complete": false
+          },
+          {
+            "label": "Regime verification",
+            "complete": false
+          }
+        ],
+        "remaining_stages": 2,
+        "estimated_remaining_cycles": 2,
+        "typical_cycle_seconds": 3271.2
+      },
+      "suggested_allocation_usdt": null,
+      "allocation_reason": null,
+      "validation_cutoff": {
+        "state": "OPEN",
+        "post_validation_resolution": "PENDING_CONTINUATION_DATA",
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "PASS",
+        "explanation": "Independent Kraken Q1 evidence supported the frozen historical configuration.",
+        "continuation": {
+          "asset": "NEAR",
+          "resolver_version": "2.0",
+          "diagnostic_stage": "asset file discovery",
+          "kraken_cutoff_status": "PASS",
+          "kraken_cutoff_mark_to_market_pnl": 2171.29,
+          "original_validation_preserved": true,
+          "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\NEAR-USDT_4H.csv",
+          "kucoin_file_exists": true,
+          "validation_file": null,
+          "kraken_cutoff": "2026-03-31T20:00:00+00:00",
+          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+          "terminal": true,
+          "reason": "The normalized Q1 Kraken file needed to reconstruct the frozen open position is missing. The isolated Research Worker now materialises it automatically from Q1_2026.zip or the configured Kraken validation directory."
+        }
+      },
+      "dca_optimisation": {
+        "asset": "NEAR",
+        "pair": "NEAR-USDT",
+        "current_regime": "BEAR",
+        "source_walk_forward_status": "RESEARCH_PENDING",
+        "structural_settings": {
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.2,
+          "step_scale": 1.5
+        },
+        "entry_trigger": "immediate",
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+        "progress_pct": 100,
+        "tested_combinations": 9,
+        "winning_strategy_settings": {
+          "entry_trigger": "immediate",
+          "take_profit_pct": 0.8,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.2,
+          "step_scale": 1.5,
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0
+        },
+        "governed_execution_controls": {
+          "max_active_safety_orders": 3,
+          "max_active_deals": 1,
+          "order_type": "market base order / limit DCA orders",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0
+        },
+        "setting_sources": {
+          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+        },
+        "training_winner": {
+          "base_order_volume": 50.0,
+          "safety_order_volume": 50.0,
+          "training_score": 693.244,
+          "training_return_on_max_capital_pct": 644.18,
+          "training_drawdown_pct": 13.66,
+          "training_metrics": {
+            "net_pnl": 2050.66,
+            "mark_to_market_pnl": 2051.06,
+            "open_pnl": 0.4,
+            "closed_deals": 2099,
+            "average_hours": 1.4,
+            "median_hours": 0,
+            "p90_hours": 4,
+            "longest_hours": 120,
+            "max_drawdown_dollars": -43.49,
+            "max_capital": 318.4,
+            "open_position": true,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.28
+          },
+          "rejected_for_open_duration": false
+        },
+        "unseen_validation_metrics": {
+          "net_pnl": 643.86,
+          "mark_to_market_pnl": 643.86,
+          "open_pnl": 0.0,
+          "closed_deals": 704,
+          "average_hours": 2.6,
+          "median_hours": 0.0,
+          "p90_hours": 4,
+          "longest_hours": 612,
+          "max_drawdown_dollars": -116.61,
+          "max_capital": 318.4,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 1.16,
+          "return_on_max_capital_pct": 202.22,
+          "max_drawdown_pct": 36.62,
+          "score": 175.596
+        },
+        "unseen_validation_pass": false,
+        "capital_required_usdt": 318.4,
+        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
+      },
+      "adaptive_research": {
+        "asset": "NEAR",
+        "pair": "NEAR-USDT",
+        "state": "ADAPTIVE_RESEARCH_QUEUED",
+        "failure_reasons": [
+          "Validation ended with unresolved exposure or current profile retained an open position.",
+          "Validation drawdown 36.6% exceeds preferred tolerance.",
+          "Longest validation trade 612h exceeds the preferred 168h fluidity target."
+        ],
+        "next_experiments": [
+          "tighten_entry_filter",
+          "widen_safety_ladder",
+          "penalise_long_holds",
+          "reduce_volume_scale",
+          "increase_step_scale",
+          "restrict_regime"
+        ],
+        "search_extensions": {
+          "so_deviation_pct": [
+            3.0,
+            5.0,
+            6.0
+          ],
+          "safety_orders": [
+            8,
+            9
+          ],
+          "volume_scale": [
+            1.1,
+            1.2
+          ],
+          "step_scale": [
+            1.3,
+            1.5
+          ],
+          "entry_triggers": [
+            "trend_pullback",
+            "qfl_proxy_3",
+            "mean_reversion"
+          ]
+        },
+        "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
+      },
+      "regime_profiles": {
+        "BULL": {
+          "validated": true,
+          "entry_trigger": "immediate",
+          "settings": {
+            "take_profit_pct": 0.8,
+            "so_deviation_pct": 0.8,
+            "safety_orders": 4,
+            "volume_scale": 1.5,
+            "step_scale": 1.15
+          },
+          "validation_metrics": {
+            "net_pnl": 1774.98,
+            "mark_to_market_pnl": 1774.98,
+            "open_pnl": 0.0,
+            "closed_deals": 680,
+            "average_hours": 0.5,
+            "median_hours": 0.0,
+            "p90_hours": 0,
+            "longest_hours": 56,
+            "max_drawdown_dollars": -54.93,
+            "max_capital": 912.5,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.53,
+            "return_on_max_capital_pct": 194.52,
+            "max_drawdown_pct": 6.02,
+            "score": 214.341,
+            "rejected_for_open_duration": false
+          },
+          "forward_observation": {
+            "net_pnl": 1381.17,
+            "mark_to_market_pnl": 1381.17,
+            "open_pnl": 0.0,
+            "closed_deals": 595,
+            "average_hours": 1.1,
+            "median_hours": 0,
+            "p90_hours": 4,
+            "longest_hours": 104,
+            "max_drawdown_dollars": -42.87,
+            "max_capital": 912.5,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.32,
+            "return_on_max_capital_pct": 151.36,
+            "max_drawdown_pct": 4.7,
+            "score": 166.893,
+            "rejected_for_open_duration": false
+          }
+        },
+        "ACCUMULATION": {
+          "validated": true,
+          "entry_trigger": "immediate",
+          "settings": {
+            "take_profit_pct": 0.8,
+            "so_deviation_pct": 0.8,
+            "safety_orders": 4,
+            "volume_scale": 1.5,
+            "step_scale": 1.3
+          },
+          "validation_metrics": {
+            "net_pnl": 228.41,
+            "mark_to_market_pnl": 228.41,
+            "open_pnl": 0.0,
+            "closed_deals": 121,
+            "average_hours": 1.0,
+            "median_hours": 0,
+            "p90_hours": 4,
+            "longest_hours": 24,
+            "max_drawdown_dollars": -4.39,
+            "max_capital": 912.5,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.07,
+            "return_on_max_capital_pct": 25.03,
+            "max_drawdown_pct": 0.48,
+            "score": 28.198,
+            "rejected_for_open_duration": false
+          },
+          "forward_observation": {
+            "net_pnl": 248.29,
+            "mark_to_market_pnl": 248.29,
+            "open_pnl": 0.0,
+            "closed_deals": 137,
+            "average_hours": 2.6,
+            "median_hours": 0,
+            "p90_hours": 8,
+            "longest_hours": 40,
+            "max_drawdown_dollars": -13.57,
+            "max_capital": 912.5,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.02,
+            "return_on_max_capital_pct": 27.21,
+            "max_drawdown_pct": 1.49,
+            "score": 29.151,
+            "rejected_for_open_duration": false
+          }
+        },
+        "NEUTRAL": {
+          "validated": false,
+          "entry_trigger": "immediate",
+          "settings": {
+            "take_profit_pct": 1.5,
+            "so_deviation_pct": 1.2,
+            "safety_orders": 6,
+            "volume_scale": 1.1,
+            "step_scale": 1.0
+          },
+          "validation_metrics": {
+            "net_pnl": 909.49,
+            "mark_to_market_pnl": 909.49,
+            "open_pnl": 0.0,
+            "closed_deals": 224,
+            "average_hours": 5.9,
+            "median_hours": 0.0,
+            "p90_hours": 12,
+            "longest_hours": 488,
+            "max_drawdown_dollars": -212.45,
+            "max_capital": 871.56,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.53,
+            "return_on_max_capital_pct": 104.35,
+            "max_drawdown_pct": 24.38,
+            "score": 73.094,
+            "rejected_for_open_duration": false
+          },
+          "forward_observation": {
+            "net_pnl": 677.86,
+            "mark_to_market_pnl": 677.86,
+            "open_pnl": 0.0,
+            "closed_deals": 166,
+            "average_hours": 5.8,
+            "median_hours": 0.0,
+            "p90_hours": 16,
+            "longest_hours": 212,
+            "max_drawdown_dollars": -103.93,
+            "max_capital": 871.56,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.52,
+            "return_on_max_capital_pct": 77.78,
+            "max_drawdown_pct": 11.92,
+            "score": 64.663,
+            "rejected_for_open_duration": false
+          }
+        },
+        "BEAR": {
+          "validated": false,
+          "entry_trigger": "immediate",
+          "settings": {
+            "take_profit_pct": 0.8,
+            "so_deviation_pct": 0.8,
+            "safety_orders": 4,
+            "volume_scale": 1.2,
+            "step_scale": 1.5
+          },
+          "validation_metrics": {
+            "net_pnl": 1287.73,
+            "mark_to_market_pnl": 1287.73,
+            "open_pnl": 0.0,
+            "closed_deals": 704,
+            "average_hours": 2.6,
+            "median_hours": 0.0,
+            "p90_hours": 4,
+            "longest_hours": 612,
+            "max_drawdown_dollars": -233.22,
+            "max_capital": 636.8,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.16,
+            "return_on_max_capital_pct": 202.22,
+            "max_drawdown_pct": 36.62,
+            "score": 175.598,
+            "rejected_for_open_duration": false
+          },
+          "forward_observation": {
+            "net_pnl": 1283.42,
+            "mark_to_market_pnl": 1232.71,
+            "open_pnl": -50.71,
+            "closed_deals": 719,
+            "average_hours": 1.9,
+            "median_hours": 0,
+            "p90_hours": 4,
+            "longest_hours": 232,
+            "max_drawdown_dollars": -78.38,
+            "max_capital": 636.8,
+            "open_position": true,
+            "open_duration_hours": 344,
+            "average_safety_orders": 1.11,
+            "return_on_max_capital_pct": 193.58,
+            "max_drawdown_pct": 12.31,
+            "score": 157.221,
+            "rejected_for_open_duration": false
+          }
+        }
+      },
+      "deployment_preparation_available": false,
+      "automatic_deployment": false
+    },
+    {
+      "asset": "TUT",
+      "pair": "TUT-USDT",
+      "evidence_grade": {
+        "asset": "TUT",
+        "pair": "TUT-USDT",
+        "evidence_grade": "PRELIMINARY",
+        "bars_4h": 3053,
+        "history_days": 509.0,
+        "history_start": "2025-03-19T08:00:00+00:00",
+        "history_end": "2026-08-10T08:00:00+00:00",
+        "history_years": 1.39,
+        "regime_profiles_observed": [],
+        "regime_profile_count": 0,
+        "kucoin_walk_forward_pass": false,
+        "kraken_robustness_status": "MISSING",
+        "kraken_role": "NOT_AVAILABLE",
+        "deployment_history_gate": "BLOCKED",
+        "deployment_evidence_gate": "BLOCKED",
+        "reason": "Enough data for preliminary research, but not enough history/regime depth for normal deployment approval.",
+        "current_global_regime": "ACCUMULATION"
+      },
+      "readiness_pct": 25.0,
+      "gates": [
+        {
+          "id": "evidence_grade",
+          "label": "Evidence grade",
+          "state": "BLOCKED",
+          "detail": "PRELIMINARY \u00b7 1.39 years \u00b7 3053 4h bars. Enough data for preliminary research, but not enough history/regime depth for normal deployment approval."
+        },
+        {
+          "id": "history_complete",
+          "label": "Historical data",
+          "state": "PASS",
+          "detail": "3053 4h bars available."
+        },
+        {
+          "id": "kucoin_walk_forward",
+          "label": "KuCoin walk-forward",
+          "state": "PENDING",
+          "detail": "No current-regime frozen configuration has passed unseen KuCoin validation yet."
+        },
+        {
+          "id": "trade_fluidity",
+          "label": "Trade fluidity",
+          "state": "PENDING",
+          "detail": "Longest validation trade 652h; open position False."
+        },
+        {
+          "id": "current_regime_fit",
+          "label": "Current regime fit",
+          "state": "PENDING",
+          "detail": "Current regime family: BULL."
+        },
+        {
+          "id": "dca_optimisation",
+          "label": "DCA settings optimisation",
+          "state": "PENDING",
+          "detail": "DCA optimisation status: UNSEEN_VALIDATION_FAILED."
+        },
+        {
+          "id": "continuation_resolution",
+          "label": "Kraken \u2192 KuCoin continuation",
+          "state": "PASS",
+          "detail": "No unresolved Kraken-open blocker remains."
+        },
+        {
+          "id": "capital_allocation",
+          "label": "Capital allocation",
+          "state": "PENDING",
+          "detail": "Awaiting canonical deployable-capital calculation."
+        }
+      ],
+      "recommendation": "ADAPTIVE_RESEARCH",
+      "next_action": "Continue monitoring while CRM runs failure-specific experiments and re-validates on unseen KuCoin data.",
+      "current_regime": "BULL",
+      "settings": {
+        "take_profit_pct": 2.0,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "entry_trigger": "immediate",
+      "kucoin_profitability": {
+        "validation_return_on_max_capital_pct": 60.4,
+        "validation_mark_to_market_pnl": 694.79,
+        "validation_closed_deals": 60,
+        "validation_average_hold_hours": 15.7,
+        "validation_p90_hold_hours": 12,
+        "validation_longest_hold_hours": 652,
+        "validation_drawdown_pct": 21.94,
+        "forward_return_on_max_capital_pct": 127.07,
+        "historical_annualised_equivalent_pct": 216.8,
+        "annualised_label": "Historical annualised equivalent; not a forecast."
+      },
+      "validation_metrics": {
+        "net_pnl": 694.79,
+        "mark_to_market_pnl": 694.79,
+        "open_pnl": 0.0,
+        "closed_deals": 60,
+        "average_hours": 15.7,
+        "median_hours": 0.0,
+        "p90_hours": 12,
+        "longest_hours": 652,
+        "max_drawdown_dollars": -252.41,
+        "max_capital": 1150.3,
+        "open_position": false,
+        "open_duration_hours": 0,
+        "average_safety_orders": 2.17,
+        "return_on_max_capital_pct": 60.4,
+        "max_drawdown_pct": 21.94,
+        "score": 19.032,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation": {
+        "net_pnl": 1461.72,
+        "mark_to_market_pnl": 1461.72,
+        "open_pnl": 0.0,
+        "closed_deals": 101,
+        "average_hours": 19.3,
+        "median_hours": 0,
+        "p90_hours": 4,
+        "longest_hours": 1676,
+        "max_drawdown_dollars": -397.15,
+        "max_capital": 1150.3,
+        "open_position": false,
+        "open_duration_hours": 0,
+        "average_safety_orders": 2.65,
+        "return_on_max_capital_pct": 127.07,
+        "max_drawdown_pct": 34.53,
+        "score": 40.98,
+        "rejected_for_open_duration": false
+      },
+      "forward_observation_days": 102.0,
+      "monitoring_target_days": 14.0,
+      "monitoring_progress_pct": 100,
+      "monitoring_complete": true,
+      "monitoring_explanation": "Preferred observation requirement complete: 102.0 days available versus 14 days preferred.",
+      "research_progress": {
+        "progress_pct": 60.0,
+        "stages": [
+          {
+            "label": "Diagnosis",
+            "complete": true
+          },
+          {
+            "label": "Experiment design",
+            "complete": true
+          },
+          {
+            "label": "Optimisation",
+            "complete": true
+          },
+          {
+            "label": "Unseen validation",
+            "complete": false
+          },
+          {
+            "label": "Regime verification",
+            "complete": false
+          }
+        ],
+        "remaining_stages": 2,
+        "estimated_remaining_cycles": 2,
+        "typical_cycle_seconds": 3271.2
+      },
+      "suggested_allocation_usdt": null,
+      "allocation_reason": null,
+      "validation_cutoff": {
+        "state": null,
+        "post_validation_resolution": null,
+        "original_validation_preserved": true
+      },
+      "kraken_robustness": {
+        "status": "MISSING",
+        "explanation": "No comparable Kraken robustness result is available; KuCoin remains the primary deployment dataset.",
+        "continuation": null
+      },
+      "dca_optimisation": {
+        "asset": "TUT",
+        "pair": "TUT-USDT",
+        "current_regime": "BULL",
+        "source_walk_forward_status": "RESEARCH_PENDING",
+        "structural_settings": {
+          "take_profit_pct": 2.0,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.7,
+          "step_scale": 1.0
+        },
+        "entry_trigger": "immediate",
+        "optimisation_dimensions": [
+          "base_order_volume",
+          "safety_order_volume"
+        ],
+        "already_optimised_dimensions": [
+          "entry_trigger",
+          "take_profit_pct",
+          "so_deviation_pct",
+          "safety_orders",
+          "volume_scale",
+          "step_scale"
+        ],
+        "governed_not_optimised": [
+          "max_active_safety_orders",
+          "max_active_deals",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ],
+        "automatic_live_changes": false,
+        "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+        "progress_pct": 100,
+        "tested_combinations": 9,
+        "winning_strategy_settings": {
+          "entry_trigger": "immediate",
+          "take_profit_pct": 2.0,
+          "so_deviation_pct": 0.8,
+          "safety_orders": 4,
+          "volume_scale": 1.7,
+          "step_scale": 1.0,
+          "base_order_volume": 150.0,
+          "safety_order_volume": 100.0
+        },
+        "governed_execution_controls": {
+          "max_active_safety_orders": 3,
+          "max_active_deals": 1,
+          "order_type": "market base order / limit DCA orders",
+          "trailing_enabled": false,
+          "cooldown_seconds": 0
+        },
+        "setting_sources": {
+          "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+          "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+          "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+        },
+        "training_winner": {
+          "base_order_volume": 150.0,
+          "safety_order_volume": 100.0,
+          "training_score": 435.033,
+          "training_return_on_max_capital_pct": 438.3,
+          "training_drawdown_pct": 10.55,
+          "training_metrics": {
+            "net_pnl": 5260.97,
+            "mark_to_market_pnl": 5260.97,
+            "open_pnl": 0.0,
+            "closed_deals": 353,
+            "average_hours": 6.4,
+            "median_hours": 0,
+            "p90_hours": 16,
+            "longest_hours": 180,
+            "max_drawdown_dollars": -126.59,
+            "max_capital": 1200.3,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 2.6
+          },
+          "rejected_for_open_duration": false
+        },
+        "unseen_validation_metrics": {
+          "net_pnl": 751.73,
+          "mark_to_market_pnl": 751.73,
+          "open_pnl": 0.0,
+          "closed_deals": 59,
+          "average_hours": 16.0,
+          "median_hours": 0,
+          "p90_hours": 16,
+          "longest_hours": 652,
+          "max_drawdown_dollars": -263.13,
+          "max_capital": 1200.3,
+          "open_position": false,
+          "open_duration_hours": 0,
+          "average_safety_orders": 2.2,
+          "return_on_max_capital_pct": 62.63,
+          "max_drawdown_pct": 21.92,
+          "score": 20.839
+        },
+        "unseen_validation_pass": false,
+        "capital_required_usdt": 1200.3,
+        "reason": "Winning training sizing did not pass unseen KuCoin validation; CRM will not present it as deployment-ready."
+      },
+      "adaptive_research": {
+        "asset": "TUT",
+        "pair": "TUT-USDT",
+        "state": "ADAPTIVE_RESEARCH_QUEUED",
+        "failure_reasons": [
+          "Validation drawdown 21.9% exceeds preferred tolerance.",
+          "Longest validation trade 652h exceeds the preferred 168h fluidity target."
+        ],
+        "next_experiments": [
+          "reduce_volume_scale",
+          "increase_step_scale",
+          "restrict_regime",
+          "tighten_entry_filter"
+        ],
+        "search_extensions": {
+          "so_deviation_pct": [],
+          "safety_orders": [],
+          "volume_scale": [
+            1.1,
+            1.2
+          ],
+          "step_scale": [
+            1.3,
+            1.5
+          ],
+          "entry_triggers": [
+            "trend_pullback",
+            "qfl_proxy_3",
+            "mean_reversion"
+          ]
+        },
+        "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
+      },
+      "regime_profiles": {
+        "BULL": {
+          "validated": false,
+          "entry_trigger": "immediate",
+          "settings": {
+            "take_profit_pct": 2.0,
+            "so_deviation_pct": 0.8,
+            "safety_orders": 4,
+            "volume_scale": 1.7,
+            "step_scale": 1.0
+          },
+          "validation_metrics": {
+            "net_pnl": 694.79,
+            "mark_to_market_pnl": 694.79,
+            "open_pnl": 0.0,
+            "closed_deals": 60,
+            "average_hours": 15.7,
+            "median_hours": 0.0,
+            "p90_hours": 12,
+            "longest_hours": 652,
+            "max_drawdown_dollars": -252.41,
+            "max_capital": 1150.3,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 2.17,
+            "return_on_max_capital_pct": 60.4,
+            "max_drawdown_pct": 21.94,
+            "score": 19.032,
+            "rejected_for_open_duration": false
+          },
+          "forward_observation": {
+            "net_pnl": 1461.72,
+            "mark_to_market_pnl": 1461.72,
+            "open_pnl": 0.0,
+            "closed_deals": 101,
+            "average_hours": 19.3,
+            "median_hours": 0,
+            "p90_hours": 4,
+            "longest_hours": 1676,
+            "max_drawdown_dollars": -397.15,
+            "max_capital": 1150.3,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 2.65,
+            "return_on_max_capital_pct": 127.07,
+            "max_drawdown_pct": 34.53,
+            "score": 40.98,
+            "rejected_for_open_duration": false
+          }
+        },
+        "ACCUMULATION": {
+          "validated": true,
+          "entry_trigger": "immediate",
+          "settings": {
+            "take_profit_pct": 1.2,
+            "so_deviation_pct": 0.8,
+            "safety_orders": 4,
+            "volume_scale": 1.7,
+            "step_scale": 1.0
+          },
+          "validation_metrics": {
+            "net_pnl": 113.51,
+            "mark_to_market_pnl": 112.51,
+            "open_pnl": -0.99,
+            "closed_deals": 31,
+            "average_hours": 5.0,
+            "median_hours": 4,
+            "p90_hours": 12,
+            "longest_hours": 16,
+            "max_drawdown_dollars": -25.19,
+            "max_capital": 1150.3,
+            "open_position": true,
+            "open_duration_hours": 24,
+            "average_safety_orders": 1.16,
+            "return_on_max_capital_pct": 9.78,
+            "max_drawdown_pct": 2.19,
+            "score": -12.63,
+            "rejected_for_open_duration": false
+          },
+          "forward_observation": {
+            "net_pnl": 144.36,
+            "mark_to_market_pnl": 144.36,
+            "open_pnl": 0.0,
+            "closed_deals": 33,
+            "average_hours": 15.2,
+            "median_hours": 0,
+            "p90_hours": 12,
+            "longest_hours": 384,
+            "max_drawdown_dollars": -262.74,
+            "max_capital": 1150.3,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.42,
+            "return_on_max_capital_pct": 12.55,
+            "max_drawdown_pct": 22.84,
+            "score": -21.327,
+            "rejected_for_open_duration": false
+          }
+        },
+        "NEUTRAL": {
+          "validated": true,
+          "entry_trigger": "immediate",
+          "settings": {
+            "take_profit_pct": 2.0,
+            "so_deviation_pct": 0.8,
+            "safety_orders": 4,
+            "volume_scale": 1.2,
+            "step_scale": 1.0
+          },
+          "validation_metrics": {
+            "net_pnl": 279.4,
+            "mark_to_market_pnl": 239.41,
+            "open_pnl": -39.99,
+            "closed_deals": 41,
+            "average_hours": 7.9,
+            "median_hours": 4,
+            "p90_hours": 24,
+            "longest_hours": 52,
+            "max_drawdown_dollars": -52.94,
+            "max_capital": 636.8,
+            "open_position": true,
+            "open_duration_hours": 36,
+            "average_safety_orders": 1.9,
+            "return_on_max_capital_pct": 37.6,
+            "max_drawdown_pct": 8.31,
+            "score": 6.654,
+            "rejected_for_open_duration": false
+          },
+          "forward_observation": {
+            "net_pnl": 128.27,
+            "mark_to_market_pnl": 128.27,
+            "open_pnl": 0.0,
+            "closed_deals": 18,
+            "average_hours": 71.1,
+            "median_hours": 0.0,
+            "p90_hours": 20,
+            "longest_hours": 1216,
+            "max_drawdown_dollars": -147.96,
+            "max_capital": 636.8,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 2.06,
+            "return_on_max_capital_pct": 20.14,
+            "max_drawdown_pct": 23.23,
+            "score": -44.609,
+            "rejected_for_open_duration": false
+          }
+        },
+        "BEAR": {
+          "validated": false,
+          "entry_trigger": "pullback_3pct",
+          "settings": {
+            "take_profit_pct": 1.2,
+            "so_deviation_pct": 0.8,
+            "safety_orders": 4,
+            "volume_scale": 1.1,
+            "step_scale": 1.15
+          },
+          "validation_metrics": {
+            "net_pnl": 33.99,
+            "mark_to_market_pnl": -146.42,
+            "open_pnl": -180.42,
+            "closed_deals": 11,
+            "average_hours": 2.5,
+            "median_hours": 0,
+            "p90_hours": 12,
+            "longest_hours": 12,
+            "max_drawdown_dollars": -271.48,
+            "max_capital": 564.1,
+            "open_position": true,
+            "open_duration_hours": 2360,
+            "average_safety_orders": 1.45,
+            "return_on_max_capital_pct": -25.96,
+            "max_drawdown_pct": 48.13,
+            "score": -277.25,
+            "rejected_for_open_duration": true
+          },
+          "forward_observation": {
+            "net_pnl": 122.7,
+            "mark_to_market_pnl": 122.7,
+            "open_pnl": 0.0,
+            "closed_deals": 42,
+            "average_hours": 14.7,
+            "median_hours": 4.0,
+            "p90_hours": 20,
+            "longest_hours": 256,
+            "max_drawdown_dollars": -86.49,
+            "max_capital": 564.1,
+            "open_position": false,
+            "open_duration_hours": 0,
+            "average_safety_orders": 1.31,
+            "return_on_max_capital_pct": 21.75,
+            "max_drawdown_pct": 15.33,
+            "score": -1.328,
+            "rejected_for_open_duration": false
+          }
+        }
+      },
+      "deployment_preparation_available": false,
+      "automatic_deployment": false
+    },
+    {
       "asset": "DOT",
       "pair": "DOT-USDT",
       "evidence_grade": {
@@ -5477,7 +5477,7 @@
       "monitoring_complete": true,
       "monitoring_explanation": "Preferred observation requirement complete: 435.7 days available versus 14 days preferred.",
       "research_progress": {
-        "progress_pct": 40.0,
+        "progress_pct": 60.0,
         "stages": [
           {
             "label": "Diagnosis",
@@ -5489,7 +5489,7 @@
           },
           {
             "label": "Optimisation",
-            "complete": false
+            "complete": true
           },
           {
             "label": "Unseen validation",
@@ -5500,9 +5500,9 @@
             "complete": false
           }
         ],
-        "remaining_stages": 3,
-        "estimated_remaining_cycles": 3,
-        "typical_cycle_seconds": 3007.3
+        "remaining_stages": 2,
+        "estimated_remaining_cycles": 2,
+        "typical_cycle_seconds": 3271.2
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -5892,11 +5892,11 @@
         "asset": "PIEVERSE",
         "pair": "PIEVERSE-USDT",
         "evidence_grade": "SCREEN_ONLY",
-        "bars_4h": 474,
-        "history_days": 0,
-        "history_start": null,
-        "history_end": null,
-        "history_years": 0,
+        "bars_4h": 481,
+        "history_days": 80.0,
+        "history_start": "2026-05-22T08:00:00+00:00",
+        "history_end": "2026-08-10T08:00:00+00:00",
+        "history_years": 0.22,
         "regime_profiles_observed": [],
         "regime_profile_count": 0,
         "kucoin_walk_forward_pass": false,
@@ -5913,13 +5913,13 @@
           "id": "evidence_grade",
           "label": "Evidence grade",
           "state": "BLOCKED",
-          "detail": "SCREEN_ONLY \u00b7 0 years \u00b7 474 4h bars. History is too short for deployment research; candidate may be screened/ranked only."
+          "detail": "SCREEN_ONLY \u00b7 0.22 years \u00b7 481 4h bars. History is too short for deployment research; candidate may be screened/ranked only."
         },
         {
           "id": "history_complete",
           "label": "Historical data",
           "state": "PENDING",
-          "detail": "474 4h bars available."
+          "detail": "481 4h bars available."
         },
         {
           "id": "kucoin_walk_forward",
@@ -6008,7 +6008,7 @@
         ],
         "remaining_stages": 5,
         "estimated_remaining_cycles": 3,
-        "typical_cycle_seconds": 3007.3
+        "typical_cycle_seconds": 3271.2
       },
       "suggested_allocation_usdt": null,
       "allocation_reason": null,
@@ -6061,7 +6061,7 @@
   ],
   "summary": {
     "candidates": 12,
-    "ready_for_manual_review": 1,
+    "ready_for_manual_review": 0,
     "adaptive_research": 8
   },
   "workflow": [

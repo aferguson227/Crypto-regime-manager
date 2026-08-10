@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "64.0.0",
-  "generated_at": "2026-08-10T12:43:27.447355+00:00",
+  "generated_at": "2026-08-10T13:53:45.544500+00:00",
   "coin_count": 22,
   "coins": [
     {
@@ -186,6 +186,20 @@
       "research_continues_while_live": false
     },
     {
+      "asset": "LTC",
+      "lifecycle": "RESEARCHING",
+      "execution_state": "NOT_DEPLOYED",
+      "research_state": "NEEDS_HISTORICAL_VALIDATION",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "current_regime": "ACCUMULATION",
+      "research_continues_while_live": false
+    },
+    {
       "asset": "NEAR",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
@@ -201,20 +215,6 @@
     },
     {
       "asset": "PIEVERSE",
-      "lifecycle": "RESEARCHING",
-      "execution_state": "NOT_DEPLOYED",
-      "research_state": "NEEDS_HISTORICAL_VALIDATION",
-      "reasons": [
-        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-      ],
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "current_regime": "ACCUMULATION",
-      "research_continues_while_live": false
-    },
-    {
-      "asset": "SEI",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
       "research_state": "NEEDS_HISTORICAL_VALIDATION",
@@ -341,5 +341,5 @@
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "3616fdff519d3f3e64ff62e4"
+  "snapshot_id": "9ebdb4adfbfa0848a5c8fbc0"
 }

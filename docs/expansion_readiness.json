@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "64.0.0",
-  "generated_at": "2026-08-10T13:39:12.278040+00:00",
+  "generated_at": "2026-08-10T13:54:11.645804+00:00",
   "state": "WAIT",
   "score_pct": 66.7,
   "recommended_next_candidate": "UNI",
@@ -18,7 +18,7 @@
       "take_profit_pct": 0.8,
       "so_deviation_pct": 0.8,
       "safety_orders": 4,
-      "volume_scale": 1.1,
+      "volume_scale": 1.3,
       "step_scale": 1.0
     },
     "training_metrics": {
@@ -103,5 +103,5 @@
     "principle": "Add a new asset only when capital, current TEL trade state, current market conditions and independent Kraken/Q1 evidence all support manual review."
   },
   "next_action": "Keep TEL as the only production asset until all expansion gates pass.",
-  "snapshot_id": "02691fa9c471a063b22ed288"
+  "snapshot_id": "e0fb3303d6b112ba76212d12"
 }

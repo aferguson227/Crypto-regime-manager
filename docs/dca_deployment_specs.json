@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "64.0.0",
-  "generated_at": "2026-08-10T12:34:24.177174+00:00",
+  "generated_at": "2026-08-10T13:53:53.568618+00:00",
   "specs": [
     {
       "asset": "XMR",
@@ -43,27 +43,11 @@
       "asset": "UNI",
       "pair": "UNI-USDT",
       "current_regime": "ACCUMULATION",
-      "optimisation_status": "COMPLETE",
+      "optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "optimisation_progress_pct": 100,
-      "recommended_dca_settings": {
-        "entry_trigger": "immediate",
-        "take_profit_pct": 0.8,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.1,
-        "step_scale": 1.0,
-        "base_order_volume": 50.0,
-        "safety_order_volume": 50.0,
-        "start_condition": "Immediate"
-      },
-      "recommended_settings_available": true,
-      "governed_execution_controls": {
-        "max_active_safety_orders": 3,
-        "max_active_deals": 1,
-        "order_type": "market base order / limit DCA orders",
-        "trailing_enabled": false,
-        "cooldown_seconds": 0
-      },
+      "recommended_dca_settings": null,
+      "recommended_settings_available": false,
+      "governed_execution_controls": null,
       "setting_sources": {
         "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
         "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
@@ -79,13 +63,15 @@
         "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
         "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
       },
-      "capital_required_usdt": 282.05,
-      "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
-      "setup_completeness_pct": 100.0,
-      "missing_settings": [],
-      "status_explanation": "Recommended DCA settings are available because structural settings and BO/SO sizing were optimised on training data, frozen, and passed unseen KuCoin validation.",
-      "execution_controls_explanation": "Max concurrent safety orders, max active deals, order type, trailing and cooldown are governed execution controls, not optimised profit parameters in the current replay model.",
-      "entry_explanation": "Wait for the validated immediate entry condition; CRM does not automatically submit the entry.",
+      "capital_required_usdt": null,
+      "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
+      "setup_completeness_pct": 0.0,
+      "missing_settings": [
+        "DCA optimisation must complete before CRM publishes an exact deployment setup."
+      ],
+      "status_explanation": "DCA optimisation is not complete (UNSEEN_VALIDATION_FAILED). CRM deliberately withholds exact deployment settings until the strategy passes unseen validation.",
+      "execution_controls_explanation": null,
+      "entry_explanation": "Entry configuration remains under the optimisation gate.",
       "manual_deployment_only": true,
       "automatic_live_execution": false
     },
@@ -284,78 +270,6 @@
       "automatic_live_execution": false
     },
     {
-      "asset": "TUT",
-      "pair": "TUT-USDT",
-      "current_regime": "BULL",
-      "optimisation_status": "UNSEEN_VALIDATION_FAILED",
-      "optimisation_progress_pct": 100,
-      "recommended_dca_settings": null,
-      "recommended_settings_available": false,
-      "governed_execution_controls": null,
-      "setting_sources": {
-        "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
-      },
-      "capital_required_usdt": null,
-      "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
-      "setup_completeness_pct": 0.0,
-      "missing_settings": [
-        "DCA optimisation must complete before CRM publishes an exact deployment setup."
-      ],
-      "status_explanation": "DCA optimisation is not complete (UNSEEN_VALIDATION_FAILED). CRM deliberately withholds exact deployment settings until the strategy passes unseen validation.",
-      "execution_controls_explanation": null,
-      "entry_explanation": "Entry configuration remains under the optimisation gate.",
-      "manual_deployment_only": true,
-      "automatic_live_execution": false
-    },
-    {
-      "asset": "NEAR",
-      "pair": "NEAR-USDT",
-      "current_regime": "BEAR",
-      "optimisation_status": "UNSEEN_VALIDATION_FAILED",
-      "optimisation_progress_pct": 100,
-      "recommended_dca_settings": null,
-      "recommended_settings_available": false,
-      "governed_execution_controls": null,
-      "setting_sources": {
-        "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
-      },
-      "capital_required_usdt": null,
-      "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
-      "setup_completeness_pct": 0.0,
-      "missing_settings": [
-        "DCA optimisation must complete before CRM publishes an exact deployment setup."
-      ],
-      "status_explanation": "DCA optimisation is not complete (UNSEEN_VALIDATION_FAILED). CRM deliberately withholds exact deployment settings until the strategy passes unseen validation.",
-      "execution_controls_explanation": null,
-      "entry_explanation": "Entry configuration remains under the optimisation gate.",
-      "manual_deployment_only": true,
-      "automatic_live_execution": false
-    },
-    {
       "asset": "ZEC",
       "pair": "ZEC-USDT",
       "current_regime": "BULL",
@@ -402,6 +316,78 @@
       "status_explanation": "Recommended DCA settings are available because structural settings and BO/SO sizing were optimised on training data, frozen, and passed unseen KuCoin validation.",
       "execution_controls_explanation": "Max concurrent safety orders, max active deals, order type, trailing and cooldown are governed execution controls, not optimised profit parameters in the current replay model.",
       "entry_explanation": "Wait for the validated immediate entry condition; CRM does not automatically submit the entry.",
+      "manual_deployment_only": true,
+      "automatic_live_execution": false
+    },
+    {
+      "asset": "NEAR",
+      "pair": "NEAR-USDT",
+      "current_regime": "BEAR",
+      "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+      "optimisation_progress_pct": 100,
+      "recommended_dca_settings": null,
+      "recommended_settings_available": false,
+      "governed_execution_controls": null,
+      "setting_sources": {
+        "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+      },
+      "capital_required_usdt": null,
+      "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
+      "setup_completeness_pct": 0.0,
+      "missing_settings": [
+        "DCA optimisation must complete before CRM publishes an exact deployment setup."
+      ],
+      "status_explanation": "DCA optimisation is not complete (UNSEEN_VALIDATION_FAILED). CRM deliberately withholds exact deployment settings until the strategy passes unseen validation.",
+      "execution_controls_explanation": null,
+      "entry_explanation": "Entry configuration remains under the optimisation gate.",
+      "manual_deployment_only": true,
+      "automatic_live_execution": false
+    },
+    {
+      "asset": "TUT",
+      "pair": "TUT-USDT",
+      "current_regime": "BULL",
+      "optimisation_status": "UNSEEN_VALIDATION_FAILED",
+      "optimisation_progress_pct": 100,
+      "recommended_dca_settings": null,
+      "recommended_settings_available": false,
+      "governed_execution_controls": null,
+      "setting_sources": {
+        "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+      },
+      "capital_required_usdt": null,
+      "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
+      "setup_completeness_pct": 0.0,
+      "missing_settings": [
+        "DCA optimisation must complete before CRM publishes an exact deployment setup."
+      ],
+      "status_explanation": "DCA optimisation is not complete (UNSEEN_VALIDATION_FAILED). CRM deliberately withholds exact deployment settings until the strategy passes unseen validation.",
+      "execution_controls_explanation": null,
+      "entry_explanation": "Entry configuration remains under the optimisation gate.",
       "manual_deployment_only": true,
       "automatic_live_execution": false
     },
@@ -481,8 +467,8 @@
   "principle": "CRM publishes exact Recommended DCA Settings only after optimisation, freeze and unseen KuCoin validation. Governed execution controls are clearly separated.",
   "summary": {
     "assets": 12,
-    "settings_ready": 4,
-    "optimisation_in_progress": 8
+    "settings_ready": 3,
+    "optimisation_in_progress": 9
   },
   "next_phase": "Expand replay coverage to additional execution behaviours before any governed control is ever relabelled as optimised."
 }
