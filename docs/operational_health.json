@@ -1,26 +1,26 @@
 {
   "schema_version": "1.0",
   "application_version": "64.0.0",
-  "generated_at": "2026-08-10T12:34:17.573582+00:00",
+  "generated_at": "2026-08-10T12:44:04.710046+00:00",
   "overall": {
-    "state": "CRITICAL",
-    "score_pct": 65.5,
-    "active_issue_count": 1,
-    "critical_count": 1,
+    "state": "HEALTHY",
+    "score_pct": 86.0,
+    "active_issue_count": 0,
+    "critical_count": 0,
     "warning_count": 0
   },
   "scores": {
     "system": 100,
-    "data": 67.3,
+    "data": 100,
     "trading": 70.0,
-    "deployment": 50.0,
-    "decision_readiness": 40.0
+    "deployment": 100,
+    "decision_readiness": 60.0
   },
   "threecommas": {
     "status": "ok",
     "last_attempt_at": "2026-08-10T10:46:30.236307+00:00",
     "last_success_at": "2026-08-10T10:46:30.236307+00:00",
-    "last_success_age_hours": 1.8,
+    "last_success_age_hours": 1.96,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-10T10:46:31.067205+00:00",
-        "age_hours": 1.8,
+        "age_hours": 1.96,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-10T10:46:31.539754+00:00",
-        "age_hours": 1.8,
+        "age_hours": 1.96,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -51,7 +51,7 @@
         "http_status": null,
         "records": 4,
         "observed_at": "2026-08-10T10:46:31.759898+00:00",
-        "age_hours": 1.8,
+        "age_hours": 1.96,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -62,7 +62,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-10T10:46:32.001044+00:00",
-        "age_hours": 1.8,
+        "age_hours": 1.96,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -73,7 +73,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-10T10:46:32.001091+00:00",
-        "age_hours": 1.8,
+        "age_hours": 1.96,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -84,7 +84,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-10T10:46:32.001098+00:00",
-        "age_hours": 1.8,
+        "age_hours": 1.96,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
@@ -94,9 +94,9 @@
     "deals": 1
   },
   "application": {
-    "cloud_state": "failure",
+    "cloud_state": "healthy",
     "last_success_at": "2026-08-10T00:01:49.316423+00:00",
-    "last_success_age_hours": 12.54,
+    "last_success_age_hours": 12.68,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -106,7 +106,7 @@
         "bot_name": "TEL DCA - Low Volatility",
         "status": "bought",
         "profit_pct": 0.35,
-        "duration_hours": 24.5,
+        "duration_hours": 24.7,
         "completed_safety_orders": 3,
         "max_safety_orders": 6,
         "capital_used": 688.134646248,
@@ -118,26 +118,12 @@
   "decision": {
     "primary_action": "KEEP_ACTIVE_DEAL",
     "bot_name": "TEL Low Volatility Bot",
-    "readiness_score_pct": 40.0,
+    "readiness_score_pct": 60.0,
     "ready_for_manual_action": false
   },
-  "capital_source": "3Commas read-only account snapshot",
-  "kucoin_direct_status": "fallback_current",
-  "issues": [
-    {
-      "severity": "critical",
-      "system": "Application",
-      "title": "Application publication needs attention",
-      "detail": "Latest successful publication was 12h 32m ago.",
-      "recommended_action": "Automatic publication is enabled; inspect the workflow only if live Pages is not synchronised.",
-      "metric": {
-        "age_hours": 12.54,
-        "unit": "hours"
-      },
-      "first_detected_at": "2026-08-10T12:34:17.589795+00:00",
-      "last_detected_at": "2026-08-10T12:34:17.589802+00:00"
-    }
-  ],
+  "capital_source": "KuCoin direct read-only account API",
+  "kucoin_direct_status": "ok",
+  "issues": [],
   "safeguards": {
     "read_only": true,
     "manual_approval_required": true

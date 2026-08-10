@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "64.0.0",
-  "generated_at": "2026-08-10T12:34:18.033533+00:00",
-  "snapshot_id": "18b6f1f0c5a62864b8582099",
+  "generated_at": "2026-08-10T12:42:49.307543+00:00",
+  "snapshot_id": "09f3527f5afc59a0ee1be1d7",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -114,7 +114,7 @@
   "capital": {
     "status": null,
     "currency": "USDT",
-    "total_equity": 3587.5538871179756,
+    "total_equity": 2929.17291349,
     "allocated": 688.134646248,
     "reserved": 2113.5360000000005,
     "deployable": 0.0,
@@ -131,7 +131,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "71dc5f83c33d5d748589d3e7",
+      "recommendation_id": "bde147cedec6ae7da00b8580",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
@@ -292,7 +292,7 @@
       }
     },
     {
-      "recommendation_id": "974b0b7ce46849ea2f178f8e",
+      "recommendation_id": "29cb7f089255bcf512124516",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -530,7 +530,7 @@
     }
   },
   "cloud": {
-    "overall_status": "FAILURE",
+    "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
       "generated_at": "2026-08-10T10:46:30.236307+00:00",
@@ -543,23 +543,22 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "FAILURE"
+    "cloud_status": "HEALTHY"
   },
   "source_snapshots": {
     "market": "736af7d0031738f93d40",
-    "portfolio": "3cd8d2a165dbbc476854",
-    "capital": "27607075d601acf84299",
-    "deployment": "e6acf905c378fcd586d6",
-    "recommendations": "92b9c525e1bb31ed0908",
+    "portfolio": "e04f2958ea1ad0ffb076",
+    "capital": "43d7e78f041fd3e6a5ca",
+    "deployment": "a16376221d3c96a8624e",
+    "recommendations": "cc61e9bfbb0a29bce71f",
     "adaptive": "e8f9335940cb567ca75e",
     "outcomes": "2026-08-10T00:01:49.274628+00:00",
     "cloud": "09a00ea02d0c048c0634",
-    "operating": "2c619640fcd172def702"
+    "operating": "61aad4f86b09dfd14138"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
-    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
-    "One or more cloud data sources require attention."
+    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ]
 }

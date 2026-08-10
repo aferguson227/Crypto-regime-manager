@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "64.0.0",
-  "generated_at": "2026-08-10T12:34:24.972287+00:00",
+  "generated_at": "2026-08-10T12:43:51.813823+00:00",
   "events": [
     {
       "event_id": "58f05bae44fe949aef1e2959",
@@ -5476,8 +5476,36 @@
         "realised_profit_pct": null,
         "notes": null
       }
+    },
+    {
+      "event_id": "70b68e0e4881419e496e5acf",
+      "recorded_at": "2026-08-10T12:42:35.188397+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "KEEP_ACTIVE_DEAL",
+      "confidence_pct": 93.5,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "39fbb170f50963464e2a3610",
+      "recorded_at": "2026-08-10T12:42:35.188397+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 22.2,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
     }
   ],
-  "event_count": 416,
+  "event_count": 418,
   "live_updating": true
 }

@@ -1,21 +1,21 @@
 {
   "schema_version": "1.0",
   "application_version": "64.0.0",
-  "generated_at": "2026-08-10T12:34:16.840112+00:00",
-  "overall": "DRIFT",
+  "generated_at": "2026-08-10T12:44:04.990353+00:00",
+  "overall": "SYNCHRONIZED",
   "components": {
     "release": {
       "status": "SYNCED",
       "expected_version": "64.0.0"
     },
     "github_main": {
-      "status": "REMOTE_BEHIND",
-      "version": "63.0.0",
+      "status": "SYNCED",
+      "version": "64.0.0",
       "expected_version": "64.0.0"
     },
     "live_pages": {
-      "status": "PENDING_PUBLICATION",
-      "version": "63.0.0",
+      "status": "SYNCED",
+      "version": "64.0.0",
       "expected_version": "64.0.0",
       "url": "https://aferguson227.github.io/Crypto-regime-manager/"
     },
@@ -25,11 +25,11 @@
     },
     "threecommas": {
       "status": "OK",
-      "age_minutes": 107.8
+      "age_minutes": 117.6
     },
     "application_refresh": {
-      "status": "FAILURE",
-      "age_minutes": 752.5
+      "status": "HEALTHY",
+      "age_minutes": 762.3
     }
   },
   "sources": {
