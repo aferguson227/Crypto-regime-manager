@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:06:10.248581+00:00",
+  "generated_at": "2026-08-10T10:23:11.774327+00:00",
   "overall": "PARTIALLY_DEGRADED",
   "fault_count": 0,
   "overdue_count": 0,
@@ -40,8 +40,8 @@
       "name": "3Commas monitoring",
       "role": "SECONDARY_PROVIDER",
       "status": "DELAYED",
-      "age_minutes": 248.3,
-      "age_display": "4h 8m ago",
+      "age_minutes": 265.3,
+      "age_display": "4h 25m ago",
       "expected_cadence_minutes": 180.0,
       "reason": "Temporary secondary provider monitoring; KuCoin remains authoritative.",
       "collector_status": "OK"
@@ -50,8 +50,8 @@
       "name": "Website update",
       "role": "PRESENTATION",
       "status": "CURRENT",
-      "age_minutes": 603.0,
-      "age_display": "10h 3m ago",
+      "age_minutes": 620.4,
+      "age_display": "10h 20m ago",
       "expected_cadence_minutes": 30.0,
       "reason": "Website publishing is separate from trading-data reliability. It never makes KuCoin trading data stale."
     },
@@ -59,8 +59,8 @@
       "name": "System checks",
       "role": "ENGINEERING",
       "status": "CURRENT",
-      "age_minutes": 41.3,
-      "age_display": "41m ago",
+      "age_minutes": 58.3,
+      "age_display": "58m ago",
       "expected_cadence_minutes": 360,
       "reason": "Automatic application checks; detailed mode is hidden unless troubleshooting."
     }

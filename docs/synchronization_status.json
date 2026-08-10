@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T10:04:51.925159+00:00",
-  "overall": "PENDING_PUBLICATION",
+  "generated_at": "2026-08-10T10:23:14.880377+00:00",
+  "overall": "SYNCHRONIZED",
   "components": {
     "release": {
       "status": "SYNCED",
       "expected_version": "62.0.0"
     },
     "github_main": {
-      "status": "REMOTE_BEHIND",
-      "version": "61.0.0",
+      "status": "SYNCED",
+      "version": "62.0.0",
       "expected_version": "62.0.0"
     },
     "live_pages": {
@@ -25,11 +25,11 @@
     },
     "threecommas": {
       "status": "OK",
-      "age_minutes": 247.0
+      "age_minutes": 265.4
     },
     "application_refresh": {
-      "status": "WARNING",
-      "age_minutes": 603.0
+      "status": "HEALTHY",
+      "age_minutes": 621.4
     }
   },
   "sources": {
