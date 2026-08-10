@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "65.0.0",
-  "generated_at": "2026-08-10T13:59:27.653774+00:00",
+  "generated_at": "2026-08-10T15:01:24.240149+00:00",
   "deployable_capital_usdt": 0.0,
   "cash_buffer_pct": 15.0,
   "usable_after_cash_buffer_usdt": 0,
@@ -10,7 +10,21 @@
   ],
   "maximum_live_bots": 4,
   "available_new_bot_slots": 3,
-  "recommendations": [],
+  "recommendations": [
+    {
+      "asset": "ZEC",
+      "pair": "ZEC-USDT",
+      "selected_for_next_portfolio_slot": true,
+      "portfolio_score": 287.93,
+      "kucoin_validation_return_on_max_capital_pct": 364.21,
+      "validation_drawdown_pct": 7.61,
+      "longest_validation_trade_hours": 160.0,
+      "max_abs_correlation_to_live_bots": 0,
+      "recommended_allocation_usdt": 0.0,
+      "reason": "Selected within available portfolio slot using return, drawdown, capital-lock and diversification penalties.",
+      "manual_approval_required": true
+    }
+  ],
   "automatic_deployment": false,
   "capital_source": "Portfolio Capital Manager 2.0 prudent multi-bot pool",
   "allocation_status": "KNOWN"

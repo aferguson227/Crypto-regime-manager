@@ -1,8 +1,8 @@
 {
   "schema_version": "1.1",
   "application_version": "65.0.0",
-  "generated_at": "2026-08-10T14:56:59.523509+00:00",
-  "mode": "hourly",
+  "generated_at": "2026-08-10T15:01:56.340209+00:00",
+  "mode": "quick",
   "result": "HEALTHY",
   "steps": [
     {
@@ -19,14 +19,6 @@
     },
     {
       "module": "scripts.crm_health_recovery_engine",
-      "result": "pass"
-    },
-    {
-      "module": "scripts.engineering_scheduler",
-      "result": "pass"
-    },
-    {
-      "module": "scripts.ui_validation_manager",
       "result": "pass"
     }
   ],
