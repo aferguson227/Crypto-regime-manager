@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T11:06:27.022293+00:00",
+  "generated_at": "2026-08-10T11:21:26.656208+00:00",
   "status": "OK",
   "source": "KuCoin private read-only GET /api/v1/hf/fills (symbol-aware)",
   "api_message": "{\"symbols_checked\": 5, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 120}, {\"symbol\": \"DATA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}]}",
@@ -11,9 +11,9 @@
   "coverage_note": "KuCoin recent spot fill queries are time-limited; CRM persists each refresh so ledger coverage grows from V50 onward.",
   "realised_profit_quote": null,
   "partial_matched_realised_profit_quote": 124.7022546,
-  "realised_profit_status": "DEEP_COST_BASIS_SEARCH",
-  "reconciliation_progress_pct": 92.4,
-  "next_automatic_retry_minutes": 15,
+  "realised_profit_status": "HISTORICAL_COST_BASIS_UNAVAILABLE",
+  "reconciliation_progress_pct": 100.0,
+  "next_automatic_retry_minutes": 0,
   "backfill_progress": {
     "weeks_checked": 25,
     "total_weeks_target": 25,
@@ -22,7 +22,7 @@
     "estimated_minutes_remaining": 0,
     "complete_scan": true
   },
-  "progress_explanation": "Normal 180-day scan complete; CRM is now searching only the affected asset further back for the missing acquisition. Estimated 15 min remaining.",
+  "progress_explanation": "Targeted deep cost-basis search complete, but 1 sell lot(s) still lack a provable earlier KuCoin buy within 730 days.",
   "backfill": {
     "attempted": true,
     "windows": 0,
@@ -42,24 +42,36 @@
     "assets": [
       {
         "asset": "TEL",
-        "windows_checked_this_cycle": 12,
+        "windows_checked_this_cycle": 7,
         "new_fills": 0,
-        "cursor": 1727258597843,
+        "cursor": 1723288884683,
         "search_floor_days": 730,
-        "weeks_checked": 73,
+        "weeks_checked": 79,
         "total_weeks_target": 79,
-        "progress_pct": 92.4,
-        "complete": false,
-        "estimated_cycles_remaining": 1,
-        "estimated_minutes_remaining": 15,
+        "progress_pct": 100.0,
+        "complete": true,
+        "estimated_cycles_remaining": 0,
+        "estimated_minutes_remaining": 0,
         "status": "OK"
       }
     ],
     "new_fills": 0,
-    "complete": false,
+    "complete": true,
     "policy": "Targeted unmatched-asset search only; up to 730 days, 12 weekly windows per 15-minute cycle."
   },
-  "accounting_limitation": null,
+  "accounting_limitation": {
+    "state": "UNRESOLVED_LEGACY_COST_BASIS",
+    "unmatched_sell_count": 1,
+    "unmatched_sells": [
+      {
+        "asset": "TEL",
+        "created_at": 1785779770933,
+        "sell_size": 367333.0,
+        "known_inventory_before": 111581.0
+      }
+    ],
+    "explanation": "CRM searched up to 730 days for the missing acquisition and still could not prove the cost basis. The affected realised P/L remains excluded rather than estimated."
+  },
   "reconciliation": {
     "fill_count": 122,
     "first_fill_at": "2026-08-02T13:55:09.362000+00:00",

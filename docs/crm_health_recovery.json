@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T11:08:10.754630+00:00",
+  "generated_at": "2026-08-10T11:23:14.181075+00:00",
   "overall": "HEALTHY",
   "summary": {
     "root_issues_before": 0,
@@ -16,8 +16,8 @@
     {
       "code": "REALIZED_PNL_HISTORY",
       "area": "Accounting",
-      "state": "DEEP_COST_BASIS_SEARCH",
-      "detail": "Normal 180-day scan complete; CRM is now searching only the affected asset further back for the missing acquisition. Estimated 15 min remaining.",
+      "state": "HISTORICAL_COST_BASIS_UNAVAILABLE",
+      "detail": "Targeted deep cost-basis search complete, but 1 sell lot(s) still lack a provable earlier KuCoin buy within 730 days.",
       "system_fault": false
     }
   ],
