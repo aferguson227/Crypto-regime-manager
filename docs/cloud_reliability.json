@@ -1,24 +1,24 @@
 {
   "schema_version": "2.0",
   "application_version": "61.0.0",
-  "generated_at": "2026-08-10T09:04:47.532138+00:00",
+  "generated_at": "2026-08-10T09:06:29.492278+00:00",
   "snapshot_id": "013ad0d3ec5da5fb3779",
-  "status": "WARNING",
+  "status": "HEALTHY",
   "pipelines": {
     "threecommas": {
       "name": "3Commas read-only sync",
       "state": "warning",
       "last_attempt_at": "2026-08-10T05:57:52.853848+00:00",
-      "last_attempt_age_hours": 3.12,
+      "last_attempt_age_hours": 3.14,
       "last_success_at": "2026-08-10T05:57:52.853848+00:00",
-      "last_success_age_hours": 3.12,
+      "last_success_age_hours": 3.14,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
       "source_status": "ok",
       "core_status": "ok",
-      "capital_fallback": null,
-      "message": "All read-only 3Commas endpoints updated successfully.",
+      "capital_fallback": "KuCoin direct read-only",
+      "message": "3Commas telemetry is older than target, but fresh KuCoin private capital data remains available. Bot/deal telemetry may still lag.",
       "endpoint_diagnostics": {
         "results": {
           "validate": {
@@ -80,20 +80,21 @@
         "failures": [],
         "primary_failure_category": null
       },
-      "decision_blocking": true
+      "decision_blocking": false
     },
     "application": {
       "name": "Main market/application refresh",
-      "state": "warning",
+      "state": "healthy",
       "last_attempt_at": "2026-08-10T00:01:42.854001+00:00",
-      "last_attempt_age_hours": 9.05,
+      "last_attempt_age_hours": 9.08,
       "last_success_at": "2026-08-10T00:01:49.316423+00:00",
-      "last_success_age_hours": 9.05,
+      "last_success_age_hours": 9.08,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
       "source_status": "healthy",
-      "message": null
+      "message": "Live Pages is synchronised; publication age alone is not a reliability fault.",
+      "publication_age_informational": true
     }
   },
   "sources": [
@@ -101,16 +102,16 @@
       "name": "3Commas read-only sync",
       "state": "warning",
       "last_attempt_at": "2026-08-10T05:57:52.853848+00:00",
-      "last_attempt_age_hours": 3.12,
+      "last_attempt_age_hours": 3.14,
       "last_success_at": "2026-08-10T05:57:52.853848+00:00",
-      "last_success_age_hours": 3.12,
+      "last_success_age_hours": 3.14,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
       "source_status": "ok",
       "core_status": "ok",
-      "capital_fallback": null,
-      "message": "All read-only 3Commas endpoints updated successfully.",
+      "capital_fallback": "KuCoin direct read-only",
+      "message": "3Commas telemetry is older than target, but fresh KuCoin private capital data remains available. Bot/deal telemetry may still lag.",
       "endpoint_diagnostics": {
         "results": {
           "validate": {
@@ -172,20 +173,21 @@
         "failures": [],
         "primary_failure_category": null
       },
-      "decision_blocking": true
+      "decision_blocking": false
     },
     {
       "name": "Main market/application refresh",
-      "state": "warning",
+      "state": "healthy",
       "last_attempt_at": "2026-08-10T00:01:42.854001+00:00",
-      "last_attempt_age_hours": 9.05,
+      "last_attempt_age_hours": 9.08,
       "last_success_at": "2026-08-10T00:01:49.316423+00:00",
-      "last_success_age_hours": 9.05,
+      "last_success_age_hours": 9.08,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
       "source_status": "healthy",
-      "message": null
+      "message": "Live Pages is synchronised; publication age alone is not a reliability fault.",
+      "publication_age_informational": true
     }
   ],
   "threecommas_endpoints": {
@@ -273,11 +275,11 @@
     "capital_source": "KuCoin direct read-only when configured; 3Commas account balance is fallback only"
   },
   "explanation": {
-    "overall_reason": "A decision-blocking source is degraded.",
-    "application_publication": null,
-    "threecommas": "All read-only 3Commas endpoints updated successfully.",
-    "local_agent_status": "BLOCKED",
-    "kucoin_private_status": "not_configured"
+    "overall_reason": "Required automation is healthy; non-blocking age notices do not lower overall health.",
+    "application_publication": "Live Pages is synchronised; publication age alone is not a reliability fault.",
+    "threecommas": "3Commas telemetry is older than target, but fresh KuCoin private capital data remains available. Bot/deal telemetry may still lag.",
+    "local_agent_status": "RUNNING",
+    "kucoin_private_status": "ok"
   },
   "read_only": true
 }

@@ -1,26 +1,26 @@
 {
   "schema_version": "1.0",
   "application_version": "61.0.0",
-  "generated_at": "2026-08-10T09:04:47.687323+00:00",
+  "generated_at": "2026-08-10T09:07:59.274315+00:00",
   "overall": {
-    "state": "WARNING",
-    "score_pct": 71.2,
-    "active_issue_count": 1,
+    "state": "HEALTHY",
+    "score_pct": 84.1,
+    "active_issue_count": 0,
     "critical_count": 0,
-    "warning_count": 1
+    "warning_count": 0
   },
   "scores": {
     "system": 100,
-    "data": 75.8,
+    "data": 90.6,
     "trading": 70.0,
-    "deployment": 70.0,
-    "decision_readiness": 40.0
+    "deployment": 100,
+    "decision_readiness": 60.0
   },
   "threecommas": {
     "status": "ok",
     "last_attempt_at": "2026-08-10T05:57:52.853848+00:00",
     "last_success_at": "2026-08-10T05:57:52.853848+00:00",
-    "last_success_age_hours": 3.12,
+    "last_success_age_hours": 3.17,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-10T05:57:53.652040+00:00",
-        "age_hours": 3.12,
+        "age_hours": 3.17,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-10T05:57:53.977753+00:00",
-        "age_hours": 3.11,
+        "age_hours": 3.17,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -51,7 +51,7 @@
         "http_status": null,
         "records": 4,
         "observed_at": "2026-08-10T05:57:54.265530+00:00",
-        "age_hours": 3.11,
+        "age_hours": 3.17,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -62,7 +62,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-10T05:57:54.600934+00:00",
-        "age_hours": 3.11,
+        "age_hours": 3.17,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -73,7 +73,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-10T05:57:54.600981+00:00",
-        "age_hours": 3.11,
+        "age_hours": 3.17,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -84,7 +84,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-10T05:57:54.600985+00:00",
-        "age_hours": 3.11,
+        "age_hours": 3.17,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
@@ -94,9 +94,9 @@
     "deals": 1
   },
   "application": {
-    "cloud_state": "warning",
+    "cloud_state": "healthy",
     "last_success_at": "2026-08-10T00:01:49.316423+00:00",
-    "last_success_age_hours": 9.05,
+    "last_success_age_hours": 9.08,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -118,26 +118,12 @@
   "decision": {
     "primary_action": "KEEP_ACTIVE_DEAL",
     "bot_name": "TEL Low Volatility Bot",
-    "readiness_score_pct": 40.0,
+    "readiness_score_pct": 60.0,
     "ready_for_manual_action": false
   },
-  "capital_source": "3Commas read-only account snapshot",
-  "kucoin_direct_status": "not_configured",
-  "issues": [
-    {
-      "severity": "warning",
-      "system": "3Commas",
-      "title": "3Commas refresh needs attention",
-      "detail": "Last successful sync was 3h 7m ago. Expected cadence is about 1h.",
-      "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
-      "metric": {
-        "age_hours": 3.12,
-        "expected_cadence_hours": 1
-      },
-      "first_detected_at": "2026-08-10T09:04:47.737682+00:00",
-      "last_detected_at": "2026-08-10T09:04:47.737689+00:00"
-    }
-  ],
+  "capital_source": "KuCoin direct read-only account API",
+  "kucoin_direct_status": "ok",
+  "issues": [],
   "safeguards": {
     "read_only": true,
     "manual_approval_required": true
