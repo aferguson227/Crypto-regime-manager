@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "65.0.0",
-  "generated_at": "2026-08-10T15:01:56.602337+00:00",
+  "generated_at": "2026-08-10T15:06:54.755980+00:00",
   "overall": "PARTIALLY_DEGRADED",
   "overall_reason": "KuCoin data is usable. 3Commas monitoring is delayed but is no longer the source of trading truth.",
   "decision_critical_current": true,
@@ -40,8 +40,8 @@
       "name": "3Commas monitoring",
       "role": "SECONDARY_PROVIDER",
       "status": "DELAYED",
-      "age_minutes": 255.4,
-      "age_display": "4h 15m ago",
+      "age_minutes": 260.4,
+      "age_display": "4h 20m ago",
       "expected_cadence_minutes": 180.0,
       "reason": "Temporary secondary provider monitoring; KuCoin remains authoritative.",
       "collector_status": "OK"
@@ -50,8 +50,8 @@
       "name": "Website update",
       "role": "PRESENTATION",
       "status": "CURRENT",
-      "age_minutes": 898.8000000000001,
-      "age_display": "14h 59m ago",
+      "age_minutes": 903.6,
+      "age_display": "15h 4m ago",
       "expected_cadence_minutes": 30.0,
       "reason": "Website publishing is separate from trading-data reliability. It never makes KuCoin trading data stale."
     },
