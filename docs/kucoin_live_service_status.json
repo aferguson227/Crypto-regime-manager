@@ -1,24 +1,24 @@
 {
   "schema_version": "1.0",
   "application_version": "66.0.0",
-  "generated_at": "2026-08-10T16:29:11.685252+00:00",
+  "generated_at": "2026-08-10T16:39:02.904113+00:00",
   "status": "HEALTHY",
-  "cycle": 122,
+  "cycle": 142,
   "pid": 22444,
   "fast_interval_seconds": 20,
   "private_refresh_interval_seconds": 60,
-  "last_full_private_refresh_at": "2026-08-10T16:28:43.525567+00:00",
+  "last_full_private_refresh_at": "2026-08-10T16:39:02.904095+00:00",
   "modules": [
     {
       "module": "scripts.kucoin_live_price_engine",
       "status": "OK",
-      "seconds": 0.45,
+      "seconds": 0.52,
       "detail": "KuCoin live prices: OK; assets=1\n"
     },
     {
       "module": "scripts.kucoin_order_state",
       "status": "OK",
-      "seconds": 7.62,
+      "seconds": 7.58,
       "detail": "KuCoin order state: OK; symbols=5 active=4 recent_closed=107\n"
     },
     {
@@ -26,6 +26,60 @@
       "status": "OK",
       "seconds": 0.08,
       "detail": "Live portfolio truth written: C:\\Crypto\\Projects\\docs\\live_portfolio_truth.json; effective_open=1 stale=0\n"
+    },
+    {
+      "module": "scripts.kucoin_account_sync",
+      "status": "OK",
+      "seconds": 0.46,
+      "detail": "KuCoin account sync: ok; records=43; base=https://api.kucoin.com; key_version=3\n"
+    },
+    {
+      "module": "scripts.kucoin_fill_ledger",
+      "status": "OK",
+      "seconds": 2.0,
+      "detail": "KuCoin fill ledger: OK; new=0; total=122; realised_status=HISTORICAL_COST_BASIS_UNAVAILABLE\n"
+    },
+    {
+      "module": "scripts.execution_reconciliation_engine",
+      "status": "OK",
+      "seconds": 0.12,
+      "detail": "Execution reconciliation written: C:\\Crypto\\Projects\\docs\\execution_reconciliation.json; stale=0\n"
+    },
+    {
+      "module": "scripts.capital_intelligence_engine",
+      "status": "OK",
+      "seconds": 0.2,
+      "detail": "Capital intelligence written: C:\\Crypto\\Projects\\docs\\capital_intelligence.json\n"
+    },
+    {
+      "module": "scripts.independent_trade_accounting_engine",
+      "status": "OK",
+      "seconds": 0.1,
+      "detail": "Independent trade accounting written: C:\\Crypto\\Projects\\docs\\independent_trade_accounting.json\n"
+    },
+    {
+      "module": "scripts.portfolio_capital_manager_v2",
+      "status": "OK",
+      "seconds": 0.09,
+      "detail": "Portfolio Capital Manager 2.0: safe_pool=0\n"
+    },
+    {
+      "module": "scripts.execution_assurance_engine",
+      "status": "OK",
+      "seconds": 0.08,
+      "detail": "Execution assurance: HEALTHY; assets=1 failures=0\n"
+    },
+    {
+      "module": "scripts.kucoin_canonical_service",
+      "status": "OK",
+      "seconds": 0.08,
+      "detail": "Canonical KuCoin service: READY\n"
+    },
+    {
+      "module": "scripts.integrity_guard_engine",
+      "status": "OK",
+      "seconds": 0.1,
+      "detail": "Integrity guard written\n"
     }
   ],
   "read_only": true,
