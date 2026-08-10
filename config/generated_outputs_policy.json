@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0",
-  "application_version": "67.0.0",
+  "schema_version": "2.0",
+  "application_version": "68.0.0",
   "tracked_release_snapshots": [
     "docs/diagnostics.json",
     "docs/version.json"
@@ -111,5 +111,9 @@
     "__pycache__/**"
   ],
   "restore_after_export": true,
-  "never_restore_source_files": true
+  "never_restore_source_files": true,
+  "runtime_state_separation": true,
+  "runtime_root": "C:\\Crypto\\CRM_Data\\Runtime\\State",
+  "docs_json_policy": "PUBLICATION_SNAPSHOT",
+  "docs_json_are_never_source": true
 }

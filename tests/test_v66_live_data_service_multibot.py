@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
 def text(p): return (ROOT/p).read_text(encoding='utf-8')
-def test_version(): assert text('VERSION').strip()=='67.0.0'
+def test_version(): assert text('VERSION').strip()=='68.0.0'
 def test_resident_service_is_read_only_and_frequent():
  s=text('scripts/kucoin_live_data_service.py')
  assert "'fast_interval_seconds':20" in s

@@ -85,7 +85,8 @@ def classify_git_status(cfg: dict | None = None) -> dict:
         rel = line[3:].strip().replace('\\','/')
         if ' -> ' in rel:
             rel = rel.split(' -> ',1)[1]
-        kind = 'GENERATED_RUNTIME' if rel in runtime else ('RELEASE_SNAPSHOT' if rel in release else 'SOURCE_OR_UNCLASSIFIED')
+        docs_json = rel.startswith('docs/') and rel.endswith('.json')
+        kind = ('RELEASE_SNAPSHOT' if rel in release else ('GENERATED_RUNTIME' if rel in runtime or docs_json else 'SOURCE_OR_UNCLASSIFIED'))
         rows.append({'path':rel,'git_status':line[:2],'classification':kind})
     return {'changes':rows,'source_or_unclassified':[x['path'] for x in rows if x['classification']=='SOURCE_OR_UNCLASSIFIED']}
 

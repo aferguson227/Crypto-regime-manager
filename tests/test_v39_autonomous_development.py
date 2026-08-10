@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
 def test_v39_identity():
- assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='67.0.0'
+ assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='68.0.0'
  assert json.loads((ROOT/'app/release.json').read_text(encoding='utf-8'))['release_name']=='KuCoin Historical Research & Universal Responsive UI'
 def test_v39_components():
  for p in ['scripts/issue_lifecycle_engine.py','scripts/repository_hygiene_engine.py','scripts/engineering_scheduler.py','config/generated_outputs_policy.json','RUN_ENGINEERING_AUDIT.cmd','PREPARE_RELEASE.cmd','.github/workflows/crm-health-self-heal.yml']:

@@ -89,11 +89,18 @@ def main():
  state_path().write_text(json.dumps(state,indent=2),encoding='utf-8')
  rows=[]
  for a,b in sorted(bots.items()):
-  pos=b.get('position') or {};rows.append({'asset':a,'mode':'PAPER','state':pos.get('state'),'opened_at':pos.get('opened_at'),
+  pos=b.get('position') or {};hist=b.get('history') or [];closed=int(b.get('closed_deals') or 0);wins=sum(1 for h in hist if (q(h.get('realised_pnl_quote')) or 0)>0)
+  created=b.get('created_at')
+  try:days=max((datetime.now(timezone.utc)-datetime.fromisoformat(str(created).replace('Z','+00:00'))).total_seconds()/86400,1/1440)
+  except:days=None
+  realised=q(b.get('realised_pnl_quote')) or 0
+  maxdd=min([q(h.get('max_drawdown_quote')) or 0 for h in hist]+[q(pos.get('max_drawdown_quote')) or 0])
+  rows.append({'asset':a,'mode':'PAPER','state':pos.get('state'),'paper_started_at':created,'opened_at':pos.get('opened_at'),
    'position_quote':pos.get('quote_in'),'average_entry':pos.get('average_entry'),'current_price':b.get('last_price'),
    'safety_orders_filled':pos.get('safety_orders_filled'),'max_safety_orders':pos.get('max_safety_orders'),
-   'open_pnl_quote':pos.get('open_pnl_quote'),'open_pnl_pct':pos.get('open_pnl_pct'),'closed_deals':b.get('closed_deals'),
-   'realised_pnl_quote':b.get('realised_pnl_quote'),'max_drawdown_quote':pos.get('max_drawdown_quote'),
+   'open_pnl_quote':pos.get('open_pnl_quote'),'open_pnl_pct':pos.get('open_pnl_pct'),'closed_deals':closed,
+   'win_rate_pct':(100*wins/closed if closed else None),'paper_days':round(days,2) if days else None,
+   'profit_per_day_quote':round(realised/days,4) if days else None,'realised_pnl_quote':realised,'max_drawdown_quote':maxdd,
    'settings':b.get('settings'),'updated_at':b.get('updated_at')})
  payload={'schema_version':'1.0','application_version':application_version(),'generated_at':now(),'bots':rows,
   'summary':{'paper_bots':len(rows),'open':sum(x.get('state')=='OPEN' for x in rows),'closed_deals':sum(int(x.get('closed_deals') or 0) for x in rows),

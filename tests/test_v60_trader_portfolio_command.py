@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_v60_version():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='67.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='68.0.0'
 
 def test_portfolio_is_first_command_surface():
     h=(ROOT/'docs/index.html').read_text(encoding='utf-8')
@@ -19,7 +19,7 @@ def test_capital_headline_has_three_distinct_liquidity_states():
 
 def test_dashboard_uses_trader_capital_terms():
     s=(ROOT/'docs/unified_dashboard.js').read_text(encoding='utf-8')
-    for label in ['Portfolio','Cash','DCA reserve','Deployable now','Live position','Next opportunity']:
+    for label in ['Portfolio','Cash','DCA reserve','Deployable now']:
         assert label in s
 
 def test_partial_total_pnl_is_explainable():

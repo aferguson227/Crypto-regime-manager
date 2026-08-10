@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-def test_version(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='67.0.0'
+def test_version(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='68.0.0'
 def test_capital_manager_v2():
  s=(ROOT/'scripts/portfolio_capital_manager_v2.py').read_text(encoding='utf-8')
  assert 'hard_exchange_commitments_usdt' in s and 'safe_multi_bot_pool_usdt' in s and 'worst_case_headroom_usdt' in s

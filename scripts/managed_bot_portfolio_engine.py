@@ -45,7 +45,8 @@ def main():
    'open_pnl_pct':pp.get('open_pnl_pct'),'safety_orders_filled':pp.get('safety_orders_filled'),'max_safety_orders':pp.get('max_safety_orders'),
    'active_safety_orders':None,'average_entry':pp.get('average_entry'),'current_price':pp.get('current_price'),'reserved_quote':b.get('capital_required_usdt'),
    'current_regime':b.get('current_regime'),'latest_validated':b.get('dca_optimisation_status')=='COMPLETE',
-   'paper_closed_deals':pp.get('closed_deals'),'paper_realised_pnl_quote':pp.get('realised_pnl_quote'),
+   'paper_closed_deals':pp.get('closed_deals'),'paper_realised_pnl_quote':pp.get('realised_pnl_quote'),'paper_win_rate_pct':pp.get('win_rate_pct'),
+   'paper_days':pp.get('paper_days'),'paper_profit_per_day_quote':pp.get('profit_per_day_quote'),'paper_max_drawdown_quote':pp.get('max_drawdown_quote'),
    'next_action':b.get('recommended_action'),'capital_required_usdt':b.get('capital_required_usdt'),
    'safe_allocation_usdt':b.get('allocation_usdt'),'readiness_pct':rv.get('readiness_pct'),'settings':b.get('settings') or pp.get('settings'),
    'source':'Forward paper trading + deployment lifecycle'});seen.add(a)

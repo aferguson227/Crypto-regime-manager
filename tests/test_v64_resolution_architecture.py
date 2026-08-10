@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def text(p): return (ROOT/p).read_text(encoding='utf-8')
-def test_version(): assert text('VERSION').strip()=='67.0.0'
+def test_version(): assert text('VERSION').strip()=='68.0.0'
 def test_accounting_baseline():
  s=text('scripts/independent_trade_accounting_engine.py')
  assert 'KNOWN_WITH_HISTORICAL_EXCEPTION' in s and "'accounting_baseline':baseline" in s

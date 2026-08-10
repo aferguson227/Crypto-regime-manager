@@ -9,6 +9,7 @@ import json,os,subprocess,sys,time
 from datetime import datetime,timezone
 from pathlib import Path
 from app.release import application_version
+from scripts.runtime_state_manager import import_state,capture
 
 ROOT=Path(__file__).resolve().parents[1];D=ROOT/'docs';OUT=D/'kucoin_live_service_status.json'
 STATE_DIR=(Path(os.getenv('LOCALAPPDATA') or str(Path.home()))/'CryptoRegimeManager')
@@ -78,6 +79,9 @@ def main():
  try:
   while True:
    cycle+=1;rows=[]
+   # Resident service operates only in the isolated Runtime App. Pull the latest
+   # authoritative State before calculation and push results back after the cycle.
+   import_state(ROOT)
    for m in FAST:
     write('REFRESHING',cycle,rows,last_full,current_module=m)
     result=runmod(m);rows.append(result);log(f'cycle={cycle} {m} {result["status"]} {result["seconds"]}s')
@@ -88,6 +92,7 @@ def main():
     last_private=time.monotonic();last_full=now()
    status='HEALTHY' if all(x['status']=='OK' for x in rows) else 'DEGRADED'
    write(status,cycle,rows,last_full,message='Live trading truth refreshed.')
+   capture(ROOT)
    time.sleep(20)
  except KeyboardInterrupt:
   log('service stopped by KeyboardInterrupt');return 0

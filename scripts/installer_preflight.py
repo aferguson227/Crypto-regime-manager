@@ -28,8 +28,13 @@ def load_policy():
  try:return json.loads(p.read_text(encoding="utf-8-sig"))
  except:return {}
 
+ALWAYS_RUNTIME={"docs/local_agent_status.json","docs/local_agent_schedule_health.json","docs/kucoin_live_service_status.json","docs/kucoin_live_prices.json"}
 def runtime_paths():
- return set(load_policy().get("runtime_generated_patterns") or [])
+ return set(load_policy().get("runtime_generated_patterns") or []) | ALWAYS_RUNTIME
+
+def is_runtime_or_publication(rel):
+ rel=str(rel).replace('\\','/').strip().strip('"')
+ return rel in runtime_paths() or (rel.startswith('docs/') and rel.endswith('.json'))
 
 def status_rows():
  r=git("status","--porcelain")
@@ -70,9 +75,9 @@ def clear_test_contamination():
  return removed
 
 def restore_runtime_only():
- runtime=runtime_paths();restored=[]
+ restored=[]
  for _,rel in status_rows():
-  if rel not in runtime:continue
+  if not is_runtime_or_publication(rel):continue
   tracked=run(["git","ls-files","--error-unmatch","--",rel]).returncode==0
   if tracked:
    run(["git","restore","--staged","--worktree","--",rel]);restored.append(rel)
@@ -96,10 +101,10 @@ def preflight(auto_fix=True):
   for _ in range(3):
    restored=restore_runtime_only();report["runtime_restored"].extend(x for x in restored if x not in report["runtime_restored"])
    time.sleep(.4)
- rows=status_rows();runtime=runtime_paths()
+ rows=status_rows()
  for code,rel in rows:
   if code=="UU" or "U" in code:report["conflicts"].append(rel)
-  elif rel in runtime:report["runtime_changes"].append(rel)
+  elif is_runtime_or_publication(rel):report["runtime_changes"].append(rel)
   else:report["source_changes"].append(rel)
  if report["conflicts"]:report["status"]="CONFLICT"
  elif report["source_changes"]:report["status"]="SOURCE_CHANGES"
@@ -125,3 +130,55 @@ def main():
  return 2
 
 if __name__=="__main__":raise SystemExit(main())
+
+def atomic_release_barrier(project, runtime_paths_set, stop_writers, clean_runtime, status_fn, sleep_fn=time.sleep):
+ """Reusable atomic staging barrier for future CRM installers."""
+ stop_writers();sleep_fn(2);clean_runtime();previous=None
+ for _ in range(4):
+  source=[]
+  for line in [x for x in status_fn().splitlines() if x.strip()]:
+   rel=line[3:].strip().strip('"').replace("\\","/")
+   if " -> " in rel:rel=rel.split(" -> ",1)[1].strip().strip('"')
+   if rel not in runtime_paths_set:source.append(line)
+  snap="\n".join(source)
+  if not source or snap==previous:return True
+  previous=snap;sleep_fn(1)
+ raise RuntimeError("Atomic release barrier could not obtain a stable source snapshot.")
+
+
+def git_source_status(project=ROOT):
+ """Return only genuine source changes. All docs JSON is publication/runtime state."""
+ r=subprocess.run(
+  ['git','status','--porcelain','--','.',':(exclude,glob)docs/**/*.json'],
+  cwd=project,text=True,capture_output=True
+ )
+ if r.returncode:raise RuntimeError('Unable to inspect source-only Git status.')
+ return (r.stdout or '').strip()
+
+def clean_publication_json_git_native(project=ROOT):
+ """Best-effort cleanup; source safety never depends on docs JSON being clean."""
+ subprocess.run(['git','restore','--staged','--worktree','--',':(glob)docs/**/*.json'],
+                cwd=project,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+ subprocess.run(['git','clean','-f','--',':(glob)docs/**/*.json'],
+                cwd=project,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+
+
+def build_release_stage_manifest(project=ROOT):
+ """Return only source/static files that actually exist for future release staging."""
+ project=Path(project);files=[]
+ def add_tree(name):
+  root=project/name
+  if not root.exists():return
+  for p in sorted(root.rglob('*')):
+   if not p.is_file():continue
+   if '__pycache__' in p.parts or '.pytest_cache' in p.parts or p.suffix=='.pyc':continue
+   files.append(p.relative_to(project).as_posix())
+ for name in ('app','config','data','scripts','tests'):add_tree(name)
+ for name in ('VERSION','config.json'):
+  if (project/name).is_file():files.append(name)
+ docs=project/'docs'
+ if docs.exists():
+  allowed={'.html','.js','.css','.md','.txt'}
+  files.extend(p.relative_to(project).as_posix() for p in sorted(docs.rglob('*')) if p.is_file() and p.suffix.lower() in allowed)
+ files.extend(p.relative_to(project).as_posix() for p in sorted(project.glob('UPDATE_V*.md')) if p.is_file())
+ return list(dict.fromkeys(files))

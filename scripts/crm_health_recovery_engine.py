@@ -61,8 +61,18 @@ def snapshot():
   'accounting':load('independent_trade_accounting.json'),'fresh':load('freshness_status.json'),
   'assurance':load('execution_assurance.json'),'schedule':load('local_agent_schedule_health.json'),
   'present':load('presentation_quality.json'),'ui':load('ui_health.json'),'sync':load('synchronization_status.json'),
-  'three':load('threecommas.json'),'canonical':load('kucoin_canonical_service.json'),'live_service':load('kucoin_live_service_status.json')
+  'three':load('threecommas.json'),'canonical':load('kucoin_canonical_service.json'),'live_service':load('kucoin_live_service_status.json'),
+  'live_truth':load('live_portfolio_truth.json')
  }
+
+def current_decision_truth(s):
+ svc=s.get('live_service') or {};truth=s.get('live_truth') or {};ku=s.get('ku') or {}
+ svc_age=age_minutes(svc.get('heartbeat_at') or svc.get('generated_at'))
+ price_age=age_minutes(truth.get('open_pnl_priced_at') or truth.get('generated_at'))
+ account_age=age_minutes(ku.get('generated_at'))
+ return bool(svc_age is not None and svc_age<=3 and price_age is not None and price_age<=5 and
+             account_age is not None and account_age<=45 and
+             (truth.get('portfolio_value_quote') is not None or truth.get('deals') is not None))
 
 def root_incidents(s):
  rows=[]
@@ -94,9 +104,13 @@ def root_incidents(s):
   failed=[]
   if order_problem(o):failed.append('orders')
   if fill_problem(f):failed.append('trade history')
-  rows.append({'code':'KUCOIN_PRIVATE_TRADING','title':'KuCoin trading data refresh','area':'Trading data','severity':'high','state':'RECOVERING',
-   'detail':'CRM is refreshing '+ ' and '.join(failed)+'. Dependent freshness, P/L and trading-safety warnings are suppressed while this root recovery is running.',
-   'user_action':'No action is normally required during automatic recovery. Review API access only after repeated failed recovery transactions.'})
+  usable=current_decision_truth(s)
+  rows.append({'code':'KUCOIN_PRIVATE_TRADING','title':'Background KuCoin collector refresh' if usable else 'KuCoin trading data refresh',
+   'area':'Background data refresh' if usable else 'Trading data','severity':'low' if usable else 'high','state':'RECOVERING',
+   'detail':(('Current portfolio, price and resident-service truth are fresh; CRM is retrying the '+ ' and '.join(failed)+' collector in the background. Trading decisions remain usable.')
+             if usable else ('CRM is refreshing '+ ' and '.join(failed)+'. Dependent freshness, P/L and trading-safety warnings are suppressed while this root recovery is running.')),
+   'user_action':('No action required while decision-critical data remains current.' if usable else 'Review API access only if automatic recovery confirms an authentication or permission failure.'),
+   'decision_data_usable':usable})
 
  if schedule_problem(s['schedule']):
   rows.append({'code':'LOCAL_AGENT_SCHEDULE','title':'Background refresh schedule','area':'Refresh','severity':'high','state':'ATTENTION',
@@ -164,7 +178,7 @@ def main():
   issue['automatic_recovery_attempted']=bool(actions)
   issue['consecutive_failed_cycles']=int(failures.get(issue['code'],0))
   issue['last_recovery_transaction_at']=state['last_transaction']['at'] if actions else None
-  issue['escalated_to_user']=issue['severity']=='high' and issue['consecutive_failed_cycles']>=3 and issue['state']!='UPDATING'
+  issue['escalated_to_user']=issue['severity']=='high' and issue['consecutive_failed_cycles']>=3 and issue['state']!='UPDATING' and not issue.get('decision_data_usable')
   if issue['escalated_to_user']:issue['state']='ACTION_REQUIRED'
  blocking=[x for x in issues_after if x.get('escalated_to_user') or (x['state']=='ATTENTION' and x['severity']=='high')]
  recovering=[x for x in issues_after if x['state'] in {'RECOVERING','UPDATING'} and not x.get('escalated_to_user')]
@@ -186,7 +200,7 @@ def main():
   'cascade_policy':'Dependent freshness, P/L and safety symptoms are suppressed while an upstream KuCoin root incident is recovering.',
   'truthful_retry_policy':'The dashboard says CRM retried only when recovery_transaction contains an executed action.',
   'never_automatic':['place/cancel KuCoin orders','change API credentials','start/stop/edit 3Commas bots','change capital allocation','Git push/force push'],
-  'decision_data_usable':not any(x.get('severity')=='high' and x.get('state') in {'ACTION_REQUIRED','ATTENTION'} for x in issues_after),
+  'decision_data_usable':current_decision_truth(after) and not any(x.get('severity')=='high' and x.get('state') in {'ACTION_REQUIRED','ATTENTION'} for x in issues_after),
   'background_recovery_only':bool(recovering) and not blocking,
   'next_action':('Review the escalated root cause.' if blocking else 'Trading data remains usable while CRM completes background recovery.' if recovering else 'No system action required.'),
   'health_model':'System Health counts application/collector/safety faults only. Accounting limitations and research/deployment uncertainty are reported in their own sections.'}

@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse,json,os,subprocess,sys,time
 from datetime import datetime,timezone
 from pathlib import Path
+from scripts.runtime_state_manager import import_state,capture
 ROOT=Path(__file__).resolve().parents[1]; DOCS=ROOT/'docs'; STATUS=DOCS/'local_agent_status.json'
 # Legacy V49 regression marker only: 'scripts.research_scheduler' now runs in scripts.research_worker, not the fast Local Agent.
 # Compatibility markers retained for historical regression tests: scripts.regime_backtest_engine scripts.kucoin_walk_forward_engine
@@ -28,7 +29,15 @@ def write_status(status,message,started,extra=None):
     STATUS.write_text(json.dumps(payload,indent=2),encoding='utf-8')
 
 def clean_generated(): run([sys.executable,'-m','scripts.generated_output_manager','clean'])
-def git_clean(): return run(['git','status','--porcelain'],check=False).stdout.strip()==''
+def git_clean():
+    # Runtime publication snapshot changes are expected inside this controlled cycle;
+    # block only genuine source/unclassified changes.
+    r=run([sys.executable,'-m','scripts.generated_output_manager','classify'],check=False)
+    try:
+        data=json.loads(r.stdout[r.stdout.find('{'):])
+        return not bool(data.get('source_or_unclassified'))
+    except Exception:
+        return False
 
 def _ahead_commit_subjects():
     r=run(['git','log','--format=%s','origin/main..HEAD'],check=False)
@@ -121,6 +130,9 @@ def main():
             write_status('BLOCKED','Local repository has source changes; automatic data refresh skipped.',started)
             return 2
         _safe_align_to_remote()
+        # After Git alignment, overlay the authoritative external runtime State.
+        # From this point until publication the Local Agent is the only Git-tree writer.
+        import_state(ROOT)
         run([sys.executable,'-m','scripts.research_snapshot_bridge','import'],check=False)
         for mod in MODULES:
             write_status('RUNNING',f'Refreshing {mod}.',started,{'phase':mod,'heartbeat_at':now()})
@@ -133,6 +145,7 @@ def main():
         ku=json.loads((DOCS/'kucoin_account.json').read_text(encoding='utf-8-sig'))
         status='HEALTHY' if ku.get('status')=='ok' else 'DEGRADED'
         write_status(status,'Local private-data refresh completed.' if status=='HEALTHY' else 'Local agent ran but KuCoin remains degraded.',started,{'phase':'COMPLETE','completed_at':now(),'heartbeat_at':now(),'kucoin_status':ku.get('status'),'kucoin_diagnostic':(ku.get('diagnostic') or {}).get('category')})
+        capture(ROOT)
         run([sys.executable,'-m','scripts.validate_publish'])
         if args.publish: publish_material()
         return 0 if status=='HEALTHY' else 1

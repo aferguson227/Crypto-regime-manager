@@ -1,6 +1,6 @@
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-def test_version(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='67.0.0'
+def test_version(): assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='68.0.0'
 def test_order_collector_covers_provider_order_families():
  s=(ROOT/'scripts/kucoin_order_state.py').read_text(encoding='utf-8')
  assert "CLASSIC='/api/v1/orders'" in s and "STOP='/api/v1/stop-order'" in s and 'HF_ACTIVE' in s
