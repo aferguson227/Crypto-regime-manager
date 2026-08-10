@@ -21,6 +21,7 @@ import argparse,json,os,subprocess,sys,time
 from datetime import datetime,timezone
 from pathlib import Path
 from app.release import application_version
+from scripts.runtime_state_manager import state_dir
 
 ROOT=Path(__file__).resolve().parents[1];DOCS=ROOT/'docs';OUT=DOCS/'crm_health_recovery.json'
 
@@ -29,6 +30,16 @@ def load(name):
  try:
   x=json.loads((DOCS/name).read_text(encoding='utf-8-sig'));return x if isinstance(x,dict) else {}
  except:return {}
+def load_runtime(name):
+ try:
+  x=json.loads((state_dir()/name).read_text(encoding='utf-8-sig'));return x if isinstance(x,dict) else {}
+ except:return {}
+def newest(name):
+ published=load(name);runtime=load_runtime(name)
+ pa=age_minutes(published.get('heartbeat_at') or published.get('generated_at'))
+ ra=age_minutes(runtime.get('heartbeat_at') or runtime.get('generated_at'))
+ if runtime and (pa is None or (ra is not None and ra<pa)):return runtime
+ return published
 def data_root():
  raw=os.getenv('CRM_DATA_ROOT')
  return Path(raw) if raw else (Path(r'C:\Crypto\CRM_Data') if os.name=='nt' else Path.home()/'.crypto_regime_manager_data')
@@ -61,8 +72,8 @@ def snapshot():
   'accounting':load('independent_trade_accounting.json'),'fresh':load('freshness_status.json'),
   'assurance':load('execution_assurance.json'),'schedule':load('local_agent_schedule_health.json'),
   'present':load('presentation_quality.json'),'ui':load('ui_health.json'),'sync':load('synchronization_status.json'),
-  'three':load('threecommas.json'),'canonical':load('kucoin_canonical_service.json'),'live_service':load('kucoin_live_service_status.json'),
-  'live_truth':load('live_portfolio_truth.json')
+  'three':load('threecommas.json'),'canonical':load('kucoin_canonical_service.json'),'live_service':newest('kucoin_live_service_status.json'),
+  'live_truth':newest('live_portfolio_truth.json')
  }
 
 def current_decision_truth(s):
@@ -81,7 +92,7 @@ def root_incidents(s):
  if not svc or str(svc.get('status') or '').upper() not in {'HEALTHY','DEGRADED'} or svc_age is None or svc_age>3:
   rows.append({'code':'LIVE_DATA_SERVICE','title':'KuCoin live data service','area':'Live trading data','severity':'high','state':'ACTION_REQUIRED',
    'detail':'The resident KuCoin live-data service heartbeat is stale. CRM will restart the per-user service automatically; live P/L and order truth may temporarily use the last known snapshot.',
-   'user_action':'No scheduled-task action is required. If automatic restart fails repeatedly, rerun the V67 background-service setup.'})
+   'user_action':'No scheduled-task action is required. If automatic restart fails repeatedly, rerun the V69 background-service setup.'})
  # Account failure is a root incident only when the account collector itself currently fails.
  if account_problem(ku) and not canonical_ready:
   diag=ku.get('diagnostic') or {};cat=str(diag.get('category') or '').upper();usable=usable_account_snapshot(ku)

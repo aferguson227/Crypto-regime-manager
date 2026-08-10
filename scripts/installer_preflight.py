@@ -182,3 +182,43 @@ def build_release_stage_manifest(project=ROOT):
   files.extend(p.relative_to(project).as_posix() for p in sorted(docs.rglob('*')) if p.is_file() and p.suffix.lower() in allowed)
  files.extend(p.relative_to(project).as_posix() for p in sorted(project.glob('UPDATE_V*.md')) if p.is_file())
  return list(dict.fromkeys(files))
+
+
+def semantic_source_changes(project=ROOT):
+ """Return genuine source changes while ignoring EOL-only working-tree noise.
+
+ `git diff --ignore-space-at-eol` is used only to classify tracked modifications.
+ Untracked source files, conflicts, staged content changes and deletions remain blockers.
+ Runtime/publication state remains governed separately.
+ """
+ project=Path(project)
+ raw=subprocess.run(['git','status','--porcelain'],cwd=project,text=True,capture_output=True)
+ if raw.returncode:raise RuntimeError('Unable to inspect Git status.')
+ blockers=[];ignored=[]
+ for line in (raw.stdout or '').splitlines():
+  if not line.strip():continue
+  code=line[:2];rel=line[3:].strip().strip('"').replace('\\','/')
+  if ' -> ' in rel:rel=rel.split(' -> ',1)[1].strip().strip('"')
+  if is_runtime_or_publication(rel):continue
+  if 'U' in code or code=='??' or 'D' in code or 'A' in code or 'R' in code or 'C' in code:
+   blockers.append(line);continue
+  # Staged tracked content must never be silently ignored.
+  if code[0] not in (' ','?'):
+   r=subprocess.run(['git','diff','--cached','--quiet','--ignore-space-at-eol','--',rel],cwd=project)
+   if r.returncode==1:blockers.append(line);continue
+  # For ordinary tracked worktree modifications, an EOL-insensitive quiet diff
+  # distinguishes CRLF/LF noise from actual source edits.
+  r=subprocess.run(['git','diff','--quiet','--ignore-space-at-eol','--',rel],cwd=project)
+  if r.returncode==1:blockers.append(line)
+  elif r.returncode==0:ignored.append(rel)
+  else:raise RuntimeError('Unable to classify Git change: '+rel)
+ return blockers,ignored
+
+
+def incoming_equivalent_change(project, incoming_root, rel):
+ """Return True if a local tracked source edit already equals the incoming release file."""
+ try:
+  a=(Path(project)/rel).read_text(encoding='utf-8-sig').replace('\r\n','\n').replace('\r','\n')
+  b=(Path(incoming_root)/rel).read_text(encoding='utf-8-sig').replace('\r\n','\n').replace('\r','\n')
+  return a==b
+ except:return False

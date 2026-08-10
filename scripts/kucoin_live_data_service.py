@@ -10,6 +10,7 @@ from datetime import datetime,timezone
 from pathlib import Path
 from app.release import application_version
 from scripts.runtime_state_manager import import_state,capture
+from scripts.runtime_local_api import start_background
 
 ROOT=Path(__file__).resolve().parents[1];D=ROOT/'docs';OUT=D/'kucoin_live_service_status.json'
 STATE_DIR=(Path(os.getenv('LOCALAPPDATA') or str(Path.home()))/'CryptoRegimeManager')
@@ -17,7 +18,7 @@ LOCK=STATE_DIR/'kucoin_live_service.lock'
 LOG=STATE_DIR/'kucoin_live_service.log'
 
 FAST=['scripts.kucoin_live_price_engine','scripts.kucoin_order_state','scripts.live_portfolio_truth_engine',
-      'scripts.paper_trading_engine','scripts.managed_bot_portfolio_engine']
+      'scripts.paper_trading_engine','scripts.managed_bot_registry','scripts.managed_bot_portfolio_engine']
 MEDIUM=['scripts.kucoin_account_sync','scripts.kucoin_fill_ledger','scripts.execution_reconciliation_engine',
         'scripts.capital_intelligence_engine','scripts.independent_trade_accounting_engine',
         'scripts.portfolio_capital_manager_v2','scripts.execution_assurance_engine',
@@ -74,8 +75,10 @@ def main():
  if not acquire_lock():
   return 0
  cycle=0;last_private=0.0;last_full=None
- log(f'service started pid={os.getpid()}')
+ api=start_background()
+ log(f'service started pid={os.getpid()} local_api={bool(api)}')
  write('STARTING',cycle,[],last_full,message='Resident KuCoin service started; first live snapshot is being built.')
+ capture(ROOT)
  try:
   while True:
    cycle+=1;rows=[]

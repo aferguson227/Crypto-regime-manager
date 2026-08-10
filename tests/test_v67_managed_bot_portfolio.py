@@ -3,11 +3,11 @@ import json
 ROOT=Path(__file__).resolve().parents[1]
 def text(p): return (ROOT/p).read_text(encoding='utf-8')
 def test_version():
- assert text('VERSION').strip()=='68.0.0'
+ assert text('VERSION').strip()=='69.0.0'
 def test_paper_trading_is_persistent_and_read_only():
  s=text('scripts/paper_trading_engine.py')
  assert "paper_portfolio.json" in s
- assert "data_root()/'state'" in s
+ assert "state_dir()" in s and "paper_trading_state.json" in s
  assert "'read_only_exchange':True" in s
  assert "'automatic_live_deployment':False" in s
  assert 'SAFETY_' in s and "'BASE'" in s

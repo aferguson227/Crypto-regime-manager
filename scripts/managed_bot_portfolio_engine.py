@@ -18,9 +18,9 @@ def num(v):
  try:return float(v)
  except:return None
 def main():
- live=load('live_portfolio_truth.json');profiles=load('live_bot_profiles.json');reval=load('live_strategy_revalidation.json');paper=load('paper_portfolio.json')
+ live=load('live_portfolio_truth.json');profiles=load('live_bot_profiles.json');reval=load('live_strategy_revalidation.json');paper=load('paper_portfolio.json');registry=load('managed_bot_registry.json')
  life=load('deployment_lifecycle.json');review=load('candidate_review.json');cap=load('portfolio_capital_v2.json')
- pby={str(x.get('asset') or '').upper():x for x in paper.get('bots') or []}
+ pby={str(x.get('asset') or '').upper():x for x in paper.get('bots') or []};managed_assets={str(x).upper() for x in registry.get('assets') or []}
  lby={str(x.get('asset') or '').upper():x for x in live.get('deals') or []}
  prof={str(x.get('asset') or '').upper():x for x in profiles.get('bots') or []};vby={str(x.get('asset') or '').upper():x for x in reval.get('live_bots') or []}
  rby={str(x.get('asset') or '').upper():x for x in review.get('candidates') or []}
@@ -34,7 +34,7 @@ def main():
    'max_safety_orders':d.get('max_safety_orders') or ls.get('safety_orders'),'active_safety_orders':d.get('active_safety_orders'),
    'average_entry':d.get('average_entry'),'current_price':d.get('open_pnl_price'),'reserved_quote':d.get('remaining_dca_reserve_quote'),
    'current_regime':pr.get('current_regime'),'latest_validated':bool((rec or {}).get('validated')),
-   'would_deploy_today':(vby.get(a) or {}).get('would_deploy_today'),'next_action':'KEEP_ACTIVE_DEAL','settings':ls,'source':'KuCoin + provider reconciliation'});seen.add(a)
+   'would_deploy_today':(vby.get(a) or {}).get('would_deploy_today'),'next_action':'KEEP_ACTIVE_DEAL','settings':ls,'managed':True,'source':'KuCoin + provider reconciliation'});seen.add(a)
  # Paper / candidate rows.
  for b in life.get('bots') or []:
   a=str(b.get('asset') or '').upper()
@@ -49,7 +49,7 @@ def main():
    'paper_days':pp.get('paper_days'),'paper_profit_per_day_quote':pp.get('profit_per_day_quote'),'paper_max_drawdown_quote':pp.get('max_drawdown_quote'),
    'next_action':b.get('recommended_action'),'capital_required_usdt':b.get('capital_required_usdt'),
    'safe_allocation_usdt':b.get('allocation_usdt'),'readiness_pct':rv.get('readiness_pct'),'settings':b.get('settings') or pp.get('settings'),
-   'source':'Forward paper trading + deployment lifecycle'});seen.add(a)
+   'managed':a in managed_assets,'source':'Forward paper trading + deployment lifecycle'});seen.add(a)
  # Rank non-live candidates transparently.
  candidates=[x for x in rows if x['state'] in {'PAPER','READY'}]
  for x in candidates:
@@ -58,7 +58,7 @@ def main():
   x['portfolio_priority_score']=round(readiness*0.5+min(max(ret,0),300)*0.12+max(min(paper_pct,25),-25)*0.3,2)
  for i,x in enumerate(sorted(candidates,key=lambda r:r.get('portfolio_priority_score',0),reverse=True),1):x['portfolio_rank']=i
  payload={'schema_version':'1.0','application_version':application_version(),'generated_at':datetime.now(timezone.utc).isoformat(),
-  'bots':rows,'summary':{'total_managed':len(rows),'live':sum(x['state']=='LIVE' for x in rows),'paper':sum(x['state']=='PAPER' for x in rows),
+  'bots':rows,'summary':{'total_managed':sum(bool(x.get('managed')) for x in rows),'live':sum(x['state']=='LIVE' for x in rows),'paper':sum(x['state']=='PAPER' and x.get('managed') for x in rows),
                          'ready':sum(x['state']=='READY' for x in rows),'research':sum(x['state']=='RESEARCH' for x in rows)},
   'capital':{'conservative_safe_usdt':cap.get('safe_multi_bot_pool_usdt'),'conditional_capacity_usdt':cap.get('conditional_multi_bot_capacity_usdt'),
              'worst_case_headroom_usdt':cap.get('worst_case_headroom_usdt')},

@@ -10,6 +10,7 @@ import json,os,math
 from datetime import datetime,timezone
 from pathlib import Path
 from app.release import application_version
+from scripts.runtime_state_manager import state_dir
 
 ROOT=Path(__file__).resolve().parents[1];D=ROOT/'docs';OUT=D/'paper_portfolio.json'
 FEE=0.001
@@ -18,11 +19,16 @@ def now(): return datetime.now(timezone.utc).isoformat()
 def load(path,default=None):
  try:return json.loads(Path(path).read_text(encoding='utf-8-sig'))
  except:return {} if default is None else default
-def data_root():
- raw=os.getenv('CRM_DATA_ROOT')
- return Path(raw) if raw else (Path(r'C:\Crypto\CRM_Data') if os.name=='nt' else Path.home()/'.crypto_regime_manager_data')
 def state_path():
- p=data_root()/'state';p.mkdir(parents=True,exist_ok=True);return p/'paper_portfolio.json'
+ p=state_dir();p.mkdir(parents=True,exist_ok=True)
+ new=p/'paper_trading_state.json'
+ # One-time migration from the pre-V69 location; never discard accumulated paper history.
+ legacy=(Path(r'C:\Crypto\CRM_Data\state')/'paper_portfolio.json') if os.name=='nt' else (Path.home()/'.crypto_regime_manager_data'/'state'/'paper_portfolio.json')
+ if not new.exists() and legacy.exists():
+  try:
+   new.write_bytes(legacy.read_bytes())
+  except:pass
+ return new
 def price_map():
  d=load(D/'kucoin_live_prices.json');return {str(x.get('symbol') or '').split('-')[0].upper():x for x in d.get('prices') or [] if x.get('status')=='OK'}
 def specs():
@@ -101,12 +107,15 @@ def main():
    'open_pnl_quote':pos.get('open_pnl_quote'),'open_pnl_pct':pos.get('open_pnl_pct'),'closed_deals':closed,
    'win_rate_pct':(100*wins/closed if closed else None),'paper_days':round(days,2) if days else None,
    'profit_per_day_quote':round(realised/days,4) if days else None,'realised_pnl_quote':realised,'max_drawdown_quote':maxdd,
+   'total_pnl_quote':round(realised+(q(pos.get('open_pnl_quote')) or 0),4),
+   'total_pnl_pct':(100*(realised+(q(pos.get('open_pnl_quote')) or 0))/max(q(pos.get('peak_capital_quote')) or q(pos.get('quote_in')) or 1,1)),
+   'recent_trades':list(reversed(hist[-25:])),
    'settings':b.get('settings'),'updated_at':b.get('updated_at')})
  payload={'schema_version':'1.0','application_version':application_version(),'generated_at':now(),'bots':rows,
   'summary':{'paper_bots':len(rows),'open':sum(x.get('state')=='OPEN' for x in rows),'closed_deals':sum(int(x.get('closed_deals') or 0) for x in rows),
              'realised_pnl_quote':round(sum(q(x.get('realised_pnl_quote')) or 0 for x in rows),2),
              'open_pnl_quote':round(sum(q(x.get('open_pnl_quote')) or 0 for x in rows if x.get('state')=='OPEN'),2)},
-  'persistent_state':str(state_path()),'read_only_exchange':True,'automatic_live_deployment':False,
+  'persistent_state':str(state_path()),'history_retention_per_bot':100,'read_only_exchange':True,'automatic_live_deployment':False,
   'principle':'Paper bots use current KuCoin prices and the exact unseen-validated DCA setup. Results are forward evidence, not historical backtest results.'}
  OUT.write_text(json.dumps(payload,indent=2),encoding='utf-8')
  print(f"Paper portfolio: bots={len(rows)} open={payload['summary']['open']} paper_P/L={payload['summary']['open_pnl_quote']}")

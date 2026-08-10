@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def test_self_healing_assets_and_guardrails():
  p=json.loads((ROOT/'config/remediation_playbooks.json').read_text(encoding='utf-8'))
- assert p['application_version']=='68.0.0'
+ assert p['application_version']=='69.0.0'
  assert 'trading_actions' in p['guardrails']['never_automatic']
  assert (ROOT/'SELF_HEAL_CRM.cmd').exists()
  assert (ROOT/'scripts/self_healing_engine.py').exists()

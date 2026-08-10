@@ -1,0 +1,11 @@
+# CRM canonical repository line endings
+# Keep source text canonical as LF in Git on every platform. Windows scripts
+# remain fully executable under PowerShell/cmd with LF and no longer generate
+# false dirty-tree installer failures through core.autocrlf.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.zip binary
+*.pdf binary

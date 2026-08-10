@@ -5,3 +5,10 @@
 .crm-capital-priority{display:grid;grid-template-columns:auto minmax(120px,.35fr) 1fr;gap:12px;align-items:center;padding:12px 14px;margin:0 0 12px;border:1px solid var(--crm-border,#253650);border-radius:12px}
 .crm-capital-priority small{min-width:0;overflow-wrap:anywhere}
 @media(max-width:1050px){.crm-managed-head{display:none}.crm-managed-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.crm-capital-priority{grid-template-columns:1fr}}
+
+
+/* V69 persistent managed-bot paper ledger */
+.crm-paper-ledger{display:grid;gap:1px;margin-top:10px;border:1px solid var(--crm-border,#29425f);border-radius:12px;overflow:hidden;background:var(--crm-border,#29425f)}
+.crm-paper-ledger-head,.crm-paper-ledger-row{display:grid;grid-template-columns:1.25fr 1.25fr .8fr .8fr .45fr;gap:10px;padding:10px 12px;background:var(--crm-panel,#10243b);align-items:center}
+.crm-paper-ledger-head{font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;color:var(--crm-muted,#91a9c4);font-weight:700}
+@media(max-width:700px){.crm-paper-ledger-head{display:none}.crm-paper-ledger-row{grid-template-columns:1fr 1fr}.crm-paper-ledger-row span:nth-child(5){grid-column:1/-1}}

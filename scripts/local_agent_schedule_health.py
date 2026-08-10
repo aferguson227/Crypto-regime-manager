@@ -4,6 +4,7 @@ import json,os,subprocess
 from datetime import datetime,timezone
 from pathlib import Path
 from app.release import application_version
+from scripts.runtime_state_manager import state_dir
 ROOT=Path(__file__).resolve().parents[1];DOCS=ROOT/'docs';OUT=DOCS/'local_agent_schedule_health.json';LIVE_NAME='CryptoRegimeManager-LiveDataService'
 def query_task(name):
  rec={'task_name':name,'mechanism':'scheduled_task','exists':None,'enabled':None,'last_run':None,'next_run':None,'last_result':None,'status':'NOT_APPLICABLE'}
@@ -22,8 +23,14 @@ def query_live_startup():
  r=subprocess.run(['reg.exe','query',r'HKCU\Software\Microsoft\Windows\CurrentVersion\Run','/v',LIVE_NAME],text=True,capture_output=True)
  rec['exists']=r.returncode==0;rec['enabled']=rec['exists'];rec['status']='HEALTHY' if rec['exists'] else 'MISSING';return rec
 def load_live_status():
- try:return json.loads((DOCS/'kucoin_live_service_status.json').read_text(encoding='utf-8-sig'))
- except:return {}
+ candidates=[state_dir()/'kucoin_live_service_status.json',DOCS/'kucoin_live_service_status.json']
+ best={};best_age=None
+ for p in candidates:
+  try:d=json.loads(p.read_text(encoding='utf-8-sig'))
+  except:continue
+  a=age_minutes(d.get('heartbeat_at') or d.get('generated_at'))
+  if best_age is None or (a is not None and a<best_age):best=d;best_age=a
+ return best
 def age_minutes(stamp):
  try:return max(0,(datetime.now(timezone.utc)-datetime.fromisoformat(str(stamp).replace('Z','+00:00'))).total_seconds()/60)
  except:return None
