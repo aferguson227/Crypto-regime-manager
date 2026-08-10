@@ -1,17 +1,24 @@
 {
   "schema_version": "2.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T19:01:16.569145+00:00",
-  "heartbeat_at": "2026-08-10T19:01:16.569169+00:00",
+  "generated_at": "2026-08-10T19:16:28.431864+00:00",
+  "heartbeat_at": "2026-08-10T19:16:28.431880+00:00",
   "status": "REFRESHING",
-  "cycle": 50,
-  "pid": 11096,
+  "cycle": 6,
+  "pid": 17316,
   "fast_interval_seconds": 20,
   "private_refresh_interval_seconds": 60,
-  "last_full_private_refresh_at": "2026-08-10T19:00:56.567800+00:00",
-  "current_module": "scripts.kucoin_live_price_engine",
+  "last_full_private_refresh_at": "2026-08-10T19:15:38.551902+00:00",
+  "current_module": "scripts.kucoin_order_state",
   "message": null,
-  "modules": [],
+  "modules": [
+    {
+      "module": "scripts.kucoin_live_price_engine",
+      "status": "OK",
+      "seconds": 0.69,
+      "detail": "KuCoin live prices: OK; assets=4\n"
+    }
+  ],
   "startup_mechanism": "HKCU per-user startup",
   "read_only": true,
   "write_endpoints_implemented": false,
