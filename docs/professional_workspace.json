@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T18:19:51.917535+00:00",
+  "generated_at": "2026-08-10T18:35:50.243381+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -57,9 +57,9 @@
     "asset_allocations": [
       {
         "asset": "TEL",
-        "quantity": 430524.0,
+        "quantity": 1143983.0,
         "quote_currency": "USDT",
-        "quote_cost": 688.134646248
+        "quote_cost": 1790.719523466
       }
     ],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
@@ -289,9 +289,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 66.5,
+    "health_score": 62.8,
     "diversification_score": 25,
-    "capital_efficiency_score": 74.4,
+    "capital_efficiency_score": 63.5,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -339,10 +339,10 @@
         "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": 688.134646248,
-        "reserve_capital": 2113.5360000000005,
+        "allocated_capital": 1790.719523466,
+        "reserve_capital": 1048.5760000000002,
         "deployable_priority": 4,
-        "efficiency_score": 55.39,
+        "efficiency_score": 33.5,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -377,5 +377,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "0e293603d4c2bc206323082e"
+  "snapshot_id": "e0a647b8cde29f0dbe53a0d7"
 }
