@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "66.0.0",
-  "generated_at": "2026-08-10T15:49:20.589718+00:00",
+  "generated_at": "2026-08-10T15:54:20.572512+00:00",
   "overall": "CURRENT",
   "overall_reason": "Current trading data is available.",
   "decision_critical_current": true,
@@ -10,8 +10,8 @@
       "name": "KuCoin account data",
       "role": "DECISION_CRITICAL",
       "status": "CURRENT",
-      "age_minutes": 0.4,
-      "age_display": "Just now",
+      "age_minutes": 1.0,
+      "age_display": "1m ago",
       "expected_cadence_minutes": 30.0,
       "reason": "Balances and available capital used by CRM.",
       "collector_status": "OK"
@@ -40,8 +40,8 @@
       "name": "3Commas monitoring",
       "role": "SECONDARY_PROVIDER",
       "status": "CURRENT",
-      "age_minutes": 18.9,
-      "age_display": "19m ago",
+      "age_minutes": 23.9,
+      "age_display": "24m ago",
       "expected_cadence_minutes": 180.0,
       "reason": "Temporary secondary provider monitoring; KuCoin remains authoritative.",
       "collector_status": "OK"
@@ -50,8 +50,8 @@
       "name": "Website update",
       "role": "PRESENTATION",
       "status": "CURRENT",
-      "age_minutes": 946.1999999999999,
-      "age_display": "15h 46m ago",
+      "age_minutes": 951.0,
+      "age_display": "15h 51m ago",
       "expected_cadence_minutes": 30.0,
       "reason": "Website publishing is separate from trading-data reliability. It never makes KuCoin trading data stale."
     },
@@ -59,8 +59,8 @@
       "name": "System checks",
       "role": "ENGINEERING",
       "status": "CURRENT",
-      "age_minutes": 34.9,
-      "age_display": "35m ago",
+      "age_minutes": 5.0,
+      "age_display": "5m ago",
       "expected_cadence_minutes": 360,
       "reason": "Automatic application checks; detailed mode is hidden unless troubleshooting."
     }
