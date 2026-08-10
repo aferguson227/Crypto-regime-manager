@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T18:15:56.430173+00:00",
+  "generated_at": "2026-08-10T19:00:59.603291+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,15 +26,15 @@
       }
     },
     {
-      "event_id": "6cc94109479c7970c3fedfa4",
+      "event_id": "87b25e6314a98848ddf7039c",
       "kind": "GLOBAL_REGIME",
-      "title": "Global market regime: Neutral",
-      "detail": "Universal market score 49.4%. BTC/current breadth evidence is included where available.",
+      "title": "Global market regime: Accumulation",
+      "detail": "Universal market score 52.5%. BTC/current breadth evidence is included where available.",
       "severity": "info",
       "action": "REVIEW_MARKET",
       "payload": {
-        "regime": "NEUTRAL",
-        "score_pct": 49.4
+        "regime": "ACCUMULATION",
+        "score_pct": 52.5
       }
     },
     {
@@ -57,6 +57,30 @@
           "research_pipeline"
         ],
         "validated_return_pct": -21.6,
+        "current_regime": "BEAR",
+        "research_continues_while_live": false
+      }
+    },
+    {
+      "event_id": "66662618c0d91ae6a9b8cea1",
+      "kind": "COIN_STATUS",
+      "title": "HYPE is Ready For Review",
+      "detail": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only.",
+      "severity": "opportunity",
+      "action": "REVIEW_COIN",
+      "payload": {
+        "asset": "HYPE",
+        "lifecycle": "READY_FOR_REVIEW",
+        "execution_state": "NOT_DEPLOYED",
+        "research_state": "READY_FOR_MANUAL_REVIEW",
+        "reasons": [
+          "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
+        ],
+        "history_sources": [
+          "recommended_bots",
+          "research_pipeline"
+        ],
+        "validated_return_pct": null,
         "current_regime": "BEAR",
         "research_continues_while_live": false
       }
@@ -110,7 +134,7 @@
       }
     }
   ],
-  "material_count": 5,
+  "material_count": 6,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -119,5 +143,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "4eedda8edbfe38412276f3ce"
+  "snapshot_id": "939b1ef74e2c42d573444ecf"
 }

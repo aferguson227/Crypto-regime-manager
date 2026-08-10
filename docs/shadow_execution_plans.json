@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T18:15:40.358251+00:00",
+  "generated_at": "2026-08-10T19:00:43.454326+00:00",
   "mode": "SHADOW_ONLY",
   "plans": [
     {
@@ -16,8 +16,29 @@
         "volume_scale": 1.5,
         "step_scale": 1.0
       },
-      "allocated_budget_usdt": 0.0,
-      "hypothetical_order_ladder": [],
+      "allocated_budget_usdt": 0.2,
+      "hypothetical_order_ladder": [
+        {
+          "role": "BASE_ORDER",
+          "notional_usdt": 0.02
+        },
+        {
+          "role": "SAFETY_ORDER_1",
+          "notional_usdt": 0.02
+        },
+        {
+          "role": "SAFETY_ORDER_2",
+          "notional_usdt": 0.03
+        },
+        {
+          "role": "SAFETY_ORDER_3",
+          "notional_usdt": 0.05
+        },
+        {
+          "role": "SAFETY_ORDER_4",
+          "notional_usdt": 0.07
+        }
+      ],
       "checks": [
         "candidate readiness = 100%",
         "portfolio slot/allocation available",
@@ -37,8 +58,29 @@
         "volume_scale": 1.3,
         "step_scale": 1.0
       },
-      "allocated_budget_usdt": 0.0,
-      "hypothetical_order_ladder": [],
+      "allocated_budget_usdt": 0.2,
+      "hypothetical_order_ladder": [
+        {
+          "role": "BASE_ORDER",
+          "notional_usdt": 0.03
+        },
+        {
+          "role": "SAFETY_ORDER_1",
+          "notional_usdt": 0.03
+        },
+        {
+          "role": "SAFETY_ORDER_2",
+          "notional_usdt": 0.04
+        },
+        {
+          "role": "SAFETY_ORDER_3",
+          "notional_usdt": 0.05
+        },
+        {
+          "role": "SAFETY_ORDER_4",
+          "notional_usdt": 0.06
+        }
+      ],
       "checks": [
         "candidate readiness = 100%",
         "portfolio slot/allocation available",

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T18:15:10.001948+00:00",
+  "generated_at": "2026-08-10T19:00:13.303632+00:00",
   "assets": [
     {
       "asset": "AAVE",
@@ -20,7 +20,26 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "PASS",
       "reason": "History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold.",
-      "current_global_regime": "NEUTRAL"
+      "current_global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "AEON",
+      "pair": "AEON-USDT",
+      "evidence_grade": "SCREEN_ONLY",
+      "bars_4h": 86,
+      "history_days": 14.2,
+      "history_start": "2026-07-27T08:00:00+00:00",
+      "history_end": "2026-08-10T12:00:00+00:00",
+      "history_years": 0.04,
+      "regime_profiles_observed": [],
+      "regime_profile_count": 0,
+      "kucoin_walk_forward_pass": false,
+      "kraken_robustness_status": "MISSING",
+      "kraken_role": "NOT_AVAILABLE",
+      "deployment_history_gate": "BLOCKED",
+      "deployment_evidence_gate": "BLOCKED",
+      "reason": "History is too short for deployment research; candidate may be screened/ranked only.",
+      "current_global_regime": "ACCUMULATION"
     },
     {
       "asset": "AVAX",
@@ -39,7 +58,7 @@
       "deployment_history_gate": "BLOCKED",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History is too short for deployment research; candidate may be screened/ranked only.",
-      "current_global_regime": "NEUTRAL"
+      "current_global_regime": "ACCUMULATION"
     },
     {
       "asset": "BTC",
@@ -58,26 +77,26 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "NEUTRAL"
+      "current_global_regime": "ACCUMULATION"
     },
     {
       "asset": "DOT",
       "pair": "DOT-USDT",
-      "evidence_grade": "HIGH_CONFIDENCE",
-      "bars_4h": 13059,
-      "history_days": 2177.7,
-      "history_start": "2020-08-21T16:00:00+00:00",
-      "history_end": "2026-08-08T08:00:00+00:00",
-      "history_years": 5.96,
+      "evidence_grade": "SCREEN_ONLY",
+      "bars_4h": 0,
+      "history_days": 0,
+      "history_start": null,
+      "history_end": null,
+      "history_years": 0,
       "regime_profiles_observed": [],
       "regime_profile_count": 0,
       "kucoin_walk_forward_pass": false,
       "kraken_robustness_status": "FAIL",
       "kraken_role": "SECONDARY_ROBUSTNESS",
-      "deployment_history_gate": "PASS",
+      "deployment_history_gate": "BLOCKED",
       "deployment_evidence_gate": "BLOCKED",
-      "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "NEUTRAL"
+      "reason": "History is too short for deployment research; candidate may be screened/ranked only.",
+      "current_global_regime": "ACCUMULATION"
     },
     {
       "asset": "ETH",
@@ -96,7 +115,26 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "NEUTRAL"
+      "current_global_regime": "ACCUMULATION"
+    },
+    {
+      "asset": "HYPE",
+      "pair": "HYPE-USDT",
+      "evidence_grade": "PRELIMINARY",
+      "bars_4h": 3665,
+      "history_days": 611.0,
+      "history_start": "2024-12-07T12:00:00+00:00",
+      "history_end": "2026-08-10T12:00:00+00:00",
+      "history_years": 1.67,
+      "regime_profiles_observed": [],
+      "regime_profile_count": 0,
+      "kucoin_walk_forward_pass": true,
+      "kraken_robustness_status": "MISSING",
+      "kraken_role": "NOT_AVAILABLE",
+      "deployment_history_gate": "BLOCKED",
+      "deployment_evidence_gate": "BLOCKED",
+      "reason": "Enough data for preliminary research, but not enough history/regime depth for normal deployment approval.",
+      "current_global_regime": "ACCUMULATION"
     },
     {
       "asset": "NEAR",
@@ -115,26 +153,7 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "NEUTRAL"
-    },
-    {
-      "asset": "PIEVERSE",
-      "pair": "PIEVERSE-USDT",
-      "evidence_grade": "SCREEN_ONLY",
-      "bars_4h": 482,
-      "history_days": 80.2,
-      "history_start": "2026-05-22T08:00:00+00:00",
-      "history_end": "2026-08-10T12:00:00+00:00",
-      "history_years": 0.22,
-      "regime_profiles_observed": [],
-      "regime_profile_count": 0,
-      "kucoin_walk_forward_pass": false,
-      "kraken_robustness_status": "MISSING",
-      "kraken_role": "NOT_AVAILABLE",
-      "deployment_history_gate": "BLOCKED",
-      "deployment_evidence_gate": "BLOCKED",
-      "reason": "History is too short for deployment research; candidate may be screened/ranked only.",
-      "current_global_regime": "NEUTRAL"
+      "current_global_regime": "ACCUMULATION"
     },
     {
       "asset": "SOL",
@@ -153,7 +172,7 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "NEUTRAL"
+      "current_global_regime": "ACCUMULATION"
     },
     {
       "asset": "TUT",
@@ -172,7 +191,7 @@
       "deployment_history_gate": "BLOCKED",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "Enough data for preliminary research, but not enough history/regime depth for normal deployment approval.",
-      "current_global_regime": "NEUTRAL"
+      "current_global_regime": "ACCUMULATION"
     },
     {
       "asset": "UNI",
@@ -191,7 +210,7 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "PASS",
       "reason": "History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold.",
-      "current_global_regime": "NEUTRAL"
+      "current_global_regime": "ACCUMULATION"
     },
     {
       "asset": "XMR",
@@ -210,7 +229,7 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "NEUTRAL"
+      "current_global_regime": "ACCUMULATION"
     },
     {
       "asset": "XRP",
@@ -229,7 +248,7 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "BLOCKED",
       "reason": "History depth is adequate, but unseen KuCoin walk-forward has not passed.",
-      "current_global_regime": "NEUTRAL"
+      "current_global_regime": "ACCUMULATION"
     },
     {
       "asset": "ZEC",
@@ -248,15 +267,15 @@
       "deployment_history_gate": "PASS",
       "deployment_evidence_gate": "PASS",
       "reason": "History depth and unseen KuCoin walk-forward meet the normal deployment-evidence threshold.",
-      "current_global_regime": "NEUTRAL"
+      "current_global_regime": "ACCUMULATION"
     }
   ],
   "summary": {
-    "assets": 13,
-    "screen_only": 2,
-    "preliminary": 1,
+    "assets": 14,
+    "screen_only": 3,
+    "preliminary": 2,
     "deployment_research": 0,
-    "high_confidence": 10
+    "high_confidence": 9
   },
   "principle": "Young assets are never treated as equally reliable to multi-year candidates. Kraken comparison is optional; unseen KuCoin validation is primary."
 }

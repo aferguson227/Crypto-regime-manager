@@ -1,10 +1,10 @@
 {
   "schema_version": "1.1",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T18:14:49.949711+00:00",
+  "generated_at": "2026-08-10T19:00:55.600324+00:00",
   "status": "OK",
   "source": "KuCoin private read-only GET /api/v1/hf/fills (symbol-aware)",
-  "api_message": "{\"symbols_checked\": 5, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 122}, {\"symbol\": \"DATA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}]}",
+  "api_message": "{\"symbols_checked\": 5, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 130}, {\"symbol\": \"DATA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}]}",
   "new_fills": 0,
   "ledger_path": "C:\\Crypto\\CRM_Data\\Accounting\\kucoin_fills.db",
   "persistent_across_upgrades": true,
@@ -73,9 +73,9 @@
     "explanation": "Historical search is complete. The original purchase for this older sale could not be proven within 730 days, so CRM has established an accounting baseline. The affected pre-baseline profit is excluded rather than estimated; matched and future trading P/L continues normally."
   },
   "reconciliation": {
-    "fill_count": 139,
+    "fill_count": 147,
     "first_fill_at": "2026-08-02T13:55:09.362000+00:00",
-    "last_fill_at": "2026-08-10T17:19:22.954000+00:00",
+    "last_fill_at": "2026-08-10T18:41:59.623000+00:00",
     "matched_sell_count": 19,
     "unmatched_sell_count": 1,
     "unmatched_sells": [
@@ -88,7 +88,7 @@
     ],
     "matched_realised_profit_usdt": 124.7022546,
     "realised_profit_complete": false,
-    "fees_usdt_recorded": 35.56963998,
+    "fees_usdt_recorded": 36.29034366,
     "assets": {
       "TEL": {
         "matched_realised_pnl_usdt": 124.70225459976784,
@@ -98,8 +98,8 @@
     },
     "inventory_cost_basis": {
       "TEL": {
-        "qty": 1180235.0,
-        "cost": 1848.0896063797688
+        "qty": 1418091.0,
+        "cost": 2209.162150059769
       }
     }
   },

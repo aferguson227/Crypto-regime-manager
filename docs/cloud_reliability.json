@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T18:35:49.397848+00:00",
+  "generated_at": "2026-08-10T18:59:41.035855+00:00",
   "snapshot_id": "4bccb9cb00512dc5b76b",
   "status": "HEALTHY",
   "pipelines": {
@@ -9,9 +9,9 @@
       "name": "3Commas read-only sync",
       "state": "healthy",
       "last_attempt_at": "2026-08-10T18:35:47.139528+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 0.4,
       "last_success_at": "2026-08-10T18:35:47.139528+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 0.4,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -86,9 +86,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-10T00:01:42.854001+00:00",
-      "last_attempt_age_hours": 18.57,
+      "last_attempt_age_hours": 18.97,
       "last_success_at": "2026-08-10T00:01:49.316423+00:00",
-      "last_success_age_hours": 18.57,
+      "last_success_age_hours": 18.96,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -102,9 +102,9 @@
       "name": "3Commas read-only sync",
       "state": "healthy",
       "last_attempt_at": "2026-08-10T18:35:47.139528+00:00",
-      "last_attempt_age_hours": 0.0,
+      "last_attempt_age_hours": 0.4,
       "last_success_at": "2026-08-10T18:35:47.139528+00:00",
-      "last_success_age_hours": 0.0,
+      "last_success_age_hours": 0.4,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -179,9 +179,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-10T00:01:42.854001+00:00",
-      "last_attempt_age_hours": 18.57,
+      "last_attempt_age_hours": 18.97,
       "last_success_at": "2026-08-10T00:01:49.316423+00:00",
-      "last_success_age_hours": 18.57,
+      "last_success_age_hours": 18.96,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -248,14 +248,14 @@
   },
   "workflows": [
     {
-      "file": ".github/workflows/crm-data-refresh.yml",
+      "file": ".github\\workflows\\crm-data-refresh.yml",
       "status": "pass",
       "findings": [],
       "module_execution": "python -m scripts.threecommas_sync",
       "expected_cron": "37 * * * *"
     },
     {
-      "file": ".github/workflows/crm-health-self-heal.yml",
+      "file": ".github\\workflows\\crm-health-self-heal.yml",
       "status": "pass",
       "findings": [],
       "module_execution": "python -m scripts.engineering_scheduler",
@@ -263,9 +263,9 @@
     }
   ],
   "github": {
-    "repository": "aferguson227/Crypto-regime-manager",
-    "workflow_run_id": "31419839943",
-    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31419839943"
+    "repository": null,
+    "workflow_run_id": null,
+    "run_url": null
   },
   "automation_policy": {
     "routine_manual_runs_required": false,
@@ -278,7 +278,7 @@
     "overall_reason": "Required automation is healthy; non-blocking age notices do not lower overall health.",
     "application_publication": "Live Pages is synchronised; publication age alone is not a reliability fault.",
     "threecommas": "All read-only 3Commas endpoints updated successfully.",
-    "local_agent_status": "HEALTHY",
+    "local_agent_status": "RUNNING",
     "kucoin_private_status": "ok"
   },
   "read_only": true
