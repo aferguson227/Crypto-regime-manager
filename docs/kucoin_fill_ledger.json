@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
   "application_version": "62.0.0",
-  "generated_at": "2026-08-10T11:21:26.656208+00:00",
+  "generated_at": "2026-08-10T11:36:24.975011+00:00",
   "status": "OK",
   "source": "KuCoin private read-only GET /api/v1/hf/fills (symbol-aware)",
   "api_message": "{\"symbols_checked\": 5, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 120}, {\"symbol\": \"DATA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}]}",
@@ -38,11 +38,11 @@
   },
   "deep_cost_basis_search": {
     "attempted": true,
-    "status": "OK",
+    "status": "DEGRADED",
     "assets": [
       {
         "asset": "TEL",
-        "windows_checked_this_cycle": 7,
+        "windows_checked_this_cycle": 0,
         "new_fills": 0,
         "cursor": 1723288884683,
         "search_floor_days": 730,
@@ -52,7 +52,7 @@
         "complete": true,
         "estimated_cycles_remaining": 0,
         "estimated_minutes_remaining": 0,
-        "status": "OK"
+        "status": "DEGRADED"
       }
     ],
     "new_fills": 0,
