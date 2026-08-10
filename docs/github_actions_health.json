@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
-  "application_version": "67.0.0",
-  "generated_at": "2026-08-10T18:35:49.477430+00:00",
-  "state": "HEALTHY",
+  "application_version": "68.0.0",
+  "generated_at": "2026-08-10T20:25:19.506099+00:00",
+  "state": "WARNING",
   "workflow_count": 4,
   "target_workflow_count": 4,
   "single_pages_publisher": true,
@@ -11,19 +11,28 @@
   ],
   "pages_timeout_minutes": 30,
   "queue_safe": true,
-  "successful_duration_median_seconds": 29.5,
+  "successful_duration_median_seconds": 30.0,
   "telemetry_runs": 100,
-  "success_rate_pct": 99.0,
+  "success_rate_pct": 98.0,
   "average_queue_seconds": 0.0,
-  "successful_runs": 98,
-  "failed_runs": 1,
+  "successful_runs": 97,
+  "failed_runs": 2,
   "historical_runs": {
     "cancelled": 0,
-    "failed": 1,
+    "failed": 2,
     "timed_out": 0,
-    "successful": 98
+    "successful": 97
   },
-  "issues": [],
+  "issues": [
+    {
+      "fingerprint": "WORKFLOW_FAILURE",
+      "severity": "warning",
+      "title": "Deploy CRM Pages latest run failed",
+      "detail": "This is active because no newer successful run supersedes it.",
+      "safe_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "occurrences": 1
+    }
+  ],
   "workflows": {
     "crm-data-refresh.yml": {
       "deploy_pages": false,

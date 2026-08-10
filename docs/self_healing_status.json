@@ -1,16 +1,42 @@
 {
   "schema_version": "1.0",
-  "application_version": "67.0.0",
-  "generated_at": "2026-08-10T15:34:20.536681+00:00",
-  "state": "HEALTHY",
+  "application_version": "68.0.0",
+  "generated_at": "2026-08-10T20:25:19.419783+00:00",
+  "state": "ATTENTION",
   "scan": {
-    "issues_found": 0,
-    "remaining": 0,
+    "issues_found": 1,
+    "remaining": 1,
     "repaired": 0
   },
-  "issues": [],
+  "issues": [
+    {
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "Deploy CRM Pages latest run failed",
+      "risk": "warning",
+      "automatic": false,
+      "detail": "This is active because no newer successful run supersedes it.",
+      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
+      "validation": [
+        "workflow_policy",
+        "latest_commit_published"
+      ]
+    }
+  ],
   "repairs_applied": [],
-  "approval_required": [],
+  "approval_required": [
+    {
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "Deploy CRM Pages latest run failed",
+      "risk": "warning",
+      "automatic": false,
+      "detail": "This is active because no newer successful run supersedes it.",
+      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
+      "validation": [
+        "workflow_policy",
+        "latest_commit_published"
+      ]
+    }
+  ],
   "guardrails": {
     "read_only_trading": true,
     "no_secret_changes": true,
