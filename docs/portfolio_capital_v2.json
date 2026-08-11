@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
-  "application_version": "67.0.0",
-  "generated_at": "2026-08-10T19:00:56.180811+00:00",
+  "application_version": "69.0.0",
+  "generated_at": "2026-08-11T06:46:53.170463+00:00",
   "exchange_equity_usdt": null,
   "free_usdt": 758.16664365,
   "hard_exchange_commitments_usdt": 0,
-  "theoretical_full_dca_reserve_usdt": 1048.58,
-  "prudent_active_dca_contingency_usdt": 681.57,
+  "theoretical_full_dca_reserve_usdt": 0,
+  "prudent_active_dca_contingency_usdt": 0,
   "portfolio_safety_buffer_usdt": 75.82,
-  "safe_multi_bot_pool_usdt": 0.78,
+  "safe_multi_bot_pool_usdt": 682.35,
   "conditional_multi_bot_capacity_usdt": 422.35,
   "expected_active_dca_reserve_usdt": 260.0,
   "conditional_capacity_is_advisory_only": true,
-  "worst_case_headroom_usdt": 0,
+  "worst_case_headroom_usdt": 758.17,
   "candidates": [
     {
       "asset": "XMR",
@@ -47,12 +47,12 @@
     {
       "asset": "AAVE",
       "capital_required_usdt": 456.25,
-      "fits_prudent_pool": false
+      "fits_prudent_pool": true
     },
     {
       "asset": "ZEC",
       "capital_required_usdt": 359.35,
-      "fits_prudent_pool": false
+      "fits_prudent_pool": true
     },
     {
       "asset": "TUT",
@@ -72,7 +72,7 @@
     {
       "asset": "HYPE",
       "capital_required_usdt": 359.35,
-      "fits_prudent_pool": false
+      "fits_prudent_pool": true
     }
   ],
   "read_only": true,

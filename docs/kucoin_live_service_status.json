@@ -1,22 +1,46 @@
 {
   "schema_version": "2.0",
   "application_version": "67.0.0",
-  "generated_at": "2026-08-10T19:31:06.978967+00:00",
-  "heartbeat_at": "2026-08-10T19:31:06.978981+00:00",
-  "status": "REFRESHING",
-  "cycle": 35,
+  "generated_at": "2026-08-10T19:16:07.738638+00:00",
+  "heartbeat_at": "2026-08-10T19:16:07.738653+00:00",
+  "status": "HEALTHY",
+  "cycle": 5,
   "pid": 17316,
   "fast_interval_seconds": 20,
   "private_refresh_interval_seconds": 60,
-  "last_full_private_refresh_at": "2026-08-10T19:30:46.349885+00:00",
-  "current_module": "scripts.kucoin_order_state",
-  "message": null,
+  "last_full_private_refresh_at": "2026-08-10T19:15:38.551902+00:00",
+  "current_module": null,
+  "message": "Live trading truth refreshed.",
   "modules": [
     {
       "module": "scripts.kucoin_live_price_engine",
       "status": "OK",
-      "seconds": 0.63,
+      "seconds": 0.69,
       "detail": "KuCoin live prices: OK; assets=4\n"
+    },
+    {
+      "module": "scripts.kucoin_order_state",
+      "status": "OK",
+      "seconds": 7.98,
+      "detail": "KuCoin order state: OK; symbols=5 active=2 recent_closed=104\n"
+    },
+    {
+      "module": "scripts.live_portfolio_truth_engine",
+      "status": "OK",
+      "seconds": 0.15,
+      "detail": "Live portfolio truth written: C:\\Crypto\\Projects\\docs\\live_portfolio_truth.json; effective_open=1 stale=0\n"
+    },
+    {
+      "module": "scripts.paper_trading_engine",
+      "status": "OK",
+      "seconds": 0.19,
+      "detail": "Paper portfolio: bots=4 open=4 paper_P/L=-0.59\n"
+    },
+    {
+      "module": "scripts.managed_bot_portfolio_engine",
+      "status": "OK",
+      "seconds": 0.16,
+      "detail": "Managed Bot Portfolio: live=1 paper=3 ready=0\n"
     }
   ],
   "startup_mechanism": "HKCU per-user startup",

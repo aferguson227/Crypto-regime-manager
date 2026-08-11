@@ -1,42 +1,42 @@
 {
   "schema_version": "1.0",
   "application_version": "69.0.0",
-  "generated_at": "2026-08-11T06:16:45.051368+00:00",
-  "snapshot_id": "f6d6e6f84afd670c0a886f8f",
+  "generated_at": "2026-08-11T06:46:12.845000+00:00",
+  "snapshot_id": "b65ee811726ad971f3d65dc3",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
   "overall_status": "MAINTAIN",
   "market": {
     "regime": "MEAN_REVERTING",
-    "confidence_pct": 43.6,
+    "confidence_pct": 52.6,
     "risk_appetite": "CAUTIOUS",
     "recommended_exposure": "LOW_TO_MODERATE",
     "trend_score": 47.5,
-    "breadth_score": 30.0,
+    "breadth_score": 60.0,
     "volatility_score": 35,
     "stress_tests": [
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 285.91,
-        "stressed_reserve_requirement": 0.0,
+        "estimated_capital_impact": 23.58,
+        "stressed_reserve_requirement": 3161.92,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 171.55,
-        "stressed_reserve_requirement": 0.0,
+        "estimated_capital_impact": 14.15,
+        "stressed_reserve_requirement": 3794.3,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 228.73,
-        "stressed_reserve_requirement": 0.0,
+        "estimated_capital_impact": 18.86,
+        "stressed_reserve_requirement": 2276.58,
         "status": "ESTIMATED",
         "automatic_action": false
       }
@@ -114,7 +114,7 @@
   "capital": {
     "status": null,
     "currency": "USDT",
-    "total_equity": 1465.5154926,
+    "total_equity": 758.16664365,
     "allocated": 2859.140916096,
     "reserved": 0.0,
     "deployable": 758.16664365,
@@ -131,11 +131,11 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "4fb105081c57d8c8661dfb79",
+      "recommendation_id": "20f8cb5a74302fd13e75c380",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
-      "confidence_pct": 93.2,
+      "confidence_pct": 93.5,
       "static_confidence_pct": 93.2,
       "adaptive_active": false,
       "risk_level": "MODERATE",
@@ -292,7 +292,7 @@
       }
     },
     {
-      "recommendation_id": "a8691a0a8351f4ccee36090d",
+      "recommendation_id": "f29e6da2cf6fef2729a4e72b",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -470,7 +470,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
-      "confidence_pct": 93.2,
+      "confidence_pct": 93.5,
       "urgency": "MONITOR",
       "rationale": [
         "Current entry filters pass",
@@ -530,7 +530,7 @@
     }
   },
   "cloud": {
-    "overall_status": "HEALTHY",
+    "overall_status": "FAILURE",
     "threecommas": {
       "status": "ok",
       "generated_at": "2026-08-11T06:16:35.358127+00:00",
@@ -543,22 +543,23 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "HEALTHY"
+    "cloud_status": "FAILURE"
   },
   "source_snapshots": {
-    "market": "007e2a197385759d8160",
-    "portfolio": "95bbb7c27588c2545f2c",
-    "capital": "8072e8c41cd9198a8af6",
-    "deployment": "93a789a2139364dd8284",
-    "recommendations": "1c39c4d8db5193b2ad96",
-    "adaptive": "50e3fff50ff1baaac820",
-    "outcomes": "2026-08-11T06:16:43.079375+00:00",
-    "cloud": "653fae119df007850bfd",
-    "operating": "33454e66d1dcb9361dd4"
+    "market": "736af7d0031738f93d40",
+    "portfolio": "d58019e95e17cd8219ea",
+    "capital": "a62a8c9a7434b808e1e2",
+    "deployment": "573a35d37985fe15283e",
+    "recommendations": "7ed32d00e29e3416216e",
+    "adaptive": "e8f9335940cb567ca75e",
+    "outcomes": "2026-08-10T00:01:49.274628+00:00",
+    "cloud": "8851927e520864b9e9c1",
+    "operating": "3a13d0378e3d094e9181"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
-    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
+    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
+    "One or more cloud data sources require attention."
   ]
 }

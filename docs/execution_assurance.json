@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "application_version": "67.0.0",
-  "generated_at": "2026-08-10T19:00:56.303641+00:00",
+  "application_version": "69.0.0",
+  "generated_at": "2026-08-11T06:47:45.018330+00:00",
   "status": "HEALTHY",
   "assets": [
     {
@@ -9,8 +9,8 @@
       "status": "HEALTHY",
       "effective_open_position": true,
       "provider_stale": false,
-      "kucoin_active_orders": 2,
-      "kucoin_active_buy_orders": 1,
+      "kucoin_active_orders": 1,
+      "kucoin_active_buy_orders": 0,
       "kucoin_active_sell_orders": 1,
       "expected_safety_orders": 6,
       "checks": [
@@ -26,13 +26,13 @@
         },
         {
           "check": "DCA order protection",
-          "state": "PASS",
-          "detail": "1 live DCA buy order(s) visible on KuCoin. Bot profile allows up to 6 safety orders."
+          "state": "READY",
+          "detail": "No DCA buy order is currently resting on KuCoin. The bot remains configured for up to 6 safety orders with 3 simultaneously active. Provider-controlled DCA orders may be staged only when their trigger is reached."
         },
         {
           "check": "DCA capital reserve",
           "state": "PASS",
-          "detail": "1048.58 USDT is protected for remaining active-trade DCA commitments."
+          "detail": "0.00 USDT is protected for remaining active-trade DCA commitments."
         },
         {
           "check": "No leftover orders after a closed trade",
