@@ -1,16 +1,18 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T21:06:34.014185+00:00",
+  "generated_at": "2026-08-11T21:11:36.267928+00:00",
   "overall": "HEALTHY",
   "summary": {
-    "root_issues_before": 0,
+    "root_issues_before": 1,
     "root_issues_after": 0,
-    "recovery_actions_attempted": 0,
-    "root_issues_resolved": 0,
+    "recovery_actions_attempted": 9,
+    "root_issues_resolved": 1,
     "blocking_after": 0
   },
-  "resolved_this_cycle": [],
+  "resolved_this_cycle": [
+    "LIVE_DATA_SERVICE"
+  ],
   "issues": [],
   "informational_limitations": [
     {
@@ -21,7 +23,62 @@
       "system_fault": false
     }
   ],
-  "recovery_transaction": [],
+  "recovery_transaction": [
+    {
+      "module": "scripts.kucoin_account_sync",
+      "returncode": 0,
+      "duration_seconds": 0.46,
+      "detail": "KuCoin account sync: ok; records=43; base=https://api.kucoin.com; key_version=3\n"
+    },
+    {
+      "module": "scripts.kucoin_order_state",
+      "returncode": 0,
+      "duration_seconds": 7.6,
+      "detail": "KuCoin order state: OK; symbols=5 active=1 recent_closed=81\n"
+    },
+    {
+      "module": "scripts.kucoin_fill_ledger",
+      "returncode": 0,
+      "duration_seconds": 1.92,
+      "detail": "KuCoin fill ledger: OK; new=0; total=151; realised_status=HISTORICAL_COST_BASIS_UNAVAILABLE\n"
+    },
+    {
+      "module": "scripts.execution_reconciliation_engine",
+      "returncode": 0,
+      "duration_seconds": 0.12,
+      "detail": "Execution reconciliation written: C:\\Crypto\\Projects\\docs\\execution_reconciliation.json; stale=0\n"
+    },
+    {
+      "module": "scripts.independent_trade_accounting_engine",
+      "returncode": 0,
+      "duration_seconds": 0.1,
+      "detail": "Independent trade accounting written: C:\\Crypto\\Projects\\docs\\independent_trade_accounting.json\n"
+    },
+    {
+      "module": "scripts.live_portfolio_truth_engine",
+      "returncode": 0,
+      "duration_seconds": 0.11,
+      "detail": "Live portfolio truth written: C:\\Crypto\\Projects\\docs\\live_portfolio_truth.json; effective_open=1 stale=0\n"
+    },
+    {
+      "module": "scripts.execution_assurance_engine",
+      "returncode": 0,
+      "duration_seconds": 0.12,
+      "detail": "Execution assurance: HEALTHY; assets=1 failures=0\n"
+    },
+    {
+      "module": "scripts.freshness_controller",
+      "returncode": 0,
+      "duration_seconds": 0.09,
+      "detail": "Freshness status: CURRENT\n"
+    },
+    {
+      "module": "scripts.source_health_engine",
+      "returncode": 0,
+      "duration_seconds": 0.11,
+      "detail": "Source health written: C:\\Crypto\\Projects\\docs\\source_health.json\n"
+    }
+  ],
   "dependency_order": [
     "KuCoin account",
     "KuCoin orders",
