@@ -1,38 +1,33 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T06:47:45.018330+00:00",
+  "generated_at": "2026-08-11T21:50:07.284659+00:00",
   "status": "HEALTHY",
   "assets": [
     {
       "asset": "TEL",
       "status": "HEALTHY",
-      "effective_open_position": true,
-      "provider_stale": false,
-      "kucoin_active_orders": 1,
+      "effective_open_position": false,
+      "provider_stale": true,
+      "kucoin_active_orders": 0,
       "kucoin_active_buy_orders": 0,
-      "kucoin_active_sell_orders": 1,
+      "kucoin_active_sell_orders": 0,
       "expected_safety_orders": 6,
       "checks": [
         {
           "check": "Exchange/provider lifecycle reconciliation",
-          "state": "PASS",
-          "detail": "No proven stale-open lifecycle mismatch."
+          "state": "FAIL",
+          "detail": "Provider stale open deal is proven closed by KuCoin."
         },
         {
-          "check": "Take-profit order verified",
-          "state": "PASS",
-          "detail": "1 active TEL/USDT sell order(s) found on KuCoin."
+          "check": "Take-profit protection present",
+          "state": "NOT_REQUIRED",
+          "detail": "No exchange-confirmed open position currently requires TP protection."
         },
         {
           "check": "DCA order protection",
-          "state": "READY",
-          "detail": "No DCA buy order is currently resting on KuCoin. The bot remains configured for up to 6 safety orders with 3 simultaneously active. Provider-controlled DCA orders may be staged only when their trigger is reached."
-        },
-        {
-          "check": "DCA capital reserve",
-          "state": "PASS",
-          "detail": "0.00 USDT is protected for remaining active-trade DCA commitments."
+          "state": "NOT_REQUIRED",
+          "detail": "No reconciled active position currently requires a DCA ladder."
         },
         {
           "check": "No leftover orders after a closed trade",

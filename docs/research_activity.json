@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T18:06:08.041863+00:00",
+  "generated_at": "2026-08-11T21:50:19.353159+00:00",
   "status": "ACTIVE",
   "automatic": true,
   "research_cycle_hours": 24,
@@ -13,7 +13,7 @@
     "candidates_under_review": 20,
     "regime_research_complete": 0,
     "optimisation_pending": 0,
-    "rejected": 0,
+    "rejected": 1,
     "backtests_last_cycle": 110880,
     "datasets_last_cycle": 11
   },
@@ -44,7 +44,7 @@
   },
   "persistent_research": {
     "database_status": "READY",
-    "known_assets": 76,
+    "known_assets": 70,
     "cached_results": 2,
     "scheduler_cache_hit": false
   },
@@ -285,123 +285,123 @@
     {
       "asset": "XMR",
       "status": "WAIT",
-      "current_regime": "ACCUMULATION",
+      "current_regime": "NEUTRAL",
       "next_action": "Remain in research queue."
     },
     {
       "asset": "UNI",
       "status": "KUCOIN_WALK_FORWARD_COMPLETE",
-      "current_regime": "ACCUMULATION",
+      "current_regime": "NEUTRAL",
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
+    },
+    {
+      "asset": "LINK",
+      "status": "WAIT",
+      "current_regime": "NEUTRAL",
+      "next_action": "Remain in research queue."
     },
     {
       "asset": "BTC",
       "status": "WAIT",
-      "current_regime": "ACCUMULATION",
+      "current_regime": "NEUTRAL",
       "next_action": "Remain in research queue."
     },
     {
       "asset": "ETH",
       "status": "WAIT",
-      "current_regime": "ACCUMULATION",
+      "current_regime": "NEUTRAL",
       "next_action": "Remain in research queue."
     },
     {
       "asset": "SOL",
       "status": "WAIT",
-      "current_regime": "ACCUMULATION",
+      "current_regime": "NEUTRAL",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "XRP",
+      "status": "WAIT",
+      "current_regime": "NEUTRAL",
       "next_action": "Remain in research queue."
     },
     {
       "asset": "AAVE",
       "status": "KUCOIN_WALK_FORWARD_COMPLETE",
-      "current_regime": "ACCUMULATION",
+      "current_regime": "NEUTRAL",
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
-    },
-    {
-      "asset": "XRP",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
     },
     {
       "asset": "NEAR",
       "status": "WAIT",
-      "current_regime": "ACCUMULATION",
+      "current_regime": "NEUTRAL",
       "next_action": "Remain in research queue."
     },
     {
       "asset": "ZEC",
       "status": "KUCOIN_WALK_FORWARD_COMPLETE",
-      "current_regime": "ACCUMULATION",
+      "current_regime": "NEUTRAL",
       "next_action": "Review KuCoin-frozen current-regime settings and evidence; manual deployment only."
+    },
+    {
+      "asset": "BEAT",
+      "status": "WAIT",
+      "current_regime": "NEUTRAL",
+      "next_action": "Remain in research queue."
     },
     {
       "asset": "DOT",
       "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "LINK",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "PIEVERSE",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
+      "current_regime": "NEUTRAL",
       "next_action": "Remain in research queue."
     },
     {
       "asset": "TUT",
       "status": "WAIT",
-      "current_regime": "ACCUMULATION",
+      "current_regime": "NEUTRAL",
       "next_action": "Remain in research queue."
     },
     {
-      "asset": "SHIB",
+      "asset": "PIEVERSE",
       "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "LTC",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "BEAT",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "ASTER",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "CYS",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
-      "next_action": "Remain in research queue."
-    },
-    {
-      "asset": "BLUAI",
-      "status": "WAIT",
-      "current_regime": "ACCUMULATION",
+      "current_regime": "NEUTRAL",
       "next_action": "Remain in research queue."
     },
     {
       "asset": "BNB",
       "status": "WAIT",
-      "current_regime": "ACCUMULATION",
+      "current_regime": "NEUTRAL",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "AVAX",
+      "status": "REJECTED",
+      "current_regime": "NEUTRAL",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "BLUAI",
+      "status": "WAIT",
+      "current_regime": "NEUTRAL",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "SEI",
+      "status": "WAIT",
+      "current_regime": "NEUTRAL",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "LTC",
+      "status": "WAIT",
+      "current_regime": "NEUTRAL",
+      "next_action": "Remain in research queue."
+    },
+    {
+      "asset": "SHIB",
+      "status": "WAIT",
+      "current_regime": "NEUTRAL",
       "next_action": "Remain in research queue."
     }
   ],
-  "snapshot_id": "1874e8c340010fa16c88a237"
+  "snapshot_id": "684eb5ef99ee6dafb2063460"
 }
