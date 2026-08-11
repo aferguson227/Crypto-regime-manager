@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "application_version": "68.0.0",
-  "generated_at": "2026-08-10T21:43:24.390735+00:00",
+  "application_version": "70.0.0",
+  "generated_at": "2026-08-11T18:06:07.025158+00:00",
   "items": [
     {
       "asset": "XMR",
       "state": "QUEUED_FOR_FRESH_RESEARCH",
       "reason": "The completed training winner failed unseen validation. CRM will run a new bounded optimisation only after the refreshed walk-forward dataset advances; it will not tune against the failed unseen result.",
-      "latest_data_end": "2026-08-10T12:00:00Z",
+      "latest_data_end": "2026-08-11T12:00:00Z",
       "failed_settings_withheld": true,
       "automatic_live_changes": false
     },
@@ -36,6 +36,14 @@
       "automatic_live_changes": false
     },
     {
+      "asset": "SOL",
+      "state": "QUEUED_FOR_FRESH_RESEARCH",
+      "reason": "The completed training winner failed unseen validation. CRM will run a new bounded optimisation only after the refreshed walk-forward dataset advances; it will not tune against the failed unseen result.",
+      "latest_data_end": "2026-08-11T12:00:00Z",
+      "failed_settings_withheld": true,
+      "automatic_live_changes": false
+    },
+    {
       "asset": "XRP",
       "state": "QUEUED_FOR_FRESH_RESEARCH",
       "reason": "The completed training winner failed unseen validation. CRM will run a new bounded optimisation only after the refreshed walk-forward dataset advances; it will not tune against the failed unseen result.",
@@ -44,26 +52,18 @@
       "automatic_live_changes": false
     },
     {
-      "asset": "SOL",
-      "state": "QUEUED_FOR_FRESH_RESEARCH",
-      "reason": "The completed training winner failed unseen validation. CRM will run a new bounded optimisation only after the refreshed walk-forward dataset advances; it will not tune against the failed unseen result.",
-      "latest_data_end": "2026-08-10T12:00:00Z",
-      "failed_settings_withheld": true,
-      "automatic_live_changes": false
-    },
-    {
-      "asset": "TUT",
-      "state": "QUEUED_FOR_FRESH_RESEARCH",
-      "reason": "The completed training winner failed unseen validation. CRM will run a new bounded optimisation only after the refreshed walk-forward dataset advances; it will not tune against the failed unseen result.",
-      "latest_data_end": "2026-08-10T12:00:00Z",
-      "failed_settings_withheld": true,
-      "automatic_live_changes": false
-    },
-    {
       "asset": "NEAR",
       "state": "QUEUED_FOR_FRESH_RESEARCH",
       "reason": "The completed training winner failed unseen validation. CRM will run a new bounded optimisation only after the refreshed walk-forward dataset advances; it will not tune against the failed unseen result.",
-      "latest_data_end": "2026-08-10T12:00:00Z",
+      "latest_data_end": "2026-08-11T12:00:00Z",
+      "failed_settings_withheld": true,
+      "automatic_live_changes": false
+    },
+    {
+      "asset": "LINK",
+      "state": "QUEUED_FOR_FRESH_RESEARCH",
+      "reason": "The completed training winner failed unseen validation. CRM will run a new bounded optimisation only after the refreshed walk-forward dataset advances; it will not tune against the failed unseen result.",
+      "latest_data_end": "2026-08-08T08:00:00Z",
       "failed_settings_withheld": true,
       "automatic_live_changes": false
     }

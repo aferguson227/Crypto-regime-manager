@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "application_version": "69.0.0",
-  "generated_at": "2026-08-11T06:46:39.097985+00:00",
+  "application_version": "70.0.0",
+  "generated_at": "2026-08-11T18:06:03.364211+00:00",
   "enabled": true,
-  "queued_count": 7,
+  "queued_count": 8,
   "candidates": [
     {
       "asset": "XMR",
@@ -130,49 +130,6 @@
       "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
     },
     {
-      "asset": "XRP",
-      "pair": "XRP-USDT",
-      "state": "ADAPTIVE_RESEARCH_QUEUED",
-      "failure_reasons": [
-        "Validation ended with unresolved exposure or current profile retained an open position.",
-        "Validation drawdown 43.5% exceeds preferred tolerance.",
-        "Longest validation trade 204h exceeds the preferred 168h fluidity target."
-      ],
-      "next_experiments": [
-        "tighten_entry_filter",
-        "widen_safety_ladder",
-        "penalise_long_holds",
-        "reduce_volume_scale",
-        "increase_step_scale",
-        "restrict_regime"
-      ],
-      "search_extensions": {
-        "so_deviation_pct": [
-          3.0,
-          5.0,
-          6.0
-        ],
-        "safety_orders": [
-          8,
-          9
-        ],
-        "volume_scale": [
-          1.1,
-          1.2
-        ],
-        "step_scale": [
-          1.3,
-          1.5
-        ],
-        "entry_triggers": [
-          "trend_pullback",
-          "qfl_proxy_3",
-          "mean_reversion"
-        ]
-      },
-      "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
-    },
-    {
       "asset": "SOL",
       "pair": "SOL-USDT",
       "state": "ADAPTIVE_RESEARCH_QUEUED",
@@ -219,22 +176,32 @@
       "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
     },
     {
-      "asset": "TUT",
-      "pair": "TUT-USDT",
+      "asset": "XRP",
+      "pair": "XRP-USDT",
       "state": "ADAPTIVE_RESEARCH_QUEUED",
       "failure_reasons": [
-        "Validation drawdown 21.9% exceeds preferred tolerance.",
-        "Longest validation trade 652h exceeds the preferred 168h fluidity target."
+        "Validation ended with unresolved exposure or current profile retained an open position.",
+        "Validation drawdown 43.5% exceeds preferred tolerance.",
+        "Longest validation trade 204h exceeds the preferred 168h fluidity target."
       ],
       "next_experiments": [
+        "tighten_entry_filter",
+        "widen_safety_ladder",
+        "penalise_long_holds",
         "reduce_volume_scale",
         "increase_step_scale",
-        "restrict_regime",
-        "tighten_entry_filter"
+        "restrict_regime"
       ],
       "search_extensions": {
-        "so_deviation_pct": [],
-        "safety_orders": [],
+        "so_deviation_pct": [
+          3.0,
+          5.0,
+          6.0
+        ],
+        "safety_orders": [
+          8,
+          9
+        ],
         "volume_scale": [
           1.1,
           1.2
@@ -278,6 +245,80 @@
           8,
           9
         ],
+        "volume_scale": [
+          1.1,
+          1.2
+        ],
+        "step_scale": [
+          1.3,
+          1.5
+        ],
+        "entry_triggers": [
+          "trend_pullback",
+          "qfl_proxy_3",
+          "mean_reversion"
+        ]
+      },
+      "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
+    },
+    {
+      "asset": "DOT",
+      "pair": "DOT-USDT",
+      "state": "ADAPTIVE_RESEARCH_QUEUED",
+      "failure_reasons": [
+        "Validation ended with unresolved exposure or current profile retained an open position.",
+        "Longest validation trade 408h exceeds the preferred 168h fluidity target.",
+        "Kraken robustness failed: Q1 mark-to-market P/L 438.99, open position True."
+      ],
+      "next_experiments": [
+        "tighten_entry_filter",
+        "widen_safety_ladder",
+        "penalise_long_holds",
+        "increase_step_scale",
+        "restrict_regime",
+        "compare_cross_exchange_failure_reason",
+        "lower_cross_exchange_confidence"
+      ],
+      "search_extensions": {
+        "so_deviation_pct": [
+          3.0,
+          5.0,
+          6.0
+        ],
+        "safety_orders": [
+          8,
+          9
+        ],
+        "volume_scale": [],
+        "step_scale": [
+          1.3,
+          1.5
+        ],
+        "entry_triggers": [
+          "trend_pullback",
+          "qfl_proxy_3",
+          "mean_reversion"
+        ]
+      },
+      "principle": "Any new configuration must be selected on training data and re-tested on unseen KuCoin validation data."
+    },
+    {
+      "asset": "LINK",
+      "pair": "LINK-USDT",
+      "state": "ADAPTIVE_RESEARCH_QUEUED",
+      "failure_reasons": [
+        "Validation drawdown 36.9% exceeds preferred tolerance.",
+        "Longest validation trade 2440h exceeds the preferred 168h fluidity target."
+      ],
+      "next_experiments": [
+        "reduce_volume_scale",
+        "increase_step_scale",
+        "restrict_regime",
+        "tighten_entry_filter"
+      ],
+      "search_extensions": {
+        "so_deviation_pct": [],
+        "safety_orders": [],
         "volume_scale": [
           1.1,
           1.2

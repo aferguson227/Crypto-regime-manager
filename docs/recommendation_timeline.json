@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T07:01:32.797707+00:00",
+  "generated_at": "2026-08-11T18:06:07.834636+00:00",
   "events": [
     {
       "event_id": "58f05bae44fe949aef1e2959",
@@ -6820,8 +6820,17 @@
         "realised_profit_pct": null,
         "notes": null
       }
+    },
+    {
+      "event_id": "0dc46640d6288dad0104a989",
+      "recorded_at": "2026-08-11T18:06:07.674532+00:00",
+      "kind": "COIN_STATUS",
+      "asset": "BEAT",
+      "status": null,
+      "confidence_pct": null,
+      "detail": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
     }
   ],
-  "event_count": 512,
+  "event_count": 513,
   "live_updating": true
 }
