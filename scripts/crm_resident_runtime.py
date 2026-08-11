@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CRM V70 Resident Runtime Service.
+"""CRM V71.1 Headless Resident Runtime Service.
 
 Single hidden supervisor for fast live trading truth, research and slow publication.
 
@@ -19,6 +19,9 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+
+from scripts.release_identity import version as application_version
+from scripts.headless_process import popen as headless_popen, run as headless_run
 
 ROOT = Path(__file__).resolve().parents[1]
 STATE_ROOT = Path(os.getenv("CRM_DATA_ROOT", r"C:\Crypto\CRM_Data")) / "Runtime" / "State"
@@ -65,9 +68,9 @@ def process_alive(pid: int):
     if not pid:
         return False
     if os.name == "nt":
-        r = subprocess.run(
+        r = headless_run(
             ["tasklist.exe", "/FI", f"PID eq {pid}", "/NH"],
-            text=True, capture_output=True, creationflags=CREATE_NO_WINDOW
+            text=True, capture_output=True
         )
         return str(pid) in (r.stdout or "")
     try:
@@ -92,7 +95,7 @@ def ensure_single_instance():
 def ps_command(script_name: str):
     script = ROOT / script_name
     return [
-        "powershell.exe", "-NoProfile", "-NonInteractive",
+        "powershell.exe", "-NoLogo", "-NoProfile", "-NonInteractive",
         "-WindowStyle", "Hidden", "-ExecutionPolicy", "Bypass",
         "-File", str(script)
     ]
@@ -135,9 +138,9 @@ class Child:
         self.last_start=time.time()
         if self.log is None:
             self.log=open_log(f"{self.name}.log")
-        self.proc=subprocess.Popen(
+        self.proc=headless_popen(
             self.command, cwd=ROOT, stdout=self.log, stderr=self.log,
-            stdin=subprocess.DEVNULL, creationflags=CREATE_NO_WINDOW
+            stdin=subprocess.DEVNULL
         )
         self.restarts += 1
 
@@ -185,9 +188,9 @@ class OneShot:
         if time.time()-self.last_run < seconds:return
         self.last_run=time.time()
         if self.log is None:self.log=open_log(f"{self.name}.log")
-        self.proc=subprocess.Popen(
+        self.proc=headless_popen(
             self.command,cwd=ROOT,stdout=self.log,stderr=self.log,
-            stdin=subprocess.DEVNULL,creationflags=CREATE_NO_WINDOW
+            stdin=subprocess.DEVNULL
         )
 
     def stop(self):
@@ -217,7 +220,7 @@ def write_status(mode, live, research, publication, note=""):
     age=live_heartbeat_age()
     state={
         "schema_version":"1.0",
-        "application_version":"70.0.0",
+        "application_version":application_version(),
         "generated_at":now(),
         "heartbeat_at":now(),
         "status":mode,

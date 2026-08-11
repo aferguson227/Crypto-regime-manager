@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, os
+import argparse, os, sys
 from pathlib import Path
 from scripts import installer_doctor as d
+from scripts.headless_process import pythonw_executable
 
 ROOT=Path(os.getenv("CRM_PROJECT_PATH",r"C:\Crypto\Projects"))
 TASK="CryptoRegimeManager-ResidentRuntime"
 LEGACY_TASKS=("CryptoRegimeManager-LocalAgent","CryptoRegimeManager-ResearchWorker")
 
 def command():
-    runner=ROOT/"RUN_CRM_RESIDENT.ps1"
-    return f'powershell.exe -NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File "{runner}"'
+    # Long-term V71.1 contract: Task Scheduler launches pythonw directly.
+    # No persistent PowerShell host window is required for normal CRM runtime.
+    pyw=pythonw_executable()
+    return f'"{pyw}" -m scripts.crm_resident_runtime'
 
 def retire_legacy():
     for name in LEGACY_TASKS:

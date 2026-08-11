@@ -2,6 +2,7 @@ from __future__ import annotations
 import json, os
 from datetime import datetime, timezone
 from pathlib import Path
+from scripts.release_identity import version as application_version
 ROOT=Path(os.environ.get("CRM_PROJECT_PATH",Path(__file__).resolve().parents[1])); DOCS=ROOT/"docs"
 FRESH_SECONDS=120; DEGRADED_SECONDS=600; RECOVERY_LIMIT=3
 
@@ -40,7 +41,7 @@ def main():
  hb=live.get("heartbeat_at") or live.get("generated_at"); age=age_seconds(hb,now); state=classify(age)
  unresolved=int(health.get("consecutive_unresolved_cycles") or health.get("recovery",{}).get("consecutive_unresolved_cycles") or 0)
  fallback=bool(live.get("using_last_good_snapshot") or live.get("using_published_fallback") or str(live.get("status","")).lower().startswith("fallback"))
- result={"schema_version":"1.0","application_version":"71.0.0","generated_at":now.isoformat(),
+ result={"schema_version":"1.0","application_version":application_version(),"generated_at":now.isoformat(),
  "authoritative_live_data":{"state":state,"heartbeat_at":hb,"age_seconds":age,"age_minutes":None if age is None else round(age/60,1),"fallback":fallback,"message":concise_fallback_message(live.get("message") or "KuCoin live-data service status unavailable.",fallback),"healthy":state=="HEALTHY","decision_critical_current":state=="HEALTHY"},
  "recovery_policy":{"attempt_limit":RECOVERY_LIMIT,"consecutive_unresolved_cycles":unresolved,"automatic_recovery_allowed":unresolved<RECOVERY_LIMIT,"escalated":unresolved>=RECOVERY_LIMIT,"rule":"After 3 unresolved cycles, stop repeating the same repair and surface one root cause."},
  "paper_runtime":{"state":"HEALTHY" if paper else "UNKNOWN","shared_runtime_contract":"Paper and live trading consume the same authoritative freshness state."}}
