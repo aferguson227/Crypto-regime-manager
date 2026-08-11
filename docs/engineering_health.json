@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "69.0.0",
-  "generated_at": "2026-08-11T04:45:50.078888+00:00",
+  "generated_at": "2026-08-11T06:16:44.998528+00:00",
   "overall": {
     "state": "WARNING",
     "score_pct": 87.7
@@ -25,15 +25,15 @@
       "automatic": false,
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
       "first_detected_at": "2026-08-10T20:25:19.349437+00:00",
-      "last_detected_at": "2026-08-10T20:25:19.349437+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
+      "last_detected_at": "2026-08-11T04:52:26.600151+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2,
       "user_benefit": 4,
-      "frequency": 1,
+      "frequency": 2,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 5.0
+      "roi_score": 10.0
     },
     {
       "key": "b0e5f1d9ca9ac44a",
@@ -45,15 +45,15 @@
       "automatic": false,
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
       "first_detected_at": "2026-08-10T20:25:19.349437+00:00",
-      "last_detected_at": "2026-08-10T20:25:19.349437+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
+      "last_detected_at": "2026-08-11T04:52:26.600151+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2,
       "user_benefit": 4,
-      "frequency": 1,
+      "frequency": 2,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 5.0
+      "roi_score": 10.0
     }
   ],
   "highest_value_improvements": [
@@ -67,15 +67,15 @@
       "automatic": false,
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
       "first_detected_at": "2026-08-10T20:25:19.349437+00:00",
-      "last_detected_at": "2026-08-10T20:25:19.349437+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
+      "last_detected_at": "2026-08-11T04:52:26.600151+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2,
       "user_benefit": 4,
-      "frequency": 1,
+      "frequency": 2,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 5.0
+      "roi_score": 10.0
     },
     {
       "key": "b0e5f1d9ca9ac44a",
@@ -87,15 +87,15 @@
       "automatic": false,
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
       "first_detected_at": "2026-08-10T20:25:19.349437+00:00",
-      "last_detected_at": "2026-08-10T20:25:19.349437+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
+      "last_detected_at": "2026-08-11T04:52:26.600151+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2,
       "user_benefit": 4,
-      "frequency": 1,
+      "frequency": 2,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 5.0
+      "roi_score": 10.0
     }
   ],
   "recently_closed": [],
@@ -114,7 +114,7 @@
     "recommendation": "READY",
     "regression_risk": "LOW",
     "expected_build_seconds": null,
-    "expected_deployment_seconds": 30.0,
+    "expected_deployment_seconds": 31.0,
     "actions_success_rate_pct": 93.9,
     "blockers": []
   },

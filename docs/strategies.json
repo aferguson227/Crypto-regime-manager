@@ -18,7 +18,7 @@
     "legacy_navigation_preserved": false,
     "note": "V41 consolidates daily trading decisions and operational faults onto one canonical dashboard. Legacy pages remain drill-down only."
   },
-  "generated_at": "2026-08-11T04:45:43.318827+00:00",
+  "generated_at": "2026-08-11T06:16:37.881926+00:00",
   "workflow_status": "ok",
   "portfolio": {
     "version": "26.0",
@@ -2457,12 +2457,12 @@
         "Any changed rule must be registered as a new candidate."
       ],
       "forward_validation": {
-        "updated_at": "2026-08-10T00:01:43.854788+00:00",
+        "updated_at": "2026-08-11T04:45:43.187522+00:00",
         "status": "COLLECTING FORWARD EVIDENCE",
-        "forward_days": 6.833333333333334,
-        "forward_candles": 41,
+        "forward_days": 8.0,
+        "forward_candles": 48,
         "first_forward_candle": "2026-08-03T04:00:00Z",
-        "last_forward_candle": "2026-08-09T20:00:00Z",
+        "last_forward_candle": "2026-08-11T00:00:00Z",
         "completed_30_day_windows": 0,
         "profitable_30_day_windows": 1,
         "data_integrity_ok": true,
@@ -2532,12 +2532,12 @@
           "Any changed rule must be registered as a new candidate."
         ],
         "forward_validation": {
-          "updated_at": "2026-08-10T00:01:43.854788+00:00",
+          "updated_at": "2026-08-11T04:45:43.187522+00:00",
           "status": "COLLECTING FORWARD EVIDENCE",
-          "forward_days": 6.833333333333334,
-          "forward_candles": 41,
+          "forward_days": 8.0,
+          "forward_candles": 48,
           "first_forward_candle": "2026-08-03T04:00:00Z",
-          "last_forward_candle": "2026-08-09T20:00:00Z",
+          "last_forward_candle": "2026-08-11T00:00:00Z",
           "completed_30_day_windows": 0,
           "profitable_30_day_windows": 1,
           "data_integrity_ok": true,
@@ -2915,7 +2915,7 @@
   "operational_intelligence": {
     "version": "17.0",
     "mode": "read_only_operational_intelligence",
-    "generated_at": "2026-08-11T04:45:43.190328+00:00",
+    "generated_at": "2026-08-11T06:16:37.756264+00:00",
     "summary": {
       "production_assets": 2,
       "research_assets": 1,
@@ -3261,7 +3261,7 @@
   "research_queue": {
     "version": "21.0",
     "mode": "automatic_multi_asset_research_queue",
-    "generated_at": "2026-08-11T04:45:43.318807+00:00",
+    "generated_at": "2026-08-11T06:16:37.881908+00:00",
     "status": "READY",
     "queue": [
       {
@@ -4963,7 +4963,7 @@
         "recent_max_drawdown_pct_of_capital": -15.493742091577554,
         "open_loss_pct_of_capital": -5.299204989083772,
         "open_hours": 808.0,
-        "data_age_hours": 4.761875528626971,
+        "data_age_hours": 6.277005001372761,
         "historical_average_trade_hours": 20.356687898089174,
         "historical_longest_trade_hours": 556,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -5494,7 +5494,7 @@
         "recent_max_drawdown_pct_of_capital": -12.068385719225839,
         "open_loss_pct_of_capital": 0.0,
         "open_hours": 0.0,
-        "data_age_hours": 4.761920134425163,
+        "data_age_hours": 6.27706253555086,
         "historical_average_trade_hours": 64.57142857142857,
         "historical_longest_trade_hours": 368,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
@@ -6069,7 +6069,7 @@
         "recent_max_drawdown_pct_of_capital": -31.073997089292053,
         "open_loss_pct_of_capital": -29.419017719429963,
         "open_hours": 1840.0,
-        "data_age_hours": 4.761969519191318,
+        "data_age_hours": 6.277127391960886,
         "historical_average_trade_hours": 19.466666666666665,
         "historical_longest_trade_hours": 152,
         "note": "Health score is a monitoring indicator, not a forecast or probability of profit."
