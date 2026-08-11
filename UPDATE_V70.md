@@ -77,3 +77,32 @@ Mutable runtime/publication JSON:
 
 This prevents stale runtime snapshots such as paper portfolio, KuCoin service status,
 research status, health outputs or managed-bot state from blocking future software upgrades.
+
+
+## Idempotent Windows Resident Service Setup
+
+The V70 installer now treats an absent `CryptoRegimeManager-ResidentRuntime`
+scheduled task as the normal first-install state.
+
+- task existence is checked before `/End`, `/Change` or `/Delete`;
+- first installation no longer fails because the resident task does not exist yet;
+- task creation is verified before startup;
+- runtime health is verified after startup;
+- rollback removes any partially-created resident task and restores the V69 Local Agent
+  and Research Worker scheduled tasks;
+- the same helper pattern is intended for future V71+ installers.
+
+
+## Completion-aware installation
+
+V70 may already be present in Git/`VERSION` when a previous installation passed all
+source validation and pushed the V70 commit but failed later while creating the
+Windows resident task. The installer therefore supports both:
+
+- `69.0.0 -> 70.0.0` full upgrade; and
+- `70.0.0 -> 70.0.0` completion/repair mode.
+
+Completion mode reapplies the final V70 service setup idempotently, validates the
+repository, commits only any missing V70 completion changes, creates/verifies the
+resident task and confirms the resident heartbeat. It does not force a downgrade
+to V69 merely because the source release already succeeded.
