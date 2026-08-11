@@ -1,29 +1,28 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T21:09:50.528888+00:00",
-  "snapshot_id": "49a981f4264f0ece7d73",
+  "generated_at": "2026-08-11T23:11:19.070906+00:00",
+  "snapshot_id": "1826dff332467862284a",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
   "current_market_regime": "Low",
   "current_regime_confidence": 43.0,
-  "overall_action": "MAINTAIN",
+  "overall_action": "WAIT",
   "deploy_today": [],
-  "keep_running": [
-    "TEL Low Volatility Bot"
-  ],
+  "keep_running": [],
   "review_or_pause": [
+    "TEL Low Volatility Bot",
     "TAO Low Pullback Bot"
   ],
   "next_capital_priority": "TEL Low Volatility Bot",
   "capital_status": "COMPLETE",
   "capital_summary": {
-    "exchange_total": 3017.33457301,
-    "free_available": 3017.33457301,
-    "active_deal_capital": 2859.140916096,
-    "reserved_capital": 0.0,
-    "deployable_capital": 3017.33457301,
+    "exchange_total": 3660.79325265,
+    "free_available": 3660.79325265,
+    "active_deal_capital": 250.2434406472,
+    "reserved_capital": 2031.25,
+    "deployable_capital": 1629.5432526499999,
     "next_capital_required": null,
     "can_fund_next_priority": null
   },
@@ -31,10 +30,12 @@
     {
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
-      "action": "KEEP_ACTIVE_DEAL",
+      "action": "WAIT",
       "confidence": 85.9,
-      "eligible": true,
-      "blocking_reasons": [],
+      "eligible": false,
+      "blocking_reasons": [
+        "Complete deployable-capital confirmation is unavailable."
+      ],
       "supporting_reasons": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
@@ -45,10 +46,10 @@
         "Open replay position has lasted 34.3 days"
       ],
       "current_regime": "Low",
-      "live_state": "ACTIVE_DEAL",
+      "live_state": "DISABLED",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 3017.33457301,
+      "capital_available": 1629.5432526499999,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -226,7 +227,7 @@
       "live_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 3017.33457301,
+      "capital_available": 1629.5432526499999,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -403,10 +404,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "a2824587c15ea6ad4698",
-    "capital_snapshot": "67c64fd7df02cd4b0a5b",
+    "operating_state_snapshot": "26cc4b6736c15d499fa1",
+    "capital_snapshot": "0d9f8a8d9ef1ab0b1c2c",
     "decision_generated_at": "2026-08-11T20:03:45.895613+00:00",
-    "threecommas_generated_at": "2026-08-11T20:03:36.307069+00:00"
+    "threecommas_generated_at": "2026-08-11T23:11:15.897152+00:00"
   },
   "warnings": [
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."

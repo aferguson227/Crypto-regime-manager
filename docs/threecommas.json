@@ -1,9 +1,9 @@
 {
   "version": "70.0.0",
   "authentication": "RSA self-generated",
-  "generated_at": "2026-08-11T20:03:36.307069+00:00",
-  "last_attempt_at": "2026-08-11T20:03:36.307069+00:00",
-  "last_success_at": "2026-08-11T20:03:36.307069+00:00",
+  "generated_at": "2026-08-11T23:11:15.897152+00:00",
+  "last_attempt_at": "2026-08-11T23:11:15.897152+00:00",
+  "last_success_at": "2026-08-11T23:11:15.897152+00:00",
   "status": "ok",
   "core_status": "ok",
   "core_failed": [],
@@ -18,7 +18,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-11T20:03:37.271551+00:00"
+      "observed_at": "2026-08-11T23:11:17.051874+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
@@ -27,7 +27,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-11T20:03:37.883536+00:00"
+      "observed_at": "2026-08-11T23:11:17.523175+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
@@ -35,8 +35,8 @@
       "category": "ok",
       "message": "Endpoint completed successfully.",
       "http_status": null,
-      "records": 4,
-      "observed_at": "2026-08-11T20:03:38.455163+00:00"
+      "records": 5,
+      "observed_at": "2026-08-11T23:11:18.365424+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
@@ -45,7 +45,7 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-11T20:03:38.772683+00:00"
+      "observed_at": "2026-08-11T23:11:18.836217+00:00"
     },
     "account_32632134_details": {
       "path": "/public/api/ver1/accounts/32632134",
@@ -54,7 +54,7 @@
       "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-11T20:03:38.772732+00:00"
+      "observed_at": "2026-08-11T23:11:18.836250+00:00"
     },
     "account_32632134_balances": {
       "path": "/public/api/ver1/accounts/32632134/account_table_data",
@@ -63,7 +63,7 @@
       "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-11T20:03:38.772739+00:00"
+      "observed_at": "2026-08-11T23:11:18.836257+00:00"
     }
   },
   "accounts": [
@@ -102,6 +102,56 @@
     }
   ],
   "assets": {
+    "AAVE": {
+      "bots": [
+        {
+          "bot_id": 16950798,
+          "account_id": 32632134,
+          "name": "AAVE pullback 3pct",
+          "pair": "USDT_AAVE",
+          "enabled": true,
+          "active_deals": 1,
+          "max_active_deals": 1,
+          "base_order_volume": 250.0,
+          "safety_order_volume": 250.0,
+          "take_profit_pct": 1.2,
+          "max_safety_orders": 4,
+          "max_active_safety_orders": 2,
+          "safety_order_deviation_pct": 0.8,
+          "step_scale": 1.0,
+          "volume_scale": 1.5,
+          "start_condition": "long",
+          "start_order_type": "limit",
+          "safety_order_type": null,
+          "trailing_enabled": false,
+          "trailing_deviation": 0.0,
+          "cooldown_seconds": 0,
+          "reinvesting_percentage": 100.0,
+          "theoretical_max_dca_capital": 2281.25
+        }
+      ],
+      "deals": [
+        {
+          "bot_name": "AAVE pullback 3pct",
+          "pair": "USDT_AAVE",
+          "quote_currency": "USDT",
+          "base_asset": "AAVE",
+          "status": "bought",
+          "created_at": "2026-08-11T21:51:05.740Z",
+          "profit_pct": -0.17,
+          "completed_safety_orders": 0,
+          "max_safety_orders": 4,
+          "active_safety_orders": 2,
+          "bot_id": 16950798,
+          "allocated_asset_quantity": 2.8349,
+          "allocated_asset": "AAVE",
+          "capital_used_quote": 250.2434406472,
+          "capital_currency": "USDT",
+          "capital_used": 250.2434406472,
+          "placed_order_reserve": 0.0
+        }
+      ]
+    },
     "TEL": {
       "bots": [
         {
@@ -184,8 +234,8 @@
           "account_id": 32632134,
           "name": "TEL DCA - Low Volatility",
           "pair": "USDT_TEL",
-          "enabled": true,
-          "active_deals": 1,
+          "enabled": false,
+          "active_deals": 0,
           "max_active_deals": 1,
           "base_order_volume": 100.0,
           "safety_order_volume": 100.0,
@@ -205,27 +255,7 @@
           "theoretical_max_dca_capital": 2729.5360000000005
         }
       ],
-      "deals": [
-        {
-          "bot_name": "TEL DCA - Low Volatility",
-          "pair": "USDT_TEL",
-          "quote_currency": "USDT",
-          "base_asset": "TEL",
-          "status": "bought",
-          "created_at": "2026-08-09T12:01:32.406Z",
-          "profit_pct": -1.18,
-          "completed_safety_orders": 6,
-          "max_safety_orders": 6,
-          "active_safety_orders": 0,
-          "bot_id": 16945272,
-          "allocated_asset_quantity": 1847804.0,
-          "allocated_asset": "TEL",
-          "capital_used_quote": 2859.140916096,
-          "capital_currency": "USDT",
-          "capital_used": 2859.140916096,
-          "placed_order_reserve": 0.0
-        }
-      ]
+      "deals": []
     }
   }
 }

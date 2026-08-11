@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "snapshot_id": "a2824587c15ea6ad4698",
-  "generated_at": "2026-08-11T20:59:56.542669+00:00",
+  "snapshot_id": "26cc4b6736c15d499fa1",
+  "generated_at": "2026-08-11T23:11:19.014808+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
@@ -13,11 +13,11 @@
       "asset": "TEL",
       "regime": "Low",
       "production_status": "production",
-      "action": "KEEP_ACTIVE_DEAL",
+      "action": "DEPLOY_CANDIDATE",
       "recommendation": "TEL Low Volatility Bot",
       "entry_allowed": true,
       "decision_score": 93.9,
-      "live_bot_state": "ACTIVE_DEAL",
+      "live_bot_state": "DISABLED",
       "settings_state": "INCOMPLETE",
       "reasons": [
         "Current entry filters pass",
@@ -49,16 +49,18 @@
       ]
     }
   ],
-  "deploy_today": [],
+  "deploy_today": [
+    "TEL Low Volatility Bot"
+  ],
   "next_capital_priority": "TEL Low Volatility Bot",
   "capital": {
     "currency": "USDT",
-    "exchange_total": 3017.33457301,
-    "free_available": 3017.33457301,
-    "active_deal_capital": 2859.140916096,
+    "exchange_total": 3660.79325265,
+    "free_available": 3660.79325265,
+    "active_deal_capital": 250.2434406472,
     "placed_order_reserve": 0.0,
     "enabled_bot_theoretical_reserve": 0.0,
-    "available_after_reserve": 3017.33457301,
+    "available_after_reserve": 1629.5432526499999,
     "completeness": "complete",
     "warnings": []
   },
@@ -93,14 +95,14 @@
     {
       "name": "3Commas live state",
       "status": "ok",
-      "observed_at": "2026-08-11T20:03:36.307069+00:00",
+      "observed_at": "2026-08-11T23:11:15.897152+00:00",
       "version": "70.0.0",
       "warnings": []
     },
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-11T20:59:54.544615+00:00",
+      "observed_at": "2026-08-11T23:11:18.963141+00:00",
       "version": null,
       "warnings": []
     },
