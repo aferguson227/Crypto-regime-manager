@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0",
-  "application_version": "67.0.0",
-  "generated_at": "2026-08-10T00:01:49.325683+00:00",
-  "snapshot_id": "736af7d0031738f93d40",
+  "application_version": "69.0.0",
+  "generated_at": "2026-08-11T04:45:47.856836+00:00",
+  "snapshot_id": "ecac23b5373bef8ea082",
   "mode": "read_only_market_context",
   "read_only": true,
   "manual_approval_required": true,
   "regime": "MEAN_REVERTING",
-  "regime_confidence_pct": 52.6,
+  "regime_confidence_pct": 46.6,
   "trend_score": 47.5,
   "volatility_score": 35,
-  "breadth_score": 60.0,
+  "breadth_score": 40.0,
   "correlation_score": 65,
   "risk_appetite": "CAUTIOUS",
   "recommended_exposure": "LOW_TO_MODERATE",
@@ -39,13 +39,13 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
-      "effective_score": 93.5,
+      "effective_score": 93.2,
       "market_regime": "MEAN_REVERTING",
       "why_now": [
         "Current operating data allows entry."
       ],
       "why_not": [],
-      "market_support_score": 52.6
+      "market_support_score": 46.6
     },
     {
       "asset": "TAO",
@@ -58,31 +58,31 @@
         "Current operating data does not allow entry.",
         "Governed recommendation remains WAIT."
       ],
-      "market_support_score": 34.2
+      "market_support_score": 30.3
     }
   ],
   "stress_tests": [
     {
       "scenario": "BTC decline",
       "market_shock_pct": -10,
-      "estimated_capital_impact": 23.58,
-      "stressed_reserve_requirement": 3161.92,
+      "estimated_capital_impact": 285.91,
+      "stressed_reserve_requirement": 0.0,
       "status": "ESTIMATED",
       "automatic_action": false
     },
     {
       "scenario": "Volatility expansion",
       "market_shock_pct": -6,
-      "estimated_capital_impact": 14.15,
-      "stressed_reserve_requirement": 3794.3,
+      "estimated_capital_impact": 171.55,
+      "stressed_reserve_requirement": 0.0,
       "status": "ESTIMATED",
       "automatic_action": false
     },
     {
       "scenario": "Rapid recovery",
       "market_shock_pct": 8,
-      "estimated_capital_impact": 18.86,
-      "stressed_reserve_requirement": 2276.58,
+      "estimated_capital_impact": 228.73,
+      "stressed_reserve_requirement": 0.0,
       "status": "ESTIMATED",
       "automatic_action": false
     }
@@ -103,7 +103,7 @@
     "Exchange equity is unknown; stress-test capital impacts may be incomplete."
   ],
   "breadth_evidence": {
-    "positive_assets": 6,
+    "positive_assets": 4,
     "assets_with_30d_trend": 10,
     "source": "coin_discovery.researched_candidates.trend_30d_pct",
     "status": "MEASURED"

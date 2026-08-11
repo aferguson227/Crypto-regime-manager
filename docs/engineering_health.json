@@ -1,41 +1,107 @@
 {
   "schema_version": "2.0",
-  "application_version": "67.0.0",
-  "generated_at": "2026-08-10T18:35:50.139552+00:00",
+  "application_version": "69.0.0",
+  "generated_at": "2026-08-11T04:45:50.078888+00:00",
   "overall": {
-    "state": "HEALTHY",
-    "score_pct": 97.7
+    "state": "WARNING",
+    "score_pct": 87.7
   },
   "scores": {
     "application": 100,
     "operations": 86.0,
     "interface": 100,
-    "actions": 100,
-    "self_healing": 100,
+    "actions": 70,
+    "self_healing": 70,
     "repository": 100
   },
-  "action_queue": [],
-  "highest_value_improvements": [],
-  "recently_closed": [
+  "action_queue": [
     {
-      "key": "a43930f4134bf7af",
-      "source": "self_healing",
-      "fingerprint": "STALE_THREECOMMAS",
-      "title": "3Commas data is stale",
-      "severity": "low",
+      "key": "a685f501cd00551a",
+      "source": "actions",
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "Deploy CRM Pages latest run failed",
+      "severity": "warning",
       "occurrences": 1,
       "automatic": false,
-      "recommended_action": "Trigger the read-only 3Commas workflow.",
-      "first_detected_at": "2026-08-10T05:11:50.891250+00:00",
-      "last_detected_at": "2026-08-10T10:44:56.172664+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 2,
-      "closed_at": "2026-08-10T15:34:20.473317+00:00"
+      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "first_detected_at": "2026-08-10T20:25:19.349437+00:00",
+      "last_detected_at": "2026-08-10T20:25:19.349437+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 4,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 5.0
+    },
+    {
+      "key": "b0e5f1d9ca9ac44a",
+      "source": "self_healing",
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "Deploy CRM Pages latest run failed",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "first_detected_at": "2026-08-10T20:25:19.349437+00:00",
+      "last_detected_at": "2026-08-10T20:25:19.349437+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 4,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 5.0
     }
   ],
+  "highest_value_improvements": [
+    {
+      "key": "a685f501cd00551a",
+      "source": "actions",
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "Deploy CRM Pages latest run failed",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "first_detected_at": "2026-08-10T20:25:19.349437+00:00",
+      "last_detected_at": "2026-08-10T20:25:19.349437+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 4,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 5.0
+    },
+    {
+      "key": "b0e5f1d9ca9ac44a",
+      "source": "self_healing",
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "Deploy CRM Pages latest run failed",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "first_detected_at": "2026-08-10T20:25:19.349437+00:00",
+      "last_detected_at": "2026-08-10T20:25:19.349437+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 4,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 5.0
+    }
+  ],
+  "recently_closed": [],
   "technical_debt": {
     "state": "LOW",
-    "known_items": 0
+    "known_items": 2
   },
   "decision_quality_display": {
     "state": "LEARNING",
@@ -43,13 +109,13 @@
     "evidence_coverage_pct": 20.0
   },
   "release_predictor": {
-    "readiness_pct": 97.7,
+    "readiness_pct": 87.7,
     "ready": true,
     "recommendation": "READY",
-    "regression_risk": "VERY_LOW",
+    "regression_risk": "LOW",
     "expected_build_seconds": null,
-    "expected_deployment_seconds": 29.5,
-    "actions_success_rate_pct": 99.0,
+    "expected_deployment_seconds": 30.0,
+    "actions_success_rate_pct": 93.9,
     "blockers": []
   },
   "guardrails": {

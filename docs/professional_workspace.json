@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
-  "application_version": "67.0.0",
-  "generated_at": "2026-08-10T19:29:49.089363+00:00",
+  "application_version": "69.0.0",
+  "generated_at": "2026-08-11T04:45:50.171565+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Keep Active Deal TEL Low Volatility Bot.",
-    "Deployable capital: 0 USDT; exact allocation remains advisory.",
+    "Deployable capital: 758.167 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Recent drawdown is elevated"
   ],
@@ -14,7 +14,7 @@
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
     "action": "KEEP_ACTIVE_DEAL",
-    "confidence_pct": 93.5,
+    "confidence_pct": 93.2,
     "urgency": "MONITOR",
     "why": [
       "Current entry filters pass",
@@ -53,13 +53,13 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 0.0,
+    "deployable_quote": 758.16664365,
     "asset_allocations": [
       {
         "asset": "TEL",
-        "quantity": 1143983.0,
+        "quantity": 1847804.0,
         "quote_currency": "USDT",
-        "quote_cost": 1790.719523466
+        "quote_cost": 2859.140916096
       }
     ],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
@@ -247,7 +247,7 @@
   "what_changed": [],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 32.5 days",
+    "Open replay position has lasted 33.7 days",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -255,43 +255,43 @@
   ],
   "market": {
     "regime": "MEAN_REVERTING",
-    "confidence_pct": 52.6,
+    "confidence_pct": 46.6,
     "risk_appetite": "CAUTIOUS",
     "recommended_exposure": "LOW_TO_MODERATE",
     "trend_score": 47.5,
-    "breadth_score": 60.0,
+    "breadth_score": 40.0,
     "volatility_score": 35,
     "stress_tests": [
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 23.58,
-        "stressed_reserve_requirement": 3161.92,
+        "estimated_capital_impact": 285.91,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 14.15,
-        "stressed_reserve_requirement": 3794.3,
+        "estimated_capital_impact": 171.55,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 18.86,
-        "stressed_reserve_requirement": 2276.58,
+        "estimated_capital_impact": 228.73,
+        "stressed_reserve_requirement": 0.0,
         "status": "ESTIMATED",
         "automatic_action": false
       }
     ]
   },
   "portfolio": {
-    "health_score": 62.8,
+    "health_score": 61.2,
     "diversification_score": 25,
-    "capital_efficiency_score": 63.5,
+    "capital_efficiency_score": 58.7,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -329,7 +329,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 93.5,
+        "efficiency_score": 93.2,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -339,10 +339,10 @@
         "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": 1790.719523466,
-        "reserve_capital": 1048.5760000000002,
+        "allocated_capital": 2859.140916096,
+        "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 33.5,
+        "efficiency_score": 24.15,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -377,5 +377,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "2e0ffbba741c5f5bccc73740"
+  "snapshot_id": "f9c2da9e889e7355d31701fe"
 }
