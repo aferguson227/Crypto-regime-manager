@@ -1,16 +1,16 @@
 {
   "schema_version": "1.1",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T06:47:43.792513+00:00",
+  "generated_at": "2026-08-11T20:31:24.616292+00:00",
   "status": "OK",
   "source": "KuCoin private read-only GET /api/v1/hf/fills (symbol-aware)",
-  "api_message": "{\"symbols_checked\": 5, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 116}, {\"symbol\": \"DATA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}]}",
+  "api_message": "{\"symbols_checked\": 5, \"per_symbol\": [{\"symbol\": \"TEL-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 104}, {\"symbol\": \"DATA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}]}",
   "new_fills": 0,
   "ledger_path": "C:\\Crypto\\CRM_Data\\Accounting\\kucoin_fills.db",
   "persistent_across_upgrades": true,
   "coverage_note": "KuCoin recent spot fill queries are time-limited; CRM persists each refresh so ledger coverage grows from V50 onward.",
   "realised_profit_quote": null,
-  "partial_matched_realised_profit_quote": 124.7022546,
+  "partial_matched_realised_profit_quote": 157.57341329,
   "realised_profit_status": "HISTORICAL_COST_BASIS_UNAVAILABLE",
   "reconciliation_progress_pct": 100.0,
   "next_automatic_retry_minutes": 0,
@@ -73,10 +73,10 @@
     "explanation": "Historical search is complete. The original purchase for this older sale could not be proven within 730 days, so CRM has established an accounting baseline. The affected pre-baseline profit is excluded rather than estimated; matched and future trading P/L continues normally."
   },
   "reconciliation": {
-    "fill_count": 148,
+    "fill_count": 151,
     "first_fill_at": "2026-08-02T13:55:09.362000+00:00",
-    "last_fill_at": "2026-08-10T19:47:49.959000+00:00",
-    "matched_sell_count": 19,
+    "last_fill_at": "2026-08-11T11:34:59.785000+00:00",
+    "matched_sell_count": 22,
     "unmatched_sell_count": 1,
     "unmatched_sells": [
       {
@@ -86,20 +86,20 @@
         "known_inventory_before": 111581.0
       }
     ],
-    "matched_realised_profit_usdt": 124.7022546,
+    "matched_realised_profit_usdt": 157.57341329,
     "realised_profit_complete": false,
-    "fees_usdt_recorded": 37.70221761,
+    "fees_usdt_recorded": 42.22960825,
     "assets": {
       "TEL": {
-        "matched_realised_pnl_usdt": 124.70225459976784,
-        "matched_sells": 19,
+        "matched_realised_pnl_usdt": 157.57341329272344,
+        "matched_sells": 22,
         "unmatched_sells": 1
       }
     },
     "inventory_cost_basis": {
       "TEL": {
-        "qty": 1884056.0,
-        "cost": 2916.510999009769
+        "qty": 445876.0,
+        "cost": 690.2142283427241
       }
     }
   },
