@@ -3,8 +3,8 @@
   "regenerated": [
     {
       "path": "docs/diagnostics.json",
-      "status": "WARN",
-      "returncode": 1,
+      "status": "PASS",
+      "returncode": 0,
       "tail": "imestamped files are older than seven days.\n[PASS] 3Commas read-only boundary: No write verbs or known mutation endpoints detected.\n[PASS] Published secret scan: No private keys, API secrets or bot-control tokens detected in published files.\n[PASS] GitHub workflow automation: Workflow automation configuration is valid.\n[PASS] Required operating sources: All required operating sources are present.\n"
     },
     {
@@ -44,18 +44,7 @@
       "tail": "Presentation quality: HEALTHY; pages=39 issues=0\n"
     }
   ],
-  "migrated": [
-    {
-      "path": "docs/diagnostics.json",
-      "from": "69.0.0",
-      "to": "70.0.0"
-    },
-    {
-      "path": "docs/repository_health.json",
-      "from": "67.0.0",
-      "to": "70.0.0"
-    }
-  ],
+  "migrated": [],
   "runtime_ignored": [
     {
       "path": "docs/adaptive_intelligence.json",
@@ -63,6 +52,10 @@
     },
     {
       "path": "docs/adaptive_research_queue.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/autonomous_diagnostics.json",
       "producer": "69.0.0"
     },
     {
@@ -107,6 +100,10 @@
     },
     {
       "path": "docs/continuation_acquisition_queue.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/crm_health_recovery.json",
       "producer": "69.0.0"
     },
     {
@@ -174,6 +171,10 @@
       "producer": "67.0.0"
     },
     {
+      "path": "docs/performance_history.json",
+      "producer": "69.0.0"
+    },
+    {
       "path": "docs/research_analytics.json",
       "producer": "31.1.0"
     },
@@ -188,6 +189,14 @@
     {
       "path": "docs/research_scheduler_status.json",
       "producer": "68.0.0"
+    },
+    {
+      "path": "docs/runtime_reliability.json",
+      "producer": "71.0.0"
+    },
+    {
+      "path": "docs/runtime_reliability_card.json",
+      "producer": "71.0.0"
     },
     {
       "path": "docs/strategies.json",
@@ -215,6 +224,11 @@
     },
     {
       "path": "docs/adaptive_research_queue.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/autonomous_diagnostics.json",
       "from": "69.0.0",
       "to": "70.0.0"
     },
@@ -265,6 +279,11 @@
     },
     {
       "path": "docs/continuation_acquisition_queue.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/crm_health_recovery.json",
       "from": "69.0.0",
       "to": "70.0.0"
     },
@@ -326,6 +345,11 @@
     {
       "path": "docs/paper_portfolio.json",
       "from": "67.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/performance_history.json",
+      "from": "69.0.0",
       "to": "70.0.0"
     },
     {
