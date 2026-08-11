@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Separate software-release identity validation from mutable runtime publication snapshot version/freshness.",
+  "release_owned": [
+    "version.json",
+    "diagnostics.json"
+  ],
+  "runtime_snapshots": [
+    "system_integrity.json",
+    "operating_state.json",
+    "capital_intelligence.json",
+    "deployment_intelligence.json",
+    "recommendation_intelligence.json",
+    "outcome_intelligence.json",
+    "portfolio_intelligence.json",
+    "adaptive_intelligence.json",
+    "market_intelligence.json"
+  ],
+  "rules": {
+    "release_owned_version_mismatch": "FAIL_RELEASE_VALIDATION",
+    "runtime_snapshot_version_mismatch": "REPORT_REFRESH_REQUIRED_BUT_DO_NOT_FAIL_SOURCE_RELEASE",
+    "all_json_must_parse": true,
+    "runtime_snapshot_may_not_report_newer_than_release": true
+  }
+}

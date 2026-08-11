@@ -26,15 +26,60 @@ routes=json.loads((ROOT/'config/routes.json').read_text())['routes']
 for route in routes:
     if not (DOCS/route['path']).exists(): errors.append(f"route manifest missing docs/{route['path']}")
 
-# Published metadata must not claim an older application version.
-for name in ('version.json','system_integrity.json','diagnostics.json','operating_state.json','capital_intelligence.json','deployment_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json','portfolio_intelligence.json','adaptive_intelligence.json','market_intelligence.json'):
+# Release/runtime publication version policy.
+# Release-owned metadata MUST equal the installed software version.
+# Mutable runtime snapshots may legitimately lag after a source release; an older
+# snapshot is reported as REFRESH REQUIRED but does not invalidate the software release.
+policy_path=ROOT/'config'/'publication_version_policy.json'
+if policy_path.exists():
+    publication_policy=json.loads(policy_path.read_text(encoding='utf-8-sig'))
+else:
+    publication_policy={
+        'release_owned':['version.json','diagnostics.json'],
+        'runtime_snapshots':['system_integrity.json','operating_state.json','capital_intelligence.json',
+                             'deployment_intelligence.json','recommendation_intelligence.json','outcome_intelligence.json',
+                             'portfolio_intelligence.json','adaptive_intelligence.json','market_intelligence.json']
+    }
+
+def _published_version(obj):
+    return obj.get('application_version') or obj.get('version') or ((obj.get('metadata') or {}).get('application_version'))
+
+for name in publication_policy.get('release_owned') or []:
     path=DOCS/name
     if not path.exists(): continue
     try:
         obj=json.loads(path.read_text(encoding='utf-8-sig'))
-        reported=obj.get('application_version') or obj.get('version') or ((obj.get('metadata') or {}).get('application_version'))
-        if reported and str(reported)!=str(release['version']): errors.append(f'docs/{name} reports version {reported}, expected {release["version"]}')
-    except Exception: pass
+        reported=_published_version(obj)
+        if reported and str(reported)!=str(release['version']):
+            errors.append(f'docs/{name} reports version {reported}, expected {release["version"]}')
+    except Exception:
+        pass
+
+runtime_version_warnings=[]
+for name in publication_policy.get('runtime_snapshots') or []:
+    path=DOCS/name
+    if not path.exists(): continue
+    try:
+        obj=json.loads(path.read_text(encoding='utf-8-sig'))
+        reported=_published_version(obj)
+        if reported and str(reported)!=str(release['version']):
+            # A future-version runtime snapshot is contradictory and remains fatal.
+            future=False
+            try:
+                future=tuple(int(x) for x in str(reported).split('.')) > tuple(int(x) for x in str(release['version']).split('.'))
+            except Exception:
+                future=False
+            if future:
+                errors.append(f'docs/{name} reports future runtime version {reported}, application is {release["version"]}')
+            else:
+                runtime_version_warnings.append((name,str(reported)))
+    except Exception:
+        pass
+
+if runtime_version_warnings:
+    print('RUNTIME PUBLICATION REFRESH REQUIRED')
+    for name,reported in runtime_version_warnings:
+        print(f' - docs/{name} snapshot={reported}; application={release["version"]} (does not invalidate source release)')
 
 # Static safety scan: no mutation verbs/endpoints or secret material in published output.
 for p in list((ROOT/'scripts/integrations').glob('*.py'))+list(DOCS.glob('*')):
