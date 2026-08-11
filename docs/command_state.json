@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T20:03:48.220885+00:00",
-  "snapshot_id": "7a889744c4d0300ce1596a67",
+  "generated_at": "2026-08-11T20:43:12.686002+00:00",
+  "snapshot_id": "84cf75e7a5d10a72ed4decf8",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -114,10 +114,10 @@
   "capital": {
     "status": null,
     "currency": "USDT",
-    "total_equity": 758.16664365,
+    "total_equity": 3017.33457301,
     "allocated": 2859.140916096,
     "reserved": 0.0,
-    "deployable": 758.16664365,
+    "deployable": 3017.33457301,
     "next_required": null,
     "can_fund_next": null,
     "asset_allocations": [
@@ -131,7 +131,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "7eae50d29ff2cc9ed18f2e9c",
+      "recommendation_id": "82cc55712efff8557474fe7a",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "KEEP_ACTIVE_DEAL",
@@ -272,7 +272,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 758.16664365,
+        "available": 3017.33457301,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -292,7 +292,7 @@
       }
     },
     {
-      "recommendation_id": "a943a3435afa16c7dabfa703",
+      "recommendation_id": "b3ed480efc7b8d5cd17a81b0",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -443,7 +443,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 758.16664365,
+        "available": 3017.33457301,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -547,14 +547,14 @@
   },
   "source_snapshots": {
     "market": "0be677d7595132e3099c",
-    "portfolio": "08de2bb1bcce826ae6e8",
-    "capital": "93cf28f4b5edfb8494c3",
-    "deployment": "48fe38ed1898b26a4a04",
-    "recommendations": "060fba32dbbfa047b308",
+    "portfolio": "609a384df2685d95f714",
+    "capital": "46cf451e99310db8ff3b",
+    "deployment": "054f2adf4a567330fd0e",
+    "recommendations": "91a4a1477497fed95d90",
     "adaptive": "b6788406922102c08b1e",
     "outcomes": "2026-08-11T20:03:46.093281+00:00",
     "cloud": "ad8dd241d8717b7efff2",
-    "operating": "cc47a255f79c73c96271"
+    "operating": "a6a1bc64f38ebb33111c"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

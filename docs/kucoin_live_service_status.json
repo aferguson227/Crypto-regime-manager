@@ -1,52 +1,22 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T20:36:30.892803+00:00",
-  "heartbeat_at": "2026-08-11T20:36:30.892810+00:00",
-  "status": "HEALTHY",
-  "cycle": 110,
+  "generated_at": "2026-08-11T20:44:37.112881+00:00",
+  "heartbeat_at": "2026-08-11T20:44:37.112891+00:00",
+  "status": "REFRESHING",
+  "cycle": 126,
   "pid": 20344,
   "fast_interval_seconds": 20,
   "private_refresh_interval_seconds": 60,
-  "last_full_private_refresh_at": "2026-08-11T20:35:30.984183+00:00",
-  "current_module": null,
-  "message": "Live trading truth refreshed.",
+  "last_full_private_refresh_at": "2026-08-11T20:44:15.733969+00:00",
+  "current_module": "scripts.kucoin_order_state",
+  "message": null,
   "modules": [
     {
       "module": "scripts.kucoin_live_price_engine",
       "status": "OK",
-      "seconds": 0.63,
-      "detail": "KuCoin live prices: OK; assets=5\n"
-    },
-    {
-      "module": "scripts.kucoin_order_state",
-      "status": "OK",
-      "seconds": 8.45,
-      "detail": "KuCoin order state: OK; symbols=5 active=1 recent_closed=81\n"
-    },
-    {
-      "module": "scripts.live_portfolio_truth_engine",
-      "status": "OK",
-      "seconds": 0.15,
-      "detail": "Live portfolio truth written: C:\\Crypto\\Projects\\docs\\live_portfolio_truth.json; effective_open=1 stale=0\n"
-    },
-    {
-      "module": "scripts.paper_trading_engine",
-      "status": "OK",
-      "seconds": 0.16,
-      "detail": "Paper portfolio: bots=4 open=4 paper_P/L=1.78\n"
-    },
-    {
-      "module": "scripts.managed_bot_registry",
-      "status": "OK",
-      "seconds": 0.15,
-      "detail": "{\n  \"schema_version\": \"1.0\",\n  \"application_version\": \"70.0.0\",\n  \"updated_at\": \"2026-08-10T21:36:29.113280+00:00\",\n  \"assets\": [\n    \"AAVE\",\n    \"HYPE\",\n    \"ZEC\"\n  ]\n}\n"
-    },
-    {
-      "module": "scripts.managed_bot_portfolio_engine",
-      "status": "OK",
-      "seconds": 0.16,
-      "detail": "Managed Bot Portfolio: live=1 paper=3 ready=0\n"
+      "seconds": 0.79,
+      "detail": "KuCoin live prices: OK; assets=4\n"
     }
   ],
   "startup_mechanism": "HKCU per-user startup",
