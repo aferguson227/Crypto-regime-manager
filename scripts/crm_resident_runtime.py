@@ -32,6 +32,7 @@ STOP = CONTROL_ROOT / "stop.request"
 HEARTBEAT_SECONDS = 2
 LIVE_STALE_SECONDS = 75
 PUBLICATION_SECONDS = int(os.getenv("CRM_PUBLICATION_SECONDS", "900"))
+CANDIDATE_MODE = os.getenv("CRM_RESIDENT_CANDIDATE", "0") == "1"
 RESEARCH_RESTART_SECONDS = 10
 LIVE_RESTART_SECONDS = 5
 
@@ -109,6 +110,8 @@ class Child:
         self.last_start=0.0
         self.restarts=0
         self.log=None
+        self.failure_times=[]
+        self.circuit_open=False
 
     @property
     def pid(self):
@@ -116,6 +119,16 @@ class Child:
 
     def start(self):
         if self.proc and self.proc.poll() is None:
+            return
+        # V19: deterministic crash-loop circuit breaker. Three exits within
+        # 60 seconds stop automatic relaunch until the resident itself restarts.
+        if self.proc and self.proc.poll() is not None:
+            now=time.time()
+            self.failure_times=[x for x in self.failure_times if now-x < 60]
+            self.failure_times.append(now)
+            if len(self.failure_times)>=3:
+                self.circuit_open=True
+        if self.circuit_open:
             return
         if time.time()-self.last_start < self.restart_seconds:
             return
@@ -150,6 +163,8 @@ class Child:
             "running":bool(self.pid),
             "restart_count":max(0,self.restarts-1),
             "last_start_epoch":self.last_start or None,
+            "circuit_open":self.circuit_open,
+            "recent_failures":len(self.failure_times),
         }
 
 class OneShot:
@@ -209,6 +224,7 @@ def write_status(mode, live, research, publication, note=""):
         "mode":mode,
         "pid":os.getpid(),
         "silent_background":True,
+        "candidate_mode":CANDIDATE_MODE,
         "live_truth_path":"external_runtime_state",
         "git_in_live_data_path":False,
         "publication_interval_seconds":PUBLICATION_SECONDS,
@@ -249,7 +265,8 @@ def main():
                 continue
 
             live.start();research.start()
-            publication.run_if_due(PUBLICATION_SECONDS)
+            if not CANDIDATE_MODE:
+                publication.run_if_due(PUBLICATION_SECONDS)
             truth_guard.run_if_due(10)
             health_guard.run_if_due(15)
 

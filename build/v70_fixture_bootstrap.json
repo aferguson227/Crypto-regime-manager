@@ -1,0 +1,358 @@
+{
+  "expected": "70.0.0",
+  "regenerated": [
+    {
+      "path": "docs/diagnostics.json",
+      "status": "WARN",
+      "returncode": 1,
+      "tail": "imestamped files are older than seven days.\n[PASS] 3Commas read-only boundary: No write verbs or known mutation endpoints detected.\n[PASS] Published secret scan: No private keys, API secrets or bot-control tokens detected in published files.\n[PASS] GitHub workflow automation: Workflow automation configuration is valid.\n[PASS] Required operating sources: All required operating sources are present.\n"
+    },
+    {
+      "path": "docs/account_intelligence.json",
+      "status": "PASS",
+      "returncode": 0,
+      "tail": "Account intelligence written: C:\\Crypto\\CRM_Data\\Installer\\Candidate\\docs\\account_intelligence.json\n"
+    },
+    {
+      "path": "docs/command_state.json",
+      "status": "PASS",
+      "returncode": 0,
+      "tail": "Command state written: C:\\Crypto\\CRM_Data\\Installer\\Candidate\\docs\\command_state.json\n"
+    },
+    {
+      "path": "docs/engineering_health.json",
+      "status": "PASS",
+      "returncode": 0,
+      "tail": "Engineering health written: C:\\Crypto\\CRM_Data\\Installer\\Candidate\\docs\\engineering_health.json\n"
+    },
+    {
+      "path": "docs/source_health.json",
+      "status": "PASS",
+      "returncode": 0,
+      "tail": "Source health written: C:\\Crypto\\CRM_Data\\Installer\\Candidate\\docs\\source_health.json\n"
+    },
+    {
+      "path": "docs/ui_health.json",
+      "status": "PASS",
+      "returncode": 0,
+      "tail": "UI health: HEALTHY - 100.0% (39 pages, 0 issue(s))\n"
+    },
+    {
+      "path": "docs/presentation_quality.json",
+      "status": "PASS",
+      "returncode": 0,
+      "tail": "Presentation quality: HEALTHY; pages=39 issues=0\n"
+    }
+  ],
+  "migrated": [
+    {
+      "path": "docs/diagnostics.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/repository_health.json",
+      "from": "67.0.0",
+      "to": "70.0.0"
+    }
+  ],
+  "runtime_ignored": [
+    {
+      "path": "docs/adaptive_intelligence.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/adaptive_research_queue.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/backtest_lab.json",
+      "producer": "29.0.0"
+    },
+    {
+      "path": "docs/candidate_evidence_grades.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/candidate_review.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/candidate_validation.json",
+      "producer": "27.0.0"
+    },
+    {
+      "path": "docs/capital_intelligence.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/cloud_reliability.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/cloud_status.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/coin_discovery.json",
+      "producer": "25.0.0"
+    },
+    {
+      "path": "docs/coin_registry.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/coin_universe.json",
+      "producer": "25.0.0"
+    },
+    {
+      "path": "docs/continuation_acquisition_queue.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/dca_optimisation_v2.json",
+      "producer": "68.0.0"
+    },
+    {
+      "path": "docs/dca_reoptimisation_queue.json",
+      "producer": "68.0.0"
+    },
+    {
+      "path": "docs/decision_intelligence_v28.json",
+      "producer": "29.0.0"
+    },
+    {
+      "path": "docs/health_history.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/historical_data_status.json",
+      "producer": "68.0.0"
+    },
+    {
+      "path": "docs/import_registry.json",
+      "producer": "30.2.0"
+    },
+    {
+      "path": "docs/integrity_status.json",
+      "producer": "67.0.0"
+    },
+    {
+      "path": "docs/kraken_validation_evidence_status.json",
+      "producer": "68.0.0"
+    },
+    {
+      "path": "docs/kucoin_canonical_service.json",
+      "producer": "67.0.0"
+    },
+    {
+      "path": "docs/kucoin_live_service_status.json",
+      "producer": "67.0.0"
+    },
+    {
+      "path": "docs/kucoin_walk_forward.json",
+      "producer": "68.0.0"
+    },
+    {
+      "path": "docs/live_strategy_revalidation.json",
+      "producer": "67.0.0"
+    },
+    {
+      "path": "docs/local_agent_schedule_health.json",
+      "producer": "67.0.0"
+    },
+    {
+      "path": "docs/market_intelligence.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/outcome_intelligence.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/paper_portfolio.json",
+      "producer": "67.0.0"
+    },
+    {
+      "path": "docs/research_analytics.json",
+      "producer": "31.1.0"
+    },
+    {
+      "path": "docs/research_database_status.json",
+      "producer": "67.0.0"
+    },
+    {
+      "path": "docs/research_report.json",
+      "producer": "31.1.0"
+    },
+    {
+      "path": "docs/research_scheduler_status.json",
+      "producer": "68.0.0"
+    },
+    {
+      "path": "docs/strategies.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/threecommas.json",
+      "producer": "69.0.0"
+    },
+    {
+      "path": "docs/walk_forward_registry.json",
+      "producer": "30.0.0"
+    },
+    {
+      "path": "docs/workflow_history.json",
+      "producer": "69.0.0"
+    }
+  ],
+  "errors": [],
+  "test_fixture_migrations": [
+    {
+      "path": "docs/adaptive_intelligence.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/adaptive_research_queue.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/candidate_evidence_grades.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/candidate_review.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/candidate_validation.json",
+      "from": "27.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/capital_intelligence.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/cloud_reliability.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/cloud_status.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/coin_discovery.json",
+      "from": "25.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/coin_registry.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/coin_universe.json",
+      "from": "25.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/continuation_acquisition_queue.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/dca_optimisation_v2.json",
+      "from": "68.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/health_history.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/historical_data_status.json",
+      "from": "68.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/integrity_status.json",
+      "from": "67.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/kraken_validation_evidence_status.json",
+      "from": "68.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/kucoin_live_service_status.json",
+      "from": "67.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/kucoin_walk_forward.json",
+      "from": "68.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/live_strategy_revalidation.json",
+      "from": "67.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/local_agent_schedule_health.json",
+      "from": "67.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/market_intelligence.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/outcome_intelligence.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/paper_portfolio.json",
+      "from": "67.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/research_database_status.json",
+      "from": "67.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/research_report.json",
+      "from": "31.1.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/research_scheduler_status.json",
+      "from": "68.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/strategies.json",
+      "from": "69.0.0",
+      "to": "70.0.0"
+    },
+    {
+      "path": "docs/walk_forward_registry.json",
+      "from": "30.0.0",
+      "to": "70.0.0"
+    }
+  ],
+  "consistency_failures": []
+}

@@ -117,7 +117,7 @@ def main():
  sub.add_parser('import')
  sub.add_parser('publish')
  sub.add_parser('status')
- a=sub.parse_args()
+ a=ap.parse_args()
  if a.cmd=='prepare':
   p=prepare_app();print(f'Runtime application prepared: {p}');return 0
  if a.cmd=='seed':

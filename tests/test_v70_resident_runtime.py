@@ -16,10 +16,13 @@ def test_v70_resident_has_no_exchange_write_logic():
     assert not any(x in s for x in forbidden)
 
 def test_v70_setup_disables_legacy_schedulers():
-    s=text("SETUP_CRM_RESIDENT.ps1")
-    assert "CryptoRegimeManager-LocalAgent" in s
-    assert "/DISABLE" in s
-    assert "CryptoRegimeManager-ResidentRuntime" in s
+    from pathlib import Path
+    wrapper=Path("SETUP_CRM_RESIDENT.ps1").read_text(encoding="utf-8")
+    manager=Path("scripts/resident_task_manager.py").read_text(encoding="utf-8")
+    assert "scripts.resident_task_manager install" in wrapper
+    assert 'LEGACY_TASKS=("CryptoRegimeManager-LocalAgent","CryptoRegimeManager-ResearchWorker")' in manager
+    assert "retire_legacy()" in manager
+    assert "d.task_enable(name,False)" in manager
 
 def test_v70_runner_is_hidden():
     s=text("RUN_CRM_RESIDENT.cmd")
