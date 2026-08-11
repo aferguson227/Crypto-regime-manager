@@ -1,21 +1,21 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T21:00:44.744537+00:00",
+  "generated_at": "2026-08-11T18:06:07.215162+00:00",
   "mode": "read_only_research_evidence_bridge",
   "automatic_forward_testing": false,
   "automatic_production_promotion": false,
   "manual_approval_required": true,
   "candidate_count": 5,
-  "kraken_registry_coverage_count": 3,
+  "kraken_registry_coverage_count": 4,
   "validated_pass_count": 3,
-  "coverage_pct": 60.0,
+  "coverage_pct": 80.0,
   "candidates": [
     {
       "asset": "XMR",
       "pair": "XMR-USDT",
       "discovery_rank": 1,
-      "research_score": 83.2,
+      "research_score": 82.5,
       "candidate_stage": "queued_for_fee_aware_replay",
       "kraken_validation_status": "VALIDATED_PASS",
       "walk_forward_status": "PASS",
@@ -56,7 +56,7 @@
       "asset": "UNI",
       "pair": "UNI-USDT",
       "discovery_rank": 2,
-      "research_score": 80.5,
+      "research_score": 80.4,
       "candidate_stage": "queued_for_fee_aware_replay",
       "kraken_validation_status": "VALIDATED_PASS",
       "walk_forward_status": "PASS",
@@ -94,25 +94,10 @@
       "next_action": "Current frozen Kraken/Q1 result may inform evidence scoring; manual approval remains required."
     },
     {
-      "asset": "LINK",
-      "pair": "LINK-USDT",
-      "discovery_rank": 3,
-      "research_score": 76.9,
-      "candidate_stage": "queued_for_fee_aware_replay",
-      "kraken_validation_status": "NEEDS_KRAKEN_VALIDATION",
-      "walk_forward_status": null,
-      "training_metrics": null,
-      "q1_2026_metrics": null,
-      "frozen_settings": null,
-      "automatic_promotion": false,
-      "manual_approval_required": true,
-      "next_action": "Acquire/import comparable historical and independent validation data before production consideration."
-    },
-    {
       "asset": "BTC",
       "pair": "BTC-USDT",
-      "discovery_rank": 4,
-      "research_score": 76.4,
+      "discovery_rank": 3,
+      "research_score": 76.3,
       "candidate_stage": "queued_for_fee_aware_replay",
       "kraken_validation_status": "NEEDS_KRAKEN_VALIDATION",
       "walk_forward_status": null,
@@ -126,8 +111,8 @@
     {
       "asset": "ETH",
       "pair": "ETH-USDT",
-      "discovery_rank": 5,
-      "research_score": 76.3,
+      "discovery_rank": 4,
+      "research_score": 76.2,
       "candidate_stage": "queued_for_fee_aware_replay",
       "kraken_validation_status": "VALIDATED_PASS",
       "walk_forward_status": "PASS",
@@ -163,8 +148,49 @@
       "automatic_promotion": false,
       "manual_approval_required": true,
       "next_action": "Current frozen Kraken/Q1 result may inform evidence scoring; manual approval remains required."
+    },
+    {
+      "asset": "SOL",
+      "pair": "SOL-USDT",
+      "discovery_rank": 5,
+      "research_score": 74.0,
+      "candidate_stage": "queued_for_fee_aware_replay",
+      "kraken_validation_status": "VALIDATED_FAIL",
+      "walk_forward_status": "FAIL",
+      "training_metrics": {
+        "net_pnl": 20326.92,
+        "closed_deals": 1386,
+        "average_hours": 8.6,
+        "longest_hours": 5320,
+        "max_drawdown_dollars": -3382.87,
+        "max_capital": 5819.12,
+        "open_position": false,
+        "score": 19036.515499999998
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 405.53,
+        "realised_pnl": 405.53,
+        "open_pnl": -1834.17,
+        "mark_to_market_pnl": -1428.64,
+        "closed_deals": 34,
+        "average_hours": 14.9,
+        "longest_hours": 56,
+        "max_drawdown_dollars": -2150.45,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "frozen_settings": {
+        "take_profit_pct": 1.5,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 7,
+        "volume_scale": 1.7,
+        "step_scale": 1.0
+      },
+      "automatic_promotion": false,
+      "manual_approval_required": true,
+      "next_action": "Keep as research/reject unless a new independent validation cycle is explicitly approved."
     }
   ],
   "next_phase": "Automate fee-aware replay and independent forward validation only when comparable local research archives are available.",
-  "snapshot_id": "e84cf1228321f8384e17"
+  "snapshot_id": "bbbe4c13067822e9358a"
 }
