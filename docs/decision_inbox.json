@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "69.0.0",
-  "generated_at": "2026-08-11T06:47:25.644988+00:00",
+  "generated_at": "2026-08-11T06:51:41.955816+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -26,10 +26,10 @@
       }
     },
     {
-      "event_id": "3c991e95b7db1f25234793a4",
+      "event_id": "1cca64540b22f095ccc7ea18",
       "kind": "TRADE_ATTENTION",
       "title": "TEL DCA - Low Volatility needs attention",
-      "detail": "Ladder Fully Used \u00b7 P/L -2.61% \u00b7 hold 42.75h",
+      "detail": "Ladder Fully Used \u00b7 P/L -2.61% \u00b7 hold 42.82h",
       "severity": "warning",
       "action": "REVIEW_TRADE",
       "payload": {
@@ -39,17 +39,17 @@
         "pair": "USDT_TEL",
         "status": "bought",
         "opened_at": "2026-08-09T12:01:32.406Z",
-        "hold_hours": 42.75,
+        "hold_hours": 42.82,
         "profit_pct": -2.61,
-        "profit_quote": -80.0437001,
+        "profit_quote": -81.8915041,
         "capital_used_quote": 2859.140916096,
         "average_entry": 0.0015473182848916877,
         "average_entry_source": "capital_used / allocated_quantity",
-        "current_price": 0.001504,
+        "current_price": 0.001503,
         "current_price_source": "KuCoin public level1",
         "take_profit_price": 0.001570528059165063,
         "take_profit_price_source": "average entry + live bot TP%",
-        "distance_to_take_profit_pct": 4.4234,
+        "distance_to_take_profit_pct": 4.4929,
         "completed_safety_orders": 6,
         "max_safety_orders": 6,
         "remaining_safety_orders": 0,
@@ -171,30 +171,9 @@
         "current_regime": "BULL",
         "research_continues_while_live": false
       }
-    },
-    {
-      "event_id": "8878230a817461ed3ff29030",
-      "kind": "SYSTEM_ISSUE",
-      "title": "Application publication needs attention",
-      "detail": "Latest successful publication was 1d 6h ago.",
-      "severity": "critical",
-      "action": "REVIEW_SYSTEM",
-      "payload": {
-        "severity": "critical",
-        "system": "Application",
-        "title": "Application publication needs attention",
-        "detail": "Latest successful publication was 1d 6h ago.",
-        "recommended_action": "Automatic publication is enabled; inspect the workflow only if live Pages is not synchronised.",
-        "metric": {
-          "age_hours": 30.74,
-          "unit": "hours"
-        },
-        "first_detected_at": "2026-08-11T06:46:06.799956+00:00",
-        "last_detected_at": "2026-08-11T06:46:06.799964+00:00"
-      }
     }
   ],
-  "material_count": 8,
+  "material_count": 7,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -203,5 +182,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "585e749141e3916f222a11c9"
+  "snapshot_id": "cce80e1ef7fc39115ebaf128"
 }

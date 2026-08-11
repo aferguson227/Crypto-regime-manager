@@ -1,17 +1,17 @@
 {
   "schema_version": "2.0",
   "application_version": "69.0.0",
-  "generated_at": "2026-08-11T06:46:04.787428+00:00",
+  "generated_at": "2026-08-11T06:50:21.704857+00:00",
   "snapshot_id": "8851927e520864b9e9c1",
-  "status": "FAILURE",
+  "status": "HEALTHY",
   "pipelines": {
     "threecommas": {
       "name": "3Commas read-only sync",
       "state": "healthy",
       "last_attempt_at": "2026-08-11T06:16:35.358127+00:00",
-      "last_attempt_age_hours": 0.49,
+      "last_attempt_age_hours": 0.56,
       "last_success_at": "2026-08-11T06:16:35.358127+00:00",
-      "last_success_age_hours": 0.49,
+      "last_success_age_hours": 0.56,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -84,16 +84,17 @@
     },
     "application": {
       "name": "Main market/application refresh",
-      "state": "failure",
+      "state": "healthy",
       "last_attempt_at": "2026-08-10T00:01:42.854001+00:00",
-      "last_attempt_age_hours": 30.74,
+      "last_attempt_age_hours": 30.81,
       "last_success_at": "2026-08-10T00:01:49.316423+00:00",
-      "last_success_age_hours": 30.74,
+      "last_success_age_hours": 30.81,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
       "source_status": "healthy",
-      "message": null
+      "message": "Live Pages is synchronised; publication age alone is not a reliability fault.",
+      "publication_age_informational": true
     }
   },
   "sources": [
@@ -101,9 +102,9 @@
       "name": "3Commas read-only sync",
       "state": "healthy",
       "last_attempt_at": "2026-08-11T06:16:35.358127+00:00",
-      "last_attempt_age_hours": 0.49,
+      "last_attempt_age_hours": 0.56,
       "last_success_at": "2026-08-11T06:16:35.358127+00:00",
-      "last_success_age_hours": 0.49,
+      "last_success_age_hours": 0.56,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
@@ -176,16 +177,17 @@
     },
     {
       "name": "Main market/application refresh",
-      "state": "failure",
+      "state": "healthy",
       "last_attempt_at": "2026-08-10T00:01:42.854001+00:00",
-      "last_attempt_age_hours": 30.74,
+      "last_attempt_age_hours": 30.81,
       "last_success_at": "2026-08-10T00:01:49.316423+00:00",
-      "last_success_age_hours": 30.74,
+      "last_success_age_hours": 30.81,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
       "source_status": "healthy",
-      "message": null
+      "message": "Live Pages is synchronised; publication age alone is not a reliability fault.",
+      "publication_age_informational": true
     }
   ],
   "threecommas_endpoints": {
@@ -273,8 +275,8 @@
     "capital_source": "KuCoin direct read-only when configured; 3Commas account balance is fallback only"
   },
   "explanation": {
-    "overall_reason": "Workflow/source failure is present.",
-    "application_publication": null,
+    "overall_reason": "Required automation is healthy; non-blocking age notices do not lower overall health.",
+    "application_publication": "Live Pages is synchronised; publication age alone is not a reliability fault.",
     "threecommas": "All read-only 3Commas endpoints updated successfully.",
     "local_agent_status": "RUNNING",
     "kucoin_private_status": "ok"
