@@ -1,90 +1,16 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T15:33:23.172850+00:00",
-  "state": "ATTENTION",
+  "generated_at": "2026-08-11T20:26:59.387544+00:00",
+  "state": "HEALTHY",
   "scan": {
-    "issues_found": 3,
-    "remaining": 3,
+    "issues_found": 0,
+    "remaining": 0,
     "repaired": 0
   },
-  "issues": [
-    {
-      "fingerprint": "STALE_THREECOMMAS",
-      "title": "3Commas data is stale",
-      "risk": "low",
-      "automatic": false,
-      "detail": "Last successful sync was 9.3 hours ago.",
-      "repair": "Trigger the read-only 3Commas workflow.",
-      "validation": [
-        "endpoint_health",
-        "freshness"
-      ]
-    },
-    {
-      "fingerprint": "WORKFLOW_FAILURE",
-      "title": "CRM Data Refresh latest run failed",
-      "risk": "warning",
-      "automatic": false,
-      "detail": "This is active because no newer successful run supersedes it.",
-      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
-      "validation": [
-        "workflow_policy",
-        "latest_commit_published"
-      ]
-    },
-    {
-      "fingerprint": "WORKFLOW_FAILURE",
-      "title": "Deploy CRM Pages latest run failed",
-      "risk": "warning",
-      "automatic": false,
-      "detail": "This is active because no newer successful run supersedes it.",
-      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
-      "validation": [
-        "workflow_policy",
-        "latest_commit_published"
-      ]
-    }
-  ],
+  "issues": [],
   "repairs_applied": [],
-  "approval_required": [
-    {
-      "fingerprint": "STALE_THREECOMMAS",
-      "title": "3Commas data is stale",
-      "risk": "low",
-      "automatic": false,
-      "detail": "Last successful sync was 9.3 hours ago.",
-      "repair": "Trigger the read-only 3Commas workflow.",
-      "validation": [
-        "endpoint_health",
-        "freshness"
-      ]
-    },
-    {
-      "fingerprint": "WORKFLOW_FAILURE",
-      "title": "CRM Data Refresh latest run failed",
-      "risk": "warning",
-      "automatic": false,
-      "detail": "This is active because no newer successful run supersedes it.",
-      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
-      "validation": [
-        "workflow_policy",
-        "latest_commit_published"
-      ]
-    },
-    {
-      "fingerprint": "WORKFLOW_FAILURE",
-      "title": "Deploy CRM Pages latest run failed",
-      "risk": "warning",
-      "automatic": false,
-      "detail": "This is active because no newer successful run supersedes it.",
-      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
-      "validation": [
-        "workflow_policy",
-        "latest_commit_published"
-      ]
-    }
-  ],
+  "approval_required": [],
   "guardrails": {
     "read_only_trading": true,
     "no_secret_changes": true,
