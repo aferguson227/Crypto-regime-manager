@@ -344,6 +344,8 @@ async function refreshDirectRuntime(){
   if(!r.ok)throw new Error('runtime api unavailable');
   const d=await r.json();
   if(d.live_service)Object.assign(liveService,d.live_service);
+  window.crmResident=d.resident||window.crmResident||{};
+  window.crmConsistency=d.consistency||window.crmConsistency||{};
   if(d.paper)Object.assign(paperPortfolio,d.paper);
   if(d.managed)Object.assign(managedPortfolio,d.managed);
   if(d.registry){
@@ -361,7 +363,7 @@ async function refreshDirectRuntime(){
  }
 }
 refreshDirectRuntime();
-setInterval(refreshDirectRuntime,10000);
+setInterval(refreshDirectRuntime,5000);
 
 async function refreshBrowserLivePnl(){
  try{
@@ -422,3 +424,37 @@ function hideEmptySecondaryCards(){
  }
 }
 setTimeout(hideEmptySecondaryCards,260);
+
+// V70 Portfolio Truth & Decision Consistency overlay.
+function crmFindStat(label){
+  return [...document.querySelectorAll('.crm-stat')].find(x=>String(x.querySelector('span')?.textContent||'').trim().toLowerCase()===String(label).trim().toLowerCase());
+}
+function crmSetStat(label,value,note){
+  const el=crmFindStat(label);if(!el)return;
+  const strong=el.querySelector('strong');if(strong)strong.textContent=value;
+  const small=el.querySelector('small');if(small&&note)small.textContent=note;
+}
+function crmFmtQ(v){return v==null||!Number.isFinite(Number(v))?'Updating':`${Number(v).toLocaleString(undefined,{maximumFractionDigits:2})} USDT`}
+function applyV70PortfolioTruth(){
+  const c=window.crmConsistency||{},p=c.portfolio||{},n=c.next_capital||{},pub=c.publication||{};
+  if(p.authoritative_value_quote!=null)crmSetStat('Portfolio',crmFmtQ(p.authoritative_value_quote),'Total recognised KuCoin portfolio value including live positions.');
+  if(p.cash_quote!=null)crmSetStat('Cash',crmFmtQ(p.cash_quote),'Free USDT currently available on KuCoin.');
+  if(p.dca_reserve_quote!=null)crmSetStat('DCA reserve',crmFmtQ(p.dca_reserve_quote),'Remaining capital protected for active DCA commitments.');
+  if(p.deployable_quote!=null)crmSetStat('Deployable now',crmFmtQ(p.deployable_quote),'Safe cash available for an approved next strategy after current commitments.');
+  const section=[...document.querySelectorAll('section,div')].find(x=>String(x.querySelector('h2')?.textContent||'').trim()==='My Bots');
+  if(section&&n.asset){
+    let box=section.querySelector('#crm-v70-next-capital');
+    if(!box){box=document.createElement('div');box.id='crm-v70-next-capital';box.className='crm-alert';section.insertBefore(box,section.querySelector('h2')?.nextSibling||section.firstChild)}
+    const evidence=n.paper_evidence||{};
+    const req=n.capital_required_quote==null?'calculating':crmFmtQ(n.capital_required_quote);
+    box.innerHTML=`<strong>After the current live deal: ${String(n.asset).replace(/</g,'&lt;')}/USDT is currently ranked #1</strong><br>${String(n.plain_english||'').replace(/</g,'&lt;')}<br><span class="crm-muted">Capital required ${req} · Paper evidence: ${String(evidence.summary||'building').replace(/</g,'&lt;')} · Automation preview only; live execution remains locked.</span>`;
+  }
+  if(pub.delayed&&!pub.trading_blocker){
+    document.querySelectorAll('*').forEach(el=>{
+      if(el.children.length===0&&/Application publication needs attention/i.test(el.textContent||''))el.textContent='Website snapshot delayed';
+      if(el.children.length===0&&/Latest successful publication was/i.test(el.textContent||''))el.textContent=`${pub.plain_english||'Website publication is delayed; local live trading truth remains current.'}`;
+    });
+  }
+}
+setInterval(applyV70PortfolioTruth,5000);
+document.addEventListener('DOMContentLoaded',()=>setTimeout(applyV70PortfolioTruth,500));

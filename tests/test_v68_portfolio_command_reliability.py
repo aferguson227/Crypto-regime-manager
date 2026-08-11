@@ -2,7 +2,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def text(p):return (ROOT/p).read_text(encoding='utf-8')
 def test_v68_version():
- assert text('VERSION').strip()=='69.0.0'
+ assert text('VERSION').strip()=='70.0.0'
 def test_briefing_no_longer_duplicates_live_and_next_cards():
  s=text('docs/unified_dashboard.js')
  assert '<span class="crm-command-label">Live position</span>' not in s

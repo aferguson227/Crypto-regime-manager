@@ -42,7 +42,9 @@ class Handler(BaseHTTPRequestHandler):
    self.sendj({'live_service':load_state('kucoin_live_service_status.json'),
                'paper':load_state('paper_portfolio.json'),
                'managed':load_state('managed_bot_portfolio.json'),
-               'registry':seed()});return
+               'registry':seed(),
+               'resident':load_state('crm_resident_status.json'),
+               'consistency':load_state('portfolio_decision_consistency.json')});return
   if self.path.startswith('/api/registry'):self.sendj(seed());return
   path=self.path.split('?',1)[0]
   if path in FILES:self.sendj(load_state(FILES[path]));return

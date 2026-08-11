@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_v60_version():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='69.0.0'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='70.0.0'
 
 def test_portfolio_is_first_command_surface():
     h=(ROOT/'docs/index.html').read_text(encoding='utf-8')

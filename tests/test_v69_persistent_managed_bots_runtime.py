@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
 def text(p):return (ROOT/p).read_text(encoding='utf-8')
-def test_version():assert text('VERSION').strip()=='69.0.0'
+def test_version():assert text('VERSION').strip()=='70.0.0'
 def test_managed_bot_registry_is_external_runtime_state():
  s=text('scripts/managed_bot_registry.py')
  assert "state_dir()" in s
@@ -31,7 +31,7 @@ def test_paper_performance_ui_exists():
 def test_direct_runtime_polling_bypasses_publication_lag():
  s=text('docs/unified_dashboard.js')
  assert "refreshDirectRuntime" in s
- assert "setInterval(refreshDirectRuntime,10000)" in s
+ assert "setInterval(refreshDirectRuntime,5000)" in s
  assert "Direct local runtime heartbeat" in s
 def test_health_prefers_external_runtime_heartbeat():
  s=text('scripts/crm_health_recovery_engine.py')
