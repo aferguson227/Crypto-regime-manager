@@ -1,5 +1,19 @@
 {
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T09:44:32.461962+00:00",
-  "issues": []
+  "generated_at": "2026-08-12T14:39:23.329418+00:00",
+  "issues": [
+    {
+      "severity": "critical",
+      "system": "Application",
+      "title": "Application publication needs attention",
+      "detail": "Latest successful publication was 18h 35m ago.",
+      "recommended_action": "Automatic publication is enabled; inspect the workflow only if live Pages is not synchronised.",
+      "metric": {
+        "age_hours": 18.59,
+        "unit": "hours"
+      },
+      "first_detected_at": "2026-08-12T14:39:23.330868+00:00",
+      "last_detected_at": "2026-08-12T14:39:23.330873+00:00"
+    }
+  ]
 }
