@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T23:11:20.409110+00:00",
-  "snapshot_id": "70ad899eccf4bf266720c9ee",
+  "generated_at": "2026-08-12T05:19:37.453849+00:00",
+  "snapshot_id": "18581b4a52a87a458ae74923",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -106,7 +106,7 @@
         "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": 250.2434406472,
+        "allocated_capital": 250.8536838808,
         "reserve_capital": 2031.25,
         "deployable_priority": 5,
         "efficiency_score": null,
@@ -129,7 +129,7 @@
     "status": null,
     "currency": "USDT",
     "total_equity": 3660.79325265,
-    "allocated": 250.2434406472,
+    "allocated": 250.8536838808,
     "reserved": 2031.25,
     "deployable": 1629.5432526499999,
     "next_required": null,
@@ -137,15 +137,15 @@
     "asset_allocations": [
       {
         "asset": "AAVE",
-        "quantity": 2.8349,
+        "quantity": 2.7736,
         "quote_currency": "USDT",
-        "quote_cost": 250.2434406472
+        "quote_cost": 250.8536838808
       }
     ]
   },
   "recommendations": [
     {
-      "recommendation_id": "31bc380f05c19beb9d505190",
+      "recommendation_id": "3835ad09f6bbf3a286f688be",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
@@ -308,7 +308,7 @@
       }
     },
     {
-      "recommendation_id": "c7b69571c3a43789c310ae08",
+      "recommendation_id": "18d3c5f1f10ce056829c3b02",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -552,7 +552,7 @@
     "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-11T23:11:15.897152+00:00",
+      "generated_at": "2026-08-12T05:19:32.770790+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -566,14 +566,14 @@
   },
   "source_snapshots": {
     "market": "0be677d7595132e3099c",
-    "portfolio": "90d341ce61e293114b4a",
-    "capital": "0d9f8a8d9ef1ab0b1c2c",
-    "deployment": "1826dff332467862284a",
-    "recommendations": "ecb32ea975c5ed8f83b5",
+    "portfolio": "206683c4e8a6d7b3b84c",
+    "capital": "27bce8d416cc27a23b07",
+    "deployment": "84e2b6f8a212d0f92f0e",
+    "recommendations": "4cf855b29c07cfd6671f",
     "adaptive": "b6788406922102c08b1e",
     "outcomes": "2026-08-11T20:03:46.093281+00:00",
-    "cloud": "5c33c551be1c75db6377",
-    "operating": "26cc4b6736c15d499fa1"
+    "cloud": "4e06c2b07b3b2f6a9dca",
+    "operating": "c8d0675854fc322c47fd"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

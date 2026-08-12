@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T23:11:21.064971+00:00",
+  "generated_at": "2026-08-12T05:19:37.921288+00:00",
   "mode": "read_only_active_trade_intelligence",
   "source": "3Commas active deal snapshots",
   "snapshot_age_minutes": 0.1,
@@ -15,18 +15,18 @@
       "bot_name": "AAVE pullback 3pct",
       "pair": "USDT_AAVE",
       "status": "bought",
-      "opened_at": "2026-08-11T21:51:05.740Z",
-      "hold_hours": 1.34,
-      "profit_pct": -0.17,
-      "profit_quote": -0.38669425,
-      "capital_used_quote": 250.2434406472,
-      "average_entry": 88.27240489865603,
+      "opened_at": "2026-08-12T05:15:57.514Z",
+      "hold_hours": 0.06,
+      "profit_pct": -0.15,
+      "profit_quote": -0.43920788,
+      "capital_used_quote": 250.8536838808,
+      "average_entry": 90.44335299999999,
       "average_entry_source": "capital_used / allocated_quantity",
-      "current_price": 88.136,
+      "current_price": 90.285,
       "current_price_source": "KuCoin public level1",
-      "take_profit_price": 89.3316737574399,
+      "take_profit_price": 91.52867323599999,
       "take_profit_price_source": "average entry + live bot TP%",
-      "distance_to_take_profit_pct": 1.3566,
+      "distance_to_take_profit_pct": 1.3775,
       "completed_safety_orders": 0,
       "max_safety_orders": 4,
       "remaining_safety_orders": 4,
@@ -49,5 +49,5 @@
     "deal_closure": false,
     "probability_claims_without_evidence": false
   },
-  "snapshot_id": "9f97ed7966aeffd199370d01"
+  "snapshot_id": "24e8ee07c0445d14dc1bd4a4"
 }
