@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T06:00:47.250307+00:00",
+  "generated_at": "2026-08-12T06:20:58.040151+00:00",
   "coin_count": 22,
   "coins": [
     {
@@ -59,6 +59,20 @@
       "research_continues_while_live": false
     },
     {
+      "asset": "ASTER",
+      "lifecycle": "RESEARCHING",
+      "execution_state": "NOT_DEPLOYED",
+      "research_state": "NEEDS_HISTORICAL_VALIDATION",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "current_regime": "NEUTRAL",
+      "research_continues_while_live": false
+    },
+    {
       "asset": "BEAT",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
@@ -112,6 +126,20 @@
         "research_pipeline"
       ],
       "current_regime": "BULL",
+      "research_continues_while_live": false
+    },
+    {
+      "asset": "CYS",
+      "lifecycle": "RESEARCHING",
+      "execution_state": "NOT_DEPLOYED",
+      "research_state": "NEEDS_HISTORICAL_VALIDATION",
+      "reasons": [
+        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+      ],
+      "history_sources": [
+        "research_pipeline"
+      ],
+      "current_regime": "NEUTRAL",
       "research_continues_while_live": false
     },
     {
@@ -186,20 +214,6 @@
     },
     {
       "asset": "PIEVERSE",
-      "lifecycle": "RESEARCHING",
-      "execution_state": "NOT_DEPLOYED",
-      "research_state": "NEEDS_HISTORICAL_VALIDATION",
-      "reasons": [
-        "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-      ],
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "current_regime": "NEUTRAL",
-      "research_continues_while_live": false
-    },
-    {
-      "asset": "SEI",
       "lifecycle": "RESEARCHING",
       "execution_state": "NOT_DEPLOYED",
       "research_state": "NEEDS_HISTORICAL_VALIDATION",
@@ -309,20 +323,6 @@
       "recommendation_confidence_pct": 79.4,
       "current_regime": "NEUTRAL",
       "research_continues_while_live": false
-    },
-    {
-      "asset": "AVAX",
-      "lifecycle": "REJECTED",
-      "execution_state": "NOT_DEPLOYED",
-      "research_state": "RESEARCH_REJECT",
-      "reasons": [
-        "Retain as research-only; historical validation failed."
-      ],
-      "history_sources": [
-        "research_pipeline"
-      ],
-      "current_regime": "NEUTRAL",
-      "research_continues_while_live": false
     }
   ],
   "lifecycle_order": [
@@ -340,5 +340,5 @@
     "never_forget_analysed_coin": true,
     "automatic_live_deployment": false
   },
-  "snapshot_id": "b33e006d70544a10f6985cd0"
+  "snapshot_id": "e7285ecf57da7375e161b4f2"
 }
