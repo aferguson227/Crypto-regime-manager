@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T09:44:32.122205+00:00",
-  "snapshot_id": "02977c4318892eeafb35",
+  "generated_at": "2026-08-12T11:58:48.403550+00:00",
+  "snapshot_id": "891b9e21ac6071e3c273",
   "currency": "USDT",
   "accounts": [
     {
@@ -10,9 +10,9 @@
       "name": "KuCoin direct account",
       "exchange": "KuCoin",
       "currency": "USDT",
-      "total_equity": 3162.09133959,
-      "free_available": 2222.45801135,
-      "observed_at": "2026-08-12T06:21:01.877341+00:00"
+      "total_equity": 2786.11702247,
+      "free_available": 1377.26484183,
+      "observed_at": "2026-08-12T11:58:33.391056+00:00"
     }
   ],
   "bots": [
@@ -97,14 +97,14 @@
       "warnings": []
     }
   ],
-  "exchange_total": 3162.09133959,
-  "free_available": 2222.45801135,
+  "exchange_total": 2786.11702247,
+  "free_available": 1377.26484183,
   "active_deal_capital": 877.68171491,
   "placed_order_reserve": 0.0,
   "remaining_active_deal_dca_reserve": 1406.25,
   "enabled_idle_capacity_reserve": 0.0,
-  "deployable_capital": 816.2080113500001,
-  "reserve_coverage_ratio": 1.580414585848889,
+  "deployable_capital": 0.0,
+  "reserve_coverage_ratio": 0.979388331968,
   "capital_status": "COMPLETE",
   "next_capital_priority": "TEL Low Volatility Bot",
   "next_capital_required": null,
@@ -130,14 +130,14 @@
   "capital_source": "KuCoin direct read-only account API",
   "kucoin_direct_status": "ok",
   "reserved_capital": 1406.25,
-  "kucoin_cash_available": 2222.45801135,
+  "kucoin_cash_available": 1377.26484183,
   "active_dca_reserve": 1406.25,
-  "safe_to_allocate_now": 816.2080113500001,
+  "safe_to_allocate_now": 0.0,
   "capital_headline": {
-    "portfolio_value": 3162.09133959,
-    "kucoin_cash": 2222.45801135,
+    "portfolio_value": 2786.11702247,
+    "kucoin_cash": 1377.26484183,
     "reserved_for_active_dca": 1406.25,
-    "safe_to_allocate": 816.2080113500001,
+    "safe_to_allocate": 0.0,
     "currency": "USDT",
     "explanation": "KuCoin cash is the exchange free balance. Reserved capital protects remaining DCA orders for reconciled active trades. Safe to allocate is cash remaining after that protection."
   },

@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T09:44:32.960730+00:00",
+  "generated_at": "2026-08-12T11:59:10.510137+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Wait TEL Low Volatility Bot.",
-    "Deployable capital: 816.208 USDT; exact allocation remains advisory.",
+    "Deployable capital: 0 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Recent drawdown is elevated"
   ],
@@ -26,7 +26,7 @@
     ]
   },
   "decision_readiness": {
-    "score_pct": 60.0,
+    "score_pct": 40.0,
     "checks": [
       {
         "label": "Bot selected",
@@ -46,7 +46,7 @@
       },
       {
         "label": "Cloud data current",
-        "state": "pass"
+        "state": "warn"
       }
     ],
     "ready_for_manual_action": false
@@ -55,7 +55,7 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 816.2080113500001,
+    "deployable_quote": 0.0,
     "asset_allocations": [
       {
         "asset": "AAVE",
@@ -382,7 +382,7 @@
     "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
   },
   "deployment_health": {
-    "cloud": "HEALTHY",
+    "cloud": "FAILURE",
     "threecommas": "ok",
     "main_app": null,
     "publication": null,
@@ -394,5 +394,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "22e612ff01ea5dae7cbd49b7"
+  "snapshot_id": "65913137d5c0714d7a4f2de8"
 }

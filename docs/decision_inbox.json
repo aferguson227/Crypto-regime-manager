@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T06:21:32.206411+00:00",
+  "generated_at": "2026-08-12T12:00:20.919254+00:00",
   "mode": "material_decision_inbox",
   "items": [
     {
@@ -86,9 +86,30 @@
         "current_regime": "BULL",
         "research_continues_while_live": false
       }
+    },
+    {
+      "event_id": "feba9c6a76c18ead3b332a87",
+      "kind": "SYSTEM_ISSUE",
+      "title": "Application publication needs attention",
+      "detail": "Latest successful publication was 15h 55m ago.",
+      "severity": "critical",
+      "action": "REVIEW_SYSTEM",
+      "payload": {
+        "severity": "critical",
+        "system": "Application",
+        "title": "Application publication needs attention",
+        "detail": "Latest successful publication was 15h 55m ago.",
+        "recommended_action": "Automatic publication is enabled; inspect the workflow only if live Pages is not synchronised.",
+        "metric": {
+          "age_hours": 15.92,
+          "unit": "hours"
+        },
+        "first_detected_at": "2026-08-12T11:59:02.554403+00:00",
+        "last_detected_at": "2026-08-12T11:59:02.554411+00:00"
+      }
     }
   ],
-  "material_count": 4,
+  "material_count": 5,
   "opening_briefing_policy": "Show only event IDs not acknowledged in this browser.",
   "read_only": true,
   "manual_approval_required": true,
@@ -97,5 +118,5 @@
     "order_mutations": false,
     "browser_acknowledgement_only": true
   },
-  "snapshot_id": "f7f4d8e1edfdf554c5b3af15"
+  "snapshot_id": "4f00dceb6ef9f837be40c1a5"
 }

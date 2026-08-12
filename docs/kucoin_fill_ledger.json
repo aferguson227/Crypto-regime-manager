@@ -1,10 +1,10 @@
 {
   "schema_version": "1.1",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T06:15:50.021218+00:00",
+  "generated_at": "2026-08-12T12:00:40.259841+00:00",
   "status": "OK",
   "source": "KuCoin private read-only GET /api/v1/hf/fills (symbol-aware)",
-  "api_message": "{\"symbols_checked\": 6, \"per_symbol\": [{\"symbol\": \"AAVE-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 21}, {\"symbol\": \"TEL-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 103}, {\"symbol\": \"DATA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}]}",
+  "api_message": "{\"symbols_checked\": 6, \"per_symbol\": [{\"symbol\": \"AAVE-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 22}, {\"symbol\": \"TEL-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 91}, {\"symbol\": \"DATA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"LUNA-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"KCS-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}, {\"symbol\": \"SUI-USDT\", \"status\": \"OK\", \"message\": \"https://api.kucoin.com key-v3\", \"fills\": 0}]}",
   "new_fills": 0,
   "ledger_path": "C:\\Crypto\\CRM_Data\\Accounting\\kucoin_fills.db",
   "persistent_across_upgrades": true,
@@ -73,9 +73,9 @@
     "explanation": "Historical search is complete. The original purchase for this older sale could not be proven within 730 days, so CRM has established an accounting baseline. The affected pre-baseline profit is excluded rather than estimated; matched and future trading P/L continues normally."
   },
   "reconciliation": {
-    "fill_count": 173,
+    "fill_count": 174,
     "first_fill_at": "2026-08-02T13:55:09.362000+00:00",
-    "last_fill_at": "2026-08-12T06:13:55.518000+00:00",
+    "last_fill_at": "2026-08-12T06:36:24.933000+00:00",
     "matched_sell_count": 24,
     "unmatched_sell_count": 1,
     "unmatched_sells": [
@@ -88,7 +88,7 @@
     ],
     "matched_realised_profit_usdt": 169.94129738,
     "realised_profit_complete": false,
-    "fees_usdt_recorded": 44.52380666,
+    "fees_usdt_recorded": 44.89940538,
     "assets": {
       "TEL": {
         "matched_realised_pnl_usdt": 166.93581265055286,
@@ -107,8 +107,8 @@
         "cost": 56.11794805255363
       },
       "AAVE": {
-        "qty": 5.566800000000001,
-        "cost": 501.7073977916001
+        "qty": 9.7872,
+        "cost": 877.6817149100001
       }
     }
   },
