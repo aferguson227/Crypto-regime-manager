@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T06:01:25.392804+00:00",
+  "generated_at": "2026-08-12T06:11:36.722870+00:00",
   "overall": "CURRENT",
   "fault_count": 0,
   "overdue_count": 0,
@@ -10,8 +10,8 @@
       "name": "KuCoin account data",
       "role": "DECISION_CRITICAL",
       "status": "CURRENT",
-      "age_minutes": 0.6,
-      "age_display": "1m ago",
+      "age_minutes": 0.1,
+      "age_display": "Just now",
       "expected_cadence_minutes": 30.0,
       "reason": "Balances and available capital used by CRM.",
       "collector_status": "OK"
@@ -40,8 +40,8 @@
       "name": "3Commas monitoring",
       "role": "SECONDARY_PROVIDER",
       "status": "CURRENT",
-      "age_minutes": 41.8,
-      "age_display": "42m ago",
+      "age_minutes": 52.0,
+      "age_display": "52m ago",
       "expected_cadence_minutes": 180.0,
       "reason": "Temporary secondary provider monitoring; KuCoin remains authoritative.",
       "collector_status": "OK"
@@ -59,8 +59,8 @@
       "name": "System checks",
       "role": "ENGINEERING",
       "status": "CURRENT",
-      "age_minutes": 24.9,
-      "age_display": "25m ago",
+      "age_minutes": 35.1,
+      "age_display": "35m ago",
       "expected_cadence_minutes": 360,
       "reason": "Automatic application checks; detailed mode is hidden unless troubleshooting."
     }
