@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:31:42.331106+00:00",
+  "generated_at": "2026-08-12T05:36:40.776584+00:00",
   "overall": "CURRENT",
   "overall_reason": "Current trading data is available.",
   "decision_critical_current": true,
@@ -10,11 +10,11 @@
       "name": "KuCoin account data",
       "role": "DECISION_CRITICAL",
       "status": "CURRENT",
-      "age_minutes": 0.2,
+      "age_minutes": 0.1,
       "age_display": "Just now",
       "expected_cadence_minutes": 30.0,
       "reason": "Balances and available capital used by CRM.",
-      "collector_status": "OK"
+      "collector_status": "FALLBACK_CURRENT"
     },
     {
       "name": "KuCoin trading data",
@@ -30,7 +30,7 @@
       "name": "Local Agent",
       "role": "DECISION_CRITICAL",
       "status": "CURRENT",
-      "age_minutes": 0.2,
+      "age_minutes": 0.4,
       "age_display": "Just now",
       "expected_cadence_minutes": 45.0,
       "reason": "Runs the fast private account/trading refresh every 5 minutes. Heavy research runs independently.",
@@ -40,8 +40,8 @@
       "name": "3Commas monitoring",
       "role": "SECONDARY_PROVIDER",
       "status": "CURRENT",
-      "age_minutes": 12.2,
-      "age_display": "12m ago",
+      "age_minutes": 17.1,
+      "age_display": "17m ago",
       "expected_cadence_minutes": 180.0,
       "reason": "Temporary secondary provider monitoring; KuCoin remains authoritative.",
       "collector_status": "OK"
@@ -59,8 +59,8 @@
       "name": "System checks",
       "role": "ENGINEERING",
       "status": "CURRENT",
-      "age_minutes": 461.2,
-      "age_display": "7h 41m ago",
+      "age_minutes": 5.2,
+      "age_display": "5m ago",
       "expected_cadence_minutes": 360,
       "reason": "Automatic application checks; detailed mode is hidden unless troubleshooting."
     }

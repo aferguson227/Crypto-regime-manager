@@ -1,16 +1,16 @@
 {
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:31:45.522667+00:00",
-  "started_at": "2026-08-12T05:29:10.459036+00:00",
-  "status": "HEALTHY",
-  "message": "Local private-data refresh completed.",
+  "generated_at": "2026-08-12T05:36:41.989924+00:00",
+  "started_at": "2026-08-12T05:34:10.227704+00:00",
+  "status": "DEGRADED",
+  "message": "Local agent ran but KuCoin remains degraded.",
   "mode": "local_read_only_agent",
   "pc_required_for_private_refresh": true,
   "execution_enabled": false,
   "write_trading_enabled": false,
   "phase": "COMPLETE",
-  "completed_at": "2026-08-12T05:31:45.522458+00:00",
-  "heartbeat_at": "2026-08-12T05:31:45.522469+00:00",
-  "kucoin_status": "ok",
-  "kucoin_diagnostic": null
+  "completed_at": "2026-08-12T05:36:41.989557+00:00",
+  "heartbeat_at": "2026-08-12T05:36:41.989569+00:00",
+  "kucoin_status": "fallback_current",
+  "kucoin_diagnostic": "NOT_CONFIGURED"
 }
