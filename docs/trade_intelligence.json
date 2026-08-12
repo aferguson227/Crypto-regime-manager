@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T14:39:24.243567+00:00",
+  "generated_at": "2026-08-12T18:40:36.741347+00:00",
   "mode": "read_only_active_trade_intelligence",
   "source": "3Commas active deal snapshots",
-  "snapshot_age_minutes": 0.1,
+  "snapshot_age_minutes": 0.0,
   "monitoring_cadence": "snapshot-based; freshness follows the latest successful 3Commas refresh",
   "real_time_streaming": false,
   "active_trade_count": 1,
@@ -16,17 +16,17 @@
       "pair": "USDT_AAVE",
       "status": "bought",
       "opened_at": "2026-08-12T05:15:57.514Z",
-      "hold_hours": 9.39,
-      "profit_pct": -1.18,
-      "profit_quote": -10.34983811,
+      "hold_hours": 13.41,
+      "profit_pct": -0.51,
+      "profit_quote": -4.51666691,
       "capital_used_quote": 877.68171491,
       "average_entry": 89.67648713728134,
       "average_entry_source": "capital_used / allocated_quantity",
-      "current_price": 88.619,
+      "current_price": 89.215,
       "current_price_source": "KuCoin public level1",
       "take_profit_price": 90.75260498292872,
       "take_profit_price_source": "average entry + live bot TP%",
-      "distance_to_take_profit_pct": 2.4076,
+      "distance_to_take_profit_pct": 1.7235,
       "completed_safety_orders": 2,
       "max_safety_orders": 4,
       "remaining_safety_orders": 2,
@@ -37,7 +37,7 @@
       "kraken_walk_forward_status": "FAIL",
       "q1_average_hold_hours": 12.9,
       "q1_longest_hold_hours": 60.0,
-      "duration_context": "WITHIN_Q1_AVERAGE",
+      "duration_context": "ABOVE_Q1_AVERAGE",
       "evidence_note": "Historical context is descriptive only; CRM does not publish an exit probability without validated comparable outcome data."
     }
   ],
@@ -49,5 +49,5 @@
     "deal_closure": false,
     "probability_claims_without_evidence": false
   },
-  "snapshot_id": "3f7bbbbccd5af14fe9b551f6"
+  "snapshot_id": "2ca7c5c60bcdcb357d4531c7"
 }

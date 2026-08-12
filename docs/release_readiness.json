@@ -1,18 +1,20 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T14:39:23.839545+00:00",
-  "readiness_pct": 94.7,
-  "ready": true,
-  "recommendation": "READY",
+  "generated_at": "2026-08-12T18:40:36.146956+00:00",
+  "readiness_pct": 82.0,
+  "ready": false,
+  "recommendation": "HOLD",
   "regression_risk": "LOW",
   "expected_build_seconds": null,
   "expected_deployment_seconds": 33.0,
   "actions_success_rate_pct": 87.9,
-  "blockers": [],
+  "blockers": [
+    "Application publication needs attention"
+  ],
   "scores": {
     "application": 100,
-    "operations": 68.0,
+    "operations": 82.0,
     "interface": 100,
     "actions": 100,
     "self_healing": 100,
