@@ -1,27 +1,27 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:36:36.636542+00:00",
-  "heartbeat_at": "2026-08-12T05:36:36.636545+00:00",
+  "generated_at": "2026-08-12T05:41:42.291086+00:00",
+  "heartbeat_at": "2026-08-12T05:41:42.291093+00:00",
   "status": "HEALTHY",
-  "cycle": 31,
+  "cycle": 45,
   "pid": 14592,
   "fast_interval_seconds": 20,
   "private_refresh_interval_seconds": 60,
-  "last_full_private_refresh_at": "2026-08-12T05:36:36.636525+00:00",
+  "last_full_private_refresh_at": "2026-08-12T05:40:59.309720+00:00",
   "current_module": null,
   "message": "Live trading truth refreshed.",
   "modules": [
     {
       "module": "scripts.kucoin_live_price_engine",
       "status": "OK",
-      "seconds": 0.53,
+      "seconds": 0.55,
       "detail": "KuCoin live prices: OK; assets=4\n"
     },
     {
       "module": "scripts.kucoin_order_state",
       "status": "OK",
-      "seconds": 0.16,
+      "seconds": 0.15,
       "detail": "KuCoin order state: NOT_CONFIGURED; symbols=6 active=0 recent_closed=0\n"
     },
     {
@@ -34,73 +34,19 @@
       "module": "scripts.paper_trading_engine",
       "status": "OK",
       "seconds": 0.11,
-      "detail": "Paper portfolio: bots=4 open=4 paper_P/L=-0.94\n"
+      "detail": "Paper portfolio: bots=4 open=4 paper_P/L=-1.02\n"
     },
     {
       "module": "scripts.managed_bot_registry",
       "status": "OK",
-      "seconds": 0.13,
+      "seconds": 0.12,
       "detail": "{\n  \"schema_version\": \"1.0\",\n  \"application_version\": \"70.0.0\",\n  \"updated_at\": \"2026-08-10T21:36:29.113280+00:00\",\n  \"assets\": [\n    \"AAVE\",\n    \"HYPE\",\n    \"ZEC\"\n  ]\n}\n"
     },
     {
       "module": "scripts.managed_bot_portfolio_engine",
       "status": "OK",
-      "seconds": 0.13,
+      "seconds": 0.08,
       "detail": "Managed Bot Portfolio: live=1 paper=1 ready=0\n"
-    },
-    {
-      "module": "scripts.kucoin_account_sync",
-      "status": "OK",
-      "seconds": 0.15,
-      "detail": "KuCoin account sync: not configured (optional read-only capital source).\n"
-    },
-    {
-      "module": "scripts.kucoin_fill_ledger",
-      "status": "OK",
-      "seconds": 0.19,
-      "detail": "KuCoin fill ledger: NOT_CONFIGURED; new=0; total=171; realised_status=HISTORICAL_COST_BASIS_UNAVAILABLE\n"
-    },
-    {
-      "module": "scripts.execution_reconciliation_engine",
-      "status": "OK",
-      "seconds": 0.1,
-      "detail": "Execution reconciliation written: C:\\Crypto\\Projects\\docs\\execution_reconciliation.json; stale=0\n"
-    },
-    {
-      "module": "scripts.capital_intelligence_engine",
-      "status": "OK",
-      "seconds": 0.13,
-      "detail": "Capital intelligence written: C:\\Crypto\\Projects\\docs\\capital_intelligence.json\n"
-    },
-    {
-      "module": "scripts.independent_trade_accounting_engine",
-      "status": "OK",
-      "seconds": 0.07,
-      "detail": "Independent trade accounting written: C:\\Crypto\\Projects\\docs\\independent_trade_accounting.json\n"
-    },
-    {
-      "module": "scripts.portfolio_capital_manager_v2",
-      "status": "OK",
-      "seconds": 0.09,
-      "detail": "Portfolio Capital Manager 2.0: safe_pool=0\n"
-    },
-    {
-      "module": "scripts.execution_assurance_engine",
-      "status": "OK",
-      "seconds": 0.07,
-      "detail": "Execution assurance: HEALTHY; assets=2 failures=0\n"
-    },
-    {
-      "module": "scripts.kucoin_canonical_service",
-      "status": "OK",
-      "seconds": 0.07,
-      "detail": "Canonical KuCoin service: DEGRADED\n"
-    },
-    {
-      "module": "scripts.integrity_guard_engine",
-      "status": "OK",
-      "seconds": 0.14,
-      "detail": "Integrity guard written\n"
     }
   ],
   "startup_mechanism": "HKCU per-user startup",

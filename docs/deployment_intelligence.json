@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T21:54:52.810336+00:00",
-  "snapshot_id": "4a87cc56ff378c46a34e",
+  "generated_at": "2026-08-12T05:39:52.855493+00:00",
+  "snapshot_id": "937d6b549f6f30b0c2bd",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -19,11 +19,11 @@
   "next_capital_priority": "TEL Low Volatility Bot",
   "capital_status": "COMPLETE",
   "capital_summary": {
-    "exchange_total": 3410.54981201,
-    "free_available": 2784.9232024,
-    "active_deal_capital": 0.0,
-    "reserved_capital": 0,
-    "deployable_capital": 2784.9232024,
+    "exchange_total": 3587.5538871179756,
+    "free_available": 806.67111932,
+    "active_deal_capital": 250.8536838808,
+    "reserved_capital": 2031.25,
+    "deployable_capital": 0.0,
     "next_capital_required": null,
     "can_fund_next_priority": null
   },
@@ -48,7 +48,7 @@
       "live_state": "ACTIVE_DEAL",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 2784.9232024,
+      "capital_available": 0.0,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -226,7 +226,7 @@
       "live_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 2784.9232024,
+      "capital_available": 0.0,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -404,9 +404,9 @@
   },
   "source_snapshots": {
     "operating_state_snapshot": "a2824587c15ea6ad4698",
-    "capital_snapshot": "76fbbadd8089430d0bc5",
+    "capital_snapshot": "5352c0967e06e89bfab4",
     "decision_generated_at": "2026-08-11T20:03:45.895613+00:00",
-    "threecommas_generated_at": "2026-08-11T20:03:36.307069+00:00"
+    "threecommas_generated_at": "2026-08-12T05:19:32.770790+00:00"
   },
   "warnings": [
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."
