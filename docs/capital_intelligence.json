@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T06:21:04.575509+00:00",
-  "snapshot_id": "612cbfda74fd351f6644",
+  "generated_at": "2026-08-12T09:44:32.122205+00:00",
+  "snapshot_id": "02977c4318892eeafb35",
   "currency": "USDT",
   "accounts": [
     {
@@ -24,9 +24,9 @@
       "active_deals": 1,
       "max_active_deals": 1,
       "per_deal_max_capital": 2281.25,
-      "active_deal_capital": 250.8536838808,
+      "active_deal_capital": 877.68171491,
       "placed_order_reserve": 0.0,
-      "remaining_dca_reserve": 2031.25,
+      "remaining_dca_reserve": 1406.25,
       "idle_capacity_reserve": 0.0,
       "next_deal_required_capital": null,
       "completeness": "complete",
@@ -99,12 +99,12 @@
   ],
   "exchange_total": 3162.09133959,
   "free_available": 2222.45801135,
-  "active_deal_capital": 250.8536838808,
+  "active_deal_capital": 877.68171491,
   "placed_order_reserve": 0.0,
-  "remaining_active_deal_dca_reserve": 2031.25,
+  "remaining_active_deal_dca_reserve": 1406.25,
   "enabled_idle_capacity_reserve": 0.0,
-  "deployable_capital": 191.2080113500001,
-  "reserve_coverage_ratio": 1.0941331748184615,
+  "deployable_capital": 816.2080113500001,
+  "reserve_coverage_ratio": 1.580414585848889,
   "capital_status": "COMPLETE",
   "next_capital_priority": "TEL Low Volatility Bot",
   "next_capital_required": null,
@@ -122,22 +122,22 @@
   "asset_allocations": [
     {
       "asset": "AAVE",
-      "quantity": 2.7736,
+      "quantity": 9.7872,
       "quote_currency": "USDT",
-      "quote_cost": 250.8536838808
+      "quote_cost": 877.68171491
     }
   ],
   "capital_source": "KuCoin direct read-only account API",
   "kucoin_direct_status": "ok",
-  "reserved_capital": 2031.25,
+  "reserved_capital": 1406.25,
   "kucoin_cash_available": 2222.45801135,
-  "active_dca_reserve": 2031.25,
-  "safe_to_allocate_now": 191.2080113500001,
+  "active_dca_reserve": 1406.25,
+  "safe_to_allocate_now": 816.2080113500001,
   "capital_headline": {
     "portfolio_value": 3162.09133959,
     "kucoin_cash": 2222.45801135,
-    "reserved_for_active_dca": 2031.25,
-    "safe_to_allocate": 191.2080113500001,
+    "reserved_for_active_dca": 1406.25,
+    "safe_to_allocate": 816.2080113500001,
     "currency": "USDT",
     "explanation": "KuCoin cash is the exchange free balance. Reserved capital protects remaining DCA orders for reconciled active trades. Safe to allocate is cash remaining after that protection."
   },
