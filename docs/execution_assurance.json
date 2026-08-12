@@ -1,23 +1,63 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T21:50:07.284659+00:00",
+  "generated_at": "2026-08-12T05:31:42.255328+00:00",
   "status": "HEALTHY",
   "assets": [
+    {
+      "asset": "AAVE",
+      "status": "HEALTHY",
+      "effective_open_position": true,
+      "provider_stale": false,
+      "kucoin_active_orders": 3,
+      "kucoin_active_buy_orders": 2,
+      "kucoin_active_sell_orders": 1,
+      "expected_safety_orders": 4,
+      "checks": [
+        {
+          "check": "Exchange/provider lifecycle reconciliation",
+          "state": "PASS",
+          "detail": "No proven stale-open lifecycle mismatch."
+        },
+        {
+          "check": "Take-profit order verified",
+          "state": "PASS",
+          "detail": "1 active AAVE/USDT sell order(s) found on KuCoin."
+        },
+        {
+          "check": "DCA order protection",
+          "state": "PASS",
+          "detail": "2 live DCA buy order(s) visible on KuCoin. Bot profile allows up to 4 safety orders."
+        },
+        {
+          "check": "DCA capital reserve",
+          "state": "PASS",
+          "detail": "2031.25 USDT is protected for remaining active-trade DCA commitments."
+        },
+        {
+          "check": "No leftover orders after a closed trade",
+          "state": "PASS",
+          "detail": "No leftover KuCoin orders were detected after a closed trade."
+        }
+      ],
+      "issues": [],
+      "next_action": "Exchange protection is consistent with the current reconciled state.",
+      "read_only": true
+    },
     {
       "asset": "TEL",
       "status": "HEALTHY",
       "effective_open_position": false,
-      "provider_stale": true,
+      "provider_stale": false,
       "kucoin_active_orders": 0,
       "kucoin_active_buy_orders": 0,
       "kucoin_active_sell_orders": 0,
-      "expected_safety_orders": 6,
+      "expected_safety_orders": 0,
       "checks": [
         {
           "check": "Exchange/provider lifecycle reconciliation",
-          "state": "FAIL",
-          "detail": "Provider stale open deal is proven closed by KuCoin."
+          "state": "PASS",
+          "detail": "No proven stale-open lifecycle mismatch."
         },
         {
           "check": "Take-profit protection present",
@@ -41,7 +81,7 @@
     }
   ],
   "summary": {
-    "assets_checked": 1,
+    "assets_checked": 2,
     "failed": 0,
     "attention": 0,
     "orphan_order_assets": 0,

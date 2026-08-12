@@ -1,29 +1,27 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:19:37.506778+00:00",
+  "generated_at": "2026-08-11T22:43:34.924941+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
-    "Primary action: Wait TEL Low Volatility Bot.",
-    "Deployable capital: 1629.54 USDT; exact allocation remains advisory.",
+    "Primary action: Keep Active Deal TEL Low Volatility Bot.",
+    "Deployable capital: 2784.92 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Recent drawdown is elevated"
   ],
   "daily_decision": {
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
-    "action": "WAIT",
+    "action": "KEEP_ACTIVE_DEAL",
     "confidence_pct": 93.1,
-    "urgency": "WAIT",
+    "urgency": "MONITOR",
     "why": [
       "Current entry filters pass",
       "Recent realised P&L is positive",
       "Recent capital efficiency is positive"
     ],
-    "blockers": [
-      "Complete deployable-capital confirmation is unavailable."
-    ]
+    "blockers": []
   },
   "decision_readiness": {
     "score_pct": 60.0,
@@ -55,15 +53,8 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 1629.5432526499999,
-    "asset_allocations": [
-      {
-        "asset": "AAVE",
-        "quantity": 2.7736,
-        "quote_currency": "USDT",
-        "quote_cost": 250.8536838808
-      }
-    ],
+    "deployable_quote": 2784.9232024,
+    "asset_allocations": [],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
   },
   "recommended_settings": {
@@ -250,7 +241,6 @@
   "risks": [
     "Recent drawdown is elevated",
     "Open replay position has lasted 34.3 days",
-    "TEL: Complete deployable-capital confirmation is unavailable.",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -292,9 +282,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 76.5,
-    "diversification_score": 50,
-    "capital_efficiency_score": 79.4,
+    "health_score": 72.7,
+    "diversification_score": 25,
+    "capital_efficiency_score": 93.1,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -332,33 +322,20 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 79.4,
+        "efficiency_score": 93.1,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Low Volatility",
-        "action": "DISABLED",
-        "enabled": false,
+        "action": "PAUSE_NEW_DEALS",
+        "enabled": true,
         "active_deals": 0,
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 79.4,
-        "overlap_group": "BTC-linked altcoin",
-        "warnings": []
-      },
-      {
-        "asset": "AAVE",
-        "bot_name": "AAVE pullback 3pct",
-        "action": "KEEP_ACTIVE_DEAL",
-        "enabled": true,
-        "active_deals": 1,
-        "allocated_capital": 250.8536838808,
-        "reserve_capital": 2031.25,
-        "deployable_priority": 5,
-        "efficiency_score": null,
+        "efficiency_score": 93.1,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -366,10 +343,9 @@
     "overlap_analysis": {
       "BTC-linked altcoin": {
         "assets": [
-          "AAVE",
           "TEL"
         ],
-        "count": 2,
+        "count": 1,
         "concentration_warning": false
       }
     }
@@ -394,5 +370,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "b2c769b842d28c3ded19cb56"
+  "snapshot_id": "c3c961a82d3aeb332013cc0f"
 }

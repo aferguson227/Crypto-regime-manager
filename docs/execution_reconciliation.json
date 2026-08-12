@@ -1,33 +1,33 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T21:49:46.110907+00:00",
+  "generated_at": "2026-08-12T05:31:42.017422+00:00",
   "authority": "KuCoin exchange order/fill evidence overrides stale execution-provider telemetry when closure is proven.",
   "deals": [
     {
-      "asset": "TEL",
-      "bot_id": 16945272,
-      "bot_name": "TEL DCA - Low Volatility",
+      "asset": "AAVE",
+      "bot_id": 16950798,
+      "bot_name": "AAVE pullback 3pct",
       "provider": "3Commas",
       "provider_deal_status": "bought",
       "provider_reports_open": true,
-      "kucoin_recent_sell_orders": 9,
-      "kucoin_active_orders": 0,
-      "allocated_quantity": 1847804.0,
-      "largest_recent_completed_sell_quantity": 1847804.0,
-      "exchange_closed_evidence": true,
-      "exchange_close_evidence_time": "1786391272665",
-      "reconciliation_state": "PROVIDER_STALE_OPEN",
-      "blocked_next_entry_risk": true,
-      "crm_position_truth": "CLOSED",
-      "action": "Reconcile/cancel stale 3Commas deal before relying on provider for the next entry.",
+      "kucoin_recent_sell_orders": 0,
+      "kucoin_active_orders": 3,
+      "allocated_quantity": 2.7736,
+      "largest_recent_completed_sell_quantity": 0,
+      "exchange_closed_evidence": false,
+      "exchange_close_evidence_time": null,
+      "reconciliation_state": "PROVIDER_OPEN_EXCHANGE_UNCONFIRMED",
+      "blocked_next_entry_risk": false,
+      "crm_position_truth": "OPEN",
+      "action": "No stale-provider closure proven.",
       "read_only": true
     }
   ],
   "summary": {
     "provider_open_deals": 1,
-    "proven_stale_open_deals": 1,
-    "blocked_next_entry_risks": 1
+    "proven_stale_open_deals": 0,
+    "blocked_next_entry_risks": 0
   },
   "write_actions": false
 }

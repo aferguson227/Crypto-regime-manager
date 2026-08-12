@@ -1,20 +1,20 @@
 {
   "schema_version": "1.1",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:19:36.875005+00:00",
-  "snapshot_id": "206683c4e8a6d7b3b84c",
+  "generated_at": "2026-08-11T21:54:56.829664+00:00",
+  "snapshot_id": "b4826ec058470ce5d48b",
   "status": "COMPLETE",
   "currency": "USDT",
-  "portfolio_health_score": 76.5,
-  "diversification_score": 50,
-  "capital_efficiency_score": 79.4,
-  "total_equity": 3660.79325265,
-  "allocated_capital": 250.8536838808,
-  "reserved_capital": 2031.25,
-  "deployable_capital": 1629.5432526499999,
-  "allocation_pct": 6.9,
-  "reserve_pct": 55.5,
-  "available_pct": 44.5,
+  "portfolio_health_score": 72.7,
+  "diversification_score": 25,
+  "capital_efficiency_score": 93.1,
+  "total_equity": 3410.54981201,
+  "allocated_capital": 0.0,
+  "reserved_capital": 0.0,
+  "deployable_capital": 2784.9232024,
+  "allocation_pct": 0.0,
+  "reserve_pct": 0.0,
+  "available_pct": 81.7,
   "next_capital_priority": "TEL Low Volatility Bot",
   "positions": [
     {
@@ -52,33 +52,20 @@
       "allocated_capital": 0.0,
       "reserve_capital": 0.0,
       "deployable_priority": 3,
-      "efficiency_score": 79.4,
+      "efficiency_score": 93.1,
       "overlap_group": "BTC-linked altcoin",
       "warnings": []
     },
     {
       "asset": "TEL",
       "bot_name": "TEL DCA - Low Volatility",
-      "action": "DISABLED",
-      "enabled": false,
+      "action": "PAUSE_NEW_DEALS",
+      "enabled": true,
       "active_deals": 0,
       "allocated_capital": 0.0,
       "reserve_capital": 0.0,
       "deployable_priority": 4,
-      "efficiency_score": 79.4,
-      "overlap_group": "BTC-linked altcoin",
-      "warnings": []
-    },
-    {
-      "asset": "AAVE",
-      "bot_name": "AAVE pullback 3pct",
-      "action": "KEEP_ACTIVE_DEAL",
-      "enabled": true,
-      "active_deals": 1,
-      "allocated_capital": 250.8536838808,
-      "reserve_capital": 2031.25,
-      "deployable_priority": 5,
-      "efficiency_score": null,
+      "efficiency_score": 93.1,
       "overlap_group": "BTC-linked altcoin",
       "warnings": []
     }
@@ -86,21 +73,20 @@
   "overlap_analysis": {
     "BTC-linked altcoin": {
       "assets": [
-        "AAVE",
         "TEL"
       ],
-      "count": 2,
+      "count": 1,
       "concentration_warning": false
     }
   },
   "warnings": [],
   "read_only": true,
   "manual_approval_required": true,
-  "idle_bot_potential_exposure": 0.0,
+  "idle_bot_potential_exposure": 2729.5360000000005,
   "reserved_capital_definition": "Remaining safety-order ladder capital protected for active deals only.",
   "position_state_counts": {
-    "active_deal": 1,
-    "enabled_idle": 0,
-    "disabled": 4
+    "active_deal": 0,
+    "enabled_idle": 1,
+    "disabled": 3
   }
 }

@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T21:49:46.402451+00:00",
+  "generated_at": "2026-08-12T05:31:06.744060+00:00",
   "exchange_equity_usdt": null,
-  "free_usdt": 3660.79325265,
+  "free_usdt": 806.67111932,
   "hard_exchange_commitments_usdt": 0,
-  "theoretical_full_dca_reserve_usdt": 0,
-  "prudent_active_dca_contingency_usdt": 0,
-  "portfolio_safety_buffer_usdt": 366.08,
-  "safe_multi_bot_pool_usdt": 3294.71,
-  "conditional_multi_bot_capacity_usdt": 3034.71,
-  "expected_active_dca_reserve_usdt": 260.0,
+  "theoretical_full_dca_reserve_usdt": 2031.25,
+  "prudent_active_dca_contingency_usdt": 1320.31,
+  "portfolio_safety_buffer_usdt": 80.67,
+  "safe_multi_bot_pool_usdt": 0,
+  "conditional_multi_bot_capacity_usdt": 101.0,
+  "expected_active_dca_reserve_usdt": 625.0,
   "conditional_capacity_is_advisory_only": true,
-  "worst_case_headroom_usdt": 3660.79,
+  "worst_case_headroom_usdt": 0,
   "candidates": [
     {
       "asset": "XMR",
@@ -42,7 +42,7 @@
     {
       "asset": "AAVE",
       "capital_required_usdt": 456.25,
-      "fits_prudent_pool": true
+      "fits_prudent_pool": false
     },
     {
       "asset": "XRP",
@@ -57,12 +57,12 @@
     {
       "asset": "ZEC",
       "capital_required_usdt": 359.35,
-      "fits_prudent_pool": true
+      "fits_prudent_pool": false
     },
     {
       "asset": "DOT",
       "capital_required_usdt": 1318.75,
-      "fits_prudent_pool": true
+      "fits_prudent_pool": false
     },
     {
       "asset": "LINK",

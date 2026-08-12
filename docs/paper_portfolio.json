@@ -1,30 +1,41 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T21:50:15.321444+00:00",
+  "generated_at": "2026-08-12T05:31:49.898417+00:00",
   "bots": [
     {
       "asset": "AAVE",
       "mode": "PAPER",
       "state": "OPEN",
       "paper_started_at": "2026-08-10T16:26:34.666017+00:00",
-      "opened_at": "2026-08-10T16:26:34.666040+00:00",
-      "position_quote": 556.25,
-      "average_entry": 87.75653864181139,
-      "current_price": 88.172,
-      "safety_orders_filled": 4,
+      "opened_at": "2026-08-12T05:26:00.128950+00:00",
+      "position_quote": 50.0,
+      "average_entry": 90.18518518518519,
+      "current_price": 90.136,
+      "safety_orders_filled": 0,
       "max_safety_orders": 4,
-      "open_pnl_quote": 2.0745429150924792,
-      "open_pnl_pct": 0.37295153529752434,
-      "closed_deals": 0,
-      "win_rate_pct": null,
-      "paper_days": 1.22,
-      "profit_per_day_quote": 0.0,
-      "realised_pnl_quote": 0,
+      "open_pnl_quote": -0.07724172484599734,
+      "open_pnl_pct": -0.15448344969199468,
+      "closed_deals": 1,
+      "win_rate_pct": 100.0,
+      "paper_days": 1.55,
+      "profit_per_day_quote": 9.1568,
+      "realised_pnl_quote": 14.150087343472137,
       "max_drawdown_quote": -7.5820932953315605,
-      "total_pnl_quote": 2.0745,
-      "total_pnl_pct": 0.37295153529752434,
-      "recent_trades": [],
+      "total_pnl_quote": 14.0728,
+      "total_pnl_pct": 28.14569123725228,
+      "recent_trades": [
+        {
+          "opened_at": "2026-08-10T16:26:34.666040+00:00",
+          "closed_at": "2026-08-12T05:25:35.063764+00:00",
+          "entry_price": 89.941,
+          "exit_price": 90.079,
+          "quote_in": 556.25,
+          "realised_pnl_quote": 14.150087343472137,
+          "safety_orders_filled": 4,
+          "max_drawdown_quote": -7.5820932953315605
+        }
+      ],
       "settings": {
         "entry_trigger": "pullback_3pct",
         "take_profit_pct": 1.2,
@@ -36,30 +47,41 @@
         "safety_order_volume": 50.0,
         "start_condition": "pullback_3pct"
       },
-      "updated_at": "2026-08-11T21:50:15.320128+00:00"
+      "updated_at": "2026-08-12T05:31:49.897071+00:00"
     },
     {
       "asset": "DOT",
       "mode": "PAPER",
       "state": "OPEN",
       "paper_started_at": "2026-08-10T16:26:34.666078+00:00",
-      "opened_at": "2026-08-10T16:26:34.666082+00:00",
-      "position_quote": 812.5,
-      "average_entry": 0.7857986117968817,
-      "current_price": 0.7866,
-      "safety_orders_filled": 3,
+      "opened_at": "2026-08-12T05:26:00.128994+00:00",
+      "position_quote": 100.0,
+      "average_entry": 0.7954954954954954,
+      "current_price": 0.7951,
+      "safety_orders_filled": 0,
       "max_safety_orders": 4,
-      "open_pnl_quote": 0.015290705345023525,
-      "open_pnl_pct": 0.001881932965541357,
-      "closed_deals": 0,
-      "win_rate_pct": null,
-      "paper_days": 1.22,
-      "profit_per_day_quote": 0.0,
-      "realised_pnl_quote": 0,
+      "open_pnl_quote": -0.1496671574178805,
+      "open_pnl_pct": -0.1496671574178805,
+      "closed_deals": 1,
+      "win_rate_pct": 100.0,
+      "paper_days": 1.55,
+      "profit_per_day_quote": 5.4242,
+      "realised_pnl_quote": 8.38215296661292,
       "max_drawdown_quote": -5.356028277197197,
-      "total_pnl_quote": 0.0153,
-      "total_pnl_pct": 0.001881932965541357,
-      "recent_trades": [],
+      "total_pnl_quote": 8.2325,
+      "total_pnl_pct": 8.23248580919504,
+      "recent_trades": [
+        {
+          "opened_at": "2026-08-10T16:26:34.666082+00:00",
+          "closed_at": "2026-08-12T05:25:35.063819+00:00",
+          "entry_price": 0.8049,
+          "exit_price": 0.7947,
+          "quote_in": 812.5,
+          "realised_pnl_quote": 8.38215296661292,
+          "safety_orders_filled": 3,
+          "max_drawdown_quote": -5.356028277197197
+        }
+      ],
       "settings": {
         "entry_trigger": "immediate",
         "take_profit_pct": 0.8,
@@ -71,7 +93,7 @@
         "safety_order_volume": 150.0,
         "start_condition": "Immediate"
       },
-      "updated_at": "2026-08-11T21:50:15.320156+00:00"
+      "updated_at": "2026-08-12T05:31:49.897093+00:00"
     },
     {
       "asset": "HYPE",
@@ -88,8 +110,8 @@
       "open_pnl_pct": -0.6885441507576218,
       "closed_deals": 2,
       "win_rate_pct": 100.0,
-      "paper_days": 1.12,
-      "profit_per_day_quote": 5.7641,
+      "paper_days": 1.44,
+      "profit_per_day_quote": 4.4794,
       "realised_pnl_quote": 6.442150256137779,
       "max_drawdown_quote": -2.8174036689601394,
       "total_pnl_quote": 5.7536,
@@ -137,19 +159,19 @@
       "opened_at": "2026-08-11T21:43:10.760309+00:00",
       "position_quote": 50.0,
       "average_entry": 482.5675675675675,
-      "current_price": 480.366,
+      "current_price": 482.531,
       "safety_orders_filled": 0,
       "max_safety_orders": 4,
-      "open_pnl_quote": -0.2778816633996044,
-      "open_pnl_pct": -0.5557633267992088,
+      "open_pnl_quote": -0.05378506580788667,
+      "open_pnl_pct": -0.10757013161577333,
       "closed_deals": 3,
       "win_rate_pct": 100.0,
-      "paper_days": 1.22,
-      "profit_per_day_quote": 12.7193,
+      "paper_days": 1.55,
+      "profit_per_day_quote": 10.081,
       "realised_pnl_quote": 15.578253020329186,
       "max_drawdown_quote": -8.004340317597553,
-      "total_pnl_quote": 15.3004,
-      "total_pnl_pct": 30.600742713859162,
+      "total_pnl_quote": 15.5245,
+      "total_pnl_pct": 31.048935909042598,
       "recent_trades": [
         {
           "opened_at": "2026-08-11T20:31:21.809865+00:00",
@@ -193,15 +215,15 @@
         "safety_order_volume": 50.0,
         "start_condition": "Immediate"
       },
-      "updated_at": "2026-08-11T21:50:15.320170+00:00"
+      "updated_at": "2026-08-12T05:31:49.897106+00:00"
     }
   ],
   "summary": {
     "paper_bots": 4,
     "open": 4,
-    "closed_deals": 5,
-    "realised_pnl_quote": 22.02,
-    "open_pnl_quote": 1.12
+    "closed_deals": 7,
+    "realised_pnl_quote": 44.55,
+    "open_pnl_quote": -0.97
   },
   "persistent_state": "C:\\Crypto\\CRM_Data\\Runtime\\State\\paper_trading_state.json",
   "history_retention_per_bot": 100,
