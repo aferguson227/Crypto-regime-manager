@@ -1,19 +1,18 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:39:52.855493+00:00",
-  "snapshot_id": "937d6b549f6f30b0c2bd",
+  "generated_at": "2026-08-12T05:45:05.565960+00:00",
+  "snapshot_id": "4592dfe2987ba12c0c0a",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
   "current_market_regime": "Low",
   "current_regime_confidence": 43.0,
-  "overall_action": "MAINTAIN",
+  "overall_action": "WAIT",
   "deploy_today": [],
-  "keep_running": [
-    "TEL Low Volatility Bot"
-  ],
+  "keep_running": [],
   "review_or_pause": [
+    "TEL Low Volatility Bot",
     "TAO Low Pullback Bot"
   ],
   "next_capital_priority": "TEL Low Volatility Bot",
@@ -31,10 +30,12 @@
     {
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
-      "action": "KEEP_ACTIVE_DEAL",
+      "action": "WAIT",
       "confidence": 85.9,
-      "eligible": true,
-      "blocking_reasons": [],
+      "eligible": false,
+      "blocking_reasons": [
+        "Complete deployable-capital confirmation is unavailable."
+      ],
       "supporting_reasons": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
@@ -45,7 +46,7 @@
         "Open replay position has lasted 34.3 days"
       ],
       "current_regime": "Low",
-      "live_state": "ACTIVE_DEAL",
+      "live_state": "DISABLED",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
       "capital_available": 0.0,
@@ -403,8 +404,8 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "a2824587c15ea6ad4698",
-    "capital_snapshot": "5352c0967e06e89bfab4",
+    "operating_state_snapshot": "73742b7080f3c9b87fa2",
+    "capital_snapshot": "eeb5178a78ca283401c4",
     "decision_generated_at": "2026-08-11T20:03:45.895613+00:00",
     "threecommas_generated_at": "2026-08-12T05:19:32.770790+00:00"
   },

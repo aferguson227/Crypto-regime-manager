@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T21:50:09.280483+00:00",
+  "generated_at": "2026-08-12T05:46:21.896648+00:00",
   "mode": "LOCKED_SHADOW",
-  "overall": "SHADOW_READY",
+  "overall": "BUILDING",
   "checks": [
     {
       "label": "KuCoin private read access",
-      "state": "PASS",
+      "state": "PENDING",
       "detail": "Required for balances/account truth."
     },
     {
       "label": "KuCoin order-state visibility",
-      "state": "PASS",
+      "state": "PENDING",
       "detail": "Required to confirm active/done order state."
     },
     {
@@ -46,18 +46,18 @@
       "asset": "AAVE",
       "pair": "AAVE-USDT",
       "shadow_status": "SHADOW_READY",
-      "client_oid_example": "crm52-aave-df1825b2d5154c3ab3",
-      "planned_budget_usdt": 692.48,
-      "hypothetical_order_count": 5,
+      "client_oid_example": "crm52-aave-5f362f59ddfb41aca7",
+      "planned_budget_usdt": 0.0,
+      "hypothetical_order_count": 0,
       "idempotency_method": "Unique CRM clientOid per intended order; retries must query by clientOid before any future live submission."
     },
     {
       "asset": "ZEC",
       "pair": "ZEC-USDT",
       "shadow_status": "SHADOW_READY",
-      "client_oid_example": "crm52-zec-f13c4672acb4418398",
-      "planned_budget_usdt": 692.48,
-      "hypothetical_order_count": 5,
+      "client_oid_example": "crm52-zec-95827b25821840fb81",
+      "planned_budget_usdt": 0.0,
+      "hypothetical_order_count": 0,
       "idempotency_method": "Unique CRM clientOid per intended order; retries must query by clientOid before any future live submission."
     }
   ],

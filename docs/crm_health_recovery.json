@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:36:40.918855+00:00",
+  "generated_at": "2026-08-12T05:46:52.826221+00:00",
   "overall": "HEALTHY",
   "summary": {
     "root_issues_before": 1,
@@ -27,37 +27,37 @@
     {
       "module": "scripts.kucoin_account_sync",
       "returncode": 0,
-      "duration_seconds": 0.48,
+      "duration_seconds": 0.46,
       "detail": "KuCoin account sync: ok; records=44; base=https://api.kucoin.com; key_version=3\n"
     },
     {
       "module": "scripts.kucoin_order_state",
       "returncode": 0,
-      "duration_seconds": 8.99,
+      "duration_seconds": 9.13,
       "detail": "KuCoin order state: OK; symbols=6 active=3 recent_closed=85\n"
     },
     {
       "module": "scripts.kucoin_fill_ledger",
       "returncode": 0,
-      "duration_seconds": 2.17,
+      "duration_seconds": 2.21,
       "detail": "KuCoin fill ledger: OK; new=0; total=171; realised_status=HISTORICAL_COST_BASIS_UNAVAILABLE\n"
     },
     {
       "module": "scripts.execution_reconciliation_engine",
       "returncode": 0,
-      "duration_seconds": 0.11,
+      "duration_seconds": 0.1,
       "detail": "Execution reconciliation written: C:\\Crypto\\Projects\\docs\\execution_reconciliation.json; stale=0\n"
     },
     {
       "module": "scripts.independent_trade_accounting_engine",
       "returncode": 0,
-      "duration_seconds": 0.08,
+      "duration_seconds": 0.07,
       "detail": "Independent trade accounting written: C:\\Crypto\\Projects\\docs\\independent_trade_accounting.json\n"
     },
     {
       "module": "scripts.live_portfolio_truth_engine",
       "returncode": 0,
-      "duration_seconds": 0.1,
+      "duration_seconds": 0.09,
       "detail": "Live portfolio truth written: C:\\Crypto\\Projects\\docs\\live_portfolio_truth.json; effective_open=1 stale=0\n"
     },
     {
@@ -69,7 +69,7 @@
     {
       "module": "scripts.freshness_controller",
       "returncode": 0,
-      "duration_seconds": 0.09,
+      "duration_seconds": 0.07,
       "detail": "Freshness status: CURRENT\n"
     },
     {

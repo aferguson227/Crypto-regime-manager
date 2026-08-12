@@ -1,27 +1,29 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T22:43:34.924941+00:00",
+  "generated_at": "2026-08-12T05:45:23.630451+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
-    "Primary action: Keep Active Deal TEL Low Volatility Bot.",
-    "Deployable capital: 2784.92 USDT; exact allocation remains advisory.",
+    "Primary action: Wait TEL Low Volatility Bot.",
+    "Deployable capital: 0 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Recent drawdown is elevated"
   ],
   "daily_decision": {
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
-    "action": "KEEP_ACTIVE_DEAL",
+    "action": "WAIT",
     "confidence_pct": 93.1,
-    "urgency": "MONITOR",
+    "urgency": "WAIT",
     "why": [
       "Current entry filters pass",
       "Recent realised P&L is positive",
       "Recent capital efficiency is positive"
     ],
-    "blockers": []
+    "blockers": [
+      "Complete deployable-capital confirmation is unavailable."
+    ]
   },
   "decision_readiness": {
     "score_pct": 60.0,
@@ -53,8 +55,15 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 2784.9232024,
-    "asset_allocations": [],
+    "deployable_quote": 0.0,
+    "asset_allocations": [
+      {
+        "asset": "AAVE",
+        "quantity": 2.7736,
+        "quote_currency": "USDT",
+        "quote_cost": 250.8536838808
+      }
+    ],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
   },
   "recommended_settings": {
@@ -237,10 +246,17 @@
       "status": "MATCH"
     }
   ],
-  "what_changed": [],
+  "what_changed": [
+    {
+      "field": "Action",
+      "before": "KEEP_ACTIVE_DEAL",
+      "after": "WAIT"
+    }
+  ],
   "risks": [
     "Recent drawdown is elevated",
     "Open replay position has lasted 34.3 days",
+    "TEL: Complete deployable-capital confirmation is unavailable.",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -282,9 +298,9 @@
     ]
   },
   "portfolio": {
-    "health_score": 72.7,
-    "diversification_score": 25,
-    "capital_efficiency_score": 93.1,
+    "health_score": 76.5,
+    "diversification_score": 50,
+    "capital_efficiency_score": 79.4,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -322,20 +338,33 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 93.1,
+        "efficiency_score": 79.4,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
       {
         "asset": "TEL",
         "bot_name": "TEL DCA - Low Volatility",
-        "action": "PAUSE_NEW_DEALS",
-        "enabled": true,
+        "action": "DISABLED",
+        "enabled": false,
         "active_deals": 0,
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 93.1,
+        "efficiency_score": 79.4,
+        "overlap_group": "BTC-linked altcoin",
+        "warnings": []
+      },
+      {
+        "asset": "AAVE",
+        "bot_name": "AAVE pullback 3pct",
+        "action": "KEEP_ACTIVE_DEAL",
+        "enabled": true,
+        "active_deals": 1,
+        "allocated_capital": 250.8536838808,
+        "reserve_capital": 2031.25,
+        "deployable_priority": 5,
+        "efficiency_score": null,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       }
@@ -343,9 +372,10 @@
     "overlap_analysis": {
       "BTC-linked altcoin": {
         "assets": [
+          "AAVE",
           "TEL"
         ],
-        "count": 1,
+        "count": 2,
         "concentration_warning": false
       }
     }
@@ -370,5 +400,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "c3c961a82d3aeb332013cc0f"
+  "snapshot_id": "1b898a2b213d8b04998dbe63"
 }

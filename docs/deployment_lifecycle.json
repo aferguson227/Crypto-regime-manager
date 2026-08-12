@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-11T21:01:06.863656+00:00",
+  "generated_at": "2026-08-12T05:46:13.867910+00:00",
   "workflow": [
     "RESEARCHING",
     "VALIDATING",
@@ -13,108 +13,21 @@
   ],
   "bots": [
     {
-      "asset": "ZEC",
-      "pair": "ZEC-USDT",
-      "bot_name": "ZEC Regime DCA",
-      "lifecycle_state": "RECOMMENDED_NOW",
-      "priority": 0,
-      "recommended_action": "DEPLOY",
-      "settings": {
-        "entry_trigger": "immediate",
-        "take_profit_pct": 0.8,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.3,
-        "step_scale": 1.0,
-        "base_order_volume": 50.0,
-        "safety_order_volume": 50.0,
-        "start_condition": "Immediate"
-      },
-      "governed_execution_controls": {
-        "max_active_safety_orders": 3,
-        "max_active_deals": 1,
-        "order_type": "market base order / limit DCA orders",
-        "trailing_enabled": false,
-        "cooldown_seconds": 0
-      },
-      "settings_completeness_pct": 100.0,
-      "missing_settings": [],
-      "dca_optimisation_status": "COMPLETE",
-      "entry_trigger": "immediate",
-      "current_regime": "BULL",
-      "allocation_usdt": 692.48,
-      "capital_required_usdt": 359.35,
-      "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
-      "setting_sources": {
-        "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
-        "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
-        "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
-      },
-      "readiness_pct": 100.0,
-      "kraken_robustness": {
-        "status": "FAIL",
-        "explanation": "Kraken cutoff failed: mark-to-market P/L -2603.9; open position True. Independent continuation source is unavailable (UNAVAILABLE_KRAKEN_SOURCE); this is a terminal evidence limitation rather than an open pipeline task. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
-        "continuation": {
-          "asset": "ZEC",
-          "resolver_version": "2.0",
-          "diagnostic_stage": "asset file discovery",
-          "kraken_cutoff_status": "FAIL",
-          "kraken_cutoff_mark_to_market_pnl": -2603.9,
-          "original_validation_preserved": true,
-          "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ZEC-USDT_4H.csv",
-          "kucoin_file_exists": true,
-          "validation_file": null,
-          "kraken_cutoff": "2026-03-31T20:00:00+00:00",
-          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
-          "terminal": true,
-          "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
-        }
-      },
-      "kucoin_profitability": {
-        "validation_return_on_max_capital_pct": 364.21,
-        "validation_mark_to_market_pnl": 2617.61,
-        "validation_closed_deals": 1036,
-        "validation_average_hold_hours": 0.9,
-        "validation_p90_hold_hours": 4,
-        "validation_longest_hold_hours": 160,
-        "validation_drawdown_pct": 7.61,
-        "forward_return_on_max_capital_pct": 425.69,
-        "historical_annualised_equivalent_pct": 295.4,
-        "annualised_label": "Historical annualised equivalent; not a forecast."
-      },
-      "blockers": [],
-      "source": "GOVERNED_CANDIDATE_REVIEW",
-      "button_label": "View setup & deploy manually",
-      "deployment_allowed": true,
-      "automatic_deployment": false,
-      "explanation": "Of the candidates currently Ready to Deploy, CRM ranks this as the preferred next use of available capital."
-    },
-    {
-      "asset": "TEL",
-      "pair": "TEL-USDT",
-      "bot_name": "TEL DCA - Low Volatility",
+      "asset": "AAVE",
+      "pair": "AAVE-USDT",
+      "bot_name": "AAVE pullback 3pct",
       "lifecycle_state": "ACTIVE",
       "priority": 1,
       "recommended_action": "KEEP_ACTIVE",
       "settings": {
-        "base_order_volume": 100.0,
-        "safety_order_volume": 100.0,
-        "take_profit_pct": 1.5,
-        "so_deviation_pct": 1.2,
-        "safety_orders": 6,
-        "volume_scale": 1.6,
+        "base_order_volume": 250.0,
+        "safety_order_volume": 250.0,
+        "take_profit_pct": 1.2,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.5,
         "step_scale": 1.0,
-        "max_active_safety_orders": 3,
+        "max_active_safety_orders": 2,
         "max_active_deals": 1,
         "start_condition": "long",
         "order_type": "limit",
@@ -134,9 +47,9 @@
       "asset": "AAVE",
       "pair": "AAVE-USDT",
       "bot_name": "AAVE Regime DCA",
-      "lifecycle_state": "READY_TO_DEPLOY",
-      "priority": 2,
-      "recommended_action": "DEPLOY",
+      "lifecycle_state": "READY_FOR_DEPLOYMENT_REVIEW",
+      "priority": 3,
+      "recommended_action": "REVIEW",
       "settings": {
         "entry_trigger": "pullback_3pct",
         "take_profit_pct": 1.2,
@@ -160,7 +73,7 @@
       "dca_optimisation_status": "COMPLETE",
       "entry_trigger": "pullback_3pct",
       "current_regime": "BEAR",
-      "allocation_usdt": 692.48,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": 456.25,
       "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
       "setting_sources": {
@@ -210,12 +123,14 @@
         "historical_annualised_equivalent_pct": 280.4,
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
-      "blockers": [],
+      "blockers": [
+        "No portfolio capital is currently safe to allocate to a new bot."
+      ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
-      "button_label": "View setup & deploy manually",
-      "deployment_allowed": true,
+      "button_label": "View deployment plan",
+      "deployment_allowed": false,
       "automatic_deployment": false,
-      "explanation": "All mandatory evidence, exact settings and capital-allocation gates have passed. Manual deployment is permitted."
+      "explanation": "Strategy validation is complete; live deployment is waiting only for safe portfolio capital."
     },
     {
       "asset": "BTC",
@@ -233,7 +148,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": 2715.6,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -271,7 +186,8 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
+        "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -309,7 +225,7 @@
       "dca_optimisation_status": "COMPLETE",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": 2715.6,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": 1318.75,
       "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
       "setting_sources": {
@@ -360,7 +276,8 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit."
+        "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit.",
+        "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -384,7 +301,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": 2715.6,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -436,7 +353,8 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
+        "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -460,7 +378,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "ACCUMULATION",
-      "allocation_usdt": 2715.6,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -498,7 +416,8 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
+        "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -522,7 +441,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BEAR",
-      "allocation_usdt": 2715.6,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -574,7 +493,8 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
+        "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -598,7 +518,7 @@
       "dca_optimisation_status": "WAITING_FOR_RESEARCH_INPUT",
       "entry_trigger": null,
       "current_regime": null,
-      "allocation_usdt": 2715.6,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {},
@@ -622,7 +542,8 @@
       },
       "blockers": [
         "Evidence still required: Evidence grade, Historical data, KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
+        "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -646,7 +567,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": 2715.6,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -698,7 +619,8 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
+        "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -722,7 +644,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "ACCUMULATION",
-      "allocation_usdt": 2715.6,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -774,7 +696,8 @@
       },
       "blockers": [
         "Evidence still required: DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
+        "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -798,7 +721,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": 2715.6,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -850,7 +773,8 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
+        "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -874,7 +798,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "pullback_3pct",
       "current_regime": "BEAR",
-      "allocation_usdt": 2715.6,
+      "allocation_usdt": 0.0,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -926,20 +850,110 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
+        "No portfolio capital is currently safe to allocate to a new bot."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
       "deployment_allowed": false,
       "automatic_deployment": false,
       "explanation": "Review the specific remaining requirement(s). CRM promotes this candidate automatically when every mandatory gate passes."
+    },
+    {
+      "asset": "ZEC",
+      "pair": "ZEC-USDT",
+      "bot_name": "ZEC Regime DCA",
+      "lifecycle_state": "READY_FOR_DEPLOYMENT_REVIEW",
+      "priority": 3,
+      "recommended_action": "REVIEW",
+      "settings": {
+        "entry_trigger": "immediate",
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.3,
+        "step_scale": 1.0,
+        "base_order_volume": 50.0,
+        "safety_order_volume": 50.0,
+        "start_condition": "Immediate"
+      },
+      "governed_execution_controls": {
+        "max_active_safety_orders": 3,
+        "max_active_deals": 1,
+        "order_type": "market base order / limit DCA orders",
+        "trailing_enabled": false,
+        "cooldown_seconds": 0
+      },
+      "settings_completeness_pct": 100.0,
+      "missing_settings": [],
+      "dca_optimisation_status": "COMPLETE",
+      "entry_trigger": "immediate",
+      "current_regime": "BULL",
+      "allocation_usdt": 0.0,
+      "capital_required_usdt": 359.35,
+      "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
+      "setting_sources": {
+        "entry_trigger": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "take_profit_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "so_deviation_pct": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_orders": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "volume_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "step_scale": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "base_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "safety_order_volume": "OPTIMISED_AND_UNSEEN_VALIDATED",
+        "max_active_safety_orders": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "max_active_deals": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "order_type": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "trailing_enabled": "GOVERNED_POLICY_NOT_OPTIMISED",
+        "cooldown_seconds": "GOVERNED_POLICY_NOT_OPTIMISED"
+      },
+      "readiness_pct": 100.0,
+      "kraken_robustness": {
+        "status": "FAIL",
+        "explanation": "Kraken cutoff failed: mark-to-market P/L -2603.9; open position True. Independent continuation source is unavailable (UNAVAILABLE_KRAKEN_SOURCE); this is a terminal evidence limitation rather than an open pipeline task. The original Kraken FAIL remains preserved as an independent robustness penalty; it does not automatically veto a KuCoin-primary candidate once continuation evidence is resolved.",
+        "continuation": {
+          "asset": "ZEC",
+          "resolver_version": "2.0",
+          "diagnostic_stage": "asset file discovery",
+          "kraken_cutoff_status": "FAIL",
+          "kraken_cutoff_mark_to_market_pnl": -2603.9,
+          "original_validation_preserved": true,
+          "kucoin_continuation_file": "C:\\Crypto\\CRM_Data\\KuCoin\\4h\\ZEC-USDT_4H.csv",
+          "kucoin_file_exists": true,
+          "validation_file": null,
+          "kraken_cutoff": "2026-03-31T20:00:00+00:00",
+          "continuation_status": "UNAVAILABLE_KRAKEN_SOURCE",
+          "terminal": true,
+          "reason": "The normalized Q1 Kraken source needed to reconstruct the frozen open position was not found. The resolver has closed this as an unavailable independent-evidence result; it will not remain in a waiting state or block KuCoin-primary research indefinitely."
+        }
+      },
+      "kucoin_profitability": {
+        "validation_return_on_max_capital_pct": 364.21,
+        "validation_mark_to_market_pnl": 2617.61,
+        "validation_closed_deals": 1036,
+        "validation_average_hold_hours": 0.9,
+        "validation_p90_hold_hours": 4,
+        "validation_longest_hold_hours": 160,
+        "validation_drawdown_pct": 7.61,
+        "forward_return_on_max_capital_pct": 425.69,
+        "historical_annualised_equivalent_pct": 295.4,
+        "annualised_label": "Historical annualised equivalent; not a forecast."
+      },
+      "blockers": [
+        "No portfolio capital is currently safe to allocate to a new bot."
+      ],
+      "source": "GOVERNED_CANDIDATE_REVIEW",
+      "button_label": "View deployment plan",
+      "deployment_allowed": false,
+      "automatic_deployment": false,
+      "explanation": "Strategy validation is complete; live deployment is waiting only for safe portfolio capital."
     }
   ],
   "summary": {
     "active": 1,
-    "ready_for_review": 1,
-    "ready_to_deploy": 1,
-    "recommended_now": 1
+    "ready_for_review": 3,
+    "ready_to_deploy": 0,
+    "recommended_now": 0
   },
   "provider_independent": true,
   "automatic_live_deployment": false,

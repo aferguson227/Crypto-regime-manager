@@ -1,14 +1,14 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:41:42.291086+00:00",
-  "heartbeat_at": "2026-08-12T05:41:42.291093+00:00",
+  "generated_at": "2026-08-12T05:44:58.806665+00:00",
+  "heartbeat_at": "2026-08-12T05:44:58.806673+00:00",
   "status": "HEALTHY",
-  "cycle": 45,
+  "cycle": 54,
   "pid": 14592,
   "fast_interval_seconds": 20,
   "private_refresh_interval_seconds": 60,
-  "last_full_private_refresh_at": "2026-08-12T05:40:59.309720+00:00",
+  "last_full_private_refresh_at": "2026-08-12T05:44:15.753999+00:00",
   "current_module": null,
   "message": "Live trading truth refreshed.",
   "modules": [
@@ -21,31 +21,31 @@
     {
       "module": "scripts.kucoin_order_state",
       "status": "OK",
-      "seconds": 0.15,
+      "seconds": 0.14,
       "detail": "KuCoin order state: NOT_CONFIGURED; symbols=6 active=0 recent_closed=0\n"
     },
     {
       "module": "scripts.live_portfolio_truth_engine",
       "status": "OK",
-      "seconds": 0.09,
+      "seconds": 0.08,
       "detail": "Live portfolio truth written: C:\\Crypto\\Projects\\docs\\live_portfolio_truth.json; effective_open=1 stale=0\n"
     },
     {
       "module": "scripts.paper_trading_engine",
       "status": "OK",
       "seconds": 0.11,
-      "detail": "Paper portfolio: bots=4 open=4 paper_P/L=-1.02\n"
+      "detail": "Paper portfolio: bots=4 open=4 paper_P/L=-1.15\n"
     },
     {
       "module": "scripts.managed_bot_registry",
       "status": "OK",
-      "seconds": 0.12,
+      "seconds": 0.13,
       "detail": "{\n  \"schema_version\": \"1.0\",\n  \"application_version\": \"70.0.0\",\n  \"updated_at\": \"2026-08-10T21:36:29.113280+00:00\",\n  \"assets\": [\n    \"AAVE\",\n    \"HYPE\",\n    \"ZEC\"\n  ]\n}\n"
     },
     {
       "module": "scripts.managed_bot_portfolio_engine",
       "status": "OK",
-      "seconds": 0.08,
+      "seconds": 0.11,
       "detail": "Managed Bot Portfolio: live=1 paper=1 ready=0\n"
     }
   ],
