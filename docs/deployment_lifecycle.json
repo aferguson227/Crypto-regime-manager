@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:46:13.867910+00:00",
+  "generated_at": "2026-08-12T05:52:05.382512+00:00",
   "workflow": [
     "RESEARCHING",
     "VALIDATING",
@@ -73,7 +73,7 @@
       "dca_optimisation_status": "COMPLETE",
       "entry_trigger": "pullback_3pct",
       "current_regime": "BEAR",
-      "allocation_usdt": 0.0,
+      "allocation_usdt": 272.76,
       "capital_required_usdt": 456.25,
       "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
       "setting_sources": {
@@ -124,7 +124,7 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "No portfolio capital is currently safe to allocate to a new bot."
+        "Current safe allocation 272.76 USDT is below this setup's required capital 456.25 USDT."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -148,7 +148,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": 0.0,
+      "allocation_usdt": 1187.19,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -186,8 +186,7 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
-        "No portfolio capital is currently safe to allocate to a new bot."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -225,7 +224,7 @@
       "dca_optimisation_status": "COMPLETE",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": 0.0,
+      "allocation_usdt": 1187.19,
       "capital_required_usdt": 1318.75,
       "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
       "setting_sources": {
@@ -277,7 +276,7 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit.",
-        "No portfolio capital is currently safe to allocate to a new bot."
+        "Current safe allocation 1187.19 USDT is below this setup's required capital 1318.75 USDT."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -301,7 +300,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": 0.0,
+      "allocation_usdt": 1187.19,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -353,8 +352,7 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
-        "No portfolio capital is currently safe to allocate to a new bot."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -378,7 +376,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "ACCUMULATION",
-      "allocation_usdt": 0.0,
+      "allocation_usdt": 1187.19,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -416,8 +414,7 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
-        "No portfolio capital is currently safe to allocate to a new bot."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -441,7 +438,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BEAR",
-      "allocation_usdt": 0.0,
+      "allocation_usdt": 1187.19,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -493,8 +490,7 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
-        "No portfolio capital is currently safe to allocate to a new bot."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -518,7 +514,7 @@
       "dca_optimisation_status": "WAITING_FOR_RESEARCH_INPUT",
       "entry_trigger": null,
       "current_regime": null,
-      "allocation_usdt": 0.0,
+      "allocation_usdt": 1187.19,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {},
@@ -542,8 +538,7 @@
       },
       "blockers": [
         "Evidence still required: Evidence grade, Historical data, KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
-        "No portfolio capital is currently safe to allocate to a new bot."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -567,7 +562,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": 0.0,
+      "allocation_usdt": 1187.19,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -619,8 +614,7 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
-        "No portfolio capital is currently safe to allocate to a new bot."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -644,7 +638,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "ACCUMULATION",
-      "allocation_usdt": 0.0,
+      "allocation_usdt": 1187.19,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -696,8 +690,7 @@
       },
       "blockers": [
         "Evidence still required: DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
-        "No portfolio capital is currently safe to allocate to a new bot."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -721,7 +714,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": 0.0,
+      "allocation_usdt": 1187.19,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -773,8 +766,7 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
-        "No portfolio capital is currently safe to allocate to a new bot."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -798,7 +790,7 @@
       "dca_optimisation_status": "UNSEEN_VALIDATION_FAILED",
       "entry_trigger": "pullback_3pct",
       "current_regime": "BEAR",
-      "allocation_usdt": 0.0,
+      "allocation_usdt": 1187.19,
       "capital_required_usdt": null,
       "capital_sizing_status": "OPTIMISATION_IN_PROGRESS",
       "setting_sources": {
@@ -850,8 +842,7 @@
       },
       "blockers": [
         "Evidence still required: KuCoin walk-forward, Trade fluidity, Current regime fit, DCA settings optimisation.",
-        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes.",
-        "No portfolio capital is currently safe to allocate to a new bot."
+        "DCA settings optimisation is in progress. CRM will not publish exact recommended settings until unseen KuCoin validation passes."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",
@@ -889,7 +880,7 @@
       "dca_optimisation_status": "COMPLETE",
       "entry_trigger": "immediate",
       "current_regime": "BULL",
-      "allocation_usdt": 0.0,
+      "allocation_usdt": 302.73,
       "capital_required_usdt": 359.35,
       "capital_sizing_status": "OPTIMISED_AND_UNSEEN_VALIDATED",
       "setting_sources": {
@@ -940,7 +931,7 @@
         "annualised_label": "Historical annualised equivalent; not a forecast."
       },
       "blockers": [
-        "No portfolio capital is currently safe to allocate to a new bot."
+        "Current safe allocation 302.73 USDT is below this setup's required capital 359.35 USDT."
       ],
       "source": "GOVERNED_CANDIDATE_REVIEW",
       "button_label": "View deployment plan",

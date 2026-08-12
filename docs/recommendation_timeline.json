@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:46:27.961525+00:00",
+  "generated_at": "2026-08-12T05:52:05.977392+00:00",
   "events": [
     {
       "event_id": "58f05bae44fe949aef1e2959",
@@ -7056,14 +7056,42 @@
     },
     {
       "event_id": "704f7cbff66382f5914ebb42",
-      "recorded_at": "2026-08-12T05:45:59.804349+00:00",
+      "recorded_at": "2026-08-12T05:50:58.831588+00:00",
       "kind": "COIN_STATUS",
       "asset": "TEL",
       "status": null,
       "confidence_pct": 79.4,
       "detail": ""
+    },
+    {
+      "event_id": "6cfd3fa29272bb2f510e9a11",
+      "recorded_at": "2026-08-12T05:52:01.109157+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TEL",
+      "status": "WAIT",
+      "confidence_pct": 79.4,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "event_id": "1fb542369d88a4cc38db9426",
+      "recorded_at": "2026-08-12T05:52:01.109157+00:00",
+      "kind": "BOT_RECOMMENDATION",
+      "asset": "TAO",
+      "status": "WAIT",
+      "confidence_pct": 22.2,
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
     }
   ],
-  "event_count": 530,
+  "event_count": 532,
   "live_updating": true
 }

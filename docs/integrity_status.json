@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:31:06.968948+00:00",
+  "generated_at": "2026-08-12T05:52:10.080192+00:00",
   "research_integrity": {
     "status": "GOOD",
     "pipeline_contradictions": [],
@@ -13,9 +13,9 @@
     "detail": "Historical search complete. 1 older sale(s) predate the provable KuCoin purchase history; CRM has established an accounting baseline and will exclude only those older transactions rather than keep searching."
   },
   "execution_readiness": {
-    "status": "WAITING_FOR_CAPITAL",
-    "safe_multi_bot_pool_usdt": 0,
-    "detail": "No capital is currently available under the portfolio safety policy."
+    "status": "READY",
+    "safe_multi_bot_pool_usdt": 1187.19,
+    "detail": "Safe multi-bot capital is available."
   },
   "system_health_scope": "Application/collector/safety health remains separate from research and accounting limitations."
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:45:13.596591+00:00",
+  "generated_at": "2026-08-12T05:52:01.887399+00:00",
   "snapshot_id": "4e06c2b07b3b2f6a9dca",
   "status": "HEALTHY",
   "pipelines": {
@@ -9,15 +9,15 @@
       "name": "3Commas read-only sync",
       "state": "healthy",
       "last_attempt_at": "2026-08-12T05:19:32.770790+00:00",
-      "last_attempt_age_hours": 0.43,
+      "last_attempt_age_hours": 0.54,
       "last_success_at": "2026-08-12T05:19:32.770790+00:00",
-      "last_success_age_hours": 0.43,
+      "last_success_age_hours": 0.54,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
       "source_status": "ok",
       "core_status": "ok",
-      "capital_fallback": null,
+      "capital_fallback": "KuCoin direct read-only",
       "message": "All read-only 3Commas endpoints updated successfully.",
       "endpoint_diagnostics": {
         "results": {
@@ -86,9 +86,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-11T20:03:38.903362+00:00",
-      "last_attempt_age_hours": 9.69,
+      "last_attempt_age_hours": 9.81,
       "last_success_at": "2026-08-11T20:03:46.130942+00:00",
-      "last_success_age_hours": 9.69,
+      "last_success_age_hours": 9.8,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -102,15 +102,15 @@
       "name": "3Commas read-only sync",
       "state": "healthy",
       "last_attempt_at": "2026-08-12T05:19:32.770790+00:00",
-      "last_attempt_age_hours": 0.43,
+      "last_attempt_age_hours": 0.54,
       "last_success_at": "2026-08-12T05:19:32.770790+00:00",
-      "last_success_age_hours": 0.43,
+      "last_success_age_hours": 0.54,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
       "failure_after_hours": 6,
       "source_status": "ok",
       "core_status": "ok",
-      "capital_fallback": null,
+      "capital_fallback": "KuCoin direct read-only",
       "message": "All read-only 3Commas endpoints updated successfully.",
       "endpoint_diagnostics": {
         "results": {
@@ -179,9 +179,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-11T20:03:38.903362+00:00",
-      "last_attempt_age_hours": 9.69,
+      "last_attempt_age_hours": 9.81,
       "last_success_at": "2026-08-11T20:03:46.130942+00:00",
-      "last_success_age_hours": 9.69,
+      "last_success_age_hours": 9.8,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -278,8 +278,8 @@
     "overall_reason": "Required automation is healthy; non-blocking age notices do not lower overall health.",
     "application_publication": "Live Pages is synchronised; publication age alone is not a reliability fault.",
     "threecommas": "All read-only 3Commas endpoints updated successfully.",
-    "local_agent_status": "RUNNING",
-    "kucoin_private_status": "fallback_current"
+    "local_agent_status": "HEALTHY",
+    "kucoin_private_status": "ok"
   },
   "read_only": true
 }

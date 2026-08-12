@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:46:29.937880+00:00",
+  "generated_at": "2026-08-12T05:52:06.059869+00:00",
   "state": "WAIT",
-  "score_pct": 50.0,
+  "score_pct": 83.3,
   "recommended_next_candidate": "UNI",
   "candidate": {
     "asset": "UNI",
@@ -56,13 +56,13 @@
     "automatic_promotion": false,
     "next_action": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
   },
-  "deployable_capital": 0.0,
+  "deployable_capital": 754.8670224699999,
   "historical_candidate_max_capital": 5819.12,
   "gates": [
     {
       "label": "Local capital current",
-      "state": "WAIT",
-      "detail": "Local agent: RUNNING",
+      "state": "PASS",
+      "detail": "Local agent: HEALTHY",
       "blocking": true
     },
     {
@@ -91,8 +91,8 @@
     },
     {
       "label": "Capital headroom",
-      "state": "WAIT",
-      "detail": "Deployable capital is 0.00 USDT.",
+      "state": "PASS",
+      "detail": "Deployable capital is 754.87 USDT; live allocation must be sized separately from historical max-capital evidence.",
       "blocking": true
     }
   ],
@@ -103,5 +103,5 @@
     "principle": "Add a new asset only when capital, current TEL trade state, current market conditions and independent Kraken/Q1 evidence all support manual review."
   },
   "next_action": "Keep TEL as the only production asset until all expansion gates pass.",
-  "snapshot_id": "1066ec59e2fe7cd7e3fb0639"
+  "snapshot_id": "f16df2eebdbff7263f8577fe"
 }

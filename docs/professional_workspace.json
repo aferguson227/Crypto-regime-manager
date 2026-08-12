@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-12T05:45:23.630451+00:00",
+  "generated_at": "2026-08-12T05:52:02.501107+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Wait TEL Low Volatility Bot.",
-    "Deployable capital: 0 USDT; exact allocation remains advisory.",
+    "Deployable capital: 754.867 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Recent drawdown is elevated"
   ],
@@ -55,7 +55,7 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 0.0,
+    "deployable_quote": 754.8670224699999,
     "asset_allocations": [
       {
         "asset": "AAVE",
@@ -246,13 +246,7 @@
       "status": "MATCH"
     }
   ],
-  "what_changed": [
-    {
-      "field": "Action",
-      "before": "KEEP_ACTIVE_DEAL",
-      "after": "WAIT"
-    }
-  ],
+  "what_changed": [],
   "risks": [
     "Recent drawdown is elevated",
     "Open replay position has lasted 34.3 days",
@@ -400,5 +394,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "1b898a2b213d8b04998dbe63"
+  "snapshot_id": "8b5b414f926322fe12fbb309"
 }
