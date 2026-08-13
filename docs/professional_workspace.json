@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-13T18:41:58.150857+00:00",
+  "generated_at": "2026-08-13T22:09:52.224538+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Wait TEL Low Volatility Bot.",
-    "Deployable capital: 1377.26 USDT; exact allocation remains advisory.",
+    "Deployable capital: 758.565 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Recent drawdown is elevated"
   ],
@@ -55,8 +55,14 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 1377.26484183,
+    "deployable_quote": 758.56484183,
     "asset_allocations": [
+      {
+        "asset": "ZEC",
+        "quantity": 0.2062,
+        "quote_currency": "USDT",
+        "quote_cost": 100.1218682464
+      },
       {
         "asset": "AAVE",
         "quantity": 25.8106,
@@ -292,8 +298,8 @@
     ]
   },
   "portfolio": {
-    "health_score": 76.5,
-    "diversification_score": 50,
+    "health_score": 84.8,
+    "diversification_score": 75,
     "capital_efficiency_score": 79.4,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
@@ -350,6 +356,19 @@
         "warnings": []
       },
       {
+        "asset": "ZEC",
+        "bot_name": "ZEC DCA Bull",
+        "action": "KEEP_ACTIVE_DEAL",
+        "enabled": true,
+        "active_deals": 1,
+        "allocated_capital": 100.1218682464,
+        "reserve_capital": 618.7,
+        "deployable_priority": 5,
+        "efficiency_score": null,
+        "overlap_group": "BTC-linked altcoin",
+        "warnings": []
+      },
+      {
         "asset": "AAVE",
         "bot_name": "AAVE pullback 3pct",
         "action": "KEEP_ACTIVE_DEAL",
@@ -357,7 +376,7 @@
         "active_deals": 1,
         "allocated_capital": 2286.5338955459,
         "reserve_capital": 0.0,
-        "deployable_priority": 5,
+        "deployable_priority": 6,
         "efficiency_score": null,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
@@ -367,10 +386,11 @@
       "BTC-linked altcoin": {
         "assets": [
           "AAVE",
-          "TEL"
+          "TEL",
+          "ZEC"
         ],
-        "count": 2,
-        "concentration_warning": false
+        "count": 3,
+        "concentration_warning": true
       }
     }
   },
@@ -394,5 +414,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "4f008b3068c3c8023973f047"
+  "snapshot_id": "f4a69223eb02e695fabecf8c"
 }

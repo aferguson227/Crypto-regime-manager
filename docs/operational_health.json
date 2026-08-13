@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-13T20:06:15.734064+00:00",
+  "generated_at": "2026-08-13T22:09:51.659840+00:00",
   "overall": {
     "state": "HEALTHY",
     "score_pct": 86.0,
@@ -18,9 +18,9 @@
   },
   "threecommas": {
     "status": "ok",
-    "last_attempt_at": "2026-08-13T18:41:53.921247+00:00",
-    "last_success_at": "2026-08-13T18:41:53.921247+00:00",
-    "last_success_age_hours": 1.41,
+    "last_attempt_at": "2026-08-13T22:09:49.035668+00:00",
+    "last_success_at": "2026-08-13T22:09:49.035668+00:00",
+    "last_success_age_hours": 0.0,
     "endpoints": [
       {
         "name": "validate",
@@ -28,8 +28,8 @@
         "category": "ok",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-13T18:41:54.965537+00:00",
-        "age_hours": 1.41,
+        "observed_at": "2026-08-13T22:09:49.949190+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -39,8 +39,8 @@
         "category": "ok",
         "http_status": null,
         "records": 1,
-        "observed_at": "2026-08-13T18:41:55.683423+00:00",
-        "age_hours": 1.41,
+        "observed_at": "2026-08-13T22:09:50.214345+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -49,9 +49,9 @@
         "status": "pass",
         "category": "ok",
         "http_status": null,
-        "records": 5,
-        "observed_at": "2026-08-13T18:41:56.018624+00:00",
-        "age_hours": 1.41,
+        "records": 6,
+        "observed_at": "2026-08-13T22:09:50.505717+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -60,9 +60,9 @@
         "status": "pass",
         "category": "ok",
         "http_status": null,
-        "records": 1,
-        "observed_at": "2026-08-13T18:41:56.756425+00:00",
-        "age_hours": 1.41,
+        "records": 2,
+        "observed_at": "2026-08-13T22:09:51.084764+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -72,8 +72,8 @@
         "category": "not_requested_quota_guard",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-13T18:41:56.756471+00:00",
-        "age_hours": 1.41,
+        "observed_at": "2026-08-13T22:09:51.084813+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -83,37 +83,48 @@
         "category": "not_requested_direct_capital",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-13T18:41:56.756477+00:00",
-        "age_hours": 1.41,
+        "observed_at": "2026-08-13T22:09:51.084820+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
     ],
     "accounts": 1,
-    "bots": 5,
-    "deals": 1
+    "bots": 6,
+    "deals": 2
   },
   "application": {
     "cloud_state": "healthy",
     "last_success_at": "2026-08-11T20:03:46.130942+00:00",
-    "last_success_age_hours": 46.64,
+    "last_success_age_hours": 50.1,
     "diagnostics_score_pct": 100
   },
   "trading": {
     "active_deals": [
       {
+        "asset": "ZEC",
+        "bot_name": "ZEC DCA Bull",
+        "status": "bought",
+        "profit_pct": 0.41,
+        "duration_hours": 2.7,
+        "completed_safety_orders": 0,
+        "max_safety_orders": 4,
+        "capital_used": 100.1218682464,
+        "quote_currency": "USDT"
+      },
+      {
         "asset": "AAVE",
         "bot_name": "AAVE pullback 3pct",
         "status": "bought",
-        "profit_pct": -1.35,
-        "duration_hours": 38.8,
+        "profit_pct": -0.01,
+        "duration_hours": 40.9,
         "completed_safety_orders": 4,
         "max_safety_orders": 4,
         "capital_used": 2286.5338955459,
         "quote_currency": "USDT"
       }
     ],
-    "deal_count": 1
+    "deal_count": 2
   },
   "decision": {
     "primary_action": "WAIT",
