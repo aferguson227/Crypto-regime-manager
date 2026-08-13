@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-13T05:20:40.946248+00:00",
+  "generated_at": "2026-08-13T09:44:36.905807+00:00",
   "overall": {
     "state": "HEALTHY",
     "score_pct": 97.7
@@ -16,23 +16,7 @@
   },
   "action_queue": [],
   "highest_value_improvements": [],
-  "recently_closed": [
-    {
-      "key": "54f9554d6425d74c",
-      "source": "operational",
-      "fingerprint": "Application publication needs attention",
-      "title": "Application publication needs attention",
-      "severity": "critical",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-12T15:32:22.365860+00:00",
-      "last_detected_at": "2026-08-12T15:32:22.365860+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 1,
-      "closed_at": "2026-08-12T20:23:44.415187+00:00"
-    }
-  ],
+  "recently_closed": [],
   "technical_debt": {
     "state": "LOW",
     "known_items": 0
@@ -48,7 +32,7 @@
     "recommendation": "READY",
     "regression_risk": "VERY_LOW",
     "expected_build_seconds": null,
-    "expected_deployment_seconds": 33.0,
+    "expected_deployment_seconds": 32.0,
     "actions_success_rate_pct": 87.9,
     "blockers": []
   },
