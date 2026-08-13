@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-13T14:39:30.570110+00:00",
-  "snapshot_id": "f6d98572861ac1796529",
+  "generated_at": "2026-08-13T18:41:57.017610+00:00",
+  "snapshot_id": "168277c39352f3962dbe",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -20,9 +20,9 @@
   "capital_summary": {
     "exchange_total": 2786.11702247,
     "free_available": 1377.26484183,
-    "active_deal_capital": 1441.3407260252,
-    "reserved_capital": 843.75,
-    "deployable_capital": 533.51484183,
+    "active_deal_capital": 2286.5338955459,
+    "reserved_capital": 0.0,
+    "deployable_capital": 1377.26484183,
     "next_capital_required": null,
     "can_fund_next_priority": null
   },
@@ -49,7 +49,7 @@
       "live_state": "DISABLED",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 533.51484183,
+      "capital_available": 1377.26484183,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -227,7 +227,7 @@
       "live_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 533.51484183,
+      "capital_available": 1377.26484183,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -404,10 +404,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "08a15319dc190dafa582",
-    "capital_snapshot": "4f2ec65bae71a41e1cc5",
+    "operating_state_snapshot": "11aa1dd1bce2f801c2f8",
+    "capital_snapshot": "5137c1a07da29d3c7272",
     "decision_generated_at": "2026-08-11T20:03:45.895613+00:00",
-    "threecommas_generated_at": "2026-08-13T14:39:28.567749+00:00"
+    "threecommas_generated_at": "2026-08-13T18:41:53.921247+00:00"
   },
   "warnings": [
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."

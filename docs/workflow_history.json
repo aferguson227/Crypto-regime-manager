@@ -1,21 +1,51 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-13T14:39:28.484411+00:00",
+  "generated_at": "2026-08-13T18:41:53.792858+00:00",
   "runs": [
+    {
+      "id": 31732051513,
+      "name": "CRM Data Refresh",
+      "event": "schedule",
+      "head_sha": "1ccc19da94ed275e21591868330b92ba1beb2144",
+      "status": "in_progress",
+      "raw_status": "in_progress",
+      "conclusion": null,
+      "created_at": "2026-08-13T18:41:38Z",
+      "started_at": "2026-08-13T18:41:38Z",
+      "updated_at": "2026-08-13T18:41:41Z",
+      "queue_seconds": 0.0,
+      "duration_seconds": null,
+      "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31732051513"
+    },
+    {
+      "id": 31716144815,
+      "name": "CRM Health & Self-Heal",
+      "event": "schedule",
+      "head_sha": "ff420ac98429688869ad73f53453112c151b386d",
+      "status": "success",
+      "raw_status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-08-13T15:34:49Z",
+      "started_at": "2026-08-13T15:34:49Z",
+      "updated_at": "2026-08-13T15:35:06Z",
+      "queue_seconds": 0.0,
+      "duration_seconds": 17.0,
+      "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31716144815"
+    },
     {
       "id": 31711213626,
       "name": "CRM Data Refresh",
       "event": "schedule",
       "head_sha": "aee5d5b4226fac99d85a84aaec94d54495e23554",
-      "status": "in_progress",
-      "raw_status": "in_progress",
-      "conclusion": null,
+      "status": "success",
+      "raw_status": "completed",
+      "conclusion": "success",
       "created_at": "2026-08-13T14:39:12Z",
       "started_at": "2026-08-13T14:39:12Z",
-      "updated_at": "2026-08-13T14:39:15Z",
+      "updated_at": "2026-08-13T14:39:45Z",
       "queue_seconds": 0.0,
-      "duration_seconds": null,
+      "duration_seconds": 33.0,
       "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31711213626"
     },
     {
@@ -1472,36 +1502,6 @@
       "queue_seconds": 0.0,
       "duration_seconds": 171.0,
       "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31397326371"
-    },
-    {
-      "id": 31396886581,
-      "name": "Deploy CRM Pages",
-      "event": "push",
-      "head_sha": "79e7f7bd4dbe19295ef6bb1e2ff7cba97ae46df7",
-      "status": "success",
-      "raw_status": "completed",
-      "conclusion": "success",
-      "created_at": "2026-08-10T14:12:16Z",
-      "started_at": "2026-08-10T14:12:16Z",
-      "updated_at": "2026-08-10T14:12:52Z",
-      "queue_seconds": 0.0,
-      "duration_seconds": 36.0,
-      "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31396886581"
-    },
-    {
-      "id": 31396427968,
-      "name": "Deploy CRM Pages",
-      "event": "push",
-      "head_sha": "e62ec8ca1ecca086de34a39395ad46352976118f",
-      "status": "success",
-      "raw_status": "completed",
-      "conclusion": "success",
-      "created_at": "2026-08-10T14:07:09Z",
-      "started_at": "2026-08-10T14:07:09Z",
-      "updated_at": "2026-08-10T14:07:37Z",
-      "queue_seconds": 0.0,
-      "duration_seconds": 28.0,
-      "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/31396427968"
     }
   ]
 }

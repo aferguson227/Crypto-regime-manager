@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-13T14:39:31.299191+00:00",
+  "generated_at": "2026-08-13T18:41:58.150857+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Wait TEL Low Volatility Bot.",
-    "Deployable capital: 533.515 USDT; exact allocation remains advisory.",
+    "Deployable capital: 1377.26 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Recent drawdown is elevated"
   ],
@@ -55,13 +55,13 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 533.51484183,
+    "deployable_quote": 1377.26484183,
     "asset_allocations": [
       {
         "asset": "AAVE",
-        "quantity": 16.1663,
+        "quantity": 25.8106,
         "quote_currency": "USDT",
-        "quote_cost": 1441.3407260252
+        "quote_cost": 2286.5338955459
       }
     ],
     "display_rule": "Base-asset quantities use the asset ticker; budgets and capital use the quote-currency code."
@@ -355,8 +355,8 @@
         "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
         "active_deals": 1,
-        "allocated_capital": 1441.3407260252,
-        "reserve_capital": 843.75,
+        "allocated_capital": 2286.5338955459,
+        "reserve_capital": 0.0,
         "deployable_priority": 5,
         "efficiency_score": null,
         "overlap_group": "BTC-linked altcoin",
@@ -394,5 +394,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "f04091987d2ed9b1af05bddd"
+  "snapshot_id": "4f008b3068c3c8023973f047"
 }
