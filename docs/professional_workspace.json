@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-14T05:16:50.413802+00:00",
+  "generated_at": "2026-08-14T08:21:53.610889+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Wait TEL Low Volatility Bot.",
-    "Deployable capital: 1377.26 USDT; exact allocation remains advisory.",
+    "Deployable capital: 988.565 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Recent drawdown is elevated"
   ],
@@ -14,7 +14,7 @@
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
     "action": "WAIT",
-    "confidence_pct": 93.1,
+    "confidence_pct": 79.1,
     "urgency": "WAIT",
     "why": [
       "Current entry filters pass",
@@ -55,8 +55,14 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 1377.26484183,
+    "deployable_quote": 988.56484183,
     "asset_allocations": [
+      {
+        "asset": "ZEC",
+        "quantity": 0.6748,
+        "quote_currency": "USDT",
+        "quote_cost": 331.3209145246
+      },
       {
         "asset": "AAVE",
         "quantity": 25.8106,
@@ -249,7 +255,7 @@
   "what_changed": [],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 34.3 days",
+    "Open replay position has lasted 36.8 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
@@ -258,43 +264,43 @@
   ],
   "market": {
     "regime": "MEAN_REVERTING",
-    "confidence_pct": 49.6,
+    "confidence_pct": 40.6,
     "risk_appetite": "CAUTIOUS",
     "recommended_exposure": "LOW_TO_MODERATE",
     "trend_score": 47.5,
-    "breadth_score": 50.0,
+    "breadth_score": 20.0,
     "volatility_score": 35,
     "stress_tests": [
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 285.91,
-        "stressed_reserve_requirement": 0.0,
+        "estimated_capital_impact": 261.79,
+        "stressed_reserve_requirement": 485.88,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 171.55,
-        "stressed_reserve_requirement": 0.0,
+        "estimated_capital_impact": 157.07,
+        "stressed_reserve_requirement": 583.05,
         "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 228.73,
-        "stressed_reserve_requirement": 0.0,
+        "estimated_capital_impact": 209.43,
+        "stressed_reserve_requirement": 349.83,
         "status": "ESTIMATED",
         "automatic_action": false
       }
     ]
   },
   "portfolio": {
-    "health_score": 84.8,
+    "health_score": 84.7,
     "diversification_score": 75,
-    "capital_efficiency_score": 79.4,
+    "capital_efficiency_score": 79.1,
     "next_capital_priority": "TEL Low Volatility Bot",
     "positions": [
       {
@@ -332,7 +338,7 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 3,
-        "efficiency_score": 79.4,
+        "efficiency_score": 79.1,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
@@ -345,18 +351,18 @@
         "allocated_capital": 0.0,
         "reserve_capital": 0.0,
         "deployable_priority": 4,
-        "efficiency_score": 79.4,
+        "efficiency_score": 79.1,
         "overlap_group": "BTC-linked altcoin",
         "warnings": []
       },
       {
         "asset": "ZEC",
         "bot_name": "ZEC DCA Bull",
-        "action": "PAUSE_NEW_DEALS",
+        "action": "KEEP_ACTIVE_DEAL",
         "enabled": true,
-        "active_deals": 0,
-        "allocated_capital": 0.0,
-        "reserve_capital": 0.0,
+        "active_deals": 1,
+        "allocated_capital": 331.3209145246,
+        "reserve_capital": 388.70000000000005,
         "deployable_priority": 5,
         "efficiency_score": null,
         "overlap_group": "BTC-linked altcoin",
@@ -408,5 +414,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "fed160b2d53985873c67ff5c"
+  "snapshot_id": "1307b96668abc1d44ea9f1cd"
 }
