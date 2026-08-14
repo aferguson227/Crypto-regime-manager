@@ -1,12 +1,55 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-13T05:52:24.883031+00:00",
+  "generated_at": "2026-08-14T15:10:36.104902+00:00",
   "summary": {
-    "open": 0,
+    "open": 3,
     "closed_this_scan": 0,
     "automatic_available": 0
   },
-  "issues": [],
+  "issues": [
+    {
+      "key": "639377529cea1cd2",
+      "source": "actions",
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "CRM Data Refresh latest run failed",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "first_detected_at": "2026-08-14T15:10:36.104902+00:00",
+      "last_detected_at": "2026-08-14T15:10:36.104902+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "58ff1e9c172a1458",
+      "source": "self_healing",
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "CRM Data Refresh latest run failed",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
+      "first_detected_at": "2026-08-14T15:10:36.104902+00:00",
+      "last_detected_at": "2026-08-14T15:10:36.104902+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "a43930f4134bf7af",
+      "source": "self_healing",
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "severity": "low",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Trigger the read-only 3Commas workflow.",
+      "first_detected_at": "2026-08-14T15:10:36.104902+00:00",
+      "last_detected_at": "2026-08-14T15:10:36.104902+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    }
+  ],
   "recently_closed": []
 }
