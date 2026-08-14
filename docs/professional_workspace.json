@@ -1,12 +1,12 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-13T22:09:52.224538+00:00",
+  "generated_at": "2026-08-14T05:16:50.413802+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Wait TEL Low Volatility Bot.",
-    "Deployable capital: 758.565 USDT; exact allocation remains advisory.",
+    "Deployable capital: 1377.26 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
     "Main risk: Recent drawdown is elevated"
   ],
@@ -55,14 +55,8 @@
     "required_quote": null,
     "quote_currency": "USDT",
     "can_fund": null,
-    "deployable_quote": 758.56484183,
+    "deployable_quote": 1377.26484183,
     "asset_allocations": [
-      {
-        "asset": "ZEC",
-        "quantity": 0.2062,
-        "quote_currency": "USDT",
-        "quote_cost": 100.1218682464
-      },
       {
         "asset": "AAVE",
         "quantity": 25.8106,
@@ -358,11 +352,11 @@
       {
         "asset": "ZEC",
         "bot_name": "ZEC DCA Bull",
-        "action": "KEEP_ACTIVE_DEAL",
+        "action": "PAUSE_NEW_DEALS",
         "enabled": true,
-        "active_deals": 1,
-        "allocated_capital": 100.1218682464,
-        "reserve_capital": 618.7,
+        "active_deals": 0,
+        "allocated_capital": 0.0,
+        "reserve_capital": 0.0,
         "deployable_priority": 5,
         "efficiency_score": null,
         "overlap_group": "BTC-linked altcoin",
@@ -414,5 +408,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "f4a69223eb02e695fabecf8c"
+  "snapshot_id": "fed160b2d53985873c67ff5c"
 }

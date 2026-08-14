@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-13T22:09:52.181377+00:00",
-  "snapshot_id": "080e0a4944c2c3159aacd397",
+  "generated_at": "2026-08-14T05:16:50.365901+00:00",
+  "snapshot_id": "397c3b055e449de5037c85a1",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -103,11 +103,11 @@
       {
         "asset": "ZEC",
         "bot_name": "ZEC DCA Bull",
-        "action": "KEEP_ACTIVE_DEAL",
+        "action": "PAUSE_NEW_DEALS",
         "enabled": true,
-        "active_deals": 1,
-        "allocated_capital": 100.1218682464,
-        "reserve_capital": 618.7,
+        "active_deals": 0,
+        "allocated_capital": 0.0,
+        "reserve_capital": 0.0,
         "deployable_priority": 5,
         "efficiency_score": null,
         "overlap_group": "BTC-linked altcoin",
@@ -143,18 +143,12 @@
     "status": null,
     "currency": "USDT",
     "total_equity": 2786.11702247,
-    "allocated": 2386.6557637923,
-    "reserved": 618.7,
-    "deployable": 758.56484183,
+    "allocated": 2286.5338955459,
+    "reserved": 0.0,
+    "deployable": 1377.26484183,
     "next_required": null,
     "can_fund_next": null,
     "asset_allocations": [
-      {
-        "asset": "ZEC",
-        "quantity": 0.2062,
-        "quote_currency": "USDT",
-        "quote_cost": 100.1218682464
-      },
       {
         "asset": "AAVE",
         "quantity": 25.8106,
@@ -165,7 +159,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "033f50e9e1886f48cea5b87b",
+      "recommendation_id": "b15522013e77c8765b108ae4",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
@@ -308,7 +302,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 758.56484183,
+        "available": 1377.26484183,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -328,7 +322,7 @@
       }
     },
     {
-      "recommendation_id": "5ae0995b2ab60b7b07fb33cc",
+      "recommendation_id": "50f6f3f4d5d77b5cd553241b",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -479,7 +473,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 758.56484183,
+        "available": 1377.26484183,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -572,7 +566,7 @@
     "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-13T22:09:49.035668+00:00",
+      "generated_at": "2026-08-14T05:16:47.316431+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -586,14 +580,14 @@
   },
   "source_snapshots": {
     "market": "0be677d7595132e3099c",
-    "portfolio": "e7ad0c812a2cdb9affa3",
-    "capital": "e8900f5d78e41ada17eb",
-    "deployment": "9e9aa6edaae40a11016c",
-    "recommendations": "fdfd69e7d6af46d47e5a",
+    "portfolio": "fc43a10744968479591d",
+    "capital": "54ad8781afdc0d1a628f",
+    "deployment": "7b3a47bc66640caa61bb",
+    "recommendations": "b5c65078e68b3aa46bdf",
     "adaptive": "b6788406922102c08b1e",
     "outcomes": "2026-08-11T20:03:46.093281+00:00",
-    "cloud": "e73f112722fdbfa77bac",
-    "operating": "e3fff99dba16026550c6"
+    "cloud": "c103ab707cfb6e98927d",
+    "operating": "6349c0313181c776c8d0"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
