@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-14T09:37:49.564133+00:00",
-  "snapshot_id": "76d6486f65b9946cdd28",
+  "generated_at": "2026-08-15T17:39:30.180329+00:00",
+  "snapshot_id": "5aff90dd504617c23739",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,11 +10,11 @@
   "market_regime": "Low",
   "recommendations": [
     {
-      "recommendation_id": "085b82b0f96ecbcd10949c01",
+      "recommendation_id": "b6e8e7e2e3d4504afdfd22da",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
-      "overall_confidence": 79.1,
+      "overall_confidence": 60.1,
       "risk_level": "HIGH",
       "confidence_components": [
         {
@@ -33,10 +33,10 @@
         },
         {
           "name": "live_conditions",
-          "score": 80.0,
+          "score": null,
           "weight": 0.15,
-          "status": "pass",
-          "explanation": "The bot is not currently consuming an active-deal slot."
+          "status": "unknown",
+          "explanation": "Live 3Commas state is unavailable."
         },
         {
           "name": "capital",
@@ -47,10 +47,10 @@
         },
         {
           "name": "settings",
-          "score": 100.0,
+          "score": 25.0,
           "weight": 0.15,
-          "status": "pass",
-          "explanation": "The recommendation matches the governed production setting set."
+          "status": "fail",
+          "explanation": "One or more exact DCA settings are missing."
         },
         {
           "name": "cross_source_agreement",
@@ -79,7 +79,8 @@
         "Open replay position has lasted 36.8 days"
       ],
       "blockers": [
-        "Complete deployable-capital confirmation is unavailable."
+        "Complete deployable-capital confirmation is unavailable.",
+        "Exact DCA settings are incomplete; deployment is blocked."
       ],
       "expected_behaviour": {
         "expected_roi_pct": null,
@@ -89,86 +90,86 @@
         "note": "ROI and hold-time expectations are not published unless supported by a comparable validated dataset."
       },
       "production_comparison": {
-        "settings_changed": false,
+        "settings_changed": null,
         "settings_state": "INCOMPLETE",
         "differences": [
           {
             "field": "base_order_volume",
             "production_value": 100.0,
-            "live_value": 100.0,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "safety_order_volume",
-            "production_value": 100.0,
-            "live_value": 100.0,
-            "status": "MATCH"
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "take_profit_pct",
             "production_value": 1.5,
-            "live_value": 1.5,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "so_deviation_pct",
             "production_value": 1.2,
-            "live_value": 1.2,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "safety_orders",
             "production_value": 6,
-            "live_value": 6,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "volume_scale",
             "production_value": 1.6,
-            "live_value": 1.6,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "step_scale",
             "production_value": 1.0,
-            "live_value": 1.0,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "max_active_deals",
             "production_value": 1,
-            "live_value": 1,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "max_active_safety_orders",
-            "production_value": 3,
-            "live_value": 3,
-            "status": "MATCH"
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "start_condition",
-            "production_value": "long",
-            "live_value": "long",
-            "status": "MATCH"
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "order_type",
-            "production_value": "limit",
-            "live_value": "limit",
-            "status": "MATCH"
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "trailing_enabled",
-            "production_value": false,
-            "live_value": false,
-            "status": "MATCH"
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "cooldown_seconds",
-            "production_value": 0,
-            "live_value": 0,
-            "status": "MATCH"
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           }
         ],
         "recommended_settings": {
@@ -176,41 +177,48 @@
           "values": {
             "bot_name": "TEL Low Volatility Bot",
             "base_order_volume": 100.0,
-            "safety_order_volume": 100.0,
+            "safety_order_volume": null,
             "take_profit_pct": 1.5,
             "so_deviation_pct": 1.2,
             "safety_orders": 6,
             "volume_scale": 1.6,
             "step_scale": 1.0,
             "max_active_deals": 1,
-            "max_active_safety_orders": 3,
-            "start_condition": "long",
-            "order_type": "limit",
-            "trailing_enabled": false,
-            "cooldown_seconds": 0,
+            "max_active_safety_orders": null,
+            "start_condition": null,
+            "order_type": null,
+            "trailing_enabled": null,
+            "cooldown_seconds": null,
             "_evidence": {
               "base_order_volume": "GOVERNED",
-              "safety_order_volume": "KEEP_LIVE",
+              "safety_order_volume": "UNAVAILABLE",
               "take_profit_pct": "GOVERNED",
               "so_deviation_pct": "GOVERNED",
               "safety_orders": "GOVERNED",
               "volume_scale": "GOVERNED",
               "step_scale": "GOVERNED",
               "max_active_deals": "GOVERNED",
-              "max_active_safety_orders": "KEEP_LIVE",
-              "start_condition": "KEEP_LIVE",
-              "order_type": "KEEP_LIVE",
-              "trailing_enabled": "KEEP_LIVE",
-              "cooldown_seconds": "KEEP_LIVE"
+              "max_active_safety_orders": "UNAVAILABLE",
+              "start_condition": "UNAVAILABLE",
+              "order_type": "UNAVAILABLE",
+              "trailing_enabled": "UNAVAILABLE",
+              "cooldown_seconds": "UNAVAILABLE"
             }
           },
-          "complete": true,
-          "missing_fields": []
+          "complete": false,
+          "missing_fields": [
+            "safety_order_volume",
+            "max_active_safety_orders",
+            "start_condition",
+            "order_type",
+            "trailing_enabled",
+            "cooldown_seconds"
+          ]
         }
       },
       "capital_impact": {
         "required": null,
-        "available": 988.56484183,
+        "available": null,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -221,10 +229,10 @@
         "kucoin_current": "AVAILABLE",
         "agreement": "UNKNOWN"
       },
-      "explanation": "Wait TEL Low Volatility Bot. Confidence 79.1%; risk high. Current entry filters pass"
+      "explanation": "Wait TEL Low Volatility Bot. Confidence 60.1%; risk high. Current entry filters pass"
     },
     {
-      "recommendation_id": "2875b5d8c168f1d9e8657df7",
+      "recommendation_id": "c392343a26b2b8fcdf52fe46",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -432,7 +440,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 988.56484183,
+        "available": null,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -452,8 +460,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "4a24447825dd7b5188b8",
-    "deployment_generated_at": "2026-08-14T09:37:49.313460+00:00",
+    "deployment_snapshot": "d119826b2a2945ff23a8",
+    "deployment_generated_at": "2026-08-15T17:39:30.126059+00:00",
     "decision_generated_at": "2026-08-14T08:21:49.685286+00:00"
   }
 }

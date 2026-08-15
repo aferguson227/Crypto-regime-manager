@@ -1,13 +1,17 @@
 {
   "version": "70.0.0",
   "authentication": "RSA self-generated",
-  "generated_at": "2026-08-14T09:37:45.740857+00:00",
-  "last_attempt_at": "2026-08-14T09:37:45.740857+00:00",
-  "last_success_at": "2026-08-14T09:37:45.740857+00:00",
-  "status": "ok",
-  "core_status": "ok",
-  "core_failed": [],
-  "message": "All read-only 3Commas endpoints updated successfully.",
+  "generated_at": "2026-08-15T17:39:28.582906+00:00",
+  "last_attempt_at": "2026-08-15T17:39:28.582906+00:00",
+  "last_success_at": "2026-08-15T17:39:28.582906+00:00",
+  "status": "partial",
+  "core_status": "error",
+  "core_failed": [
+    "deals",
+    "bots",
+    "accounts"
+  ],
+  "message": "Read-only sync completed with endpoint issues: accounts, bots, deals.",
   "publish_mode": "masked",
   "read_only": true,
   "endpoint_diagnostics": {
@@ -18,294 +22,36 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-14T09:37:46.806124+00:00"
+      "observed_at": "2026-08-15T17:39:29.236003+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
-      "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
-      "http_status": null,
-      "records": 1,
-      "observed_at": "2026-08-14T09:37:47.486333+00:00"
+      "status": "fail",
+      "category": "rate_limited",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-15 17:39:51 UTC'}",
+      "http_status": 429,
+      "records": null,
+      "observed_at": "2026-08-15T17:39:29.442134+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
-      "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
-      "http_status": null,
-      "records": 6,
-      "observed_at": "2026-08-14T09:37:48.134595+00:00"
+      "status": "fail",
+      "category": "rate_limited",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-15 17:39:51 UTC'}",
+      "http_status": 429,
+      "records": null,
+      "observed_at": "2026-08-15T17:39:29.657292+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
-      "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
-      "http_status": null,
-      "records": 2,
-      "observed_at": "2026-08-14T09:37:48.727866+00:00"
-    },
-    "account_32632134_details": {
-      "path": "/public/api/ver1/accounts/32632134",
-      "status": "pass",
-      "category": "not_requested_quota_guard",
-      "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
-      "http_status": null,
+      "status": "fail",
+      "category": "rate_limited",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-15 17:39:51 UTC'}",
+      "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-14T09:37:48.727914+00:00"
-    },
-    "account_32632134_balances": {
-      "path": "/public/api/ver1/accounts/32632134/account_table_data",
-      "status": "pass",
-      "category": "not_requested_direct_capital",
-      "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured.",
-      "http_status": null,
-      "records": null,
-      "observed_at": "2026-08-14T09:37:48.727920+00:00"
+      "observed_at": "2026-08-15T17:39:29.881396+00:00"
     }
   },
-  "accounts": [
-    {
-      "account_id": 32632134,
-      "name": "My Kucoin",
-      "exchange_name": "Kucoin Spot",
-      "currency": "USDT",
-      "total_usd_value": 3587.5538871179756,
-      "free_usdt": 806.67111932,
-      "balance_records": 2,
-      "balances": [
-        {
-          "currency": "TEL",
-          "equity": 1907460.0,
-          "available": 0.0,
-          "on_orders": 1907460.0,
-          "usd_value": 2780.88152395248,
-          "current_price_usd": 0.001457897688,
-          "account_id": 32632134
-        },
-        {
-          "currency": "USDT",
-          "equity": 806.67111932,
-          "available": 806.67111932,
-          "on_orders": 0.0,
-          "usd_value": 806.67111932,
-          "current_price_usd": 1.0,
-          "account_id": 32632134
-        }
-      ],
-      "api_keys_state": "ok",
-      "balance_source": "Cached recent 3Commas ACCOUNTS_READ balance snapshot (quota guard)",
-      "balance_observed_at": "2026-08-07T10:15:57.473270+00:00",
-      "balance_cached": true
-    }
-  ],
-  "assets": {
-    "ZEC": {
-      "bots": [
-        {
-          "bot_id": 16951492,
-          "account_id": 32632134,
-          "name": "ZEC DCA Bull",
-          "pair": "USDT_ZEC",
-          "enabled": true,
-          "active_deals": 1,
-          "max_active_deals": 1,
-          "base_order_volume": 100.0,
-          "safety_order_volume": 100.0,
-          "take_profit_pct": 0.8,
-          "max_safety_orders": 4,
-          "max_active_safety_orders": 2,
-          "safety_order_deviation_pct": 0.8,
-          "step_scale": 1.0,
-          "volume_scale": 1.3,
-          "start_condition": "long",
-          "start_order_type": "limit",
-          "safety_order_type": null,
-          "trailing_enabled": false,
-          "trailing_deviation": 0.2,
-          "cooldown_seconds": 0,
-          "reinvesting_percentage": 100.0,
-          "theoretical_max_dca_capital": 718.7
-        }
-      ],
-      "deals": [
-        {
-          "bot_name": "ZEC DCA Bull",
-          "pair": "USDT_ZEC",
-          "quote_currency": "USDT",
-          "base_asset": "ZEC",
-          "status": "bought",
-          "created_at": "2026-08-14T06:08:41.794Z",
-          "profit_pct": -0.61,
-          "completed_safety_orders": 2,
-          "max_safety_orders": 4,
-          "active_safety_orders": 2,
-          "bot_id": 16951492,
-          "allocated_asset_quantity": 0.6748,
-          "allocated_asset": "ZEC",
-          "capital_used_quote": 331.3209145246,
-          "capital_currency": "USDT",
-          "capital_used": 331.3209145246,
-          "placed_order_reserve": 0.0
-        }
-      ]
-    },
-    "AAVE": {
-      "bots": [
-        {
-          "bot_id": 16950798,
-          "account_id": 32632134,
-          "name": "AAVE pullback 3pct",
-          "pair": "USDT_AAVE",
-          "enabled": true,
-          "active_deals": 1,
-          "max_active_deals": 1,
-          "base_order_volume": 250.0,
-          "safety_order_volume": 250.0,
-          "take_profit_pct": 1.2,
-          "max_safety_orders": 4,
-          "max_active_safety_orders": 2,
-          "safety_order_deviation_pct": 0.8,
-          "step_scale": 1.0,
-          "volume_scale": 1.5,
-          "start_condition": "long",
-          "start_order_type": "limit",
-          "safety_order_type": null,
-          "trailing_enabled": false,
-          "trailing_deviation": 0.0,
-          "cooldown_seconds": 0,
-          "reinvesting_percentage": 100.0,
-          "theoretical_max_dca_capital": 2281.25
-        }
-      ],
-      "deals": [
-        {
-          "bot_name": "AAVE pullback 3pct",
-          "pair": "USDT_AAVE",
-          "quote_currency": "USDT",
-          "base_asset": "AAVE",
-          "status": "bought",
-          "created_at": "2026-08-12T05:15:57.514Z",
-          "profit_pct": -1.87,
-          "completed_safety_orders": 4,
-          "max_safety_orders": 4,
-          "active_safety_orders": 0,
-          "bot_id": 16950798,
-          "allocated_asset_quantity": 25.8106,
-          "allocated_asset": "AAVE",
-          "capital_used_quote": 2286.5338955459,
-          "capital_currency": "USDT",
-          "capital_used": 2286.5338955459,
-          "placed_order_reserve": 0.0
-        }
-      ]
-    },
-    "TEL": {
-      "bots": [
-        {
-          "bot_id": 16945275,
-          "account_id": 32632134,
-          "name": "TEL DCA - High Bear",
-          "pair": "USDT_TEL",
-          "enabled": false,
-          "active_deals": 0,
-          "max_active_deals": 1,
-          "base_order_volume": 100.0,
-          "safety_order_volume": 100.0,
-          "take_profit_pct": 1.5,
-          "max_safety_orders": 5,
-          "max_active_safety_orders": 3,
-          "safety_order_deviation_pct": 1.2,
-          "step_scale": 1.0,
-          "volume_scale": 1.8,
-          "start_condition": "long",
-          "start_order_type": "limit",
-          "safety_order_type": null,
-          "trailing_enabled": false,
-          "trailing_deviation": 0.2,
-          "cooldown_seconds": 0,
-          "reinvesting_percentage": 100.0,
-          "theoretical_max_dca_capital": 2336.96
-        },
-        {
-          "bot_id": 16945274,
-          "account_id": 32632134,
-          "name": "TEL DCA - High Bull",
-          "pair": "USDT_TEL",
-          "enabled": false,
-          "active_deals": 0,
-          "max_active_deals": 1,
-          "base_order_volume": 100.0,
-          "safety_order_volume": 100.0,
-          "take_profit_pct": 2.0,
-          "max_safety_orders": 8,
-          "max_active_safety_orders": 4,
-          "safety_order_deviation_pct": 1.2,
-          "step_scale": 1.0,
-          "volume_scale": 1.4,
-          "start_condition": "long",
-          "start_order_type": "limit",
-          "safety_order_type": null,
-          "trailing_enabled": false,
-          "trailing_deviation": 0.2,
-          "cooldown_seconds": 0,
-          "reinvesting_percentage": 100.0,
-          "theoretical_max_dca_capital": 3539.4726399999986
-        },
-        {
-          "bot_id": 16945273,
-          "account_id": 32632134,
-          "name": "TEL DCA - Medium Volatility",
-          "pair": "USDT_TEL",
-          "enabled": false,
-          "active_deals": 0,
-          "max_active_deals": 1,
-          "base_order_volume": 100.0,
-          "safety_order_volume": 100.0,
-          "take_profit_pct": 1.5,
-          "max_safety_orders": 5,
-          "max_active_safety_orders": 3,
-          "safety_order_deviation_pct": 5.0,
-          "step_scale": 1.2,
-          "volume_scale": 1.4,
-          "start_condition": "long",
-          "start_order_type": "limit",
-          "safety_order_type": null,
-          "trailing_enabled": false,
-          "trailing_deviation": 0.2,
-          "cooldown_seconds": 0,
-          "reinvesting_percentage": 100.0,
-          "theoretical_max_dca_capital": 1194.5599999999997
-        },
-        {
-          "bot_id": 16945272,
-          "account_id": 32632134,
-          "name": "TEL DCA - Low Volatility",
-          "pair": "USDT_TEL",
-          "enabled": false,
-          "active_deals": 0,
-          "max_active_deals": 1,
-          "base_order_volume": 100.0,
-          "safety_order_volume": 100.0,
-          "take_profit_pct": 1.5,
-          "max_safety_orders": 6,
-          "max_active_safety_orders": 3,
-          "safety_order_deviation_pct": 1.2,
-          "step_scale": 1.0,
-          "volume_scale": 1.6,
-          "start_condition": "long",
-          "start_order_type": "limit",
-          "safety_order_type": null,
-          "trailing_enabled": false,
-          "trailing_deviation": 0.2,
-          "cooldown_seconds": 0,
-          "reinvesting_percentage": 100.0,
-          "theoretical_max_dca_capital": 2729.5360000000005
-        }
-      ],
-      "deals": []
-    }
-  }
+  "accounts": [],
+  "assets": {}
 }
