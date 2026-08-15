@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-15T17:39:30.436086+00:00",
+  "generated_at": "2026-08-15T19:04:40.034809+00:00",
   "overall": {
     "state": "WARNING",
-    "score_pct": 75.0,
+    "score_pct": 67.0,
     "active_issue_count": 3,
     "critical_count": 0,
     "warning_count": 3
@@ -14,13 +14,13 @@
     "data": 80.0,
     "trading": 70.0,
     "deployment": 65.0,
-    "decision_readiness": 60.0
+    "decision_readiness": 20.0
   },
   "threecommas": {
     "status": "error",
     "last_attempt_at": "2026-08-15T17:39:28.582906+00:00",
     "last_success_at": "2026-08-15T17:39:28.582906+00:00",
-    "last_success_age_hours": 0.0,
+    "last_success_age_hours": 1.42,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-15T17:39:29.236003+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.42,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-15T17:39:29.442134+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.42,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-15 17:39:51 UTC'}"
       },
@@ -51,7 +51,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-15T17:39:29.657292+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.42,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-15 17:39:51 UTC'}"
       },
@@ -62,7 +62,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-15T17:39:29.881396+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.42,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-15 17:39:51 UTC'}"
       }
@@ -84,7 +84,7 @@
   "decision": {
     "primary_action": "WAIT",
     "bot_name": "TEL Low Volatility Bot",
-    "readiness_score_pct": 60.0,
+    "readiness_score_pct": 20.0,
     "ready_for_manual_action": false
   },
   "capital_source": "KuCoin direct read-only account API",
@@ -100,8 +100,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-15T17:39:30.437351+00:00",
-      "last_detected_at": "2026-08-15T17:39:30.437356+00:00"
+      "first_detected_at": "2026-08-15T19:04:40.036003+00:00",
+      "last_detected_at": "2026-08-15T19:04:40.036008+00:00"
     },
     {
       "severity": "warning",
@@ -113,8 +113,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-15T17:39:30.437368+00:00",
-      "last_detected_at": "2026-08-15T17:39:30.437371+00:00"
+      "first_detected_at": "2026-08-15T19:04:40.036017+00:00",
+      "last_detected_at": "2026-08-15T19:04:40.036019+00:00"
     },
     {
       "severity": "warning",
@@ -126,8 +126,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-15T17:39:30.437377+00:00",
-      "last_detected_at": "2026-08-15T17:39:30.437379+00:00"
+      "first_detected_at": "2026-08-15T19:04:40.036025+00:00",
+      "last_detected_at": "2026-08-15T19:04:40.036027+00:00"
     }
   ],
   "safeguards": {

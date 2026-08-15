@@ -1,13 +1,57 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-15T13:45:33.027035+00:00",
+  "generated_at": "2026-08-15T19:04:40.482668+00:00",
   "summary": {
     "open": 3,
-    "closed_this_scan": 0,
+    "closed_this_scan": 3,
     "automatic_available": 0
   },
   "issues": [
+    {
+      "key": "bdde74e55a281c11",
+      "source": "operational",
+      "fingerprint": "accounts endpoint rate limited",
+      "title": "accounts endpoint rate limited",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
+      "last_detected_at": "2026-08-15T19:04:40.482668+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "5eba43e409623aec",
+      "source": "operational",
+      "fingerprint": "bots endpoint rate limited",
+      "title": "bots endpoint rate limited",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
+      "last_detected_at": "2026-08-15T19:04:40.482668+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "359555dc85bc3b84",
+      "source": "operational",
+      "fingerprint": "deals endpoint rate limited",
+      "title": "deals endpoint rate limited",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
+      "last_detected_at": "2026-08-15T19:04:40.482668+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    }
+  ],
+  "recently_closed": [
     {
       "key": "639377529cea1cd2",
       "source": "actions",
@@ -19,8 +63,9 @@
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
       "first_detected_at": "2026-08-14T15:10:36.104902+00:00",
       "last_detected_at": "2026-08-15T13:45:33.027035+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 5
+      "lifecycle": "CLOSED",
+      "historical_occurrences": 5,
+      "closed_at": "2026-08-15T19:04:40.482668+00:00"
     },
     {
       "key": "58ff1e9c172a1458",
@@ -33,8 +78,9 @@
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
       "first_detected_at": "2026-08-14T15:10:36.104902+00:00",
       "last_detected_at": "2026-08-15T13:45:33.027035+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 5
+      "lifecycle": "CLOSED",
+      "historical_occurrences": 5,
+      "closed_at": "2026-08-15T19:04:40.482668+00:00"
     },
     {
       "key": "a43930f4134bf7af",
@@ -47,9 +93,9 @@
       "recommended_action": "Trigger the read-only 3Commas workflow.",
       "first_detected_at": "2026-08-14T15:10:36.104902+00:00",
       "last_detected_at": "2026-08-15T13:45:33.027035+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 5
+      "lifecycle": "CLOSED",
+      "historical_occurrences": 5,
+      "closed_at": "2026-08-15T19:04:40.482668+00:00"
     }
-  ],
-  "recently_closed": []
+  ]
 }
