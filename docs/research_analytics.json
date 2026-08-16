@@ -1,6 +1,6 @@
 {
   "version": "31.1.0",
-  "generated_at": "2026-08-14T08:21:49.688321+00:00",
+  "generated_at": "2026-08-16T12:00:37.492329+00:00",
   "mode": "research_intelligence_read_only",
   "coins": [
     {
@@ -9,8 +9,8 @@
       "next_stage": "RESEARCH / REJECT",
       "regime": {
         "label": "MEAN REVERTING",
-        "trend_30d_pct": -10.0,
-        "annualised_vol_pct": 55.0
+        "trend_30d_pct": 0.0,
+        "annualised_vol_pct": 0.0
       },
       "strategy_family_screening": [
         {
@@ -336,8 +336,8 @@
       "next_stage": "FORWARD VALIDATION",
       "regime": {
         "label": "MEAN REVERTING",
-        "trend_30d_pct": -3.0,
-        "annualised_vol_pct": 37.2
+        "trend_30d_pct": 2.0,
+        "annualised_vol_pct": 34.6
       },
       "strategy_family_screening": [
         {
@@ -444,29 +444,29 @@
       "status": "PASS",
       "next_stage": "FORWARD VALIDATION",
       "regime": {
-        "label": "TRENDING",
-        "trend_30d_pct": -22.9,
-        "annualised_vol_pct": 55.2
+        "label": "MEAN REVERTING",
+        "trend_30d_pct": 0.0,
+        "annualised_vol_pct": 0.0
       },
       "strategy_family_screening": [
         {
-          "family": "Trend-filtered DCA",
-          "screening_score": 90,
-          "status": "REQUIRES INDEPENDENT BACKTEST"
-        },
-        {
-          "family": "Breakout / momentum",
-          "screening_score": 78,
-          "status": "REQUIRES INDEPENDENT BACKTEST"
-        },
-        {
           "family": "Grid",
-          "screening_score": 35,
+          "screening_score": 88,
           "status": "REQUIRES INDEPENDENT BACKTEST"
         },
         {
-          "family": "QFL",
-          "screening_score": 42,
+          "family": "DCA",
+          "screening_score": 84,
+          "status": "REQUIRES INDEPENDENT BACKTEST"
+        },
+        {
+          "family": "QFL + DCA",
+          "screening_score": 75,
+          "status": "REQUIRES INDEPENDENT BACKTEST"
+        },
+        {
+          "family": "Momentum",
+          "screening_score": 35,
           "status": "REQUIRES INDEPENDENT BACKTEST"
         }
       ],
@@ -554,8 +554,8 @@
       "next_stage": "RESEARCH / REJECT",
       "regime": {
         "label": "MEAN REVERTING",
-        "trend_30d_pct": -3.1,
-        "annualised_vol_pct": 35.5
+        "trend_30d_pct": 0.0,
+        "annualised_vol_pct": 0.0
       },
       "strategy_family_screening": [
         {
@@ -663,8 +663,8 @@
       "next_stage": "FORWARD VALIDATION",
       "regime": {
         "label": "HIGH VOLATILITY",
-        "trend_30d_pct": -6.0,
-        "annualised_vol_pct": 85.6
+        "trend_30d_pct": -7.4,
+        "annualised_vol_pct": 88.7
       },
       "strategy_family_screening": [
         {
@@ -772,8 +772,8 @@
       "next_stage": "FORWARD VALIDATION",
       "regime": {
         "label": "TRENDING",
-        "trend_30d_pct": 18.5,
-        "annualised_vol_pct": 53.4
+        "trend_30d_pct": 26.2,
+        "annualised_vol_pct": 51.9
       },
       "strategy_family_screening": [
         {
@@ -881,8 +881,8 @@
       "next_stage": "FORWARD VALIDATION",
       "regime": {
         "label": "MEAN REVERTING",
-        "trend_30d_pct": -10.8,
-        "annualised_vol_pct": 32.9
+        "trend_30d_pct": -8.4,
+        "annualised_vol_pct": 31.8
       },
       "strategy_family_screening": [
         {
@@ -989,29 +989,29 @@
       "status": "FAIL",
       "next_stage": "RESEARCH / REJECT",
       "regime": {
-        "label": "TRENDING",
-        "trend_30d_pct": -15.4,
-        "annualised_vol_pct": 60.0
+        "label": "MEAN REVERTING",
+        "trend_30d_pct": -11.0,
+        "annualised_vol_pct": 55.5
       },
       "strategy_family_screening": [
         {
-          "family": "Trend-filtered DCA",
-          "screening_score": 90,
-          "status": "REQUIRES INDEPENDENT BACKTEST"
-        },
-        {
-          "family": "Breakout / momentum",
-          "screening_score": 78,
-          "status": "REQUIRES INDEPENDENT BACKTEST"
-        },
-        {
           "family": "Grid",
-          "screening_score": 35,
+          "screening_score": 88,
           "status": "REQUIRES INDEPENDENT BACKTEST"
         },
         {
-          "family": "QFL",
-          "screening_score": 42,
+          "family": "DCA",
+          "screening_score": 84,
+          "status": "REQUIRES INDEPENDENT BACKTEST"
+        },
+        {
+          "family": "QFL + DCA",
+          "screening_score": 75,
+          "status": "REQUIRES INDEPENDENT BACKTEST"
+        },
+        {
+          "family": "Momentum",
+          "screening_score": 35,
           "status": "REQUIRES INDEPENDENT BACKTEST"
         }
       ],

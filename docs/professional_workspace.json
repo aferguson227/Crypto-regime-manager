@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-16T03:32:58.622989+00:00",
+  "generated_at": "2026-08-16T12:00:39.179951+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -14,7 +14,7 @@
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
     "action": "WAIT",
-    "confidence_pct": 79.1,
+    "confidence_pct": 59.9,
     "urgency": "WAIT",
     "why": [
       "Current entry filters pass",
@@ -244,7 +244,7 @@
   "what_changed": [],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 36.8 days",
+    "Open replay position has lasted 39.0 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
     "TEL: Exact DCA settings are incomplete; deployment is blocked.",
     "Current entry is blocked",
@@ -254,35 +254,35 @@
   ],
   "market": {
     "regime": "MEAN_REVERTING",
-    "confidence_pct": 40.6,
+    "confidence_pct": 47.9,
     "risk_appetite": "CAUTIOUS",
     "recommended_exposure": "LOW_TO_MODERATE",
     "trend_score": 47.5,
-    "breadth_score": 20.0,
+    "breadth_score": 44.4,
     "volatility_score": 35,
     "stress_tests": [
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": 261.79,
-        "stressed_reserve_requirement": 485.88,
-        "status": "ESTIMATED",
+        "estimated_capital_impact": null,
+        "stressed_reserve_requirement": null,
+        "status": "UNKNOWN",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": 157.07,
-        "stressed_reserve_requirement": 583.05,
-        "status": "ESTIMATED",
+        "estimated_capital_impact": null,
+        "stressed_reserve_requirement": null,
+        "status": "UNKNOWN",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": 209.43,
-        "stressed_reserve_requirement": 349.83,
-        "status": "ESTIMATED",
+        "estimated_capital_impact": null,
+        "stressed_reserve_requirement": null,
+        "status": "UNKNOWN",
         "automatic_action": false
       }
     ]
@@ -303,7 +303,7 @@
     "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
   },
   "deployment_health": {
-    "cloud": "FAILURE",
+    "cloud": "WARNING",
     "threecommas": "partial",
     "main_app": null,
     "publication": null,
@@ -316,5 +316,5 @@
     "Resolve missing DCA fields before making changes.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "dfce54bf4b8931dd95a905e8"
+  "snapshot_id": "7a28c1d251cfa2982861e995"
 }

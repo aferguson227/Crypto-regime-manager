@@ -1,14 +1,14 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-16T03:32:58.522069+00:00",
+  "generated_at": "2026-08-16T12:00:39.120549+00:00",
   "overall": {
-    "state": "WARNING",
-    "score_pct": 89.5
+    "state": "HEALTHY",
+    "score_pct": 90.2
   },
   "scores": {
     "application": 100,
-    "operations": 67.0,
+    "operations": 71.0,
     "interface": 100,
     "actions": 100,
     "self_healing": 70,
@@ -25,15 +25,15 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 2,
+      "historical_occurrences": 3,
       "user_benefit": 4,
-      "frequency": 2,
+      "frequency": 3,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 10.0
+      "roi_score": 15.0
     },
     {
       "key": "5eba43e409623aec",
@@ -45,15 +45,15 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 2,
+      "historical_occurrences": 3,
       "user_benefit": 4,
-      "frequency": 2,
+      "frequency": 3,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 10.0
+      "roi_score": 15.0
     },
     {
       "key": "359555dc85bc3b84",
@@ -65,7 +65,27 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 3,
+      "user_benefit": 4,
+      "frequency": 3,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 15.0
+    },
+    {
+      "key": "df0b590c64ba8e2f",
+      "source": "operational",
+      "fingerprint": "3Commas refresh needs attention",
+      "title": "3Commas refresh needs attention",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
       "lifecycle": "OPEN",
       "historical_occurrences": 2,
       "user_benefit": 4,
@@ -74,26 +94,6 @@
       "estimated_effort": 2,
       "regression_risk": 2,
       "roi_score": 10.0
-    },
-    {
-      "key": "df0b590c64ba8e2f",
-      "source": "operational",
-      "fingerprint": "3Commas refresh needs attention",
-      "title": "3Commas refresh needs attention",
-      "severity": "critical",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
-      "user_benefit": 5,
-      "frequency": 1,
-      "confidence": 5,
-      "estimated_effort": 2,
-      "regression_risk": 2,
-      "roi_score": 6.2
     },
     {
       "key": "639377529cea1cd2",
@@ -105,15 +105,15 @@
       "automatic": false,
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
       "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2,
       "user_benefit": 4,
-      "frequency": 1,
+      "frequency": 2,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 5.0
+      "roi_score": 10.0
     },
     {
       "key": "58ff1e9c172a1458",
@@ -125,15 +125,15 @@
       "automatic": false,
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
       "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2,
       "user_benefit": 4,
-      "frequency": 1,
+      "frequency": 2,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 5.0
+      "roi_score": 10.0
     },
     {
       "key": "a43930f4134bf7af",
@@ -145,15 +145,15 @@
       "automatic": false,
       "recommended_action": "Trigger the read-only 3Commas workflow.",
       "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2,
       "user_benefit": 2,
-      "frequency": 1,
+      "frequency": 2,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 2.5
+      "roi_score": 5.0
     }
   ],
   "highest_value_improvements": [
@@ -167,15 +167,15 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 2,
+      "historical_occurrences": 3,
       "user_benefit": 4,
-      "frequency": 2,
+      "frequency": 3,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 10.0
+      "roi_score": 15.0
     },
     {
       "key": "5eba43e409623aec",
@@ -187,15 +187,15 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 2,
+      "historical_occurrences": 3,
       "user_benefit": 4,
-      "frequency": 2,
+      "frequency": 3,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 10.0
+      "roi_score": 15.0
     },
     {
       "key": "359555dc85bc3b84",
@@ -207,7 +207,27 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 3,
+      "user_benefit": 4,
+      "frequency": 3,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 15.0
+    },
+    {
+      "key": "df0b590c64ba8e2f",
+      "source": "operational",
+      "fingerprint": "3Commas refresh needs attention",
+      "title": "3Commas refresh needs attention",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
       "lifecycle": "OPEN",
       "historical_occurrences": 2,
       "user_benefit": 4,
@@ -216,26 +236,6 @@
       "estimated_effort": 2,
       "regression_risk": 2,
       "roi_score": 10.0
-    },
-    {
-      "key": "df0b590c64ba8e2f",
-      "source": "operational",
-      "fingerprint": "3Commas refresh needs attention",
-      "title": "3Commas refresh needs attention",
-      "severity": "critical",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
-      "user_benefit": 5,
-      "frequency": 1,
-      "confidence": 5,
-      "estimated_effort": 2,
-      "regression_risk": 2,
-      "roi_score": 6.2
     },
     {
       "key": "639377529cea1cd2",
@@ -247,15 +247,15 @@
       "automatic": false,
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
       "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1,
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2,
       "user_benefit": 4,
-      "frequency": 1,
+      "frequency": 2,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 5.0
+      "roi_score": 10.0
     }
   ],
   "recently_closed": [],
@@ -269,16 +269,14 @@
     "evidence_coverage_pct": 20.0
   },
   "release_predictor": {
-    "readiness_pct": 74.5,
-    "ready": false,
-    "recommendation": "HOLD",
+    "readiness_pct": 90.2,
+    "ready": true,
+    "recommendation": "READY",
     "regression_risk": "LOW",
     "expected_build_seconds": null,
     "expected_deployment_seconds": 28.0,
-    "actions_success_rate_pct": 70.7,
-    "blockers": [
-      "3Commas refresh needs attention"
-    ]
+    "actions_success_rate_pct": 69.7,
+    "blockers": []
   },
   "guardrails": {
     "no_trading_changes": true,

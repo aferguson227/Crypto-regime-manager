@@ -1,17 +1,16 @@
 {
   "version": "70.0.0",
   "authentication": "RSA self-generated",
-  "generated_at": "2026-08-16T03:32:54.797980+00:00",
-  "last_attempt_at": "2026-08-16T03:32:54.797980+00:00",
-  "last_success_at": "2026-08-16T03:32:54.797980+00:00",
+  "generated_at": "2026-08-16T12:00:29.193331+00:00",
+  "last_attempt_at": "2026-08-16T12:00:29.193331+00:00",
+  "last_success_at": "2026-08-16T12:00:29.193331+00:00",
   "status": "partial",
-  "core_status": "error",
+  "core_status": "partial",
   "core_failed": [
     "bots",
-    "accounts",
     "deals"
   ],
-  "message": "Read-only sync completed with endpoint issues: accounts, bots, deals.",
+  "message": "Read-only sync completed with endpoint issues: bots, deals.",
   "publish_mode": "masked",
   "read_only": true,
   "endpoint_diagnostics": {
@@ -22,36 +21,69 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-16T03:32:55.831911+00:00"
+      "observed_at": "2026-08-16T12:00:29.988085+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
-      "status": "fail",
-      "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-16 03:33:24 UTC'}",
-      "http_status": 429,
-      "records": null,
-      "observed_at": "2026-08-16T03:32:56.416429+00:00"
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": 1,
+      "observed_at": "2026-08-16T12:00:30.382726+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-16 03:33:24 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-16 12:00:54 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-16T03:32:56.701907+00:00"
+      "observed_at": "2026-08-16T12:00:30.585856+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-16 03:33:24 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-16 12:00:54 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-16T03:32:57.271609+00:00"
+      "observed_at": "2026-08-16T12:00:30.903416+00:00"
+    },
+    "account_32632134_details": {
+      "path": "/public/api/ver1/accounts/32632134",
+      "status": "pass",
+      "category": "not_requested_quota_guard",
+      "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
+      "http_status": null,
+      "records": null,
+      "observed_at": "2026-08-16T12:00:30.903478+00:00"
+    },
+    "account_32632134_balances": {
+      "path": "/public/api/ver1/accounts/32632134/account_table_data",
+      "status": "pass",
+      "category": "not_requested_direct_capital",
+      "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured.",
+      "http_status": null,
+      "records": null,
+      "observed_at": "2026-08-16T12:00:30.903483+00:00"
     }
   },
-  "accounts": [],
+  "accounts": [
+    {
+      "account_id": 32632134,
+      "name": "My Kucoin",
+      "exchange_name": "Kucoin Spot",
+      "currency": "USDT",
+      "total_usd_value": 3677.670617085028,
+      "free_usdt": null,
+      "balance_records": 0,
+      "balances": [],
+      "api_keys_state": "ok",
+      "balance_source": "3Commas ACCOUNTS_READ account info and account_table_data",
+      "balance_observed_at": null,
+      "balance_cached": false
+    }
+  ],
   "assets": {}
 }
