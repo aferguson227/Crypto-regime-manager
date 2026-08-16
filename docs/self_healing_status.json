@@ -1,16 +1,66 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-15T19:04:40.547234+00:00",
-  "state": "HEALTHY",
+  "generated_at": "2026-08-16T03:28:58.357648+00:00",
+  "state": "ATTENTION",
   "scan": {
-    "issues_found": 0,
-    "remaining": 0,
+    "issues_found": 2,
+    "remaining": 2,
     "repaired": 0
   },
-  "issues": [],
+  "issues": [
+    {
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "risk": "low",
+      "automatic": false,
+      "detail": "Last successful sync was 9.8 hours ago.",
+      "repair": "Trigger the read-only 3Commas workflow.",
+      "validation": [
+        "endpoint_health",
+        "freshness"
+      ]
+    },
+    {
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "CRM Data Refresh latest run failed",
+      "risk": "warning",
+      "automatic": false,
+      "detail": "This is active because no newer successful run supersedes it.",
+      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
+      "validation": [
+        "workflow_policy",
+        "latest_commit_published"
+      ]
+    }
+  ],
   "repairs_applied": [],
-  "approval_required": [],
+  "approval_required": [
+    {
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "risk": "low",
+      "automatic": false,
+      "detail": "Last successful sync was 9.8 hours ago.",
+      "repair": "Trigger the read-only 3Commas workflow.",
+      "validation": [
+        "endpoint_health",
+        "freshness"
+      ]
+    },
+    {
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "CRM Data Refresh latest run failed",
+      "risk": "warning",
+      "automatic": false,
+      "detail": "This is active because no newer successful run supersedes it.",
+      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
+      "validation": [
+        "workflow_policy",
+        "latest_commit_published"
+      ]
+    }
+  ],
   "guardrails": {
     "read_only_trading": true,
     "no_secret_changes": true,

@@ -1,13 +1,27 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-15T19:04:40.482668+00:00",
+  "generated_at": "2026-08-16T03:28:58.289851+00:00",
   "summary": {
-    "open": 3,
-    "closed_this_scan": 3,
+    "open": 7,
+    "closed_this_scan": 0,
     "automatic_available": 0
   },
   "issues": [
+    {
+      "key": "df0b590c64ba8e2f",
+      "source": "operational",
+      "fingerprint": "3Commas refresh needs attention",
+      "title": "3Commas refresh needs attention",
+      "severity": "critical",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
     {
       "key": "bdde74e55a281c11",
       "source": "operational",
@@ -18,9 +32,9 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1
+      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2
     },
     {
       "key": "5eba43e409623aec",
@@ -32,9 +46,9 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1
+      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2
     },
     {
       "key": "359555dc85bc3b84",
@@ -46,12 +60,10 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1
-    }
-  ],
-  "recently_closed": [
+      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2
+    },
     {
       "key": "639377529cea1cd2",
       "source": "actions",
@@ -61,11 +73,10 @@
       "occurrences": 1,
       "automatic": false,
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
-      "first_detected_at": "2026-08-14T15:10:36.104902+00:00",
-      "last_detected_at": "2026-08-15T13:45:33.027035+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 5,
-      "closed_at": "2026-08-15T19:04:40.482668+00:00"
+      "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
     },
     {
       "key": "58ff1e9c172a1458",
@@ -76,11 +87,10 @@
       "occurrences": 1,
       "automatic": false,
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
-      "first_detected_at": "2026-08-14T15:10:36.104902+00:00",
-      "last_detected_at": "2026-08-15T13:45:33.027035+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 5,
-      "closed_at": "2026-08-15T19:04:40.482668+00:00"
+      "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
     },
     {
       "key": "a43930f4134bf7af",
@@ -91,11 +101,11 @@
       "occurrences": 1,
       "automatic": false,
       "recommended_action": "Trigger the read-only 3Commas workflow.",
-      "first_detected_at": "2026-08-14T15:10:36.104902+00:00",
-      "last_detected_at": "2026-08-15T13:45:33.027035+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 5,
-      "closed_at": "2026-08-15T19:04:40.482668+00:00"
+      "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
     }
-  ]
+  ],
+  "recently_closed": []
 }
