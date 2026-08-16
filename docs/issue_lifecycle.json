@@ -1,27 +1,13 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-16T03:28:58.289851+00:00",
+  "generated_at": "2026-08-16T07:48:14.284060+00:00",
   "summary": {
     "open": 7,
     "closed_this_scan": 0,
     "automatic_available": 0
   },
   "issues": [
-    {
-      "key": "df0b590c64ba8e2f",
-      "source": "operational",
-      "fingerprint": "3Commas refresh needs attention",
-      "title": "3Commas refresh needs attention",
-      "severity": "critical",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1
-    },
     {
       "key": "bdde74e55a281c11",
       "source": "operational",
@@ -32,9 +18,9 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 2
+      "historical_occurrences": 3
     },
     {
       "key": "5eba43e409623aec",
@@ -46,9 +32,9 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 2
+      "historical_occurrences": 3
     },
     {
       "key": "359555dc85bc3b84",
@@ -60,7 +46,21 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 3
+    },
+    {
+      "key": "df0b590c64ba8e2f",
+      "source": "operational",
+      "fingerprint": "3Commas refresh needs attention",
+      "title": "3Commas refresh needs attention",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
       "lifecycle": "OPEN",
       "historical_occurrences": 2
     },
@@ -74,9 +74,9 @@
       "automatic": false,
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
       "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2
     },
     {
       "key": "58ff1e9c172a1458",
@@ -88,9 +88,9 @@
       "automatic": false,
       "recommended_action": "Inspect the failing step; do not treat older superseded failures as active.",
       "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2
     },
     {
       "key": "a43930f4134bf7af",
@@ -102,9 +102,9 @@
       "automatic": false,
       "recommended_action": "Trigger the read-only 3Commas workflow.",
       "first_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "last_detected_at": "2026-08-16T03:28:58.289851+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1
+      "last_detected_at": "2026-08-16T07:48:14.284060+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 2
     }
   ],
   "recently_closed": []
