@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-16T03:28:58.444983+00:00",
-  "state": "WARNING",
+  "generated_at": "2026-08-16T03:32:57.874072+00:00",
+  "state": "HEALTHY",
   "workflow_count": 4,
   "target_workflow_count": 4,
   "single_pages_publisher": true,
@@ -11,7 +11,7 @@
   ],
   "pages_timeout_minutes": 30,
   "queue_safe": true,
-  "successful_duration_median_seconds": 28.5,
+  "successful_duration_median_seconds": 28.0,
   "telemetry_runs": 100,
   "success_rate_pct": 70.7,
   "average_queue_seconds": 303.2,
@@ -23,16 +23,7 @@
     "timed_out": 0,
     "successful": 70
   },
-  "issues": [
-    {
-      "fingerprint": "WORKFLOW_FAILURE",
-      "severity": "warning",
-      "title": "CRM Data Refresh latest run failed",
-      "detail": "This is active because no newer successful run supersedes it.",
-      "safe_action": "Inspect the failing step; do not treat older superseded failures as active.",
-      "occurrences": 1
-    }
-  ],
+  "issues": [],
   "workflows": {
     "crm-data-refresh.yml": {
       "deploy_pages": false,

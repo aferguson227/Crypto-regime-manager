@@ -1,18 +1,20 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-15T17:39:30.946979+00:00",
-  "readiness_pct": 90.8,
-  "ready": true,
-  "recommendation": "READY",
+  "generated_at": "2026-08-16T03:32:58.522069+00:00",
+  "readiness_pct": 74.5,
+  "ready": false,
+  "recommendation": "HOLD",
   "regression_risk": "LOW",
   "expected_build_seconds": null,
-  "expected_deployment_seconds": 30.0,
-  "actions_success_rate_pct": 73.7,
-  "blockers": [],
+  "expected_deployment_seconds": 28.0,
+  "actions_success_rate_pct": 70.7,
+  "blockers": [
+    "3Commas refresh needs attention"
+  ],
   "scores": {
     "application": 100,
-    "operations": 75.0,
+    "operations": 67.0,
     "interface": 100,
     "actions": 100,
     "self_healing": 70,
