@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-17T14:01:08.034348+00:00",
+  "generated_at": "2026-08-17T19:43:44.452057+00:00",
   "summary": {
-    "open": 4,
-    "closed_this_scan": 0,
+    "open": 2,
+    "closed_this_scan": 2,
     "automatic_available": 0
   },
   "issues": [
@@ -18,9 +18,9 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-17T14:01:08.034348+00:00",
+      "last_detected_at": "2026-08-17T19:43:44.452057+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 8
+      "historical_occurrences": 9
     },
     {
       "key": "359555dc85bc3b84",
@@ -32,10 +32,12 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-17T14:01:08.034348+00:00",
+      "last_detected_at": "2026-08-17T19:43:44.452057+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 8
-    },
+      "historical_occurrences": 9
+    }
+  ],
+  "recently_closed": [
     {
       "key": "bdde74e55a281c11",
       "source": "operational",
@@ -47,8 +49,9 @@
       "recommended_action": null,
       "first_detected_at": "2026-08-16T19:04:18.698211+00:00",
       "last_detected_at": "2026-08-17T14:01:08.034348+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 4
+      "lifecycle": "CLOSED",
+      "historical_occurrences": 4,
+      "closed_at": "2026-08-17T19:43:44.452057+00:00"
     },
     {
       "key": "a43930f4134bf7af",
@@ -61,9 +64,9 @@
       "recommended_action": "Trigger the read-only 3Commas workflow.",
       "first_detected_at": "2026-08-17T14:01:08.034348+00:00",
       "last_detected_at": "2026-08-17T14:01:08.034348+00:00",
-      "lifecycle": "DETECTED",
-      "historical_occurrences": 1
+      "lifecycle": "CLOSED",
+      "historical_occurrences": 1,
+      "closed_at": "2026-08-17T19:43:44.452057+00:00"
     }
-  ],
-  "recently_closed": []
+  ]
 }
