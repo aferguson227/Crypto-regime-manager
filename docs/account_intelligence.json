@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-17T15:45:42.604570+00:00",
-  "snapshot_id": "d20f9230578a8d3f89bf",
+  "generated_at": "2026-08-17T17:56:58.475078+00:00",
+  "snapshot_id": "75dbbf45dbe1260f14ec",
   "status": "PARTIAL",
   "read_only": true,
   "accounts": [
@@ -15,7 +15,7 @@
       "balances_status": "EMPTY",
       "total_usd_value": 3729.6665441484547,
       "free_usdt": null,
-      "source": "3Commas ACCOUNTS_READ account info and account_table_data"
+      "source": "Cached recent 3Commas ACCOUNTS_READ balance snapshot (quota guard)"
     }
   ],
   "account_count": 1,
@@ -29,12 +29,12 @@
   "endpoint_diagnostics": {
     "validate": {
       "path": "/public/api/ver1/validate",
-      "status": "fail",
-      "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 15:45:41 UTC'}",
-      "http_status": 429,
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
       "records": null,
-      "observed_at": "2026-08-17T15:45:40.667176+00:00"
+      "observed_at": "2026-08-17T17:56:56.849593+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
@@ -43,25 +43,25 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": 1,
-      "observed_at": "2026-08-17T15:45:41.359449+00:00"
+      "observed_at": "2026-08-17T17:56:57.511839+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 15:45:43 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 17:57:19 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-17T15:45:41.940692+00:00"
+      "observed_at": "2026-08-17T17:56:58.147852+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 15:45:43 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 17:57:19 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-17T15:45:42.531233+00:00"
+      "observed_at": "2026-08-17T17:56:58.390967+00:00"
     },
     "account_32632134_details": {
       "path": "/public/api/ver1/accounts/32632134",
@@ -70,7 +70,7 @@
       "message": "Optional account-detail request skipped to preserve quota for the read-only balance table.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-17T15:45:42.531293+00:00"
+      "observed_at": "2026-08-17T17:56:58.391030+00:00"
     },
     "account_32632134_balances": {
       "path": "/public/api/ver1/accounts/32632134/account_table_data",
@@ -79,7 +79,7 @@
       "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-17T15:45:42.531299+00:00"
+      "observed_at": "2026-08-17T17:56:58.391037+00:00"
     }
   }
 }
