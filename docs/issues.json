@@ -1,6 +1,6 @@
 {
   "application_version": "70.0.0",
-  "generated_at": "2026-08-16T23:59:16.693319+00:00",
+  "generated_at": "2026-08-17T03:29:31.516444+00:00",
   "issues": [
     {
       "severity": "warning",
@@ -12,8 +12,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-16T23:59:16.694574+00:00",
-      "last_detected_at": "2026-08-16T23:59:16.694579+00:00"
+      "first_detected_at": "2026-08-17T03:29:31.517367+00:00",
+      "last_detected_at": "2026-08-17T03:29:31.517370+00:00"
     },
     {
       "severity": "warning",
@@ -25,8 +25,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-16T23:59:16.694590+00:00",
-      "last_detected_at": "2026-08-16T23:59:16.694592+00:00"
+      "first_detected_at": "2026-08-17T03:29:31.517379+00:00",
+      "last_detected_at": "2026-08-17T03:29:31.517380+00:00"
     },
     {
       "severity": "warning",
@@ -38,8 +38,21 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-16T23:59:16.694599+00:00",
-      "last_detected_at": "2026-08-16T23:59:16.694600+00:00"
+      "first_detected_at": "2026-08-17T03:29:31.517385+00:00",
+      "last_detected_at": "2026-08-17T03:29:31.517387+00:00"
+    },
+    {
+      "severity": "warning",
+      "system": "3Commas",
+      "title": "3Commas refresh needs attention",
+      "detail": "Last successful sync was 3h 30m ago. Expected cadence is about 1h.",
+      "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
+      "metric": {
+        "age_hours": 3.5,
+        "expected_cadence_hours": 1
+      },
+      "first_detected_at": "2026-08-17T03:29:31.517398+00:00",
+      "last_detected_at": "2026-08-17T03:29:31.517399+00:00"
     }
   ]
 }
