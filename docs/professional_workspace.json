@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-17T05:23:14.672684+00:00",
+  "generated_at": "2026-08-17T08:05:07.689784+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -14,7 +14,7 @@
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
     "action": "WAIT",
-    "confidence_pct": 59.9,
+    "confidence_pct": 59.8,
     "urgency": "WAIT",
     "why": [
       "Current entry filters pass",
@@ -244,7 +244,7 @@
   "what_changed": [],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 39.0 days",
+    "Open replay position has lasted 39.8 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
     "TEL: Exact DCA settings are incomplete; deployment is blocked.",
     "Current entry is blocked",
@@ -254,11 +254,11 @@
   ],
   "market": {
     "regime": "MEAN_REVERTING",
-    "confidence_pct": 47.9,
+    "confidence_pct": 49.6,
     "risk_appetite": "CAUTIOUS",
     "recommended_exposure": "LOW_TO_MODERATE",
     "trend_score": 47.5,
-    "breadth_score": 44.4,
+    "breadth_score": 50.0,
     "volatility_score": 35,
     "stress_tests": [
       {
@@ -303,7 +303,7 @@
     "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
   },
   "deployment_health": {
-    "cloud": "WARNING",
+    "cloud": "FAILURE",
     "threecommas": "partial",
     "main_app": null,
     "publication": null,
@@ -316,5 +316,5 @@
     "Resolve missing DCA fields before making changes.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "026612296da409bc245232b8"
+  "snapshot_id": "9514d5b0083e7da4703e79c3"
 }

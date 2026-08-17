@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-16T12:00:37.650649+00:00",
-  "snapshot_id": "e50bca1a695f4d2e1b66",
+  "generated_at": "2026-08-17T08:05:05.282298+00:00",
+  "snapshot_id": "0be677d7595132e3099c",
   "mode": "read_only_market_context",
   "read_only": true,
   "manual_approval_required": true,
   "regime": "MEAN_REVERTING",
-  "regime_confidence_pct": 47.9,
+  "regime_confidence_pct": 49.6,
   "trend_score": 47.5,
   "volatility_score": 35,
-  "breadth_score": 44.4,
+  "breadth_score": 50.0,
   "correlation_score": 65,
   "risk_appetite": "CAUTIOUS",
   "recommended_exposure": "LOW_TO_MODERATE",
@@ -39,7 +39,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
-      "effective_score": 59.9,
+      "effective_score": 59.8,
       "market_regime": "MEAN_REVERTING",
       "why_now": [
         "Current operating data allows entry."
@@ -47,7 +47,7 @@
       "why_not": [
         "Governed recommendation remains WAIT."
       ],
-      "market_support_score": 47.9
+      "market_support_score": 49.6
     },
     {
       "asset": "TAO",
@@ -60,7 +60,7 @@
         "Current operating data does not allow entry.",
         "Governed recommendation remains WAIT."
       ],
-      "market_support_score": 31.1
+      "market_support_score": 32.2
     }
   ],
   "stress_tests": [
@@ -105,8 +105,8 @@
     "Exchange equity is unknown; stress-test capital impacts may be incomplete."
   ],
   "breadth_evidence": {
-    "positive_assets": 4,
-    "assets_with_30d_trend": 9,
+    "positive_assets": 5,
+    "assets_with_30d_trend": 10,
     "source": "coin_discovery.researched_candidates.trend_30d_pct",
     "status": "MEASURED"
   }
