@@ -1,16 +1,16 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-17T21:45:42.023331+00:00",
-  "snapshot_id": "f53763aa602a8405c8be",
+  "generated_at": "2026-08-17T23:41:18.598374+00:00",
+  "snapshot_id": "a6a20c34b199584489ef",
   "status": "FAILURE",
   "pipelines": {
     "threecommas": {
       "name": "3Commas read-only sync",
       "state": "failure",
-      "last_attempt_at": "2026-08-17T21:45:40.184408+00:00",
+      "last_attempt_at": "2026-08-17T23:41:13.400542+00:00",
       "last_attempt_age_hours": 0.0,
-      "last_success_at": "2026-08-17T21:45:40.184408+00:00",
+      "last_success_at": "2026-08-17T23:41:13.400542+00:00",
       "last_success_age_hours": 0.0,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
@@ -18,64 +18,64 @@
       "source_status": "partial",
       "core_status": "error",
       "capital_fallback": "KuCoin direct read-only",
-      "message": "Read-only sync completed with endpoint issues: accounts, bots, deals.",
+      "message": "Read-only sync completed with endpoint issues: validate, accounts, deals.",
       "endpoint_diagnostics": {
         "results": {
           "validate": {
             "path": "/public/api/ver1/validate",
-            "status": "pass",
-            "category": "ok",
-            "message": "Endpoint completed successfully.",
-            "http_status": null,
+            "status": "fail",
+            "category": "rate_limited",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:16 UTC'}",
+            "http_status": 429,
             "records": null,
-            "observed_at": "2026-08-17T21:45:40.733572+00:00"
+            "observed_at": "2026-08-17T23:41:14.511460+00:00"
           },
           "accounts": {
             "path": "/public/api/ver1/accounts",
             "status": "fail",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:16 UTC'}",
             "http_status": 429,
             "records": null,
-            "observed_at": "2026-08-17T21:45:40.896106+00:00"
+            "observed_at": "2026-08-17T23:41:14.726205+00:00"
           },
           "bots": {
             "path": "/public/api/ver1/bots",
-            "status": "fail",
-            "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
-            "http_status": 429,
-            "records": null,
-            "observed_at": "2026-08-17T21:45:41.065866+00:00"
+            "status": "pass",
+            "category": "ok",
+            "message": "Endpoint completed successfully.",
+            "http_status": null,
+            "records": 6,
+            "observed_at": "2026-08-17T23:41:17.911047+00:00"
           },
           "deals": {
             "path": "/public/api/ver1/deals",
             "status": "fail",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:21 UTC'}",
             "http_status": 429,
             "records": null,
-            "observed_at": "2026-08-17T21:45:41.434684+00:00"
+            "observed_at": "2026-08-17T23:41:18.197841+00:00"
           }
         },
         "failure_count": 3,
         "failures": [
           {
-            "endpoint": "accounts",
+            "endpoint": "validate",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:16 UTC'}",
             "http_status": 429
           },
           {
-            "endpoint": "bots",
+            "endpoint": "accounts",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:16 UTC'}",
             "http_status": 429
           },
           {
             "endpoint": "deals",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:21 UTC'}",
             "http_status": 429
           }
         ],
@@ -87,9 +87,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-17T08:04:59.681570+00:00",
-      "last_attempt_age_hours": 13.68,
+      "last_attempt_age_hours": 15.61,
       "last_success_at": "2026-08-17T08:05:05.272675+00:00",
-      "last_success_age_hours": 13.68,
+      "last_success_age_hours": 15.6,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -102,9 +102,9 @@
     {
       "name": "3Commas read-only sync",
       "state": "failure",
-      "last_attempt_at": "2026-08-17T21:45:40.184408+00:00",
+      "last_attempt_at": "2026-08-17T23:41:13.400542+00:00",
       "last_attempt_age_hours": 0.0,
-      "last_success_at": "2026-08-17T21:45:40.184408+00:00",
+      "last_success_at": "2026-08-17T23:41:13.400542+00:00",
       "last_success_age_hours": 0.0,
       "expected_cadence_hours": 1,
       "warning_after_hours": 2,
@@ -112,64 +112,64 @@
       "source_status": "partial",
       "core_status": "error",
       "capital_fallback": "KuCoin direct read-only",
-      "message": "Read-only sync completed with endpoint issues: accounts, bots, deals.",
+      "message": "Read-only sync completed with endpoint issues: validate, accounts, deals.",
       "endpoint_diagnostics": {
         "results": {
           "validate": {
             "path": "/public/api/ver1/validate",
-            "status": "pass",
-            "category": "ok",
-            "message": "Endpoint completed successfully.",
-            "http_status": null,
+            "status": "fail",
+            "category": "rate_limited",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:16 UTC'}",
+            "http_status": 429,
             "records": null,
-            "observed_at": "2026-08-17T21:45:40.733572+00:00"
+            "observed_at": "2026-08-17T23:41:14.511460+00:00"
           },
           "accounts": {
             "path": "/public/api/ver1/accounts",
             "status": "fail",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:16 UTC'}",
             "http_status": 429,
             "records": null,
-            "observed_at": "2026-08-17T21:45:40.896106+00:00"
+            "observed_at": "2026-08-17T23:41:14.726205+00:00"
           },
           "bots": {
             "path": "/public/api/ver1/bots",
-            "status": "fail",
-            "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
-            "http_status": 429,
-            "records": null,
-            "observed_at": "2026-08-17T21:45:41.065866+00:00"
+            "status": "pass",
+            "category": "ok",
+            "message": "Endpoint completed successfully.",
+            "http_status": null,
+            "records": 6,
+            "observed_at": "2026-08-17T23:41:17.911047+00:00"
           },
           "deals": {
             "path": "/public/api/ver1/deals",
             "status": "fail",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:21 UTC'}",
             "http_status": 429,
             "records": null,
-            "observed_at": "2026-08-17T21:45:41.434684+00:00"
+            "observed_at": "2026-08-17T23:41:18.197841+00:00"
           }
         },
         "failure_count": 3,
         "failures": [
           {
-            "endpoint": "accounts",
+            "endpoint": "validate",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:16 UTC'}",
             "http_status": 429
           },
           {
-            "endpoint": "bots",
+            "endpoint": "accounts",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:16 UTC'}",
             "http_status": 429
           },
           {
             "endpoint": "deals",
             "category": "rate_limited",
-            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
+            "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:21 UTC'}",
             "http_status": 429
           }
         ],
@@ -181,9 +181,9 @@
       "name": "Main market/application refresh",
       "state": "healthy",
       "last_attempt_at": "2026-08-17T08:04:59.681570+00:00",
-      "last_attempt_age_hours": 13.68,
+      "last_attempt_age_hours": 15.61,
       "last_success_at": "2026-08-17T08:05:05.272675+00:00",
-      "last_success_age_hours": 13.68,
+      "last_success_age_hours": 15.6,
       "expected_cadence_hours": 4,
       "warning_after_hours": 6,
       "failure_after_hours": 12,
@@ -195,39 +195,39 @@
   "threecommas_endpoints": {
     "validate": {
       "path": "/public/api/ver1/validate",
-      "status": "pass",
-      "category": "ok",
-      "message": "Endpoint completed successfully.",
-      "http_status": null,
+      "status": "fail",
+      "category": "rate_limited",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:16 UTC'}",
+      "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-17T21:45:40.733572+00:00"
+      "observed_at": "2026-08-17T23:41:14.511460+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:16 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-17T21:45:40.896106+00:00"
+      "observed_at": "2026-08-17T23:41:14.726205+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
-      "status": "fail",
-      "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
-      "http_status": 429,
-      "records": null,
-      "observed_at": "2026-08-17T21:45:41.065866+00:00"
+      "status": "pass",
+      "category": "ok",
+      "message": "Endpoint completed successfully.",
+      "http_status": null,
+      "records": 6,
+      "observed_at": "2026-08-17T23:41:17.911047+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 21:46:07 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:21 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-17T21:45:41.434684+00:00"
+      "observed_at": "2026-08-17T23:41:18.197841+00:00"
     }
   },
   "workflows": [
@@ -248,8 +248,8 @@
   ],
   "github": {
     "repository": "aferguson227/Crypto-regime-manager",
-    "workflow_run_id": "32072734097",
-    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/32072734097"
+    "workflow_run_id": "32081461204",
+    "run_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/32081461204"
   },
   "automation_policy": {
     "routine_manual_runs_required": false,
@@ -261,7 +261,7 @@
   "explanation": {
     "overall_reason": "Workflow/source failure is present.",
     "application_publication": "Live Pages is synchronised; publication age alone is not a reliability fault.",
-    "threecommas": "Read-only sync completed with endpoint issues: accounts, bots, deals.",
+    "threecommas": "Read-only sync completed with endpoint issues: validate, accounts, deals.",
     "local_agent_status": "HEALTHY",
     "kucoin_private_status": "ok"
   },
