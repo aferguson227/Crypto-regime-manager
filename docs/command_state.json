@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-17T11:46:27.301232+00:00",
-  "snapshot_id": "8840cf0df519cd056d58eb7b",
+  "generated_at": "2026-08-17T15:45:47.153006+00:00",
+  "snapshot_id": "54fe7771c5aaea9f461cd721",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -63,7 +63,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "bb431bc7182ccbca121ccab2",
+      "recommendation_id": "fed83443ace060192336d71f",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
@@ -234,7 +234,7 @@
       }
     },
     {
-      "recommendation_id": "1bf9cc549697f6acfa21742a",
+      "recommendation_id": "a5ac4fe4e43c2382b0e22273",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -480,8 +480,8 @@
     "overall_status": "FAILURE",
     "threecommas": {
       "status": "partial",
-      "generated_at": "2026-08-17T11:46:24.373652+00:00",
-      "message": "Read-only sync completed with endpoint issues: accounts, bots, deals."
+      "generated_at": "2026-08-17T15:45:39.787026+00:00",
+      "message": "Read-only sync completed with endpoint issues: validate, bots, deals."
     },
     "main_app": {},
     "publication": {}
@@ -494,14 +494,14 @@
   },
   "source_snapshots": {
     "market": "0be677d7595132e3099c",
-    "portfolio": "b7aa4677364379e24a30",
-    "capital": "57c23e49b42e93d4e35d",
-    "deployment": "594aa1b712848cd4da43",
-    "recommendations": "f02142731ea2d9d8558d",
+    "portfolio": "f4d1bee9f7103cbb15b6",
+    "capital": "728cb560c6936e9b4797",
+    "deployment": "61e296e91e06013d6d51",
+    "recommendations": "d8e9573440d55e56218d",
     "adaptive": "4fa2093613032935b056",
     "outcomes": "2026-08-17T08:05:05.233935+00:00",
-    "cloud": "8ac2d2aaeb4b1cc19da3",
-    "operating": "43b16c8e4555aa948bb8"
+    "cloud": "dbee4cb11534d7bb743f",
+    "operating": "f38e08c244aeb10f2120"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-17T14:01:08.241361+00:00",
+  "generated_at": "2026-08-17T15:45:43.120999+00:00",
   "overall": "ATTENTION",
   "components": {
     "release": {
@@ -9,8 +9,8 @@
       "expected_version": "70.0.0"
     },
     "github_main": {
-      "status": "SYNCED",
-      "version": "70.0.0",
+      "status": "UNKNOWN",
+      "version": null,
       "expected_version": "70.0.0"
     },
     "live_pages": {
@@ -25,11 +25,11 @@
     },
     "threecommas": {
       "status": "PARTIAL",
-      "age_minutes": 134.7
+      "age_minutes": 0.1
     },
     "application_refresh": {
       "status": "HEALTHY",
-      "age_minutes": 356.1
+      "age_minutes": 460.7
     }
   },
   "sources": {
@@ -37,7 +37,7 @@
     "live_version_url": "https://aferguson227.github.io/Crypto-regime-manager/version.json"
   },
   "network_checks": {
-    "github_main_available": true,
+    "github_main_available": false,
     "live_pages_available": true
   },
   "guardrails": {
