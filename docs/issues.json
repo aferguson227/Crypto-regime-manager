@@ -1,5 +1,45 @@
 {
   "application_version": "70.0.0",
-  "generated_at": "2026-08-17T10:16:35.946473+00:00",
-  "issues": []
+  "generated_at": "2026-08-17T11:46:26.662936+00:00",
+  "issues": [
+    {
+      "severity": "warning",
+      "system": "3Commas",
+      "title": "accounts endpoint rate limited",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 11:46:27 UTC'}",
+      "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
+      "metric": {
+        "http_status": 429,
+        "records": null
+      },
+      "first_detected_at": "2026-08-17T11:46:26.664211+00:00",
+      "last_detected_at": "2026-08-17T11:46:26.664215+00:00"
+    },
+    {
+      "severity": "warning",
+      "system": "3Commas",
+      "title": "bots endpoint rate limited",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 11:46:27 UTC'}",
+      "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
+      "metric": {
+        "http_status": 429,
+        "records": null
+      },
+      "first_detected_at": "2026-08-17T11:46:26.664226+00:00",
+      "last_detected_at": "2026-08-17T11:46:26.664229+00:00"
+    },
+    {
+      "severity": "warning",
+      "system": "3Commas",
+      "title": "deals endpoint rate limited",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 11:46:27 UTC'}",
+      "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
+      "metric": {
+        "http_status": 429,
+        "records": null
+      },
+      "first_detected_at": "2026-08-17T11:46:26.664235+00:00",
+      "last_detected_at": "2026-08-17T11:46:26.664236+00:00"
+    }
+  ]
 }
