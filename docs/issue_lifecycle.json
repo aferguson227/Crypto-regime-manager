@@ -1,13 +1,85 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-17T19:43:44.452057+00:00",
+  "generated_at": "2026-08-18T03:12:48.952560+00:00",
   "summary": {
-    "open": 2,
-    "closed_this_scan": 2,
+    "open": 5,
+    "closed_this_scan": 1,
     "automatic_available": 0
   },
   "issues": [
+    {
+      "key": "359555dc85bc3b84",
+      "source": "operational",
+      "fingerprint": "deals endpoint rate limited",
+      "title": "deals endpoint rate limited",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
+      "last_detected_at": "2026-08-18T03:12:48.952560+00:00",
+      "lifecycle": "OPEN",
+      "historical_occurrences": 10
+    },
+    {
+      "key": "2053af489eaf887a",
+      "source": "operational",
+      "fingerprint": "validate endpoint rate limited",
+      "title": "validate endpoint rate limited",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-18T03:12:48.952560+00:00",
+      "last_detected_at": "2026-08-18T03:12:48.952560+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "bdde74e55a281c11",
+      "source": "operational",
+      "fingerprint": "accounts endpoint rate limited",
+      "title": "accounts endpoint rate limited",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-18T03:12:48.952560+00:00",
+      "last_detected_at": "2026-08-18T03:12:48.952560+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "df0b590c64ba8e2f",
+      "source": "operational",
+      "fingerprint": "3Commas refresh needs attention",
+      "title": "3Commas refresh needs attention",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-18T03:12:48.952560+00:00",
+      "last_detected_at": "2026-08-18T03:12:48.952560+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    },
+    {
+      "key": "a43930f4134bf7af",
+      "source": "self_healing",
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "severity": "low",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Trigger the read-only 3Commas workflow.",
+      "first_detected_at": "2026-08-18T03:12:48.952560+00:00",
+      "last_detected_at": "2026-08-18T03:12:48.952560+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1
+    }
+  ],
+  "recently_closed": [
     {
       "key": "5eba43e409623aec",
       "source": "operational",
@@ -19,54 +91,9 @@
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
       "last_detected_at": "2026-08-17T19:43:44.452057+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 9
-    },
-    {
-      "key": "359555dc85bc3b84",
-      "source": "operational",
-      "fingerprint": "deals endpoint rate limited",
-      "title": "deals endpoint rate limited",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-17T19:43:44.452057+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 9
-    }
-  ],
-  "recently_closed": [
-    {
-      "key": "bdde74e55a281c11",
-      "source": "operational",
-      "fingerprint": "accounts endpoint rate limited",
-      "title": "accounts endpoint rate limited",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-16T19:04:18.698211+00:00",
-      "last_detected_at": "2026-08-17T14:01:08.034348+00:00",
       "lifecycle": "CLOSED",
-      "historical_occurrences": 4,
-      "closed_at": "2026-08-17T19:43:44.452057+00:00"
-    },
-    {
-      "key": "a43930f4134bf7af",
-      "source": "self_healing",
-      "fingerprint": "STALE_THREECOMMAS",
-      "title": "3Commas data is stale",
-      "severity": "low",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": "Trigger the read-only 3Commas workflow.",
-      "first_detected_at": "2026-08-17T14:01:08.034348+00:00",
-      "last_detected_at": "2026-08-17T14:01:08.034348+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 1,
-      "closed_at": "2026-08-17T19:43:44.452057+00:00"
+      "historical_occurrences": 9,
+      "closed_at": "2026-08-18T03:12:48.952560+00:00"
     }
   ]
 }

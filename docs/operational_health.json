@@ -1,26 +1,26 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-17T23:41:18.633675+00:00",
+  "generated_at": "2026-08-18T03:12:48.367908+00:00",
   "overall": {
     "state": "WARNING",
-    "score_pct": 67.0,
-    "active_issue_count": 3,
+    "score_pct": 68.6,
+    "active_issue_count": 4,
     "critical_count": 0,
-    "warning_count": 3
+    "warning_count": 4
   },
   "scores": {
     "system": 100,
-    "data": 80.0,
+    "data": 67.8,
     "trading": 70.0,
     "deployment": 65.0,
-    "decision_readiness": 20.0
+    "decision_readiness": 40.0
   },
   "threecommas": {
     "status": "error",
     "last_attempt_at": "2026-08-17T23:41:13.400542+00:00",
     "last_success_at": "2026-08-17T23:41:13.400542+00:00",
-    "last_success_age_hours": 0.0,
+    "last_success_age_hours": 3.53,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-17T23:41:14.511460+00:00",
-        "age_hours": 0.0,
+        "age_hours": 3.53,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:16 UTC'}"
       },
@@ -40,7 +40,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-17T23:41:14.726205+00:00",
-        "age_hours": 0.0,
+        "age_hours": 3.53,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:16 UTC'}"
       },
@@ -51,7 +51,7 @@
         "http_status": null,
         "records": 6,
         "observed_at": "2026-08-17T23:41:17.911047+00:00",
-        "age_hours": 0.0,
+        "age_hours": 3.53,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -62,7 +62,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-17T23:41:18.197841+00:00",
-        "age_hours": 0.0,
+        "age_hours": 3.53,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-17 23:41:21 UTC'}"
       }
@@ -84,7 +84,7 @@
   "decision": {
     "primary_action": "WAIT",
     "bot_name": "TEL Low Volatility Bot",
-    "readiness_score_pct": 20.0,
+    "readiness_score_pct": 40.0,
     "ready_for_manual_action": false
   },
   "capital_source": "KuCoin direct read-only account API",
@@ -100,8 +100,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-17T23:41:18.634544+00:00",
-      "last_detected_at": "2026-08-17T23:41:18.634548+00:00"
+      "first_detected_at": "2026-08-18T03:12:48.369256+00:00",
+      "last_detected_at": "2026-08-18T03:12:48.369261+00:00"
     },
     {
       "severity": "warning",
@@ -113,8 +113,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-17T23:41:18.634558+00:00",
-      "last_detected_at": "2026-08-17T23:41:18.634560+00:00"
+      "first_detected_at": "2026-08-18T03:12:48.369277+00:00",
+      "last_detected_at": "2026-08-18T03:12:48.369279+00:00"
     },
     {
       "severity": "warning",
@@ -126,8 +126,21 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-17T23:41:18.634568+00:00",
-      "last_detected_at": "2026-08-17T23:41:18.634570+00:00"
+      "first_detected_at": "2026-08-18T03:12:48.369289+00:00",
+      "last_detected_at": "2026-08-18T03:12:48.369291+00:00"
+    },
+    {
+      "severity": "warning",
+      "system": "3Commas",
+      "title": "3Commas refresh needs attention",
+      "detail": "Last successful sync was 3h 32m ago. Expected cadence is about 1h.",
+      "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
+      "metric": {
+        "age_hours": 3.53,
+        "expected_cadence_hours": 1
+      },
+      "first_detected_at": "2026-08-18T03:12:48.369303+00:00",
+      "last_detected_at": "2026-08-18T03:12:48.369305+00:00"
     }
   ],
   "safeguards": {
