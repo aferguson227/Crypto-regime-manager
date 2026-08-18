@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-18T17:56:29.435871+00:00",
+  "generated_at": "2026-08-18T19:39:56.437612+00:00",
   "overall": {
     "state": "WARNING",
     "score_pct": 71.0,
@@ -20,7 +20,7 @@
     "status": "partial",
     "last_attempt_at": "2026-08-18T17:56:26.767909+00:00",
     "last_success_at": "2026-08-18T17:56:26.767909+00:00",
-    "last_success_age_hours": 0.0,
+    "last_success_age_hours": 1.72,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-18T17:56:27.434370+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.72,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-18T17:56:27.806801+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.72,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -51,7 +51,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-18T17:56:28.339203+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.72,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-18 17:56:53 UTC'}"
       },
@@ -62,7 +62,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-18T17:56:28.923837+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.72,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-18 17:56:53 UTC'}"
       },
@@ -73,7 +73,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-18T17:56:28.923899+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.72,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -84,7 +84,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-18T17:56:28.923905+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.72,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
@@ -122,8 +122,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-18T17:56:29.436890+00:00",
-      "last_detected_at": "2026-08-18T17:56:29.436894+00:00"
+      "first_detected_at": "2026-08-18T19:39:56.438793+00:00",
+      "last_detected_at": "2026-08-18T19:39:56.438798+00:00"
     },
     {
       "severity": "warning",
@@ -135,8 +135,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-18T17:56:29.436901+00:00",
-      "last_detected_at": "2026-08-18T17:56:29.436903+00:00"
+      "first_detected_at": "2026-08-18T19:39:56.438806+00:00",
+      "last_detected_at": "2026-08-18T19:39:56.438809+00:00"
     }
   ],
   "safeguards": {
