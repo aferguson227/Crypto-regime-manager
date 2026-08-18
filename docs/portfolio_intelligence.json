@@ -1,120 +1,33 @@
 {
   "schema_version": "1.1",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-17T23:41:18.565575+00:00",
-  "snapshot_id": "1538f83714288f740e42",
-  "status": "COMPLETE",
+  "generated_at": "2026-08-18T10:01:24.113269+00:00",
+  "snapshot_id": "933b3de8d5a6aa2bc0ba",
+  "status": "PARTIAL",
   "currency": "USDT",
-  "portfolio_health_score": 84.6,
-  "diversification_score": 75,
-  "capital_efficiency_score": 78.8,
+  "portfolio_health_score": 100.0,
+  "diversification_score": null,
+  "capital_efficiency_score": null,
   "total_equity": 2786.11702247,
-  "allocated_capital": 0.0,
-  "reserved_capital": 0.0,
-  "deployable_capital": 1377.26484183,
-  "allocation_pct": 0.0,
-  "reserve_pct": 0.0,
-  "available_pct": 49.4,
+  "allocated_capital": null,
+  "reserved_capital": null,
+  "deployable_capital": null,
+  "allocation_pct": null,
+  "reserve_pct": null,
+  "available_pct": null,
   "next_capital_priority": "TEL Low Volatility Bot",
-  "positions": [
-    {
-      "asset": "TEL",
-      "bot_name": "TEL DCA - High Bear",
-      "action": "DISABLED",
-      "enabled": false,
-      "active_deals": 0,
-      "allocated_capital": 0.0,
-      "reserve_capital": 0.0,
-      "deployable_priority": 1,
-      "efficiency_score": null,
-      "overlap_group": "BTC-linked altcoin",
-      "warnings": []
-    },
-    {
-      "asset": "TEL",
-      "bot_name": "TEL DCA - High Bull",
-      "action": "DISABLED",
-      "enabled": false,
-      "active_deals": 0,
-      "allocated_capital": 0.0,
-      "reserve_capital": 0.0,
-      "deployable_priority": 2,
-      "efficiency_score": null,
-      "overlap_group": "BTC-linked altcoin",
-      "warnings": []
-    },
-    {
-      "asset": "TEL",
-      "bot_name": "TEL DCA - Medium Volatility",
-      "action": "DISABLED",
-      "enabled": false,
-      "active_deals": 0,
-      "allocated_capital": 0.0,
-      "reserve_capital": 0.0,
-      "deployable_priority": 3,
-      "efficiency_score": 78.8,
-      "overlap_group": "BTC-linked altcoin",
-      "warnings": []
-    },
-    {
-      "asset": "TEL",
-      "bot_name": "TEL DCA - Low Volatility",
-      "action": "DISABLED",
-      "enabled": false,
-      "active_deals": 0,
-      "allocated_capital": 0.0,
-      "reserve_capital": 0.0,
-      "deployable_priority": 4,
-      "efficiency_score": 78.8,
-      "overlap_group": "BTC-linked altcoin",
-      "warnings": []
-    },
-    {
-      "asset": "ZEC",
-      "bot_name": "ZEC DCA Bull",
-      "action": "PAUSE_NEW_DEALS",
-      "enabled": true,
-      "active_deals": 0,
-      "allocated_capital": 0.0,
-      "reserve_capital": 0.0,
-      "deployable_priority": 5,
-      "efficiency_score": null,
-      "overlap_group": "BTC-linked altcoin",
-      "warnings": []
-    },
-    {
-      "asset": "AAVE",
-      "bot_name": "AAVE pullback 3pct",
-      "action": "PAUSE_NEW_DEALS",
-      "enabled": true,
-      "active_deals": 0,
-      "allocated_capital": 0.0,
-      "reserve_capital": 0.0,
-      "deployable_priority": 6,
-      "efficiency_score": null,
-      "overlap_group": "BTC-linked altcoin",
-      "warnings": []
-    }
+  "positions": [],
+  "overlap_analysis": {},
+  "warnings": [
+    "Deployable capital remains unknown; next allocation is advisory only."
   ],
-  "overlap_analysis": {
-    "BTC-linked altcoin": {
-      "assets": [
-        "AAVE",
-        "TEL",
-        "ZEC"
-      ],
-      "count": 3,
-      "concentration_warning": true
-    }
-  },
-  "warnings": [],
   "read_only": true,
   "manual_approval_required": true,
-  "idle_bot_potential_exposure": 2999.95,
+  "idle_bot_potential_exposure": null,
   "reserved_capital_definition": "Remaining safety-order ladder capital protected for active deals only.",
   "position_state_counts": {
     "active_deal": 0,
-    "enabled_idle": 2,
-    "disabled": 4
+    "enabled_idle": 0,
+    "disabled": 0
   }
 }

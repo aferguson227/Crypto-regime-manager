@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-17T23:41:18.390693+00:00",
-  "snapshot_id": "39a5b21761498000c0e0",
+  "generated_at": "2026-08-18T10:01:23.962398+00:00",
+  "snapshot_id": "06300e42dab6a4025f9e",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
   "current_market_regime": "Low",
-  "current_regime_confidence": 41.9,
+  "current_regime_confidence": 37.9,
   "overall_action": "WAIT",
   "deploy_today": [],
   "keep_running": [],
@@ -20,9 +20,9 @@
   "capital_summary": {
     "exchange_total": 2786.11702247,
     "free_available": 1377.26484183,
-    "active_deal_capital": 0.0,
-    "reserved_capital": 0,
-    "deployable_capital": 1377.26484183,
+    "active_deal_capital": null,
+    "reserved_capital": null,
+    "deployable_capital": null,
     "next_capital_required": null,
     "can_fund_next_priority": null
   },
@@ -31,10 +31,11 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
-      "confidence": 83.8,
+      "confidence": 75.8,
       "eligible": false,
       "blocking_reasons": [
-        "Complete deployable-capital confirmation is unavailable."
+        "Complete deployable-capital confirmation is unavailable.",
+        "Exact DCA settings are incomplete; deployment is blocked."
       ],
       "supporting_reasons": [
         "Current entry filters pass",
@@ -46,10 +47,10 @@
         "Open replay position has lasted 39.8 days"
       ],
       "current_regime": "Low",
-      "live_state": "DISABLED",
+      "live_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 1377.26484183,
+      "capital_available": null,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -84,116 +85,123 @@
         "values": {
           "bot_name": "TEL Low Volatility Bot",
           "base_order_volume": 100.0,
-          "safety_order_volume": 100.0,
+          "safety_order_volume": null,
           "take_profit_pct": 1.5,
           "so_deviation_pct": 1.2,
           "safety_orders": 6,
           "volume_scale": 1.6,
           "step_scale": 1.0,
           "max_active_deals": 1,
-          "max_active_safety_orders": 3,
-          "start_condition": "long",
-          "order_type": "limit",
-          "trailing_enabled": false,
-          "cooldown_seconds": 0,
+          "max_active_safety_orders": null,
+          "start_condition": null,
+          "order_type": null,
+          "trailing_enabled": null,
+          "cooldown_seconds": null,
           "_evidence": {
             "base_order_volume": "GOVERNED",
-            "safety_order_volume": "KEEP_LIVE",
+            "safety_order_volume": "UNAVAILABLE",
             "take_profit_pct": "GOVERNED",
             "so_deviation_pct": "GOVERNED",
             "safety_orders": "GOVERNED",
             "volume_scale": "GOVERNED",
             "step_scale": "GOVERNED",
             "max_active_deals": "GOVERNED",
-            "max_active_safety_orders": "KEEP_LIVE",
-            "start_condition": "KEEP_LIVE",
-            "order_type": "KEEP_LIVE",
-            "trailing_enabled": "KEEP_LIVE",
-            "cooldown_seconds": "KEEP_LIVE"
+            "max_active_safety_orders": "UNAVAILABLE",
+            "start_condition": "UNAVAILABLE",
+            "order_type": "UNAVAILABLE",
+            "trailing_enabled": "UNAVAILABLE",
+            "cooldown_seconds": "UNAVAILABLE"
           }
         },
-        "complete": true,
-        "missing_fields": []
+        "complete": false,
+        "missing_fields": [
+          "safety_order_volume",
+          "max_active_safety_orders",
+          "start_condition",
+          "order_type",
+          "trailing_enabled",
+          "cooldown_seconds"
+        ]
       },
-      "settings_changed": false,
+      "settings_changed": null,
       "settings_differences": [
         {
           "field": "base_order_volume",
           "production_value": 100.0,
-          "live_value": 100.0,
-          "status": "MATCH"
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         },
         {
           "field": "safety_order_volume",
-          "production_value": 100.0,
-          "live_value": 100.0,
-          "status": "MATCH"
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         },
         {
           "field": "take_profit_pct",
           "production_value": 1.5,
-          "live_value": 1.5,
-          "status": "MATCH"
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         },
         {
           "field": "so_deviation_pct",
           "production_value": 1.2,
-          "live_value": 1.2,
-          "status": "MATCH"
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         },
         {
           "field": "safety_orders",
           "production_value": 6,
-          "live_value": 6,
-          "status": "MATCH"
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         },
         {
           "field": "volume_scale",
           "production_value": 1.6,
-          "live_value": 1.6,
-          "status": "MATCH"
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         },
         {
           "field": "step_scale",
           "production_value": 1.0,
-          "live_value": 1.0,
-          "status": "MATCH"
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         },
         {
           "field": "max_active_deals",
           "production_value": 1,
-          "live_value": 1,
-          "status": "MATCH"
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         },
         {
           "field": "max_active_safety_orders",
-          "production_value": 3,
-          "live_value": 3,
-          "status": "MATCH"
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         },
         {
           "field": "start_condition",
-          "production_value": "long",
-          "live_value": "long",
-          "status": "MATCH"
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         },
         {
           "field": "order_type",
-          "production_value": "limit",
-          "live_value": "limit",
-          "status": "MATCH"
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         },
         {
           "field": "trailing_enabled",
-          "production_value": false,
-          "live_value": false,
-          "status": "MATCH"
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         },
         {
           "field": "cooldown_seconds",
-          "production_value": 0,
-          "live_value": 0,
-          "status": "MATCH"
+          "production_value": null,
+          "live_value": null,
+          "status": "NOT_COMPARABLE"
         }
       ],
       "evidence": {
@@ -227,7 +235,7 @@
       "live_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
-      "capital_available": 1377.26484183,
+      "capital_available": null,
       "can_fund": null,
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
@@ -404,10 +412,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "8143a5d4367016738318",
-    "capital_snapshot": "23ee5feac0d8b26e2d3f",
+    "operating_state_snapshot": "f3932a278a84794c5060",
+    "capital_snapshot": "b84859c066326bc6f58b",
     "decision_generated_at": "2026-08-17T08:05:05.019690+00:00",
-    "threecommas_generated_at": "2026-08-17T23:41:13.400542+00:00"
+    "threecommas_generated_at": "2026-08-18T10:01:22.325284+00:00"
   },
   "warnings": [
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."

@@ -1,21 +1,23 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-17T23:41:19.132997+00:00",
-  "readiness_pct": 94.5,
-  "ready": true,
-  "recommendation": "READY",
+  "generated_at": "2026-08-18T10:01:24.706899+00:00",
+  "readiness_pct": 75.2,
+  "ready": false,
+  "recommendation": "HOLD",
   "regression_risk": "LOW",
   "expected_build_seconds": null,
-  "expected_deployment_seconds": 25.0,
-  "actions_success_rate_pct": 68.7,
-  "blockers": [],
+  "expected_deployment_seconds": 24.0,
+  "actions_success_rate_pct": 66.7,
+  "blockers": [
+    "3Commas refresh needs attention"
+  ],
   "scores": {
     "application": 100,
-    "operations": 67.0,
+    "operations": 71.0,
     "interface": 100,
     "actions": 100,
-    "self_healing": 100,
+    "self_healing": 70,
     "repository": 100
   }
 }
