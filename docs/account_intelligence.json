@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-18T10:01:23.849446+00:00",
-  "snapshot_id": "449aa32c457ee30111ad",
+  "generated_at": "2026-08-18T16:00:11.530956+00:00",
+  "snapshot_id": "d8cb88292d683aa9032f",
   "status": "UNAVAILABLE",
   "read_only": true,
   "accounts": [],
@@ -21,34 +21,34 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-18T10:01:23.139971+00:00"
+      "observed_at": "2026-08-18T16:00:01.570290+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-18 10:01:26 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-18 16:00:03 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-18T10:01:23.363529+00:00"
+      "observed_at": "2026-08-18T16:00:01.843650+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-18 10:01:26 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-18 16:00:03 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-18T10:01:23.579004+00:00"
+      "observed_at": "2026-08-18T16:00:02.524433+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-18 10:01:26 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-18 16:00:03 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-18T10:01:23.792358+00:00"
+      "observed_at": "2026-08-18T16:00:02.815638+00:00"
     }
   }
 }

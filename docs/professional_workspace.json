@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-18T10:01:24.770574+00:00",
+  "generated_at": "2026-08-18T16:00:12.808413+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -14,7 +14,7 @@
     "bot_name": "TEL Low Volatility Bot",
     "asset": "TEL",
     "action": "WAIT",
-    "confidence_pct": 59.8,
+    "confidence_pct": 59.6,
     "urgency": "WAIT",
     "why": [
       "Current entry filters pass",
@@ -244,7 +244,7 @@
   "what_changed": [],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 39.8 days",
+    "Open replay position has lasted 41.2 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
     "TEL: Exact DCA settings are incomplete; deployment is blocked.",
     "Current entry is blocked",
@@ -254,11 +254,11 @@
   ],
   "market": {
     "regime": "MEAN_REVERTING",
-    "confidence_pct": 49.6,
+    "confidence_pct": 47.9,
     "risk_appetite": "CAUTIOUS",
     "recommended_exposure": "LOW_TO_MODERATE",
     "trend_score": 47.5,
-    "breadth_score": 50.0,
+    "breadth_score": 44.4,
     "volatility_score": 35,
     "stress_tests": [
       {
@@ -316,5 +316,5 @@
     "Resolve missing DCA fields before making changes.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "f73fbd6ba4b98f87f304cc95"
+  "snapshot_id": "beea2ba503a4464ea167f577"
 }

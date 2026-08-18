@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-18T10:01:23.998292+00:00",
-  "snapshot_id": "c0b25cef92155ef31883",
+  "generated_at": "2026-08-18T16:00:11.767834+00:00",
+  "snapshot_id": "7ddbb5aa35338e4ec461",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,11 +10,11 @@
   "market_regime": "Low",
   "recommendations": [
     {
-      "recommendation_id": "d121cb485e4c55cc48d6be85",
+      "recommendation_id": "180946e78ea308998202d9de",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
-      "overall_confidence": 59.8,
+      "overall_confidence": 59.6,
       "risk_level": "HIGH",
       "confidence_components": [
         {
@@ -26,7 +26,7 @@
         },
         {
           "name": "historical",
-          "score": 91.8,
+          "score": 91.4,
           "weight": 0.2,
           "status": "pass",
           "explanation": "Historical/replay decision score from the governed production ranking."
@@ -66,7 +66,7 @@
         "health": 5.4,
         "recent_profit": 9.861,
         "drawdown": -4.395,
-        "duration": -9.019,
+        "duration": -9.485,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -76,7 +76,7 @@
       ],
       "risks": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 39.8 days"
+        "Open replay position has lasted 41.2 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable.",
@@ -229,14 +229,14 @@
         "kucoin_current": "AVAILABLE",
         "agreement": "UNKNOWN"
       },
-      "explanation": "Wait TEL Low Volatility Bot. Confidence 59.8%; risk high. Current entry filters pass"
+      "explanation": "Wait TEL Low Volatility Bot. Confidence 59.6%; risk high. Current entry filters pass"
     },
     {
-      "recommendation_id": "7ee3797b7942c729d839b7e2",
+      "recommendation_id": "713b7bda8a7cada8b51ecd25",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "overall_confidence": 22.2,
+      "overall_confidence": 21.9,
       "risk_level": "HIGH",
       "confidence_components": [
         {
@@ -248,7 +248,7 @@
         },
         {
           "name": "historical",
-          "score": 47.7,
+          "score": 47.1,
           "weight": 0.2,
           "status": "review",
           "explanation": "Historical/replay decision score from the governed production ranking."
@@ -284,7 +284,7 @@
       ],
       "score_breakdown": {
         "entry_permission": -35.0,
-        "opportunity": 9.0,
+        "opportunity": 8.4,
         "health": 14.4,
         "recent_profit": 4.482,
         "drawdown": -1.655,
@@ -451,7 +451,7 @@
         "kucoin_current": "AVAILABLE",
         "agreement": "UNKNOWN"
       },
-      "explanation": "Wait TAO Low Pullback Bot. Confidence 22.2%; risk high. Strategy health is strong"
+      "explanation": "Wait TAO Low Pullback Bot. Confidence 21.9%; risk high. Strategy health is strong"
     }
   ],
   "history_file": "recommendation_history.json",
@@ -460,8 +460,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "06300e42dab6a4025f9e",
-    "deployment_generated_at": "2026-08-18T10:01:23.962398+00:00",
-    "decision_generated_at": "2026-08-17T08:05:05.019690+00:00"
+    "deployment_snapshot": "17fc4fc44b8319519220",
+    "deployment_generated_at": "2026-08-18T16:00:11.711742+00:00",
+    "decision_generated_at": "2026-08-18T16:00:10.144069+00:00"
   }
 }

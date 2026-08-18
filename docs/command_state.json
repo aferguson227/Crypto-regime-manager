@@ -1,19 +1,19 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-18T10:01:24.742857+00:00",
-  "snapshot_id": "23bbfeff8608624d08e18a73",
+  "generated_at": "2026-08-18T16:00:12.765348+00:00",
+  "snapshot_id": "6026bde052bde5d133f2d7ca",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
   "overall_status": "READY",
   "market": {
     "regime": "MEAN_REVERTING",
-    "confidence_pct": 49.6,
+    "confidence_pct": 47.9,
     "risk_appetite": "CAUTIOUS",
     "recommended_exposure": "LOW_TO_MODERATE",
     "trend_score": 47.5,
-    "breadth_score": 50.0,
+    "breadth_score": 44.4,
     "volatility_score": 35,
     "stress_tests": [
       {
@@ -63,15 +63,15 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "d121cb485e4c55cc48d6be85",
+      "recommendation_id": "180946e78ea308998202d9de",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
-      "confidence_pct": 59.8,
-      "static_confidence_pct": 59.8,
+      "confidence_pct": 59.6,
+      "static_confidence_pct": 59.6,
       "adaptive_active": false,
       "risk_level": "HIGH",
-      "explanation": "Wait TEL Low Volatility Bot. Confidence 59.8%; risk high. Current entry filters pass",
+      "explanation": "Wait TEL Low Volatility Bot. Confidence 59.6%; risk high. Current entry filters pass",
       "supporting_evidence": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
@@ -79,7 +79,7 @@
       ],
       "risks": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 39.8 days"
+        "Open replay position has lasted 41.2 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable.",
@@ -234,15 +234,15 @@
       }
     },
     {
-      "recommendation_id": "7ee3797b7942c729d839b7e2",
+      "recommendation_id": "713b7bda8a7cada8b51ecd25",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence_pct": 22.2,
-      "static_confidence_pct": 22.2,
+      "confidence_pct": 21.9,
+      "static_confidence_pct": 21.9,
       "adaptive_active": false,
       "risk_level": "HIGH",
-      "explanation": "Wait TAO Low Pullback Bot. Confidence 22.2%; risk high. Strategy health is strong",
+      "explanation": "Wait TAO Low Pullback Bot. Confidence 21.9%; risk high. Strategy health is strong",
       "supporting_evidence": [
         "Strategy health is strong",
         "Recent realised P&L is positive",
@@ -412,7 +412,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
-      "confidence_pct": 59.8,
+      "confidence_pct": 59.6,
       "urgency": "WAIT",
       "rationale": [
         "Current entry filters pass",
@@ -432,7 +432,7 @@
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence_pct": 22.2,
+      "confidence_pct": 21.9,
       "urgency": "WAIT",
       "rationale": [
         "Strategy health is strong",
@@ -450,7 +450,7 @@
   ],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 39.8 days",
+    "Open replay position has lasted 41.2 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
     "TEL: Exact DCA settings are incomplete; deployment is blocked.",
     "Current entry is blocked",
@@ -480,7 +480,7 @@
     "overall_status": "FAILURE",
     "threecommas": {
       "status": "partial",
-      "generated_at": "2026-08-18T10:01:22.325284+00:00",
+      "generated_at": "2026-08-18T16:00:00.584486+00:00",
       "message": "Read-only sync completed with endpoint issues: accounts, bots, deals."
     },
     "main_app": {},
@@ -493,15 +493,15 @@
     "cloud_status": "FAILURE"
   },
   "source_snapshots": {
-    "market": "0be677d7595132e3099c",
-    "portfolio": "933b3de8d5a6aa2bc0ba",
-    "capital": "b84859c066326bc6f58b",
-    "deployment": "06300e42dab6a4025f9e",
-    "recommendations": "c0b25cef92155ef31883",
-    "adaptive": "4fa2093613032935b056",
-    "outcomes": "2026-08-17T08:05:05.233935+00:00",
-    "cloud": "a88fe8cd920e4e936388",
-    "operating": "f3932a278a84794c5060"
+    "market": "fef40448d7b8544b561d",
+    "portfolio": "0fea0850c62dfb66d2b7",
+    "capital": "95c70f3a5176287545c3",
+    "deployment": "17fc4fc44b8319519220",
+    "recommendations": "7ddbb5aa35338e4ec461",
+    "adaptive": "917da5947cbd76147c9a",
+    "outcomes": "2026-08-18T16:00:10.361472+00:00",
+    "cloud": "cfda1a6bb898dd42be26",
+    "operating": "935d473a1edd2fe70dc4"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
