@@ -1,6 +1,6 @@
 {
   "version": "29.0.0",
-  "generated_at": "2026-08-18T16:00:10.144069+00:00",
+  "generated_at": "2026-08-19T16:00:27.972881+00:00",
   "mode": "unified_advisory_decision_engine",
   "best_setup": {
     "id": "TEL",
@@ -9,14 +9,14 @@
     "production": true,
     "entry_allowed": true,
     "recommended_bot": "TEL Low Volatility Bot",
-    "decision_score": 91.4,
+    "decision_score": 90.2,
     "components": {
       "entry_permission": 24,
-      "opportunity": 13.0,
+      "opportunity": 12.4,
       "health": 5.3999999999999995,
-      "recent_profit": 9.860979912234622,
+      "recent_profit": 9.730325245567956,
       "drawdown": -4.394993673262043,
-      "duration": -9.485344827586205,
+      "duration": -9.894047619047617,
       "capital_efficiency": 8
     },
     "positives": [
@@ -26,7 +26,7 @@
     ],
     "cautions": [
       "Recent drawdown is elevated",
-      "Open replay position has lasted 41.2 days"
+      "Open replay position has lasted 42.2 days"
     ],
     "validation_state": "production_baseline"
   },
@@ -38,14 +38,14 @@
       "production": true,
       "entry_allowed": true,
       "recommended_bot": "TEL Low Volatility Bot",
-      "decision_score": 91.4,
+      "decision_score": 90.2,
       "components": {
         "entry_permission": 24,
-        "opportunity": 13.0,
+        "opportunity": 12.4,
         "health": 5.3999999999999995,
-        "recent_profit": 9.860979912234622,
+        "recent_profit": 9.730325245567956,
         "drawdown": -4.394993673262043,
-        "duration": -9.485344827586205,
+        "duration": -9.894047619047617,
         "capital_efficiency": 8
       },
       "positives": [
@@ -55,7 +55,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 41.2 days"
+        "Open replay position has lasted 42.2 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -66,14 +66,14 @@
       "production": true,
       "entry_allowed": false,
       "recommended_bot": "TAO Low Pullback Bot",
-      "decision_score": 47.1,
+      "decision_score": 47.0,
       "components": {
         "entry_permission": -35,
-        "opportunity": 8.4,
+        "opportunity": 9.0,
         "health": 14.399999999999999,
-        "recent_profit": 4.481868894399974,
+        "recent_profit": 3.5684833717333135,
         "drawdown": -1.6547085753806723,
-        "duration": 3.5023809523809524,
+        "duration": 3.7333333333333334,
         "capital_efficiency": 8
       },
       "positives": [
@@ -95,14 +95,14 @@
       "production": true,
       "entry_allowed": true,
       "recommended_bot": "TEL Low Volatility Bot",
-      "decision_score": 91.4,
+      "decision_score": 90.2,
       "components": {
         "entry_permission": 24,
-        "opportunity": 13.0,
+        "opportunity": 12.4,
         "health": 5.3999999999999995,
-        "recent_profit": 9.860979912234622,
+        "recent_profit": 9.730325245567956,
         "drawdown": -4.394993673262043,
-        "duration": -9.485344827586205,
+        "duration": -9.894047619047617,
         "capital_efficiency": 8
       },
       "positives": [
@@ -112,7 +112,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 41.2 days"
+        "Open replay position has lasted 42.2 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -123,14 +123,14 @@
       "production": true,
       "entry_allowed": false,
       "recommended_bot": "TAO Low Pullback Bot",
-      "decision_score": 47.1,
+      "decision_score": 47.0,
       "components": {
         "entry_permission": -35,
-        "opportunity": 8.4,
+        "opportunity": 9.0,
         "health": 14.399999999999999,
-        "recent_profit": 4.481868894399974,
+        "recent_profit": 3.5684833717333135,
         "drawdown": -1.6547085753806723,
-        "duration": 3.5023809523809524,
+        "duration": 3.7333333333333334,
         "capital_efficiency": 8
       },
       "positives": [
@@ -155,10 +155,10 @@
         "entry_permission": -35,
         "opportunity": 0,
         "health": -2.16,
-        "recent_profit": 1.4464020037333218,
+        "recent_profit": 1.0919743370666593,
         "drawdown": -16,
         "duration": -10,
-        "capital_efficiency": 3.0222520319193107
+        "capital_efficiency": 2.2816766365679944
       },
       "positives": [
         "Recent realised P&L is positive",
@@ -168,7 +168,7 @@
         "Current entry is blocked",
         "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 84.2 days"
+        "Open replay position has lasted 85.2 days"
       ],
       "validation_state": "FAIL \u2014 review risk"
     }
@@ -176,7 +176,7 @@
   "pipeline": {
     "production_assets": 2,
     "eligible_production": 1,
-    "discovery_candidates": 998,
+    "discovery_candidates": 999,
     "validation_candidates": 5,
     "research_ready": 0,
     "queue_items": 0,
@@ -184,9 +184,9 @@
     "backtested_datasets": 0
   },
   "synchronisation": {
-    "strategy_snapshot": "2026-08-18T16:00:04.227262+00:00",
-    "discovery_snapshot": "2026-08-18T16:00:04.256265+00:00",
-    "validation_snapshot": "2026-08-18T16:00:10.138462+00:00",
+    "strategy_snapshot": "2026-08-19T16:00:22.740313+00:00",
+    "discovery_snapshot": "2026-08-19T16:00:22.756808+00:00",
+    "validation_snapshot": "2026-08-19T16:00:27.969252+00:00",
     "all_modules_consumed": true
   },
   "strategy_factory": {
@@ -202,7 +202,7 @@
     ],
     "imports": {
       "version": "30.2.0",
-      "generated_at": "2026-08-18T16:00:10.135308+00:00",
+      "generated_at": "2026-08-19T16:00:27.967053+00:00",
       "target_timeframe": "4h",
       "files": [],
       "ready": 0,
@@ -210,7 +210,7 @@
     },
     "backtest_registry": {
       "version": "29.0.0",
-      "generated_at": "2026-08-18T16:00:10.135641+00:00",
+      "generated_at": "2026-08-19T16:00:27.967352+00:00",
       "datasets": [],
       "policy": {
         "fee_aware": true,

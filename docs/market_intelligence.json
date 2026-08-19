@@ -1,28 +1,28 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-18T16:00:10.413720+00:00",
-  "snapshot_id": "fef40448d7b8544b561d",
+  "generated_at": "2026-08-19T16:00:28.141650+00:00",
+  "snapshot_id": "f4a0c47ae404b2ea21fa",
   "mode": "read_only_market_context",
   "read_only": true,
   "manual_approval_required": true,
-  "regime": "MEAN_REVERTING",
-  "regime_confidence_pct": 47.9,
-  "trend_score": 47.5,
+  "regime": "ACCUMULATION",
+  "regime_confidence_pct": 58.0,
+  "trend_score": 55,
   "volatility_score": 35,
-  "breadth_score": 44.4,
+  "breadth_score": 66.7,
   "correlation_score": 65,
-  "risk_appetite": "CAUTIOUS",
-  "recommended_exposure": "LOW_TO_MODERATE",
+  "risk_appetite": "BALANCED",
+  "recommended_exposure": "MODERATE",
   "tracked_assets": [
     {
       "asset": "TEL",
       "symbol": "TEL-USDT",
       "regime": "Low",
       "entry_allowed": true,
-      "trend_score": 55,
+      "trend_score": 70,
       "volatility_score": 35,
-      "opportunity_score": 100.0
+      "opportunity_score": 99.0
     },
     {
       "asset": "TAO",
@@ -39,28 +39,31 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
-      "effective_score": 59.6,
-      "market_regime": "MEAN_REVERTING",
+      "effective_score": 59.2,
+      "market_regime": "ACCUMULATION",
       "why_now": [
-        "Current operating data allows entry."
+        "Current operating data allows entry.",
+        "Market context is Accumulation."
       ],
       "why_not": [
         "Governed recommendation remains WAIT."
       ],
-      "market_support_score": 47.9
+      "market_support_score": 58.0
     },
     {
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
       "effective_score": 21.9,
-      "market_regime": "MEAN_REVERTING",
-      "why_now": [],
+      "market_regime": "ACCUMULATION",
+      "why_now": [
+        "Market context is Accumulation."
+      ],
       "why_not": [
         "Current operating data does not allow entry.",
         "Governed recommendation remains WAIT."
       ],
-      "market_support_score": 31.1
+      "market_support_score": 37.7
     }
   ],
   "stress_tests": [
@@ -105,7 +108,7 @@
     "Exchange equity is unknown; stress-test capital impacts may be incomplete."
   ],
   "breadth_evidence": {
-    "positive_assets": 4,
+    "positive_assets": 6,
     "assets_with_30d_trend": 9,
     "source": "coin_discovery.researched_candidates.trend_30d_pct",
     "status": "MEASURED"

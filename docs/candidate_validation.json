@@ -1,6 +1,6 @@
 {
   "version": "27.0.0",
-  "generated_at": "2026-08-18T16:00:10.138462+00:00",
+  "generated_at": "2026-08-19T16:00:27.969252+00:00",
   "mode": "advisory_only_immutable_queue",
   "automatic_live_changes": false,
   "automatic_dca_changes": false,
@@ -9,7 +9,7 @@
     {
       "symbol": "XMR-USDT",
       "discovery_rank": 1,
-      "research_score": 83.5,
+      "research_score": 84.3,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -31,40 +31,16 @@
       "next_action": "Run full fee-aware replay before any forward test or production consideration."
     },
     {
-      "symbol": "UNI-USDT",
+      "symbol": "LINK-USDT",
       "discovery_rank": 2,
-      "research_score": 78.0,
-      "stage": "queued_for_fee_aware_replay",
-      "production_eligible": false,
-      "manual_approval_required": true,
-      "walk_forward_required": true,
-      "proposed_dca": {
-        "take_profit_pct": 1.2,
-        "safety_order_deviation_pct": 1.4,
-        "safety_orders": 6,
-        "volume_scale": 1.5,
-        "step_scale": 1.2
-      },
-      "gates": {
-        "fee_aware_replay": "pending",
-        "independent_walk_forward": "pending",
-        "drawdown_review": "pending",
-        "capital_review": "pending",
-        "manual_approval": "pending"
-      },
-      "next_action": "Run full fee-aware replay before any forward test or production consideration."
-    },
-    {
-      "symbol": "BTC-USDT",
-      "discovery_rank": 3,
-      "research_score": 77.0,
+      "research_score": 81.0,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
       "walk_forward_required": true,
       "proposed_dca": {
         "take_profit_pct": 0.8,
-        "safety_order_deviation_pct": 0.8,
+        "safety_order_deviation_pct": 0.9,
         "safety_orders": 6,
         "volume_scale": 1.5,
         "step_scale": 1.1
@@ -80,8 +56,8 @@
     },
     {
       "symbol": "ETH-USDT",
-      "discovery_rank": 4,
-      "research_score": 76.9,
+      "discovery_rank": 3,
+      "research_score": 78.7,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -103,9 +79,33 @@
       "next_action": "Run full fee-aware replay before any forward test or production consideration."
     },
     {
-      "symbol": "SOL-USDT",
+      "symbol": "UNI-USDT",
+      "discovery_rank": 4,
+      "research_score": 78.3,
+      "stage": "queued_for_fee_aware_replay",
+      "production_eligible": false,
+      "manual_approval_required": true,
+      "walk_forward_required": true,
+      "proposed_dca": {
+        "take_profit_pct": 1.1,
+        "safety_order_deviation_pct": 1.3,
+        "safety_orders": 6,
+        "volume_scale": 1.5,
+        "step_scale": 1.1
+      },
+      "gates": {
+        "fee_aware_replay": "pending",
+        "independent_walk_forward": "pending",
+        "drawdown_review": "pending",
+        "capital_review": "pending",
+        "manual_approval": "pending"
+      },
+      "next_action": "Run full fee-aware replay before any forward test or production consideration."
+    },
+    {
+      "symbol": "BTC-USDT",
       "discovery_rank": 5,
-      "research_score": 74.7,
+      "research_score": 78.0,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -114,7 +114,7 @@
         "take_profit_pct": 0.8,
         "safety_order_deviation_pct": 0.8,
         "safety_orders": 6,
-        "volume_scale": 1.5,
+        "volume_scale": 1.4,
         "step_scale": 1.1
       },
       "gates": {

@@ -1,19 +1,19 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-19T10:01:36.966770+00:00",
-  "snapshot_id": "1f1cf07ee5d15688fcb3bc52",
+  "generated_at": "2026-08-19T16:00:29.912265+00:00",
+  "snapshot_id": "e372aecf41b30f75dc36a3b5",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
   "overall_status": "READY",
   "market": {
-    "regime": "MEAN_REVERTING",
-    "confidence_pct": 47.9,
-    "risk_appetite": "CAUTIOUS",
-    "recommended_exposure": "LOW_TO_MODERATE",
-    "trend_score": 47.5,
-    "breadth_score": 44.4,
+    "regime": "ACCUMULATION",
+    "confidence_pct": 58.0,
+    "risk_appetite": "BALANCED",
+    "recommended_exposure": "MODERATE",
+    "trend_score": 55,
+    "breadth_score": 66.7,
     "volatility_score": 35,
     "stress_tests": [
       {
@@ -63,15 +63,15 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "0f4ed34d6fc1415a823b411c",
+      "recommendation_id": "1794a62dd11d002a511c3833",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
-      "confidence_pct": 59.6,
-      "static_confidence_pct": 59.6,
+      "confidence_pct": 59.2,
+      "static_confidence_pct": 59.2,
       "adaptive_active": false,
       "risk_level": "HIGH",
-      "explanation": "Wait TEL Low Volatility Bot. Confidence 59.6%; risk high. Current entry filters pass",
+      "explanation": "Wait TEL Low Volatility Bot. Confidence 59.2%; risk high. Current entry filters pass",
       "supporting_evidence": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
@@ -79,7 +79,7 @@
       ],
       "risks": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 41.2 days"
+        "Open replay position has lasted 42.2 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable.",
@@ -234,7 +234,7 @@
       }
     },
     {
-      "recommendation_id": "408c3db652080a5b3caf2f46",
+      "recommendation_id": "b27d41181eb6ef886a5c19ec",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -412,7 +412,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
-      "confidence_pct": 59.6,
+      "confidence_pct": 59.2,
       "urgency": "WAIT",
       "rationale": [
         "Current entry filters pass",
@@ -450,7 +450,7 @@
   ],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 41.2 days",
+    "Open replay position has lasted 42.2 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
     "TEL: Exact DCA settings are incomplete; deployment is blocked.",
     "Current entry is blocked",
@@ -480,8 +480,8 @@
     "overall_status": "FAILURE",
     "threecommas": {
       "status": "partial",
-      "generated_at": "2026-08-19T10:01:34.314476+00:00",
-      "message": "Read-only sync completed with endpoint issues: accounts, bots, deals."
+      "generated_at": "2026-08-19T16:00:20.013150+00:00",
+      "message": "Read-only sync completed with endpoint issues: validate, bots, deals."
     },
     "main_app": {},
     "publication": {}
@@ -493,15 +493,15 @@
     "cloud_status": "FAILURE"
   },
   "source_snapshots": {
-    "market": "fef40448d7b8544b561d",
-    "portfolio": "cac7b01b541ce5797553",
-    "capital": "ae6efa6afc4d48dd10cd",
-    "deployment": "38080f8b600cdc478c15",
-    "recommendations": "292a7bd6520cc3faef81",
-    "adaptive": "917da5947cbd76147c9a",
-    "outcomes": "2026-08-18T16:00:10.361472+00:00",
-    "cloud": "a4a75588e134fc537fce",
-    "operating": "b87900fb21080105c3ab"
+    "market": "f4a0c47ae404b2ea21fa",
+    "portfolio": "a74e94f469ad7e76b4ca",
+    "capital": "25babe8d12814f557c54",
+    "deployment": "537a20c80338559501d2",
+    "recommendations": "8ef2b5e4e0884af4bf1a",
+    "adaptive": "2410f6aab77b4b1fb768",
+    "outcomes": "2026-08-19T16:00:28.110191+00:00",
+    "cloud": "fd504e023d285e0e9695",
+    "operating": "72c3d3d12d614be5ed3d"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
