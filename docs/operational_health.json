@@ -1,17 +1,17 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-19T21:46:14.788736+00:00",
+  "generated_at": "2026-08-20T03:14:26.863343+00:00",
   "overall": {
     "state": "WARNING",
-    "score_pct": 67.0,
-    "active_issue_count": 3,
+    "score_pct": 61.4,
+    "active_issue_count": 4,
     "critical_count": 0,
-    "warning_count": 3
+    "warning_count": 4
   },
   "scores": {
     "system": 100,
-    "data": 80.0,
+    "data": 52.2,
     "trading": 70.0,
     "deployment": 65.0,
     "decision_readiness": 20.0
@@ -20,7 +20,7 @@
     "status": "error",
     "last_attempt_at": "2026-08-19T21:46:12.394948+00:00",
     "last_success_at": "2026-08-19T21:46:12.394948+00:00",
-    "last_success_age_hours": 0.0,
+    "last_success_age_hours": 5.47,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-19T21:46:13.206721+00:00",
-        "age_hours": 0.0,
+        "age_hours": 5.47,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-19T21:46:13.420590+00:00",
-        "age_hours": 0.0,
+        "age_hours": 5.47,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-19 21:46:25 UTC'}"
       },
@@ -51,7 +51,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-19T21:46:13.621381+00:00",
-        "age_hours": 0.0,
+        "age_hours": 5.47,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-19 21:46:25 UTC'}"
       },
@@ -62,7 +62,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-19T21:46:14.183337+00:00",
-        "age_hours": 0.0,
+        "age_hours": 5.47,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-19 21:46:25 UTC'}"
       }
@@ -100,8 +100,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-19T21:46:14.790011+00:00",
-      "last_detected_at": "2026-08-19T21:46:14.790015+00:00"
+      "first_detected_at": "2026-08-20T03:14:26.864171+00:00",
+      "last_detected_at": "2026-08-20T03:14:26.864175+00:00"
     },
     {
       "severity": "warning",
@@ -113,8 +113,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-19T21:46:14.790025+00:00",
-      "last_detected_at": "2026-08-19T21:46:14.790027+00:00"
+      "first_detected_at": "2026-08-20T03:14:26.864182+00:00",
+      "last_detected_at": "2026-08-20T03:14:26.864183+00:00"
     },
     {
       "severity": "warning",
@@ -126,8 +126,21 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-19T21:46:14.790034+00:00",
-      "last_detected_at": "2026-08-19T21:46:14.790035+00:00"
+      "first_detected_at": "2026-08-20T03:14:26.864187+00:00",
+      "last_detected_at": "2026-08-20T03:14:26.864188+00:00"
+    },
+    {
+      "severity": "warning",
+      "system": "3Commas",
+      "title": "3Commas refresh needs attention",
+      "detail": "Last successful sync was 5h 28m ago. Expected cadence is about 1h.",
+      "recommended_action": "The scheduled CRM Data Refresh normally handles this automatically; inspect it only if the delay persists.",
+      "metric": {
+        "age_hours": 5.47,
+        "expected_cadence_hours": 1
+      },
+      "first_detected_at": "2026-08-20T03:14:26.864200+00:00",
+      "last_detected_at": "2026-08-20T03:14:26.864201+00:00"
     }
   ],
   "safeguards": {
