@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-20T08:00:13.585538+00:00",
+  "generated_at": "2026-08-20T08:07:27.574565+00:00",
   "overall": {
     "state": "WARNING",
     "score_pct": 67.0,
@@ -20,7 +20,7 @@
     "status": "error",
     "last_attempt_at": "2026-08-20T08:00:04.318369+00:00",
     "last_success_at": "2026-08-20T08:00:04.318369+00:00",
-    "last_success_age_hours": 0.0,
+    "last_success_age_hours": 0.12,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-20T08:00:04.859518+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.12,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-20T08:00:05.379382+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.12,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-20 08:00:11 UTC'}"
       },
@@ -51,7 +51,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-20T08:00:05.545885+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.12,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-20 08:00:11 UTC'}"
       },
@@ -62,7 +62,7 @@
         "http_status": 429,
         "records": null,
         "observed_at": "2026-08-20T08:00:05.725707+00:00",
-        "age_hours": 0.0,
+        "age_hours": 0.12,
         "latency_ms": null,
         "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-20 08:00:11 UTC'}"
       }
@@ -100,8 +100,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-20T08:00:13.586819+00:00",
-      "last_detected_at": "2026-08-20T08:00:13.586823+00:00"
+      "first_detected_at": "2026-08-20T08:07:27.575791+00:00",
+      "last_detected_at": "2026-08-20T08:07:27.575795+00:00"
     },
     {
       "severity": "warning",
@@ -113,8 +113,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-20T08:00:13.586834+00:00",
-      "last_detected_at": "2026-08-20T08:00:13.586836+00:00"
+      "first_detected_at": "2026-08-20T08:07:27.575804+00:00",
+      "last_detected_at": "2026-08-20T08:07:27.575806+00:00"
     },
     {
       "severity": "warning",
@@ -126,8 +126,8 @@
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-20T08:00:13.586845+00:00",
-      "last_detected_at": "2026-08-20T08:00:13.586847+00:00"
+      "first_detected_at": "2026-08-20T08:07:27.575813+00:00",
+      "last_detected_at": "2026-08-20T08:07:27.575814+00:00"
     }
   ],
   "safeguards": {
