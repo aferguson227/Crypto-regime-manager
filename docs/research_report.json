@@ -1,6 +1,6 @@
 {
   "version": "31.1.0",
-  "generated_at": "2026-08-19T16:00:27.975265+00:00",
+  "generated_at": "2026-08-20T08:00:11.712030+00:00",
   "title": "Crypto Regime Research Report",
   "executive_summary": {
     "coins": 10,
@@ -35,16 +35,16 @@
     {
       "symbol": "ETH",
       "status": "PASS",
-      "regime": "MEAN REVERTING",
-      "preferred_family": "Grid",
+      "regime": "TRENDING",
+      "preferred_family": "Trend-filtered DCA",
       "degradation_pct": -6.3,
       "next_action": "Run independent fee-aware replay for the shortlisted strategy family; retain manual approval."
     },
     {
       "symbol": "NEAR",
       "status": "PASS",
-      "regime": "TRENDING",
-      "preferred_family": "Trend-filtered DCA",
+      "regime": "MEAN REVERTING",
+      "preferred_family": "Grid",
       "degradation_pct": 22.4,
       "next_action": "Run independent fee-aware replay for the shortlisted strategy family; retain manual approval."
     },

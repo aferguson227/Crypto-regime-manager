@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-20T03:27:46.979685+00:00",
-  "snapshot_id": "0c3c17258a870675014c",
+  "generated_at": "2026-08-20T08:00:13.267414+00:00",
+  "snapshot_id": "13379f0f8b6d80e9f233",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
   "current_market_regime": "Low",
-  "current_regime_confidence": 37.1,
+  "current_regime_confidence": 36.6,
   "overall_action": "WAIT",
   "deploy_today": [],
   "keep_running": [],
@@ -31,7 +31,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
-      "confidence": 74.2,
+      "confidence": 73.3,
       "eligible": false,
       "blocking_reasons": [
         "Complete deployable-capital confirmation is unavailable.",
@@ -44,7 +44,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 42.2 days"
+        "Open replay position has lasted 42.8 days"
       ],
       "current_regime": "Low",
       "live_state": "NOT_FOUND",
@@ -412,10 +412,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "f01a9b6911464eb2c6a9",
-    "capital_snapshot": "6d9a7172a5d62531cfa7",
-    "decision_generated_at": "2026-08-19T16:00:27.972881+00:00",
-    "threecommas_generated_at": "2026-08-20T03:27:43.794871+00:00"
+    "operating_state_snapshot": "2e5b8859244b458c0a0a",
+    "capital_snapshot": "fcbf53f5c7dca1d23406",
+    "decision_generated_at": "2026-08-20T08:00:11.708750+00:00",
+    "threecommas_generated_at": "2026-08-20T08:00:04.318369+00:00"
   },
   "warnings": [
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."
