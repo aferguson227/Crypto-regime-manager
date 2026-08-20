@@ -1,32 +1,45 @@
 {
   "application_version": "70.0.0",
-  "generated_at": "2026-08-20T14:22:24.570564+00:00",
+  "generated_at": "2026-08-20T16:02:55.908076+00:00",
   "issues": [
     {
       "severity": "warning",
       "system": "3Commas",
-      "title": "bots endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-20 14:22:50 UTC'}",
+      "title": "accounts endpoint rate limited",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-20 16:03:12 UTC'}",
       "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
       "metric": {
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-20T14:22:24.571445+00:00",
-      "last_detected_at": "2026-08-20T14:22:24.571448+00:00"
+      "first_detected_at": "2026-08-20T16:02:55.909218+00:00",
+      "last_detected_at": "2026-08-20T16:02:55.909222+00:00"
+    },
+    {
+      "severity": "warning",
+      "system": "3Commas",
+      "title": "bots endpoint rate limited",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-20 16:03:12 UTC'}",
+      "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
+      "metric": {
+        "http_status": 429,
+        "records": null
+      },
+      "first_detected_at": "2026-08-20T16:02:55.909232+00:00",
+      "last_detected_at": "2026-08-20T16:02:55.909234+00:00"
     },
     {
       "severity": "warning",
       "system": "3Commas",
       "title": "deals endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-20 14:22:50 UTC'}",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-20 16:03:12 UTC'}",
       "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
       "metric": {
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-20T14:22:24.571454+00:00",
-      "last_detected_at": "2026-08-20T14:22:24.571455+00:00"
+      "first_detected_at": "2026-08-20T16:02:55.909241+00:00",
+      "last_detected_at": "2026-08-20T16:02:55.909242+00:00"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "snapshot_id": "6b4d2743e71fe312a1ed",
-  "generated_at": "2026-08-20T14:22:24.288913+00:00",
+  "snapshot_id": "bf49b867b5543d59cc88",
+  "generated_at": "2026-08-20T16:02:55.523893+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
@@ -16,7 +16,7 @@
       "action": "DEPLOY_CANDIDATE",
       "recommendation": "TEL Low Volatility Bot",
       "entry_allowed": true,
-      "decision_score": 89.3,
+      "decision_score": 88.3,
       "live_bot_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "reasons": [
@@ -26,7 +26,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 42.8 days"
+        "Open replay position has lasted 43.2 days"
       ]
     },
     {
@@ -36,7 +36,7 @@
       "action": "WAIT",
       "recommendation": "TAO Low Pullback Bot",
       "entry_allowed": false,
-      "decision_score": 46.4,
+      "decision_score": 45.6,
       "live_bot_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "reasons": [
@@ -81,35 +81,35 @@
     {
       "name": "KuCoin strategy snapshot",
       "status": "ok",
-      "observed_at": "2026-08-20T08:00:06.906213+00:00",
+      "observed_at": "2026-08-20T16:02:48.287241+00:00",
       "version": "70.0.0",
       "warnings": []
     },
     {
       "name": "Unified decision intelligence",
       "status": "available",
-      "observed_at": "2026-08-20T08:00:11.708750+00:00",
+      "observed_at": "2026-08-20T16:02:53.986026+00:00",
       "version": "29.0.0",
       "warnings": []
     },
     {
       "name": "3Commas live state",
       "status": "partial",
-      "observed_at": "2026-08-20T14:22:21.805171+00:00",
+      "observed_at": "2026-08-20T16:02:45.643081+00:00",
       "version": "70.0.0",
       "warnings": []
     },
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-20T14:22:24.246724+00:00",
+      "observed_at": "2026-08-20T16:02:55.467848+00:00",
       "version": null,
       "warnings": []
     },
     {
       "name": "Configuration reconciliation",
       "status": "incomplete",
-      "observed_at": "2026-08-20T08:00:11.719265+00:00",
+      "observed_at": "2026-08-20T16:02:53.996319+00:00",
       "version": null,
       "warnings": []
     },
@@ -123,7 +123,7 @@
     {
       "name": "System integrity",
       "status": "fresh",
-      "observed_at": "2026-08-20T08:00:11.720251+00:00",
+      "observed_at": "2026-08-20T16:02:53.997310+00:00",
       "version": null,
       "warnings": []
     }
