@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-20T14:20:36.495441+00:00",
+  "generated_at": "2026-08-20T19:49:33.336722+00:00",
   "state": "ATTENTION",
   "scan": {
     "issues_found": 1,
@@ -10,30 +10,30 @@
   },
   "issues": [
     {
-      "fingerprint": "STALE_THREECOMMAS",
-      "title": "3Commas data is stale",
-      "risk": "low",
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "CRM Data Refresh latest run failed",
+      "risk": "warning",
       "automatic": false,
-      "detail": "Last successful sync was 2.4 hours ago.",
-      "repair": "Trigger the read-only 3Commas workflow.",
+      "detail": "This is active because no newer successful run supersedes it.",
+      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
       "validation": [
-        "endpoint_health",
-        "freshness"
+        "workflow_policy",
+        "latest_commit_published"
       ]
     }
   ],
   "repairs_applied": [],
   "approval_required": [
     {
-      "fingerprint": "STALE_THREECOMMAS",
-      "title": "3Commas data is stale",
-      "risk": "low",
+      "fingerprint": "WORKFLOW_FAILURE",
+      "title": "CRM Data Refresh latest run failed",
+      "risk": "warning",
       "automatic": false,
-      "detail": "Last successful sync was 2.4 hours ago.",
-      "repair": "Trigger the read-only 3Commas workflow.",
+      "detail": "This is active because no newer successful run supersedes it.",
+      "repair": "Inspect the failing step; do not treat older superseded failures as active.",
       "validation": [
-        "endpoint_health",
-        "freshness"
+        "workflow_policy",
+        "latest_commit_published"
       ]
     }
   ],
