@@ -1,437 +1,9 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-20T21:01:38.460196+00:00",
+  "generated_at": "2026-08-20T21:58:36.449349+00:00",
   "mode": "immutable_recommendation_audit_history",
   "records": [
-    {
-      "recorded_at": "2026-08-07T08:46:29.861770+00:00",
-      "snapshot_id": "a3f0540b774899b0e5c9",
-      "recommendation_id": "a20a1bbfedcb42f4d9fc2c81",
-      "asset": "TEL",
-      "bot_name": "TEL Low Volatility Bot",
-      "action": "KEEP_RUNNING",
-      "overall_confidence": 69.9,
-      "risk_level": "MODERATE",
-      "confidence_components": [
-        {
-          "name": "regime",
-          "score": 65,
-          "weight": 0.25,
-          "status": "pass",
-          "explanation": "Current regime and entry permission support this action."
-        },
-        {
-          "name": "historical",
-          "score": 90.7,
-          "weight": 0.2,
-          "status": "pass",
-          "explanation": "Historical/replay decision score from the governed production ranking."
-        },
-        {
-          "name": "live_conditions",
-          "score": 100.0,
-          "weight": 0.15,
-          "status": "pass",
-          "explanation": "The recommended bot is already running."
-        },
-        {
-          "name": "capital",
-          "score": 65.0,
-          "weight": 0.15,
-          "status": "partial",
-          "explanation": "Existing live bot can remain running, but reserve confidence follows capital completeness."
-        },
-        {
-          "name": "settings",
-          "score": 25.0,
-          "weight": 0.15,
-          "status": "fail",
-          "explanation": "One or more exact DCA settings are missing."
-        },
-        {
-          "name": "cross_source_agreement",
-          "score": null,
-          "weight": 0.1,
-          "status": "unknown",
-          "explanation": "Cross-source agreement is incomplete or unavailable."
-        }
-      ],
-      "score_breakdown": {
-        "entry_permission": 24.0,
-        "opportunity": 11.0,
-        "health": 2.16,
-        "recent_profit": 10.958,
-        "drawdown": -4.395,
-        "duration": -6.018,
-        "capital_efficiency": 8.0
-      },
-      "supporting_evidence": [
-        "Current entry filters pass",
-        "Recent realised P&L is positive",
-        "Recent capital efficiency is positive"
-      ],
-      "risks": [
-        "Strategy health requires review",
-        "Recent drawdown is elevated",
-        "Open replay position has lasted 29.8 days"
-      ],
-      "blockers": [],
-      "expected_behaviour": {
-        "expected_roi_pct": null,
-        "expected_hold_hours": null,
-        "worst_historical_drawdown_pct": 4.394993673262043,
-        "capital_efficiency_score": 8,
-        "note": "ROI and hold-time expectations are not published unless supported by a comparable validated dataset."
-      },
-      "production_comparison": {
-        "settings_changed": false,
-        "settings_state": "INCOMPLETE",
-        "differences": [
-          {
-            "field": "base_order_volume",
-            "production_value": 100.0,
-            "live_value": 100.0,
-            "status": "MATCH"
-          },
-          {
-            "field": "safety_order_volume",
-            "production_value": null,
-            "live_value": 100.0,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "take_profit_pct",
-            "production_value": 1.5,
-            "live_value": 1.5,
-            "status": "MATCH"
-          },
-          {
-            "field": "so_deviation_pct",
-            "production_value": 1.2,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "safety_orders",
-            "production_value": 6,
-            "live_value": 6,
-            "status": "MATCH"
-          },
-          {
-            "field": "volume_scale",
-            "production_value": 1.6,
-            "live_value": 1.6,
-            "status": "MATCH"
-          },
-          {
-            "field": "step_scale",
-            "production_value": 1.0,
-            "live_value": 1.0,
-            "status": "MATCH"
-          },
-          {
-            "field": "max_active_deals",
-            "production_value": 1,
-            "live_value": 1,
-            "status": "MATCH"
-          },
-          {
-            "field": "max_active_safety_orders",
-            "production_value": null,
-            "live_value": 3,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "start_condition",
-            "production_value": null,
-            "live_value": "long",
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "order_type",
-            "production_value": null,
-            "live_value": "limit",
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "trailing_enabled",
-            "production_value": null,
-            "live_value": false,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "cooldown_seconds",
-            "production_value": null,
-            "live_value": 0,
-            "status": "NOT_COMPARABLE"
-          }
-        ],
-        "recommended_settings": {
-          "source": "PRODUCTION_CONFIGURATION",
-          "values": {
-            "bot_name": "TEL Low Volatility Bot",
-            "base_order_volume": 100.0,
-            "safety_order_volume": null,
-            "take_profit_pct": 1.5,
-            "so_deviation_pct": 1.2,
-            "safety_orders": 6,
-            "volume_scale": 1.6,
-            "step_scale": 1.0,
-            "max_active_deals": 1,
-            "max_active_safety_orders": null,
-            "start_condition": null,
-            "order_type": null,
-            "trailing_enabled": null,
-            "cooldown_seconds": null
-          },
-          "complete": false,
-          "missing_fields": [
-            "safety_order_volume",
-            "max_active_safety_orders",
-            "start_condition",
-            "order_type",
-            "trailing_enabled",
-            "cooldown_seconds"
-          ]
-        }
-      },
-      "capital_impact": {
-        "required": 1194.5599999999997,
-        "available": null,
-        "can_fund": null,
-        "capital_status": "PARTIAL"
-      },
-      "evidence_agreement": {
-        "asset": "TEL",
-        "kraken_historical": "UNKNOWN",
-        "q1_2026_validation": "UNKNOWN",
-        "kucoin_current": "AVAILABLE",
-        "agreement": "UNKNOWN"
-      },
-      "explanation": "Keep running TEL Low Volatility Bot. Confidence 69.9%; risk moderate. Current entry filters pass",
-      "outcome": {
-        "status": "PENDING",
-        "closed_at": null,
-        "realised_profit_pct": null,
-        "notes": null
-      }
-    },
-    {
-      "recorded_at": "2026-08-07T08:46:29.861770+00:00",
-      "snapshot_id": "a3f0540b774899b0e5c9",
-      "recommendation_id": "34fd81737ae10c3e0fb867b0",
-      "asset": "TAO",
-      "bot_name": "TAO Low Pullback Bot",
-      "action": "WAIT",
-      "overall_confidence": 22.2,
-      "risk_level": "HIGH",
-      "confidence_components": [
-        {
-          "name": "regime",
-          "score": 0.0,
-          "weight": 0.25,
-          "status": "fail",
-          "explanation": "Current regime or entry permission does not support a new entry."
-        },
-        {
-          "name": "historical",
-          "score": 47.7,
-          "weight": 0.2,
-          "status": "review",
-          "explanation": "Historical/replay decision score from the governed production ranking."
-        },
-        {
-          "name": "live_conditions",
-          "score": null,
-          "weight": 0.15,
-          "status": "unknown",
-          "explanation": "Live 3Commas state is unavailable."
-        },
-        {
-          "name": "capital",
-          "score": null,
-          "weight": 0.15,
-          "status": "unknown",
-          "explanation": "Deployable capital cannot yet be confirmed."
-        },
-        {
-          "name": "settings",
-          "score": 25.0,
-          "weight": 0.15,
-          "status": "fail",
-          "explanation": "One or more exact DCA settings are missing."
-        },
-        {
-          "name": "cross_source_agreement",
-          "score": null,
-          "weight": 0.1,
-          "status": "unknown",
-          "explanation": "Cross-source agreement is incomplete or unavailable."
-        }
-      ],
-      "score_breakdown": {
-        "entry_permission": -35.0,
-        "opportunity": 9.0,
-        "health": 14.4,
-        "recent_profit": 4.482,
-        "drawdown": -1.655,
-        "duration": 3.502,
-        "capital_efficiency": 8.0
-      },
-      "supporting_evidence": [
-        "Strategy health is strong",
-        "Recent realised P&L is positive",
-        "Recent capital efficiency is positive"
-      ],
-      "risks": [
-        "Current entry is blocked"
-      ],
-      "blockers": [
-        "Current entry permission is blocked.",
-        "Complete deployable-capital confirmation is unavailable.",
-        "Exact DCA settings are incomplete; deployment is blocked."
-      ],
-      "expected_behaviour": {
-        "expected_roi_pct": null,
-        "expected_hold_hours": null,
-        "worst_historical_drawdown_pct": 1.6547085753806723,
-        "capital_efficiency_score": 8,
-        "note": "ROI and hold-time expectations are not published unless supported by a comparable validated dataset."
-      },
-      "production_comparison": {
-        "settings_changed": false,
-        "settings_state": "INCOMPLETE",
-        "differences": [
-          {
-            "field": "base_order_volume",
-            "production_value": 100.0,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "safety_order_volume",
-            "production_value": null,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "take_profit_pct",
-            "production_value": 2.5,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "so_deviation_pct",
-            "production_value": 1.0,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "safety_orders",
-            "production_value": 7,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "volume_scale",
-            "production_value": 1.4,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "step_scale",
-            "production_value": 1.2,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "max_active_deals",
-            "production_value": 1,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "max_active_safety_orders",
-            "production_value": null,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "start_condition",
-            "production_value": null,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "order_type",
-            "production_value": null,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "trailing_enabled",
-            "production_value": null,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          },
-          {
-            "field": "cooldown_seconds",
-            "production_value": null,
-            "live_value": null,
-            "status": "NOT_COMPARABLE"
-          }
-        ],
-        "recommended_settings": {
-          "source": "PRODUCTION_CONFIGURATION",
-          "values": {
-            "bot_name": "TAO Low Pullback Bot",
-            "base_order_volume": 100.0,
-            "safety_order_volume": null,
-            "take_profit_pct": 2.5,
-            "so_deviation_pct": 1.0,
-            "safety_orders": 7,
-            "volume_scale": 1.4,
-            "step_scale": 1.2,
-            "max_active_deals": 1,
-            "max_active_safety_orders": null,
-            "start_condition": null,
-            "order_type": null,
-            "trailing_enabled": null,
-            "cooldown_seconds": null
-          },
-          "complete": false,
-          "missing_fields": [
-            "safety_order_volume",
-            "max_active_safety_orders",
-            "start_condition",
-            "order_type",
-            "trailing_enabled",
-            "cooldown_seconds"
-          ]
-        }
-      },
-      "capital_impact": {
-        "required": null,
-        "available": null,
-        "can_fund": null,
-        "capital_status": "PARTIAL"
-      },
-      "evidence_agreement": {
-        "asset": "TAO",
-        "kraken_historical": "UNKNOWN",
-        "q1_2026_validation": "UNKNOWN",
-        "kucoin_current": "AVAILABLE",
-        "agreement": "UNKNOWN"
-      },
-      "explanation": "Wait TAO Low Pullback Bot. Confidence 22.2%; risk high. Strategy health is strong",
-      "outcome": {
-        "status": "PENDING",
-        "closed_at": null,
-        "realised_profit_pct": null,
-        "notes": null
-      }
-    },
     {
       "recorded_at": "2026-08-07T10:13:47.853012+00:00",
       "snapshot_id": "8d7cb0d5739ca9cab75e",
@@ -112556,6 +112128,466 @@
       "recorded_at": "2026-08-20T21:01:38.460196+00:00",
       "snapshot_id": "847c3bcebb2823df111f",
       "recommendation_id": "2d7981e97a0c8593cae8df63",
+      "asset": "TAO",
+      "bot_name": "TAO Low Pullback Bot",
+      "action": "WAIT",
+      "overall_confidence": 21.5,
+      "risk_level": "HIGH",
+      "confidence_components": [
+        {
+          "name": "regime",
+          "score": 0.0,
+          "weight": 0.25,
+          "status": "fail",
+          "explanation": "Current regime or entry permission does not support a new entry."
+        },
+        {
+          "name": "historical",
+          "score": 45.6,
+          "weight": 0.2,
+          "status": "review",
+          "explanation": "Historical/replay decision score from the governed production ranking."
+        },
+        {
+          "name": "live_conditions",
+          "score": null,
+          "weight": 0.15,
+          "status": "unknown",
+          "explanation": "Live 3Commas state is unavailable."
+        },
+        {
+          "name": "capital",
+          "score": null,
+          "weight": 0.15,
+          "status": "unknown",
+          "explanation": "Deployable capital cannot yet be confirmed."
+        },
+        {
+          "name": "settings",
+          "score": 25.0,
+          "weight": 0.15,
+          "status": "fail",
+          "explanation": "One or more exact DCA settings are missing."
+        },
+        {
+          "name": "cross_source_agreement",
+          "score": null,
+          "weight": 0.1,
+          "status": "unknown",
+          "explanation": "Cross-source agreement is incomplete or unavailable."
+        }
+      ],
+      "score_breakdown": {
+        "entry_permission": -35.0,
+        "opportunity": 7.6,
+        "health": 14.4,
+        "recent_profit": 3.568,
+        "drawdown": -1.655,
+        "duration": 3.733,
+        "capital_efficiency": 8.0
+      },
+      "supporting_evidence": [
+        "Strategy health is strong",
+        "Recent realised P&L is positive",
+        "Recent capital efficiency is positive"
+      ],
+      "risks": [
+        "Current entry is blocked"
+      ],
+      "blockers": [
+        "Current entry permission is blocked.",
+        "Complete deployable-capital confirmation is unavailable.",
+        "Exact DCA settings are incomplete; deployment is blocked."
+      ],
+      "expected_behaviour": {
+        "expected_roi_pct": null,
+        "expected_hold_hours": null,
+        "worst_historical_drawdown_pct": 1.6547085753806723,
+        "capital_efficiency_score": 8,
+        "note": "ROI and hold-time expectations are not published unless supported by a comparable validated dataset."
+      },
+      "production_comparison": {
+        "settings_changed": null,
+        "settings_state": "INCOMPLETE",
+        "differences": [
+          {
+            "field": "base_order_volume",
+            "production_value": 100.0,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "safety_order_volume",
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "take_profit_pct",
+            "production_value": 2.5,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "so_deviation_pct",
+            "production_value": 1.0,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "safety_orders",
+            "production_value": 7,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "volume_scale",
+            "production_value": 1.4,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "step_scale",
+            "production_value": 1.2,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "max_active_deals",
+            "production_value": 1,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "max_active_safety_orders",
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "start_condition",
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "order_type",
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "trailing_enabled",
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "cooldown_seconds",
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          }
+        ],
+        "recommended_settings": {
+          "source": "CANONICAL_LIVE_GOVERNED_RECOMMENDATION",
+          "values": {
+            "bot_name": "TAO Low Pullback Bot",
+            "base_order_volume": 100.0,
+            "safety_order_volume": null,
+            "take_profit_pct": 2.5,
+            "so_deviation_pct": 1.0,
+            "safety_orders": 7,
+            "volume_scale": 1.4,
+            "step_scale": 1.2,
+            "max_active_deals": 1,
+            "max_active_safety_orders": null,
+            "start_condition": null,
+            "order_type": null,
+            "trailing_enabled": null,
+            "cooldown_seconds": null,
+            "_evidence": {
+              "base_order_volume": "GOVERNED",
+              "safety_order_volume": "UNAVAILABLE",
+              "take_profit_pct": "GOVERNED",
+              "so_deviation_pct": "GOVERNED",
+              "safety_orders": "GOVERNED",
+              "volume_scale": "GOVERNED",
+              "step_scale": "GOVERNED",
+              "max_active_deals": "GOVERNED",
+              "max_active_safety_orders": "UNAVAILABLE",
+              "start_condition": "UNAVAILABLE",
+              "order_type": "UNAVAILABLE",
+              "trailing_enabled": "UNAVAILABLE",
+              "cooldown_seconds": "UNAVAILABLE"
+            }
+          },
+          "complete": false,
+          "missing_fields": [
+            "safety_order_volume",
+            "max_active_safety_orders",
+            "start_condition",
+            "order_type",
+            "trailing_enabled",
+            "cooldown_seconds"
+          ]
+        }
+      },
+      "capital_impact": {
+        "required": null,
+        "available": null,
+        "can_fund": null,
+        "capital_status": "COMPLETE"
+      },
+      "evidence_agreement": {
+        "asset": "TAO",
+        "kraken_historical": "UNKNOWN",
+        "q1_2026_validation": "UNKNOWN",
+        "kucoin_current": "AVAILABLE",
+        "agreement": "UNKNOWN"
+      },
+      "explanation": "Wait TAO Low Pullback Bot. Confidence 21.5%; risk high. Strategy health is strong",
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "recorded_at": "2026-08-20T21:58:36.449349+00:00",
+      "snapshot_id": "f81e45c271cbffa0887e",
+      "recommendation_id": "eeb44c46e160d30e69f3f345",
+      "asset": "TEL",
+      "bot_name": "TEL Low Volatility Bot",
+      "action": "WAIT",
+      "overall_confidence": 58.6,
+      "risk_level": "HIGH",
+      "confidence_components": [
+        {
+          "name": "regime",
+          "score": 55,
+          "weight": 0.25,
+          "status": "fail",
+          "explanation": "Current regime or entry permission does not support a new entry."
+        },
+        {
+          "name": "historical",
+          "score": 88.3,
+          "weight": 0.2,
+          "status": "pass",
+          "explanation": "Historical/replay decision score from the governed production ranking."
+        },
+        {
+          "name": "live_conditions",
+          "score": null,
+          "weight": 0.15,
+          "status": "unknown",
+          "explanation": "Live 3Commas state is unavailable."
+        },
+        {
+          "name": "capital",
+          "score": null,
+          "weight": 0.15,
+          "status": "unknown",
+          "explanation": "Deployable capital cannot yet be confirmed."
+        },
+        {
+          "name": "settings",
+          "score": 25.0,
+          "weight": 0.15,
+          "status": "fail",
+          "explanation": "One or more exact DCA settings are missing."
+        },
+        {
+          "name": "cross_source_agreement",
+          "score": null,
+          "weight": 0.1,
+          "status": "unknown",
+          "explanation": "Cross-source agreement is incomplete or unavailable."
+        }
+      ],
+      "score_breakdown": {
+        "entry_permission": 24.0,
+        "opportunity": 10.6,
+        "health": 5.4,
+        "recent_profit": 9.73,
+        "drawdown": -4.395,
+        "duration": -10.0,
+        "capital_efficiency": 8.0
+      },
+      "supporting_evidence": [
+        "Current entry filters pass",
+        "Recent realised P&L is positive",
+        "Recent capital efficiency is positive"
+      ],
+      "risks": [
+        "Recent drawdown is elevated",
+        "Open replay position has lasted 43.2 days"
+      ],
+      "blockers": [
+        "Complete deployable-capital confirmation is unavailable.",
+        "Exact DCA settings are incomplete; deployment is blocked."
+      ],
+      "expected_behaviour": {
+        "expected_roi_pct": null,
+        "expected_hold_hours": null,
+        "worst_historical_drawdown_pct": 4.394993673262043,
+        "capital_efficiency_score": 8,
+        "note": "ROI and hold-time expectations are not published unless supported by a comparable validated dataset."
+      },
+      "production_comparison": {
+        "settings_changed": null,
+        "settings_state": "INCOMPLETE",
+        "differences": [
+          {
+            "field": "base_order_volume",
+            "production_value": 100.0,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "safety_order_volume",
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "take_profit_pct",
+            "production_value": 1.5,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "so_deviation_pct",
+            "production_value": 1.2,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "safety_orders",
+            "production_value": 6,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "volume_scale",
+            "production_value": 1.6,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "step_scale",
+            "production_value": 1.0,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "max_active_deals",
+            "production_value": 1,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "max_active_safety_orders",
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "start_condition",
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "order_type",
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "trailing_enabled",
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          },
+          {
+            "field": "cooldown_seconds",
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
+          }
+        ],
+        "recommended_settings": {
+          "source": "CANONICAL_LIVE_GOVERNED_RECOMMENDATION",
+          "values": {
+            "bot_name": "TEL Low Volatility Bot",
+            "base_order_volume": 100.0,
+            "safety_order_volume": null,
+            "take_profit_pct": 1.5,
+            "so_deviation_pct": 1.2,
+            "safety_orders": 6,
+            "volume_scale": 1.6,
+            "step_scale": 1.0,
+            "max_active_deals": 1,
+            "max_active_safety_orders": null,
+            "start_condition": null,
+            "order_type": null,
+            "trailing_enabled": null,
+            "cooldown_seconds": null,
+            "_evidence": {
+              "base_order_volume": "GOVERNED",
+              "safety_order_volume": "UNAVAILABLE",
+              "take_profit_pct": "GOVERNED",
+              "so_deviation_pct": "GOVERNED",
+              "safety_orders": "GOVERNED",
+              "volume_scale": "GOVERNED",
+              "step_scale": "GOVERNED",
+              "max_active_deals": "GOVERNED",
+              "max_active_safety_orders": "UNAVAILABLE",
+              "start_condition": "UNAVAILABLE",
+              "order_type": "UNAVAILABLE",
+              "trailing_enabled": "UNAVAILABLE",
+              "cooldown_seconds": "UNAVAILABLE"
+            }
+          },
+          "complete": false,
+          "missing_fields": [
+            "safety_order_volume",
+            "max_active_safety_orders",
+            "start_condition",
+            "order_type",
+            "trailing_enabled",
+            "cooldown_seconds"
+          ]
+        }
+      },
+      "capital_impact": {
+        "required": null,
+        "available": null,
+        "can_fund": null,
+        "capital_status": "COMPLETE"
+      },
+      "evidence_agreement": {
+        "asset": "TEL",
+        "kraken_historical": "UNKNOWN",
+        "q1_2026_validation": "UNKNOWN",
+        "kucoin_current": "AVAILABLE",
+        "agreement": "UNKNOWN"
+      },
+      "explanation": "Wait TEL Low Volatility Bot. Confidence 58.6%; risk high. Current entry filters pass",
+      "outcome": {
+        "status": "PENDING",
+        "closed_at": null,
+        "realised_profit_pct": null,
+        "notes": null
+      }
+    },
+    {
+      "recorded_at": "2026-08-20T21:58:36.449349+00:00",
+      "snapshot_id": "f81e45c271cbffa0887e",
+      "recommendation_id": "90a6a0f20d1e2ac0c571a099",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
