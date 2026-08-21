@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-21T19:09:53.137887+00:00",
-  "snapshot_id": "6b969622d30ad522e86de640",
+  "generated_at": "2026-08-21T19:53:22.122261+00:00",
+  "snapshot_id": "fc93b54bff6d5e53b96c1aac",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -43,138 +43,35 @@
     ]
   },
   "portfolio": {
-    "health_score": 93.7,
-    "diversification_score": 100,
-    "capital_efficiency_score": 81.0,
+    "health_score": 100.0,
+    "diversification_score": null,
+    "capital_efficiency_score": null,
     "next_capital_priority": "TEL Low Volatility Bot",
-    "positions": [
-      {
-        "asset": "TEL",
-        "bot_name": "TEL DCA - High Bear",
-        "action": "DISABLED",
-        "enabled": false,
-        "active_deals": 0,
-        "allocated_capital": 0.0,
-        "reserve_capital": 0.0,
-        "deployable_priority": 1,
-        "efficiency_score": null,
-        "overlap_group": "BTC-linked altcoin",
-        "warnings": []
-      },
-      {
-        "asset": "TEL",
-        "bot_name": "TEL DCA - High Bull",
-        "action": "DISABLED",
-        "enabled": false,
-        "active_deals": 0,
-        "allocated_capital": 0.0,
-        "reserve_capital": 0.0,
-        "deployable_priority": 2,
-        "efficiency_score": null,
-        "overlap_group": "BTC-linked altcoin",
-        "warnings": []
-      },
-      {
-        "asset": "TEL",
-        "bot_name": "TEL DCA - Medium Volatility",
-        "action": "DISABLED",
-        "enabled": false,
-        "active_deals": 0,
-        "allocated_capital": 0.0,
-        "reserve_capital": 0.0,
-        "deployable_priority": 3,
-        "efficiency_score": 81.0,
-        "overlap_group": "BTC-linked altcoin",
-        "warnings": []
-      },
-      {
-        "asset": "TEL",
-        "bot_name": "TEL DCA - Low Volatility",
-        "action": "DISABLED",
-        "enabled": false,
-        "active_deals": 0,
-        "allocated_capital": 0.0,
-        "reserve_capital": 0.0,
-        "deployable_priority": 4,
-        "efficiency_score": 81.0,
-        "overlap_group": "BTC-linked altcoin",
-        "warnings": []
-      },
-      {
-        "asset": "DOT",
-        "bot_name": "Dot DCA Bull",
-        "action": "DISABLED",
-        "enabled": false,
-        "active_deals": 0,
-        "allocated_capital": 0.0,
-        "reserve_capital": 0.0,
-        "deployable_priority": 5,
-        "efficiency_score": null,
-        "overlap_group": "BTC-linked altcoin",
-        "warnings": []
-      },
-      {
-        "asset": "ZEC",
-        "bot_name": "ZEC DCA Bull",
-        "action": "DISABLED",
-        "enabled": false,
-        "active_deals": 0,
-        "allocated_capital": 0.0,
-        "reserve_capital": 0.0,
-        "deployable_priority": 6,
-        "efficiency_score": null,
-        "overlap_group": "BTC-linked altcoin",
-        "warnings": []
-      },
-      {
-        "asset": "AAVE",
-        "bot_name": "AAVE pullback 3pct",
-        "action": "DISABLED",
-        "enabled": false,
-        "active_deals": 0,
-        "allocated_capital": 0.0,
-        "reserve_capital": 0.0,
-        "deployable_priority": 7,
-        "efficiency_score": null,
-        "overlap_group": "BTC-linked altcoin",
-        "warnings": []
-      }
-    ],
-    "overlap_analysis": {
-      "BTC-linked altcoin": {
-        "assets": [
-          "AAVE",
-          "DOT",
-          "TEL",
-          "ZEC"
-        ],
-        "count": 4,
-        "concentration_warning": true
-      }
-    }
+    "positions": [],
+    "overlap_analysis": {}
   },
   "capital": {
     "status": null,
     "currency": "USDT",
     "total_equity": 2786.11702247,
-    "allocated": 0.0,
-    "reserved": 0,
-    "deployable": 1377.26484183,
+    "allocated": null,
+    "reserved": null,
+    "deployable": null,
     "next_required": null,
     "can_fund_next": null,
     "asset_allocations": []
   },
   "recommendations": [
     {
-      "recommendation_id": "653620cec3bcdc544f1d2fff",
+      "recommendation_id": "f7aa20468c513948665371bd",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
       "confidence_pct": 62.5,
-      "static_confidence_pct": 81.0,
+      "static_confidence_pct": 62.5,
       "adaptive_active": false,
       "risk_level": "HIGH",
-      "explanation": "Wait TEL Low Volatility Bot. Confidence 81.0%; risk high. Current entry filters pass",
+      "explanation": "Wait TEL Low Volatility Bot. Confidence 62.5%; risk high. Current entry filters pass",
       "supporting_evidence": [
         "Current entry filters pass",
         "Recent realised P&L is positive",
@@ -185,89 +82,90 @@
         "Open replay position has lasted 0.3 days"
       ],
       "blockers": [
-        "Complete deployable-capital confirmation is unavailable."
+        "Complete deployable-capital confirmation is unavailable.",
+        "Exact DCA settings are incomplete; deployment is blocked."
       ],
       "production_comparison": {
-        "settings_changed": false,
+        "settings_changed": null,
         "settings_state": "INCOMPLETE",
         "differences": [
           {
             "field": "base_order_volume",
             "production_value": 100.0,
-            "live_value": 100.0,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "safety_order_volume",
-            "production_value": 100.0,
-            "live_value": 100.0,
-            "status": "MATCH"
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "take_profit_pct",
             "production_value": 1.5,
-            "live_value": 1.5,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "so_deviation_pct",
             "production_value": 1.2,
-            "live_value": 1.2,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "safety_orders",
             "production_value": 6,
-            "live_value": 6,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "volume_scale",
             "production_value": 1.6,
-            "live_value": 1.6,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "step_scale",
             "production_value": 1.0,
-            "live_value": 1.0,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "max_active_deals",
             "production_value": 1,
-            "live_value": 1,
-            "status": "MATCH"
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "max_active_safety_orders",
-            "production_value": 3,
-            "live_value": 3,
-            "status": "MATCH"
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "start_condition",
-            "production_value": "long",
-            "live_value": "long",
-            "status": "MATCH"
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "order_type",
-            "production_value": "limit",
-            "live_value": "limit",
-            "status": "MATCH"
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "trailing_enabled",
-            "production_value": false,
-            "live_value": false,
-            "status": "MATCH"
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           },
           {
             "field": "cooldown_seconds",
-            "production_value": 0,
-            "live_value": 0,
-            "status": "MATCH"
+            "production_value": null,
+            "live_value": null,
+            "status": "NOT_COMPARABLE"
           }
         ],
         "recommended_settings": {
@@ -275,41 +173,48 @@
           "values": {
             "bot_name": "TEL Low Volatility Bot",
             "base_order_volume": 100.0,
-            "safety_order_volume": 100.0,
+            "safety_order_volume": null,
             "take_profit_pct": 1.5,
             "so_deviation_pct": 1.2,
             "safety_orders": 6,
             "volume_scale": 1.6,
             "step_scale": 1.0,
             "max_active_deals": 1,
-            "max_active_safety_orders": 3,
-            "start_condition": "long",
-            "order_type": "limit",
-            "trailing_enabled": false,
-            "cooldown_seconds": 0,
+            "max_active_safety_orders": null,
+            "start_condition": null,
+            "order_type": null,
+            "trailing_enabled": null,
+            "cooldown_seconds": null,
             "_evidence": {
               "base_order_volume": "GOVERNED",
-              "safety_order_volume": "KEEP_LIVE",
+              "safety_order_volume": "UNAVAILABLE",
               "take_profit_pct": "GOVERNED",
               "so_deviation_pct": "GOVERNED",
               "safety_orders": "GOVERNED",
               "volume_scale": "GOVERNED",
               "step_scale": "GOVERNED",
               "max_active_deals": "GOVERNED",
-              "max_active_safety_orders": "KEEP_LIVE",
-              "start_condition": "KEEP_LIVE",
-              "order_type": "KEEP_LIVE",
-              "trailing_enabled": "KEEP_LIVE",
-              "cooldown_seconds": "KEEP_LIVE"
+              "max_active_safety_orders": "UNAVAILABLE",
+              "start_condition": "UNAVAILABLE",
+              "order_type": "UNAVAILABLE",
+              "trailing_enabled": "UNAVAILABLE",
+              "cooldown_seconds": "UNAVAILABLE"
             }
           },
-          "complete": true,
-          "missing_fields": []
+          "complete": false,
+          "missing_fields": [
+            "safety_order_volume",
+            "max_active_safety_orders",
+            "start_condition",
+            "order_type",
+            "trailing_enabled",
+            "cooldown_seconds"
+          ]
         }
       },
       "capital_impact": {
         "required": null,
-        "available": 1377.26484183,
+        "available": null,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -329,7 +234,7 @@
       }
     },
     {
-      "recommendation_id": "1e3e5f100b2c6608faa81f70",
+      "recommendation_id": "60760a49c9708fded4e6f903",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -480,7 +385,7 @@
       },
       "capital_impact": {
         "required": null,
-        "available": 1377.26484183,
+        "available": null,
         "can_fund": null,
         "capital_status": "COMPLETE"
       },
@@ -515,7 +420,8 @@
         "Recent capital efficiency is positive"
       ],
       "blockers": [
-        "Complete deployable-capital confirmation is unavailable."
+        "Complete deployable-capital confirmation is unavailable.",
+        "Exact DCA settings are incomplete; deployment is blocked."
       ],
       "capital_required": null,
       "can_fund": null
@@ -546,6 +452,7 @@
     "Recent drawdown is elevated",
     "Open replay position has lasted 0.3 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
+    "TEL: Exact DCA settings are incomplete; deployment is blocked.",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
@@ -570,11 +477,11 @@
     }
   },
   "cloud": {
-    "overall_status": "WARNING",
+    "overall_status": "FAILURE",
     "threecommas": {
       "status": "partial",
-      "generated_at": "2026-08-21T19:09:49.829540+00:00",
-      "message": "Read-only sync completed with endpoint issues: accounts, deals."
+      "generated_at": "2026-08-21T19:53:18.654066+00:00",
+      "message": "Read-only sync completed with endpoint issues: accounts, bots, deals."
     },
     "main_app": {},
     "publication": {}
@@ -583,23 +490,25 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "WARNING"
+    "cloud_status": "FAILURE"
   },
   "source_snapshots": {
     "market": "20a47f76d92bf928a2ff",
-    "portfolio": "f62abed24176eb3ced41",
-    "capital": "5d3c23e819f03f5ea75e",
-    "deployment": "6238fba89cee53a141e1",
-    "recommendations": "584cf70864e0961f1a39",
+    "portfolio": "a2c90519317d538a7cd1",
+    "capital": "9c4350b3e702b7c20832",
+    "deployment": "2e37dcf76282f0978f45",
+    "recommendations": "e2aaecde52fc49896f56",
     "adaptive": "1c30af977322e854a7e6",
     "outcomes": "2026-08-21T16:03:11.596591+00:00",
-    "cloud": "50e7d3b9ebd95e6628ab",
-    "operating": "dd1cba1aefa7699f7a73"
+    "cloud": "b7713b37205550466ad5",
+    "operating": "73dde16529c270b74f68"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
+    "Deployable capital remains unknown; next allocation is advisory only.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
+    "Deployable capital is unknown; no new deployment should be assumed fundable.",
     "One or more cloud data sources require attention."
   ]
 }
