@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-21T16:03:13.225856+00:00",
-  "snapshot_id": "bce312a659d5240c65220181",
+  "generated_at": "2026-08-21T17:04:36.641921+00:00",
+  "snapshot_id": "67325a0671b6bb4ec1625966",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -63,7 +63,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "7718b6d5915454ec136f6b35",
+      "recommendation_id": "8177309643958c61b13f4f70",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
@@ -234,7 +234,7 @@
       }
     },
     {
-      "recommendation_id": "94e02effba70ef75ae0f3cae",
+      "recommendation_id": "bcd3b93a46adeccd682d7696",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -477,11 +477,11 @@
     }
   },
   "cloud": {
-    "overall_status": "WARNING",
+    "overall_status": "FAILURE",
     "threecommas": {
       "status": "partial",
-      "generated_at": "2026-08-21T16:03:03.151418+00:00",
-      "message": "Read-only sync completed with endpoint issues: bots, deals."
+      "generated_at": "2026-08-21T17:04:32.517348+00:00",
+      "message": "Read-only sync completed with endpoint issues: accounts, bots, deals."
     },
     "main_app": {},
     "publication": {}
@@ -490,18 +490,18 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "WARNING"
+    "cloud_status": "FAILURE"
   },
   "source_snapshots": {
     "market": "20a47f76d92bf928a2ff",
-    "portfolio": "9b44d76982c089ff4763",
-    "capital": "893c21e35f043dc836b4",
-    "deployment": "fef0e53ed465c42fe2f4",
-    "recommendations": "cd5132a9274e821a0413",
+    "portfolio": "05b6f377b772f9a7e0ce",
+    "capital": "2e14b49539dfa5c04732",
+    "deployment": "7ac4bdd8f418388ef3f0",
+    "recommendations": "2bc0e9377f85458835cb",
     "adaptive": "1c30af977322e854a7e6",
     "outcomes": "2026-08-21T16:03:11.596591+00:00",
-    "cloud": "f49edd8ea916d65173a5",
-    "operating": "bf8798bb9518b999bd8d"
+    "cloud": "99d863c76b4fda090563",
+    "operating": "372ffc25aeb6871e9fc6"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
