@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-21T09:18:05.370614+00:00",
-  "snapshot_id": "0fd57e5f4875b747c77fedf1",
+  "generated_at": "2026-08-21T10:04:41.733156+00:00",
+  "snapshot_id": "43c9163b201e814423f54f96",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -63,7 +63,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "27092c49147cc96ac20a6a2e",
+      "recommendation_id": "e95720ab5be2771bfc5a13af",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
@@ -233,7 +233,7 @@
       }
     },
     {
-      "recommendation_id": "b8fbf4f71ee9386190982667",
+      "recommendation_id": "67a630a8593e442e76a50964",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -478,7 +478,7 @@
     "overall_status": "FAILURE",
     "threecommas": {
       "status": "partial",
-      "generated_at": "2026-08-21T09:18:01.613805+00:00",
+      "generated_at": "2026-08-21T10:04:37.533791+00:00",
       "message": "Read-only sync completed with endpoint issues: accounts, bots, deals."
     },
     "main_app": {},
@@ -492,14 +492,14 @@
   },
   "source_snapshots": {
     "market": "baffdd41100eb6ee19b9",
-    "portfolio": "ae0e50d8ebf1e3a4660b",
-    "capital": "aca60a7b2c4e564c0fcd",
-    "deployment": "d00141691c9e806206cb",
-    "recommendations": "c3066563cef83f526918",
+    "portfolio": "27fc3aa55289f1637335",
+    "capital": "53d391416f0705a1e26b",
+    "deployment": "8167ebb1ef34079a3557",
+    "recommendations": "a23ee76af3a64d292b36",
     "adaptive": "1c30af977322e854a7e6",
     "outcomes": "2026-08-21T08:18:31.401863+00:00",
-    "cloud": "fd6e20aaa594ed20ba26",
-    "operating": "23474ae1b8f12da80cc4"
+    "cloud": "416d8423a591df6344d5",
+    "operating": "0008fedce6c43d0bb9bc"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
