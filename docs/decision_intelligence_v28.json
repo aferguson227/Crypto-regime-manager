@@ -1,6 +1,6 @@
 {
   "version": "29.0.0",
-  "generated_at": "2026-08-20T16:02:53.986026+00:00",
+  "generated_at": "2026-08-21T04:21:39.545306+00:00",
   "mode": "unified_advisory_decision_engine",
   "best_setup": {
     "id": "TEL",
@@ -9,14 +9,14 @@
     "production": true,
     "entry_allowed": true,
     "recommended_bot": "TEL Low Volatility Bot",
-    "decision_score": 88.3,
+    "decision_score": 100,
     "components": {
       "entry_permission": 24,
-      "opportunity": 10.600000000000001,
-      "health": 5.3999999999999995,
-      "recent_profit": 9.730325245567956,
+      "opportunity": 11.4,
+      "health": 7.92,
+      "recent_profit": 10.083600349567952,
       "drawdown": -4.394993673262043,
-      "duration": -10,
+      "duration": 2.878735632183908,
       "capital_efficiency": 8
     },
     "positives": [
@@ -26,7 +26,7 @@
     ],
     "cautions": [
       "Recent drawdown is elevated",
-      "Open replay position has lasted 43.2 days"
+      "Open replay position has lasted 0.3 days"
     ],
     "validation_state": "production_baseline"
   },
@@ -38,14 +38,14 @@
       "production": true,
       "entry_allowed": true,
       "recommended_bot": "TEL Low Volatility Bot",
-      "decision_score": 88.3,
+      "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 10.600000000000001,
-        "health": 5.3999999999999995,
-        "recent_profit": 9.730325245567956,
+        "opportunity": 11.4,
+        "health": 7.92,
+        "recent_profit": 10.083600349567952,
         "drawdown": -4.394993673262043,
-        "duration": -10,
+        "duration": 2.878735632183908,
         "capital_efficiency": 8
       },
       "positives": [
@@ -55,7 +55,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 43.2 days"
+        "Open replay position has lasted 0.3 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -95,14 +95,14 @@
       "production": true,
       "entry_allowed": true,
       "recommended_bot": "TEL Low Volatility Bot",
-      "decision_score": 88.3,
+      "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 10.600000000000001,
-        "health": 5.3999999999999995,
-        "recent_profit": 9.730325245567956,
+        "opportunity": 11.4,
+        "health": 7.92,
+        "recent_profit": 10.083600349567952,
         "drawdown": -4.394993673262043,
-        "duration": -10,
+        "duration": 2.878735632183908,
         "capital_efficiency": 8
       },
       "positives": [
@@ -112,7 +112,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 43.2 days"
+        "Open replay position has lasted 0.3 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -168,7 +168,7 @@
         "Current entry is blocked",
         "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 86.2 days"
+        "Open replay position has lasted 86.7 days"
       ],
       "validation_state": "FAIL \u2014 review risk"
     }
@@ -184,9 +184,9 @@
     "backtested_datasets": 0
   },
   "synchronisation": {
-    "strategy_snapshot": "2026-08-20T16:02:48.287241+00:00",
-    "discovery_snapshot": "2026-08-20T16:02:48.309037+00:00",
-    "validation_snapshot": "2026-08-20T16:02:53.981340+00:00",
+    "strategy_snapshot": "2026-08-21T04:21:33.393740+00:00",
+    "discovery_snapshot": "2026-08-21T04:21:33.416715+00:00",
+    "validation_snapshot": "2026-08-21T04:21:39.540180+00:00",
     "all_modules_consumed": true
   },
   "strategy_factory": {
@@ -202,7 +202,7 @@
     ],
     "imports": {
       "version": "30.2.0",
-      "generated_at": "2026-08-20T16:02:53.978689+00:00",
+      "generated_at": "2026-08-21T04:21:39.537129+00:00",
       "target_timeframe": "4h",
       "files": [],
       "ready": 0,
@@ -210,7 +210,7 @@
     },
     "backtest_registry": {
       "version": "29.0.0",
-      "generated_at": "2026-08-20T16:02:53.978980+00:00",
+      "generated_at": "2026-08-21T04:21:39.537436+00:00",
       "datasets": [],
       "policy": {
         "fee_aware": true,

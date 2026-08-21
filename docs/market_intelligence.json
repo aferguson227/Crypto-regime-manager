@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-20T16:02:54.238268+00:00",
-  "snapshot_id": "9b2f270c9295719e9fc1",
+  "generated_at": "2026-08-21T04:21:39.805540+00:00",
+  "snapshot_id": "932c24adf11557db1190",
   "mode": "read_only_market_context",
   "read_only": true,
   "manual_approval_required": true,
   "regime": "ACCUMULATION",
-  "regime_confidence_pct": 65.0,
+  "regime_confidence_pct": 68.0,
   "trend_score": 55,
   "volatility_score": 35,
-  "breadth_score": 90.0,
+  "breadth_score": 100,
   "correlation_score": 65,
   "risk_appetite": "BALANCED",
   "recommended_exposure": "MODERATE",
@@ -22,7 +22,7 @@
       "entry_allowed": true,
       "trend_score": 70,
       "volatility_score": 35,
-      "opportunity_score": 96.0
+      "opportunity_score": 100.0
     },
     {
       "asset": "TAO",
@@ -39,7 +39,7 @@
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
-      "effective_score": 58.6,
+      "effective_score": 62.5,
       "market_regime": "ACCUMULATION",
       "why_now": [
         "Current operating data allows entry.",
@@ -48,7 +48,7 @@
       "why_not": [
         "Governed recommendation remains WAIT."
       ],
-      "market_support_score": 65.0
+      "market_support_score": 68.0
     },
     {
       "asset": "TAO",
@@ -63,7 +63,7 @@
         "Current operating data does not allow entry.",
         "Governed recommendation remains WAIT."
       ],
-      "market_support_score": 42.2
+      "market_support_score": 44.2
     }
   ],
   "stress_tests": [
@@ -108,7 +108,7 @@
     "Exchange equity is unknown; stress-test capital impacts may be incomplete."
   ],
   "breadth_evidence": {
-    "positive_assets": 9,
+    "positive_assets": 10,
     "assets_with_30d_trend": 10,
     "source": "coin_discovery.researched_candidates.trend_30d_pct",
     "status": "MEASURED"

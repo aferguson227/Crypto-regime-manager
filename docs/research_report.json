@@ -1,6 +1,6 @@
 {
   "version": "31.1.0",
-  "generated_at": "2026-08-20T16:02:53.989241+00:00",
+  "generated_at": "2026-08-21T04:21:39.548892+00:00",
   "title": "Crypto Regime Research Report",
   "executive_summary": {
     "coins": 10,
@@ -51,8 +51,8 @@
     {
       "symbol": "SOL",
       "status": "FAIL",
-      "regime": "MEAN REVERTING",
-      "preferred_family": "Grid",
+      "regime": "TRENDING",
+      "preferred_family": "Trend-filtered DCA",
       "degradation_pct": 386.5,
       "next_action": "Run independent fee-aware replay for the shortlisted strategy family; retain manual approval."
     },
@@ -75,8 +75,8 @@
     {
       "symbol": "XRP",
       "status": "PASS",
-      "regime": "MEAN REVERTING",
-      "preferred_family": "Grid",
+      "regime": "TRENDING",
+      "preferred_family": "Trend-filtered DCA",
       "degradation_pct": 24.5,
       "next_action": "Run independent fee-aware replay for the shortlisted strategy family; retain manual approval."
     },
