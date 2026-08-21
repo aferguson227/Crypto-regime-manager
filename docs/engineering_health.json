@@ -1,14 +1,14 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-21T11:01:26.571082+00:00",
+  "generated_at": "2026-08-21T11:58:15.992490+00:00",
   "overall": {
     "state": "HEALTHY",
-    "score_pct": 94.5
+    "score_pct": 95.2
   },
   "scores": {
     "application": 100,
-    "operations": 67.0,
+    "operations": 71.0,
     "interface": 100,
     "actions": 100,
     "self_healing": 100,
@@ -165,13 +165,13 @@
     "evidence_coverage_pct": 20.0
   },
   "release_predictor": {
-    "readiness_pct": 94.5,
+    "readiness_pct": 95.2,
     "ready": true,
     "recommendation": "READY",
-    "regression_risk": "LOW",
+    "regression_risk": "VERY_LOW",
     "expected_build_seconds": null,
     "expected_deployment_seconds": 23.0,
-    "actions_success_rate_pct": 70.7,
+    "actions_success_rate_pct": 71.7,
     "blockers": []
   },
   "guardrails": {
