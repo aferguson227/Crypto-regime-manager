@@ -1,9 +1,9 @@
 {
   "version": "70.0.0",
   "authentication": "RSA self-generated",
-  "generated_at": "2026-08-21T10:04:37.533791+00:00",
-  "last_attempt_at": "2026-08-21T10:04:37.533791+00:00",
-  "last_success_at": "2026-08-21T10:04:37.533791+00:00",
+  "generated_at": "2026-08-21T11:01:23.262141+00:00",
+  "last_attempt_at": "2026-08-21T11:01:23.262141+00:00",
+  "last_success_at": "2026-08-21T11:01:23.262141+00:00",
   "status": "partial",
   "core_status": "error",
   "core_failed": [
@@ -22,34 +22,34 @@
       "message": "Endpoint completed successfully.",
       "http_status": null,
       "records": null,
-      "observed_at": "2026-08-21T10:04:38.101680+00:00"
+      "observed_at": "2026-08-21T11:01:25.089916+00:00"
     },
     "accounts": {
       "path": "/public/api/ver1/accounts",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 10:04:41 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 11:01:42 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-21T10:04:39.498352+00:00"
+      "observed_at": "2026-08-21T11:01:25.241041+00:00"
     },
     "bots": {
       "path": "/public/api/ver1/bots",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 10:04:41 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 11:01:42 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-21T10:04:39.730012+00:00"
+      "observed_at": "2026-08-21T11:01:25.399474+00:00"
     },
     "deals": {
       "path": "/public/api/ver1/deals",
       "status": "fail",
       "category": "rate_limited",
-      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 10:04:41 UTC'}",
+      "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 11:01:42 UTC'}",
       "http_status": 429,
       "records": null,
-      "observed_at": "2026-08-21T10:04:39.978522+00:00"
+      "observed_at": "2026-08-21T11:01:25.599098+00:00"
     }
   },
   "accounts": [],
