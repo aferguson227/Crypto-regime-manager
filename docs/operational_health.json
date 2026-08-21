@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-21T07:06:47.794999+00:00",
+  "generated_at": "2026-08-21T07:26:57.039638+00:00",
   "overall": {
     "state": "WARNING",
     "score_pct": 67.0,
@@ -18,9 +18,9 @@
   },
   "threecommas": {
     "status": "error",
-    "last_attempt_at": "2026-08-21T06:02:06.654091+00:00",
-    "last_success_at": "2026-08-21T06:02:06.654091+00:00",
-    "last_success_age_hours": 1.08,
+    "last_attempt_at": "2026-08-21T07:26:53.962582+00:00",
+    "last_success_at": "2026-08-21T07:26:53.962582+00:00",
+    "last_success_age_hours": 0.0,
     "endpoints": [
       {
         "name": "validate",
@@ -28,8 +28,8 @@
         "category": "ok",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-21T06:02:07.364635+00:00",
-        "age_hours": 1.08,
+        "observed_at": "2026-08-21T07:26:54.839550+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -39,10 +39,10 @@
         "category": "rate_limited",
         "http_status": 429,
         "records": null,
-        "observed_at": "2026-08-21T06:02:07.535546+00:00",
-        "age_hours": 1.08,
+        "observed_at": "2026-08-21T07:26:55.388279+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
-        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 06:02:12 UTC'}"
+        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 07:27:02 UTC'}"
       },
       {
         "name": "bots",
@@ -50,10 +50,10 @@
         "category": "rate_limited",
         "http_status": 429,
         "records": null,
-        "observed_at": "2026-08-21T06:02:07.712066+00:00",
-        "age_hours": 1.08,
+        "observed_at": "2026-08-21T07:26:55.979691+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
-        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 06:02:12 UTC'}"
+        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 07:27:02 UTC'}"
       },
       {
         "name": "deals",
@@ -61,10 +61,10 @@
         "category": "rate_limited",
         "http_status": 429,
         "records": null,
-        "observed_at": "2026-08-21T06:02:07.882125+00:00",
-        "age_hours": 1.08,
+        "observed_at": "2026-08-21T07:26:56.549361+00:00",
+        "age_hours": 0.0,
         "latency_ms": null,
-        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 06:02:12 UTC'}"
+        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 07:27:02 UTC'}"
       }
     ],
     "accounts": 0,
@@ -74,7 +74,7 @@
   "application": {
     "cloud_state": "healthy",
     "last_success_at": "2026-08-21T04:21:39.796394+00:00",
-    "last_success_age_hours": 1.67,
+    "last_success_age_hours": 3.09,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -94,40 +94,40 @@
       "severity": "warning",
       "system": "3Commas",
       "title": "accounts endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 06:02:12 UTC'}",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 07:27:02 UTC'}",
       "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
       "metric": {
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-21T07:06:47.796179+00:00",
-      "last_detected_at": "2026-08-21T07:06:47.796183+00:00"
+      "first_detected_at": "2026-08-21T07:26:57.040554+00:00",
+      "last_detected_at": "2026-08-21T07:26:57.040558+00:00"
     },
     {
       "severity": "warning",
       "system": "3Commas",
       "title": "bots endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 06:02:12 UTC'}",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 07:27:02 UTC'}",
       "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
       "metric": {
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-21T07:06:47.796192+00:00",
-      "last_detected_at": "2026-08-21T07:06:47.796194+00:00"
+      "first_detected_at": "2026-08-21T07:26:57.040565+00:00",
+      "last_detected_at": "2026-08-21T07:26:57.040567+00:00"
     },
     {
       "severity": "warning",
       "system": "3Commas",
       "title": "deals endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 06:02:12 UTC'}",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-21 07:27:02 UTC'}",
       "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
       "metric": {
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-21T07:06:47.796200+00:00",
-      "last_detected_at": "2026-08-21T07:06:47.796202+00:00"
+      "first_detected_at": "2026-08-21T07:26:57.040572+00:00",
+      "last_detected_at": "2026-08-21T07:26:57.040574+00:00"
     }
   ],
   "safeguards": {
