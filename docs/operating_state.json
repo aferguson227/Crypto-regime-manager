@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "snapshot_id": "73dde16529c270b74f68",
-  "generated_at": "2026-08-21T19:53:21.108605+00:00",
+  "snapshot_id": "6ad4a8e4e77f85f491f9",
+  "generated_at": "2026-08-21T20:57:10.373333+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
@@ -26,7 +26,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 0.3 days"
+        "Open replay position has lasted 0.5 days"
       ]
     },
     {
@@ -36,7 +36,7 @@
       "action": "WAIT",
       "recommendation": "TAO Low Pullback Bot",
       "entry_allowed": false,
-      "decision_score": 45.2,
+      "decision_score": 46.2,
       "live_bot_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "reasons": [
@@ -81,35 +81,35 @@
     {
       "name": "KuCoin strategy snapshot",
       "status": "ok",
-      "observed_at": "2026-08-21T16:03:06.114943+00:00",
+      "observed_at": "2026-08-21T20:57:03.549004+00:00",
       "version": "70.0.0",
       "warnings": []
     },
     {
       "name": "Unified decision intelligence",
       "status": "available",
-      "observed_at": "2026-08-21T16:03:11.455950+00:00",
+      "observed_at": "2026-08-21T20:57:08.838647+00:00",
       "version": "29.0.0",
       "warnings": []
     },
     {
       "name": "3Commas live state",
       "status": "partial",
-      "observed_at": "2026-08-21T19:53:18.654066+00:00",
+      "observed_at": "2026-08-21T20:57:01.210454+00:00",
       "version": "70.0.0",
       "warnings": []
     },
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-21T19:53:21.052770+00:00",
+      "observed_at": "2026-08-21T20:57:10.314034+00:00",
       "version": null,
       "warnings": []
     },
     {
       "name": "Configuration reconciliation",
       "status": "incomplete",
-      "observed_at": "2026-08-21T16:03:11.463215+00:00",
+      "observed_at": "2026-08-21T20:57:08.849261+00:00",
       "version": null,
       "warnings": []
     },
@@ -123,7 +123,7 @@
     {
       "name": "System integrity",
       "status": "fresh",
-      "observed_at": "2026-08-21T16:03:11.463820+00:00",
+      "observed_at": "2026-08-21T20:57:08.850308+00:00",
       "version": null,
       "warnings": []
     }
