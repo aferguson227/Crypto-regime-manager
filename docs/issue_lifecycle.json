@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-21T07:06:48.365660+00:00",
+  "generated_at": "2026-08-21T13:09:58.827072+00:00",
   "summary": {
-    "open": 3,
+    "open": 2,
     "closed_this_scan": 1,
     "automatic_available": 0
   },
@@ -18,23 +18,9 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-21T07:06:48.365660+00:00",
+      "last_detected_at": "2026-08-21T13:09:58.827072+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 23
-    },
-    {
-      "key": "5eba43e409623aec",
-      "source": "operational",
-      "fingerprint": "bots endpoint rate limited",
-      "title": "bots endpoint rate limited",
-      "severity": "warning",
-      "occurrences": 1,
-      "automatic": false,
-      "recommended_action": null,
-      "first_detected_at": "2026-08-18T14:09:19.487021+00:00",
-      "last_detected_at": "2026-08-21T07:06:48.365660+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 12
+      "historical_occurrences": 24
     },
     {
       "key": "bdde74e55a281c11",
@@ -46,26 +32,26 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-19T03:15:42.219886+00:00",
-      "last_detected_at": "2026-08-21T07:06:48.365660+00:00",
+      "last_detected_at": "2026-08-21T13:09:58.827072+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 10
+      "historical_occurrences": 11
     }
   ],
   "recently_closed": [
     {
-      "key": "a43930f4134bf7af",
-      "source": "self_healing",
-      "fingerprint": "STALE_THREECOMMAS",
-      "title": "3Commas data is stale",
-      "severity": "low",
+      "key": "5eba43e409623aec",
+      "source": "operational",
+      "fingerprint": "bots endpoint rate limited",
+      "title": "bots endpoint rate limited",
+      "severity": "warning",
       "occurrences": 1,
       "automatic": false,
-      "recommended_action": "Trigger the read-only 3Commas workflow.",
-      "first_detected_at": "2026-08-21T01:56:41.813767+00:00",
-      "last_detected_at": "2026-08-21T01:56:41.813767+00:00",
+      "recommended_action": null,
+      "first_detected_at": "2026-08-18T14:09:19.487021+00:00",
+      "last_detected_at": "2026-08-21T07:06:48.365660+00:00",
       "lifecycle": "CLOSED",
-      "historical_occurrences": 1,
-      "closed_at": "2026-08-21T07:06:48.365660+00:00"
+      "historical_occurrences": 12,
+      "closed_at": "2026-08-21T13:09:58.827072+00:00"
     }
   ]
 }
