@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-21T04:21:39.805540+00:00",
-  "snapshot_id": "932c24adf11557db1190",
+  "generated_at": "2026-08-21T08:18:31.429205+00:00",
+  "snapshot_id": "baffdd41100eb6ee19b9",
   "mode": "read_only_market_context",
   "read_only": true,
   "manual_approval_required": true,
   "regime": "ACCUMULATION",
-  "regime_confidence_pct": 68.0,
-  "trend_score": 55,
+  "regime_confidence_pct": 64.6,
+  "trend_score": 47.5,
   "volatility_score": 35,
   "breadth_score": 100,
   "correlation_score": 65,
@@ -20,7 +20,7 @@
       "symbol": "TEL-USDT",
       "regime": "Low",
       "entry_allowed": true,
-      "trend_score": 70,
+      "trend_score": 55,
       "volatility_score": 35,
       "opportunity_score": 100.0
     },
@@ -31,7 +31,7 @@
       "entry_allowed": false,
       "trend_score": 40,
       "volatility_score": 35,
-      "opportunity_score": 61.0
+      "opportunity_score": 60.0
     }
   ],
   "strategy_context": [
@@ -48,13 +48,13 @@
       "why_not": [
         "Governed recommendation remains WAIT."
       ],
-      "market_support_score": 68.0
+      "market_support_score": 64.6
     },
     {
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "effective_score": 21.5,
+      "effective_score": 21.3,
       "market_regime": "ACCUMULATION",
       "why_now": [
         "Market context is Accumulation."
@@ -63,7 +63,7 @@
         "Current operating data does not allow entry.",
         "Governed recommendation remains WAIT."
       ],
-      "market_support_score": 44.2
+      "market_support_score": 42.0
     }
   ],
   "stress_tests": [
