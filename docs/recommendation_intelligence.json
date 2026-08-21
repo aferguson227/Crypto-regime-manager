@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-21T15:07:06.695339+00:00",
-  "snapshot_id": "4e6d4f1ac132fa6123c8",
+  "generated_at": "2026-08-21T16:03:12.534313+00:00",
+  "snapshot_id": "cd5132a9274e821a0413",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Low",
   "recommendations": [
     {
-      "recommendation_id": "f32aa07e2a89de980ff4f1a3",
+      "recommendation_id": "7718b6d5915454ec136f6b35",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
@@ -62,11 +62,11 @@
       ],
       "score_breakdown": {
         "entry_permission": 24.0,
-        "opportunity": 13.6,
+        "opportunity": 12.0,
         "health": 7.92,
         "recent_profit": 10.195,
         "drawdown": -4.395,
-        "duration": 3.107,
+        "duration": 2.991,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -75,7 +75,8 @@
         "Recent capital efficiency is positive"
       ],
       "risks": [
-        "Recent drawdown is elevated"
+        "Recent drawdown is elevated",
+        "Open replay position has lasted 0.3 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable.",
@@ -231,7 +232,7 @@
       "explanation": "Wait TEL Low Volatility Bot. Confidence 62.5%; risk high. Current entry filters pass"
     },
     {
-      "recommendation_id": "0c6714e15e202cb8980d395d",
+      "recommendation_id": "94e02effba70ef75ae0f3cae",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -459,8 +460,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "f6b3954185323a3237eb",
-    "deployment_generated_at": "2026-08-21T15:07:06.635218+00:00",
-    "decision_generated_at": "2026-08-21T08:18:31.284091+00:00"
+    "deployment_snapshot": "fef0e53ed465c42fe2f4",
+    "deployment_generated_at": "2026-08-21T16:03:12.499770+00:00",
+    "decision_generated_at": "2026-08-21T16:03:11.455950+00:00"
   }
 }

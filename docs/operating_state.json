@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "snapshot_id": "309fa7adbe756db515d4",
-  "generated_at": "2026-08-21T15:07:06.571653+00:00",
+  "snapshot_id": "bf8798bb9518b999bd8d",
+  "generated_at": "2026-08-21T16:03:12.459539+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
@@ -25,7 +25,8 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Recent drawdown is elevated"
+        "Recent drawdown is elevated",
+        "Open replay position has lasted 0.3 days"
       ]
     },
     {
@@ -80,35 +81,35 @@
     {
       "name": "KuCoin strategy snapshot",
       "status": "ok",
-      "observed_at": "2026-08-21T08:18:26.823332+00:00",
+      "observed_at": "2026-08-21T16:03:06.114943+00:00",
       "version": "70.0.0",
       "warnings": []
     },
     {
       "name": "Unified decision intelligence",
       "status": "available",
-      "observed_at": "2026-08-21T08:18:31.284091+00:00",
+      "observed_at": "2026-08-21T16:03:11.455950+00:00",
       "version": "29.0.0",
       "warnings": []
     },
     {
       "name": "3Commas live state",
       "status": "partial",
-      "observed_at": "2026-08-21T15:07:04.789664+00:00",
+      "observed_at": "2026-08-21T16:03:03.151418+00:00",
       "version": "70.0.0",
       "warnings": []
     },
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-21T15:07:06.513365+00:00",
+      "observed_at": "2026-08-21T16:03:12.424529+00:00",
       "version": null,
       "warnings": []
     },
     {
       "name": "Configuration reconciliation",
       "status": "incomplete",
-      "observed_at": "2026-08-21T08:18:31.290972+00:00",
+      "observed_at": "2026-08-21T16:03:11.463215+00:00",
       "version": null,
       "warnings": []
     },
@@ -122,7 +123,7 @@
     {
       "name": "System integrity",
       "status": "fresh",
-      "observed_at": "2026-08-21T08:18:31.291532+00:00",
+      "observed_at": "2026-08-21T16:03:11.463820+00:00",
       "version": null,
       "warnings": []
     }
