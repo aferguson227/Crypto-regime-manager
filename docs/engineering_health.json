@@ -1,14 +1,14 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-21T18:00:42.058753+00:00",
+  "generated_at": "2026-08-21T19:09:53.074607+00:00",
   "overall": {
     "state": "HEALTHY",
-    "score_pct": 94.5
+    "score_pct": 95.2
   },
   "scores": {
     "application": 100,
-    "operations": 67.0,
+    "operations": 71.0,
     "interface": 100,
     "actions": 100,
     "self_healing": 100,
@@ -25,9 +25,9 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-21T13:09:58.827072+00:00",
+      "last_detected_at": "2026-08-21T18:55:32.705366+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 24,
+      "historical_occurrences": 25,
       "user_benefit": 4,
       "frequency": 5,
       "confidence": 5,
@@ -45,15 +45,35 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-19T03:15:42.219886+00:00",
-      "last_detected_at": "2026-08-21T13:09:58.827072+00:00",
+      "last_detected_at": "2026-08-21T18:55:32.705366+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 11,
+      "historical_occurrences": 12,
       "user_benefit": 4,
       "frequency": 5,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
       "roi_score": 25.0
+    },
+    {
+      "key": "5eba43e409623aec",
+      "source": "operational",
+      "fingerprint": "bots endpoint rate limited",
+      "title": "bots endpoint rate limited",
+      "severity": "warning",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": null,
+      "first_detected_at": "2026-08-21T18:55:32.705366+00:00",
+      "last_detected_at": "2026-08-21T18:55:32.705366+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 4,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 5.0
     }
   ],
   "highest_value_improvements": [
@@ -67,9 +87,9 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-15T19:04:40.482668+00:00",
-      "last_detected_at": "2026-08-21T13:09:58.827072+00:00",
+      "last_detected_at": "2026-08-21T18:55:32.705366+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 24,
+      "historical_occurrences": 25,
       "user_benefit": 4,
       "frequency": 5,
       "confidence": 5,
@@ -87,18 +107,16 @@
       "automatic": false,
       "recommended_action": null,
       "first_detected_at": "2026-08-19T03:15:42.219886+00:00",
-      "last_detected_at": "2026-08-21T13:09:58.827072+00:00",
+      "last_detected_at": "2026-08-21T18:55:32.705366+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 11,
+      "historical_occurrences": 12,
       "user_benefit": 4,
       "frequency": 5,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
       "roi_score": 25.0
-    }
-  ],
-  "recently_closed": [
+    },
     {
       "key": "5eba43e409623aec",
       "source": "operational",
@@ -108,16 +126,22 @@
       "occurrences": 1,
       "automatic": false,
       "recommended_action": null,
-      "first_detected_at": "2026-08-18T14:09:19.487021+00:00",
-      "last_detected_at": "2026-08-21T07:06:48.365660+00:00",
-      "lifecycle": "CLOSED",
-      "historical_occurrences": 12,
-      "closed_at": "2026-08-21T13:09:58.827072+00:00"
+      "first_detected_at": "2026-08-21T18:55:32.705366+00:00",
+      "last_detected_at": "2026-08-21T18:55:32.705366+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 4,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 5.0
     }
   ],
+  "recently_closed": [],
   "technical_debt": {
     "state": "LOW",
-    "known_items": 2
+    "known_items": 3
   },
   "decision_quality_display": {
     "state": "LEARNING",
@@ -125,13 +149,13 @@
     "evidence_coverage_pct": 20.0
   },
   "release_predictor": {
-    "readiness_pct": 94.5,
+    "readiness_pct": 95.2,
     "ready": true,
     "recommendation": "READY",
-    "regression_risk": "LOW",
+    "regression_risk": "VERY_LOW",
     "expected_build_seconds": null,
     "expected_deployment_seconds": 23.0,
-    "actions_success_rate_pct": 76.8,
+    "actions_success_rate_pct": 77.8,
     "blockers": []
   },
   "guardrails": {
