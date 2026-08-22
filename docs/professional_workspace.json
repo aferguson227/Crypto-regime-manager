@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-22T15:54:00.567995+00:00",
+  "generated_at": "2026-08-22T16:56:51.093990+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -14,7 +14,7 @@
     "bot_name": "TEL Medium Recovery Bot",
     "asset": "TEL",
     "action": "WAIT",
-    "confidence_pct": 62.5,
+    "confidence_pct": 81.0,
     "urgency": "WAIT",
     "why": [
       "Current entry filters pass",
@@ -242,6 +242,7 @@
   "what_changed": [],
   "risks": [
     "Recent drawdown is elevated",
+    "Open replay position has lasted 0.3 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
@@ -260,25 +261,25 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": null,
-        "stressed_reserve_requirement": null,
-        "status": "UNKNOWN",
+        "estimated_capital_impact": 0.0,
+        "stressed_reserve_requirement": 0.0,
+        "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": null,
-        "stressed_reserve_requirement": null,
-        "status": "UNKNOWN",
+        "estimated_capital_impact": 0.0,
+        "stressed_reserve_requirement": 0.0,
+        "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": null,
-        "stressed_reserve_requirement": null,
-        "status": "UNKNOWN",
+        "estimated_capital_impact": 0.0,
+        "stressed_reserve_requirement": 0.0,
+        "status": "ESTIMATED",
         "automatic_action": false
       }
     ]
@@ -414,5 +415,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "36abc2db7c37eeaf742d5022"
+  "snapshot_id": "f340b84c58215427723da185"
 }

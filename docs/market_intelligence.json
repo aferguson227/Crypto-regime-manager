@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-22T04:16:20.098686+00:00",
-  "snapshot_id": "9712bad0fa7ce2244257",
+  "generated_at": "2026-08-22T16:56:48.912509+00:00",
+  "snapshot_id": "acbe7e1513b8eef4901f",
   "mode": "read_only_market_context",
   "read_only": true,
   "manual_approval_required": true,
@@ -31,7 +31,7 @@
       "entry_allowed": false,
       "trend_score": 40,
       "volatility_score": 35,
-      "opportunity_score": 59.0
+      "opportunity_score": 63.0
     }
   ],
   "strategy_context": [
@@ -39,7 +39,7 @@
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
-      "effective_score": 62.5,
+      "effective_score": 81.0,
       "market_regime": "ACCUMULATION",
       "why_now": [
         "Current operating data allows entry.",
@@ -54,7 +54,7 @@
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "effective_score": 21.1,
+      "effective_score": 21.9,
       "market_regime": "ACCUMULATION",
       "why_now": [
         "Market context is Accumulation."
@@ -70,25 +70,25 @@
     {
       "scenario": "BTC decline",
       "market_shock_pct": -10,
-      "estimated_capital_impact": null,
-      "stressed_reserve_requirement": null,
-      "status": "UNKNOWN",
+      "estimated_capital_impact": 0.0,
+      "stressed_reserve_requirement": 0.0,
+      "status": "ESTIMATED",
       "automatic_action": false
     },
     {
       "scenario": "Volatility expansion",
       "market_shock_pct": -6,
-      "estimated_capital_impact": null,
-      "stressed_reserve_requirement": null,
-      "status": "UNKNOWN",
+      "estimated_capital_impact": 0.0,
+      "stressed_reserve_requirement": 0.0,
+      "status": "ESTIMATED",
       "automatic_action": false
     },
     {
       "scenario": "Rapid recovery",
       "market_shock_pct": 8,
-      "estimated_capital_impact": null,
-      "stressed_reserve_requirement": null,
-      "status": "UNKNOWN",
+      "estimated_capital_impact": 0.0,
+      "stressed_reserve_requirement": 0.0,
+      "status": "ESTIMATED",
       "automatic_action": false
     }
   ],

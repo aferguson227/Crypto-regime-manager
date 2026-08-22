@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-22T15:54:00.522557+00:00",
-  "snapshot_id": "c9f473f17136bfb60055fa53",
+  "generated_at": "2026-08-22T16:56:51.053996+00:00",
+  "snapshot_id": "15feb10dc61a003df3ed16e5",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -19,25 +19,25 @@
       {
         "scenario": "BTC decline",
         "market_shock_pct": -10,
-        "estimated_capital_impact": null,
-        "stressed_reserve_requirement": null,
-        "status": "UNKNOWN",
+        "estimated_capital_impact": 0.0,
+        "stressed_reserve_requirement": 0.0,
+        "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Volatility expansion",
         "market_shock_pct": -6,
-        "estimated_capital_impact": null,
-        "stressed_reserve_requirement": null,
-        "status": "UNKNOWN",
+        "estimated_capital_impact": 0.0,
+        "stressed_reserve_requirement": 0.0,
+        "status": "ESTIMATED",
         "automatic_action": false
       },
       {
         "scenario": "Rapid recovery",
         "market_shock_pct": 8,
-        "estimated_capital_impact": null,
-        "stressed_reserve_requirement": null,
-        "status": "UNKNOWN",
+        "estimated_capital_impact": 0.0,
+        "stressed_reserve_requirement": 0.0,
+        "status": "ESTIMATED",
         "automatic_action": false
       }
     ]
@@ -166,11 +166,11 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "00ce1742db419b6012676640",
+      "recommendation_id": "58f7af19f3199198e03e5fe5",
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
-      "confidence_pct": 62.5,
+      "confidence_pct": 81.0,
       "static_confidence_pct": 81.0,
       "adaptive_active": false,
       "risk_level": "HIGH",
@@ -181,7 +181,8 @@
         "Recent capital efficiency is positive"
       ],
       "risks": [
-        "Recent drawdown is elevated"
+        "Recent drawdown is elevated",
+        "Open replay position has lasted 0.3 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable."
@@ -328,15 +329,15 @@
       }
     },
     {
-      "recommendation_id": "0987154b094d573668e34fec",
+      "recommendation_id": "1209dd1b8dcc9642dcbd8c5c",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence_pct": 21.1,
-      "static_confidence_pct": 21.1,
+      "confidence_pct": 21.9,
+      "static_confidence_pct": 21.9,
       "adaptive_active": false,
       "risk_level": "HIGH",
-      "explanation": "Wait TAO Low Pullback Bot. Confidence 21.1%; risk high. Strategy health is strong",
+      "explanation": "Wait TAO Low Pullback Bot. Confidence 21.9%; risk high. Strategy health is strong",
       "supporting_evidence": [
         "Strategy health is strong",
         "Recent realised P&L is positive",
@@ -506,7 +507,7 @@
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
-      "confidence_pct": 62.5,
+      "confidence_pct": 81.0,
       "urgency": "WAIT",
       "rationale": [
         "Current entry filters pass",
@@ -525,7 +526,7 @@
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence_pct": 21.1,
+      "confidence_pct": 21.9,
       "urgency": "WAIT",
       "rationale": [
         "Strategy health is strong",
@@ -543,6 +544,7 @@
   ],
   "risks": [
     "Recent drawdown is elevated",
+    "Open replay position has lasted 0.3 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
@@ -571,7 +573,7 @@
     "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-22T15:53:57.495103+00:00",
+      "generated_at": "2026-08-22T16:56:41.002192+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -584,15 +586,15 @@
     "cloud_status": "HEALTHY"
   },
   "source_snapshots": {
-    "market": "9712bad0fa7ce2244257",
-    "portfolio": "81c4c17b85da3ed283c6",
-    "capital": "05d49a6c375487fb55f1",
-    "deployment": "0a90cbd514a2b6c68ee6",
-    "recommendations": "08670e74e2425e98c33c",
-    "adaptive": "5e93b2601fe9157814fc",
-    "outcomes": "2026-08-22T04:16:20.063119+00:00",
-    "cloud": "3c5143effc3f3cc5e8df",
-    "operating": "fb0ff6f741ac8485c6de"
+    "market": "acbe7e1513b8eef4901f",
+    "portfolio": "c4fdd66f0645d5347fc3",
+    "capital": "8e959f8e6df154fd83b9",
+    "deployment": "70eb5c4d7f6604940d99",
+    "recommendations": "f2c82c5e99c7a8e6b809",
+    "adaptive": "acea366e12c5bb4ac303",
+    "outcomes": "2026-08-22T16:56:48.862655+00:00",
+    "cloud": "8a9864e5cdff784adc7b",
+    "operating": "41abb1d2466de9fb2db3"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

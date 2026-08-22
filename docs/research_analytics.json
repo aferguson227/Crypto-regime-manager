@@ -1,6 +1,6 @@
 {
   "version": "31.1.0",
-  "generated_at": "2026-08-22T04:16:19.922340+00:00",
+  "generated_at": "2026-08-22T16:56:48.649902+00:00",
   "mode": "research_intelligence_read_only",
   "coins": [
     {
@@ -336,8 +336,8 @@
       "next_stage": "FORWARD VALIDATION",
       "regime": {
         "label": "TRENDING",
-        "trend_30d_pct": 30.8,
-        "annualised_vol_pct": 57.3
+        "trend_30d_pct": 29.0,
+        "annualised_vol_pct": 58.8
       },
       "strategy_family_screening": [
         {
@@ -444,29 +444,29 @@
       "status": "PASS",
       "next_stage": "FORWARD VALIDATION",
       "regime": {
-        "label": "MEAN REVERTING",
-        "trend_30d_pct": 12.3,
-        "annualised_vol_pct": 69.2
+        "label": "HIGH VOLATILITY",
+        "trend_30d_pct": 0.8,
+        "annualised_vol_pct": 75.9
       },
       "strategy_family_screening": [
         {
-          "family": "Grid",
+          "family": "QFL + DCA",
           "screening_score": 88,
           "status": "REQUIRES INDEPENDENT BACKTEST"
         },
         {
-          "family": "DCA",
-          "screening_score": 84,
+          "family": "Wide-ladder DCA",
+          "screening_score": 82,
           "status": "REQUIRES INDEPENDENT BACKTEST"
         },
         {
-          "family": "QFL + DCA",
-          "screening_score": 75,
+          "family": "Dynamic grid",
+          "screening_score": 65,
           "status": "REQUIRES INDEPENDENT BACKTEST"
         },
         {
           "family": "Momentum",
-          "screening_score": 35,
+          "screening_score": 45,
           "status": "REQUIRES INDEPENDENT BACKTEST"
         }
       ],
@@ -554,8 +554,8 @@
       "next_stage": "RESEARCH / REJECT",
       "regime": {
         "label": "TRENDING",
-        "trend_30d_pct": 25.0,
-        "annualised_vol_pct": 44.8
+        "trend_30d_pct": 24.5,
+        "annualised_vol_pct": 46.7
       },
       "strategy_family_screening": [
         {
@@ -772,8 +772,8 @@
       "next_stage": "FORWARD VALIDATION",
       "regime": {
         "label": "TRENDING",
-        "trend_30d_pct": 28.5,
-        "annualised_vol_pct": 67.6
+        "trend_30d_pct": 16.8,
+        "annualised_vol_pct": 70.9
       },
       "strategy_family_screening": [
         {
@@ -881,8 +881,8 @@
       "next_stage": "FORWARD VALIDATION",
       "regime": {
         "label": "TRENDING",
-        "trend_30d_pct": 39.9,
-        "annualised_vol_pct": 75.0
+        "trend_30d_pct": 33.7,
+        "annualised_vol_pct": 80.2
       },
       "strategy_family_screening": [
         {
@@ -990,8 +990,8 @@
       "next_stage": "RESEARCH / REJECT",
       "regime": {
         "label": "TRENDING",
-        "trend_30d_pct": 57.6,
-        "annualised_vol_pct": 105.8
+        "trend_30d_pct": 61.5,
+        "annualised_vol_pct": 107.0
       },
       "strategy_family_screening": [
         {

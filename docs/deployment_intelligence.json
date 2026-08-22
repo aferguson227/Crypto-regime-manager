@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-22T15:53:59.556509+00:00",
-  "snapshot_id": "0a90cbd514a2b6c68ee6",
+  "generated_at": "2026-08-22T16:56:50.231904+00:00",
+  "snapshot_id": "70eb5c4d7f6604940d99",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -42,7 +42,8 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Recent drawdown is elevated"
+        "Recent drawdown is elevated",
+        "Open replay position has lasted 0.3 days"
       ],
       "current_regime": "Medium",
       "live_state": "DISABLED",
@@ -403,10 +404,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "fb0ff6f741ac8485c6de",
-    "capital_snapshot": "05d49a6c375487fb55f1",
-    "decision_generated_at": "2026-08-22T04:16:19.919378+00:00",
-    "threecommas_generated_at": "2026-08-22T15:53:57.495103+00:00"
+    "operating_state_snapshot": "41abb1d2466de9fb2db3",
+    "capital_snapshot": "8e959f8e6df154fd83b9",
+    "decision_generated_at": "2026-08-22T16:56:48.646261+00:00",
+    "threecommas_generated_at": "2026-08-22T16:56:41.002192+00:00"
   },
   "warnings": [
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."
