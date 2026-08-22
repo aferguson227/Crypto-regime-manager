@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "snapshot_id": "6d1c4e1ecd252b114767",
-  "generated_at": "2026-08-22T09:01:11.803837+00:00",
+  "snapshot_id": "969f97076ddfbed89b6a",
+  "generated_at": "2026-08-22T09:55:41.491365+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
@@ -17,7 +17,7 @@
       "recommendation": "TEL Medium Recovery Bot",
       "entry_allowed": true,
       "decision_score": 100.0,
-      "live_bot_state": "NOT_FOUND",
+      "live_bot_state": "DISABLED",
       "settings_state": "INCOMPLETE",
       "reasons": [
         "Current entry filters pass",
@@ -56,10 +56,10 @@
     "currency": "USDT",
     "exchange_total": 2786.11702247,
     "free_available": 1377.26484183,
-    "active_deal_capital": null,
-    "placed_order_reserve": null,
-    "enabled_bot_theoretical_reserve": null,
-    "available_after_reserve": null,
+    "active_deal_capital": 0.0,
+    "placed_order_reserve": 0.0,
+    "enabled_bot_theoretical_reserve": 0.0,
+    "available_after_reserve": 1377.26484183,
     "completeness": "complete",
     "warnings": []
   },
@@ -94,14 +94,14 @@
     {
       "name": "3Commas live state",
       "status": "partial",
-      "observed_at": "2026-08-22T09:01:10.159143+00:00",
+      "observed_at": "2026-08-22T09:55:38.014483+00:00",
       "version": "70.0.0",
       "warnings": []
     },
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-22T09:01:11.762041+00:00",
+      "observed_at": "2026-08-22T09:55:41.437830+00:00",
       "version": null,
       "warnings": []
     },

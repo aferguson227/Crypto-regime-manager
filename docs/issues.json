@@ -1,45 +1,19 @@
 {
   "application_version": "70.0.0",
-  "generated_at": "2026-08-22T09:01:12.083993+00:00",
+  "generated_at": "2026-08-22T09:55:41.864333+00:00",
   "issues": [
     {
       "severity": "warning",
       "system": "3Commas",
-      "title": "accounts endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 09:01:22 UTC'}",
-      "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
-      "metric": {
-        "http_status": 429,
-        "records": null
-      },
-      "first_detected_at": "2026-08-22T09:01:12.084814+00:00",
-      "last_detected_at": "2026-08-22T09:01:12.084818+00:00"
-    },
-    {
-      "severity": "warning",
-      "system": "3Commas",
-      "title": "bots endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 09:01:22 UTC'}",
-      "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
-      "metric": {
-        "http_status": 429,
-        "records": null
-      },
-      "first_detected_at": "2026-08-22T09:01:12.084824+00:00",
-      "last_detected_at": "2026-08-22T09:01:12.084826+00:00"
-    },
-    {
-      "severity": "warning",
-      "system": "3Commas",
       "title": "deals endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 09:01:22 UTC'}",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 09:55:52 UTC'}",
       "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
       "metric": {
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-22T09:01:12.084830+00:00",
-      "last_detected_at": "2026-08-22T09:01:12.084831+00:00"
+      "first_detected_at": "2026-08-22T09:55:41.865749+00:00",
+      "last_detected_at": "2026-08-22T09:55:41.865753+00:00"
     }
   ]
 }
