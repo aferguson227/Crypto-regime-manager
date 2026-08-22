@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-21T20:57:09.090743+00:00",
-  "snapshot_id": "341fb3d1c760e055138f",
+  "generated_at": "2026-08-22T04:16:20.087755+00:00",
+  "snapshot_id": "5e93b2601fe9157814fc",
   "mode": "advisory_capped_adaptive_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -13,7 +13,7 @@
   "strategies": [
     {
       "asset": "TEL",
-      "bot_name": "TEL Low Volatility Bot",
+      "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
       "static_score": 62.5,
       "adaptive_score": 62.5,
@@ -38,16 +38,16 @@
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "static_score": 21.7,
-      "adaptive_score": 21.7,
-      "effective_score": 21.7,
+      "static_score": 21.1,
+      "adaptive_score": 21.1,
+      "effective_score": 21.1,
       "evidence_count": 0,
       "adaptation_status": "INSUFFICIENT_EVIDENCE",
       "confidence_calibration_pct": null,
       "observed_accuracy_pct": null,
       "average_return_pct": null,
       "capital_efficiency_score": null,
-      "risk_adjusted_score": 21.7,
+      "risk_adjusted_score": 21.1,
       "rank": 2,
       "weight_adjustments": {},
       "reasons": [
@@ -69,7 +69,7 @@
     },
     {
       "band": "50-65%",
-      "recommendations": 64,
+      "recommendations": 70,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 57.5,
       "observed_accuracy_pct": null,
@@ -93,7 +93,7 @@
     },
     {
       "band": "90-100%",
-      "recommendations": 166,
+      "recommendations": 160,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 95.0,
       "observed_accuracy_pct": null,

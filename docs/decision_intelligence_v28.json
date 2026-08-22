@@ -1,22 +1,22 @@
 {
   "version": "29.0.0",
-  "generated_at": "2026-08-21T20:57:08.838647+00:00",
+  "generated_at": "2026-08-22T04:16:19.919378+00:00",
   "mode": "unified_advisory_decision_engine",
   "best_setup": {
     "id": "TEL",
     "symbol": "TEL-USDT",
-    "regime": "Low",
+    "regime": "Medium",
     "production": true,
     "entry_allowed": true,
-    "recommended_bot": "TEL Low Volatility Bot",
+    "recommended_bot": "TEL Medium Recovery Bot",
     "decision_score": 100,
     "components": {
       "entry_permission": 24,
-      "opportunity": 12.8,
+      "opportunity": 14.600000000000001,
       "health": 7.92,
-      "recent_profit": 9.938341482901285,
+      "recent_profit": 10.468461898901278,
       "drawdown": -4.394993673262043,
-      "duration": 2.8353448275862068,
+      "duration": 3.121666666666667,
       "capital_efficiency": 8
     },
     "positives": [
@@ -25,8 +25,7 @@
       "Recent capital efficiency is positive"
     ],
     "cautions": [
-      "Recent drawdown is elevated",
-      "Open replay position has lasted 0.5 days"
+      "Recent drawdown is elevated"
     ],
     "validation_state": "production_baseline"
   },
@@ -34,18 +33,18 @@
     {
       "id": "TEL",
       "symbol": "TEL-USDT",
-      "regime": "Low",
+      "regime": "Medium",
       "production": true,
       "entry_allowed": true,
-      "recommended_bot": "TEL Low Volatility Bot",
+      "recommended_bot": "TEL Medium Recovery Bot",
       "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 12.8,
+        "opportunity": 14.600000000000001,
         "health": 7.92,
-        "recent_profit": 9.938341482901285,
+        "recent_profit": 10.468461898901278,
         "drawdown": -4.394993673262043,
-        "duration": 2.8353448275862068,
+        "duration": 3.121666666666667,
         "capital_efficiency": 8
       },
       "positives": [
@@ -54,8 +53,7 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Recent drawdown is elevated",
-        "Open replay position has lasted 0.5 days"
+        "Recent drawdown is elevated"
       ],
       "validation_state": "production_baseline"
     },
@@ -66,10 +64,10 @@
       "production": true,
       "entry_allowed": false,
       "recommended_bot": "TAO Low Pullback Bot",
-      "decision_score": 46.2,
+      "decision_score": 44.4,
       "components": {
         "entry_permission": -35,
-        "opportunity": 8.4,
+        "opportunity": 6.6000000000000005,
         "health": 14.399999999999999,
         "recent_profit": 3.5301917050666467,
         "drawdown": -1.6547085753806723,
@@ -91,18 +89,18 @@
     {
       "id": "TEL",
       "symbol": "TEL-USDT",
-      "regime": "Low",
+      "regime": "Medium",
       "production": true,
       "entry_allowed": true,
-      "recommended_bot": "TEL Low Volatility Bot",
+      "recommended_bot": "TEL Medium Recovery Bot",
       "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 12.8,
+        "opportunity": 14.600000000000001,
         "health": 7.92,
-        "recent_profit": 9.938341482901285,
+        "recent_profit": 10.468461898901278,
         "drawdown": -4.394993673262043,
-        "duration": 2.8353448275862068,
+        "duration": 3.121666666666667,
         "capital_efficiency": 8
       },
       "positives": [
@@ -111,8 +109,7 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Recent drawdown is elevated",
-        "Open replay position has lasted 0.5 days"
+        "Recent drawdown is elevated"
       ],
       "validation_state": "production_baseline"
     },
@@ -123,10 +120,10 @@
       "production": true,
       "entry_allowed": false,
       "recommended_bot": "TAO Low Pullback Bot",
-      "decision_score": 46.2,
+      "decision_score": 44.4,
       "components": {
         "entry_permission": -35,
-        "opportunity": 8.4,
+        "opportunity": 6.6000000000000005,
         "health": 14.399999999999999,
         "recent_profit": 3.5301917050666467,
         "drawdown": -1.6547085753806723,
@@ -154,11 +151,11 @@
       "components": {
         "entry_permission": -35,
         "opportunity": 0,
-        "health": 1.44,
-        "recent_profit": 0.245239733333334,
+        "health": 5.04,
+        "recent_profit": 0.23192306666666757,
         "drawdown": -16,
         "duration": -10,
-        "capital_efficiency": 0.5124275826920603
+        "capital_efficiency": 0.48460245331043306
       },
       "positives": [
         "Recent realised P&L is positive",
@@ -166,9 +163,8 @@
       ],
       "cautions": [
         "Current entry is blocked",
-        "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 87.3 days"
+        "Open replay position has lasted 87.7 days"
       ],
       "validation_state": "FAIL \u2014 review risk"
     }
@@ -184,9 +180,9 @@
     "backtested_datasets": 0
   },
   "synchronisation": {
-    "strategy_snapshot": "2026-08-21T20:57:03.549004+00:00",
-    "discovery_snapshot": "2026-08-21T20:57:03.574115+00:00",
-    "validation_snapshot": "2026-08-21T20:57:08.833936+00:00",
+    "strategy_snapshot": "2026-08-22T04:16:15.175315+00:00",
+    "discovery_snapshot": "2026-08-22T04:16:15.189290+00:00",
+    "validation_snapshot": "2026-08-22T04:16:19.915443+00:00",
     "all_modules_consumed": true
   },
   "strategy_factory": {
@@ -202,7 +198,7 @@
     ],
     "imports": {
       "version": "30.2.0",
-      "generated_at": "2026-08-21T20:57:08.831239+00:00",
+      "generated_at": "2026-08-22T04:16:19.913022+00:00",
       "target_timeframe": "4h",
       "files": [],
       "ready": 0,
@@ -210,7 +206,7 @@
     },
     "backtest_registry": {
       "version": "29.0.0",
-      "generated_at": "2026-08-21T20:57:08.831537+00:00",
+      "generated_at": "2026-08-22T04:16:19.913241+00:00",
       "datasets": [],
       "policy": {
         "fee_aware": true,

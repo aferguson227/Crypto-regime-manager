@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "snapshot_id": "493907330188f5043965",
-  "generated_at": "2026-08-22T03:23:12.052418+00:00",
+  "snapshot_id": "45908a11eb03fd1fe5ee",
+  "generated_at": "2026-08-22T04:16:20.868096+00:00",
   "mode": "canonical_read_only_operating_state",
   "read_only": true,
   "overall_status": "READY",
-  "current_market_regime": "Low",
-  "market_regime_summary": "3 asset regimes observed: Low, Low, Low",
+  "current_market_regime": "Mixed",
+  "market_regime_summary": "3 asset regimes observed: Medium, Low, Low",
   "bot_decisions": [
     {
       "asset": "TEL",
-      "regime": "Low",
+      "regime": "Medium",
       "production_status": "production",
       "action": "DEPLOY_CANDIDATE",
-      "recommendation": "TEL Low Volatility Bot",
+      "recommendation": "TEL Medium Recovery Bot",
       "entry_allowed": true,
       "decision_score": 100.0,
       "live_bot_state": "NOT_FOUND",
@@ -25,8 +25,7 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Recent drawdown is elevated",
-        "Open replay position has lasted 0.5 days"
+        "Recent drawdown is elevated"
       ]
     },
     {
@@ -36,7 +35,7 @@
       "action": "WAIT",
       "recommendation": "TAO Low Pullback Bot",
       "entry_allowed": false,
-      "decision_score": 46.2,
+      "decision_score": 44.4,
       "live_bot_state": "NOT_FOUND",
       "settings_state": "INCOMPLETE",
       "reasons": [
@@ -50,9 +49,9 @@
     }
   ],
   "deploy_today": [
-    "TEL Low Volatility Bot"
+    "TEL Medium Recovery Bot"
   ],
-  "next_capital_priority": "TEL Low Volatility Bot",
+  "next_capital_priority": "TEL Medium Recovery Bot",
   "capital": {
     "currency": "USDT",
     "exchange_total": 2786.11702247,
@@ -81,35 +80,35 @@
     {
       "name": "KuCoin strategy snapshot",
       "status": "ok",
-      "observed_at": "2026-08-21T20:57:03.549004+00:00",
+      "observed_at": "2026-08-22T04:16:15.175315+00:00",
       "version": "70.0.0",
       "warnings": []
     },
     {
       "name": "Unified decision intelligence",
       "status": "available",
-      "observed_at": "2026-08-21T20:57:08.838647+00:00",
+      "observed_at": "2026-08-22T04:16:19.919378+00:00",
       "version": "29.0.0",
       "warnings": []
     },
     {
       "name": "3Commas live state",
       "status": "partial",
-      "observed_at": "2026-08-22T03:23:10.882533+00:00",
+      "observed_at": "2026-08-22T04:16:12.634160+00:00",
       "version": "70.0.0",
       "warnings": []
     },
     {
       "name": "Capital intelligence",
       "status": "available",
-      "observed_at": "2026-08-22T03:23:11.998223+00:00",
+      "observed_at": "2026-08-22T04:16:20.830566+00:00",
       "version": null,
       "warnings": []
     },
     {
       "name": "Configuration reconciliation",
       "status": "incomplete",
-      "observed_at": "2026-08-21T20:57:08.849261+00:00",
+      "observed_at": "2026-08-22T04:16:19.927807+00:00",
       "version": null,
       "warnings": []
     },
@@ -123,7 +122,7 @@
     {
       "name": "System integrity",
       "status": "fresh",
-      "observed_at": "2026-08-21T20:57:08.850308+00:00",
+      "observed_at": "2026-08-22T04:16:19.928451+00:00",
       "version": null,
       "warnings": []
     }
