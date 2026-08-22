@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-22T07:17:05.270241+00:00",
+  "generated_at": "2026-08-22T07:58:32.172916+00:00",
   "overall": {
     "state": "WARNING",
     "score_pct": 67.0,
@@ -18,8 +18,8 @@
   },
   "threecommas": {
     "status": "error",
-    "last_attempt_at": "2026-08-22T07:17:01.430986+00:00",
-    "last_success_at": "2026-08-22T07:17:01.430986+00:00",
+    "last_attempt_at": "2026-08-22T07:58:29.926427+00:00",
+    "last_success_at": "2026-08-22T07:58:29.926427+00:00",
     "last_success_age_hours": 0.0,
     "endpoints": [
       {
@@ -28,7 +28,7 @@
         "category": "ok",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-22T07:17:03.984708+00:00",
+        "observed_at": "2026-08-22T07:58:30.606140+00:00",
         "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
@@ -39,10 +39,10 @@
         "category": "rate_limited",
         "http_status": 429,
         "records": null,
-        "observed_at": "2026-08-22T07:17:04.140454+00:00",
+        "observed_at": "2026-08-22T07:58:30.836004+00:00",
         "age_hours": 0.0,
         "latency_ms": null,
-        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 07:17:22 UTC'}"
+        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 07:58:52 UTC'}"
       },
       {
         "name": "bots",
@@ -50,10 +50,10 @@
         "category": "rate_limited",
         "http_status": 429,
         "records": null,
-        "observed_at": "2026-08-22T07:17:04.517391+00:00",
+        "observed_at": "2026-08-22T07:58:31.390207+00:00",
         "age_hours": 0.0,
         "latency_ms": null,
-        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 07:17:22 UTC'}"
+        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 07:58:52 UTC'}"
       },
       {
         "name": "deals",
@@ -61,10 +61,10 @@
         "category": "rate_limited",
         "http_status": 429,
         "records": null,
-        "observed_at": "2026-08-22T07:17:04.694349+00:00",
+        "observed_at": "2026-08-22T07:58:31.613424+00:00",
         "age_hours": 0.0,
         "latency_ms": null,
-        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 07:17:22 UTC'}"
+        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 07:58:52 UTC'}"
       }
     ],
     "accounts": 0,
@@ -74,7 +74,7 @@
   "application": {
     "cloud_state": "healthy",
     "last_success_at": "2026-08-22T04:16:20.091888+00:00",
-    "last_success_age_hours": 3.01,
+    "last_success_age_hours": 3.7,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -94,40 +94,40 @@
       "severity": "warning",
       "system": "3Commas",
       "title": "accounts endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 07:17:22 UTC'}",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 07:58:52 UTC'}",
       "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
       "metric": {
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-22T07:17:05.271465+00:00",
-      "last_detected_at": "2026-08-22T07:17:05.271469+00:00"
+      "first_detected_at": "2026-08-22T07:58:32.174084+00:00",
+      "last_detected_at": "2026-08-22T07:58:32.174088+00:00"
     },
     {
       "severity": "warning",
       "system": "3Commas",
       "title": "bots endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 07:17:22 UTC'}",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 07:58:52 UTC'}",
       "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
       "metric": {
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-22T07:17:05.271479+00:00",
-      "last_detected_at": "2026-08-22T07:17:05.271481+00:00"
+      "first_detected_at": "2026-08-22T07:58:32.174097+00:00",
+      "last_detected_at": "2026-08-22T07:58:32.174099+00:00"
     },
     {
       "severity": "warning",
       "system": "3Commas",
       "title": "deals endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 07:17:22 UTC'}",
+      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 07:58:52 UTC'}",
       "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
       "metric": {
         "http_status": 429,
         "records": null
       },
-      "first_detected_at": "2026-08-22T07:17:05.271488+00:00",
-      "last_detected_at": "2026-08-22T07:17:05.271489+00:00"
+      "first_detected_at": "2026-08-22T07:58:32.174105+00:00",
+      "last_detected_at": "2026-08-22T07:58:32.174107+00:00"
     }
   ],
   "safeguards": {
