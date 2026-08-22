@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-22T09:55:42.336211+00:00",
-  "snapshot_id": "3ad525fdabde84029da8e5e1",
+  "generated_at": "2026-08-22T10:56:00.149100+00:00",
+  "snapshot_id": "92bf7f7e4c832918292fcd5a",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -166,7 +166,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "013c63e748b2fbdf99e49bb8",
+      "recommendation_id": "33a8001e4203555e8fc7384f",
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
@@ -328,7 +328,7 @@
       }
     },
     {
-      "recommendation_id": "f1f0dc885e5dd203362e7f1c",
+      "recommendation_id": "9e3ed469cc6076df20dd1f63",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -568,11 +568,11 @@
     }
   },
   "cloud": {
-    "overall_status": "WARNING",
+    "overall_status": "HEALTHY",
     "threecommas": {
-      "status": "partial",
-      "generated_at": "2026-08-22T09:55:38.014483+00:00",
-      "message": "Read-only sync completed with endpoint issues: deals."
+      "status": "ok",
+      "generated_at": "2026-08-22T10:55:56.921544+00:00",
+      "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
     "publication": {}
@@ -581,23 +581,22 @@
     "diagnostics_state": "healthy",
     "diagnostics_score": 100,
     "threecommas_read_only": true,
-    "cloud_status": "WARNING"
+    "cloud_status": "HEALTHY"
   },
   "source_snapshots": {
     "market": "9712bad0fa7ce2244257",
-    "portfolio": "e9b6323384fcffb03835",
-    "capital": "18c71c6993fb543cad69",
-    "deployment": "e45333c0d8b55f3d7434",
-    "recommendations": "8aab9a86185ca5a7a2a3",
+    "portfolio": "fe9cfdbbf28d8d46ca30",
+    "capital": "49e30408b7bca24bffd4",
+    "deployment": "e25361d61536bf232230",
+    "recommendations": "eb71d18d14c711fbaac4",
     "adaptive": "5e93b2601fe9157814fc",
     "outcomes": "2026-08-22T04:16:20.063119+00:00",
-    "cloud": "a9e6ceb907bd8cccd5ad",
-    "operating": "969f97076ddfbed89b6a"
+    "cloud": "ce816f68e73bf2e12689",
+    "operating": "bf4a3fff86667ce48f04"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly.",
-    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable.",
-    "One or more cloud data sources require attention."
+    "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ]
 }

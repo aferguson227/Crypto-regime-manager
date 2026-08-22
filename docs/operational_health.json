@@ -1,25 +1,25 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-22T09:55:41.864333+00:00",
+  "generated_at": "2026-08-22T10:55:59.566398+00:00",
   "overall": {
-    "state": "WARNING",
-    "score_pct": 71.0,
-    "active_issue_count": 1,
+    "state": "HEALTHY",
+    "score_pct": 82.0,
+    "active_issue_count": 0,
     "critical_count": 0,
-    "warning_count": 1
+    "warning_count": 0
   },
   "scores": {
     "system": 100,
-    "data": 80.0,
+    "data": 100,
     "trading": 70.0,
-    "deployment": 85.0,
-    "decision_readiness": 20.0
+    "deployment": 100,
+    "decision_readiness": 40.0
   },
   "threecommas": {
-    "status": "partial",
-    "last_attempt_at": "2026-08-22T09:55:38.014483+00:00",
-    "last_success_at": "2026-08-22T09:55:38.014483+00:00",
+    "status": "ok",
+    "last_attempt_at": "2026-08-22T10:55:56.921544+00:00",
+    "last_success_at": "2026-08-22T10:55:56.921544+00:00",
     "last_success_age_hours": 0.0,
     "endpoints": [
       {
@@ -28,7 +28,7 @@
         "category": "ok",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-22T09:55:40.541357+00:00",
+        "observed_at": "2026-08-22T10:55:57.558927+00:00",
         "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
@@ -39,7 +39,7 @@
         "category": "ok",
         "http_status": null,
         "records": 1,
-        "observed_at": "2026-08-22T09:55:40.818862+00:00",
+        "observed_at": "2026-08-22T10:55:57.903419+00:00",
         "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
@@ -50,21 +50,21 @@
         "category": "ok",
         "http_status": null,
         "records": 7,
-        "observed_at": "2026-08-22T09:55:41.154158+00:00",
+        "observed_at": "2026-08-22T10:55:58.141163+00:00",
         "age_hours": 0.0,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
       {
         "name": "deals",
-        "status": "fail",
-        "category": "rate_limited",
-        "http_status": 429,
-        "records": null,
-        "observed_at": "2026-08-22T09:55:41.309198+00:00",
+        "status": "pass",
+        "category": "ok",
+        "http_status": null,
+        "records": 0,
+        "observed_at": "2026-08-22T10:55:58.305045+00:00",
         "age_hours": 0.0,
         "latency_ms": null,
-        "message": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 09:55:52 UTC'}"
+        "message": "Endpoint completed successfully."
       },
       {
         "name": "account_32632134_details",
@@ -72,7 +72,7 @@
         "category": "not_requested_quota_guard",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-22T09:55:41.309264+00:00",
+        "observed_at": "2026-08-22T10:55:58.305086+00:00",
         "age_hours": 0.0,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
@@ -83,7 +83,7 @@
         "category": "not_requested_direct_capital",
         "http_status": null,
         "records": null,
-        "observed_at": "2026-08-22T09:55:41.309270+00:00",
+        "observed_at": "2026-08-22T10:55:58.305091+00:00",
         "age_hours": 0.0,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
@@ -96,7 +96,7 @@
   "application": {
     "cloud_state": "healthy",
     "last_success_at": "2026-08-22T04:16:20.091888+00:00",
-    "last_success_age_hours": 5.66,
+    "last_success_age_hours": 6.66,
     "diagnostics_score_pct": 100
   },
   "trading": {
@@ -106,26 +106,12 @@
   "decision": {
     "primary_action": "WAIT",
     "bot_name": "TEL Medium Recovery Bot",
-    "readiness_score_pct": 20.0,
+    "readiness_score_pct": 40.0,
     "ready_for_manual_action": false
   },
   "capital_source": "KuCoin direct read-only account API",
   "kucoin_direct_status": "ok",
-  "issues": [
-    {
-      "severity": "warning",
-      "system": "3Commas",
-      "title": "deals endpoint rate limited",
-      "detail": "3Commas HTTP 429: {'error': 'Rate limit exceeded. Please upgrade your subscription plan to get more quota. Next request at 2026-08-22 09:55:52 UTC'}",
-      "recommended_action": "Review 3Commas permissions/quota, or configure KuCoin direct read-only capital so optional 3Commas balance limits do not block CRM.",
-      "metric": {
-        "http_status": 429,
-        "records": null
-      },
-      "first_detected_at": "2026-08-22T09:55:41.865749+00:00",
-      "last_detected_at": "2026-08-22T09:55:41.865753+00:00"
-    }
-  ],
+  "issues": [],
   "safeguards": {
     "read_only": true,
     "manual_approval_required": true

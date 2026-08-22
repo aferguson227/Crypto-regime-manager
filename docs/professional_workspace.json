@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-22T09:55:42.377857+00:00",
+  "generated_at": "2026-08-22T10:56:00.186428+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -26,7 +26,7 @@
     ]
   },
   "decision_readiness": {
-    "score_pct": 40.0,
+    "score_pct": 60.0,
     "checks": [
       {
         "label": "Bot selected",
@@ -46,7 +46,7 @@
       },
       {
         "label": "Cloud data current",
-        "state": "warn"
+        "state": "pass"
       }
     ],
     "ready_for_manual_action": false
@@ -402,8 +402,8 @@
     "unknown_policy": "Unknown values remain Unknown and are never coerced to zero."
   },
   "deployment_health": {
-    "cloud": "WARNING",
-    "threecommas": "partial",
+    "cloud": "HEALTHY",
+    "threecommas": "ok",
     "main_app": null,
     "publication": null,
     "diagnostics": "healthy",
@@ -414,5 +414,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "39122c4f6386c63b5a77a259"
+  "snapshot_id": "bfee01660fa0f9257bff8a92"
 }
