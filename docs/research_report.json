@@ -1,6 +1,6 @@
 {
   "version": "31.1.0",
-  "generated_at": "2026-08-23T04:20:45.823881+00:00",
+  "generated_at": "2026-08-23T16:57:48.433718+00:00",
   "title": "Crypto Regime Research Report",
   "executive_summary": {
     "coins": 10,
@@ -11,8 +11,8 @@
     {
       "symbol": "AAVE",
       "status": "FAIL",
-      "regime": "MEAN REVERTING",
-      "preferred_family": "Grid",
+      "regime": "TRENDING",
+      "preferred_family": "Trend-filtered DCA",
       "degradation_pct": 229.4,
       "next_action": "Run independent fee-aware replay for the shortlisted strategy family; retain manual approval."
     },
@@ -43,8 +43,8 @@
     {
       "symbol": "NEAR",
       "status": "PASS",
-      "regime": "HIGH VOLATILITY",
-      "preferred_family": "QFL + DCA",
+      "regime": "MEAN REVERTING",
+      "preferred_family": "Grid",
       "degradation_pct": 22.4,
       "next_action": "Run independent fee-aware replay for the shortlisted strategy family; retain manual approval."
     },
@@ -59,8 +59,8 @@
     {
       "symbol": "UNI",
       "status": "PASS",
-      "regime": "MEAN REVERTING",
-      "preferred_family": "Grid",
+      "regime": "TRENDING",
+      "preferred_family": "Trend-filtered DCA",
       "degradation_pct": 34.2,
       "next_action": "Run independent fee-aware replay for the shortlisted strategy family; retain manual approval."
     },
