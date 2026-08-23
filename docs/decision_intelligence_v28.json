@@ -1,6 +1,6 @@
 {
   "version": "29.0.0",
-  "generated_at": "2026-08-22T20:56:21.053727+00:00",
+  "generated_at": "2026-08-23T04:20:45.820299+00:00",
   "mode": "unified_advisory_decision_engine",
   "best_setup": {
     "id": "TEL",
@@ -12,11 +12,11 @@
     "decision_score": 100,
     "components": {
       "entry_permission": 24,
-      "opportunity": 13.200000000000001,
+      "opportunity": 14.200000000000001,
       "health": 7.92,
       "recent_profit": 10.490103565567946,
       "drawdown": -4.394993673262043,
-      "duration": 3.0647849462365593,
+      "duration": 2.9481182795698926,
       "capital_efficiency": 8
     },
     "positives": [
@@ -26,7 +26,7 @@
     ],
     "cautions": [
       "Recent drawdown is elevated",
-      "Open replay position has lasted 0.5 days"
+      "Open replay position has lasted 0.8 days"
     ],
     "validation_state": "production_baseline"
   },
@@ -41,11 +41,11 @@
       "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 13.200000000000001,
+        "opportunity": 14.200000000000001,
         "health": 7.92,
         "recent_profit": 10.490103565567946,
         "drawdown": -4.394993673262043,
-        "duration": 3.0647849462365593,
+        "duration": 2.9481182795698926,
         "capital_efficiency": 8
       },
       "positives": [
@@ -55,7 +55,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 0.5 days"
+        "Open replay position has lasted 0.8 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -98,11 +98,11 @@
       "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 13.200000000000001,
+        "opportunity": 14.200000000000001,
         "health": 7.92,
         "recent_profit": 10.490103565567946,
         "drawdown": -4.394993673262043,
-        "duration": 3.0647849462365593,
+        "duration": 2.9481182795698926,
         "capital_efficiency": 8
       },
       "positives": [
@@ -112,7 +112,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 0.5 days"
+        "Open replay position has lasted 0.8 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -168,7 +168,7 @@
         "Current entry is blocked",
         "Strategy health requires review",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 88.3 days"
+        "Open replay position has lasted 88.7 days"
       ],
       "validation_state": "FAIL \u2014 review risk"
     }
@@ -184,9 +184,9 @@
     "backtested_datasets": 0
   },
   "synchronisation": {
-    "strategy_snapshot": "2026-08-22T20:56:15.335555+00:00",
-    "discovery_snapshot": "2026-08-22T20:56:15.501470+00:00",
-    "validation_snapshot": "2026-08-22T20:56:21.048580+00:00",
+    "strategy_snapshot": "2026-08-23T04:20:41.412251+00:00",
+    "discovery_snapshot": "2026-08-23T04:20:41.433639+00:00",
+    "validation_snapshot": "2026-08-23T04:20:45.815079+00:00",
     "all_modules_consumed": true
   },
   "strategy_factory": {
@@ -202,7 +202,7 @@
     ],
     "imports": {
       "version": "30.2.0",
-      "generated_at": "2026-08-22T20:56:21.045537+00:00",
+      "generated_at": "2026-08-23T04:20:45.812086+00:00",
       "target_timeframe": "4h",
       "files": [],
       "ready": 0,
@@ -210,7 +210,7 @@
     },
     "backtest_registry": {
       "version": "29.0.0",
-      "generated_at": "2026-08-22T20:56:21.045873+00:00",
+      "generated_at": "2026-08-23T04:20:45.812414+00:00",
       "datasets": [],
       "policy": {
         "fee_aware": true,
