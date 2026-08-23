@@ -1,25 +1,67 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-22T23:54:25.535281+00:00",
+  "generated_at": "2026-08-23T02:12:14.069300+00:00",
   "overall": {
     "state": "HEALTHY",
-    "score_pct": 97.7
+    "score_pct": 92.7
   },
   "scores": {
     "application": 100,
     "operations": 86.0,
     "interface": 100,
     "actions": 100,
-    "self_healing": 100,
+    "self_healing": 70,
     "repository": 100
   },
-  "action_queue": [],
-  "highest_value_improvements": [],
+  "action_queue": [
+    {
+      "key": "a43930f4134bf7af",
+      "source": "self_healing",
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "severity": "low",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Trigger the read-only 3Commas workflow.",
+      "first_detected_at": "2026-08-23T01:58:53.414578+00:00",
+      "last_detected_at": "2026-08-23T01:58:53.414578+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 2,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 2.5
+    }
+  ],
+  "highest_value_improvements": [
+    {
+      "key": "a43930f4134bf7af",
+      "source": "self_healing",
+      "fingerprint": "STALE_THREECOMMAS",
+      "title": "3Commas data is stale",
+      "severity": "low",
+      "occurrences": 1,
+      "automatic": false,
+      "recommended_action": "Trigger the read-only 3Commas workflow.",
+      "first_detected_at": "2026-08-23T01:58:53.414578+00:00",
+      "last_detected_at": "2026-08-23T01:58:53.414578+00:00",
+      "lifecycle": "DETECTED",
+      "historical_occurrences": 1,
+      "user_benefit": 2,
+      "frequency": 1,
+      "confidence": 5,
+      "estimated_effort": 2,
+      "regression_risk": 2,
+      "roi_score": 2.5
+    }
+  ],
   "recently_closed": [],
   "technical_debt": {
     "state": "LOW",
-    "known_items": 0
+    "known_items": 1
   },
   "decision_quality_display": {
     "state": "LEARNING",
@@ -27,13 +69,13 @@
     "evidence_coverage_pct": 20.0
   },
   "release_predictor": {
-    "readiness_pct": 97.7,
+    "readiness_pct": 92.7,
     "ready": true,
     "recommendation": "READY",
-    "regression_risk": "VERY_LOW",
+    "regression_risk": "LOW",
     "expected_build_seconds": null,
     "expected_deployment_seconds": 21.0,
-    "actions_success_rate_pct": 87.9,
+    "actions_success_rate_pct": 88.9,
     "blockers": []
   },
   "guardrails": {
