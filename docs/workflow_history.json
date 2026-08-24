@@ -1,21 +1,36 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-24T05:23:06.353408+00:00",
+  "generated_at": "2026-08-24T06:07:01.047555+00:00",
   "runs": [
+    {
+      "id": 32695970839,
+      "name": "CRM Data Refresh",
+      "event": "schedule",
+      "head_sha": "7ac624b21411e05a39f0e90a35a6540bd0872db2",
+      "status": "in_progress",
+      "raw_status": "in_progress",
+      "conclusion": null,
+      "created_at": "2026-08-24T06:06:47Z",
+      "started_at": "2026-08-24T06:06:47Z",
+      "updated_at": "2026-08-24T06:06:50Z",
+      "queue_seconds": 0.0,
+      "duration_seconds": null,
+      "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/32695970839"
+    },
     {
       "id": 32693327659,
       "name": "CRM Data Refresh",
       "event": "schedule",
       "head_sha": "a711ac523b9edb808c99175175fe54674634dac9",
-      "status": "in_progress",
-      "raw_status": "in_progress",
-      "conclusion": null,
+      "status": "success",
+      "raw_status": "completed",
+      "conclusion": "success",
       "created_at": "2026-08-24T05:22:52Z",
       "started_at": "2026-08-24T05:22:52Z",
-      "updated_at": "2026-08-24T05:22:55Z",
+      "updated_at": "2026-08-24T05:23:15Z",
       "queue_seconds": 0.0,
-      "duration_seconds": null,
+      "duration_seconds": 23.0,
       "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/32693327659"
     },
     {
@@ -1487,21 +1502,6 @@
       "queue_seconds": 0.0,
       "duration_seconds": 24.0,
       "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/32366031540"
-    },
-    {
-      "id": 32357072460,
-      "name": "CRM Data Refresh",
-      "event": "schedule",
-      "head_sha": "3f05fdcc811a5f1f848ff69b5db0fbad4fa68a11",
-      "status": "success",
-      "raw_status": "completed",
-      "conclusion": "success",
-      "created_at": "2026-08-20T10:04:07Z",
-      "started_at": "2026-08-20T10:04:07Z",
-      "updated_at": "2026-08-20T10:04:30Z",
-      "queue_seconds": 0.0,
-      "duration_seconds": 23.0,
-      "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/32357072460"
     }
   ]
 }
