@@ -1,6 +1,6 @@
 {
   "version": "27.0.0",
-  "generated_at": "2026-08-23T20:56:11.463204+00:00",
+  "generated_at": "2026-08-24T04:27:33.586070+00:00",
   "mode": "advisory_only_immutable_queue",
   "automatic_live_changes": false,
   "automatic_dca_changes": false,
@@ -9,7 +9,7 @@
     {
       "symbol": "UNI-USDT",
       "discovery_rank": 1,
-      "research_score": 86.0,
+      "research_score": 86.6,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -33,7 +33,7 @@
     {
       "symbol": "XRP-USDT",
       "discovery_rank": 2,
-      "research_score": 85.1,
+      "research_score": 85.8,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -57,14 +57,14 @@
     {
       "symbol": "XMR-USDT",
       "discovery_rank": 3,
-      "research_score": 84.5,
+      "research_score": 84.6,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
       "walk_forward_required": true,
       "proposed_dca": {
-        "take_profit_pct": 1.0,
-        "safety_order_deviation_pct": 1.2,
+        "take_profit_pct": 1.1,
+        "safety_order_deviation_pct": 1.3,
         "safety_orders": 6,
         "volume_scale": 1.5,
         "step_scale": 1.1
@@ -81,14 +81,14 @@
     {
       "symbol": "AAVE-USDT",
       "discovery_rank": 4,
-      "research_score": 83.4,
+      "research_score": 83.8,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
       "walk_forward_required": true,
       "proposed_dca": {
         "take_profit_pct": 0.8,
-        "safety_order_deviation_pct": 0.9,
+        "safety_order_deviation_pct": 1.0,
         "safety_orders": 6,
         "volume_scale": 1.5,
         "step_scale": 1.2
