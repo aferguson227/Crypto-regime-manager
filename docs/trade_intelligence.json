@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-25T15:25:39.934368+00:00",
+  "generated_at": "2026-08-25T16:17:20.040059+00:00",
   "mode": "read_only_active_trade_intelligence",
   "source": "3Commas active deal snapshots",
-  "snapshot_age_minutes": 0.1,
+  "snapshot_age_minutes": 0.2,
   "monitoring_cadence": "snapshot-based; freshness follows the latest successful 3Commas refresh",
   "real_time_streaming": false,
   "active_trade_count": 0,
@@ -17,5 +17,5 @@
     "deal_closure": false,
     "probability_claims_without_evidence": false
   },
-  "snapshot_id": "312003b7ae827e8f74c3ca1d"
+  "snapshot_id": "c9fd2d8eaad91ecc7e7e0378"
 }

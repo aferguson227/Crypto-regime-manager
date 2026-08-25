@@ -1,45 +1,45 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-25T15:25:39.980494+00:00",
+  "generated_at": "2026-08-25T16:17:20.084545+00:00",
   "state": "READY_FOR_MANUAL_REVIEW",
   "score_pct": 100.0,
-  "recommended_next_candidate": "ZEC",
+  "recommended_next_candidate": "AAVE",
   "candidate": {
-    "asset": "ZEC",
-    "pair": "ZEC-USDT",
-    "discovery_rank": 7,
-    "current_research_score": 78.5,
+    "asset": "AAVE",
+    "pair": "AAVE-USDT",
+    "discovery_rank": 3,
+    "current_research_score": 83.7,
     "stage": "READY_FOR_MANUAL_REVIEW",
     "walk_forward_status": "FAIL",
     "kucoin_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
     "kucoin_primary_validation_pass": true,
     "frozen_settings": {
-      "take_profit_pct": 0.8,
+      "take_profit_pct": 1.2,
       "so_deviation_pct": 0.8,
       "safety_orders": 4,
-      "volume_scale": 1.3,
+      "volume_scale": 1.5,
       "step_scale": 1.0
     },
     "training_metrics": {
-      "net_pnl": 50345.38,
-      "closed_deals": 1684,
-      "average_hours": 6.4,
-      "longest_hours": 1108,
-      "max_drawdown_dollars": -1787.75,
+      "net_pnl": 32426.3,
+      "closed_deals": 1303,
+      "average_hours": 7.4,
+      "longest_hours": 904,
+      "max_drawdown_dollars": -3139.43,
       "max_capital": 5819.12,
       "open_position": true,
-      "score": 49197.50749999999
+      "score": 30809.419499999996
     },
     "q1_2026_metrics": {
-      "net_pnl": 200.07,
-      "realised_pnl": 200.07,
-      "open_pnl": -2803.97,
-      "mark_to_market_pnl": -2603.9,
-      "closed_deals": 12,
-      "average_hours": 7.7,
-      "longest_hours": 44,
-      "max_drawdown_dollars": -3466.76,
+      "net_pnl": 834.64,
+      "realised_pnl": 834.64,
+      "open_pnl": -2090.54,
+      "mark_to_market_pnl": -1255.9,
+      "closed_deals": 39,
+      "average_hours": 12.9,
+      "longest_hours": 60,
+      "max_drawdown_dollars": -2330.4,
       "max_capital": 5819.12,
       "open_position": true
     },
@@ -80,7 +80,7 @@
     {
       "label": "Independent candidate evidence",
       "state": "PASS",
-      "detail": "ZEC has frozen Kraken/Q1 evidence.",
+      "detail": "AAVE has frozen Kraken/Q1 evidence.",
       "blocking": true
     },
     {
@@ -102,6 +102,6 @@
     "automatic_deployment": false,
     "principle": "Add a new asset only when capital, current TEL trade state, current market conditions and independent Kraken/Q1 evidence all support manual review."
   },
-  "next_action": "Review ZEC for a small manual pilot allocation; do not copy historical max-capital mechanically.",
-  "snapshot_id": "748c1803cc0dd6daba5fc2f5"
+  "next_action": "Review AAVE for a small manual pilot allocation; do not copy historical max-capital mechanically.",
+  "snapshot_id": "b4b7b5c1e04308d01157c34c"
 }
