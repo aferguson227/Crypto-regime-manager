@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-25T19:59:33.164651+00:00",
+  "generated_at": "2026-08-25T21:00:00.560595+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
@@ -242,7 +242,7 @@
   "what_changed": [],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 0.5 days",
+    "Open replay position has lasted 0.7 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
@@ -251,11 +251,11 @@
   ],
   "market": {
     "regime": "ACCUMULATION",
-    "confidence_pct": 63.4,
+    "confidence_pct": 60.4,
     "risk_appetite": "BALANCED",
     "recommended_exposure": "MODERATE",
     "trend_score": 47.5,
-    "breadth_score": 100,
+    "breadth_score": 90.0,
     "volatility_score": 50,
     "stress_tests": [
       {
@@ -415,5 +415,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "0152a92f884d6af339df22ea"
+  "snapshot_id": "54f24d27bf08d24a61085aad"
 }

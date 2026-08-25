@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-25T19:59:32.274204+00:00",
-  "snapshot_id": "9432919a33916d49eada",
+  "generated_at": "2026-08-25T20:59:59.304274+00:00",
+  "snapshot_id": "9ffeec8374d1df85cb66",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Mixed",
   "recommendations": [
     {
-      "recommendation_id": "8e5f98de94dcd0f66bf33645",
+      "recommendation_id": "039e5df7b763ce8bfb27ffc6",
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
@@ -66,7 +66,7 @@
         "health": 7.92,
         "recent_profit": 10.3,
         "drawdown": -4.395,
-        "duration": 3.234,
+        "duration": 3.175,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -76,7 +76,7 @@
       ],
       "risks": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 0.5 days"
+        "Open replay position has lasted 0.7 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable."
@@ -224,7 +224,7 @@
       "explanation": "Wait TEL Medium Recovery Bot. Confidence 81.0%; risk high. Current entry filters pass"
     },
     {
-      "recommendation_id": "d69404fbeafcde8e9c82f8d2",
+      "recommendation_id": "026d05ac883681d67bb58853",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -452,8 +452,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "6aa3c2177ae24a26cf12",
-    "deployment_generated_at": "2026-08-25T19:59:32.219296+00:00",
-    "decision_generated_at": "2026-08-25T16:17:17.333330+00:00"
+    "deployment_snapshot": "b6a54d4f731d004c11ee",
+    "deployment_generated_at": "2026-08-25T20:59:59.261604+00:00",
+    "decision_generated_at": "2026-08-25T20:59:58.010016+00:00"
   }
 }
