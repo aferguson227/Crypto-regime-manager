@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-24T23:54:46.110514+00:00",
+  "generated_at": "2026-08-25T01:51:41.051594+00:00",
   "overall": {
     "state": "HEALTHY",
     "score_pct": 86.0,
@@ -20,7 +20,7 @@
     "status": "ok",
     "last_attempt_at": "2026-08-24T23:54:42.803526+00:00",
     "last_success_at": "2026-08-24T23:54:42.803526+00:00",
-    "last_success_age_hours": 0.0,
+    "last_success_age_hours": 1.95,
     "endpoints": [
       {
         "name": "validate",
@@ -29,7 +29,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-24T23:54:43.460130+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.95,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -40,7 +40,7 @@
         "http_status": null,
         "records": 1,
         "observed_at": "2026-08-24T23:54:44.200586+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.95,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -51,7 +51,7 @@
         "http_status": null,
         "records": 7,
         "observed_at": "2026-08-24T23:54:44.597751+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.95,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -62,7 +62,7 @@
         "http_status": null,
         "records": 0,
         "observed_at": "2026-08-24T23:54:45.234973+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.95,
         "latency_ms": null,
         "message": "Endpoint completed successfully."
       },
@@ -73,7 +73,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-24T23:54:45.235010+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.95,
         "latency_ms": null,
         "message": "Optional account-detail request skipped to preserve quota for the read-only balance table."
       },
@@ -84,7 +84,7 @@
         "http_status": null,
         "records": null,
         "observed_at": "2026-08-24T23:54:45.235014+00:00",
-        "age_hours": 0.0,
+        "age_hours": 1.95,
         "latency_ms": null,
         "message": "3Commas balance-table request skipped because KuCoin direct read-only capital data is configured."
       }
