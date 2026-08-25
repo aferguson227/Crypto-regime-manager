@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-25T03:29:21.064363+00:00",
-  "snapshot_id": "a6ba54329e3dd9a1ddeecbf7",
+  "generated_at": "2026-08-25T04:21:13.399998+00:00",
+  "snapshot_id": "e909e5672377eac518521678",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -166,7 +166,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "2d850631ae182d81c6dd870b",
+      "recommendation_id": "e56c69b306ad8ca478d20ceb",
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
@@ -328,15 +328,15 @@
       }
     },
     {
-      "recommendation_id": "0cf3fc518df3ccd3f9b1012b",
+      "recommendation_id": "4f6f2b536839c89a3482418b",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence_pct": 21.5,
-      "static_confidence_pct": 21.5,
+      "confidence_pct": 21.7,
+      "static_confidence_pct": 21.7,
       "adaptive_active": false,
       "risk_level": "HIGH",
-      "explanation": "Wait TAO Low Pullback Bot. Confidence 21.5%; risk high. Strategy health is strong",
+      "explanation": "Wait TAO Low Pullback Bot. Confidence 21.7%; risk high. Strategy health is strong",
       "supporting_evidence": [
         "Strategy health is strong",
         "Recent realised P&L is positive",
@@ -525,7 +525,7 @@
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence_pct": 21.5,
+      "confidence_pct": 21.7,
       "urgency": "WAIT",
       "rationale": [
         "Strategy health is strong",
@@ -571,7 +571,7 @@
     "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-08-25T03:29:16.290396+00:00",
+      "generated_at": "2026-08-25T04:21:01.068544+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -585,14 +585,14 @@
   },
   "source_snapshots": {
     "market": "1fc97ec8ad04fbbf5f8b",
-    "portfolio": "6c2a06325a562bd5678a",
-    "capital": "2159933f8c1056a68254",
-    "deployment": "42b0c188551eca6b4d51",
-    "recommendations": "538b8360a08c30defe2f",
-    "adaptive": "435035da9b591326022f",
-    "outcomes": "2026-08-24T16:07:46.290485+00:00",
-    "cloud": "50f78fee12cc594d1d79",
-    "operating": "35e6ba9872257a14970e"
+    "portfolio": "f897991c99ff28a57dfc",
+    "capital": "63c26af316f9e67391d9",
+    "deployment": "aeae770f8ba92763d3cd",
+    "recommendations": "9e13a6dd5a073831ede2",
+    "adaptive": "eb155a4bb50323df54a9",
+    "outcomes": "2026-08-25T04:21:10.898601+00:00",
+    "cloud": "67f85838431a601775c0",
+    "operating": "b9d59e66e4f1db9178ff"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

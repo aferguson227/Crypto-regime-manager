@@ -1,6 +1,6 @@
 {
   "version": "29.0.0",
-  "generated_at": "2026-08-24T16:07:46.076343+00:00",
+  "generated_at": "2026-08-25T04:21:10.678996+00:00",
   "mode": "unified_advisory_decision_engine",
   "best_setup": {
     "id": "TEL",
@@ -12,11 +12,11 @@
     "decision_score": 100,
     "components": {
       "entry_permission": 24,
-      "opportunity": 16.400000000000002,
+      "opportunity": 15.8,
       "health": 7.92,
-      "recent_profit": 10.256458085567944,
+      "recent_profit": 10.299741418901277,
       "drawdown": -4.394993673262043,
-      "duration": 3.1978494623655918,
+      "duration": 3.4085858585858584,
       "capital_efficiency": 8
     },
     "positives": [
@@ -40,11 +40,11 @@
       "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 16.400000000000002,
+        "opportunity": 15.8,
         "health": 7.92,
-        "recent_profit": 10.256458085567944,
+        "recent_profit": 10.299741418901277,
         "drawdown": -4.394993673262043,
-        "duration": 3.1978494623655918,
+        "duration": 3.4085858585858584,
         "capital_efficiency": 8
       },
       "positives": [
@@ -64,10 +64,10 @@
       "production": true,
       "entry_allowed": false,
       "recommended_bot": "TAO Low Pullback Bot",
-      "decision_score": 45.8,
+      "decision_score": 46.2,
       "components": {
         "entry_permission": -35,
-        "opportunity": 8.0,
+        "opportunity": 8.4,
         "health": 14.399999999999999,
         "recent_profit": 3.5301917050666467,
         "drawdown": -1.6547085753806723,
@@ -96,11 +96,11 @@
       "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 16.400000000000002,
+        "opportunity": 15.8,
         "health": 7.92,
-        "recent_profit": 10.256458085567944,
+        "recent_profit": 10.299741418901277,
         "drawdown": -4.394993673262043,
-        "duration": 3.1978494623655918,
+        "duration": 3.4085858585858584,
         "capital_efficiency": 8
       },
       "positives": [
@@ -120,10 +120,10 @@
       "production": true,
       "entry_allowed": false,
       "recommended_bot": "TAO Low Pullback Bot",
-      "decision_score": 45.8,
+      "decision_score": 46.2,
       "components": {
         "entry_permission": -35,
-        "opportunity": 8.0,
+        "opportunity": 8.4,
         "health": 14.399999999999999,
         "recent_profit": 3.5301917050666467,
         "drawdown": -1.6547085753806723,
@@ -163,7 +163,7 @@
         "Strategy health requires review",
         "Recent realised P&L is not positive",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 90.2 days"
+        "Open replay position has lasted 90.7 days"
       ],
       "validation_state": "FAIL \u2014 review risk"
     }
@@ -179,9 +179,9 @@
     "backtested_datasets": 0
   },
   "synchronisation": {
-    "strategy_snapshot": "2026-08-24T16:07:41.173927+00:00",
-    "discovery_snapshot": "2026-08-24T16:07:41.197804+00:00",
-    "validation_snapshot": "2026-08-24T16:07:46.071171+00:00",
+    "strategy_snapshot": "2026-08-25T04:21:05.148945+00:00",
+    "discovery_snapshot": "2026-08-25T04:21:05.173422+00:00",
+    "validation_snapshot": "2026-08-25T04:21:10.674292+00:00",
     "all_modules_consumed": true
   },
   "strategy_factory": {
@@ -197,7 +197,7 @@
     ],
     "imports": {
       "version": "30.2.0",
-      "generated_at": "2026-08-24T16:07:46.067936+00:00",
+      "generated_at": "2026-08-25T04:21:10.671493+00:00",
       "target_timeframe": "4h",
       "files": [],
       "ready": 0,
@@ -205,7 +205,7 @@
     },
     "backtest_registry": {
       "version": "29.0.0",
-      "generated_at": "2026-08-24T16:07:46.068268+00:00",
+      "generated_at": "2026-08-25T04:21:10.671815+00:00",
       "datasets": [],
       "policy": {
         "fee_aware": true,

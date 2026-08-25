@@ -54,12 +54,12 @@
         "Any changed rule must be registered as a new candidate."
       ],
       "forward_validation": {
-        "updated_at": "2026-08-24T16:07:41.033780+00:00",
+        "updated_at": "2026-08-25T04:21:05.015956+00:00",
         "status": "COLLECTING FORWARD EVIDENCE",
-        "forward_days": 21.5,
-        "forward_candles": 129,
+        "forward_days": 22.0,
+        "forward_candles": 132,
         "first_forward_candle": "2026-08-03T04:00:00Z",
-        "last_forward_candle": "2026-08-24T12:00:00Z",
+        "last_forward_candle": "2026-08-25T00:00:00Z",
         "completed_30_day_windows": 0,
         "profitable_30_day_windows": 1,
         "data_integrity_ok": true,
@@ -67,7 +67,7 @@
         "checks": {
           "minimum_days": false,
           "minimum_candles": false,
-          "minimum_candidate_deals": false,
+          "minimum_candidate_deals": true,
           "candidate_positive_pnl": true,
           "not_worse_than_baseline": true,
           "drawdown_limit": true,
@@ -94,6 +94,6 @@
       "first_forward_candle": "2026-08-03T04:00:00Z"
     }
   ],
-  "updated_at": "2026-08-24T16:07:41.033780+00:00",
+  "updated_at": "2026-08-25T04:21:05.015956+00:00",
   "engine_version": "15.3"
 }
