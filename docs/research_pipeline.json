@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-26T07:29:40.526373+00:00",
+  "generated_at": "2026-08-26T08:22:23.704134+00:00",
   "mode": "governed_read_only_research_promotion",
   "automatic_backtest_execution": false,
   "automatic_production_promotion": false,
@@ -17,7 +17,7 @@
       "asset": "XMR",
       "pair": "XMR-USDT",
       "discovery_rank": 1,
-      "current_research_score": 86.3,
+      "current_research_score": 87.0,
       "stage": "NEEDS_HISTORICAL_VALIDATION",
       "walk_forward_status": "PASS",
       "kucoin_walk_forward_status": "RESEARCH_PENDING",
@@ -65,35 +65,10 @@
       "next_action": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
     },
     {
-      "asset": "HYPE",
-      "pair": "HYPE-USDT",
-      "discovery_rank": 2,
-      "current_research_score": 85.0,
-      "stage": "NEEDS_HISTORICAL_VALIDATION",
-      "walk_forward_status": null,
-      "kucoin_walk_forward_status": null,
-      "kucoin_primary_validation_pass": false,
-      "frozen_settings": null,
-      "training_metrics": null,
-      "q1_2026_metrics": null,
-      "gates": {
-        "current_kucoin_screen": "PASS",
-        "kucoin_history": "BUILDING",
-        "kucoin_walk_forward": "PENDING",
-        "kraken_robustness": "OPTIONAL",
-        "drawdown_review": "PENDING",
-        "manual_approval": "REQUIRED"
-      },
-      "production_eligible": false,
-      "manual_approval_required": true,
-      "automatic_promotion": false,
-      "next_action": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-    },
-    {
       "asset": "XRP",
       "pair": "XRP-USDT",
-      "discovery_rank": 3,
-      "current_research_score": 84.5,
+      "discovery_rank": 2,
+      "current_research_score": 84.9,
       "stage": "NEEDS_HISTORICAL_VALIDATION",
       "walk_forward_status": "PASS",
       "kucoin_walk_forward_status": "RESEARCH_PENDING",
@@ -143,8 +118,8 @@
     {
       "asset": "ETH",
       "pair": "ETH-USDT",
-      "discovery_rank": 4,
-      "current_research_score": 83.2,
+      "discovery_rank": 3,
+      "current_research_score": 83.5,
       "stage": "NEEDS_HISTORICAL_VALIDATION",
       "walk_forward_status": "PASS",
       "kucoin_walk_forward_status": "RESEARCH_PENDING",
@@ -194,7 +169,7 @@
     {
       "asset": "BTC",
       "pair": "BTC-USDT",
-      "discovery_rank": 5,
+      "discovery_rank": 4,
       "current_research_score": 82.9,
       "stage": "NEEDS_HISTORICAL_VALIDATION",
       "walk_forward_status": null,
@@ -225,7 +200,7 @@
     {
       "asset": "SOL",
       "pair": "SOL-USDT",
-      "discovery_rank": 6,
+      "discovery_rank": 5,
       "current_research_score": 82.6,
       "stage": "NEEDS_HISTORICAL_VALIDATION",
       "walk_forward_status": "FAIL",
@@ -274,10 +249,86 @@
       "next_action": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
     },
     {
+      "asset": "UNI",
+      "pair": "UNI-USDT",
+      "discovery_rank": 6,
+      "current_research_score": 82.1,
+      "stage": "READY_FOR_MANUAL_REVIEW",
+      "walk_forward_status": "PASS",
+      "kucoin_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
+      "kucoin_primary_validation_pass": true,
+      "frozen_settings": {
+        "take_profit_pct": 0.8,
+        "so_deviation_pct": 0.8,
+        "safety_orders": 4,
+        "volume_scale": 1.3,
+        "step_scale": 1.0
+      },
+      "training_metrics": {
+        "net_pnl": 24512.2,
+        "closed_deals": 1703,
+        "average_hours": 6.3,
+        "longest_hours": 3400,
+        "max_drawdown_dollars": -2986.73,
+        "max_capital": 5819.12,
+        "open_position": true,
+        "score": 22898.8445
+      },
+      "q1_2026_metrics": {
+        "net_pnl": 2116.48,
+        "realised_pnl": 2116.48,
+        "open_pnl": -628.5,
+        "mark_to_market_pnl": 1487.98,
+        "closed_deals": 157,
+        "average_hours": 7.4,
+        "longest_hours": 280,
+        "max_drawdown_dollars": -1457.48,
+        "max_capital": 5819.12,
+        "open_position": true
+      },
+      "gates": {
+        "current_kucoin_screen": "PASS",
+        "kucoin_history": "PASS",
+        "kucoin_walk_forward": "PASS",
+        "kraken_robustness": "PASS",
+        "drawdown_review": "REVIEW",
+        "manual_approval": "REQUIRED"
+      },
+      "production_eligible": false,
+      "manual_approval_required": true,
+      "automatic_promotion": false,
+      "next_action": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
+    },
+    {
+      "asset": "KCS",
+      "pair": "KCS-USDT",
+      "discovery_rank": 7,
+      "current_research_score": 79.9,
+      "stage": "NEEDS_HISTORICAL_VALIDATION",
+      "walk_forward_status": null,
+      "kucoin_walk_forward_status": null,
+      "kucoin_primary_validation_pass": false,
+      "frozen_settings": null,
+      "training_metrics": null,
+      "q1_2026_metrics": null,
+      "gates": {
+        "current_kucoin_screen": "PASS",
+        "kucoin_history": "BUILDING",
+        "kucoin_walk_forward": "PENDING",
+        "kraken_robustness": "OPTIONAL",
+        "drawdown_review": "PENDING",
+        "manual_approval": "REQUIRED"
+      },
+      "production_eligible": false,
+      "manual_approval_required": true,
+      "automatic_promotion": false,
+      "next_action": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
       "asset": "ZEC",
       "pair": "ZEC-USDT",
-      "discovery_rank": 7,
-      "current_research_score": 79.6,
+      "discovery_rank": 8,
+      "current_research_score": 79.2,
       "stage": "READY_FOR_MANUAL_REVIEW",
       "walk_forward_status": "FAIL",
       "kucoin_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
@@ -325,35 +376,10 @@
       "next_action": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
     },
     {
-      "asset": "KCS",
-      "pair": "KCS-USDT",
-      "discovery_rank": 8,
-      "current_research_score": 79.2,
-      "stage": "NEEDS_HISTORICAL_VALIDATION",
-      "walk_forward_status": null,
-      "kucoin_walk_forward_status": null,
-      "kucoin_primary_validation_pass": false,
-      "frozen_settings": null,
-      "training_metrics": null,
-      "q1_2026_metrics": null,
-      "gates": {
-        "current_kucoin_screen": "PASS",
-        "kucoin_history": "BUILDING",
-        "kucoin_walk_forward": "PENDING",
-        "kraken_robustness": "OPTIONAL",
-        "drawdown_review": "PENDING",
-        "manual_approval": "REQUIRED"
-      },
-      "production_eligible": false,
-      "manual_approval_required": true,
-      "automatic_promotion": false,
-      "next_action": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-    },
-    {
       "asset": "ASTER",
       "pair": "ASTER-USDT",
       "discovery_rank": 9,
-      "current_research_score": 78.1,
+      "current_research_score": 78.2,
       "stage": "NEEDS_HISTORICAL_VALIDATION",
       "walk_forward_status": null,
       "kucoin_walk_forward_status": null,
@@ -378,7 +404,7 @@
       "asset": "NEAR",
       "pair": "NEAR-USDT",
       "discovery_rank": 10,
-      "current_research_score": 75.0,
+      "current_research_score": 74.9,
       "stage": "NEEDS_HISTORICAL_VALIDATION",
       "walk_forward_status": "PASS",
       "kucoin_walk_forward_status": "RESEARCH_PENDING",
@@ -424,57 +450,6 @@
       "manual_approval_required": true,
       "automatic_promotion": false,
       "next_action": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
-    },
-    {
-      "asset": "UNI",
-      "pair": "UNI-USDT",
-      "discovery_rank": null,
-      "current_research_score": null,
-      "stage": "READY_FOR_MANUAL_REVIEW",
-      "walk_forward_status": "PASS",
-      "kucoin_walk_forward_status": "READY_FOR_MANUAL_REVIEW",
-      "kucoin_primary_validation_pass": true,
-      "frozen_settings": {
-        "take_profit_pct": 0.8,
-        "so_deviation_pct": 0.8,
-        "safety_orders": 4,
-        "volume_scale": 1.3,
-        "step_scale": 1.0
-      },
-      "training_metrics": {
-        "net_pnl": 24512.2,
-        "closed_deals": 1703,
-        "average_hours": 6.3,
-        "longest_hours": 3400,
-        "max_drawdown_dollars": -2986.73,
-        "max_capital": 5819.12,
-        "open_position": true,
-        "score": 22898.8445
-      },
-      "q1_2026_metrics": {
-        "net_pnl": 2116.48,
-        "realised_pnl": 2116.48,
-        "open_pnl": -628.5,
-        "mark_to_market_pnl": 1487.98,
-        "closed_deals": 157,
-        "average_hours": 7.4,
-        "longest_hours": 280,
-        "max_drawdown_dollars": -1457.48,
-        "max_capital": 5819.12,
-        "open_position": true
-      },
-      "gates": {
-        "current_kucoin_screen": "PASS",
-        "kucoin_history": "PASS",
-        "kucoin_walk_forward": "PASS",
-        "kraken_robustness": "PASS",
-        "drawdown_review": "REVIEW",
-        "manual_approval": "REQUIRED"
-      },
-      "production_eligible": false,
-      "manual_approval_required": true,
-      "automatic_promotion": false,
-      "next_action": "Review frozen KuCoin walk-forward evidence against current conditions; Kraken is secondary robustness evidence. Manual approval only."
     },
     {
       "asset": "AAVE",
@@ -559,6 +534,31 @@
       "next_action": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
     },
     {
+      "asset": "HYPE",
+      "pair": "HYPE-USDT",
+      "discovery_rank": null,
+      "current_research_score": null,
+      "stage": "NEEDS_HISTORICAL_VALIDATION",
+      "walk_forward_status": null,
+      "kucoin_walk_forward_status": null,
+      "kucoin_primary_validation_pass": false,
+      "frozen_settings": null,
+      "training_metrics": null,
+      "q1_2026_metrics": null,
+      "gates": {
+        "current_kucoin_screen": "PASS",
+        "kucoin_history": "BUILDING",
+        "kucoin_walk_forward": "PENDING",
+        "kraken_robustness": "OPTIONAL",
+        "drawdown_review": "PENDING",
+        "manual_approval": "REQUIRED"
+      },
+      "production_eligible": false,
+      "manual_approval_required": true,
+      "automatic_promotion": false,
+      "next_action": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
+    },
+    {
       "asset": "PIEVERSE",
       "pair": "PIEVERSE-USDT",
       "discovery_rank": null,
@@ -584,8 +584,8 @@
       "next_action": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
     },
     {
-      "asset": "BNB",
-      "pair": "BNB-USDT",
+      "asset": "DGAI",
+      "pair": "DGAI-USDT",
       "discovery_rank": null,
       "current_research_score": null,
       "stage": "NEEDS_HISTORICAL_VALIDATION",
@@ -659,8 +659,8 @@
       "next_action": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
     },
     {
-      "asset": "DOGE",
-      "pair": "DOGE-USDT",
+      "asset": "BNB",
+      "pair": "BNB-USDT",
       "discovery_rank": null,
       "current_research_score": null,
       "stage": "NEEDS_HISTORICAL_VALIDATION",
@@ -684,8 +684,8 @@
       "next_action": "Continue automatic KuCoin history acquisition, entry/DCA optimisation and frozen walk-forward validation."
     },
     {
-      "asset": "PEPE",
-      "pair": "PEPE-USDT",
+      "asset": "DOGE",
+      "pair": "DOGE-USDT",
       "discovery_rank": null,
       "current_research_score": null,
       "stage": "NEEDS_HISTORICAL_VALIDATION",
@@ -745,5 +745,5 @@
     "no_data_no_claim": true,
     "no_automatic_bot_changes": true
   },
-  "snapshot_id": "bdb7eac3cee5e0b72d492db6"
+  "snapshot_id": "82d4b554d430d084d3b023c0"
 }

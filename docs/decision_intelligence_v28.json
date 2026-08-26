@@ -1,6 +1,6 @@
 {
   "version": "29.0.0",
-  "generated_at": "2026-08-26T04:24:29.208142+00:00",
+  "generated_at": "2026-08-26T08:22:21.128904+00:00",
   "mode": "unified_advisory_decision_engine",
   "best_setup": {
     "id": "TEL",
@@ -16,7 +16,7 @@
       "health": 7.92,
       "recent_profit": 10.299741418901277,
       "drawdown": -4.394993673262043,
-      "duration": 3.0585858585858583,
+      "duration": 3.000252525252525,
       "capital_efficiency": 8
     },
     "positives": [
@@ -26,7 +26,7 @@
     ],
     "cautions": [
       "Recent drawdown is elevated",
-      "Open replay position has lasted 1.0 days"
+      "Open replay position has lasted 1.2 days"
     ],
     "validation_state": "production_baseline"
   },
@@ -45,7 +45,7 @@
         "health": 7.92,
         "recent_profit": 10.299741418901277,
         "drawdown": -4.394993673262043,
-        "duration": 3.0585858585858583,
+        "duration": 3.000252525252525,
         "capital_efficiency": 8
       },
       "positives": [
@@ -55,7 +55,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 1.0 days"
+        "Open replay position has lasted 1.2 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -102,7 +102,7 @@
         "health": 7.92,
         "recent_profit": 10.299741418901277,
         "drawdown": -4.394993673262043,
-        "duration": 3.0585858585858583,
+        "duration": 3.000252525252525,
         "capital_efficiency": 8
       },
       "positives": [
@@ -112,7 +112,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 1.0 days"
+        "Open replay position has lasted 1.2 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -166,7 +166,7 @@
         "Strategy health requires review",
         "Recent realised P&L is not positive",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 91.7 days"
+        "Open replay position has lasted 91.8 days"
       ],
       "validation_state": "FAIL \u2014 review risk"
     }
@@ -182,9 +182,9 @@
     "backtested_datasets": 0
   },
   "synchronisation": {
-    "strategy_snapshot": "2026-08-26T04:24:23.109394+00:00",
-    "discovery_snapshot": "2026-08-26T04:24:23.139903+00:00",
-    "validation_snapshot": "2026-08-26T04:24:29.202899+00:00",
+    "strategy_snapshot": "2026-08-26T08:22:14.234738+00:00",
+    "discovery_snapshot": "2026-08-26T08:22:14.259650+00:00",
+    "validation_snapshot": "2026-08-26T08:22:21.123941+00:00",
     "all_modules_consumed": true
   },
   "strategy_factory": {
@@ -200,7 +200,7 @@
     ],
     "imports": {
       "version": "30.2.0",
-      "generated_at": "2026-08-26T04:24:29.200065+00:00",
+      "generated_at": "2026-08-26T08:22:21.121315+00:00",
       "target_timeframe": "4h",
       "files": [],
       "ready": 0,
@@ -208,7 +208,7 @@
     },
     "backtest_registry": {
       "version": "29.0.0",
-      "generated_at": "2026-08-26T04:24:29.200425+00:00",
+      "generated_at": "2026-08-26T08:22:21.121608+00:00",
       "datasets": [],
       "policy": {
         "fee_aware": true,

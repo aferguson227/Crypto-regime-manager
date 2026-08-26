@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-26T07:29:39.774076+00:00",
-  "snapshot_id": "0c8ee2765e1aa3966746",
+  "generated_at": "2026-08-26T08:22:22.826847+00:00",
+  "snapshot_id": "dcd2b39927d545464c2b",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Mixed",
   "recommendations": [
     {
-      "recommendation_id": "91c60728f7ad1ad98f7f88f4",
+      "recommendation_id": "7d62888820770a98f564d985",
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
@@ -66,7 +66,7 @@
         "health": 7.92,
         "recent_profit": 10.3,
         "drawdown": -4.395,
-        "duration": 3.059,
+        "duration": 3.0,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -76,7 +76,7 @@
       ],
       "risks": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 1.0 days"
+        "Open replay position has lasted 1.2 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable."
@@ -224,7 +224,7 @@
       "explanation": "Wait TEL Medium Recovery Bot. Confidence 81.0%; risk high. Current entry filters pass"
     },
     {
-      "recommendation_id": "4e7176c4ee9a36c9d957ed54",
+      "recommendation_id": "f6e03505c9e80785d6373a94",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -452,8 +452,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "c379539cf7496c5bb881",
-    "deployment_generated_at": "2026-08-26T07:29:39.738275+00:00",
-    "decision_generated_at": "2026-08-26T04:24:29.208142+00:00"
+    "deployment_snapshot": "489c280b4d55942b1269",
+    "deployment_generated_at": "2026-08-26T08:22:22.768822+00:00",
+    "decision_generated_at": "2026-08-26T08:22:21.128904+00:00"
   }
 }
