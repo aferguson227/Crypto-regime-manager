@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-25T20:59:58.215509+00:00",
-  "snapshot_id": "2d53bbb0dbd1cf4746bf",
+  "generated_at": "2026-08-26T04:24:29.469823+00:00",
+  "snapshot_id": "acbe7e1513b8eef4901f",
   "mode": "read_only_market_context",
   "read_only": true,
   "manual_approval_required": true,
   "regime": "ACCUMULATION",
-  "regime_confidence_pct": 60.4,
+  "regime_confidence_pct": 63.4,
   "trend_score": 47.5,
   "volatility_score": 50,
-  "breadth_score": 90.0,
+  "breadth_score": 100,
   "correlation_score": 55,
   "risk_appetite": "BALANCED",
   "recommended_exposure": "MODERATE",
@@ -48,7 +48,7 @@
       "why_not": [
         "Governed recommendation remains WAIT."
       ],
-      "market_support_score": 60.4
+      "market_support_score": 63.4
     },
     {
       "asset": "TAO",
@@ -63,7 +63,7 @@
         "Current operating data does not allow entry.",
         "Governed recommendation remains WAIT."
       ],
-      "market_support_score": 39.3
+      "market_support_score": 41.2
     }
   ],
   "stress_tests": [
@@ -108,7 +108,7 @@
     "Exchange equity is unknown; stress-test capital impacts may be incomplete."
   ],
   "breadth_evidence": {
-    "positive_assets": 9,
+    "positive_assets": 10,
     "assets_with_30d_trend": 10,
     "source": "coin_discovery.researched_candidates.trend_30d_pct",
     "status": "MEASURED"
