@@ -1,6 +1,6 @@
 {
   "version": "27.0.0",
-  "generated_at": "2026-08-26T16:04:10.039184+00:00",
+  "generated_at": "2026-08-27T12:00:07.838085+00:00",
   "mode": "advisory_only_immutable_queue",
   "automatic_live_changes": false,
   "automatic_dca_changes": false,
@@ -9,14 +9,14 @@
     {
       "symbol": "XMR-USDT",
       "discovery_rank": 1,
-      "research_score": 85.3,
+      "research_score": 88.0,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
       "walk_forward_required": true,
       "proposed_dca": {
-        "take_profit_pct": 1.0,
-        "safety_order_deviation_pct": 1.2,
+        "take_profit_pct": 1.1,
+        "safety_order_deviation_pct": 1.3,
         "safety_orders": 6,
         "volume_scale": 1.5,
         "step_scale": 1.1
@@ -31,9 +31,33 @@
       "next_action": "Run full fee-aware replay before any forward test or production consideration."
     },
     {
-      "symbol": "XRP-USDT",
+      "symbol": "LINK-USDT",
       "discovery_rank": 2,
-      "research_score": 84.5,
+      "research_score": 87.8,
+      "stage": "queued_for_fee_aware_replay",
+      "production_eligible": false,
+      "manual_approval_required": true,
+      "walk_forward_required": true,
+      "proposed_dca": {
+        "take_profit_pct": 0.9,
+        "safety_order_deviation_pct": 1.1,
+        "safety_orders": 6,
+        "volume_scale": 1.4,
+        "step_scale": 1.1
+      },
+      "gates": {
+        "fee_aware_replay": "pending",
+        "independent_walk_forward": "pending",
+        "drawdown_review": "pending",
+        "capital_review": "pending",
+        "manual_approval": "pending"
+      },
+      "next_action": "Run full fee-aware replay before any forward test or production consideration."
+    },
+    {
+      "symbol": "XRP-USDT",
+      "discovery_rank": 3,
+      "research_score": 85.2,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -55,57 +79,9 @@
       "next_action": "Run full fee-aware replay before any forward test or production consideration."
     },
     {
-      "symbol": "ETH-USDT",
-      "discovery_rank": 3,
-      "research_score": 83.9,
-      "stage": "queued_for_fee_aware_replay",
-      "production_eligible": false,
-      "manual_approval_required": true,
-      "walk_forward_required": true,
-      "proposed_dca": {
-        "take_profit_pct": 0.8,
-        "safety_order_deviation_pct": 0.8,
-        "safety_orders": 6,
-        "volume_scale": 1.4,
-        "step_scale": 1.1
-      },
-      "gates": {
-        "fee_aware_replay": "pending",
-        "independent_walk_forward": "pending",
-        "drawdown_review": "pending",
-        "capital_review": "pending",
-        "manual_approval": "pending"
-      },
-      "next_action": "Run full fee-aware replay before any forward test or production consideration."
-    },
-    {
-      "symbol": "BTC-USDT",
-      "discovery_rank": 4,
-      "research_score": 83.0,
-      "stage": "queued_for_fee_aware_replay",
-      "production_eligible": false,
-      "manual_approval_required": true,
-      "walk_forward_required": true,
-      "proposed_dca": {
-        "take_profit_pct": 0.8,
-        "safety_order_deviation_pct": 0.8,
-        "safety_orders": 6,
-        "volume_scale": 1.4,
-        "step_scale": 1.1
-      },
-      "gates": {
-        "fee_aware_replay": "pending",
-        "independent_walk_forward": "pending",
-        "drawdown_review": "pending",
-        "capital_review": "pending",
-        "manual_approval": "pending"
-      },
-      "next_action": "Run full fee-aware replay before any forward test or production consideration."
-    },
-    {
       "symbol": "SOL-USDT",
-      "discovery_rank": 5,
-      "research_score": 82.4,
+      "discovery_rank": 4,
+      "research_score": 84.5,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -115,6 +91,30 @@
         "safety_order_deviation_pct": 0.8,
         "safety_orders": 6,
         "volume_scale": 1.5,
+        "step_scale": 1.1
+      },
+      "gates": {
+        "fee_aware_replay": "pending",
+        "independent_walk_forward": "pending",
+        "drawdown_review": "pending",
+        "capital_review": "pending",
+        "manual_approval": "pending"
+      },
+      "next_action": "Run full fee-aware replay before any forward test or production consideration."
+    },
+    {
+      "symbol": "ETH-USDT",
+      "discovery_rank": 5,
+      "research_score": 84.0,
+      "stage": "queued_for_fee_aware_replay",
+      "production_eligible": false,
+      "manual_approval_required": true,
+      "walk_forward_required": true,
+      "proposed_dca": {
+        "take_profit_pct": 0.8,
+        "safety_order_deviation_pct": 0.8,
+        "safety_orders": 6,
+        "volume_scale": 1.4,
         "step_scale": 1.1
       },
       "gates": {

@@ -1,6 +1,6 @@
 {
   "version": "29.0.0",
-  "generated_at": "2026-08-26T16:04:10.044068+00:00",
+  "generated_at": "2026-08-27T12:00:07.843123+00:00",
   "mode": "unified_advisory_decision_engine",
   "best_setup": {
     "id": "TEL",
@@ -12,11 +12,11 @@
     "decision_score": 100,
     "components": {
       "entry_permission": 24,
-      "opportunity": 14.200000000000001,
+      "opportunity": 16.400000000000002,
       "health": 7.92,
-      "recent_profit": 10.351681418901277,
+      "recent_profit": 10.373323085567943,
       "drawdown": -4.394993673262043,
-      "duration": 3.4049019607843136,
+      "duration": 3.527142857142857,
       "capital_efficiency": 8
     },
     "positives": [
@@ -25,8 +25,7 @@
       "Recent capital efficiency is positive"
     ],
     "cautions": [
-      "Recent drawdown is elevated",
-      "Open replay position has lasted 0.2 days"
+      "Recent drawdown is elevated"
     ],
     "validation_state": "production_baseline"
   },
@@ -41,11 +40,11 @@
       "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 14.200000000000001,
+        "opportunity": 16.400000000000002,
         "health": 7.92,
-        "recent_profit": 10.351681418901277,
+        "recent_profit": 10.373323085567943,
         "drawdown": -4.394993673262043,
-        "duration": 3.4049019607843136,
+        "duration": 3.527142857142857,
         "capital_efficiency": 8
       },
       "positives": [
@@ -54,8 +53,7 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Recent drawdown is elevated",
-        "Open replay position has lasted 0.2 days"
+        "Recent drawdown is elevated"
       ],
       "validation_state": "production_baseline"
     },
@@ -66,14 +64,14 @@
       "production": true,
       "entry_allowed": false,
       "recommended_bot": "TAO Low Pullback Bot",
-      "decision_score": 46.8,
+      "decision_score": 44.6,
       "components": {
         "entry_permission": -35,
-        "opportunity": 9.0,
+        "opportunity": 7.2,
         "health": 14.399999999999999,
-        "recent_profit": 3.5301917050666467,
+        "recent_profit": 3.4382917050666473,
         "drawdown": -1.6547085753806723,
-        "duration": 3.497222222222222,
+        "duration": 3.2575757575757573,
         "capital_efficiency": 8
       },
       "positives": [
@@ -98,11 +96,11 @@
       "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 14.200000000000001,
+        "opportunity": 16.400000000000002,
         "health": 7.92,
-        "recent_profit": 10.351681418901277,
+        "recent_profit": 10.373323085567943,
         "drawdown": -4.394993673262043,
-        "duration": 3.4049019607843136,
+        "duration": 3.527142857142857,
         "capital_efficiency": 8
       },
       "positives": [
@@ -111,8 +109,7 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Recent drawdown is elevated",
-        "Open replay position has lasted 0.2 days"
+        "Recent drawdown is elevated"
       ],
       "validation_state": "production_baseline"
     },
@@ -123,14 +120,14 @@
       "production": true,
       "entry_allowed": false,
       "recommended_bot": "TAO Low Pullback Bot",
-      "decision_score": 46.8,
+      "decision_score": 44.6,
       "components": {
         "entry_permission": -35,
-        "opportunity": 9.0,
+        "opportunity": 7.2,
         "health": 14.399999999999999,
-        "recent_profit": 3.5301917050666467,
+        "recent_profit": 3.4382917050666473,
         "drawdown": -1.6547085753806723,
-        "duration": 3.497222222222222,
+        "duration": 3.2575757575757573,
         "capital_efficiency": 8
       },
       "positives": [
@@ -156,7 +153,7 @@
         "opportunity": 0,
         "health": -2.16,
         "recent_profit": 0.0,
-        "drawdown": -15.354739927494919,
+        "drawdown": -14.86132992902673,
         "duration": -10,
         "capital_efficiency": 0.0
       },
@@ -166,7 +163,7 @@
         "Strategy health requires review",
         "Recent realised P&L is not positive",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 92.2 days"
+        "Open replay position has lasted 93.0 days"
       ],
       "validation_state": "FAIL \u2014 review risk"
     }
@@ -174,7 +171,7 @@
   "pipeline": {
     "production_assets": 2,
     "eligible_production": 1,
-    "discovery_candidates": 1003,
+    "discovery_candidates": 1006,
     "validation_candidates": 5,
     "research_ready": 0,
     "queue_items": 0,
@@ -182,9 +179,9 @@
     "backtested_datasets": 0
   },
   "synchronisation": {
-    "strategy_snapshot": "2026-08-26T16:04:04.156014+00:00",
-    "discovery_snapshot": "2026-08-26T16:04:04.176499+00:00",
-    "validation_snapshot": "2026-08-26T16:04:10.039184+00:00",
+    "strategy_snapshot": "2026-08-27T12:00:03.241524+00:00",
+    "discovery_snapshot": "2026-08-27T12:00:03.261368+00:00",
+    "validation_snapshot": "2026-08-27T12:00:07.838085+00:00",
     "all_modules_consumed": true
   },
   "strategy_factory": {
@@ -200,7 +197,7 @@
     ],
     "imports": {
       "version": "30.2.0",
-      "generated_at": "2026-08-26T16:04:10.036696+00:00",
+      "generated_at": "2026-08-27T12:00:07.835099+00:00",
       "target_timeframe": "4h",
       "files": [],
       "ready": 0,
@@ -208,7 +205,7 @@
     },
     "backtest_registry": {
       "version": "29.0.0",
-      "generated_at": "2026-08-26T16:04:10.036897+00:00",
+      "generated_at": "2026-08-27T12:00:07.835389+00:00",
       "datasets": [],
       "policy": {
         "fee_aware": true,
