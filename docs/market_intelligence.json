@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-27T12:00:08.102909+00:00",
-  "snapshot_id": "3ec05c7a7774917b2df7",
+  "generated_at": "2026-08-30T00:39:50.857603+00:00",
+  "snapshot_id": "acbe7e1513b8eef4901f",
   "mode": "read_only_market_context",
   "read_only": true,
   "manual_approval_required": true,
@@ -31,7 +31,7 @@
       "entry_allowed": false,
       "trend_score": 40,
       "volatility_score": 35,
-      "opportunity_score": 60.0
+      "opportunity_score": 63.0
     }
   ],
   "strategy_context": [
@@ -54,7 +54,7 @@
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "effective_score": 21.1,
+      "effective_score": 21.2,
       "market_regime": "ACCUMULATION",
       "why_now": [
         "Market context is Accumulation."
@@ -108,8 +108,8 @@
     "Exchange equity is unknown; stress-test capital impacts may be incomplete."
   ],
   "breadth_evidence": {
-    "positive_assets": 9,
-    "assets_with_30d_trend": 9,
+    "positive_assets": 10,
+    "assets_with_30d_trend": 10,
     "source": "coin_discovery.researched_candidates.trend_30d_pct",
     "status": "MEASURED"
   }
