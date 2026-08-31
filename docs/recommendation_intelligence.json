@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-08-31T14:23:37.172925+00:00",
-  "snapshot_id": "64429d8025b91e5ef8e0",
+  "generated_at": "2026-08-31T20:21:27.138879+00:00",
+  "snapshot_id": "21c2abefe4699220b0c7",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Mixed",
   "recommendations": [
     {
-      "recommendation_id": "a7e4105d57281145934c7cc0",
+      "recommendation_id": "b7fc3b4d2ef25e73c39044c0",
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
@@ -62,11 +62,11 @@
       ],
       "score_breakdown": {
         "entry_permission": 24.0,
-        "opportunity": 13.6,
+        "opportunity": 14.2,
         "health": 7.92,
-        "recent_profit": 9.524,
+        "recent_profit": 8.631,
         "drawdown": -4.395,
-        "duration": 2.992,
+        "duration": 2.35,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -76,7 +76,7 @@
       ],
       "risks": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 2.2 days"
+        "Open replay position has lasted 4.0 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable."
@@ -224,11 +224,11 @@
       "explanation": "Wait TEL Medium Recovery Bot. Confidence 81.0%; risk high. Current entry filters pass"
     },
     {
-      "recommendation_id": "b673341354050f224325f3c7",
+      "recommendation_id": "f01bd01edcd4c66a0f40517d",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "overall_confidence": 21.2,
+      "overall_confidence": 19.5,
       "risk_level": "HIGH",
       "confidence_components": [
         {
@@ -240,7 +240,7 @@
         },
         {
           "name": "historical",
-          "score": 44.9,
+          "score": 39.7,
           "weight": 0.2,
           "status": "review",
           "explanation": "Historical/replay decision score from the governed production ranking."
@@ -276,12 +276,12 @@
       ],
       "score_breakdown": {
         "entry_permission": -35.0,
-        "opportunity": 9.0,
-        "health": 14.4,
-        "recent_profit": 3.036,
+        "opportunity": 8.0,
+        "health": 11.16,
+        "recent_profit": 2.944,
         "drawdown": -1.655,
-        "duration": 2.179,
-        "capital_efficiency": 7.944
+        "duration": 1.583,
+        "capital_efficiency": 7.704
       },
       "supporting_evidence": [
         "Strategy health is strong",
@@ -300,7 +300,7 @@
         "expected_roi_pct": null,
         "expected_hold_hours": null,
         "worst_historical_drawdown_pct": 1.6547085753806723,
-        "capital_efficiency_score": 7.944440094630279,
+        "capital_efficiency_score": 7.703967183062071,
         "note": "ROI and hold-time expectations are not published unless supported by a comparable validated dataset."
       },
       "production_comparison": {
@@ -443,7 +443,7 @@
         "kucoin_current": "AVAILABLE",
         "agreement": "UNKNOWN"
       },
-      "explanation": "Wait TAO Low Pullback Bot. Confidence 21.2%; risk high. Strategy health is strong"
+      "explanation": "Wait TAO Low Pullback Bot. Confidence 19.5%; risk high. Strategy health is strong"
     }
   ],
   "history_file": "recommendation_history.json",
@@ -452,8 +452,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "06ac73293ea12c051c43",
-    "deployment_generated_at": "2026-08-31T14:23:37.112528+00:00",
-    "decision_generated_at": "2026-08-30T00:39:50.660194+00:00"
+    "deployment_snapshot": "9896b81c5c2e6166ffdf",
+    "deployment_generated_at": "2026-08-31T20:21:27.090919+00:00",
+    "decision_generated_at": "2026-08-31T20:21:25.721373+00:00"
   }
 }
