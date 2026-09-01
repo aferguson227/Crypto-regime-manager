@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-01T16:53:50.546606+00:00",
-  "snapshot_id": "b9938e1fd1310592d6f4",
+  "generated_at": "2026-09-01T20:08:49.088526+00:00",
+  "snapshot_id": "c13eecbbe934d50f5843",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Mixed",
   "recommendations": [
     {
-      "recommendation_id": "45660ddb7579006e21b5d3cd",
+      "recommendation_id": "7abc2f2099283928d0361493",
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
@@ -66,7 +66,7 @@
         "health": 7.92,
         "recent_profit": 8.631,
         "drawdown": -4.395,
-        "duration": 2.058,
+        "duration": 2.0,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -76,7 +76,7 @@
       ],
       "risks": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 4.8 days"
+        "Open replay position has lasted 5.0 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable."
@@ -224,7 +224,7 @@
       "explanation": "Wait TEL Medium Recovery Bot. Confidence 81.0%; risk high. Current entry filters pass"
     },
     {
-      "recommendation_id": "5a6220010a5b8f8e0a6ad5d7",
+      "recommendation_id": "9df4982437afe46326302d53",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -452,8 +452,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "2cf6fea64ee8b7c2e8c3",
-    "deployment_generated_at": "2026-09-01T16:53:50.494474+00:00",
-    "decision_generated_at": "2026-09-01T16:53:48.917436+00:00"
+    "deployment_snapshot": "9565674c4fd5b1e28d95",
+    "deployment_generated_at": "2026-09-01T20:08:49.034111+00:00",
+    "decision_generated_at": "2026-09-01T20:08:47.450788+00:00"
   }
 }

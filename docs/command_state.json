@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-01T16:53:51.239590+00:00",
-  "snapshot_id": "8e917e8434bf3633a5b8a0d7",
+  "generated_at": "2026-09-01T20:08:49.865272+00:00",
+  "snapshot_id": "f16d5e8b5d637b8646f1577e",
   "mode": "unified_read_only_trading_command_state",
   "read_only": true,
   "manual_approval_required": true,
@@ -166,7 +166,7 @@
   },
   "recommendations": [
     {
-      "recommendation_id": "45660ddb7579006e21b5d3cd",
+      "recommendation_id": "7abc2f2099283928d0361493",
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
@@ -182,7 +182,7 @@
       ],
       "risks": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 4.8 days"
+        "Open replay position has lasted 5.0 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable."
@@ -329,7 +329,7 @@
       }
     },
     {
-      "recommendation_id": "5a6220010a5b8f8e0a6ad5d7",
+      "recommendation_id": "9df4982437afe46326302d53",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -544,7 +544,7 @@
   ],
   "risks": [
     "Recent drawdown is elevated",
-    "Open replay position has lasted 4.8 days",
+    "Open replay position has lasted 5.0 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
@@ -573,7 +573,7 @@
     "overall_status": "HEALTHY",
     "threecommas": {
       "status": "ok",
-      "generated_at": "2026-09-01T16:53:38.940757+00:00",
+      "generated_at": "2026-09-01T20:08:38.085525+00:00",
       "message": "All read-only 3Commas endpoints updated successfully."
     },
     "main_app": {},
@@ -587,14 +587,14 @@
   },
   "source_snapshots": {
     "market": "00892cb0132ae2d17f10",
-    "portfolio": "8c0a8c4fa3544ff284b0",
-    "capital": "317e29c1c17be37c210a",
-    "deployment": "2cf6fea64ee8b7c2e8c3",
-    "recommendations": "b9938e1fd1310592d6f4",
+    "portfolio": "a88984628047e7211fca",
+    "capital": "2d9323f41acee0ae55da",
+    "deployment": "9565674c4fd5b1e28d95",
+    "recommendations": "c13eecbbe934d50f5843",
     "adaptive": "cac63922d953b226988a",
-    "outcomes": "2026-09-01T16:53:49.130245+00:00",
-    "cloud": "41d0fa89047b3905b09d",
-    "operating": "060f1cf09438dc5b2448"
+    "outcomes": "2026-09-01T20:08:47.659013+00:00",
+    "cloud": "e0b5f0e84c764412216d",
+    "operating": "3bbbe7a687f63b95b908"
   },
   "warnings": [
     "Exchange equity is unknown; stress-test capital impacts may be incomplete.",

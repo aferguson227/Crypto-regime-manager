@@ -1,15 +1,15 @@
 {
   "version": "27.0.0",
-  "generated_at": "2026-09-01T16:53:48.912131+00:00",
+  "generated_at": "2026-09-01T20:08:47.446134+00:00",
   "mode": "advisory_only_immutable_queue",
   "automatic_live_changes": false,
   "automatic_dca_changes": false,
   "candidate_count": 5,
   "candidates": [
     {
-      "symbol": "XMR-USDT",
+      "symbol": "AAVE-USDT",
       "discovery_rank": 1,
-      "research_score": 90.8,
+      "research_score": 90.9,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -31,9 +31,9 @@
       "next_action": "Run full fee-aware replay before any forward test or production consideration."
     },
     {
-      "symbol": "AAVE-USDT",
+      "symbol": "XMR-USDT",
       "discovery_rank": 2,
-      "research_score": 90.8,
+      "research_score": 90.6,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -57,14 +57,14 @@
     {
       "symbol": "UNI-USDT",
       "discovery_rank": 3,
-      "research_score": 89.1,
+      "research_score": 88.9,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
       "walk_forward_required": true,
       "proposed_dca": {
         "take_profit_pct": 1.3,
-        "safety_order_deviation_pct": 1.5,
+        "safety_order_deviation_pct": 1.6,
         "safety_orders": 6,
         "volume_scale": 1.5,
         "step_scale": 1.2
@@ -81,7 +81,7 @@
     {
       "symbol": "SOL-USDT",
       "discovery_rank": 4,
-      "research_score": 87.9,
+      "research_score": 88.1,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -105,7 +105,7 @@
     {
       "symbol": "ETH-USDT",
       "discovery_rank": 5,
-      "research_score": 87.0,
+      "research_score": 87.2,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
