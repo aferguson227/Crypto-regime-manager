@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-02T11:41:41.234448+00:00",
+  "generated_at": "2026-09-02T16:50:53.373214+00:00",
   "overall": {
     "state": "HEALTHY",
     "score_pct": 92.7
@@ -25,15 +25,15 @@
       "automatic": false,
       "recommended_action": "Trigger the read-only 3Commas workflow.",
       "first_detected_at": "2026-09-02T04:31:48.055369+00:00",
-      "last_detected_at": "2026-09-02T11:16:48.424776+00:00",
+      "last_detected_at": "2026-09-02T16:33:38.397149+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 2,
+      "historical_occurrences": 3,
       "user_benefit": 2,
-      "frequency": 2,
+      "frequency": 3,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 5.0
+      "roi_score": 7.5
     }
   ],
   "highest_value_improvements": [
@@ -47,15 +47,15 @@
       "automatic": false,
       "recommended_action": "Trigger the read-only 3Commas workflow.",
       "first_detected_at": "2026-09-02T04:31:48.055369+00:00",
-      "last_detected_at": "2026-09-02T11:16:48.424776+00:00",
+      "last_detected_at": "2026-09-02T16:33:38.397149+00:00",
       "lifecycle": "OPEN",
-      "historical_occurrences": 2,
+      "historical_occurrences": 3,
       "user_benefit": 2,
-      "frequency": 2,
+      "frequency": 3,
       "confidence": 5,
       "estimated_effort": 2,
       "regression_risk": 2,
-      "roi_score": 5.0
+      "roi_score": 7.5
     }
   ],
   "recently_closed": [],
@@ -74,7 +74,7 @@
     "recommendation": "READY",
     "regression_risk": "LOW",
     "expected_build_seconds": null,
-    "expected_deployment_seconds": 22.0,
+    "expected_deployment_seconds": 21.0,
     "actions_success_rate_pct": 100.0,
     "blockers": []
   },

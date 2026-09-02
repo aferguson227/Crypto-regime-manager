@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-01T20:08:47.692246+00:00",
-  "snapshot_id": "cac63922d953b226988a",
+  "generated_at": "2026-09-02T16:50:51.094156+00:00",
+  "snapshot_id": "549f1533a30966bf7eda",
   "mode": "advisory_capped_adaptive_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -38,16 +38,16 @@
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "static_score": 18.5,
-      "adaptive_score": 18.5,
-      "effective_score": 18.5,
+      "static_score": 62.5,
+      "adaptive_score": 62.5,
+      "effective_score": 62.5,
       "evidence_count": 0,
       "adaptation_status": "INSUFFICIENT_EVIDENCE",
       "confidence_calibration_pct": null,
       "observed_accuracy_pct": null,
       "average_return_pct": null,
       "capital_efficiency_score": null,
-      "risk_adjusted_score": 18.5,
+      "risk_adjusted_score": 62.5,
       "rank": 2,
       "weight_adjustments": {},
       "reasons": [
@@ -61,7 +61,7 @@
   "confidence_calibration": [
     {
       "band": "0-50%",
-      "recommendations": 250,
+      "recommendations": 249,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 25.0,
       "observed_accuracy_pct": null,
@@ -69,7 +69,7 @@
     },
     {
       "band": "50-65%",
-      "recommendations": 76,
+      "recommendations": 77,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 57.5,
       "observed_accuracy_pct": null,
@@ -85,7 +85,7 @@
     },
     {
       "band": "80-90%",
-      "recommendations": 144,
+      "recommendations": 150,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 85.0,
       "observed_accuracy_pct": null,
@@ -93,7 +93,7 @@
     },
     {
       "band": "90-100%",
-      "recommendations": 12,
+      "recommendations": 6,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 95.0,
       "observed_accuracy_pct": null,

@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-02T11:41:40.483247+00:00",
-  "snapshot_id": "594c01b70c48bd6ed49d",
+  "generated_at": "2026-09-02T16:50:52.493960+00:00",
+  "snapshot_id": "fab664ae8bcfcff8ab7f",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
   "current_market_regime": "Mixed",
-  "current_regime_confidence": 46.0,
+  "current_regime_confidence": 88.0,
   "overall_action": "WAIT",
   "deploy_today": [],
   "keep_running": [],
@@ -43,7 +43,7 @@
       ],
       "cautions": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 5.0 days"
+        "Open replay position has lasted 5.8 days"
       ],
       "current_regime": "Medium",
       "live_state": "DISABLED",
@@ -208,20 +208,20 @@
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "confidence": 0,
+      "confidence": 84,
       "eligible": false,
       "blocking_reasons": [
-        "Current entry permission is blocked.",
         "Complete deployable-capital confirmation is unavailable.",
         "Exact DCA settings are incomplete; deployment is blocked."
       ],
       "supporting_reasons": [
+        "Current entry filters pass",
         "Strategy health is strong",
         "Recent realised P&L is positive",
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Current entry is blocked"
+        "Open replay position has lasted 0.2 days"
       ],
       "current_regime": "Low",
       "live_state": "NOT_FOUND",
@@ -404,10 +404,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "747c6f6f2fd55c752636",
-    "capital_snapshot": "899e1b6ba311cd9dffa8",
-    "decision_generated_at": "2026-09-01T20:08:47.450788+00:00",
-    "threecommas_generated_at": "2026-09-02T11:41:38.622934+00:00"
+    "operating_state_snapshot": "1b9037eee4ec7ac7fd5f",
+    "capital_snapshot": "45221d0f1f681abe5d76",
+    "decision_generated_at": "2026-09-02T16:50:50.924691+00:00",
+    "threecommas_generated_at": "2026-09-02T16:50:41.574350+00:00"
   },
   "warnings": [
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."

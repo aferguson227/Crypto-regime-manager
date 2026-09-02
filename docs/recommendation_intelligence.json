@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-02T11:41:40.543253+00:00",
-  "snapshot_id": "24a8a19855090ad7200c",
+  "generated_at": "2026-09-02T16:50:52.533582+00:00",
+  "snapshot_id": "5ffd42846122193cc49b",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Mixed",
   "recommendations": [
     {
-      "recommendation_id": "49aa054e6c3596f17f722a31",
+      "recommendation_id": "e953abd3f8ecaca1aa4f70b2",
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
@@ -64,9 +64,9 @@
         "entry_permission": 24.0,
         "opportunity": 14.2,
         "health": 7.92,
-        "recent_profit": 8.631,
+        "recent_profit": 7.737,
         "drawdown": -4.395,
-        "duration": 2.0,
+        "duration": 1.721,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -76,7 +76,7 @@
       ],
       "risks": [
         "Recent drawdown is elevated",
-        "Open replay position has lasted 5.0 days"
+        "Open replay position has lasted 5.8 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable."
@@ -224,25 +224,25 @@
       "explanation": "Wait TEL Medium Recovery Bot. Confidence 81.0%; risk high. Current entry filters pass"
     },
     {
-      "recommendation_id": "bdc1eed4f03a5f28870fdce8",
+      "recommendation_id": "0d86be478c90984f77b79939",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
-      "overall_confidence": 18.5,
+      "overall_confidence": 62.5,
       "risk_level": "HIGH",
       "confidence_components": [
         {
           "name": "regime",
-          "score": 0.0,
+          "score": 55,
           "weight": 0.25,
           "status": "fail",
           "explanation": "Current regime or entry permission does not support a new entry."
         },
         {
           "name": "historical",
-          "score": 36.7,
+          "score": 100.0,
           "weight": 0.2,
-          "status": "review",
+          "status": "pass",
           "explanation": "Historical/replay decision score from the governed production ranking."
         },
         {
@@ -275,31 +275,31 @@
         }
       ],
       "score_breakdown": {
-        "entry_permission": -35.0,
-        "opportunity": 8.0,
+        "entry_permission": 24.0,
+        "opportunity": 14.2,
         "health": 11.16,
         "recent_profit": 2.319,
-        "drawdown": -1.655,
-        "duration": 0.825,
+        "drawdown": -0.422,
+        "duration": 0.767,
         "capital_efficiency": 6.068
       },
       "supporting_evidence": [
+        "Current entry filters pass",
         "Strategy health is strong",
         "Recent realised P&L is positive",
         "Recent capital efficiency is positive"
       ],
       "risks": [
-        "Current entry is blocked"
+        "Open replay position has lasted 0.2 days"
       ],
       "blockers": [
-        "Current entry permission is blocked.",
         "Complete deployable-capital confirmation is unavailable.",
         "Exact DCA settings are incomplete; deployment is blocked."
       ],
       "expected_behaviour": {
         "expected_roi_pct": null,
         "expected_hold_hours": null,
-        "worst_historical_drawdown_pct": 1.6547085753806723,
+        "worst_historical_drawdown_pct": 0.4223846586833879,
         "capital_efficiency_score": 6.068366627739736,
         "note": "ROI and hold-time expectations are not published unless supported by a comparable validated dataset."
       },
@@ -443,7 +443,7 @@
         "kucoin_current": "AVAILABLE",
         "agreement": "UNKNOWN"
       },
-      "explanation": "Wait TAO Low Pullback Bot. Confidence 18.5%; risk high. Strategy health is strong"
+      "explanation": "Wait TAO Low Pullback Bot. Confidence 62.5%; risk high. Current entry filters pass"
     }
   ],
   "history_file": "recommendation_history.json",
@@ -452,8 +452,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "594c01b70c48bd6ed49d",
-    "deployment_generated_at": "2026-09-02T11:41:40.483247+00:00",
-    "decision_generated_at": "2026-09-01T20:08:47.450788+00:00"
+    "deployment_snapshot": "fab664ae8bcfcff8ab7f",
+    "deployment_generated_at": "2026-09-02T16:50:52.493960+00:00",
+    "decision_generated_at": "2026-09-02T16:50:50.924691+00:00"
   }
 }
