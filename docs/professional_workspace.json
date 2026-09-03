@@ -1,14 +1,14 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-03T11:41:49.979236+00:00",
+  "generated_at": "2026-09-03T16:39:59.132990+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Wait TEL Medium Recovery Bot.",
     "Deployable capital: 1377.26 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
-    "Main risk: Recent drawdown is elevated"
+    "Main risk: Open replay position has lasted 6.8 days"
   ],
   "daily_decision": {
     "bot_name": "TEL Medium Recovery Bot",
@@ -241,19 +241,19 @@
   ],
   "what_changed": [],
   "risks": [
-    "Recent drawdown is elevated",
-    "Open replay position has lasted 6.0 days",
+    "Open replay position has lasted 6.8 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
-    "Open replay position has lasted 0.3 days",
+    "Current entry is blocked",
+    "TAO: Current entry permission is blocked.",
     "TAO: Complete deployable-capital confirmation is unavailable.",
     "TAO: Exact DCA settings are incomplete; deployment is blocked."
   ],
   "market": {
     "regime": "ACCUMULATION",
-    "confidence_pct": 66.8,
+    "confidence_pct": 63.4,
     "risk_appetite": "BALANCED",
     "recommended_exposure": "MODERATE",
-    "trend_score": 55,
+    "trend_score": 47.5,
     "breadth_score": 100,
     "volatility_score": 50,
     "stress_tests": [
@@ -414,5 +414,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "ef593e2d0432c37b52c4e42b"
+  "snapshot_id": "672d503a8c53bafbf13b4f4f"
 }
