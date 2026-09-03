@@ -1,13 +1,14 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-03T16:24:39.559826+00:00",
+  "generated_at": "2026-09-03T21:01:21.715086+00:00",
   "summary": {
-    "open": 1,
-    "closed_this_scan": 0,
+    "open": 0,
+    "closed_this_scan": 1,
     "automatic_available": 0
   },
-  "issues": [
+  "issues": [],
+  "recently_closed": [
     {
       "key": "a43930f4134bf7af",
       "source": "self_healing",
@@ -19,9 +20,9 @@
       "recommended_action": "Trigger the read-only 3Commas workflow.",
       "first_detected_at": "2026-09-03T04:22:37.199851+00:00",
       "last_detected_at": "2026-09-03T16:24:39.559826+00:00",
-      "lifecycle": "OPEN",
-      "historical_occurrences": 3
+      "lifecycle": "CLOSED",
+      "historical_occurrences": 3,
+      "closed_at": "2026-09-03T21:01:21.715086+00:00"
     }
-  ],
-  "recently_closed": []
+  ]
 }
