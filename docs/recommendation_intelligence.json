@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-04T11:43:04.030901+00:00",
-  "snapshot_id": "671830a6fd787e2362b7",
+  "generated_at": "2026-09-04T16:35:14.433916+00:00",
+  "snapshot_id": "3d7febf07fc02701f6fb",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Mixed",
   "recommendations": [
     {
-      "recommendation_id": "17fff11234888377e52a5b3f",
+      "recommendation_id": "5306044774fc0c3190f97636",
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
@@ -62,11 +62,11 @@
       ],
       "score_breakdown": {
         "entry_permission": 24.0,
-        "opportunity": 13.6,
+        "opportunity": 14.2,
         "health": 7.92,
         "recent_profit": 5.951,
         "drawdown": -1.318,
-        "duration": 1.144,
+        "duration": 0.853,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -75,7 +75,7 @@
         "Recent capital efficiency is positive"
       ],
       "risks": [
-        "Open replay position has lasted 7.0 days"
+        "Open replay position has lasted 7.8 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable."
@@ -223,7 +223,7 @@
       "explanation": "Wait TEL Medium Recovery Bot. Confidence 81.0%; risk high. Current entry filters pass"
     },
     {
-      "recommendation_id": "1971df68da9ab4618e5ccd1e",
+      "recommendation_id": "745d91ce31d2094fe395d1ce",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -451,8 +451,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "01f40a526f2f4fa471af",
-    "deployment_generated_at": "2026-09-04T11:43:03.975587+00:00",
-    "decision_generated_at": "2026-09-03T20:06:59.831000+00:00"
+    "deployment_snapshot": "bb97187539fc36c6b9bf",
+    "deployment_generated_at": "2026-09-04T16:35:14.378859+00:00",
+    "decision_generated_at": "2026-09-04T16:35:12.784230+00:00"
   }
 }

@@ -1,6 +1,6 @@
 {
   "version": "29.0.0",
-  "generated_at": "2026-09-03T20:06:59.831000+00:00",
+  "generated_at": "2026-09-04T16:35:12.784230+00:00",
   "mode": "unified_advisory_decision_engine",
   "best_setup": {
     "id": "TEL",
@@ -12,11 +12,11 @@
     "decision_score": 100,
     "components": {
       "entry_permission": 24,
-      "opportunity": 13.600000000000001,
+      "opportunity": 14.200000000000001,
       "health": 7.92,
       "recent_profit": 5.951359245567975,
       "drawdown": -1.3183319803562519,
-      "duration": 1.1442708333333336,
+      "duration": 0.852604166666667,
       "capital_efficiency": 8
     },
     "positives": [
@@ -25,7 +25,7 @@
       "Recent capital efficiency is positive"
     ],
     "cautions": [
-      "Open replay position has lasted 7.0 days"
+      "Open replay position has lasted 7.8 days"
     ],
     "validation_state": "production_baseline"
   },
@@ -40,11 +40,11 @@
       "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 13.600000000000001,
+        "opportunity": 14.200000000000001,
         "health": 7.92,
         "recent_profit": 5.951359245567975,
         "drawdown": -1.3183319803562519,
-        "duration": 1.1442708333333336,
+        "duration": 0.852604166666667,
         "capital_efficiency": 8
       },
       "positives": [
@@ -53,7 +53,7 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Open replay position has lasted 7.0 days"
+        "Open replay position has lasted 7.8 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -96,11 +96,11 @@
       "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 13.600000000000001,
+        "opportunity": 14.200000000000001,
         "health": 7.92,
         "recent_profit": 5.951359245567975,
         "drawdown": -1.3183319803562519,
-        "duration": 1.1442708333333336,
+        "duration": 0.852604166666667,
         "capital_efficiency": 8
       },
       "positives": [
@@ -109,7 +109,7 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Open replay position has lasted 7.0 days"
+        "Open replay position has lasted 7.8 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -145,25 +145,26 @@
       "symbol": "SUI-USDT",
       "regime": "Low",
       "production": false,
-      "entry_allowed": false,
+      "entry_allowed": true,
       "recommended_bot": "SUI Low Research Bot",
-      "decision_score": 0,
+      "decision_score": 48.3,
       "components": {
-        "entry_permission": -35,
+        "entry_permission": 24,
         "opportunity": 0,
-        "health": 1.44,
+        "health": -2.16,
         "recent_profit": 0.0,
         "drawdown": -8.570352448557145,
         "duration": -10,
         "capital_efficiency": 0.0
       },
-      "positives": [],
+      "positives": [
+        "Current entry filters pass"
+      ],
       "cautions": [
-        "Current entry is blocked",
         "Strategy health requires review",
         "Recent realised P&L is not positive",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 100.3 days"
+        "Open replay position has lasted 101.2 days"
       ],
       "validation_state": "FAIL \u2014 review risk"
     }
@@ -179,9 +180,9 @@
     "backtested_datasets": 0
   },
   "synchronisation": {
-    "strategy_snapshot": "2026-09-03T20:06:54.765016+00:00",
-    "discovery_snapshot": "2026-09-03T20:06:54.785529+00:00",
-    "validation_snapshot": "2026-09-03T20:06:59.825870+00:00",
+    "strategy_snapshot": "2026-09-04T16:35:07.580171+00:00",
+    "discovery_snapshot": "2026-09-04T16:35:07.603569+00:00",
+    "validation_snapshot": "2026-09-04T16:35:12.779430+00:00",
     "all_modules_consumed": true
   },
   "strategy_factory": {
@@ -197,7 +198,7 @@
     ],
     "imports": {
       "version": "30.2.0",
-      "generated_at": "2026-09-03T20:06:59.822887+00:00",
+      "generated_at": "2026-09-04T16:35:12.776722+00:00",
       "target_timeframe": "4h",
       "files": [],
       "ready": 0,
@@ -205,7 +206,7 @@
     },
     "backtest_registry": {
       "version": "29.0.0",
-      "generated_at": "2026-09-03T20:06:59.823206+00:00",
+      "generated_at": "2026-09-04T16:35:12.777032+00:00",
       "datasets": [],
       "policy": {
         "fee_aware": true,
