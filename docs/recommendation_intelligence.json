@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-05T18:33:25.869123+00:00",
-  "snapshot_id": "8de3717378df55769102",
+  "generated_at": "2026-09-05T20:42:12.146095+00:00",
+  "snapshot_id": "e0dbaee45e233de0498d",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Mixed",
   "recommendations": [
     {
-      "recommendation_id": "ffbd2d7b4343b640a91c429f",
+      "recommendation_id": "d297345b2a874e0dd4c5b3a4",
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
@@ -66,7 +66,7 @@
         "health": 7.92,
         "recent_profit": 5.951,
         "drawdown": -1.318,
-        "duration": 0.503,
+        "duration": 0.444,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -75,7 +75,7 @@
         "Recent capital efficiency is positive"
       ],
       "risks": [
-        "Open replay position has lasted 8.8 days"
+        "Open replay position has lasted 9.0 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable."
@@ -223,7 +223,7 @@
       "explanation": "Wait TEL Medium Recovery Bot. Confidence 81.0%; risk high. Current entry filters pass"
     },
     {
-      "recommendation_id": "37046452c89b5d81aabde61a",
+      "recommendation_id": "6dc7e8e42bd1738aa9cbd7bb",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -451,8 +451,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "83e1e7bb2765cff19504",
-    "deployment_generated_at": "2026-09-05T18:33:25.810993+00:00",
-    "decision_generated_at": "2026-09-05T16:14:11.058019+00:00"
+    "deployment_snapshot": "5fbb1bcdcfd436729a2a",
+    "deployment_generated_at": "2026-09-05T20:42:12.109162+00:00",
+    "decision_generated_at": "2026-09-05T20:42:11.189839+00:00"
   }
 }
