@@ -1,6 +1,6 @@
 {
   "version": "29.0.0",
-  "generated_at": "2026-09-05T00:22:03.885522+00:00",
+  "generated_at": "2026-09-05T04:55:14.818951+00:00",
   "mode": "unified_advisory_decision_engine",
   "best_setup": {
     "id": "TEL",
@@ -16,7 +16,7 @@
       "health": 7.92,
       "recent_profit": 5.951359245567975,
       "drawdown": -1.3183319803562519,
-      "duration": 0.7359375000000004,
+      "duration": 0.6776041666666668,
       "capital_efficiency": 8
     },
     "positives": [
@@ -25,7 +25,7 @@
       "Recent capital efficiency is positive"
     ],
     "cautions": [
-      "Open replay position has lasted 8.2 days"
+      "Open replay position has lasted 8.3 days"
     ],
     "validation_state": "production_baseline"
   },
@@ -44,7 +44,7 @@
         "health": 7.92,
         "recent_profit": 5.951359245567975,
         "drawdown": -1.3183319803562519,
-        "duration": 0.7359375000000004,
+        "duration": 0.6776041666666668,
         "capital_efficiency": 8
       },
       "positives": [
@@ -53,7 +53,7 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Open replay position has lasted 8.2 days"
+        "Open replay position has lasted 8.3 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -100,7 +100,7 @@
         "health": 7.92,
         "recent_profit": 5.951359245567975,
         "drawdown": -1.3183319803562519,
-        "duration": 0.7359375000000004,
+        "duration": 0.6776041666666668,
         "capital_efficiency": 8
       },
       "positives": [
@@ -109,7 +109,7 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Open replay position has lasted 8.2 days"
+        "Open replay position has lasted 8.3 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -164,7 +164,7 @@
         "Strategy health requires review",
         "Recent realised P&L is not positive",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 101.5 days"
+        "Open replay position has lasted 101.7 days"
       ],
       "validation_state": "FAIL \u2014 review risk"
     }
@@ -172,7 +172,7 @@
   "pipeline": {
     "production_assets": 2,
     "eligible_production": 1,
-    "discovery_candidates": 1007,
+    "discovery_candidates": 1008,
     "validation_candidates": 5,
     "research_ready": 0,
     "queue_items": 0,
@@ -180,9 +180,9 @@
     "backtested_datasets": 0
   },
   "synchronisation": {
-    "strategy_snapshot": "2026-09-05T00:21:59.102192+00:00",
-    "discovery_snapshot": "2026-09-05T00:21:59.120406+00:00",
-    "validation_snapshot": "2026-09-05T00:22:03.881513+00:00",
+    "strategy_snapshot": "2026-09-05T04:55:09.145259+00:00",
+    "discovery_snapshot": "2026-09-05T04:55:09.169625+00:00",
+    "validation_snapshot": "2026-09-05T04:55:14.813702+00:00",
     "all_modules_consumed": true
   },
   "strategy_factory": {
@@ -198,7 +198,7 @@
     ],
     "imports": {
       "version": "30.2.0",
-      "generated_at": "2026-09-05T00:22:03.879155+00:00",
+      "generated_at": "2026-09-05T04:55:14.810600+00:00",
       "target_timeframe": "4h",
       "files": [],
       "ready": 0,
@@ -206,7 +206,7 @@
     },
     "backtest_registry": {
       "version": "29.0.0",
-      "generated_at": "2026-09-05T00:22:03.879370+00:00",
+      "generated_at": "2026-09-05T04:55:14.810900+00:00",
       "datasets": [],
       "policy": {
         "fee_aware": true,
