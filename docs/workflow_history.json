@@ -1,21 +1,51 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-06T19:28:36.600647+00:00",
+  "generated_at": "2026-09-06T21:40:49.916147+00:00",
   "runs": [
+    {
+      "id": 34061791760,
+      "name": "CRM Data Refresh",
+      "event": "schedule",
+      "head_sha": "921df8531d365aef86ba4a389b2e69cf0eb8f87d",
+      "status": "in_progress",
+      "raw_status": "in_progress",
+      "conclusion": null,
+      "created_at": "2026-09-06T21:40:36Z",
+      "started_at": "2026-09-06T21:40:36Z",
+      "updated_at": "2026-09-06T21:40:40Z",
+      "queue_seconds": 0.0,
+      "duration_seconds": null,
+      "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/34061791760"
+    },
+    {
+      "id": 34057810573,
+      "name": "CRM Health & Self-Heal",
+      "event": "schedule",
+      "head_sha": "b5791029058bd8083087a945c801716f68ad4d78",
+      "status": "success",
+      "raw_status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-09-06T20:22:56Z",
+      "started_at": "2026-09-06T20:22:56Z",
+      "updated_at": "2026-09-06T20:23:10Z",
+      "queue_seconds": 0.0,
+      "duration_seconds": 14.0,
+      "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/34057810573"
+    },
     {
       "id": 34054995108,
       "name": "CRM Data Refresh",
       "event": "schedule",
       "head_sha": "46d5e348ad0d4947da60500cebf9d5cd720d035f",
-      "status": "in_progress",
-      "raw_status": "in_progress",
-      "conclusion": null,
+      "status": "success",
+      "raw_status": "completed",
+      "conclusion": "success",
       "created_at": "2026-09-06T19:28:24Z",
       "started_at": "2026-09-06T19:28:24Z",
-      "updated_at": "2026-09-06T19:28:27Z",
+      "updated_at": "2026-09-06T19:28:43Z",
       "queue_seconds": 0.0,
-      "duration_seconds": null,
+      "duration_seconds": 19.0,
       "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/34054995108"
     },
     {
@@ -1472,36 +1502,6 @@
       "queue_seconds": 0.0,
       "duration_seconds": 33.0,
       "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/32986702342"
-    },
-    {
-      "id": 32975350572,
-      "name": "CRM Data Refresh",
-      "event": "schedule",
-      "head_sha": "0a820ad4a0f1cec1aa2ac5a80ea19b53883478fe",
-      "status": "success",
-      "raw_status": "completed",
-      "conclusion": "success",
-      "created_at": "2026-08-26T13:37:59Z",
-      "started_at": "2026-08-26T13:37:59Z",
-      "updated_at": "2026-08-26T13:38:21Z",
-      "queue_seconds": 0.0,
-      "duration_seconds": 22.0,
-      "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/32975350572"
-    },
-    {
-      "id": 32973198966,
-      "name": "CRM Health & Self-Heal",
-      "event": "schedule",
-      "head_sha": "4d31554ff0e24cc193bebf1627f7993c3a5d571b",
-      "status": "success",
-      "raw_status": "completed",
-      "conclusion": "success",
-      "created_at": "2026-08-26T13:16:06Z",
-      "started_at": "2026-08-26T13:16:06Z",
-      "updated_at": "2026-08-26T13:16:23Z",
-      "queue_seconds": 0.0,
-      "duration_seconds": 17.0,
-      "html_url": "https://github.com/aferguson227/Crypto-regime-manager/actions/runs/32973198966"
     }
   ]
 }
