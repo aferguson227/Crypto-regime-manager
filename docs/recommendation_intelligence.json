@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-07T16:39:09.860193+00:00",
-  "snapshot_id": "4beddf31d6adaea16199",
+  "generated_at": "2026-09-07T20:46:42.250926+00:00",
+  "snapshot_id": "c9661ec5a933d58615ff",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Mixed",
   "recommendations": [
     {
-      "recommendation_id": "084371fc6ff540db1c55673b",
+      "recommendation_id": "ae48e9133f895b59f1505102",
       "asset": "TEL",
       "bot_name": "TEL Medium Recovery Bot",
       "action": "WAIT",
@@ -66,7 +66,7 @@
         "health": 7.92,
         "recent_profit": 5.951,
         "drawdown": -1.318,
-        "duration": -0.197,
+        "duration": -0.256,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -75,7 +75,7 @@
         "Recent capital efficiency is positive"
       ],
       "risks": [
-        "Open replay position has lasted 10.8 days"
+        "Open replay position has lasted 11.0 days"
       ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable."
@@ -223,7 +223,7 @@
       "explanation": "Wait TEL Medium Recovery Bot. Confidence 81.0%; risk high. Current entry filters pass"
     },
     {
-      "recommendation_id": "38e8b95b5ebc7604a8b69511",
+      "recommendation_id": "ebe598a1e21a52b032c3637e",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -451,8 +451,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "c42dc2322c6c1cf0cb92",
-    "deployment_generated_at": "2026-09-07T16:39:09.809127+00:00",
-    "decision_generated_at": "2026-09-07T16:39:08.245745+00:00"
+    "deployment_snapshot": "d403f2e2e338941e94d8",
+    "deployment_generated_at": "2026-09-07T20:46:42.194960+00:00",
+    "decision_generated_at": "2026-09-07T20:46:40.621707+00:00"
   }
 }
