@@ -1,6 +1,6 @@
 {
   "version": "29.0.0",
-  "generated_at": "2026-09-05T20:42:11.189839+00:00",
+  "generated_at": "2026-09-07T00:19:04.747020+00:00",
   "mode": "unified_advisory_decision_engine",
   "best_setup": {
     "id": "TEL",
@@ -16,7 +16,7 @@
       "health": 7.92,
       "recent_profit": 5.951359245567975,
       "drawdown": -1.3183319803562519,
-      "duration": 0.4442708333333334,
+      "duration": 0.03593750000000062,
       "capital_efficiency": 8
     },
     "positives": [
@@ -25,7 +25,7 @@
       "Recent capital efficiency is positive"
     ],
     "cautions": [
-      "Open replay position has lasted 9.0 days"
+      "Open replay position has lasted 10.2 days"
     ],
     "validation_state": "production_baseline"
   },
@@ -44,7 +44,7 @@
         "health": 7.92,
         "recent_profit": 5.951359245567975,
         "drawdown": -1.3183319803562519,
-        "duration": 0.4442708333333334,
+        "duration": 0.03593750000000062,
         "capital_efficiency": 8
       },
       "positives": [
@@ -53,7 +53,7 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Open replay position has lasted 9.0 days"
+        "Open replay position has lasted 10.2 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -64,13 +64,13 @@
       "production": true,
       "entry_allowed": false,
       "recommended_bot": "TAO Low Pullback Bot",
-      "decision_score": 47.4,
+      "decision_score": 45.3,
       "components": {
         "entry_permission": -35,
-        "opportunity": 10.8,
+        "opportunity": 8.4,
         "health": 14.76,
         "recent_profit": 2.411008998399986,
-        "drawdown": 1.5834500526393338,
+        "drawdown": 1.865333171714127,
         "duration": 1.5523809523809522,
         "capital_efficiency": 6.308839539307946
       },
@@ -100,7 +100,7 @@
         "health": 7.92,
         "recent_profit": 5.951359245567975,
         "drawdown": -1.3183319803562519,
-        "duration": 0.4442708333333334,
+        "duration": 0.03593750000000062,
         "capital_efficiency": 8
       },
       "positives": [
@@ -109,7 +109,7 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Open replay position has lasted 9.0 days"
+        "Open replay position has lasted 10.2 days"
       ],
       "validation_state": "production_baseline"
     },
@@ -120,13 +120,13 @@
       "production": true,
       "entry_allowed": false,
       "recommended_bot": "TAO Low Pullback Bot",
-      "decision_score": 47.4,
+      "decision_score": 45.3,
       "components": {
         "entry_permission": -35,
-        "opportunity": 10.8,
+        "opportunity": 8.4,
         "health": 14.76,
         "recent_profit": 2.411008998399986,
-        "drawdown": 1.5834500526393338,
+        "drawdown": 1.865333171714127,
         "duration": 1.5523809523809522,
         "capital_efficiency": 6.308839539307946
       },
@@ -163,7 +163,7 @@
         "Strategy health requires review",
         "Recent realised P&L is not positive",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 102.3 days"
+        "Open replay position has lasted 103.5 days"
       ],
       "validation_state": "FAIL \u2014 review risk"
     }
@@ -179,9 +179,9 @@
     "backtested_datasets": 0
   },
   "synchronisation": {
-    "strategy_snapshot": "2026-09-05T20:42:06.727400+00:00",
-    "discovery_snapshot": "2026-09-05T20:42:06.742140+00:00",
-    "validation_snapshot": "2026-09-05T20:42:11.186223+00:00",
+    "strategy_snapshot": "2026-09-07T00:18:58.870003+00:00",
+    "discovery_snapshot": "2026-09-07T00:18:58.890205+00:00",
+    "validation_snapshot": "2026-09-07T00:19:04.742842+00:00",
     "all_modules_consumed": true
   },
   "strategy_factory": {
@@ -197,7 +197,7 @@
     ],
     "imports": {
       "version": "30.2.0",
-      "generated_at": "2026-09-05T20:42:11.184022+00:00",
+      "generated_at": "2026-09-07T00:19:04.740524+00:00",
       "target_timeframe": "4h",
       "files": [],
       "ready": 0,
@@ -205,7 +205,7 @@
     },
     "backtest_registry": {
       "version": "29.0.0",
-      "generated_at": "2026-09-05T20:42:11.184223+00:00",
+      "generated_at": "2026-09-07T00:19:04.740740+00:00",
       "datasets": [],
       "policy": {
         "fee_aware": true,
