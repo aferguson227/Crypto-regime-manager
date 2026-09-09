@@ -1,21 +1,21 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-08T22:00:51.123950+00:00",
-  "snapshot_id": "b00fe15396dae5d8cf6a",
+  "generated_at": "2026-09-09T00:33:57.481120+00:00",
+  "snapshot_id": "fde687c08e06fc324639",
   "mode": "read_only_advisory_deployment_intelligence",
   "read_only": true,
   "manual_approval_required": true,
-  "current_market_regime": "Mixed",
+  "current_market_regime": "Low",
   "current_regime_confidence": 46.0,
   "overall_action": "WAIT",
   "deploy_today": [],
   "keep_running": [],
   "review_or_pause": [
-    "TEL Medium Recovery Bot",
+    "TEL Low Volatility Bot",
     "TAO Low Pullback Bot"
   ],
-  "next_capital_priority": "TEL Medium Recovery Bot",
+  "next_capital_priority": "TEL Low Volatility Bot",
   "capital_status": "COMPLETE",
   "capital_summary": {
     "exchange_total": 2786.11702247,
@@ -29,7 +29,7 @@
   "actions": [
     {
       "asset": "TEL",
-      "bot_name": "TEL Medium Recovery Bot",
+      "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
       "confidence": 92,
       "eligible": false,
@@ -42,9 +42,9 @@
         "Recent capital efficiency is positive"
       ],
       "cautions": [
-        "Open replay position has lasted 11.0 days"
+        "Open replay position has lasted 12.2 days"
       ],
-      "current_regime": "Medium",
+      "current_regime": "Low",
       "live_state": "DISABLED",
       "settings_state": "INCOMPLETE",
       "capital_required": null,
@@ -53,14 +53,14 @@
       "production_settings": {
         "source": "PRODUCTION_CONFIGURATION",
         "values": {
-          "bot_name": "TEL Medium Recovery Bot",
+          "bot_name": "TEL Low Volatility Bot",
           "base_order_volume": 100.0,
           "safety_order_volume": null,
           "take_profit_pct": 1.5,
-          "so_deviation_pct": 5.0,
-          "safety_orders": 5,
-          "volume_scale": 1.4,
-          "step_scale": 1.2,
+          "so_deviation_pct": 1.2,
+          "safety_orders": 6,
+          "volume_scale": 1.6,
+          "step_scale": 1.0,
           "max_active_deals": 1,
           "max_active_safety_orders": null,
           "start_condition": null,
@@ -81,14 +81,14 @@
       "recommended_settings": {
         "source": "CANONICAL_LIVE_GOVERNED_RECOMMENDATION",
         "values": {
-          "bot_name": "TEL Medium Recovery Bot",
+          "bot_name": "TEL Low Volatility Bot",
           "base_order_volume": 100.0,
           "safety_order_volume": 100.0,
           "take_profit_pct": 1.5,
-          "so_deviation_pct": 5.0,
-          "safety_orders": 5,
-          "volume_scale": 1.4,
-          "step_scale": 1.2,
+          "so_deviation_pct": 1.2,
+          "safety_orders": 6,
+          "volume_scale": 1.6,
+          "step_scale": 1.0,
           "max_active_deals": 1,
           "max_active_safety_orders": 3,
           "start_condition": "long",
@@ -136,26 +136,26 @@
         },
         {
           "field": "so_deviation_pct",
-          "production_value": 5.0,
-          "live_value": 5.0,
+          "production_value": 1.2,
+          "live_value": 1.2,
           "status": "MATCH"
         },
         {
           "field": "safety_orders",
-          "production_value": 5,
-          "live_value": 5,
+          "production_value": 6,
+          "live_value": 6,
           "status": "MATCH"
         },
         {
           "field": "volume_scale",
-          "production_value": 1.4,
-          "live_value": 1.4,
+          "production_value": 1.6,
+          "live_value": 1.6,
           "status": "MATCH"
         },
         {
           "field": "step_scale",
-          "production_value": 1.2,
-          "live_value": 1.2,
+          "production_value": 1.0,
+          "live_value": 1.0,
           "status": "MATCH"
         },
         {
@@ -403,10 +403,10 @@
     "note": "Agreement is only asserted when a published validation result explicitly supports it; missing evidence remains UNKNOWN."
   },
   "source_snapshots": {
-    "operating_state_snapshot": "ffea7adb822150ae9c0e",
-    "capital_snapshot": "924f272857b8426ff0b0",
-    "decision_generated_at": "2026-09-07T20:46:40.621707+00:00",
-    "threecommas_generated_at": "2026-09-08T22:00:48.390455+00:00"
+    "operating_state_snapshot": "220f6c4cac07dbeaf45f",
+    "capital_snapshot": "c6a486f534da0b0208b1",
+    "decision_generated_at": "2026-09-09T00:33:55.865752+00:00",
+    "threecommas_generated_at": "2026-09-09T00:33:48.383216+00:00"
   },
   "warnings": [
     "One or more exact DCA setting sets are incomplete; missing fields are shown explicitly."
