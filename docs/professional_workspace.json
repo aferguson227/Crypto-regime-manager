@@ -1,14 +1,14 @@
 {
   "schema_version": "3.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-09T21:56:45.187491+00:00",
+  "generated_at": "2026-09-10T00:33:36.187862+00:00",
   "read_only": true,
   "manual_approval_required": true,
   "briefing": [
     "Primary action: Wait TEL Low Volatility Bot.",
     "Deployable capital: 1377.26 USDT; exact allocation remains advisory.",
     "The recommended DCA plan is complete for manual review.",
-    "Main risk: Open replay position has lasted 12.2 days"
+    "Main risk: TEL: Complete deployable-capital confirmation is unavailable."
   ],
   "daily_decision": {
     "bot_name": "TEL Low Volatility Bot",
@@ -241,7 +241,6 @@
   ],
   "what_changed": [],
   "risks": [
-    "Open replay position has lasted 12.2 days",
     "TEL: Complete deployable-capital confirmation is unavailable.",
     "Current entry is blocked",
     "TAO: Current entry permission is blocked.",
@@ -414,5 +413,5 @@
     "Confirm available quote-currency capital before deployment.",
     "Apply changes manually in 3Commas only after approval."
   ],
-  "snapshot_id": "4dfe7a4382e1c98ad62a8c68"
+  "snapshot_id": "570d53a51382a988bfbac9c5"
 }

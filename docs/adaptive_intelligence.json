@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-09T00:33:56.110738+00:00",
+  "generated_at": "2026-09-10T00:33:33.930711+00:00",
   "snapshot_id": "520b635c866338a6b2e1",
   "mode": "advisory_capped_adaptive_intelligence",
   "read_only": true,
@@ -9,7 +9,7 @@
   "minimum_evidence_required": 8,
   "adaptive_influence_cap_pct": 25.0,
   "adaptation_enabled": false,
-  "next_capital_priority": "TEL Medium Recovery Bot",
+  "next_capital_priority": "TEL Low Volatility Bot",
   "strategies": [
     {
       "asset": "TEL",
@@ -69,7 +69,7 @@
     },
     {
       "band": "50-65%",
-      "recommendations": 55,
+      "recommendations": 48,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 57.5,
       "observed_accuracy_pct": null,
@@ -85,7 +85,7 @@
     },
     {
       "band": "80-90%",
-      "recommendations": 203,
+      "recommendations": 210,
       "completed_and_judged": 0,
       "expected_confidence_midpoint_pct": 85.0,
       "observed_accuracy_pct": null,
@@ -101,7 +101,7 @@
     }
   ],
   "portfolio_optimisation": {
-    "recommended_next_allocation": "TEL Medium Recovery Bot",
+    "recommended_next_allocation": "TEL Low Volatility Bot",
     "deployable_capital": 1377.26484183,
     "weakest_strategy": "TAO Low Pullback Bot",
     "ranking_basis": "risk-adjusted adaptive score with capped historical influence",

@@ -1,6 +1,6 @@
 {
   "version": "29.0.0",
-  "generated_at": "2026-09-09T00:33:55.865752+00:00",
+  "generated_at": "2026-09-10T00:33:33.678186+00:00",
   "mode": "unified_advisory_decision_engine",
   "best_setup": {
     "id": "TEL",
@@ -12,11 +12,11 @@
     "decision_score": 100,
     "components": {
       "entry_permission": 24,
-      "opportunity": 13.200000000000001,
+      "opportunity": 16.0,
       "health": 7.92,
-      "recent_profit": 5.951359245567975,
+      "recent_profit": 6.101985245567974,
       "drawdown": -1.3183319803562519,
-      "duration": -0.6640624999999996,
+      "duration": 3.291176470588235,
       "capital_efficiency": 8
     },
     "positives": [
@@ -24,9 +24,7 @@
       "Recent realised P&L is positive",
       "Recent capital efficiency is positive"
     ],
-    "cautions": [
-      "Open replay position has lasted 12.2 days"
-    ],
+    "cautions": [],
     "validation_state": "production_baseline"
   },
   "production_ranking": [
@@ -40,11 +38,11 @@
       "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 13.200000000000001,
+        "opportunity": 16.0,
         "health": 7.92,
-        "recent_profit": 5.951359245567975,
+        "recent_profit": 6.101985245567974,
         "drawdown": -1.3183319803562519,
-        "duration": -0.6640624999999996,
+        "duration": 3.291176470588235,
         "capital_efficiency": 8
       },
       "positives": [
@@ -52,9 +50,7 @@
         "Recent realised P&L is positive",
         "Recent capital efficiency is positive"
       ],
-      "cautions": [
-        "Open replay position has lasted 12.2 days"
-      ],
+      "cautions": [],
       "validation_state": "production_baseline"
     },
     {
@@ -96,11 +92,11 @@
       "decision_score": 100,
       "components": {
         "entry_permission": 24,
-        "opportunity": 13.200000000000001,
+        "opportunity": 16.0,
         "health": 7.92,
-        "recent_profit": 5.951359245567975,
+        "recent_profit": 6.101985245567974,
         "drawdown": -1.3183319803562519,
-        "duration": -0.6640624999999996,
+        "duration": 3.291176470588235,
         "capital_efficiency": 8
       },
       "positives": [
@@ -108,9 +104,7 @@
         "Recent realised P&L is positive",
         "Recent capital efficiency is positive"
       ],
-      "cautions": [
-        "Open replay position has lasted 12.2 days"
-      ],
+      "cautions": [],
       "validation_state": "production_baseline"
     },
     {
@@ -145,26 +139,25 @@
       "symbol": "SUI-USDT",
       "regime": "Low",
       "production": false,
-      "entry_allowed": true,
+      "entry_allowed": false,
       "recommended_bot": "SUI Low Research Bot",
-      "decision_score": 51.9,
+      "decision_score": 0,
       "components": {
-        "entry_permission": 24,
+        "entry_permission": -35,
         "opportunity": 0,
-        "health": 1.44,
+        "health": -2.16,
         "recent_profit": 0.0,
         "drawdown": -8.570352448557145,
         "duration": -10,
         "capital_efficiency": 0.0
       },
-      "positives": [
-        "Current entry filters pass"
-      ],
+      "positives": [],
       "cautions": [
+        "Current entry is blocked",
         "Strategy health requires review",
         "Recent realised P&L is not positive",
         "Recent drawdown is elevated",
-        "Open replay position has lasted 105.5 days"
+        "Open replay position has lasted 106.5 days"
       ],
       "validation_state": "FAIL \u2014 review risk"
     }
@@ -172,7 +165,7 @@
   "pipeline": {
     "production_assets": 2,
     "eligible_production": 1,
-    "discovery_candidates": 983,
+    "discovery_candidates": 985,
     "validation_candidates": 5,
     "research_ready": 0,
     "queue_items": 0,
@@ -180,9 +173,9 @@
     "backtested_datasets": 0
   },
   "synchronisation": {
-    "strategy_snapshot": "2026-09-09T00:33:51.012696+00:00",
-    "discovery_snapshot": "2026-09-09T00:33:51.040131+00:00",
-    "validation_snapshot": "2026-09-09T00:33:55.860785+00:00",
+    "strategy_snapshot": "2026-09-10T00:33:27.892717+00:00",
+    "discovery_snapshot": "2026-09-10T00:33:27.918651+00:00",
+    "validation_snapshot": "2026-09-10T00:33:33.673335+00:00",
     "all_modules_consumed": true
   },
   "strategy_factory": {
@@ -198,7 +191,7 @@
     ],
     "imports": {
       "version": "30.2.0",
-      "generated_at": "2026-09-09T00:33:55.858145+00:00",
+      "generated_at": "2026-09-10T00:33:33.670651+00:00",
       "target_timeframe": "4h",
       "files": [],
       "ready": 0,
@@ -206,7 +199,7 @@
     },
     "backtest_registry": {
       "version": "29.0.0",
-      "generated_at": "2026-09-09T00:33:55.858436+00:00",
+      "generated_at": "2026-09-10T00:33:33.670952+00:00",
       "datasets": [],
       "policy": {
         "fee_aware": true,

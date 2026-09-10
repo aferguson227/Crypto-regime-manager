@@ -1,46 +1,22 @@
 {
   "version": "27.0.0",
-  "generated_at": "2026-09-09T00:33:55.860785+00:00",
+  "generated_at": "2026-09-10T00:33:33.673335+00:00",
   "mode": "advisory_only_immutable_queue",
   "automatic_live_changes": false,
   "automatic_dca_changes": false,
   "candidate_count": 5,
   "candidates": [
     {
-      "symbol": "DOT-USDT",
+      "symbol": "LINK-USDT",
       "discovery_rank": 1,
-      "research_score": 88.2,
+      "research_score": 89.5,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
       "walk_forward_required": true,
       "proposed_dca": {
-        "take_profit_pct": 1.2,
-        "safety_order_deviation_pct": 1.4,
-        "safety_orders": 6,
-        "volume_scale": 1.5,
-        "step_scale": 1.2
-      },
-      "gates": {
-        "fee_aware_replay": "pending",
-        "independent_walk_forward": "pending",
-        "drawdown_review": "pending",
-        "capital_review": "pending",
-        "manual_approval": "pending"
-      },
-      "next_action": "Run full fee-aware replay before any forward test or production consideration."
-    },
-    {
-      "symbol": "LTC-USDT",
-      "discovery_rank": 2,
-      "research_score": 88.1,
-      "stage": "queued_for_fee_aware_replay",
-      "production_eligible": false,
-      "manual_approval_required": true,
-      "walk_forward_required": true,
-      "proposed_dca": {
-        "take_profit_pct": 1.0,
-        "safety_order_deviation_pct": 1.2,
+        "take_profit_pct": 0.9,
+        "safety_order_deviation_pct": 1.1,
         "safety_orders": 6,
         "volume_scale": 1.4,
         "step_scale": 1.1
@@ -56,8 +32,8 @@
     },
     {
       "symbol": "XMR-USDT",
-      "discovery_rank": 3,
-      "research_score": 88.0,
+      "discovery_rank": 2,
+      "research_score": 89.2,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -80,8 +56,8 @@
     },
     {
       "symbol": "ETH-USDT",
-      "discovery_rank": 4,
-      "research_score": 87.7,
+      "discovery_rank": 3,
+      "research_score": 88.1,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -104,8 +80,8 @@
     },
     {
       "symbol": "SOL-USDT",
-      "discovery_rank": 5,
-      "research_score": 87.7,
+      "discovery_rank": 4,
+      "research_score": 88.1,
       "stage": "queued_for_fee_aware_replay",
       "production_eligible": false,
       "manual_approval_required": true,
@@ -116,6 +92,30 @@
         "safety_orders": 6,
         "volume_scale": 1.4,
         "step_scale": 1.1
+      },
+      "gates": {
+        "fee_aware_replay": "pending",
+        "independent_walk_forward": "pending",
+        "drawdown_review": "pending",
+        "capital_review": "pending",
+        "manual_approval": "pending"
+      },
+      "next_action": "Run full fee-aware replay before any forward test or production consideration."
+    },
+    {
+      "symbol": "DOT-USDT",
+      "discovery_rank": 5,
+      "research_score": 87.8,
+      "stage": "queued_for_fee_aware_replay",
+      "production_eligible": false,
+      "manual_approval_required": true,
+      "walk_forward_required": true,
+      "proposed_dca": {
+        "take_profit_pct": 1.2,
+        "safety_order_deviation_pct": 1.4,
+        "safety_orders": 6,
+        "volume_scale": 1.5,
+        "step_scale": 1.2
       },
       "gates": {
         "fee_aware_replay": "pending",
