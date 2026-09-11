@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "application_version": "70.0.0",
-  "generated_at": "2026-09-10T21:51:16.709499+00:00",
-  "snapshot_id": "444ab0d38a7fcc79a27e",
+  "generated_at": "2026-09-11T00:31:01.198658+00:00",
+  "snapshot_id": "8d8bfe544fbaf311be46",
   "mode": "read_only_confidence_weighted_recommendation_intelligence",
   "read_only": true,
   "manual_approval_required": true,
@@ -10,7 +10,7 @@
   "market_regime": "Low",
   "recommendations": [
     {
-      "recommendation_id": "93352c30ffc898298d7c0912",
+      "recommendation_id": "416cc6fff8abad64cfc26703",
       "asset": "TEL",
       "bot_name": "TEL Low Volatility Bot",
       "action": "WAIT",
@@ -62,11 +62,11 @@
       ],
       "score_breakdown": {
         "entry_permission": 24.0,
-        "opportunity": 16.0,
+        "opportunity": 13.8,
         "health": 7.92,
-        "recent_profit": 6.102,
+        "recent_profit": 6.124,
         "drawdown": -1.318,
-        "duration": 3.291,
+        "duration": 3.151,
         "capital_efficiency": 8.0
       },
       "supporting_evidence": [
@@ -74,7 +74,9 @@
         "Recent realised P&L is positive",
         "Recent capital efficiency is positive"
       ],
-      "risks": [],
+      "risks": [
+        "Open replay position has lasted 0.7 days"
+      ],
       "blockers": [
         "Complete deployable-capital confirmation is unavailable."
       ],
@@ -221,7 +223,7 @@
       "explanation": "Wait TEL Low Volatility Bot. Confidence 81.0%; risk high. Current entry filters pass"
     },
     {
-      "recommendation_id": "119fad8d896da780aae7156e",
+      "recommendation_id": "785fd96f7eae49bbaaa8eaaf",
       "asset": "TAO",
       "bot_name": "TAO Low Pullback Bot",
       "action": "WAIT",
@@ -449,8 +451,8 @@
     "Expected ROI and hold time remain unpublished where comparable validated evidence is unavailable."
   ],
   "source_snapshots": {
-    "deployment_snapshot": "e6c5bd7c7a7a47b0c800",
-    "deployment_generated_at": "2026-09-10T21:51:16.650124+00:00",
-    "decision_generated_at": "2026-09-10T00:33:33.678186+00:00"
+    "deployment_snapshot": "55481d6f5457e5c1c429",
+    "deployment_generated_at": "2026-09-11T00:31:01.142530+00:00",
+    "decision_generated_at": "2026-09-11T00:30:59.534828+00:00"
   }
 }
